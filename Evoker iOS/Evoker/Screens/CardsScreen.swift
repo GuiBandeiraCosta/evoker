@@ -17,6 +17,7 @@ struct CardsScreen: View {
     @State private var sacrifices: [String] = []
     @State private var fuse: [String?] = [nil, nil]
     @State private var fx: OpFx? = nil
+    @State private var snapEnd: Int = 0
 
     private var sliderOffset: Binding<Double> {
         Binding(get: { offsets[mode] ?? SliderGeometry.start }, set: { offsets[mode] = $0 })
@@ -59,7 +60,7 @@ struct CardsScreen: View {
                 case .card(let uid, _): model.router.go(.cardDetail(.owned(uid: uid)))
                 case .piece(let cardId, _, _, _): model.router.go(.cardDetail(.catalog(cardId: cardId, stage: 0, level: 1)))
                 }
-            })
+            }, snapEnd: snapEnd)
             .offset(x: CardsSliderView.box.minX, y: CardsSliderView.box.minY)
             Text(mode.title)
                 .font(Theme.font(40))
@@ -360,7 +361,9 @@ struct CardsScreen: View {
                     if payload.fromZone == "train" { return }
                     sacrifices.removeAll { $0 == uid }
                     trainUid = uid
+                    // the client jumps the slider to its end (the weakest cards) once a card is in the training slot
                     offsets[.training] = nil
+                    snapEnd += 1
                 } else if target.zone == "stack" && payload.fromZone != "stack" {
                     if trainUid == uid { trainUid = nil }
                     sacrifices = CardsHelpers.pushSacrifice(sacrifices, uid: uid)

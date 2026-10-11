@@ -230,3 +230,4 @@ EvokerCore tests run on demand: Actions ▸ "iOS build and tests" ▸ Run workfl
 | 2026-10-11 | Screens stretched to the tall iPhone shape, HUD under the notch ("wrong format") | letterboxed `StageCanvas`; screenshots of test02 |
 | 2026-10-11 | Card dragging did nothing | `EvokerScreensUITests.test03CardsSliderAndDrag` (deck count asserted), `test05PrebattleDragAndFight` |
 | 2026-10-11 | Landing feed banners overlapped each other | screenshot `04-feed` |
+| 2026-10-11 | Training: the slider did not glide to its weakest card after the training slot was filled (web `snapEnd`) | `EvokerScreensUITests.test06Training` (card count asserted) |

@@ -181,7 +181,8 @@ final class EvokerScreensUITests: XCTestCase {
         shot("51-training-swiped", wait: 1.5)
         let before = readout(app, "cards")
         drag(app, from: (360, 830), to: (134, 380))
-        shot("52-training-slot-filled", wait: 1.5)
+        // regression 2026-10-11: the slider must glide to its last (weakest) card once the training slot is filled
+        shot("52-training-slot-filled", wait: 2)
         drag(app, from: (360, 830), to: (586, 380))
         shot("53-training-sacrifice-filled", wait: 1.5)
         tap(app, 360, 426)
@@ -202,6 +203,9 @@ final class EvokerScreensUITests: XCTestCase {
         let before = readout(app, "cards")
         drag(app, from: (360, 830), to: (134, 380))
         shot("62-fusion-slot1", wait: 1.5)
+        // the slider now lists the partners from its start (the first one at the right, p = 30°): swipe it to the front
+        drag(app, from: (680, 830), to: (360, 830), hold: 0.02)
+        shot("62b-fusion-partner-front", wait: 1.5)
         drag(app, from: (360, 830), to: (584, 380))
         shot("63-fusion-slot2", wait: 1.5)
         tap(app, 360, 426)

@@ -11,6 +11,8 @@ struct CardsSliderView: View {
     @Binding var offset: Double
     @ObservedObject var dnd: DragDropCoordinator
     let onTap: (SliderEntry) -> Void
+    /// Bumped by the screen to glide to the last card (web `snapEnd`: a card just went into the training slot).
+    var snapEnd: Int = 0
     @State private var frame: CGRect = .zero
     @State private var gesture: SliderGesture? = nil
     @State private var animation: Task<Void, Never>? = nil
@@ -56,6 +58,7 @@ struct CardsSliderView: View {
                 .onChanged { v in onChanged(v, limits: limits) }
                 .onEnded { v in onEnded(v, limits: limits) }
         )
+        .onChange(of: snapEnd) { scroll(to: entries.count - 1, limits: SliderGeometry.limits(entries.count)) }
         .onDisappear { animation?.cancel() }
     }
 
