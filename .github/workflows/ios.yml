@@ -3,6 +3,8 @@
 #                  EvokerUITests target (screens, card drags, a quest and a fight) and uploads the screenshots as
 #                  the artifact "ui-screenshots".
 #   core-tests     (manual run): the EvokerCore `swift test` suite (also runnable on Windows, see README).
+#   devices        (manual run): the UI tests on every iPhone screen size from iPhone 13 to 18 that the runner's
+#                  newest Xcode simulates (artifact "device-screenshots", summary.txt = PASS / FAIL / MISSING per model).
 #   unsigned-ipa   (manual run): an unsigned Release device build, artifact "Evoker-unsigned-ipa", to sideload
 #                  with AltStore / Sideloadly and a free Apple ID.
 # Manual runs: GitHub ▸ Actions ▸ "iOS build and tests" ▸ Run workflow (choose which jobs), or
@@ -32,6 +34,10 @@ on:
         description: "Build the unsigned .ipa"
         type: boolean
         default: false
+      devices:
+        description: "UI tests on every iPhone screen size, iPhone 13 to 18 (about 25 macOS minutes)"
+        type: boolean
+        default: false
 
 concurrency:
   group: ios-${{ github.ref }}
@@ -55,27 +61,12 @@ jobs:
           node Tools/sync-data.mjs
           node Tools/build-assets.mjs --no-svg
           node Tools/check-pbxproj.mjs
-      - name: Pick a simulator
+      - name: Pick the iPhone 13 simulator
         id: sim
+        working-directory: "Evoker iOS"
         run: |
-          UDID="$(xcrun simctl list devices available -j | python3 -c '
-          import json, sys
-          d = json.load(sys.stdin)["devices"]
-          pref = ["iPhone 16", "iPhone 16 Pro", "iPhone 15", "iPhone 15 Pro"]
-          best = None
-          for runtime, devs in d.items():
-              if "iOS" not in runtime:
-                  continue
-              for dv in devs:
-                  name = dv["name"]
-                  rank = pref.index(name) if name in pref else (50 if name.startswith("iPhone") else None)
-                  if rank is None:
-                      continue
-                  key = (rank, runtime)
-                  if best is None or key < best[0]:
-                      best = (key, dv["udid"], name, runtime)
-          print(best[1]); print(best[2], best[3], file=sys.stderr)
-          ')"
+          python3 Tools/ci_sims.py "iPhone 13" "iPhone 16" | tee sims.txt
+          UDID="$(grep '^OK|' sims.txt | head -n 1 | cut -d'|' -f2)"
           echo "udid=$UDID" >> "$GITHUB_OUTPUT"
           xcrun simctl boot "$UDID" || true
       - name: xcodebuild test (EvokerUITests)
@@ -108,6 +99,38 @@ jobs:
         with:
           name: ui-screenshots
           path: ${{ runner.temp }}/shots
+          retention-days: 7
+
+  devices:
+    name: UI tests on iPhone 13 to 18 screen sizes
+    if: github.event_name == 'workflow_dispatch' && inputs.devices
+    runs-on: macos-15
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select the newest Xcode (it has the newest iPhone simulators)
+        run: |
+          ls -d /Applications/Xcode*.app
+          XC="$(ls -d /Applications/Xcode_*.app 2>/dev/null | grep -v -i beta | sort -V | tail -n 1)"
+          if [ -n "$XC" ] && [ -d "$XC" ]; then sudo xcode-select -s "$XC"; fi
+          xcodebuild -version
+          xcrun simctl list runtimes
+          xcrun simctl list devicetypes | grep -i iphone
+      - name: Data and assets
+        working-directory: "Evoker iOS"
+        run: |
+          node Tools/sync-data.mjs
+          node Tools/build-assets.mjs --no-svg
+      - name: Build once, test on every model
+        working-directory: "Evoker iOS"
+        run: |
+          chmod +x Tools/ci_devices.sh
+          Tools/ci_devices.sh "$RUNNER_TEMP/devices" "iPhone 13"             "iPhone 13" "iPhone 13 mini" "iPhone 13 Pro Max" "iPhone 15" "iPhone 16 Pro" "iPhone 16 Pro Max"             "iPhone 17" "iPhone 17 Pro Max" "iPhone Air" "iPhone 18" "iPhone 18 Pro" "iPhone 18 Pro Max"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: device-screenshots
+          path: ${{ runner.temp }}/devices
           retention-days: 7
 
   core-tests:
