@@ -11,16 +11,20 @@ struct RootView: View {
     private let seconds = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        StageCanvas {
-            ZStack {
-                NavigationHost(router: model.router)
-                ToastLayer(center: model.toasts)
-                DialogLayer(center: model.dialogs)
-                LevelUpLayer(center: model.levelUps)
+        ZStack {
+            // each screen scales itself (ScreenView → StageCanvas); the overlays share one transparent canvas
+            NavigationHost(router: model.router)
+            StageCanvas(opaque: false) {
+                ZStack {
+                    ToastLayer(center: model.toasts)
+                    DialogLayer(center: model.dialogs)
+                    LevelUpLayer(center: model.levelUps)
+                }
             }
-            .environmentObject(model.store)
-            .environmentObject(model.clock)
         }
+        .background(Color.black.ignoresSafeArea())
+        .environmentObject(model.store)
+        .environmentObject(model.clock)
         .onReceive(ticker) { _ in model.tick() }
         .onReceive(seconds) { _ in model.secondTick() }
         .onChange(of: scenePhase) { _, phase in model.scenePhaseChanged(phase) }
@@ -48,10 +52,20 @@ struct ScreenView: View {
     @EnvironmentObject private var model: AppModel
 
     var body: some View {
-        screen
+        canvas
             .toolbar(.hidden, for: .navigationBar)
             .navigationBarBackButtonHidden(hidesBackGesture)
             .background(Theme.bg.ignoresSafeArea())
+    }
+
+    /// The battle lays itself out on the whole screen (BattleLayout); every other screen is a 720 x 1280 canvas.
+    @ViewBuilder
+    private var canvas: some View {
+        if case .battle = route {
+            screen
+        } else {
+            StageCanvas { screen }
+        }
     }
 
     /// The battle and booster screens must not be popped by the edge swipe.

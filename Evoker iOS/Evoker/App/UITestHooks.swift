@@ -10,7 +10,7 @@ import EvokerCore
 ///                           "mid"    : level 12, every feature open, 12 extra cards, gems / gold / tokens
 ///   -uitest-route NAME      push a screen after boot: cards, cards-training, cards-fusion, arena, pieces,
 ///                           replays, league, shop, character, settings, collections, help, lab, quest1,
-///                           prebattle-quest1
+///                           prebattle-quest1 (quest 1 played to its boss)
 enum UITestHooks {
     static var arguments: [String] { ProcessInfo.processInfo.arguments }
 
@@ -57,7 +57,19 @@ enum UITestHooks {
         }
         model.startSession()
         model.router.path = []
-        if let name = value(after: "-uitest-route"), let route = route(named: name) {
+        guard let name = value(after: "-uitest-route") else { return }
+        if name == "prebattle-quest1" {
+            // quest 1 played to its boss: the pre-battle of the boss fight
+            try? store.updateState { s, d, n in try QuestOps.startQuest(s, deps: d, now: n, line: "main", n: 1).state }
+            var guardTaps = 0
+            while !(store.state?.quests.active?.bossReady ?? true) && guardTaps < 40 {
+                try? store.updateState { s, d, n in try QuestOps.tapMinion(s, deps: d, now: n, event: nil).state }
+                guardTaps += 1
+            }
+            model.router.go(.prebattle(.questBoss(line: "main", n: 1)))
+            return
+        }
+        if let route = route(named: name) {
             model.router.go(route)
         }
     }

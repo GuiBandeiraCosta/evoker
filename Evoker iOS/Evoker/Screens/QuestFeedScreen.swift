@@ -215,6 +215,7 @@ struct FeedFrame<Content: View>: View {
         let inner = content()
             .frame(width: Stage.width - 28 - 28)
             .background(background)
+            .clipped()
             .padding(14)
             .background(Color(hex: 0x10202a))
             .overlay(NineSlice(Theme.Frames.glowBlue))

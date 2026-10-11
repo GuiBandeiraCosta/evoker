@@ -39,27 +39,38 @@ extension EnvironmentValues {
 /// Name of the coordinate space of the logical stage (drag and drop measures in it).
 let stageCoordinateSpace = "evoker-stage"
 
-/// Scales a fixed 720-unit-wide design canvas to the device width like the web stage (`stage.js fitStage`): the
-/// canvas keeps the device aspect (its logical height grows on tall phones), so backgrounds stretch to the safe
-/// areas and only designs that need it letterbox themselves.
+/// Scales the fixed 720 x 1280 design canvas of the web stage (`stage.js fitStage`) into the screen, keeping its
+/// 9:16 aspect: on a taller iPhone the canvas fills the width and dark bars fill the rest above and below (the web
+/// game letterboxes the same way, and the bars keep the HUD clear of the notch / Dynamic Island and the home
+/// indicator). Every screen except the battle (which lays itself out on the whole screen) lives in one canvas, so
+/// its named coordinate space (`stageCoordinateSpace`, used by the drag and drop) is local to that screen.
+/// `opaque: false` draws no bars (the overlay layer above the navigation stack).
 struct StageCanvas<Content: View>: View {
+    var opaque: Bool = true
     @ViewBuilder let content: () -> Content
+
+    init(opaque: Bool = true, @ViewBuilder content: @escaping () -> Content) {
+        self.opaque = opaque
+        self.content = content
+    }
 
     var body: some View {
         GeometryReader { geo in
-            let scale: CGFloat = max(0.05, geo.size.width / Stage.width)
-            let logical = CGSize(width: Stage.width, height: geo.size.height / scale)
-            let metrics = StageMetrics(scale: scale, size: logical, safeTop: geo.safeAreaInsets.top / scale, safeBottom: geo.safeAreaInsets.bottom / scale)
+            let scale: CGFloat = max(0.05, min(geo.size.width / Stage.width, geo.size.height / Stage.height))
+            let w: CGFloat = Stage.width * scale
+            let h: CGFloat = Stage.height * scale
+            let metrics = StageMetrics(scale: scale, size: CGSize(width: Stage.width, height: Stage.height), safeTop: 0, safeBottom: 0)
             content()
                 .environment(\.stage, metrics)
-                .frame(width: logical.width, height: logical.height)
+                .frame(width: Stage.width, height: Stage.height)
                 .coordinateSpace(name: stageCoordinateSpace)
                 .scaleEffect(scale, anchor: .topLeading)
-                .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
+                .frame(width: w, height: h, alignment: .topLeading)
                 .clipped()
+                .position(x: geo.size.width / 2, y: geo.size.height / 2)
         }
         .ignoresSafeArea()
-        .background(Color.black.ignoresSafeArea())
+        .background(opaque ? Color.black.ignoresSafeArea() : Color.clear.ignoresSafeArea())
     }
 }
 
