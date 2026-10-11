@@ -22,6 +22,9 @@ struct RootView: View {
                 }
             }
         }
+        .overlay(alignment: .topLeading) {
+            if UITestHooks.enabled { UITestStateReadout() }
+        }
         .background(Color.black.ignoresSafeArea())
         .environmentObject(model.store)
         .environmentObject(model.clock)

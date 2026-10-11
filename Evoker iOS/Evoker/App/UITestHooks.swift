@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 import EvokerCore
 
 /// Launch options used only by the UI tests (EvokerUITests) and the simulator smoke run on CI. A normal launch
@@ -115,5 +116,28 @@ extension DebugActions {
             if var r3 = next.tutorial.r3 { r3.named = true; next.tutorial.r3 = r3 }
             return next
         }
+    }
+}
+
+/// UI tests only: an invisible text whose accessibility label summarises the save ("deck:3;mana:24;cards:14"), so
+/// the tests can assert that a drag really changed the deck (regression for the broken card dragging, 2026-10-11).
+struct UITestStateReadout: View {
+    @EnvironmentObject private var model: AppModel
+
+    var body: some View {
+        Text(summary)
+            .font(.system(size: 2))
+            .foregroundColor(.clear)
+            .frame(width: 2, height: 2)
+            .allowsHitTesting(false)
+            .accessibilityIdentifier("uitest-state")
+            .accessibilityLabel(summary)
+    }
+
+    private var summary: String {
+        guard let s = model.store.state else { return "nosave" }
+        let deck = s.deck.compactMap { $0 }.count
+        let mana = StateOps.deckMana(s, deps: model.deps)
+        return "deck:\(deck);mana:\(mana);cards:\(s.cards.count)"
     }
 }

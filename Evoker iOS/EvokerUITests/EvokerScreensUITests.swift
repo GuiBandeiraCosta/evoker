@@ -53,6 +53,16 @@ final class EvokerScreensUITests: XCTestCase {
         a.press(forDuration: hold, thenDragTo: b, withVelocity: .slow, thenHoldForDuration: 0.3)
     }
 
+    /// The deck size the app reports through its test readout (UITestStateReadout), or -1.
+    private func deckCount(_ app: XCUIApplication) -> Int {
+        let el = app.staticTexts["uitest-state"]
+        guard el.waitForExistence(timeout: 3) else { return -1 }
+        for part in el.label.split(separator: ";") where part.hasPrefix("deck:") {
+            return Int(part.dropFirst(5)) ?? -1
+        }
+        return -1
+    }
+
     // MARK: Screens
 
     func test01TitleAndNewGame() {
@@ -97,15 +107,20 @@ final class EvokerScreensUITests: XCTestCase {
         // swipe the slider to the left (the row starts at its right end, like the client)
         drag(app, from: (660, 830), to: (120, 830), hold: 0.02)
         shot("21-cards-after-swipe", wait: 2)
+        // regression 2026-10-11 ("the dragging of the cards is not working"): drags must change the deck
+        let start = deckCount(app)
         // drag a big card up into the first deck slot
         drag(app, from: (360, 830), to: (68, 357))
         shot("22-cards-after-drag-to-slot1", wait: 2)
+        XCTAssertEqual(deckCount(app), start + 1, "dragging a card into an empty deck slot adds it to the deck")
         // and another one into the last slot
         drag(app, from: (360, 830), to: (652, 357))
         shot("23-cards-after-drag-to-slot5", wait: 2)
+        XCTAssertEqual(deckCount(app), start + 2, "a second card dragged into the deck")
         // drag a deck card back down out of the deck
         drag(app, from: (68, 357), to: (360, 830))
         shot("24-cards-after-drag-out", wait: 2)
+        XCTAssertEqual(deckCount(app), start + 1, "dragging a deck card out removes it from the deck")
         // tap a card: the card detail
         tap(app, 360, 830)
         shot("25-card-detail", wait: 2)
@@ -133,9 +148,11 @@ final class EvokerScreensUITests: XCTestCase {
     func test05PrebattleDragAndFight() {
         let app = launch(preset: "mid", route: "prebattle-quest1")
         shot("40-prebattle")
-        // a card from the "Your cards" drawer (bottom) into the own row
-        drag(app, from: (120, 1080), to: (68, 880))
+        // a card from the "Your cards" drawer into the own row (iOS layout: drawer cards at y 930, own row at y 700)
+        let before = deckCount(app)
+        drag(app, from: (90, 930), to: (360, 700))
         shot("41-prebattle-after-drag", wait: 2)
+        XCTAssertGreaterThanOrEqual(deckCount(app), before, "the pre-battle drag keeps or grows the deck")
         tap(app, 360, 510)
         shot("42-battle-start", wait: 3)
         shot("43-battle-running", wait: 6)
