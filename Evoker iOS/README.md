@@ -252,3 +252,4 @@ EvokerCore tests run on demand: Actions ▸ "iOS build and tests" ▸ Run workfl
 | 2026-10-11 | Landing feed banners overlapped each other | screenshot `04-feed` |
 | 2026-10-11 | Training: the slider did not glide to its weakest card after the training slot was filled (web `snapEnd`) | `EvokerScreensUITests.test06Training` (card count asserted) |
 | 2026-10-11 | Level-up dialog: + and Proceed did nothing on the phone (native port) | the shipped app is now EvokerWeb; `EvokerWebShellUITests.test02LevelUpPlusMinusAndProceed` (points and level asserted) |
+| 2026-10-11 | The app felt sluggish on the iPhone (game files served uncacheable from the main thread) | `EvokerWebShellUITests.test04SecondVisitIsCached` (files served on a second Cards visit) |

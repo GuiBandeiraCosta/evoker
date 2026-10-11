@@ -6,15 +6,28 @@ import os
 /// Tools/copy-web-game.sh) to the web view under `evoker://game/`, the way `npm start` (Evoker Web/tools/serve.js)
 /// serves it on a desktop: the page is one fixed origin, so its ES modules, `fetch()` of the JSON data and
 /// localStorage work, and `<audio>` gets the byte ranges it asks for. No network is involved.
+///
+/// Speed on a phone: files are read on a background queue (the main thread also carries the touches), recently
+/// used ones stay in memory, and the responses may be cached by WebKit (the screens rebuild their DOM on every
+/// visit, so without caching every image would be read, sent and decoded again). The bundle only changes with an
+/// app update, and `GameShell` drops WebKit's caches when the installed build changes.
 final class GameSchemeHandler: NSObject, WKURLSchemeHandler {
     static let scheme = "evoker"
     static let startURL = URL(string: "evoker://game/index.html")!
 
     let root: URL
+    /// Files handed to the web view since launch (the UI tests read it to check that caching works).
+    private(set) var served = 0
     private let log = Logger(subsystem: "com.guiba.evoker", category: "files")
+    private let io = DispatchQueue(label: "evoker.web.files", qos: .userInitiated, attributes: .concurrent)
+    private let cache = NSCache<NSString, NSData>()
+    /// Tasks WebKit has not stopped yet (main thread only); a stopped task must not be answered.
+    private var running = Set<ObjectIdentifier>()
 
     init(root: URL) {
         self.root = root.standardizedFileURL
+        cache.totalCostLimit = 96 * 1024 * 1024
+        super.init()
     }
 
     func webView(_ webView: WKWebView, start task: WKURLSchemeTask) {
@@ -22,47 +35,77 @@ final class GameSchemeHandler: NSObject, WKURLSchemeHandler {
             task.didFailWithError(URLError(.badURL))
             return
         }
-        guard let file = GameFiles.resolve(url.path, root: root),
-              let data = try? Data(contentsOf: file, options: .mappedIfSafe) else {
-            log.error("404 \(url.path, privacy: .public)")
-            reply(task, url: url, status: 404, headers: ["Content-Type": "text/plain; charset=utf-8"], body: Data("404 Not Found".utf8))
-            return
-        }
-        var headers = [
-            "Content-Type": GameFiles.mime(for: file.pathExtension),
-            "Accept-Ranges": "bytes",
-            "Cache-Control": "no-store",
-        ]
-        if let range = task.request.value(forHTTPHeaderField: "Range") {
-            guard let r = GameFiles.byteRange(range, size: data.count) else {
-                headers["Content-Range"] = "bytes */\(data.count)"
-                reply(task, url: url, status: 416, headers: headers, body: Data())
-                return
+        let id = ObjectIdentifier(task)
+        running.insert(id)
+        served += 1
+        let range = task.request.value(forHTTPHeaderField: "Range")
+        let root = self.root
+        let cache = self.cache
+        io.async { [weak self] in
+            let answer = GameFiles.answer(path: url.path, range: range, root: root, cache: cache)
+            DispatchQueue.main.async {
+                guard let self, self.running.remove(id) != nil else { return }
+                if answer.status == 404 { self.log.error("404 \(url.path, privacy: .public)") }
+                self.reply(task, url: url, answer: answer)
             }
-            headers["Content-Range"] = "bytes \(r.lowerBound)-\(r.upperBound - 1)/\(data.count)"
-            reply(task, url: url, status: 206, headers: headers, body: data.subdata(in: r))
-            return
         }
-        reply(task, url: url, status: 200, headers: headers, body: data)
     }
 
-    func webView(_ webView: WKWebView, stop task: WKURLSchemeTask) {}
+    func webView(_ webView: WKWebView, stop task: WKURLSchemeTask) {
+        running.remove(ObjectIdentifier(task))
+    }
 
-    private func reply(_ task: WKURLSchemeTask, url: URL, status: Int, headers: [String: String], body: Data) {
-        var all = headers
-        all["Content-Length"] = String(body.count)
-        guard let response = HTTPURLResponse(url: url, statusCode: status, httpVersion: "HTTP/1.1", headerFields: all) else {
+    private func reply(_ task: WKURLSchemeTask, url: URL, answer: GameFiles.Answer) {
+        var all = answer.headers
+        all["Content-Length"] = String(answer.body.count)
+        guard let response = HTTPURLResponse(url: url, statusCode: answer.status, httpVersion: "HTTP/1.1", headerFields: all) else {
             task.didFailWithError(URLError(.cannotParseResponse))
             return
         }
         task.didReceive(response)
-        task.didReceive(body)
+        task.didReceive(answer.body)
         task.didFinish()
     }
 }
 
-/// Request-target helpers shared by the scheme handler (serve.js resolvePath / MIME).
+/// Request-target helpers of the scheme handler (serve.js resolvePath / MIME), free of WebKit so they run on any
+/// thread.
 enum GameFiles {
+    struct Answer {
+        var status: Int
+        var headers: [String: String]
+        var body: Data
+    }
+
+    /// The response to a GET of `path` (with an optional `Range` header) from the files under `root`.
+    static func answer(path: String, range: String?, root: URL, cache: NSCache<NSString, NSData>) -> Answer {
+        guard let file = resolve(path, root: root), let data = read(file, cache: cache) else {
+            return Answer(status: 404, headers: ["Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store"],
+                          body: Data("404 Not Found".utf8))
+        }
+        var headers = [
+            "Content-Type": mime(for: file.pathExtension),
+            "Accept-Ranges": "bytes",
+            "Cache-Control": "public, max-age=31536000, immutable",
+        ]
+        guard let range else { return Answer(status: 200, headers: headers, body: data) }
+        guard let r = byteRange(range, size: data.count) else {
+            headers["Content-Range"] = "bytes */\(data.count)"
+            return Answer(status: 416, headers: headers, body: Data())
+        }
+        headers["Content-Range"] = "bytes \(r.lowerBound)-\(r.upperBound - 1)/\(data.count)"
+        return Answer(status: 206, headers: headers, body: data.subdata(in: r))
+    }
+
+    /// A file's bytes, from the memory cache when it was read recently.
+    static func read(_ file: URL, cache: NSCache<NSString, NSData>) -> Data? {
+        let key = file.path as NSString
+        if let hit = cache.object(forKey: key) { return hit as Data }
+        guard let data = try? Data(contentsOf: file, options: .mappedIfSafe) else { return nil }
+        cache.setObject(data as NSData, forKey: key, cost: data.count)
+        return data
+    }
+
     /// The file a request path names inside `root`, or nil (missing, or escaping the root). "/" and folders serve
     /// their index.html.
     static func resolve(_ target: String, root: URL) -> URL? {

@@ -18,6 +18,8 @@ final class GameShell: NSObject, ObservableObject {
     private let log = Logger(subsystem: "com.guiba.evoker", category: "shell")
     private let pageLog = PageLogHandler()
     private var pendingTestScript: String?
+    /// Under -uitest: a frame counter runs in the page and the readout reports it.
+    private var measuring = false
     private var readoutTimer: Timer?
     /// The file the current download (the settings' "export save") writes.
     fileprivate var exportURL: URL?
@@ -71,17 +73,39 @@ final class GameShell: NSObject, ObservableObject {
            let data = Data(base64Encoded: args[i + 1]), let script = String(data: data, encoding: .utf8) {
             pendingTestScript = script
         }
-        if args.contains("-uitest") { startReadout() }
-        // -uitest-reset: no save at all; -uitest-clear-webdata: WebKit's storage wiped, the mirrored save kept
+        if args.contains("-uitest") {
+            measuring = true
+            startReadout()
+        }
+        // -uitest-reset: no save at all; -uitest-clear-webdata: WebKit's storage wiped, the mirrored save kept.
+        // A newly installed build drops WebKit's caches (the game files are served as cacheable).
         let reset = args.contains("-uitest-reset")
+        var clear = Set<String>()
         if reset || args.contains("-uitest-clear-webdata") {
             if reset { mirror.clear() }
-            WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: .distantPast) { [weak self] in
+            clear = WKWebsiteDataStore.allWebsiteDataTypes()
+        } else if GameShell.buildChanged() {
+            clear = [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache, WKWebsiteDataTypeFetchCache]
+        }
+        if clear.isEmpty {
+            boot()
+        } else {
+            WKWebsiteDataStore.default().removeData(ofTypes: clear, modifiedSince: .distantPast) { [weak self] in
                 Task { @MainActor in self?.boot() }
             }
-        } else {
-            boot()
         }
+    }
+
+    /// Whether this is the first launch of the installed build (the executable's date, remembered per launch).
+    private static func buildChanged() -> Bool {
+        let key = "evoker.web.build"
+        let path = Bundle.main.executableURL?.path ?? ""
+        let attributes = try? FileManager.default.attributesOfItem(atPath: path)
+        let date = attributes?[.modificationDate] as? Date
+        let stamp = String(date?.timeIntervalSince1970 ?? 0)
+        let changed = UserDefaults.standard.string(forKey: key) != stamp
+        UserDefaults.standard.set(stamp, forKey: key)
+        return changed
     }
 
     private func boot() {
@@ -99,6 +123,9 @@ final class GameShell: NSObject, ObservableObject {
         ucc.addUserScript(WKUserScript(source: PageLogHandler.script, injectionTime: .atDocumentStart, forMainFrameOnly: true))
         ucc.addUserScript(mirror.userScript())
         ucc.addUserScript(WKUserScript(source: GameShell.shellCSS, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
+        if measuring {
+            ucc.addUserScript(WKUserScript(source: GameShell.frameCounterJS, injectionTime: .atDocumentStart, forMainFrameOnly: true))
+        }
         let url = GameSchemeHandler.startURL
         log.notice("loading \(url.absoluteString, privacy: .public)")
         webView.load(URLRequest(url: url))
@@ -143,8 +170,23 @@ final class GameShell: NSObject, ObservableObject {
         'minion:' + at('button.quest-minion:not(.slain)'), 'titletap:' + at('.title-screen .title-tap'),
         'plus:' + at('.lvl-attr[data-attr="hp"] .lvl-btn.plus'), 'minus:' + at('.lvl-attr[data-attr="hp"] .lvl-btn.minus'),
         'proceed:' + at('.lvl-backdrop .lvl-proceed'),
+        'screen:' + ((e.router && e.router.current && e.router.current()) || {}).id, 'fps:' + (window.__evokerFps || 0),
         'w:' + window.innerWidth, 'h:' + window.innerHeight].join(';');
     })()
+    """
+
+    /// Frames drawn over the last second (requestAnimationFrame), in window.__evokerFps.
+    private static let frameCounterJS = """
+    (function () {
+      var n = 0, t0 = 0;
+      function tick(t) {
+        if (!t0) t0 = t;
+        n++;
+        if (t - t0 >= 1000) { window.__evokerFps = Math.round(n * 1000 / (t - t0)); n = 0; t0 = t; }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
     """
 
     private func startReadout() {
@@ -156,7 +198,7 @@ final class GameShell: NSObject, ObservableObject {
     private func pollReadout() {
         webView.evaluateJavaScript(GameShell.readoutJS) { [weak self] value, _ in
             guard let self else { return }
-            let text = (value as? String) ?? "boot:1"
+            let text = ((value as? String) ?? "boot:1") + ";served:\(self.files.served)"
             self.readout.accessibilityLabel = text
             self.readout.text = text
             if let script = self.pendingTestScript, text.hasPrefix("boot:0") {

@@ -115,6 +115,36 @@ final class EvokerWebShellUITests: XCTestCase {
         XCTAssertGreaterThan(int(s, "hpmax"), hpBefore, "the placed Health point raised max health")
     }
 
+    /// Regression 2026-10-11 ("the app feels very sluggish on the iPhone"): the game files used to be served
+    /// uncacheable from the main thread, so every screen visit read, sent and decoded all its images again. A second
+    /// visit to the Cards screen must now come almost entirely from WebKit's cache.
+    func test04SecondVisitIsCached() {
+        let app = launch(["-uitest-reset"], js: """
+        evoker.debug.newGame('Tester');
+        setTimeout(function () { evoker.goTop('cards'); }, 3000);
+        setTimeout(function () { evoker.goTop('quest'); }, 8000);
+        setTimeout(function () { evoker.goTop('cards'); }, 13000);
+        """)
+        let s0 = waitFor(app, "the new save", timeout: 40) { $0["save"] == "1" }
+        let served0 = int(s0, "served")
+        waitFor(app, "the Cards screen", timeout: 15) { $0["screen"] == "cards" }
+        Thread.sleep(forTimeInterval: 2.5)
+        let s1 = state(app)
+        shot("30-cards-first-visit")
+        waitFor(app, "the quest map", timeout: 15) { $0["screen"] == "quest-map" }
+        Thread.sleep(forTimeInterval: 2.5)
+        let s2 = state(app)
+        waitFor(app, "the Cards screen again", timeout: 15) { $0["screen"] == "cards" }
+        Thread.sleep(forTimeInterval: 2.5)
+        let s3 = state(app)
+        shot("31-cards-second-visit")
+        let first = int(s1, "served") - served0
+        let second = int(s3, "served") - int(s2, "served")
+        print("files served: first Cards visit \(first), second \(second); fps title \(s0["fps"] ?? "-"), cards \(s1["fps"] ?? "-"), map \(s2["fps"] ?? "-"), cards again \(s3["fps"] ?? "-")")
+        XCTAssertGreaterThan(first, 0, "the first visit loads the screen's files")
+        XCTAssertLessThanOrEqual(second, max(2, first / 4), "a second visit comes from the cache (first \(first), second \(second))")
+    }
+
     /// The save survives closing the app, and comes back from the app's own copy when WebKit's storage is wiped.
     func test03SaveSurvivesRelaunch() {
         var app = launch(["-uitest-reset"], js: "evoker.debug.newGame('Keeper'); evoker.debug.giveGold(12345);")
