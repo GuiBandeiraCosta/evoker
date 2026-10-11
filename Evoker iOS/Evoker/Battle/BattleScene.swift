@@ -24,7 +24,7 @@ final class BattleScene: SKScene, BattleBoard {
     private let db: CardsDb
     private(set) var layout: BattleLayout
     /// Playback speed (1 or 2); the player reads it live.
-    private(set) var speed: Double
+    private(set) var playbackSpeed: Double
 
     let world = SKNode()
     let fxLayer = SKNode()
@@ -53,7 +53,7 @@ final class BattleScene: SKScene, BattleBoard {
         self.textures = BattleTextureCache(assets: assets)
         self.audio = audio
         self.db = db
-        self.speed = presentation.speed >= 2 ? 2 : 1
+        self.playbackSpeed = presentation.speed >= 2 ? 2 : 1
         self.layout = BattleLayout(size: CGSize(width: BattleLayout.stageWidth, height: BattleLayout.designHeight))
         super.init(size: CGSize(width: BattleLayout.stageWidth, height: BattleLayout.designHeight))
         scaleMode = .resizeFill
@@ -297,7 +297,7 @@ final class BattleScene: SKScene, BattleBoard {
     // MARK: entry (comp_fight_v3 fadeInHud, "Loading...", lightning), then the fight
 
     /// ms at 1x → seconds at the chosen speed (the screen's `scaled`).
-    private func scaled(_ ms: Double) -> TimeInterval { max(1, (ms / speed).rounded()) / 1000 }
+    private func scaled(_ ms: Double) -> TimeInterval { max(1, (ms / playbackSpeed).rounded()) / 1000 }
 
     private func after(_ seconds: TimeInterval, _ fn: @escaping () -> Void) {
         run(.sequence([.wait(forDuration: max(0.001, seconds)), .run(fn)]))
@@ -349,7 +349,7 @@ final class BattleScene: SKScene, BattleBoard {
             }
             return
         }
-        let p = BattlePlayer(board: self, events: presentation.events, speed: speed, audio: audio)
+        let p = BattlePlayer(board: self, events: presentation.events, speed: playbackSpeed, audio: audio)
         p.onRound = { [weak self] n in
             if n == 1 { self?.onRoundOne?() }
         }
@@ -374,8 +374,8 @@ final class BattleScene: SKScene, BattleBoard {
     }
 
     func setSpeed(_ n: Double) {
-        speed = n >= 2 ? 2 : 1
-        player?.setSpeed(speed)
+        playbackSpeed = n >= 2 ? 2 : 1
+        player?.setSpeed(playbackSpeed)
     }
 
     /// Stop everything (screen left).

@@ -75,7 +75,8 @@ jobs:
             -destination "generic/platform=iOS Simulator" \
             -derivedDataPath "$RUNNER_TEMP/DerivedData" \
             CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-            build
+            OTHER_SWIFT_FLAGS='$(inherited) -continue-building-after-errors' \
+            build 2>&1 | tee "$RUNNER_TEMP/build.log"
 
   unsigned-ipa:
     name: Unsigned .ipa (Release, device)
