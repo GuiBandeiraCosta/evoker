@@ -49,7 +49,7 @@ struct ScreenChrome: ViewModifier {
         ZStack(alignment: .topLeading) {
             Theme.bg
             content
-                .frame(width: Stage.width, height: max(0, stage.size.height - hudH - navH))
+                .frame(width: Stage.width, height: max(0, stage.size.height - hudH - navH), alignment: .topLeading)
                 .clipped()
                 .offset(y: hudH)
             if extended {

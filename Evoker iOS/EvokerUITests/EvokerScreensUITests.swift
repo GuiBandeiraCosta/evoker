@@ -111,18 +111,22 @@ final class EvokerScreensUITests: XCTestCase {
         shot("25-card-detail", wait: 2)
     }
 
-    /// Quest 1 (web: qa-core-loop/04-quest-1.png): minions around y 700 at x 150 / 275 / 400.
-    func test04QuestTaps() {
+    /// Quest 1 (web: qa-core-loop/04-quest-1.png): five minions around y 700 at x 150 / 275 / 400; then the boss
+    /// intro and the pre-battle (Attack! at (360, 510)) and the fight.
+    func test04QuestToBossFight() {
         let app = launch(preset: "fresh", route: "quest1")
         shot("30-quest1")
         let xs: [CGFloat] = [150, 275, 400, 210, 340]
-        for i in 0..<14 {
-            tap(app, xs[i % xs.count], 700)
-            Thread.sleep(forTimeInterval: 0.7)
-            if i == 1 { shot("31-quest1-after-2-taps", wait: 0.3) }
+        for i in 0..<5 {
+            tap(app, xs[i], 700)
+            Thread.sleep(forTimeInterval: 0.9)
+            if i == 1 { shot("31-quest1-after-2-taps", wait: 0.2) }
         }
-        shot("32-quest1-after-taps", wait: 3)
-        shot("33-boss-intro-or-prebattle", wait: 4)
+        shot("32-boss-intro", wait: 1.2)
+        shot("33-prebattle", wait: 4)
+        tap(app, 360, 510)
+        shot("34-quest-battle", wait: 6)
+        shot("35-quest-battle-end", wait: 25)
     }
 
     /// Pre-battle of quest 1's boss (web: 06-prebattle.png): Attack! at (360, 510), own slots at y 880.
