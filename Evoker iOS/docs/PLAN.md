@@ -204,6 +204,9 @@ protocol AudioPlaying { func sfx(_ name: String); func music(_ name: String?, lo
     (one fight per card: the card in the middle slot against a fixed row, like the Card Lab), `battles-random.json`
     (40 seeded real-catalog fights), `stats.json` (every card × stage × 3 levels + xp/sell/price tables),
     `game-*.json` (sequences of game function calls with the state after each call).
+  - Parity fixtures (`Tests/EvokerCoreTests/Parity/*.json`, `Tools/gen-parity.mjs` and `gen-parity-game.mjs`, replayed by
+    `ParityTests`): 400 random raw-buff fights through the web engine / timeline / board model, and the game functions the
+    game goldens do not reach (sort orders, shop offers, boss line-ups, league ranking, tap gold, sim decks, ...).
   - Comparison: both sides serialise to canonical JSON (sorted keys, integers without a fraction) and the test
     prints the first differing path.
 - The app target has no unit tests of its own in round 1 (no Mac available while this was written); the

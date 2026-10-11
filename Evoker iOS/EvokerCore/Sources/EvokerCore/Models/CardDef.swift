@@ -329,14 +329,19 @@ public struct Buff: Codable, Hashable, Sendable {
     public var damagedBySelf: Bool?
     public var strengthFromEvent: Bool?
     public var ext: Bool?
+    /// Whether the buff carried a `directions` list at all (JSON key present / init argument given). The web keeps
+    /// `undefined` apart from `[]`: an `attack` buff WITHOUT the key takes the card's directions (battle-state.js
+    /// normaliseBuff `dirs == null`), one with an empty list keeps it and hits the opposing player once.
+    public var directionsSpecified: Bool
 
     public init(type: BuffType, strength: ValueRef? = nil, strengthPercent: ValueRef? = nil, cap: ValueRef? = nil,
-                directions: [OriginalDirection] = [], scope: BuffScope? = nil, filter: BuffFilter? = nil, pick: PickRule? = nil,
+                directions: [OriginalDirection]? = nil, scope: BuffScope? = nil, filter: BuffFilter? = nil, pick: PickRule? = nil,
                 count: Int? = nil, event: BuffEvent = .always, eventData: EventData? = nil, nextRound: Bool? = nil,
                 emptyReduction: Int? = nil, perTarget: Bool? = nil, baseAttack: Bool? = nil, unreflectable: Bool? = nil,
                 triggerDirection: OriginalDirection? = nil, damagedBySelf: Bool? = nil, strengthFromEvent: Bool? = nil, ext: Bool? = nil) {
         self.type = type; self.strength = strength; self.strengthPercent = strengthPercent; self.cap = cap
-        self.directions = directions; self.scope = scope; self.filter = filter; self.pick = pick; self.count = count
+        self.directions = directions ?? []; self.directionsSpecified = directions != nil
+        self.scope = scope; self.filter = filter; self.pick = pick; self.count = count
         self.event = event; self.eventData = eventData; self.nextRound = nextRound; self.emptyReduction = emptyReduction
         self.perTarget = perTarget; self.baseAttack = baseAttack; self.unreflectable = unreflectable
         self.triggerDirection = triggerDirection; self.damagedBySelf = damagedBySelf; self.strengthFromEvent = strengthFromEvent; self.ext = ext
@@ -357,9 +362,10 @@ public struct Buff: Codable, Hashable, Sendable {
         strength = c.optionalValue(ValueRef.self, .strength)
         strengthPercent = c.optionalValue(ValueRef.self, .strengthPercent)
         cap = c.optionalValue(ValueRef.self, .cap)
-        // unknown direction names are dropped (originalDirs of battle-state.js)
+        // unknown direction names are dropped (originalDirs of battle-state.js); a missing key stays distinguishable
         let rawDirs = c.array(String.self, .directions)
         directions = rawDirs.compactMap { OriginalDirection(rawValue: $0) }
+        directionsSpecified = c.contains(.directions)
         scope = c.optionalValue(BuffScope.self, .scope)
         filter = c.optionalValue(BuffFilter.self, .filter)
         pick = c.optionalValue(PickRule.self, .pick)
@@ -383,7 +389,7 @@ public struct Buff: Codable, Hashable, Sendable {
         try c.encodeIfPresent(strength, forKey: .strength)
         try c.encodeIfPresent(strengthPercent, forKey: .strengthPercent)
         try c.encodeIfPresent(cap, forKey: .cap)
-        try c.encode(directions, forKey: .directions)
+        if directionsSpecified || !directions.isEmpty { try c.encode(directions, forKey: .directions) }
         try c.encodeIfPresent(scope, forKey: .scope)
         try c.encodeIfPresent(filter, forKey: .filter)
         try c.encodeIfPresent(pick, forKey: .pick)

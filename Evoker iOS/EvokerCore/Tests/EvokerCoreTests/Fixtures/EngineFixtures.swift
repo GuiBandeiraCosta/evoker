@@ -12,7 +12,8 @@ enum EngineFx {
     static let big = 1_000_000
 
     /// Buff builder with the web's defaults (event `always`).
-    static func b(_ type: BuffType, _ directions: [OriginalDirection] = [], _ event: BuffEvent = .always, eventData: EventData? = nil,
+    /// `directions` nil = the JSON key is absent (`{ type: 'attack' }` takes the card's directions), [] = an explicit empty list.
+    static func b(_ type: BuffType, _ directions: [OriginalDirection]? = [], _ event: BuffEvent = .always, eventData: EventData? = nil,
                   strength: ValueRef? = nil, strengthPercent: ValueRef? = nil, cap: ValueRef? = nil, scope: BuffScope? = nil, filter: BuffFilter? = nil,
                   pick: PickRule? = nil, count: Int? = nil, nextRound: Bool? = nil, emptyReduction: Int? = nil, perTarget: Bool? = nil,
                   baseAttack: Bool? = nil, unreflectable: Bool? = nil, triggerDirection: OriginalDirection? = nil, damagedBySelf: Bool? = nil,

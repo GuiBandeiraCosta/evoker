@@ -144,7 +144,9 @@ final class EngineTests: XCTestCase {
         XCTAssertEqual(list[3].strength, .number(10))
         XCTAssertEqual(list[3].event, .always)
         XCTAssertEqual(list[3].directions, [])
-        XCTAssertEqual(BattleState.normaliseBuff(F.b(.attack), cardDirs: [.front]).directions, [.front])
+        // `{ type: 'attack' }` without a directions key takes the card's; an explicit `[]` stays empty (battle-state.js `dirs == null`)
+        XCTAssertEqual(BattleState.normaliseBuff(F.b(.attack, nil), cardDirs: [.front]).directions, [.front])
+        XCTAssertEqual(BattleState.normaliseBuff(F.b(.attack, []), cardDirs: [.front]).directions, [])
         // buff directions are original names: `left` stays the own left neighbour
         XCTAssertEqual(BattleState.normaliseBuff(F.b(.heal, [.left, .left])).directions, [.left])
     }

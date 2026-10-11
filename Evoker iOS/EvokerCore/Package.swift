@@ -29,6 +29,7 @@ let package = Package(
             path: "Tests/EvokerCoreTests",
             resources: [
                 .copy("Golden"),
+                .copy("Parity"),
             ]
         ),
     ]

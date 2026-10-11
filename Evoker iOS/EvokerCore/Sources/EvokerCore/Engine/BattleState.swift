@@ -94,9 +94,13 @@ public enum BattleState {
         b.strengthPercent = concrete(b.strengthPercent, abilityValue)
         b.cap = concrete(b.cap, abilityValue)
         b.directions = originalDirs(b.directions)
-        // The typed model cannot tell a missing `directions` from an empty list; the only attack buff ever stored
-        // without directions is the bare `{ type: 'attack' }` of tooling, which takes the card's directions.
-        if b.type == .attack && b.directions.isEmpty { b.directions = cardDirs }
+        // `if (b.type === 'attack' && dirs == null) b.directions = cardDirs.slice()`: only a MISSING directions list
+        // takes the card's; an explicit `[]` stays empty (the handler then runs once without a target and hits the
+        // opposing player for the whole attack).
+        if b.type == .attack && !b.directionsSpecified {
+            b.directions = cardDirs
+            b.directionsSpecified = true
+        }
         if b.perTarget == true {
             if b.directions.count > 1, case .number(let s)? = b.strength {
                 b.strength = .number(s * Double(b.directions.count))

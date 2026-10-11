@@ -20,6 +20,12 @@ struct CardDetailScreen: View {
         .chrome(active: .cards, back: .pop(fallback: .cards()), help: "card-detail", hideNav: true)
     }
 
+    /// The stage of a catalog target (0 for an owned card: its instance carries the stage).
+    private var catalogStage: Int {
+        if case .catalog(_, let s, _) = target { return s }
+        return 0
+    }
+
     private func resolve(_ state: GameState) -> (inst: CardInstance?, def: CardDef?) {
         switch target {
         case .owned(let uid):
@@ -81,7 +87,7 @@ struct CardDetailScreen: View {
                 .padding(40)
             }
             if zoom, let def = r.def {
-                zoomOverlay(def: def, stage: r.inst?.stage ?? { if case .catalog(_, let s, _) = target { return s }; return 0 }())
+                zoomOverlay(def: def, stage: r.inst?.stage ?? catalogStage)
             }
         }
     }

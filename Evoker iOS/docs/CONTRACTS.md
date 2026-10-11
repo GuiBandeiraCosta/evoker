@@ -1,7 +1,7 @@
 # Cross-module contracts (binding for every work package)
 
 Companion to `PLAN.md` §4–§5. The shared Swift models and protocols already exist in
-`EvokerCore/Sources/EvokerCore/{Models,Protocols.swift,Core,Game/GameAPI.swift}` — read them before writing code;
+`EvokerCore/Sources/EvokerCore/{Models,Protocols.swift,Core,Game/*.swift}` — read them before writing code;
 the names below are the ones every package must use. Changing a shared signature requires a note at the end of
 this file (section "Changes") so the reviewer and the other packages can follow.
 
@@ -9,8 +9,8 @@ this file (section "Changes") so the reviewer and the other packages can follow.
 
 | Package | Writes | Reads only |
 |---|---|---|
-| A engine | `EvokerCore/Sources/EvokerCore/Core/{Stats,Abilities}.swift`, `Engine/**`, `Playback/**`, their tests | `Models`, `Protocols.swift`, `Game/GameAPI.swift` |
-| B game | `EvokerCore/Sources/EvokerCore/Game/**` (replaces the stubs of `GameAPI.swift` module by module), `Tools/gen-goldens-game.mjs`, `Tests/.../GoldenGameTests.swift` + game unit tests | `Core`, `Engine`, `Models` |
+| A engine | `EvokerCore/Sources/EvokerCore/Core/{Stats,Abilities}.swift`, `Engine/**`, `Playback/**`, their tests | `Models`, `Protocols.swift`, `Game/*.swift` |
+| B game | `EvokerCore/Sources/EvokerCore/Game/**` — one file per web module: `State, Player, Collection, Training, Fusion, Quests, Rewards, Opponents, Pvp, Arena, Pieces, League, Shop, StoreHelpers`.swift (the single stub file `GameAPI.swift` of the first draft was replaced by these and no longer exists), `Tools/gen-goldens-game.mjs`, `Tests/.../GoldenGameTests.swift` + game unit tests | `Core`, `Engine`, `Models` |
 | C battle | `Evoker/Battle/**`, `Evoker/Screens/BattleScreen.swift`, `Evoker/Screens/BattleResultView.swift` | everything else |
 | D menus | `Evoker/App/**` (except `EvokerApp.swift`, `Route.swift` which exist), `Evoker/Screens/**` (except battle), `Evoker/Components/**` | everything else |
 | E persistence | `Evoker/Persistence/**` | everything else |
@@ -36,9 +36,10 @@ change in "Changes" below. Additions (new types, new files) are free.
 
 ## 3. EvokerCore API the app relies on
 
-Besides `Models/*` and `Game/GameAPI.swift` (one `enum` namespace per web module: `StateOps`, `PlayerOps`,
-`CollectionOps`, `TrainingOps`, `FusionOps`, `QuestOps`, `RewardOps`, `OpponentOps`, `PvpOps`, `ArenaOps`,
-`PieceOps`, `LeagueOps`, `ShopOps`, `StoreHelpers`, `AppFlow`), package A provides:
+Besides `Models/*` and `Game/*.swift` (one file and one `public enum` namespace per web module: `StateOps`
+(State.swift), `PlayerOps` (Player.swift), `CollectionOps`, `TrainingOps`, `FusionOps`, `QuestOps`, `RewardOps`,
+`OpponentOps`, `PvpOps`, `ArenaOps`, `PieceOps`, `LeagueOps`, `ShopOps` (each in the file of the same stem) and
+`StoreHelpers` + `AppFlow` (StoreHelpers.swift)), package A provides:
 
 ```swift
 public struct Stats: StatsProviding { public init() }                // Core/Stats.swift
@@ -284,3 +285,99 @@ open issues for the integrator. Never claim a test passed that was not run.
   `.pickerStyle(.menu)` (LabScreen), `SKView.texture(from:)` / `SKAction.customAction` in the death shatter and the
   tribe-bonus count, `withCheckedContinuation` inside the `@MainActor` dialog / tap gates, and the memberwise
   `CountdownText(...) { onEnd }` trailing closure in LeagueScreen.
+
+- 2026-10-11, Review (project / pipeline / docs; no Swift source, golden file or `Evoker Web` file touched):
+  - `Evoker.xcodeproj/project.pbxproj` and `Evoker.xcscheme`: reviewed against Xcode 16's template, **left unchanged**.
+    The object sections, attribute names, `objectVersion = 77` / `preferredProjectObjectVersion = 77`, the
+    `PBXFileSystemSynchronizedRootGroup` (no `exceptions` needed: the only non-source files inside `Evoker/` are
+    `Assets.xcassets` and `Persistence/README.md`, which Xcode copies as a harmless bundle resource), the `GameAssets`
+    folder reference (`lastKnownFileType = folder`, copied by the Resources phase, resolved by `BundleAssetCatalog`
+    with `subdirectory: "GameAssets"`), the local package reference and the scheme's `TestableReference`
+    (`BlueprintIdentifier = EvokerCoreTests`, `ReferencedContainer = "container:EvokerCore"`) match what Xcode writes.
+    The `INFOPLIST_KEY_*` settings are all documented keys (`UIRequiresFullScreen`, `UIStatusBarHidden`,
+    `UISupportedInterfaceOrientations[_iPhone|_iPad]`, `CFBundleDisplayName`, the `_Generation` keys);
+    `TARGETED_DEVICE_FAMILY = 1` (iPhone only; an iPad runs it letterboxed) and `SWIFT_VERSION = 5.0` with
+    `SWIFT_STRICT_CONCURRENCY = minimal` are fine. Because the plist's `UIStatusBarHidden` only covers the launch
+    (view-controller-based status bar appearance stays on), the app also uses SwiftUI's `.statusBarHidden(true)` /
+    `.persistentSystemOverlays(.hidden)` (EvokerApp.swift, BattleScreen.swift), which is what actually hides it.
+    `node Tools/check-pbxproj.mjs` → "20 objects, 20 ids referenced / project.pbxproj looks consistent".
+  - `project.yml` (XcodeGen fallback): `info.path` pointed at `Evoker/Info.plist`, which does not exist and, inside
+    the synchronized folder, would have been copied into the bundle next to the generated plist. It is now
+    `Support/Info.plist` (the folder exists with a `.gitkeep`; the generated file is git-ignored), the properties
+    match the pbxproj's `INFOPLIST_KEY_*` set (plus `CFBundleShortVersionString` / `CFBundleVersion` from
+    `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`), the settings mirror the target's, `Persistence/README.md` is
+    excluded from the sources, the package dependency names its product, the scheme references the package test
+    target as `EvokerCore/EvokerCoreTests` (XcodeGen 2.26+ syntax) and has profile / archive configs.
+  - `EvokerCore/Package.swift`: unchanged (tools 5.9, iOS 17 / macOS 14, `.copy("Data")` and `.copy("Golden")` keep
+    the folders, so `Bundle.module.url(forResource:withExtension:subdirectory: "Data")` in `DataLoader` is right; the
+    `#filePath` fallback resolves to `Sources/EvokerCore/Data` on any OS). The stray `EvokerCore/Info.plist`
+    (SwiftPM's generated test-resource-bundle plist, which the Windows toolchain writes into the package root) was
+    deleted and is git-ignored.
+  - `Tools/*.mjs`, `Tools/make-icon.py`: reviewed for portability, **no change needed** — every path goes through
+    `node:path` / `pathToFileURL` / `pathlib`, `build-assets.mjs` converts separators with `sep`, the headless
+    driver (`Evoker Web/tools/cdp.js`) already knows the macOS and Linux browser locations and uses an absolute
+    `mkdtemp` profile, `--no-svg` skips the browser entirely and `EVOKER_BROWSER` overrides the discovery.
+    `node Tools/sync-data.mjs` re-run (4 files copied, unchanged content). Asset check (scratch script, not kept):
+    all 2747 manifest paths exist; 25 files under `GameAssets/cards` are not in the manifest (Bouncer, Goblin
+    Thieves, Umbral Dragon, Wheel of Fortune: art of round-4 cards that `cards.json` does not contain — harmless);
+    every literal sprite stem the app passes to `Sprite` / `StretchedSprite` / `NineSlice` / `TiledSprite` /
+    `image` / `sprite` / `texture` (117), every literal sound (30 + the 252 stems of the `AudioNames` alias table
+    and `BattleSounds`), the one `data("map/layout.json")` and the interpolated families (`cardframe_<rarity>`,
+    `carddetail_{top,bottom,rail}_<rarity>` for all 7 rarities, `{enhance,deckedit,fusion}_{on,off}`,
+    `piece{2,4,6,10}_<n>[b]`, `pvp_bg_{green,orange,red}`) resolve through `BundleAssetCatalog.imagePath`
+    / `soundURL`. Nothing to fix in Swift.
+  - `.github/workflows/ios.yml`: rewritten — Xcode 16 selection with a fallback to the image default, `node
+    Tools/sync-data.mjs` + `build-assets.mjs --no-svg` + `check-pbxproj.mjs` before the build, simulator build with
+    `-destination "generic/platform=iOS Simulator"` and `CODE_SIGNING_ALLOWED=NO`, `swift test` for the package, and
+    a third job that archives an unsigned device build (`generic/platform=iOS`, Release) and uploads
+    `Evoker-unsigned.ipa` (Payload/Evoker.app) as the artifact `Evoker-unsigned-ipa`; all paths with spaces quoted.
+    Important: the git repository root is `Evoker Card Game/`, not `Evoker iOS/`, and GitHub only runs workflows
+    from `<root>/.github/workflows/` — an identical copy was installed at
+    `Evoker Card Game/.github/workflows/ios.yml` (keep the two in sync; the one under `Evoker iOS/` is the reference
+    copy next to the project).
+  - `README.md` rewritten for the delivered state (structure, requirements, build / run / tests, regenerating data,
+    goldens and assets, XcodeGen fallback, the two ways onto an iPhone with exact steps, save file location and
+    format, deferred tutorial script, known risks). `.gitignore` added at the iOS root (same patterns as the
+    repository root's, plus the two generated plists).
+  - Out of scope but noticed, for the integrator: `Tools/build-assets.mjs` copies every image of
+    `Evoker Web/assets/cards` even when no card of `cards.json` references it (the 25 files above, a few MB);
+    filter on the catalog's `art` fields if bundle size matters.
+
+- 2026-10-11, app-side reviewer (second static pass over `Evoker/`, still no compiler for the app target). Additions
+  only; no shared signature changed. `Evoker/Audio/AudioPlaying.swift` gained `MusicCue` and `ScreenMusic.cue(for:)`
+  (the web's `screenMusic(id, params)` with loop / next / fade and the `null` = keep-playing cases); `name(for:)` is
+  kept and delegates to it. `AppModel.applyMusic` uses the cue through `AudioPlayer.music(_:loop:next:fade:)` and
+  `AppModel.resetProgress()` is the Options reset (title screen, like the web's reload). `BattleScene.makeLayout`
+  and `BattleFX.shatter` read `UIView.safeAreaInsets` / `SKView.texture(from:)` under `MainActor.assumeIsolated`
+  (SpriteKit callbacks run on the main thread; the compiler cannot see that from a non-isolated SKScene).
+
+- 2026-10-11, package G (rules-parity review of EvokerCore against `Evoker Web/src`, module by module, plus two
+  differential fuzz fixtures against the web code). Shared model change: `Models/CardDef.swift` — `Buff` gained
+  `directionsSpecified: Bool` (set by the decoder when the JSON has a `directions` key; the memberwise init now takes
+  `directions: [OriginalDirection]? = nil`, nil = the key is absent). The web keeps `undefined` apart from `[]`:
+  battle-state.js normaliseBuff gives an `attack` buff WITHOUT the key the card's directions, while an explicit empty
+  list stays empty and the handler runs once without a target, hitting the opposing player for the whole attack. The
+  Swift port substituted the card's directions in both cases (`Engine/BattleState.swift normaliseBuff`, fixed; the
+  encoder writes `directions` only when it was specified or non-empty). Unreachable from `data/abilities.json`
+  (no `attack` buff carries `directions: []`); raw cards with explicit buffs (tests, tooling) were affected.
+  Second fix: `Game/GameSupport.swift JSString.localeCompare` compared lower-cased code points; ICU's root collation
+  (what `String.prototype.localeCompare` uses in collection.js sortCards and league.js rankRows) orders ASCII
+  punctuation in CLDR order (`_`, `-` before `'`; space before `_`), so a name pair such as "O'Neil" / "O-Neil" sorted
+  the other way. No pair of the 195 card names or 120 simulated-player names hit it; the function now uses ICU's
+  ASCII order (letters case-insensitive at the primary level, lowercase first on a full tie).
+  New tests (`Tests/EvokerCoreTests/ParityTests.swift`, 12 tests): `Parity/engine-fuzz.json` (`Tools/gen-parity.mjs`:
+  400 random raw-buff fights through the web engine, timeline and board model — every handler, event, scope / pick /
+  filter and extension field, pre-damaged cards, unknown race names, forced race bonus, short round limits; the
+  Swift replay compares the event log, result, playback steps at 1x / 2x, final board and lethal step) and
+  `Parity/game-parity.json` (`Tools/gen-parity-game.mjs`: stats with an evolve bonus below 1, every Cards sort order,
+  shopOffers in every portal mode, boss line-ups, rankRows ties, rollTapGold, generateWaves, pickBandCard,
+  simProfile, buildSimDeck, makeSim, questTapInfo, bandPosition), plus pinned values from node for localeCompare,
+  formatValue / renderAbilityText, the UTC date helpers, the seed hashes, missingPrice beyond the table,
+  levelUpRewards, playerXpToNext, the league formulas and the fight-reward rounding. `Package.swift` copies the
+  `Parity` folder as a test resource (the goldens are untouched).
+  Deviations reviewed and judged acceptable (not observable with the shipped data): `BoardCard.tribe` is typed, so
+  an unknown race name of a raw card shows as neutral in the playback model (the engine keeps it, see the package A
+  note above); `Reward.count ?? 1` vs the web's `|| 1` (a count of 0 never occurs); `JSDate.previousDay("")` returns
+  "" where the web throws (claimDaily only passes a real day); `shiftClocks` does not shift the pre-round-3
+  `league.joinedAt` (not in the typed save); `PieceHunt.total` defaults to 4 on decode where the web leaves it
+  undefined. The §3 signatures were re-checked against the sources: unchanged.

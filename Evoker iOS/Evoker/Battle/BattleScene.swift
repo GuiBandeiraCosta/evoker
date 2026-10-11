@@ -88,7 +88,9 @@ final class BattleScene: SKScene, BattleBoard {
     private func makeLayout() -> BattleLayout {
         let s = max(0.0001, size.width / BattleLayout.stageWidth)
         let logical = CGSize(width: BattleLayout.stageWidth, height: size.height / s)
-        let insets = view?.safeAreaInsets ?? UIEdgeInsets.zero
+        // UIView.safeAreaInsets is main-actor isolated; didMove / didChangeSize run on the main thread
+        let presentingView = view
+        let insets = MainActor.assumeIsolated { presentingView?.safeAreaInsets ?? UIEdgeInsets.zero }
         return BattleLayout(size: logical, safeTop: insets.top / s, safeBottom: insets.bottom / s, top: .defender)
     }
 

@@ -2,23 +2,40 @@ import Foundation
 
 /// Small JavaScript-semantics helpers shared by the game modules (ports of idioms of `Evoker Web/src/game/*.js`).
 enum JSString {
-    /// `String.prototype.localeCompare` with the default (root) collation as the web calls it on card and player
-    /// names: letters compare case-insensitively first (primary strength); on a tie the lowercase form sorts
-    /// first (tertiary strength). Every name in the data is plain ASCII, where this equals ICU's root collation
-    /// for the characters that occur (letters, spaces, apostrophes, hyphens).
-    static func localeCompare(_ a: String, _ b: String) -> Int {
-        let la = Array(a.lowercased().unicodeScalars), lb = Array(b.lowercased().unicodeScalars)
-        let n = min(la.count, lb.count)
-        for i in 0..<n where la[i] != lb[i] {
-            return la[i].value < lb[i].value ? -1 : 1
+    /// ICU root collation order of the ASCII characters (node 22: `[...chars].sort((a, b) => a.localeCompare(b))`):
+    /// whitespace, then the punctuation and symbols in CLDR order (`_` and `-` BEFORE `'`, unlike ASCII), digits,
+    /// letters (upper and lower case share a primary weight).
+    private static let icuAsciiOrder: [UInt32: Int] = {
+        let order = "\t\n\u{0B}\u{0C}\r _-,;:!?.'\"()[]{}@*/\\&#%`^+<=>|~$0123456789abcdefghijklmnopqrstuvwxyz"
+        var map: [UInt32: Int] = [:]
+        for (i, u) in order.unicodeScalars.enumerated() {
+            map[u.value] = i
+            if u.value >= 97 && u.value <= 122 { map[u.value - 32] = i }   // 'A'...'Z' share the primary of 'a'...'z'
         }
-        if la.count != lb.count { return la.count < lb.count ? -1 : 1 }
+        return map
+    }()
+
+    /// Primary collation weight of a scalar: the ICU order for ASCII, everything else after it by code point.
+    private static func primary(_ u: Unicode.Scalar) -> Int {
+        icuAsciiOrder[u.value] ?? (1000 + Int(u.value))
+    }
+
+    /// `String.prototype.localeCompare` with the default (root) collation as the web calls it on card and simulated
+    /// player names (collection.js sortCards, league.js rankRows): the characters compare by their ICU primary
+    /// weight first (letters case-insensitively, punctuation in CLDR order, a shorter prefix first); on a full tie
+    /// the first case difference decides, lowercase first (tertiary strength). Exact for the ASCII names of the
+    /// data; non-ASCII scalars (none in the data) sort after ASCII by code point.
+    static func localeCompare(_ a: String, _ b: String) -> Int {
         let ua = Array(a.unicodeScalars), ub = Array(b.unicodeScalars)
-        let m = min(ua.count, ub.count)
-        for i in 0..<m where ua[i] != ub[i] {
+        let n = min(ua.count, ub.count)
+        for i in 0..<n {
+            let pa = primary(ua[i]), pb = primary(ub[i])
+            if pa != pb { return pa < pb ? -1 : 1 }
+        }
+        if ua.count != ub.count { return ua.count < ub.count ? -1 : 1 }
+        for i in 0..<n where ua[i] != ub[i] {
             // same letter, different case: lowercase first (ICU tertiary order), unlike ASCII order
-            let aLower = ua[i].properties.isLowercase
-            return aLower ? -1 : 1
+            return ua[i].properties.isLowercase ? -1 : 1
         }
         return 0
     }

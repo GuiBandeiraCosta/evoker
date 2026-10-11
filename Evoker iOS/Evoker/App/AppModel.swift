@@ -28,7 +28,6 @@ final class AppModel: ObservableObject {
 
     private var cancellables: Set<AnyCancellable> = []
     private var unlockFlowRunning = false
-    private var lastMusicRoute: Route?
 
     init(store: GameStore, assets: AssetCatalog, audio: AudioPlaying) {
         self.store = store
@@ -163,6 +162,16 @@ final class AppModel: ObservableObject {
         router.path = [.questMap(feed: true)]
     }
 
+    /// Options → Reset progress (app.js `debug.reset`: the save is dropped and the page reloads onto the title
+    /// screen, whose tap starts the new game). The stack is emptied so the title is what shows.
+    func resetProgress() {
+        dialogs.dismissAll()
+        sessionStarted = false
+        router.path = []
+        store.reset()
+        toast(Strings.progressReset)
+    }
+
     /// Regen and the new-day work; from the 60 s timer and the foreground transition.
     func tick() {
         guard store.state != nil else { return }
@@ -189,16 +198,16 @@ final class AppModel: ObservableObject {
 
     // MARK: Music per screen (audio.js screenMusic)
 
+    /// Every screen mount asks for its cue like the web's `screenMusic`; the player keeps a track that is already
+    /// playing, so the two router sinks firing for one navigation change nothing twice. A nil cue (pre-battle,
+    /// booster, help, lab) leaves the music alone; the battle scene sets its own cues and silences the music when
+    /// it leaves, the next screen restarts it.
     private func applyMusic(_ route: Route) {
-        if case .battle = route {
-            // the battle scene sets its own cues and silences the music when it leaves: the next screen restarts it
-            lastMusicRoute = nil
-            return
-        }
-        if let last = lastMusicRoute, last == route { return }
-        lastMusicRoute = route
-        if let name = ScreenMusic.name(for: route) {
-            audio.music(name)
+        guard let cue = ScreenMusic.cue(for: route) else { return }
+        if let player = audio as? AudioPlayer {
+            player.music(cue.name, loop: cue.loop, next: cue.next, fade: cue.fade ?? AudioPlayer.crossfade)
+        } else {
+            audio.music(cue.name)
         }
     }
 

@@ -399,7 +399,9 @@ final class BattleFX {
     /// hidden at once. Returns false when the card cannot be rendered (no view): the caller dissolves it instead.
     func shatter(_ side: Side, _ slot: Int, seconds: TimeInterval) -> Bool {
         guard let board = board, let c = card(side, slot), let view = board.skView, c.parent != nil, !c.body.isHidden else { return false }
-        guard let tex = view.texture(from: c.body) else { return false }
+        // SKView is a UIView (main-actor isolated); SKAction blocks run on the main thread, so the hop is safe
+        let body = c.body
+        guard let tex = MainActor.assumeIsolated({ view.texture(from: body) }) else { return false }
         let size = BattleCardNode.size
         let hw = size.width / 2
         let hh = size.height / 2

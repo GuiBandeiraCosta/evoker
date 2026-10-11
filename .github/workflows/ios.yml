@@ -1,0 +1,127 @@
+# Opt-in CI for a machine without a Mac (README "Getting it on an iPhone", way B): on every push that touches
+# "Evoker iOS/" a macOS runner
+#   1. runs the EvokerCore tests (`swift test`),
+#   2. builds the app for the iOS Simulator (the first real compile of the SwiftUI / SpriteKit code), and
+#   3. archives an unsigned device build and uploads it as the artifact "Evoker-unsigned-ipa"
+#      (Evoker-unsigned.ipa inside the zip) to sideload with AltStore / Sideloadly and a free Apple ID.
+# It is not required for local development. Note: macOS runner minutes count 10x against the free quota of a
+# private repository; a full run is roughly 10-20 minutes of macOS time.
+#
+# The workflow file must stay at the repository root (.github/workflows/); this copy documents it next to the
+# project. If "Evoker iOS" is the repository root itself, remove the "Evoker iOS/" prefixes below.
+name: iOS build and tests
+
+on:
+  push:
+    paths:
+      - "Evoker iOS/**"
+      - ".github/workflows/ios.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ios-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # The runner image's newest Xcode 16 is selected by the "Select Xcode" step; set to a path such as
+  # /Applications/Xcode_16.4.app to pin one.
+  XCODE_APP: ""
+
+jobs:
+  core-tests:
+    name: EvokerCore tests (swift test)
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: |
+          XC="$XCODE_APP"
+          if [ -z "$XC" ]; then XC="$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -n 1)"; fi
+          if [ -n "$XC" ] && [ -d "$XC" ]; then sudo xcode-select -s "$XC"; fi
+          xcodebuild -version
+          swift --version
+      - name: swift test
+        working-directory: "Evoker iOS/EvokerCore"
+        run: swift test
+
+  app-build:
+    name: App build (iOS Simulator)
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: |
+          XC="$XCODE_APP"
+          if [ -z "$XC" ]; then XC="$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -n 1)"; fi
+          if [ -n "$XC" ] && [ -d "$XC" ]; then sudo xcode-select -s "$XC"; fi
+          xcodebuild -version
+      - name: Data, assets and project check
+        working-directory: "Evoker iOS"
+        # --no-svg: the rasterised icon PNGs are committed in GameAssets/ui; rendering them needs a headless
+        # Chrome / Edge (the runner has Chrome, so a plain `node Tools/build-assets.mjs` would work too).
+        run: |
+          node --version
+          node Tools/sync-data.mjs
+          node Tools/build-assets.mjs --no-svg
+          node Tools/check-pbxproj.mjs
+      - name: xcodebuild (Debug, iOS Simulator)
+        working-directory: "Evoker iOS"
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Evoker.xcodeproj \
+            -scheme Evoker \
+            -configuration Debug \
+            -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            build
+
+  unsigned-ipa:
+    name: Unsigned .ipa (Release, device)
+    runs-on: macos-15
+    needs: app-build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: |
+          XC="$XCODE_APP"
+          if [ -z "$XC" ]; then XC="$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -n 1)"; fi
+          if [ -n "$XC" ] && [ -d "$XC" ]; then sudo xcode-select -s "$XC"; fi
+          xcodebuild -version
+      - name: Data and assets
+        working-directory: "Evoker iOS"
+        run: |
+          node Tools/sync-data.mjs
+          node Tools/build-assets.mjs --no-svg
+      - name: xcodebuild archive (unsigned)
+        working-directory: "Evoker iOS"
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Evoker.xcodeproj \
+            -scheme Evoker \
+            -configuration Release \
+            -destination "generic/platform=iOS" \
+            -archivePath "$RUNNER_TEMP/Evoker.xcarchive" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" DEVELOPMENT_TEAM="" \
+            archive
+      - name: Package Payload/Evoker.app into Evoker-unsigned.ipa
+        run: |
+          APP="$RUNNER_TEMP/Evoker.xcarchive/Products/Applications/Evoker.app"
+          test -d "$APP"
+          rm -rf "$RUNNER_TEMP/Payload"
+          mkdir -p "$RUNNER_TEMP/Payload"
+          cp -R "$APP" "$RUNNER_TEMP/Payload/"
+          cd "$RUNNER_TEMP"
+          rm -f Evoker-unsigned.ipa
+          zip -qry Evoker-unsigned.ipa Payload
+          ls -la Evoker-unsigned.ipa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Evoker-unsigned-ipa
+          path: ${{ runner.temp }}/Evoker-unsigned.ipa
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14

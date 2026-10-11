@@ -223,9 +223,7 @@ struct SettingsView: View {
         if !first { return }
         let second = await model.dialogs.confirm(title: Strings.areYouSure, message: Strings.resetMessage2, okLabel: Strings.yesReset, danger: true)
         if !second { return }
-        model.store.reset()
-        model.startNewGame()
-        model.toast(Strings.progressReset)
+        model.resetProgress()
     }
 }
 
