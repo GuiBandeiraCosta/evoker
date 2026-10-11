@@ -38,7 +38,7 @@ for (const m of pbx.matchAll(/\/\* Begin (\w+) section \*\//g)) {
 // paths
 for (const m of pbx.matchAll(/path = "?([^";]+)"?;/g)) {
   const p = m[1];
-  if (p.endsWith('.app')) continue;
+  if (p.endsWith('.app') || p.endsWith('.xctest')) continue;
   if (!existsSync(join(root, p))) fail(`path does not exist: ${p}`);
 }
 for (const m of pbx.matchAll(/relativePath = "?([^";]+)"?;/g)) {

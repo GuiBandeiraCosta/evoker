@@ -78,9 +78,11 @@ final class AppModel: ObservableObject {
         let quests = try? DataLoader.loadQuests()
         let names = try? DataLoader.loadNames()
         let deps = Deps(db: db, stats: Stats(), engine: BattleEngine(), quests: quests, names: names)
-        let store = GameStore(saveStore: FileSaveStore(), deps: deps, clock: { Int64(Date().timeIntervalSince1970 * 1000) })
+        let saveStore = UITestHooks.enabled ? FileSaveStore(directory: UITestHooks.scratchSaveDirectory()) : FileSaveStore()
+        let store = GameStore(saveStore: saveStore, deps: deps, clock: { Int64(Date().timeIntervalSince1970 * 1000) })
         let model = AppModel(store: store, assets: BundleAssetCatalog.shared, audio: AudioPlayer())
         model.boot()
+        UITestHooks.apply(to: model)
         return model
     }
 
