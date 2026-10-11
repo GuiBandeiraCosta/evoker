@@ -356,7 +356,7 @@ struct PackBanner: View {
                 .foregroundColor(.white)
                 .shadow(color: .black, radius: 1, x: 0, y: 2)
                 .padding(.horizontal, 22)
-                .frame(minWidth: 210, height: 54)
+                .frame(minWidth: 210, minHeight: 54, maxHeight: 54)
                 .background(StretchedSprite("promo_button_fill"))
                 .background(StretchedSprite("promo_button_frame"))
         } else {
