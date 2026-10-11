@@ -51,6 +51,10 @@ public struct BattleCard: Codable, Hashable, Sendable {
     public var cardId: String?
     public var name: String?
     public var tribe: Tribe?
+    /// The tribe name as received when it is not one of the four tribes (lower-cased): the web keeps unknown race
+    /// names verbatim (the original client tests use "Orks" / "Elfen" / "Zwerge") and the engine counts them as
+    /// their own race. nil for real cards.
+    public var tribeName: String?
     public var rarity: Rarity?
     public var mana: Int?
     public var stage: Int?
@@ -70,8 +74,8 @@ public struct BattleCard: Codable, Hashable, Sendable {
 
     public init(instanceId: String? = nil, cardId: String? = nil, name: String? = nil, tribe: Tribe? = nil, rarity: Rarity? = nil, mana: Int? = nil,
                 stage: Int? = nil, level: Int? = nil, attack: Double? = nil, maxHp: Double? = nil, hp: Double? = nil, abilityValue: Double? = nil,
-                dirs: [CatalogDirection]? = nil, ability: AbilityEntry? = nil, buffs: [Buff]? = nil) {
-        self.instanceId = instanceId; self.cardId = cardId; self.name = name; self.tribe = tribe; self.rarity = rarity; self.mana = mana
+                dirs: [CatalogDirection]? = nil, ability: AbilityEntry? = nil, buffs: [Buff]? = nil, tribeName: String? = nil) {
+        self.instanceId = instanceId; self.cardId = cardId; self.name = name; self.tribe = tribe; self.tribeName = tribeName; self.rarity = rarity; self.mana = mana
         self.stage = stage; self.level = level; self.attack = attack; self.maxHp = maxHp; self.hp = hp; self.abilityValue = abilityValue
         self.dirs = dirs; self.ability = ability; self.buffs = buffs
     }
@@ -83,7 +87,14 @@ public struct BattleCard: Codable, Hashable, Sendable {
         instanceId = c.stringOrNil(.instanceId) ?? c.stringOrNil(.uid)
         cardId = c.stringOrNil(.cardId)
         name = c.stringOrNil(.name)
-        if let t = c.stringOrNil(.tribe) ?? c.stringOrNil(.race) { tribe = Tribe(lenient: t) } else { tribe = nil }
+        if let t = c.stringOrNil(.tribe) ?? c.stringOrNil(.race) {
+            let lower = t.lowercased()
+            tribe = Tribe(lenient: lower)
+            tribeName = (!lower.isEmpty && Tribe(rawValue: lower) == nil) ? lower : nil
+        } else {
+            tribe = nil
+            tribeName = nil
+        }
         rarity = c.optionalValue(Rarity.self, .rarity)
         mana = c.intOrNil(.mana)
         stage = c.intOrNil(.stage)
@@ -108,7 +119,7 @@ public struct BattleCard: Codable, Hashable, Sendable {
         try c.encodeIfPresent(instanceId, forKey: .instanceId)
         try c.encodeIfPresent(cardId, forKey: .cardId)
         try c.encodeIfPresent(name, forKey: .name)
-        try c.encodeIfPresent(tribe, forKey: .tribe)
+        try c.encodeIfPresent(tribeName ?? tribe?.rawValue, forKey: .tribe)
         try c.encodeIfPresent(rarity, forKey: .rarity)
         try c.encodeIfPresent(mana, forKey: .mana)
         try c.encodeIfPresent(stage, forKey: .stage)
@@ -295,6 +306,8 @@ public struct CardSnapshot: Codable, Hashable, Sendable {
     public var cardId: String?
     public var name: String?
     public var tribe: Tribe
+    /// The raw tribe name when it is not one of the four tribes (see BattleCard.tribeName); encoded as `tribe`.
+    public var tribeName: String?
     public var rarity: Rarity?
     public var mana: Int?
     public var stage: Int?
@@ -308,8 +321,8 @@ public struct CardSnapshot: Codable, Hashable, Sendable {
 
     public init(instanceId: String? = nil, cardId: String? = nil, name: String? = nil, tribe: Tribe = .neutral, rarity: Rarity? = nil, mana: Int? = nil,
                 stage: Int? = nil, level: Int? = nil, attack: Int, hp: Int, maxHp: Int, abilityValue: Double? = nil, dirs: [CatalogDirection] = [],
-                ability: AbilityEntry? = nil) {
-        self.instanceId = instanceId; self.cardId = cardId; self.name = name; self.tribe = tribe; self.rarity = rarity; self.mana = mana
+                ability: AbilityEntry? = nil, tribeName: String? = nil) {
+        self.instanceId = instanceId; self.cardId = cardId; self.name = name; self.tribe = tribe; self.tribeName = tribeName; self.rarity = rarity; self.mana = mana
         self.stage = stage; self.level = level; self.attack = attack; self.hp = hp; self.maxHp = maxHp; self.abilityValue = abilityValue
         self.dirs = dirs; self.ability = ability
     }
@@ -321,7 +334,9 @@ public struct CardSnapshot: Codable, Hashable, Sendable {
         instanceId = c.stringOrNil(.instanceId)
         cardId = c.stringOrNil(.cardId)
         name = c.stringOrNil(.name)
-        tribe = Tribe(lenient: c.stringOrNil(.tribe))
+        let rawTribe = c.stringOrNil(.tribe)?.lowercased()
+        tribe = Tribe(lenient: rawTribe)
+        tribeName = rawTribe.flatMap { (!$0.isEmpty && Tribe(rawValue: $0) == nil) ? $0 : nil }
         rarity = c.optionalValue(Rarity.self, .rarity)
         mana = c.intOrNil(.mana)
         stage = c.intOrNil(.stage)
@@ -339,7 +354,7 @@ public struct CardSnapshot: Codable, Hashable, Sendable {
         try c.encodeIfPresent(instanceId, forKey: .instanceId)
         try c.encodeIfPresent(cardId, forKey: .cardId)
         try c.encodeIfPresent(name, forKey: .name)
-        try c.encode(tribe, forKey: .tribe)
+        try c.encode(tribeName ?? tribe.rawValue, forKey: .tribe)
         try c.encodeIfPresent(rarity, forKey: .rarity)
         try c.encodeIfPresent(mana, forKey: .mana)
         try c.encodeIfPresent(stage, forKey: .stage)

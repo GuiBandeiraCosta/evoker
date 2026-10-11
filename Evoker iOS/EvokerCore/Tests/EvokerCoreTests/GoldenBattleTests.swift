@@ -40,7 +40,7 @@ final class GoldenBattleTests: XCTestCase {
             let eng = engine()
             var attacker = c.attacker, defender = c.defender
             if buildSides, let ai = c.attackerInput, let di = c.defenderInput {
-                let opts = OpponentOps.sideOptions(deps: deps())
+                let opts = GoldenBattleTests.sideOptions()
                 attacker = eng.buildSide(ai.player, ai.cards.map { $0.map(SideEntry.ref) }, options: opts)
                 defender = eng.buildSide(di.player, di.cards.map { $0.map(SideEntry.ref) }, options: opts)
                 // the built sides must equal the web's built sides (stats, buffs, tribe bonus)
@@ -70,8 +70,16 @@ final class GoldenBattleTests: XCTestCase {
         }
     }
 
-    private func deps() -> Deps {
-        Deps(db: RealData.db, stats: Stats(), engine: BattleEngine(), quests: RealData.quests, names: RealData.names)
+    /// opponents.js sideOptions / statsAdapter: stats through Stats.statAt (attack `|| 0`, hp `|| 1`, ability when the card has one).
+    static func sideOptions() -> SideOptions {
+        let stats = Stats()
+        let compute: ComputeStats = { def, stage, level, q in
+            let attack = stats.statAt(def, .attack, stage: stage, level: level, evolveQuality: q) ?? 0
+            let hp = stats.statAt(def, .hp, stage: stage, level: level, evolveQuality: q) ?? 0
+            let ability = def.base.ability != nil ? stats.statAt(def, .ability, stage: stage, level: level, evolveQuality: q) : nil
+            return CardStats(attack: Int(attack), hp: hp == 0 ? 1 : Int(hp), ability: ability)
+        }
+        return SideOptions(cardsDb: RealData.db, computeStats: compute, tribeBonus: nil)
     }
 
     func testOriginalClientUnitTests() throws {
