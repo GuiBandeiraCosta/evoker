@@ -213,3 +213,20 @@ State of the first round (2026-10-11), written on a Windows machine without Xcod
 Manual smoke tour once it runs: title → new game → quest 1 (tap minions, boss intro, pre-battle drag & drop,
 battle, result) → Cards (deck / training / fusion) → Shop (open a Neophyte booster) → Arena (name prompt, offers,
 pieces) → League → Character (profile, daily, options: volumes, export / import, reset, Card Lab) → Help.
+
+## Simulator UI tests (no phone, no Mac)
+
+Every push that touches `Evoker iOS/` runs the `EvokerUITests` target on an iPhone simulator on GitHub's macOS
+runners (`.github/workflows/ios.yml`, job "ui-tests") and uploads every screenshot as the artifact
+`ui-screenshots`. The app understands test-only launch options (`Evoker/App/UITestHooks.swift`: `-uitest`,
+`-uitest-preset title|fresh|mid`, `-uitest-route <screen>`) and, under `-uitest`, exposes an invisible
+`uitest-state` readout ("deck:n;mana:m;cards:c") so tests can assert game state. Positions in the tests are web
+stage units (720 x 1280), the same numbers as `Evoker Web/tests/screenshots`. The unsigned `.ipa` and the
+EvokerCore tests run on demand: Actions ▸ "iOS build and tests" ▸ Run workflow, or
+`gh workflow run ios.yml -f ipa=true`.
+
+| Reported | Bug | Guarded by |
+|---|---|---|
+| 2026-10-11 | Screens stretched to the tall iPhone shape, HUD under the notch ("wrong format") | letterboxed `StageCanvas`; screenshots of test02 |
+| 2026-10-11 | Card dragging did nothing | `EvokerScreensUITests.test03CardsSliderAndDrag` (deck count asserted), `test05PrebattleDragAndFight` |
+| 2026-10-11 | Landing feed banners overlapped each other | screenshot `04-feed` |
