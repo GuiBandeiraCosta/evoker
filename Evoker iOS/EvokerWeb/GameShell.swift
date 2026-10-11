@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 import WebKit
+import os
 
 /// The app's single screen: a full-screen WKWebView running the web game from `LocalGameServer`, with the save
 /// mirrored by `SaveMirror`. The web game letterboxes its 720 x 1280 stage itself (src/ui/components/stage.js
@@ -15,6 +16,10 @@ final class GameShell: NSObject, ObservableObject {
     let webView: WKWebView
     let readout = UILabel()
     private var started = false
+    /// The server runs and the port is known: only then may the game load (a load before that asks port 0).
+    private var booted = false
+    private let log = Logger(subsystem: "com.guiba.evoker", category: "shell")
+    private let pageLog = PageLogHandler()
     private var pendingTestScript: String?
     private var readoutTimer: Timer?
     /// The file the current download (the settings' "export save") writes.
@@ -32,6 +37,7 @@ final class GameShell: NSObject, ObservableObject {
         config.mediaTypesRequiringUserActionForPlayback = []
         config.websiteDataStore = .default()
         config.userContentController.add(mirror, name: SaveMirror.handlerName)
+        config.userContentController.add(pageLog, name: PageLogHandler.name)
         webView = WKWebView(frame: .zero, configuration: config)
         super.init()
 
@@ -78,25 +84,31 @@ final class GameShell: NSObject, ObservableObject {
 
     private func boot() {
         guard server.start(ports: GameShell.ports) else {
+            log.error("local game server could not start on ports \(GameShell.ports.first ?? 0, privacy: .public)+")
             webView.loadHTMLString("<body style='background:#000;color:#ccc;font:20px -apple-system;padding:40px'>Evoker could not start its local game server. Close the app and open it again.</body>", baseURL: nil)
             return
         }
+        booted = true
+        log.notice("local game server on 127.0.0.1:\(self.server.port, privacy: .public), root \(self.server.root.path, privacy: .public)")
         load()
     }
 
     /// (Re)loads the game with a fresh save-restoring script (it carries the latest mirrored save).
     func load() {
+        guard booted, server.port != 0 else { return }
         let ucc = webView.configuration.userContentController
         ucc.removeAllUserScripts()
+        ucc.addUserScript(WKUserScript(source: PageLogHandler.script, injectionTime: .atDocumentStart, forMainFrameOnly: true))
         ucc.addUserScript(mirror.userScript())
         ucc.addUserScript(WKUserScript(source: GameShell.shellCSS, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
         guard let url = URL(string: "http://127.0.0.1:\(server.port)/index.html") else { return }
+        log.notice("loading \(url.absoluteString, privacy: .public)")
         webView.load(URLRequest(url: url))
     }
 
     /// Back from the background: the listener or the web content process may have been reclaimed meanwhile.
     func becameActive() {
-        guard started else { return }
+        guard booted else { return }
         server.ensureRunning()
         if webView.url == nil { load() }
     }
@@ -193,7 +205,20 @@ extension GameShell: WKNavigationDelegate, WKDownloadDelegate {
     }
 
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+        log.error("web content process terminated, reloading")
         load()
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        log.notice("page loaded: \(webView.url?.absoluteString ?? "-", privacy: .public)")
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        log.error("page load failed: \(error.localizedDescription, privacy: .public)")
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        log.error("page load failed before it started: \(error.localizedDescription, privacy: .public) (\((error as NSError).code, privacy: .public))")
     }
 
     func download(_ download: WKDownload, decideDestinationUsing response: URLResponse, suggestedFilename: String, completionHandler: @escaping @MainActor @Sendable (URL?) -> Void) {
@@ -250,4 +275,26 @@ struct GameWebView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {}
+}
+
+/// Forwards the page's script errors, rejected promises and console.error lines to the app log (os_log category
+/// "page"), so a game that does not boot on a device or in CI says why.
+final class PageLogHandler: NSObject, WKScriptMessageHandler {
+    static let name = "evokerLog"
+    private let log = Logger(subsystem: "com.guiba.evoker", category: "page")
+
+    static let script = """
+    (function () {
+      var post = function (m) { try { window.webkit.messageHandlers.evokerLog.postMessage(String(m)); } catch (e) {} };
+      window.addEventListener('error', function (e) { post('error: ' + e.message + ' @ ' + (e.filename || '') + ':' + (e.lineno || 0)); });
+      window.addEventListener('unhandledrejection', function (e) { post('unhandled rejection: ' + (e.reason && (e.reason.stack || e.reason.message) || e.reason)); });
+      var ce = console.error;
+      console.error = function () { post('console.error: ' + Array.prototype.join.call(arguments, ' ')); return ce.apply(console, arguments); };
+      document.addEventListener('DOMContentLoaded', function () { post('DOMContentLoaded ' + location.href); });
+    })();
+    """
+
+    func userContentController(_ controller: WKUserContentController, didReceive message: WKScriptMessage) {
+        log.notice("\(String(describing: message.body), privacy: .public)")
+    }
 }

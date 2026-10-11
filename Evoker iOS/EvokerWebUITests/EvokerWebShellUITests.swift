@@ -50,6 +50,7 @@ final class EvokerWebShellUITests: XCTestCase {
             if ok(last) { return last }
             Thread.sleep(forTimeInterval: 0.4)
         }
+        shot("timeout - \(what)")
         XCTFail("timed out waiting for \(what); readout: \(last)")
         return last
     }
