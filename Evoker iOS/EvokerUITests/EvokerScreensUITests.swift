@@ -63,6 +63,16 @@ final class EvokerScreensUITests: XCTestCase {
         return -1
     }
 
+    /// A number of the test readout ("cards", "deck", "mana"), or -1.
+    private func readout(_ app: XCUIApplication, _ key: String) -> Int {
+        let el = app.staticTexts["uitest-state"]
+        guard el.waitForExistence(timeout: 3) else { return -1 }
+        for part in el.label.split(separator: ";") where part.hasPrefix(key + ":") {
+            return Int(part.dropFirst(key.count + 1)) ?? -1
+        }
+        return -1
+    }
+
     // MARK: Screens
 
     func test01TitleAndNewGame() {
@@ -160,5 +170,82 @@ final class EvokerScreensUITests: XCTestCase {
         shot("45-battle-end", wait: 15)
         tap(app, 360, 640)
         shot("46-after-result-tap", wait: 3)
+    }
+
+    /// Training (web: qa-cards-economy/12-training-ready.png): Training slot (134, 380), Sacrifice stack (586, 380),
+    /// OK (360, 426); the slider's cards around y 830 after a swipe.
+    func test06Training() {
+        let app = launch(preset: "mid", route: "cards-training")
+        shot("50-training")
+        drag(app, from: (660, 830), to: (120, 830), hold: 0.02)
+        shot("51-training-swiped", wait: 1.5)
+        let before = readout(app, "cards")
+        drag(app, from: (360, 830), to: (134, 380))
+        shot("52-training-slot-filled", wait: 1.5)
+        drag(app, from: (360, 830), to: (586, 380))
+        shot("53-training-sacrifice-filled", wait: 1.5)
+        tap(app, 360, 426)
+        shot("54-training-ok", wait: 2)
+        shot("55-training-done", wait: 4)
+        tap(app, 360, 640)
+        shot("56-training-after", wait: 2)
+        XCTAssertEqual(readout(app, "cards"), before - 1, "training consumes the sacrificed card")
+    }
+
+    /// Fusion (web: qa-cards-economy/18-fusion-ready.png): Slot 1 (134, 380), Slot 2 (584, 380), OK (360, 426).
+    /// The "mid" save owns two Throat-Cutters.
+    func test07Fusion() {
+        let app = launch(preset: "mid", route: "cards-fusion")
+        shot("60-fusion")
+        drag(app, from: (660, 830), to: (120, 830), hold: 0.02)
+        shot("61-fusion-swiped", wait: 1.5)
+        let before = readout(app, "cards")
+        drag(app, from: (360, 830), to: (134, 380))
+        shot("62-fusion-slot1", wait: 1.5)
+        drag(app, from: (360, 830), to: (584, 380))
+        shot("63-fusion-slot2", wait: 1.5)
+        tap(app, 360, 426)
+        shot("64-fusion-ok", wait: 2)
+        shot("65-fusion-done", wait: 4)
+        tap(app, 360, 640)
+        shot("66-fusion-after", wait: 2)
+        XCTAssertEqual(readout(app, "cards"), before - 1, "fusion turns two cards into one")
+    }
+
+    /// Booster (web: qa-cards-economy/29-booster-grid.png): 3 x 3 grid, columns x 124 / 360 / 596, rows y 350 / 670 / 990.
+    func test08BoosterPick() {
+        let app = launch(preset: "mid", route: "booster-neophyte")
+        shot("70-booster", wait: 3)
+        shot("71-booster-grid", wait: 3)
+        let before = readout(app, "cards")
+        tap(app, 360, 670)
+        shot("72-booster-reveal", wait: 3)
+        tap(app, 360, 670)
+        shot("73-booster-after", wait: 2)
+        XCTAssertEqual(readout(app, "cards"), before + 1, "a booster pick adds the card")
+    }
+
+    /// Arena (web: 16-arena.png): the first opponent's attack button at (654, 336); then the pre-battle's Attack!.
+    func test09ArenaFight() {
+        let app = launch(preset: "mid", route: "arena")
+        shot("80-arena")
+        tap(app, 654, 336)
+        shot("81-arena-prebattle", wait: 3)
+        tap(app, 360, 510)
+        shot("82-arena-battle", wait: 6)
+        shot("83-arena-battle-end", wait: 30)
+        tap(app, 360, 640)
+        shot("84-arena-after", wait: 3)
+    }
+
+    /// Level-up dialog (web: qa-core-loop/07-levelup-points.png): Proceed at (486, 906).
+    func test10LevelUp() {
+        let app = launch(preset: "levelup", route: "quest1")
+        tap(app, 150, 700)
+        shot("90-levelup", wait: 2.5)
+        shot("91-levelup-points", wait: 2)
+        tap(app, 486, 906)
+        shot("92-after-proceed", wait: 3)
+        XCTAssertGreaterThanOrEqual(readout(app, "level"), 2, "the tap levelled the player up")
     }
 }

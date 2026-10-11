@@ -8,7 +8,9 @@ import EvokerCore
 ///   -uitest                 use a throw-away save folder (never the player's save) and no music
 ///   -uitest-preset NAME     "title"  : no save (the first-launch title screen)
 ///                           "fresh"  : a new game, session started (quest map)
-///                           "mid"    : level 12, every feature open, 12 extra cards, gems / gold / tokens
+///                           "mid"    : level 12, every feature open, 13 extra cards (two Throat-Cutters to fuse),
+///                                      gems / gold / tokens
+///                           "levelup": like "fresh", one minion tap short of level 2
 ///   -uitest-route NAME      push a screen after boot: cards, cards-training, cards-fusion, arena, pieces,
 ///                           replays, league, shop, character, settings, collections, help, lab, quest1,
 ///                           prebattle-quest1 (quest 1 played to its boss)
@@ -32,7 +34,7 @@ enum UITestHooks {
 
     /// Cards the "mid" preset adds (a spread of tribes, rarities and abilities; all exist in cards.json).
     static let midCards: [String] = [
-        "throat-cutter", "pouch-tearer", "bone-breaker", "falconer", "pikeman", "archer",
+        "throat-cutter", "throat-cutter", "pouch-tearer", "bone-breaker", "falconer", "pikeman", "archer",
         "ogre", "dwarf-king", "phoenix", "griffin", "argonaut", "siren",
     ]
 
@@ -45,6 +47,14 @@ enum UITestHooks {
         if preset == "title" { return }
         let store = model.store
         _ = store.newGame(name: "Tester")
+        if preset == "levelup" {
+            // one stamina tap short of level 2 (47 xp needed at level 1, a quest-1 tap gives 2)
+            try? store.updateState { s, _, _ in
+                var next = s
+                next.player.xp = 46
+                return next
+            }
+        }
         if preset == "mid" {
             let debug = store.debug
             debug.setLevel(12)
@@ -93,6 +103,7 @@ enum UITestHooks {
         case "lab": return .lab
         case "quest1": return .quest(line: "main", n: 1)
         case "feed": return .questMap(feed: true)
+        case "booster-neophyte": return .boosterOpen(booster: .neophyte, portalId: nil)
         default: return nil
         }
     }
@@ -138,6 +149,6 @@ struct UITestStateReadout: View {
         guard let s = model.store.state else { return "nosave" }
         let deck = s.deck.compactMap { $0 }.count
         let mana = StateOps.deckMana(s, deps: model.deps)
-        return "deck:\(deck);mana:\(mana);cards:\(s.cards.count)"
+        return "deck:\(deck);mana:\(mana);cards:\(s.cards.count);level:\(s.player.level);gold:\(s.player.gold);gems:\(s.player.gems)"
     }
 }
