@@ -200,109 +200,186 @@ struct PackBanner: View {
     }
 
     var body: some View {
-        let width = Stage.width - 28
-        let height = offer.portalId != nil ? width * 372 / 649 : width * 270 / 649
-        let t = theme
+        let width: CGFloat = Stage.width - 28
+        let height: CGFloat = offer.portalId != nil ? width * 372 / 649 : width * 270 / 649
         Button(action: { if !offer.pre { onOpen() } }) {
-            ZStack(alignment: .top) {
-                // the painting: card arts side by side, blended
-                ZStack(alignment: .leading) {
-                    Color(hex: 0x0c0f13)
-                    HStack(spacing: 0) {
-                        ForEach(Array(showcase.enumerated()), id: \.offset) { item in
-                            CardArt(def: item.element, stage: lastStage(item.element))
-                                .frame(width: (width - 60) * 0.34)
-                                .mask(LinearGradient(stops: [.init(color: item.offset == 0 ? .black : .clear, location: 0), .init(color: .black, location: 0.2), .init(color: .black, location: 0.8), .init(color: item.offset == 3 ? .black : .clear, location: 1)], startPoint: .leading, endPoint: .trailing))
-                                .offset(x: CGFloat(item.offset) * (width - 60) * 0.22 - CGFloat(item.offset) * (width - 60) * 0.34)
-                        }
-                    }
-                    LinearGradient(stops: [.init(color: .black.opacity(0.3), location: 0), .init(color: .clear, location: 0.3), .init(color: .clear, location: 0.52), .init(color: .black.opacity(0.78), location: 1)], startPoint: .top, endPoint: .bottom)
-                }
-                .frame(width: width - 60, height: height - 60)
-                .clipped()
-                .padding(30)
-                NineSlice(Theme.Frames.packFrame)
-                    .colorMultiply(t.frame == "gold" ? Color(hex: 0xffd27a) : (t.frame == "violet" ? Color(hex: 0xcf9cff) : .white))
-                    .allowsHitTesting(false)
-                Text(offer.name)
-                    .font(Theme.font(36))
-                    .foregroundColor(t.title)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
-                    .shadow(color: Color(hex: 0x280d0b), radius: 0, x: 2, y: 2)
-                    .frame(width: width * 0.76, height: 58)
-                    .background(StretchedSprite("header_framer_big"))
-                    .padding(.top, 30)
-                if !offer.pre && offer.endsInMs > 0 {
-                    HStack(spacing: 8) {
-                        Text(Strings.offerEndsIn).font(Theme.font(18)).foregroundColor(Theme.muted)
-                        CountdownText(endsAt: model.now + offer.endsInMs, style: .dhms, font: Theme.num(22), color: .white)
-                    }
-                    .padding(.vertical, 4).padding(.horizontal, 14)
-                    .background(Color(hex: 0x080a0c, alpha: 0.78))
-                    .cornerRadius(4)
-                    .frame(maxHeight: .infinity, alignment: .bottom)
-                    .padding(.bottom, 106)
-                }
-                if offer.discounted && !offer.pre {
-                    Text("−50 %")
-                        .font(Theme.font(22))
-                        .foregroundColor(Theme.sellGreen)
-                        .padding(.vertical, 4).padding(.horizontal, 16)
-                        .background(NineSlice(Theme.Frames.discountBg))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 44).padding(.top, 96)
-                }
-                // foot: "May contain:", Look inside / Coming soon, tokens
-                HStack(alignment: .bottom, spacing: 8) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(Strings.mayContain).font(Theme.font(15)).foregroundColor(Color(hex: 0xcfd3d6))
-                        HStack(spacing: 5) {
-                            ForEach(offer.mayContain, id: \.self) { r in
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(Color.black.opacity(0.55))
-                                    .overlay(RoundedRectangle(cornerRadius: 4).stroke(squareColor(r), lineWidth: 3))
-                                    .frame(width: 22, height: 22)
-                                    .shadow(color: squareColor(r), radius: 5)
-                            }
-                        }
-                    }
-                    .padding(.bottom, 4)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    if !offer.pre {
-                        Text(Strings.lookInside)
-                            .font(Theme.font(24))
-                            .foregroundColor(.white)
-                            .shadow(color: .black, radius: 1, x: 0, y: 2)
-                            .padding(.horizontal, 22)
-                            .frame(minWidth: 210, height: 54)
-                            .background(StretchedSprite("promo_button_fill"))
-                            .background(StretchedSprite("promo_button_frame"))
-                    } else {
-                        VStack(spacing: 2) {
-                            Text(offer.startsInMs > 0 ? Strings.comingSoon : Strings.comingSoonPlain).font(Theme.font(22)).foregroundColor(.white)
-                            if offer.startsInMs > 0 {
-                                CountdownText(endsAt: model.now + offer.startsInMs, style: .dhms, font: Theme.num(26), color: .white)
-                            }
-                        }
-                        .shadow(color: .black.opacity(0.9), radius: 3, x: 0, y: 2)
-                    }
-                    HStack(spacing: 8) {
-                        if offer.pre || offer.tokens > 0 { TokenImage(kind: offer.id, size: 52).shadow(color: Color(hex: 0xffaa3c, alpha: 0.55), radius: 6) }
-                        if offer.tokens > 0 { Text(fmtNumber(offer.tokens)).font(Theme.num(30)).foregroundColor(.white).shadow(color: .black.opacity(0.95), radius: 3, x: 0, y: 2) }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                }
-                .frame(width: width - 80, height: 64)
-                .frame(maxHeight: .infinity, alignment: .bottom)
-                .padding(.bottom, 36)
-            }
-            .frame(width: width, height: height)
-            .shadow(color: .black.opacity(0.75), radius: 10, x: 0, y: 6)
-            .contentShape(Rectangle())
+            bannerContent(width: width, height: height)
         }
         .buttonStyle(PressScaleStyle())
         .disabled(offer.pre)
+    }
+
+    // The banner is split into small builders: as one expression it took the Swift type checker too long.
+
+    private func bannerContent(width: CGFloat, height: CGFloat) -> some View {
+        ZStack(alignment: .top) {
+            painting(width: width, height: height)
+            frameOverlay
+            titlePlate(width: width)
+            countdownBadge
+            discountBadge
+            foot(width: width)
+        }
+        .frame(width: width, height: height)
+        .shadow(color: .black.opacity(0.75), radius: 10, x: 0, y: 6)
+        .contentShape(Rectangle())
+    }
+
+    /// The painting: card arts side by side, blended.
+    private func painting(width: CGFloat, height: CGFloat) -> some View {
+        let inner: CGFloat = width - 60
+        let shade = LinearGradient(stops: [Gradient.Stop(color: Color.black.opacity(0.3), location: 0),
+                                           Gradient.Stop(color: Color.clear, location: 0.3),
+                                           Gradient.Stop(color: Color.clear, location: 0.52),
+                                           Gradient.Stop(color: Color.black.opacity(0.78), location: 1)],
+                                   startPoint: .top, endPoint: .bottom)
+        let items: [(offset: Int, element: CardDef)] = Array(showcase.enumerated())
+        return ZStack(alignment: .leading) {
+            Color(hex: 0x0c0f13)
+            HStack(spacing: 0) {
+                ForEach(items, id: \.offset) { item in
+                    showcaseArt(item.element, index: item.offset, inner: inner)
+                }
+            }
+            shade
+        }
+        .frame(width: inner, height: height - 60)
+        .clipped()
+        .padding(30)
+    }
+
+    private func showcaseArt(_ def: CardDef, index: Int, inner: CGFloat) -> some View {
+        let first: Color = index == 0 ? Color.black : Color.clear
+        let last: Color = index == 3 ? Color.black : Color.clear
+        let mask = LinearGradient(stops: [Gradient.Stop(color: first, location: 0),
+                                          Gradient.Stop(color: Color.black, location: 0.2),
+                                          Gradient.Stop(color: Color.black, location: 0.8),
+                                          Gradient.Stop(color: last, location: 1)],
+                                  startPoint: .leading, endPoint: .trailing)
+        let step: CGFloat = inner * 0.22 - inner * 0.34
+        let dx: CGFloat = CGFloat(index) * step
+        return CardArt(def: def, stage: lastStage(def))
+            .frame(width: inner * 0.34)
+            .mask(mask)
+            .offset(x: dx)
+    }
+
+    private var frameTint: Color {
+        let t = theme
+        if t.frame == "gold" { return Color(hex: 0xffd27a) }
+        if t.frame == "violet" { return Color(hex: 0xcf9cff) }
+        return Color.white
+    }
+
+    private var frameOverlay: some View {
+        NineSlice(Theme.Frames.packFrame)
+            .colorMultiply(frameTint)
+            .allowsHitTesting(false)
+    }
+
+    private func titlePlate(width: CGFloat) -> some View {
+        Text(offer.name)
+            .font(Theme.font(36))
+            .foregroundColor(theme.title)
+            .lineLimit(1)
+            .minimumScaleFactor(0.7)
+            .shadow(color: Color(hex: 0x280d0b), radius: 0, x: 2, y: 2)
+            .frame(width: width * 0.76, height: 58)
+            .background(StretchedSprite("header_framer_big"))
+            .padding(.top, 30)
+    }
+
+    @ViewBuilder private var countdownBadge: some View {
+        if !offer.pre && offer.endsInMs > 0 {
+            HStack(spacing: 8) {
+                Text(Strings.offerEndsIn).font(Theme.font(18)).foregroundColor(Theme.muted)
+                CountdownText(endsAt: model.now + offer.endsInMs, style: .dhms, font: Theme.num(22), color: .white)
+            }
+            .padding(.vertical, 4).padding(.horizontal, 14)
+            .background(Color(hex: 0x080a0c, alpha: 0.78))
+            .cornerRadius(4)
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 106)
+        }
+    }
+
+    @ViewBuilder private var discountBadge: some View {
+        if offer.discounted && !offer.pre {
+            Text("−50 %")
+                .font(Theme.font(22))
+                .foregroundColor(Theme.sellGreen)
+                .padding(.vertical, 4).padding(.horizontal, 16)
+                .background(NineSlice(Theme.Frames.discountBg))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 44).padding(.top, 96)
+        }
+    }
+
+    /// Foot: "May contain:", Look inside / Coming soon, tokens.
+    private func foot(width: CGFloat) -> some View {
+        HStack(alignment: .bottom, spacing: 8) {
+            mayContain
+            footAction
+            tokenCount
+        }
+        .frame(width: width - 80, height: 64)
+        .frame(maxHeight: .infinity, alignment: .bottom)
+        .padding(.bottom, 36)
+    }
+
+    private var mayContain: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(Strings.mayContain).font(Theme.font(15)).foregroundColor(Color(hex: 0xcfd3d6))
+            HStack(spacing: 5) {
+                ForEach(offer.mayContain, id: \.self) { r in
+                    raritySquare(r)
+                }
+            }
+        }
+        .padding(.bottom, 4)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func raritySquare(_ r: Rarity) -> some View {
+        let c: Color = squareColor(r)
+        return RoundedRectangle(cornerRadius: 4)
+            .fill(Color.black.opacity(0.55))
+            .overlay(RoundedRectangle(cornerRadius: 4).stroke(c, lineWidth: 3))
+            .frame(width: 22, height: 22)
+            .shadow(color: c, radius: 5)
+    }
+
+    @ViewBuilder private var footAction: some View {
+        if !offer.pre {
+            Text(Strings.lookInside)
+                .font(Theme.font(24))
+                .foregroundColor(.white)
+                .shadow(color: .black, radius: 1, x: 0, y: 2)
+                .padding(.horizontal, 22)
+                .frame(minWidth: 210, height: 54)
+                .background(StretchedSprite("promo_button_fill"))
+                .background(StretchedSprite("promo_button_frame"))
+        } else {
+            VStack(spacing: 2) {
+                Text(offer.startsInMs > 0 ? Strings.comingSoon : Strings.comingSoonPlain).font(Theme.font(22)).foregroundColor(.white)
+                if offer.startsInMs > 0 {
+                    CountdownText(endsAt: model.now + offer.startsInMs, style: .dhms, font: Theme.num(26), color: .white)
+                }
+            }
+            .shadow(color: .black.opacity(0.9), radius: 3, x: 0, y: 2)
+        }
+    }
+
+    private var tokenCount: some View {
+        HStack(spacing: 8) {
+            if offer.pre || offer.tokens > 0 {
+                TokenImage(kind: offer.id, size: 52).shadow(color: Color(hex: 0xffaa3c, alpha: 0.55), radius: 6)
+            }
+            if offer.tokens > 0 {
+                Text(fmtNumber(offer.tokens)).font(Theme.num(30)).foregroundColor(.white).shadow(color: .black.opacity(0.95), radius: 3, x: 0, y: 2)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .trailing)
     }
 
     private func lastStage(_ def: CardDef) -> Int {
