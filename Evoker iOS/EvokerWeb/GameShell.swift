@@ -3,20 +3,17 @@ import UIKit
 import WebKit
 import os
 
-/// The app's single screen: a full-screen WKWebView running the web game from `LocalGameServer`, with the save
+/// The app's single screen: a full-screen WKWebView running the web game from `GameSchemeHandler`, with the save
 /// mirrored by `SaveMirror`. The web game letterboxes its 720 x 1280 stage itself (src/ui/components/stage.js
 /// fitStage), so the view covers the whole display, safe areas included.
 @MainActor
 final class GameShell: NSObject, ObservableObject {
-    /// Fixed so the page origin (and its localStorage) stays the same; the next ones are fallbacks.
-    static let ports: [UInt16] = Array(47613...47622)
-
-    let server: LocalGameServer
+    let files: GameSchemeHandler
     let mirror: SaveMirror
     let webView: WKWebView
     let readout = UILabel()
     private var started = false
-    /// The server runs and the port is known: only then may the game load (a load before that asks port 0).
+    /// Test-state clearing is done: only then may the game load.
     private var booted = false
     private let log = Logger(subsystem: "com.guiba.evoker", category: "shell")
     private let pageLog = PageLogHandler()
@@ -27,7 +24,7 @@ final class GameShell: NSObject, ObservableObject {
 
     override init() {
         let root = (Bundle.main.resourceURL ?? URL(fileURLWithPath: NSTemporaryDirectory())).appendingPathComponent("Game")
-        server = LocalGameServer(root: root)
+        files = GameSchemeHandler(root: root)
         let support = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
             ?? URL(fileURLWithPath: NSTemporaryDirectory())
         mirror = SaveMirror(directory: support.appendingPathComponent("Evoker"))
@@ -36,6 +33,7 @@ final class GameShell: NSObject, ObservableObject {
         config.allowsInlineMediaPlayback = true
         config.mediaTypesRequiringUserActionForPlayback = []
         config.websiteDataStore = .default()
+        config.setURLSchemeHandler(files, forURLScheme: GameSchemeHandler.scheme)
         config.userContentController.add(mirror, name: SaveMirror.handlerName)
         config.userContentController.add(pageLog, name: PageLogHandler.name)
         webView = WKWebView(frame: .zero, configuration: config)
@@ -63,7 +61,7 @@ final class GameShell: NSObject, ObservableObject {
         readout.accessibilityIdentifier = "uitest-state"
     }
 
-    /// Clears the test state when asked, starts the server and loads the game (once).
+    /// Clears the test state when asked, then loads the game (once).
     func start() {
         guard !started else { return }
         started = true
@@ -83,33 +81,28 @@ final class GameShell: NSObject, ObservableObject {
     }
 
     private func boot() {
-        guard server.start(ports: GameShell.ports) else {
-            log.error("local game server could not start on ports \(GameShell.ports.first ?? 0, privacy: .public)+")
-            webView.loadHTMLString("<body style='background:#000;color:#ccc;font:20px -apple-system;padding:40px'>Evoker could not start its local game server. Close the app and open it again.</body>", baseURL: nil)
-            return
-        }
         booted = true
-        log.notice("local game server on 127.0.0.1:\(self.server.port, privacy: .public), root \(self.server.root.path, privacy: .public)")
+        let index = files.root.appendingPathComponent("index.html").path
+        log.notice("game files at \(self.files.root.path, privacy: .public), index.html present: \(FileManager.default.fileExists(atPath: index), privacy: .public)")
         load()
     }
 
     /// (Re)loads the game with a fresh save-restoring script (it carries the latest mirrored save).
     func load() {
-        guard booted, server.port != 0 else { return }
+        guard booted else { return }
         let ucc = webView.configuration.userContentController
         ucc.removeAllUserScripts()
         ucc.addUserScript(WKUserScript(source: PageLogHandler.script, injectionTime: .atDocumentStart, forMainFrameOnly: true))
         ucc.addUserScript(mirror.userScript())
         ucc.addUserScript(WKUserScript(source: GameShell.shellCSS, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
-        guard let url = URL(string: "http://127.0.0.1:\(server.port)/index.html") else { return }
+        let url = GameSchemeHandler.startURL
         log.notice("loading \(url.absoluteString, privacy: .public)")
         webView.load(URLRequest(url: url))
     }
 
-    /// Back from the background: the listener or the web content process may have been reclaimed meanwhile.
+    /// Back from the background: the web content process may have been reclaimed meanwhile.
     func becameActive() {
         guard booted else { return }
-        server.ensureRunning()
         if webView.url == nil { load() }
     }
 
@@ -183,7 +176,7 @@ extension GameShell: WKNavigationDelegate, WKDownloadDelegate {
             return
         }
         guard let url = action.request.url else { decisionHandler(.allow); return }
-        let local = url.host == "127.0.0.1" || ["about", "blob", "data"].contains(url.scheme ?? "")
+        let local = [GameSchemeHandler.scheme, "about", "blob", "data"].contains(url.scheme ?? "")
         if !local && (url.scheme == "http" || url.scheme == "https") && action.targetFrame?.isMainFrame != false {
             UIApplication.shared.open(url)
             decisionHandler(.cancel)

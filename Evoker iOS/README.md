@@ -14,13 +14,12 @@ re-creates every screen by hand in SwiftUI and still differs in layout, colours 
 project (target and scheme "Evoker") as work in progress.
 
 - `EvokerWeb/` — the shell: `EvokerWebApp` (@main), `GameShell` (a full-screen WKWebView, no zoom / selection /
-  callouts, "export save" downloads to the share sheet), `LocalGameServer` (serves the bundled game on
-  `http://127.0.0.1:47613`: the game's ES modules, `fetch()` and `<audio>` byte ranges need a real http origin),
-  `SaveMirror` (copies the localStorage save `evoker.save.v1` to Application Support and restores it before the
-  game boots).
+  callouts, "export save" downloads to the share sheet, page errors to the app log), `GameFiles`
+  (`GameSchemeHandler` serves the bundled game under `evoker://game/`: one fixed origin for the game's ES modules,
+  `fetch()` and localStorage, byte ranges for `<audio>`; no network involved), `SaveMirror` (copies the
+  localStorage save `evoker.save.v1` to Application Support and restores it before the game boots).
 - `Tools/copy-web-game.sh` — build phase: copies `index.html`, `css`, `src`, `data`, `assets` of Evoker Web into the
   app's `Game` folder on every build, so the web project stays the single source.
-- `Support/EvokerWeb-Info.plist` — `NSAllowsLocalNetworking` for the loopback server (merged into the generated plist).
 - `EvokerWebUITests/` — simulator tests of the shipped app (scheme "EvokerWeb"): boot to the title, the level-up
   dialog's +/- and Proceed with real taps, the save across relaunches and after WebKit's storage is wiped.
 - Same bundle id as the native app (`com.guiba.evoker`): installing one replaces the other. Their saves are

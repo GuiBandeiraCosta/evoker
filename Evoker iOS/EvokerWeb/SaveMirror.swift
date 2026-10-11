@@ -3,7 +3,7 @@ import WebKit
 
 /// Keeps a copy of the web game's save (localStorage `evoker.save.v1`, Evoker Web/src/game/state.js SAVE_KEY) in
 /// the app's own Application Support folder, and writes it back into localStorage before the game boots. WebKit
-/// may clear website data (storage pressure, a changed origin port), the app's files stay.
+/// may clear website data (storage pressure), the app's own files stay.
 final class SaveMirror: NSObject, WKScriptMessageHandler {
     static let key = "evoker.save.v1"
     static let handlerName = "evokerSave"
