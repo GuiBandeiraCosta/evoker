@@ -1,0 +1,97 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['getScrollableClickHendler'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["getScrollableClickHendler"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 7-39, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] LOADBOOL  R2 := False
+       1 [   0] LOADNIL   R3..R3 := nil
+       2 [   0] CLOSURE   R4 := closure #0
+       3 [   0] MOVE      R0 := R1
+       4 [   0] MOVE      R0 := R2
+       5 [   0] MOVE      R0 := R3
+       6 [   0] MOVE      R0 := R0
+       7 [   0] RETURN    return R4.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 13-36, upvals=[], locals=[])
+      constants: strings=['system', 'getTimer', 'x', 'y', 'phase', 'began', 'moved', 'math', 'pow', 'sqrt', 'ended', 'cancelled', 'type', 'function'] numbers=[2, 8, 150]
+         0 [   0] GETGLOBAL R1 := _G["system"]
+         1 [   0] GETTABLE  R1 := R1["getTimer"]
+         2 [   0] CALL      R1(...) nargs=0 nret=1
+         3 [   0] GETTABLE  R2 := R0["x"]
+         4 [   0] GETTABLE  R3 := R0["y"]
+         5 [   0] GETTABLE  R4 := R0["phase"]
+         6 [   0] EQ        if (R4 == "began") ~= 0 then skip next
+         7 [   0] JMP       jmp +13 -> 21
+         8 [   0] GETGLOBAL R4 := _G["system"]
+         9 [   0] GETTABLE  R4 := R4["getTimer"]
+        10 [   0] CALL      R4(...) nargs=0 nret=1
+        11 [   0] SETUPVAL  upval 0 := R4
+        12 [   0] LOADBOOL  R4 := False
+        13 [   0] SETUPVAL  upval 1 := R4
+        14 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+        15 [   0] GETTABLE  R5 := R0["x"]
+        16 [   0] SETTABLE  R4["x"] := R5
+        17 [   0] GETTABLE  R5 := R0["y"]
+        18 [   0] SETTABLE  R4["y"] := R5
+        19 [   0] SETUPVAL  upval 2 := R4
+        20 [   0] JMP       jmp +55 -> 76
+        21 [   0] GETTABLE  R4 := R0["phase"]
+        22 [   0] EQ        if (R4 == "moved") ~= 0 then skip next
+        23 [   0] JMP       jmp +26 -> 50
+        24 [   0] GETUPVAL  R4 := upval 2
+        25 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        26 [   0] JMP       jmp +49 -> 76
+        27 [   0] GETGLOBAL R4 := _G["math"]
+        28 [   0] GETTABLE  R4 := R4["pow"]
+        29 [   0] GETUPVAL  R5 := upval 2
+        30 [   0] GETTABLE  R5 := R5["x"]
+        31 [   0] SUB       R5 := R2 - R5
+        32 [   0] LOADK     R6 := 2
+        33 [   0] CALL      R4(...) nargs=2 nret=1
+        34 [   0] GETGLOBAL R5 := _G["math"]
+        35 [   0] GETTABLE  R5 := R5["pow"]
+        36 [   0] GETUPVAL  R6 := upval 2
+        37 [   0] GETTABLE  R6 := R6["y"]
+        38 [   0] SUB       R6 := R3 - R6
+        39 [   0] LOADK     R7 := 2
+        40 [   0] CALL      R5(...) nargs=2 nret=1
+        41 [   0] GETGLOBAL R6 := _G["math"]
+        42 [   0] GETTABLE  R6 := R6["sqrt"]
+        43 [   0] ADD       R7 := R4 + R5
+        44 [   0] CALL      R6(...) nargs=1 nret=1
+        45 [   0] LE        if (8 <= R6) ~= 0 then skip next
+        46 [   0] JMP       jmp +29 -> 76
+        47 [   0] LOADBOOL  R7 := True
+        48 [   0] SETUPVAL  upval 1 := R7
+        49 [   0] JMP       jmp +26 -> 76
+        50 [   0] GETTABLE  R4 := R0["phase"]
+        51 [   0] EQ        if (R4 == "ended") ~= 1 then skip next
+        52 [   0] JMP       jmp +3 -> 56
+        53 [   0] GETTABLE  R4 := R0["phase"]
+        54 [   0] EQ        if (R4 == "cancelled") ~= 0 then skip next
+        55 [   0] JMP       jmp +20 -> 76
+        56 [   0] GETUPVAL  R4 := upval 1
+        57 [   0] EQ        if (R4 == False) ~= 0 then skip next
+        58 [   0] JMP       jmp +17 -> 76
+        59 [   0] GETUPVAL  R4 := upval 0
+        60 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        61 [   0] JMP       jmp +14 -> 76
+        62 [   0] GETUPVAL  R4 := upval 0
+        63 [   0] SUB       R4 := R1 - R4
+        64 [   0] LT        if (R4 < 150) ~= 0 then skip next
+        65 [   0] JMP       jmp +10 -> 76
+        66 [   0] GETUPVAL  R4 := upval 3
+        67 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        68 [   0] JMP       jmp +7 -> 76
+        69 [   0] GETGLOBAL R4 := _G["type"]
+        70 [   0] GETUPVAL  R5 := upval 3
+        71 [   0] CALL      R4(...) nargs=1 nret=1
+        72 [   0] EQ        if (R4 == "function") ~= 0 then skip next
+        73 [   0] JMP       jmp +2 -> 76
+        74 [   0] GETUPVAL  R4 := upval 3
+        75 [   0] CALL      R4(...) nargs=0 nret=0
+        76 [   0] RETURN    return R0.. (0 values)

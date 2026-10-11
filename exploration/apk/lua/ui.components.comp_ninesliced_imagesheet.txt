@@ -1,0 +1,597 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "util.util"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] CLOSURE   R1 := closure #0
+     4 [   0] MOVE      R0 := R0
+     5 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     6 [   0] SETTABLE  R2["create"] := R1
+     7 [   0] RETURN    return R2.. (1 values)
+     8 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 36-231, upvals=[], locals=[])
+    constants: strings=['ui', 'createContainer', 'layout', 'nineSliced.container', 'parent', 'require', 'ui.common.imagesheet_helper', 'border', 'horiTop', 'fglib', 'display', 'autohd', 'getSheetInfoForImage', 'corner', 'topLeft', 'bottomLeft', 'log', 'msg', "ERROR, ninesliced frame didn't has set a top slice or top left corner slice!", 'createImageGroup', 'setAlphaHelper', 'x', 'y', 'background', 'containsImage', 'addImg', 'img', 'nineSliced.background', 'nineSliced.topLeft', 'topRight', 'nineSliced.topRight', 'nineSliced.bottomLeft', 'bottomRight', 'nineSliced.bottomRight', 'nineSliced.top', 'horiBottom', 'nineSliced.bottom', 'vertiRight', 'nineSliced.right', 'vertiLeft', 'nineSliced.left', 'insert', 'update', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] GETGLOBAL R2 := _G["ui"]
+       2 [   0] GETTABLE  R2 := R2["createContainer"]
+       3 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+       4 [   0] GETTABLE  R4 := R0["layout"]
+       5 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+       6 [   0] JMP       jmp +1 -> 8
+       7 [   0] LOADK     R4 := "nineSliced.container"
+       8 [   0] SETTABLE  R3["layout"] := R4
+       9 [   0] GETTABLE  R4 := R0["parent"]
+      10 [   0] SETTABLE  R3["parent"] := R4
+      11 [   0] CALL      R2(...) nargs=1 nret=1
+      12 [   0] MOVE      R1 := R2
+      13 [   0] LOADNIL   R2..R9 := nil
+      14 [   0] GETGLOBAL R10 := _G["require"]
+      15 [   0] LOADK     R11 := "ui.common.imagesheet_helper"
+      16 [   0] CALL      R10(...) nargs=1 nret=1
+      17 [   0] LOADNIL   R11..R11 := nil
+      18 [   0] GETTABLE  R12 := R0["border"]
+      19 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      20 [   0] JMP       jmp +13 -> 34
+      21 [   0] GETTABLE  R12 := R0["border"]
+      22 [   0] GETTABLE  R12 := R12["horiTop"]
+      23 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      24 [   0] JMP       jmp +9 -> 34
+      25 [   0] GETGLOBAL R12 := _G["fglib"]
+      26 [   0] GETTABLE  R12 := R12["display"]
+      27 [   0] GETTABLE  R12 := R12["autohd"]
+      28 [   0] GETTABLE  R12 := R12["getSheetInfoForImage"]
+      29 [   0] GETTABLE  R13 := R0["border"]
+      30 [   0] GETTABLE  R13 := R13["horiTop"]
+      31 [   0] CALL      R12(...) nargs=1 nret=1
+      32 [   0] MOVE      R11 := R12
+      33 [   0] JMP       jmp +36 -> 70
+      34 [   0] GETTABLE  R12 := R0["corner"]
+      35 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      36 [   0] JMP       jmp +13 -> 50
+      37 [   0] GETTABLE  R12 := R0["corner"]
+      38 [   0] GETTABLE  R12 := R12["topLeft"]
+      39 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      40 [   0] JMP       jmp +9 -> 50
+      41 [   0] GETGLOBAL R12 := _G["fglib"]
+      42 [   0] GETTABLE  R12 := R12["display"]
+      43 [   0] GETTABLE  R12 := R12["autohd"]
+      44 [   0] GETTABLE  R12 := R12["getSheetInfoForImage"]
+      45 [   0] GETTABLE  R13 := R0["corner"]
+      46 [   0] GETTABLE  R13 := R13["topLeft"]
+      47 [   0] CALL      R12(...) nargs=1 nret=1
+      48 [   0] MOVE      R11 := R12
+      49 [   0] JMP       jmp +20 -> 70
+      50 [   0] GETTABLE  R12 := R0["corner"]
+      51 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      52 [   0] JMP       jmp +13 -> 66
+      53 [   0] GETTABLE  R12 := R0["corner"]
+      54 [   0] GETTABLE  R12 := R12["bottomLeft"]
+      55 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      56 [   0] JMP       jmp +9 -> 66
+      57 [   0] GETGLOBAL R12 := _G["fglib"]
+      58 [   0] GETTABLE  R12 := R12["display"]
+      59 [   0] GETTABLE  R12 := R12["autohd"]
+      60 [   0] GETTABLE  R12 := R12["getSheetInfoForImage"]
+      61 [   0] GETTABLE  R13 := R0["corner"]
+      62 [   0] GETTABLE  R13 := R13["bottomLeft"]
+      63 [   0] CALL      R12(...) nargs=1 nret=1
+      64 [   0] MOVE      R11 := R12
+      65 [   0] JMP       jmp +4 -> 70
+      66 [   0] GETGLOBAL R12 := _G["log"]
+      67 [   0] GETTABLE  R12 := R12["msg"]
+      68 [   0] LOADK     R13 := "ERROR, ninesliced frame didn't has set a top slice or top left corner "
+      69 [   0] CALL      R12(...) nargs=1 nret=0
+      70 [   0] GETTABLE  R12 := R10["createImageGroup"]
+      71 [   0] MOVE      R13 := R11
+      72 [   0] CALL      R12(...) nargs=1 nret=1
+      73 [   0] GETTABLE  R13 := R12["setAlphaHelper"]
+      74 [   0] MOVE      R14 := R1
+      75 [   0] CALL      R13(...) nargs=1 nret=0
+      76 [   0] GETTABLE  R13 := R0["x"]
+      77 [   0] TEST      if (R13 truthy) ~= 0 then skip next
+      78 [   0] JMP       jmp +4 -> 83
+      79 [   0] GETTABLE  R13 := R1["x"]
+      80 [   0] GETTABLE  R14 := R0["x"]
+      81 [   0] ADD       R13 := R13 + R14
+      82 [   0] SETTABLE  R1["x"] := R13
+      83 [   0] GETTABLE  R13 := R0["y"]
+      84 [   0] TEST      if (R13 truthy) ~= 0 then skip next
+      85 [   0] JMP       jmp +4 -> 90
+      86 [   0] GETTABLE  R13 := R1["y"]
+      87 [   0] GETTABLE  R14 := R0["y"]
+      88 [   0] ADD       R13 := R13 + R14
+      89 [   0] SETTABLE  R1["y"] := R13
+      90 [   0] LOADNIL   R13..R13 := nil
+      91 [   0] LOADBOOL  R14 := False
+      92 [   0] GETTABLE  R15 := R0["background"]
+      93 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+      94 [   0] JMP       jmp +25 -> 120
+      95 [   0] GETTABLE  R15 := R12["containsImage"]
+      96 [   0] GETTABLE  R16 := R0["background"]
+      97 [   0] CALL      R15(...) nargs=1 nret=1
+      98 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+      99 [   0] JMP       jmp +1 -> 101
+     100 [   0] LOADBOOL  R14 := True
+     101 [   0] TEST      if (R14 truthy) ~= 0 then skip next
+     102 [   0] JMP       jmp +8 -> 111
+     103 [   0] GETTABLE  R15 := R12["addImg"]
+     104 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     105 [   0] GETTABLE  R17 := R0["background"]
+     106 [   0] SETTABLE  R16["img"] := R17
+     107 [   0] SETTABLE  R16["layout"] := "nineSliced.background"
+     108 [   0] CALL      R15(...) nargs=1 nret=1
+     109 [   0] MOVE      R13 := R15
+     110 [   0] JMP       jmp +9 -> 120
+     111 [   0] GETGLOBAL R15 := _G["ui"]
+     112 [   0] GETTABLE  R15 := R15["createContainer"]
+     113 [   0] NEWTABLE  R16 := {} (array 0, hash 3)
+     114 [   0] SETTABLE  R16["layout"] := "nineSliced.background"
+     115 [   0] SETTABLE  R16["parent"] := R1
+     116 [   0] GETTABLE  R17 := R0["background"]
+     117 [   0] SETTABLE  R16["img"] := R17
+     118 [   0] CALL      R15(...) nargs=1 nret=1
+     119 [   0] MOVE      R13 := R15
+     120 [   0] GETTABLE  R15 := R0["corner"]
+     121 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     122 [   0] JMP       jmp +48 -> 171
+     123 [   0] GETTABLE  R15 := R0["corner"]
+     124 [   0] GETTABLE  R15 := R15["topLeft"]
+     125 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     126 [   0] JMP       jmp +8 -> 135
+     127 [   0] GETTABLE  R15 := R12["addImg"]
+     128 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     129 [   0] GETTABLE  R17 := R0["corner"]
+     130 [   0] GETTABLE  R17 := R17["topLeft"]
+     131 [   0] SETTABLE  R16["img"] := R17
+     132 [   0] SETTABLE  R16["layout"] := "nineSliced.topLeft"
+     133 [   0] CALL      R15(...) nargs=1 nret=1
+     134 [   0] MOVE      R2 := R15
+     135 [   0] GETTABLE  R15 := R0["corner"]
+     136 [   0] GETTABLE  R15 := R15["topRight"]
+     137 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     138 [   0] JMP       jmp +8 -> 147
+     139 [   0] GETTABLE  R15 := R12["addImg"]
+     140 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     141 [   0] GETTABLE  R17 := R0["corner"]
+     142 [   0] GETTABLE  R17 := R17["topRight"]
+     143 [   0] SETTABLE  R16["img"] := R17
+     144 [   0] SETTABLE  R16["layout"] := "nineSliced.topRight"
+     145 [   0] CALL      R15(...) nargs=1 nret=1
+     146 [   0] MOVE      R3 := R15
+     147 [   0] GETTABLE  R15 := R0["corner"]
+     148 [   0] GETTABLE  R15 := R15["bottomLeft"]
+     149 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     150 [   0] JMP       jmp +8 -> 159
+     151 [   0] GETTABLE  R15 := R12["addImg"]
+     152 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     153 [   0] GETTABLE  R17 := R0["corner"]
+     154 [   0] GETTABLE  R17 := R17["bottomLeft"]
+     155 [   0] SETTABLE  R16["img"] := R17
+     156 [   0] SETTABLE  R16["layout"] := "nineSliced.bottomLeft"
+     157 [   0] CALL      R15(...) nargs=1 nret=1
+     158 [   0] MOVE      R4 := R15
+     159 [   0] GETTABLE  R15 := R0["corner"]
+     160 [   0] GETTABLE  R15 := R15["bottomRight"]
+     161 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     162 [   0] JMP       jmp +8 -> 171
+     163 [   0] GETTABLE  R15 := R12["addImg"]
+     164 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     165 [   0] GETTABLE  R17 := R0["corner"]
+     166 [   0] GETTABLE  R17 := R17["bottomRight"]
+     167 [   0] SETTABLE  R16["img"] := R17
+     168 [   0] SETTABLE  R16["layout"] := "nineSliced.bottomRight"
+     169 [   0] CALL      R15(...) nargs=1 nret=1
+     170 [   0] MOVE      R5 := R15
+     171 [   0] GETTABLE  R15 := R0["border"]
+     172 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     173 [   0] JMP       jmp +48 -> 222
+     174 [   0] GETTABLE  R15 := R0["border"]
+     175 [   0] GETTABLE  R15 := R15["horiTop"]
+     176 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     177 [   0] JMP       jmp +8 -> 186
+     178 [   0] GETTABLE  R15 := R12["addImg"]
+     179 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     180 [   0] GETTABLE  R17 := R0["border"]
+     181 [   0] GETTABLE  R17 := R17["horiTop"]
+     182 [   0] SETTABLE  R16["img"] := R17
+     183 [   0] SETTABLE  R16["layout"] := "nineSliced.top"
+     184 [   0] CALL      R15(...) nargs=1 nret=1
+     185 [   0] MOVE      R6 := R15
+     186 [   0] GETTABLE  R15 := R0["border"]
+     187 [   0] GETTABLE  R15 := R15["horiBottom"]
+     188 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     189 [   0] JMP       jmp +8 -> 198
+     190 [   0] GETTABLE  R15 := R12["addImg"]
+     191 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     192 [   0] GETTABLE  R17 := R0["border"]
+     193 [   0] GETTABLE  R17 := R17["horiBottom"]
+     194 [   0] SETTABLE  R16["img"] := R17
+     195 [   0] SETTABLE  R16["layout"] := "nineSliced.bottom"
+     196 [   0] CALL      R15(...) nargs=1 nret=1
+     197 [   0] MOVE      R7 := R15
+     198 [   0] GETTABLE  R15 := R0["border"]
+     199 [   0] GETTABLE  R15 := R15["vertiRight"]
+     200 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     201 [   0] JMP       jmp +8 -> 210
+     202 [   0] GETTABLE  R15 := R12["addImg"]
+     203 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     204 [   0] GETTABLE  R17 := R0["border"]
+     205 [   0] GETTABLE  R17 := R17["vertiRight"]
+     206 [   0] SETTABLE  R16["img"] := R17
+     207 [   0] SETTABLE  R16["layout"] := "nineSliced.right"
+     208 [   0] CALL      R15(...) nargs=1 nret=1
+     209 [   0] MOVE      R8 := R15
+     210 [   0] GETTABLE  R15 := R0["border"]
+     211 [   0] GETTABLE  R15 := R15["vertiLeft"]
+     212 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     213 [   0] JMP       jmp +8 -> 222
+     214 [   0] GETTABLE  R15 := R12["addImg"]
+     215 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+     216 [   0] GETTABLE  R17 := R0["border"]
+     217 [   0] GETTABLE  R17 := R17["vertiLeft"]
+     218 [   0] SETTABLE  R16["img"] := R17
+     219 [   0] SETTABLE  R16["layout"] := "nineSliced.left"
+     220 [   0] CALL      R15(...) nargs=1 nret=1
+     221 [   0] MOVE      R9 := R15
+     222 [   0] SELF      R16 := R1; R15 := R1["insert"]
+     223 [   0] MOVE      R17 := R12
+     224 [   0] CALL      R15(...) nargs=2 nret=0
+     225 [   0] CLOSURE   R15 := closure #0
+     226 [   0] MOVE      R0 := R1
+     227 [   0] MOVE      R0 := R13
+     228 [   0] MOVE      R0 := R2
+     229 [   0] MOVE      R0 := R3
+     230 [   0] MOVE      R0 := R4
+     231 [   0] MOVE      R0 := R5
+     232 [   0] MOVE      R0 := R6
+     233 [   0] MOVE      R0 := R7
+     234 [   0] MOVE      R0 := R8
+     235 [   0] MOVE      R0 := R9
+     236 [   0] SETTABLE  R1["update"] := R15
+     237 [   0] GETTABLE  R15 := R1["update"]
+     238 [   0] MOVE      R16 := R0
+     239 [   0] CALL      R15(...) nargs=1 nret=0
+     240 [   0] CLOSURE   R15 := closure #1
+     241 [   0] MOVE      R0 := R12
+     242 [   0] SETTABLE  R1["enter"] := R15
+     243 [   0] CLOSURE   R15 := closure #2
+     244 [   0] MOVE      R0 := R12
+     245 [   0] SETTABLE  R1["exit"] := R15
+     246 [   0] CLOSURE   R15 := closure #3
+     247 [   0] MOVE      R0 := R1
+     248 [   0] SETTABLE  R1["destroy"] := R15
+     249 [   0] GETUPVAL  R15 := upval 0
+     250 [   0] GETTABLE  R15 := R15["inherit"]
+     251 [   0] MOVE      R16 := R1
+     252 [   0] LOADK     R17 := "_flaregames_remove"
+     253 [   0] CLOSURE   R18 := closure #4
+     254 [   0] MOVE      R0 := R1
+     255 [   0] CALL      R15(...) nargs=3 nret=0
+     256 [   0] RETURN    return R1.. (1 values)
+     257 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 135-209, upvals=[], locals=[])
+      constants: strings=['width', 'layoutData', 'height', 'xScale', 'getWidth', 'yScale', 'getHeight', 'setReferencePoint', 'display', 'TopLeftReferencePoint', 'x', 'y', 'TopRightReferencePoint', 'BottomLeftReferencePoint', 'BottomRightReferencePoint', 'TopCenterReferencePoint', 'BottomCenterReferencePoint', 'CenterRightReferencePoint', 'CenterLeftReferencePoint'] numbers=[0.5, 0]
+         0 [   0] GETTABLE  R1 := R0["width"]
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["layoutData"]
+         5 [   0] GETTABLE  R2 := R0["width"]
+         6 [   0] SETTABLE  R1["width"] := R2
+         7 [   0] GETTABLE  R1 := R0["height"]
+         8 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +4 -> 14
+        10 [   0] GETUPVAL  R1 := upval 0
+        11 [   0] GETTABLE  R1 := R1["layoutData"]
+        12 [   0] GETTABLE  R2 := R0["height"]
+        13 [   0] SETTABLE  R1["height"] := R2
+        14 [   0] GETUPVAL  R1 := upval 1
+        15 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        16 [   0] JMP       jmp +16 -> 33
+        17 [   0] GETUPVAL  R1 := upval 1
+        18 [   0] GETUPVAL  R2 := upval 0
+        19 [   0] GETTABLE  R2 := R2["getWidth"]
+        20 [   0] CALL      R2(...) nargs=0 nret=1
+        21 [   0] GETUPVAL  R3 := upval 1
+        22 [   0] GETTABLE  R3 := R3["width"]
+        23 [   0] DIV       R2 := R2 / R3
+        24 [   0] SETTABLE  R1["xScale"] := R2
+        25 [   0] GETUPVAL  R1 := upval 1
+        26 [   0] GETUPVAL  R2 := upval 0
+        27 [   0] GETTABLE  R2 := R2["getHeight"]
+        28 [   0] CALL      R2(...) nargs=0 nret=1
+        29 [   0] GETUPVAL  R3 := upval 1
+        30 [   0] GETTABLE  R3 := R3["height"]
+        31 [   0] DIV       R2 := R2 / R3
+        32 [   0] SETTABLE  R1["yScale"] := R2
+        33 [   0] GETUPVAL  R1 := upval 2
+        34 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        35 [   0] JMP       jmp +19 -> 55
+        36 [   0] GETUPVAL  R1 := upval 2
+        37 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+        38 [   0] GETGLOBAL R3 := _G["display"]
+        39 [   0] GETTABLE  R3 := R3["TopLeftReferencePoint"]
+        40 [   0] CALL      R1(...) nargs=2 nret=0
+        41 [   0] GETUPVAL  R1 := upval 2
+        42 [   0] GETUPVAL  R2 := upval 0
+        43 [   0] GETTABLE  R2 := R2["getWidth"]
+        44 [   0] CALL      R2(...) nargs=0 nret=1
+        45 [   0] UNM       R2 := -R2
+        46 [   0] MUL       R2 := R2 * 0.5
+        47 [   0] SETTABLE  R1["x"] := R2
+        48 [   0] GETUPVAL  R1 := upval 2
+        49 [   0] GETUPVAL  R2 := upval 0
+        50 [   0] GETTABLE  R2 := R2["getHeight"]
+        51 [   0] CALL      R2(...) nargs=0 nret=1
+        52 [   0] UNM       R2 := -R2
+        53 [   0] MUL       R2 := R2 * 0.5
+        54 [   0] SETTABLE  R1["y"] := R2
+        55 [   0] GETUPVAL  R1 := upval 3
+        56 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        57 [   0] JMP       jmp +18 -> 76
+        58 [   0] GETUPVAL  R1 := upval 3
+        59 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+        60 [   0] GETGLOBAL R3 := _G["display"]
+        61 [   0] GETTABLE  R3 := R3["TopRightReferencePoint"]
+        62 [   0] CALL      R1(...) nargs=2 nret=0
+        63 [   0] GETUPVAL  R1 := upval 3
+        64 [   0] GETUPVAL  R2 := upval 0
+        65 [   0] GETTABLE  R2 := R2["getWidth"]
+        66 [   0] CALL      R2(...) nargs=0 nret=1
+        67 [   0] MUL       R2 := R2 * 0.5
+        68 [   0] SETTABLE  R1["x"] := R2
+        69 [   0] GETUPVAL  R1 := upval 3
+        70 [   0] GETUPVAL  R2 := upval 0
+        71 [   0] GETTABLE  R2 := R2["getHeight"]
+        72 [   0] CALL      R2(...) nargs=0 nret=1
+        73 [   0] UNM       R2 := -R2
+        74 [   0] MUL       R2 := R2 * 0.5
+        75 [   0] SETTABLE  R1["y"] := R2
+        76 [   0] GETUPVAL  R1 := upval 4
+        77 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        78 [   0] JMP       jmp +18 -> 97
+        79 [   0] GETUPVAL  R1 := upval 4
+        80 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+        81 [   0] GETGLOBAL R3 := _G["display"]
+        82 [   0] GETTABLE  R3 := R3["BottomLeftReferencePoint"]
+        83 [   0] CALL      R1(...) nargs=2 nret=0
+        84 [   0] GETUPVAL  R1 := upval 4
+        85 [   0] GETUPVAL  R2 := upval 0
+        86 [   0] GETTABLE  R2 := R2["getWidth"]
+        87 [   0] CALL      R2(...) nargs=0 nret=1
+        88 [   0] UNM       R2 := -R2
+        89 [   0] MUL       R2 := R2 * 0.5
+        90 [   0] SETTABLE  R1["x"] := R2
+        91 [   0] GETUPVAL  R1 := upval 4
+        92 [   0] GETUPVAL  R2 := upval 0
+        93 [   0] GETTABLE  R2 := R2["getHeight"]
+        94 [   0] CALL      R2(...) nargs=0 nret=1
+        95 [   0] MUL       R2 := R2 * 0.5
+        96 [   0] SETTABLE  R1["y"] := R2
+        97 [   0] GETUPVAL  R1 := upval 5
+        98 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        99 [   0] JMP       jmp +17 -> 117
+       100 [   0] GETUPVAL  R1 := upval 5
+       101 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+       102 [   0] GETGLOBAL R3 := _G["display"]
+       103 [   0] GETTABLE  R3 := R3["BottomRightReferencePoint"]
+       104 [   0] CALL      R1(...) nargs=2 nret=0
+       105 [   0] GETUPVAL  R1 := upval 5
+       106 [   0] GETUPVAL  R2 := upval 0
+       107 [   0] GETTABLE  R2 := R2["getWidth"]
+       108 [   0] CALL      R2(...) nargs=0 nret=1
+       109 [   0] MUL       R2 := R2 * 0.5
+       110 [   0] SETTABLE  R1["x"] := R2
+       111 [   0] GETUPVAL  R1 := upval 5
+       112 [   0] GETUPVAL  R2 := upval 0
+       113 [   0] GETTABLE  R2 := R2["getHeight"]
+       114 [   0] CALL      R2(...) nargs=0 nret=1
+       115 [   0] MUL       R2 := R2 * 0.5
+       116 [   0] SETTABLE  R1["y"] := R2
+       117 [   0] GETUPVAL  R1 := upval 6
+       118 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       119 [   0] JMP       jmp +14 -> 134
+       120 [   0] GETUPVAL  R1 := upval 6
+       121 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+       122 [   0] GETGLOBAL R3 := _G["display"]
+       123 [   0] GETTABLE  R3 := R3["TopCenterReferencePoint"]
+       124 [   0] CALL      R1(...) nargs=2 nret=0
+       125 [   0] GETUPVAL  R1 := upval 6
+       126 [   0] SETTABLE  R1["x"] := 0
+       127 [   0] GETUPVAL  R1 := upval 6
+       128 [   0] GETUPVAL  R2 := upval 0
+       129 [   0] GETTABLE  R2 := R2["getHeight"]
+       130 [   0] CALL      R2(...) nargs=0 nret=1
+       131 [   0] UNM       R2 := -R2
+       132 [   0] MUL       R2 := R2 * 0.5
+       133 [   0] SETTABLE  R1["y"] := R2
+       134 [   0] GETUPVAL  R1 := upval 7
+       135 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       136 [   0] JMP       jmp +13 -> 150
+       137 [   0] GETUPVAL  R1 := upval 7
+       138 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+       139 [   0] GETGLOBAL R3 := _G["display"]
+       140 [   0] GETTABLE  R3 := R3["BottomCenterReferencePoint"]
+       141 [   0] CALL      R1(...) nargs=2 nret=0
+       142 [   0] GETUPVAL  R1 := upval 7
+       143 [   0] SETTABLE  R1["x"] := 0
+       144 [   0] GETUPVAL  R1 := upval 7
+       145 [   0] GETUPVAL  R2 := upval 0
+       146 [   0] GETTABLE  R2 := R2["getHeight"]
+       147 [   0] CALL      R2(...) nargs=0 nret=1
+       148 [   0] MUL       R2 := R2 * 0.5
+       149 [   0] SETTABLE  R1["y"] := R2
+       150 [   0] GETUPVAL  R1 := upval 8
+       151 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       152 [   0] JMP       jmp +13 -> 166
+       153 [   0] GETUPVAL  R1 := upval 8
+       154 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+       155 [   0] GETGLOBAL R3 := _G["display"]
+       156 [   0] GETTABLE  R3 := R3["CenterRightReferencePoint"]
+       157 [   0] CALL      R1(...) nargs=2 nret=0
+       158 [   0] GETUPVAL  R1 := upval 8
+       159 [   0] GETUPVAL  R2 := upval 0
+       160 [   0] GETTABLE  R2 := R2["getWidth"]
+       161 [   0] CALL      R2(...) nargs=0 nret=1
+       162 [   0] MUL       R2 := R2 * 0.5
+       163 [   0] SETTABLE  R1["x"] := R2
+       164 [   0] GETUPVAL  R1 := upval 8
+       165 [   0] SETTABLE  R1["y"] := 0
+       166 [   0] GETUPVAL  R1 := upval 9
+       167 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       168 [   0] JMP       jmp +14 -> 183
+       169 [   0] GETUPVAL  R1 := upval 9
+       170 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+       171 [   0] GETGLOBAL R3 := _G["display"]
+       172 [   0] GETTABLE  R3 := R3["CenterLeftReferencePoint"]
+       173 [   0] CALL      R1(...) nargs=2 nret=0
+       174 [   0] GETUPVAL  R1 := upval 9
+       175 [   0] GETUPVAL  R2 := upval 0
+       176 [   0] GETTABLE  R2 := R2["getWidth"]
+       177 [   0] CALL      R2(...) nargs=0 nret=1
+       178 [   0] UNM       R2 := -R2
+       179 [   0] MUL       R2 := R2 * 0.5
+       180 [   0] SETTABLE  R1["x"] := R2
+       181 [   0] GETUPVAL  R1 := upval 9
+       182 [   0] SETTABLE  R1["y"] := 0
+       183 [   0] GETUPVAL  R1 := upval 6
+       184 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       185 [   0] JMP       jmp +26 -> 212
+       186 [   0] GETUPVAL  R1 := upval 6
+       187 [   0] GETUPVAL  R2 := upval 0
+       188 [   0] GETTABLE  R2 := R2["getWidth"]
+       189 [   0] CALL      R2(...) nargs=0 nret=1
+       190 [   0] GETUPVAL  R3 := upval 2
+       191 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       192 [   0] JMP       jmp +4 -> 197
+       193 [   0] GETUPVAL  R3 := upval 2
+       194 [   0] GETTABLE  R3 := R3["width"]
+       195 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       196 [   0] JMP       jmp +1 -> 198
+       197 [   0] LOADK     R3 := 0
+       198 [   0] GETUPVAL  R4 := upval 3
+       199 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+       200 [   0] JMP       jmp +4 -> 205
+       201 [   0] GETUPVAL  R4 := upval 3
+       202 [   0] GETTABLE  R4 := R4["width"]
+       203 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+       204 [   0] JMP       jmp +1 -> 206
+       205 [   0] LOADK     R4 := 0
+       206 [   0] ADD       R3 := R3 + R4
+       207 [   0] SUB       R2 := R2 - R3
+       208 [   0] GETUPVAL  R3 := upval 6
+       209 [   0] GETTABLE  R3 := R3["width"]
+       210 [   0] DIV       R2 := R2 / R3
+       211 [   0] SETTABLE  R1["xScale"] := R2
+       212 [   0] GETUPVAL  R1 := upval 7
+       213 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       214 [   0] JMP       jmp +26 -> 241
+       215 [   0] GETUPVAL  R1 := upval 7
+       216 [   0] GETUPVAL  R2 := upval 0
+       217 [   0] GETTABLE  R2 := R2["getWidth"]
+       218 [   0] CALL      R2(...) nargs=0 nret=1
+       219 [   0] GETUPVAL  R3 := upval 4
+       220 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       221 [   0] JMP       jmp +4 -> 226
+       222 [   0] GETUPVAL  R3 := upval 4
+       223 [   0] GETTABLE  R3 := R3["width"]
+       224 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       225 [   0] JMP       jmp +1 -> 227
+       226 [   0] LOADK     R3 := 0
+       227 [   0] GETUPVAL  R4 := upval 5
+       228 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+       229 [   0] JMP       jmp +4 -> 234
+       230 [   0] GETUPVAL  R4 := upval 5
+       231 [   0] GETTABLE  R4 := R4["width"]
+       232 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+       233 [   0] JMP       jmp +1 -> 235
+       234 [   0] LOADK     R4 := 0
+       235 [   0] ADD       R3 := R3 + R4
+       236 [   0] SUB       R2 := R2 - R3
+       237 [   0] GETUPVAL  R3 := upval 7
+       238 [   0] GETTABLE  R3 := R3["width"]
+       239 [   0] DIV       R2 := R2 / R3
+       240 [   0] SETTABLE  R1["xScale"] := R2
+       241 [   0] GETUPVAL  R1 := upval 8
+       242 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       243 [   0] JMP       jmp +26 -> 270
+       244 [   0] GETUPVAL  R1 := upval 8
+       245 [   0] GETUPVAL  R2 := upval 0
+       246 [   0] GETTABLE  R2 := R2["getHeight"]
+       247 [   0] CALL      R2(...) nargs=0 nret=1
+       248 [   0] GETUPVAL  R3 := upval 3
+       249 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       250 [   0] JMP       jmp +4 -> 255
+       251 [   0] GETUPVAL  R3 := upval 3
+       252 [   0] GETTABLE  R3 := R3["height"]
+       253 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       254 [   0] JMP       jmp +1 -> 256
+       255 [   0] LOADK     R3 := 0
+       256 [   0] GETUPVAL  R4 := upval 5
+       257 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+       258 [   0] JMP       jmp +4 -> 263
+       259 [   0] GETUPVAL  R4 := upval 5
+       260 [   0] GETTABLE  R4 := R4["height"]
+       261 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+       262 [   0] JMP       jmp +1 -> 264
+       263 [   0] LOADK     R4 := 0
+       264 [   0] ADD       R3 := R3 + R4
+       265 [   0] SUB       R2 := R2 - R3
+       266 [   0] GETUPVAL  R3 := upval 8
+       267 [   0] GETTABLE  R3 := R3["height"]
+       268 [   0] DIV       R2 := R2 / R3
+       269 [   0] SETTABLE  R1["yScale"] := R2
+       270 [   0] GETUPVAL  R1 := upval 9
+       271 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       272 [   0] JMP       jmp +26 -> 299
+       273 [   0] GETUPVAL  R1 := upval 9
+       274 [   0] GETUPVAL  R2 := upval 0
+       275 [   0] GETTABLE  R2 := R2["getHeight"]
+       276 [   0] CALL      R2(...) nargs=0 nret=1
+       277 [   0] GETUPVAL  R3 := upval 2
+       278 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       279 [   0] JMP       jmp +4 -> 284
+       280 [   0] GETUPVAL  R3 := upval 2
+       281 [   0] GETTABLE  R3 := R3["height"]
+       282 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       283 [   0] JMP       jmp +1 -> 285
+       284 [   0] LOADK     R3 := 0
+       285 [   0] GETUPVAL  R4 := upval 4
+       286 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+       287 [   0] JMP       jmp +4 -> 292
+       288 [   0] GETUPVAL  R4 := upval 4
+       289 [   0] GETTABLE  R4 := R4["height"]
+       290 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+       291 [   0] JMP       jmp +1 -> 293
+       292 [   0] LOADK     R4 := 0
+       293 [   0] ADD       R3 := R3 + R4
+       294 [   0] SUB       R2 := R2 - R3
+       295 [   0] GETUPVAL  R3 := upval 9
+       296 [   0] GETTABLE  R3 := R3["height"]
+       297 [   0] DIV       R2 := R2 / R3
+       298 [   0] SETTABLE  R1["yScale"] := R2
+       299 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 214-216, upvals=[], locals=[])
+      constants: strings=['enter'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["enter"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 218-220, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 222-224, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 226-228, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

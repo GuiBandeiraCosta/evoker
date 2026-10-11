@@ -1,0 +1,373 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'ui.components.comp_ninesliced_imagesheet', 'ui.renderer.iconbuttonrenderer', 'ui.widgets.defaultbutton', 'ui.common.imagesheet_helper', 'ui.renderer.textfieldlabelrenderer', 'UI_LIB_PATH', 'renderer.shadowedlabelrenderer', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "ui.components.comp_ninesliced_imagesheet"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "ui.renderer.iconbuttonrenderer"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] LOADK     R3 := "ui.widgets.defaultbutton"
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] GETGLOBAL R3 := _G["require"]
+    10 [   0] LOADK     R4 := "ui.common.imagesheet_helper"
+    11 [   0] CALL      R3(...) nargs=1 nret=1
+    12 [   0] GETGLOBAL R4 := _G["require"]
+    13 [   0] LOADK     R5 := "ui.renderer.textfieldlabelrenderer"
+    14 [   0] CALL      R4(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R5 := _G["require"]
+    16 [   0] GETGLOBAL R6 := _G["UI_LIB_PATH"]
+    17 [   0] LOADK     R7 := "renderer.shadowedlabelrenderer"
+    18 [   0] CONCAT    R6 := R6 .. ... .. R7
+    19 [   0] CALL      R5(...) nargs=1 nret=1
+    20 [   0] GETGLOBAL R6 := _G["require"]
+    21 [   0] LOADK     R7 := "util.util"
+    22 [   0] CALL      R6(...) nargs=1 nret=1
+    23 [   0] CLOSURE   R7 := closure #0
+    24 [   0] MOVE      R0 := R0
+    25 [   0] MOVE      R0 := R3
+    26 [   0] MOVE      R0 := R5
+    27 [   0] MOVE      R0 := R4
+    28 [   0] MOVE      R0 := R1
+    29 [   0] MOVE      R0 := R2
+    30 [   0] MOVE      R0 := R6
+    31 [   0] NEWTABLE  R8 := {} (array 0, hash 1)
+    32 [   0] SETTABLE  R8["create"] := R7
+    33 [   0] RETURN    return R8.. (1 values)
+    34 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 16-169, upvals=[], locals=[])
+    constants: strings=['require', 'game.gamefeaturemanager', 'getInstance', 'isGameFeatureUnlocked', 'cardpieces', 'layout', 'background', 'assets/gfx/hud/popupframe/popup_fill.png', 'border', 'horiTop', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe02.png', 'horiBottom', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe07.png', 'vertiLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe04.png', 'vertiRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe05.png', 'corner', 'topLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe01.png', 'topRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe03.png', 'bottomLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe06.png', 'bottomRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe08.png', 'parent', 'create', 'fglib', 'display', 'autohd', 'getSheetInfoForImage', 'assets/gfx/hud/icons/hud_fighticon02.png', 'createImageGroup', 'setWidth', 'getWidth', 'setHeight', 'getHeight', 'insert', 'addImg', 'img', 'card_stats_big.atkIcon', 'assets/gfx/hud/icons/hud_healthicon01.png', 'card_stats_big.hpIcon', 'assets/gfx/hud/icons/hud_manaicon01.png', 'card_stats_big.manaIcon', 'ui', 'createLabel', 'card_stats_big.atkLabel', 'renderer', 'txt', '0', 'style', 'cardAttack', 'fontSize', 'card_stats_big.hpLabel', 'cardHealth', 'card_stats_big.manaLabel', 'cardManaLeft', 'card_stats_big.skillLabel', '', 'cardSkill', 'update', 'Stribt eine gegnerische Kreatur durch seinen Anfgriff, fügt er dem gegnerischen Spieler den restlichen Schaden zu.', 'card_stats_big.zoomBtnLeft', 'onlyZoomButton', 'card_stats_big.zoomBtnCenter', 'createButton', 'eventid', 'scene_cardfullscreen_magnify_button', 'borderImg', 'assets/gfx/hud/commons/button_default_frame.png', 'fillImg', 'assets/gfx/hud/commons/button_default_fill.png', 'activeIcn', 'assets/gfx/hud/icons/button_zoom.png', 'beganSound', 'ui_button_circular', 'ret', 'cb', 'card_stats_big.completeBtn', 'scene_cardfullscreen_complete_button', 'assets/gfx/hud/commons/button_special_fill.png', 'assets/gfx/hud/commons/button_special_frame.png', 'assets/gfx/hud/icons/hud_gemicon01.png', 'pressedScale', 'isVisible', 'card_stats_big.sellBtn', 'assets/gfx/hud/icons/button_sell.png', 'cardPiece', 'completeBtnOff', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[18, 0.95]
+       0 [   0] LOADBOOL  R1 := False
+       1 [   0] GETGLOBAL R2 := _G["require"]
+       2 [   0] LOADK     R3 := "game.gamefeaturemanager"
+       3 [   0] CALL      R2(...) nargs=1 nret=1
+       4 [   0] GETTABLE  R2 := R2["getInstance"]
+       5 [   0] CALL      R2(...) nargs=0 nret=1
+       6 [   0] GETTABLE  R3 := R2["isGameFeatureUnlocked"]
+       7 [   0] LOADK     R4 := "cardpieces"
+       8 [   0] CALL      R3(...) nargs=1 nret=1
+       9 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      10 [   0] JMP       jmp +1 -> 12
+      11 [   0] LOADBOOL  R1 := True
+      12 [   0] NEWTABLE  R3 := {} (array 0, hash 5)
+      13 [   0] GETTABLE  R4 := R0["layout"]
+      14 [   0] SETTABLE  R3["layout"] := R4
+      15 [   0] SETTABLE  R3["background"] := "assets/gfx/hud/popupframe/popup_fill.png"
+      16 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+      17 [   0] SETTABLE  R4["horiTop"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe02.png"
+      18 [   0] SETTABLE  R4["horiBottom"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe07.png"
+      19 [   0] SETTABLE  R4["vertiLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe04.png"
+      20 [   0] SETTABLE  R4["vertiRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe05.png"
+      21 [   0] SETTABLE  R3["border"] := R4
+      22 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+      23 [   0] SETTABLE  R4["topLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe01.png"
+      24 [   0] SETTABLE  R4["topRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe03.png"
+      25 [   0] SETTABLE  R4["bottomLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe06.png"
+      26 [   0] SETTABLE  R4["bottomRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe08.png"
+      27 [   0] SETTABLE  R3["corner"] := R4
+      28 [   0] GETTABLE  R4 := R0["parent"]
+      29 [   0] SETTABLE  R3["parent"] := R4
+      30 [   0] GETUPVAL  R4 := upval 0
+      31 [   0] GETTABLE  R4 := R4["create"]
+      32 [   0] MOVE      R5 := R3
+      33 [   0] CALL      R4(...) nargs=1 nret=1
+      34 [   0] GETGLOBAL R5 := _G["fglib"]
+      35 [   0] GETTABLE  R5 := R5["display"]
+      36 [   0] GETTABLE  R5 := R5["autohd"]
+      37 [   0] GETTABLE  R5 := R5["getSheetInfoForImage"]
+      38 [   0] LOADK     R6 := "assets/gfx/hud/icons/hud_fighticon02.png"
+      39 [   0] CALL      R5(...) nargs=1 nret=1
+      40 [   0] GETUPVAL  R6 := upval 1
+      41 [   0] GETTABLE  R6 := R6["createImageGroup"]
+      42 [   0] MOVE      R7 := R5
+      43 [   0] CALL      R6(...) nargs=1 nret=1
+      44 [   0] GETTABLE  R7 := R6["setWidth"]
+      45 [   0] GETTABLE  R8 := R4["getWidth"]
+      46 [   0] CALL      R8(...) nargs=0 nret=-1
+      47 [   0] CALL      R7(...) nargs=-1 nret=0
+      48 [   0] GETTABLE  R7 := R6["setHeight"]
+      49 [   0] GETTABLE  R8 := R4["getHeight"]
+      50 [   0] CALL      R8(...) nargs=0 nret=-1
+      51 [   0] CALL      R7(...) nargs=-1 nret=0
+      52 [   0] SELF      R8 := R4; R7 := R4["insert"]
+      53 [   0] MOVE      R9 := R6
+      54 [   0] CALL      R7(...) nargs=2 nret=0
+      55 [   0] GETTABLE  R7 := R6["addImg"]
+      56 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+      57 [   0] SETTABLE  R8["img"] := "assets/gfx/hud/icons/hud_fighticon02.png"
+      58 [   0] SETTABLE  R8["layout"] := "card_stats_big.atkIcon"
+      59 [   0] CALL      R7(...) nargs=1 nret=0
+      60 [   0] GETTABLE  R7 := R6["addImg"]
+      61 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+      62 [   0] SETTABLE  R8["img"] := "assets/gfx/hud/icons/hud_healthicon01.png"
+      63 [   0] SETTABLE  R8["layout"] := "card_stats_big.hpIcon"
+      64 [   0] CALL      R7(...) nargs=1 nret=0
+      65 [   0] GETTABLE  R7 := R6["addImg"]
+      66 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+      67 [   0] SETTABLE  R8["img"] := "assets/gfx/hud/icons/hud_manaicon01.png"
+      68 [   0] SETTABLE  R8["layout"] := "card_stats_big.manaIcon"
+      69 [   0] CALL      R7(...) nargs=1 nret=0
+      70 [   0] GETGLOBAL R7 := _G["ui"]
+      71 [   0] GETTABLE  R7 := R7["createLabel"]
+      72 [   0] NEWTABLE  R8 := {} (array 0, hash 6)
+      73 [   0] SETTABLE  R8["parent"] := R4
+      74 [   0] SETTABLE  R8["layout"] := "card_stats_big.atkLabel"
+      75 [   0] GETUPVAL  R9 := upval 2
+      76 [   0] SETTABLE  R8["renderer"] := R9
+      77 [   0] SETTABLE  R8["txt"] := "0"
+      78 [   0] SETTABLE  R8["style"] := "cardAttack"
+      79 [   0] SETTABLE  R8["fontSize"] := 18
+      80 [   0] CALL      R7(...) nargs=1 nret=1
+      81 [   0] GETGLOBAL R8 := _G["ui"]
+      82 [   0] GETTABLE  R8 := R8["createLabel"]
+      83 [   0] NEWTABLE  R9 := {} (array 0, hash 6)
+      84 [   0] SETTABLE  R9["parent"] := R4
+      85 [   0] SETTABLE  R9["layout"] := "card_stats_big.hpLabel"
+      86 [   0] GETUPVAL  R10 := upval 2
+      87 [   0] SETTABLE  R9["renderer"] := R10
+      88 [   0] SETTABLE  R9["txt"] := "0"
+      89 [   0] SETTABLE  R9["style"] := "cardHealth"
+      90 [   0] SETTABLE  R9["fontSize"] := 18
+      91 [   0] CALL      R8(...) nargs=1 nret=1
+      92 [   0] GETGLOBAL R9 := _G["ui"]
+      93 [   0] GETTABLE  R9 := R9["createLabel"]
+      94 [   0] NEWTABLE  R10 := {} (array 0, hash 6)
+      95 [   0] SETTABLE  R10["parent"] := R4
+      96 [   0] SETTABLE  R10["layout"] := "card_stats_big.manaLabel"
+      97 [   0] GETUPVAL  R11 := upval 2
+      98 [   0] SETTABLE  R10["renderer"] := R11
+      99 [   0] SETTABLE  R10["txt"] := "0"
+     100 [   0] SETTABLE  R10["style"] := "cardManaLeft"
+     101 [   0] SETTABLE  R10["fontSize"] := 18
+     102 [   0] CALL      R9(...) nargs=1 nret=1
+     103 [   0] GETGLOBAL R10 := _G["ui"]
+     104 [   0] GETTABLE  R10 := R10["createLabel"]
+     105 [   0] NEWTABLE  R11 := {} (array 0, hash 5)
+     106 [   0] SETTABLE  R11["parent"] := R4
+     107 [   0] SETTABLE  R11["layout"] := "card_stats_big.skillLabel"
+     108 [   0] SETTABLE  R11["txt"] := ""
+     109 [   0] SETTABLE  R11["style"] := "cardSkill"
+     110 [   0] GETUPVAL  R12 := upval 3
+     111 [   0] SETTABLE  R11["renderer"] := R12
+     112 [   0] CALL      R10(...) nargs=1 nret=1
+     113 [   0] GETTABLE  R11 := R10["update"]
+     114 [   0] NEWTABLE  R12 := {} (array 0, hash 1)
+     115 [   0] SETTABLE  R12["txt"] := "Stribt eine gegnerische Kreatur durch seinen Anfgriff, fügt er dem geg"
+     116 [   0] CALL      R11(...) nargs=1 nret=0
+     117 [   0] LOADK     R11 := "card_stats_big.zoomBtnLeft"
+     118 [   0] GETTABLE  R12 := R0["onlyZoomButton"]
+     119 [   0] EQ        if (R12 == True) ~= 0 then skip next
+     120 [   0] JMP       jmp +1 -> 122
+     121 [   0] LOADK     R11 := "card_stats_big.zoomBtnCenter"
+     122 [   0] GETGLOBAL R12 := _G["ui"]
+     123 [   0] GETTABLE  R12 := R12["createButton"]
+     124 [   0] NEWTABLE  R13 := {} (array 0, hash 10)
+     125 [   0] SETTABLE  R13["layout"] := R11
+     126 [   0] SETTABLE  R13["parent"] := R4
+     127 [   0] SETTABLE  R13["eventid"] := "scene_cardfullscreen_magnify_button"
+     128 [   0] GETUPVAL  R14 := upval 4
+     129 [   0] SETTABLE  R13["renderer"] := R14
+     130 [   0] SETTABLE  R13["borderImg"] := "assets/gfx/hud/commons/button_default_frame.png"
+     131 [   0] SETTABLE  R13["fillImg"] := "assets/gfx/hud/commons/button_default_fill.png"
+     132 [   0] SETTABLE  R13["activeIcn"] := "assets/gfx/hud/icons/button_zoom.png"
+     133 [   0] SETTABLE  R13["beganSound"] := "ui_button_circular"
+     134 [   0] SETTABLE  R13["ret"] := True
+     135 [   0] CLOSURE   R14 := closure #0
+     136 [   0] MOVE      R0 := R4
+     137 [   0] SETTABLE  R13["cb"] := R14
+     138 [   0] CALL      R12(...) nargs=1 nret=1
+     139 [   0] GETUPVAL  R13 := upval 5
+     140 [   0] GETTABLE  R13 := R13["create"]
+     141 [   0] NEWTABLE  R14 := {} (array 0, hash 8)
+     142 [   0] SETTABLE  R14["layout"] := "card_stats_big.completeBtn"
+     143 [   0] SETTABLE  R14["parent"] := R4
+     144 [   0] SETTABLE  R14["eventid"] := "scene_cardfullscreen_complete_button"
+     145 [   0] SETTABLE  R14["fillImg"] := "assets/gfx/hud/commons/button_special_fill.png"
+     146 [   0] SETTABLE  R14["borderImg"] := "assets/gfx/hud/commons/button_special_frame.png"
+     147 [   0] SETTABLE  R14["activeIcn"] := "assets/gfx/hud/icons/hud_gemicon01.png"
+     148 [   0] SETTABLE  R14["pressedScale"] := 0.95
+     149 [   0] CLOSURE   R15 := closure #1
+     150 [   0] MOVE      R0 := R4
+     151 [   0] SETTABLE  R14["cb"] := R15
+     152 [   0] CALL      R13(...) nargs=1 nret=1
+     153 [   0] SETTABLE  R13["isVisible"] := False
+     154 [   0] GETGLOBAL R14 := _G["ui"]
+     155 [   0] GETTABLE  R14 := R14["createButton"]
+     156 [   0] NEWTABLE  R15 := {} (array 0, hash 10)
+     157 [   0] SETTABLE  R15["layout"] := "card_stats_big.sellBtn"
+     158 [   0] SETTABLE  R15["parent"] := R4
+     159 [   0] SETTABLE  R15["eventid"] := "scene_cardfullscreen_complete_button"
+     160 [   0] GETUPVAL  R16 := upval 4
+     161 [   0] SETTABLE  R15["renderer"] := R16
+     162 [   0] SETTABLE  R15["borderImg"] := "assets/gfx/hud/commons/button_default_frame.png"
+     163 [   0] SETTABLE  R15["fillImg"] := "assets/gfx/hud/commons/button_default_fill.png"
+     164 [   0] SETTABLE  R15["activeIcn"] := "assets/gfx/hud/icons/button_sell.png"
+     165 [   0] SETTABLE  R15["beganSound"] := "ui_button_circular"
+     166 [   0] SETTABLE  R15["ret"] := True
+     167 [   0] CLOSURE   R16 := closure #2
+     168 [   0] MOVE      R0 := R4
+     169 [   0] SETTABLE  R15["cb"] := R16
+     170 [   0] CALL      R14(...) nargs=1 nret=1
+     171 [   0] SETTABLE  R14["isVisible"] := False
+     172 [   0] GETTABLE  R15 := R0["onlyZoomButton"]
+     173 [   0] EQ        if (R15 == True) ~= 1 then skip next
+     174 [   0] JMP       jmp +6 -> 181
+     175 [   0] GETTABLE  R15 := R0["cardPiece"]
+     176 [   0] TEST      if (R15 truthy) ~= 0 then skip next
+     177 [   0] JMP       jmp +2 -> 180
+     178 [   0] SETTABLE  R13["isVisible"] := True
+     179 [   0] JMP       jmp +1 -> 181
+     180 [   0] SETTABLE  R14["isVisible"] := True
+     181 [   0] EQ        if (R1 == True) ~= 0 then skip next
+     182 [   0] JMP       jmp +2 -> 185
+     183 [   0] SETTABLE  R14["isVisible"] := False
+     184 [   0] SETTABLE  R13["isVisible"] := False
+     185 [   0] CLOSURE   R15 := closure #3
+     186 [   0] MOVE      R0 := R1
+     187 [   0] MOVE      R0 := R13
+     188 [   0] MOVE      R0 := R14
+     189 [   0] SETTABLE  R4["completeBtnOff"] := R15
+     190 [   0] CLOSURE   R15 := closure #4
+     191 [   0] MOVE      R0 := R7
+     192 [   0] MOVE      R0 := R8
+     193 [   0] MOVE      R0 := R9
+     194 [   0] MOVE      R0 := R13
+     195 [   0] MOVE      R0 := R10
+     196 [   0] SETTABLE  R4["update"] := R15
+     197 [   0] CLOSURE   R15 := closure #5
+     198 [   0] SETTABLE  R4["enter"] := R15
+     199 [   0] CLOSURE   R15 := closure #6
+     200 [   0] SETTABLE  R4["exit"] := R15
+     201 [   0] CLOSURE   R15 := closure #7
+     202 [   0] MOVE      R0 := R4
+     203 [   0] SETTABLE  R4["destroy"] := R15
+     204 [   0] GETUPVAL  R15 := upval 6
+     205 [   0] GETTABLE  R15 := R15["inherit"]
+     206 [   0] MOVE      R16 := R4
+     207 [   0] LOADK     R17 := "_flaregames_remove"
+     208 [   0] CLOSURE   R18 := closure #8
+     209 [   0] MOVE      R0 := R4
+     210 [   0] CALL      R15(...) nargs=3 nret=0
+     211 [   0] RETURN    return R4.. (1 values)
+     212 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 75-77, upvals=[], locals=[])
+      constants: strings=['dispatchEvent', 'name', 'zoomCard'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["dispatchEvent"]
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+         3 [   0] SETTABLE  R2["name"] := "zoomCard"
+         4 [   0] CALL      R0(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 88-90, upvals=[], locals=[])
+      constants: strings=['dispatchEvent', 'name', 'completeCard'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["dispatchEvent"]
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+         3 [   0] SETTABLE  R2["name"] := "completeCard"
+         4 [   0] CALL      R0(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 104-106, upvals=[], locals=[])
+      constants: strings=['dispatchEvent', 'name', 'sellCard'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["dispatchEvent"]
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+         3 [   0] SETTABLE  R2["name"] := "sellCard"
+         4 [   0] CALL      R0(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 123-128, upvals=[], locals=[])
+      constants: strings=['isVisible'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] SETTABLE  R0["isVisible"] := False
+         5 [   0] GETUPVAL  R0 := upval 2
+         6 [   0] SETTABLE  R0["isVisible"] := True
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 130-152, upvals=[], locals=[])
+      constants: strings=['cardData', 'attack', 'update', 'txt', 'hp', 'manaCost', 'require', 'game.cardmanager', 'getInstance', 'card_template_id', 'getCardPieceAssemblyPrice', 'shopStyle', 'getTextForAttribute', ''] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["cardData"]
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +63 -> 66
+         3 [   0] GETTABLE  R1 := R0["cardData"]
+         4 [   0] GETTABLE  R1 := R1["attack"]
+         5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +7 -> 14
+         7 [   0] GETUPVAL  R1 := upval 0
+         8 [   0] GETTABLE  R1 := R1["update"]
+         9 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+        10 [   0] GETTABLE  R3 := R0["cardData"]
+        11 [   0] GETTABLE  R3 := R3["attack"]
+        12 [   0] SETTABLE  R2["txt"] := R3
+        13 [   0] CALL      R1(...) nargs=1 nret=0
+        14 [   0] GETTABLE  R1 := R0["cardData"]
+        15 [   0] GETTABLE  R1 := R1["hp"]
+        16 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        17 [   0] JMP       jmp +7 -> 25
+        18 [   0] GETUPVAL  R1 := upval 1
+        19 [   0] GETTABLE  R1 := R1["update"]
+        20 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+        21 [   0] GETTABLE  R3 := R0["cardData"]
+        22 [   0] GETTABLE  R3 := R3["hp"]
+        23 [   0] SETTABLE  R2["txt"] := R3
+        24 [   0] CALL      R1(...) nargs=1 nret=0
+        25 [   0] GETTABLE  R1 := R0["cardData"]
+        26 [   0] GETTABLE  R1 := R1["manaCost"]
+        27 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        28 [   0] JMP       jmp +7 -> 36
+        29 [   0] GETUPVAL  R1 := upval 2
+        30 [   0] GETTABLE  R1 := R1["update"]
+        31 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+        32 [   0] GETTABLE  R3 := R0["cardData"]
+        33 [   0] GETTABLE  R3 := R3["manaCost"]
+        34 [   0] SETTABLE  R2["txt"] := R3
+        35 [   0] CALL      R1(...) nargs=1 nret=0
+        36 [   0] GETGLOBAL R1 := _G["require"]
+        37 [   0] LOADK     R2 := "game.cardmanager"
+        38 [   0] CALL      R1(...) nargs=1 nret=1
+        39 [   0] GETTABLE  R1 := R1["getInstance"]
+        40 [   0] CALL      R1(...) nargs=0 nret=1
+        41 [   0] GETTABLE  R2 := R0["cardData"]
+        42 [   0] GETTABLE  R2 := R2["card_template_id"]
+        43 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        44 [   0] JMP       jmp +10 -> 55
+        45 [   0] GETTABLE  R2 := R1["getCardPieceAssemblyPrice"]
+        46 [   0] GETTABLE  R3 := R0["cardData"]
+        47 [   0] GETTABLE  R3 := R3["card_template_id"]
+        48 [   0] CALL      R2(...) nargs=1 nret=2
+        49 [   0] GETUPVAL  R4 := upval 3
+        50 [   0] GETTABLE  R4 := R4["update"]
+        51 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+        52 [   0] SETTABLE  R5["txt"] := R2
+        53 [   0] SETTABLE  R5["shopStyle"] := True
+        54 [   0] CALL      R4(...) nargs=1 nret=0
+        55 [   0] GETTABLE  R2 := R1["getTextForAttribute"]
+        56 [   0] GETTABLE  R3 := R0["cardData"]
+        57 [   0] CALL      R2(...) nargs=1 nret=1
+        58 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        59 [   0] JMP       jmp +1 -> 61
+        60 [   0] LOADK     R2 := ""
+        61 [   0] GETUPVAL  R3 := upval 4
+        62 [   0] GETTABLE  R3 := R3["update"]
+        63 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+        64 [   0] SETTABLE  R4["txt"] := R2
+        65 [   0] CALL      R3(...) nargs=1 nret=0
+        66 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 154-155, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 157-158, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 160-162, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 164-166, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

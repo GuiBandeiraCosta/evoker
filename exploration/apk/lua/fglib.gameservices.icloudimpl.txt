@@ -1,0 +1,184 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] CLOSURE   R1 := closure #0
+     6 [   0] MOVE      R0 := R0
+     7 [   0] LOADNIL   R2..R2 := nil
+     8 [   0] CLOSURE   R3 := closure #1
+     9 [   0] MOVE      R0 := R2
+    10 [   0] MOVE      R0 := R1
+    11 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+    12 [   0] SETTABLE  R4["getInstance"] := R3
+    13 [   0] RETURN    return R4.. (1 values)
+    14 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 8-63, upvals=[], locals=[])
+    constants: strings=['require', 'FGLIB_PATH', 'native.icloud', 'eventdispatcher', 'new', 'Runtime', 'addEventListener', 'icloud', 'init', 'signInCloud', 'signOutCloud', 'getValue', 'setValue', 'getAccount', 'isLoggedInCloud', 'isCloudAvailable'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["require"]
+       1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+       2 [   0] LOADK     R2 := "native.icloud"
+       3 [   0] CONCAT    R1 := R1 .. ... .. R2
+       4 [   0] CALL      R0(...) nargs=1 nret=1
+       5 [   0] GETGLOBAL R1 := _G["require"]
+       6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+       7 [   0] LOADK     R3 := "eventdispatcher"
+       8 [   0] CONCAT    R2 := R2 .. ... .. R3
+       9 [   0] CALL      R1(...) nargs=1 nret=1
+      10 [   0] GETTABLE  R2 := R1["new"]
+      11 [   0] CALL      R2(...) nargs=0 nret=1
+      12 [   0] CLOSURE   R3 := closure #0
+      13 [   0] GETUPVAL  R0 := upval 0
+      14 [   0] MOVE      R0 := R2
+      15 [   0] GETGLOBAL R4 := _G["Runtime"]
+      16 [   0] SELF      R5 := R4; R4 := R4["addEventListener"]
+      17 [   0] LOADK     R6 := "icloud"
+      18 [   0] MOVE      R7 := R3
+      19 [   0] CALL      R4(...) nargs=3 nret=0
+      20 [   0] CLOSURE   R4 := closure #1
+      21 [   0] SETTABLE  R2["init"] := R4
+      22 [   0] CLOSURE   R4 := closure #2
+      23 [   0] GETUPVAL  R0 := upval 0
+      24 [   0] MOVE      R0 := R0
+      25 [   0] MOVE      R0 := R3
+      26 [   0] SETTABLE  R2["signInCloud"] := R4
+      27 [   0] CLOSURE   R4 := closure #3
+      28 [   0] GETUPVAL  R0 := upval 0
+      29 [   0] SETTABLE  R2["signOutCloud"] := R4
+      30 [   0] CLOSURE   R4 := closure #4
+      31 [   0] MOVE      R0 := R0
+      32 [   0] SETTABLE  R2["getValue"] := R4
+      33 [   0] CLOSURE   R4 := closure #5
+      34 [   0] MOVE      R0 := R0
+      35 [   0] SETTABLE  R2["setValue"] := R4
+      36 [   0] CLOSURE   R4 := closure #6
+      37 [   0] MOVE      R0 := R0
+      38 [   0] SETTABLE  R2["getAccount"] := R4
+      39 [   0] CLOSURE   R4 := closure #7
+      40 [   0] MOVE      R0 := R0
+      41 [   0] SETTABLE  R2["isLoggedInCloud"] := R4
+      42 [   0] CLOSURE   R4 := closure #8
+      43 [   0] SETTABLE  R2["isCloudAvailable"] := R4
+      44 [   0] RETURN    return R2.. (1 values)
+      45 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 14-17, upvals=[], locals=[])
+      constants: strings=['msg', '[GameServices] Received ICloud Data Update', 'emit', 'onCloudUpdated'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "[GameServices] Received ICloud Data Update"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R0 := upval 1
+         5 [   0] GETTABLE  R0 := R0["emit"]
+         6 [   0] LOADK     R1 := "onCloudUpdated"
+         7 [   0] CALL      R0(...) nargs=1 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 21-22, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 24-35, upvals=[], locals=[])
+      constants: strings=['msg', '[GameServices] Signing In to ICloud ...', 'isICloudAvailable', '[GameServices] Sign-In to ICloud ', 'succeeded', 'refused', 'type', 'function', 'synchronize'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "[GameServices] Signing In to ICloud ..."
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] GETTABLE  R1 := R1["isICloudAvailable"]
+         6 [   0] CALL      R1(...) nargs=0 nret=1
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] GETTABLE  R2 := R2["msg"]
+         9 [   0] LOADK     R3 := "[GameServices] Sign-In to ICloud "
+        10 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +3 -> 15
+        12 [   0] LOADK     R4 := "succeeded"
+        13 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        14 [   0] JMP       jmp +1 -> 16
+        15 [   0] LOADK     R4 := "refused"
+        16 [   0] CONCAT    R3 := R3 .. ... .. R4
+        17 [   0] CALL      R2(...) nargs=1 nret=0
+        18 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        19 [   0] JMP       jmp +8 -> 28
+        20 [   0] GETGLOBAL R2 := _G["type"]
+        21 [   0] MOVE      R3 := R0
+        22 [   0] CALL      R2(...) nargs=1 nret=1
+        23 [   0] EQ        if (R2 == "function") ~= 0 then skip next
+        24 [   0] JMP       jmp +3 -> 28
+        25 [   0] MOVE      R2 := R0
+        26 [   0] MOVE      R3 := R1
+        27 [   0] CALL      R2(...) nargs=1 nret=0
+        28 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        29 [   0] JMP       jmp +7 -> 37
+        30 [   0] GETUPVAL  R2 := upval 1
+        31 [   0] GETTABLE  R2 := R2["synchronize"]
+        32 [   0] CALL      R2(...) nargs=0 nret=1
+        33 [   0] EQ        if (R2 == True) ~= 0 then skip next
+        34 [   0] JMP       jmp +2 -> 37
+        35 [   0] GETUPVAL  R2 := upval 2
+        36 [   0] CALL      R2(...) nargs=0 nret=0
+        37 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 37-40, upvals=[], locals=[])
+      constants: strings=['msg', '[GameServices] Signing out from ICloud'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "[GameServices] Signing out from ICloud"
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] MOVE      R1 := R0
+         5 [   0] LOADBOOL  R2 := True
+         6 [   0] CALL      R1(...) nargs=1 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 42-44, upvals=[], locals=[])
+      constants: strings=['getValue'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["getValue"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] TAILCALL  return R1(...) nargs=1
+         4 [   0] RETURN    return R1.. (-1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=2, lines 46-48, upvals=[], locals=[])
+      constants: strings=['setValue'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["setValue"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] MOVE      R4 := R1
+         4 [   0] CALL      R2(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 50-52, upvals=[], locals=[])
+      constants: strings=['IID', 'getAccount', ''] numbers=[]
+         0 [   0] LOADK     R0 := "IID"
+         1 [   0] GETUPVAL  R1 := upval 0
+         2 [   0] GETTABLE  R1 := R1["getAccount"]
+         3 [   0] CALL      R1(...) nargs=0 nret=1
+         4 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         5 [   0] JMP       jmp +1 -> 7
+         6 [   0] LOADK     R1 := ""
+         7 [   0] CONCAT    R0 := R0 .. ... .. R1
+         8 [   0] RETURN    return R0.. (1 values)
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 54-56, upvals=[], locals=[])
+      constants: strings=['getAccount'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["getAccount"]
+         2 [   0] CALL      R0(...) nargs=0 nret=1
+         3 [   0] EQ        if (R0 == None) ~= 0 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] LOADBOOL  R0 := False (skip)
+         6 [   0] LOADBOOL  R0 := True
+         7 [   0] RETURN    return R0.. (1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 58-60, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] LOADBOOL  R0 := True
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 67-72, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

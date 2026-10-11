@@ -1,0 +1,1105 @@
+{
+    "_type"      : "fight_simulation",
+    "winner"     : 2,
+    "visualized" : [
+        {
+            "time"          : 7300,
+            "visualization" : [
+                {
+                    "type"               : "animation",
+                    "cardId" : {
+                        "pid" : 1,
+                        "id"  : 3
+                    },
+                    "animationId"        : "attack_attacker",
+                    "relativeToTemplate" : true,
+                    "duration"           : 400
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_ally"
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 200,
+                    "cardId" : {
+                        "pid" : 1,
+                        "id"  : 3
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"   : 500,
+                            "cardId" : {
+                                "pid" : 2,
+                                "id"  : 3
+                            }
+                        }
+                    ],
+                    "duration"    : 500
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 500,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId"        : "attack_target",
+                    "duration"           : 600,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"        : "card",
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "transitions" : [
+                        {
+                            "delta"      : true,
+                            "y"          : -20,
+                            "time"       : 50,
+                            "delay"      : 0,
+                            "transition" : "inQuad"
+                        },
+                        {
+                            "delta"      : true,
+                            "y"          : 20,
+                            "time"       : 50,
+                            "delay"      : 50,
+                            "transition" : "inQuad"
+                        }
+                    ],
+                    "duration"    : 100,
+                    "delay"       : 700
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "newAttrib"    : 100,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 500
+                        }
+                    ],
+                    "duration"     : 500,
+                    "delay"        : 700
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 800,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "text"        : "-100",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 200
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 500,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 200
+                        }
+                    ],
+                    "duration"    : 700
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_enemy",
+                    "delay"   : 700
+                },
+                {
+                    "type"               : "animation",
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 2
+                    },
+                    "animationId"        : "attack_attacker",
+                    "relativeToTemplate" : true,
+                    "duration"           : 400,
+                    "delay"              : 1500,
+                    "rotation"           : 180
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 1500
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 1700,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 2
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 500,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "front"
+                        }
+                    ],
+                    "duration"    : 500
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 2000,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 400,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 1200,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 500
+                        }
+                    ],
+                    "duration"     : 500,
+                    "delay"        : 2200
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 2300,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-300",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 200
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 500,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 200
+                        }
+                    ],
+                    "duration"    : 700
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 2200
+                },
+                {
+                    "type"               : "animation",
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId"        : "attack_attacker",
+                    "relativeToTemplate" : true,
+                    "duration"           : 400,
+                    "delay"              : 3000,
+                    "rotation"           : 180
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 3000
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 3200,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 500,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "frontRight"
+                        }
+                    ],
+                    "duration"    : 500
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 3500,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 400,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 1100,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 500
+                        }
+                    ],
+                    "duration"     : 500,
+                    "delay"        : 3700
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 3800,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-100",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 200
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 500,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 200
+                        }
+                    ],
+                    "duration"    : 700
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 3700
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 3200
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 3400,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 500,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "frontLeft"
+                        }
+                    ],
+                    "duration"    : 500
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 3700,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 400,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 1000,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 500
+                        }
+                    ],
+                    "duration"     : 500,
+                    "delay"        : 3900
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 4000,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-100",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 200
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 500,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 200
+                        }
+                    ],
+                    "duration"    : 700
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 3900
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 3400
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 3600,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"   : 500,
+                            "cardId" : {
+                                "pid" : 1,
+                                "id"  : 3
+                            }
+                        }
+                    ],
+                    "duration"    : 500
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 3900,
+                    "cardId" : {
+                        "pid" : 1,
+                        "id"  : 3
+                    },
+                    "animationId"        : "attack_target",
+                    "duration"           : 600,
+                    "relativeToTemplate" : true,
+                    "rotation"           : 180
+                },
+                {
+                    "type"        : "card",
+                    "cardId" : {
+                        "pid" : 1,
+                        "id"  : 3
+                    },
+                    "transitions" : [
+                        {
+                            "delta"      : true,
+                            "y"          : 20,
+                            "time"       : 50,
+                            "delay"      : 0,
+                            "transition" : "inQuad"
+                        },
+                        {
+                            "delta"      : true,
+                            "y"          : -20,
+                            "time"       : 50,
+                            "delay"      : 50,
+                            "transition" : "inQuad"
+                        }
+                    ],
+                    "duration"    : 100,
+                    "delay"       : 4100
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1,
+                        "id"  : 3
+                    },
+                    "newAttrib"    : 0,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 500
+                        }
+                    ],
+                    "duration"     : 500,
+                    "delay"        : 4100
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 4200,
+                    "cardId" : {
+                        "pid" : 1,
+                        "id"  : 3
+                    },
+                    "text"        : "-100",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 200
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 500,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 200
+                        }
+                    ],
+                    "duration"    : 700
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally",
+                    "delay"   : 4100
+                },
+                {
+                    "type"               : "animation",
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 4
+                    },
+                    "animationId"        : "attack_attacker",
+                    "relativeToTemplate" : true,
+                    "duration"           : 400,
+                    "delay"              : 4900,
+                    "rotation"           : 180
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 4900
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 5100,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 4
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 500,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "front"
+                        }
+                    ],
+                    "duration"    : 500
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 5400,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 600,
+                    "relativeToTemplate" : true,
+                    "rotation"           : 180
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 800,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 500
+                        }
+                    ],
+                    "duration"     : 500,
+                    "delay"        : 5600
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 5700,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-200",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 200
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 500,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 200
+                        }
+                    ],
+                    "duration"    : 700
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 5600
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "fight_card_death",
+                    "delay"   : 6400
+                },
+                {
+                    "type"               : "animation",
+                    "cardId" : {
+                        "pid" : 1,
+                        "id"  : 3
+                    },
+                    "animationId"        : "death_target",
+                    "relativeToTemplate" : true,
+                    "duration"           : 1400,
+                    "delay"              : 6400
+                },
+                {
+                    "type"        : "card",
+                    "delay"       : 7000,
+                    "cardId" : {
+                        "pid" : 1,
+                        "id"  : 3
+                    },
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 300
+                        }
+                    ],
+                    "duration"    : 300
+                }
+            ]
+        },
+        {
+            "time"          : 3983,
+            "visualization" : [
+                {
+                    "type"               : "animation",
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 2
+                    },
+                    "animationId"        : "attack_attacker",
+                    "relativeToTemplate" : true,
+                    "duration"           : 360,
+                    "rotation"           : 180
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy"
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 180,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 2
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 450,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "front"
+                        }
+                    ],
+                    "duration"    : 450
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 450,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 360,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 500,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 450
+                        }
+                    ],
+                    "duration"     : 450,
+                    "delay"        : 630
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 720,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-300",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 180
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 450,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 180
+                        }
+                    ],
+                    "duration"    : 630
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 630
+                },
+                {
+                    "type"               : "animation",
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId"        : "attack_attacker",
+                    "relativeToTemplate" : true,
+                    "duration"           : 360,
+                    "delay"              : 1215,
+                    "rotation"           : 180
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 1215
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 1395,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 450,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "front"
+                        }
+                    ],
+                    "duration"    : 450
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 1665,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 360,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 400,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 450
+                        }
+                    ],
+                    "duration"     : 450,
+                    "delay"        : 1845
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 1935,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-100",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 180
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 450,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 180
+                        }
+                    ],
+                    "duration"    : 630
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 1845
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 1395
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 1575,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 450,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "frontRight"
+                        }
+                    ],
+                    "duration"    : 450
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 1845,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 360,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 300,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 450
+                        }
+                    ],
+                    "duration"     : 450,
+                    "delay"        : 2025
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 2115,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-100",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 180
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 450,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 180
+                        }
+                    ],
+                    "duration"    : 630
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 2025
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 1575
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 1755,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 3
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 450,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "frontLeft"
+                        }
+                    ],
+                    "duration"    : 450
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 2025,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 360,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 200,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 450
+                        }
+                    ],
+                    "duration"     : 450,
+                    "delay"        : 2205
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 2295,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-100",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 180
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 450,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 180
+                        }
+                    ],
+                    "duration"    : 630
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 2205
+                },
+                {
+                    "type"               : "animation",
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 4
+                    },
+                    "animationId"        : "attack_attacker",
+                    "relativeToTemplate" : true,
+                    "duration"           : 360,
+                    "delay"              : 2633,
+                    "rotation"           : 180
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_shot_enemy",
+                    "delay"   : 2633
+                },
+                {
+                    "type"        : "animation",
+                    "delay"       : 2813,
+                    "cardId" : {
+                        "pid" : 2,
+                        "id"  : 4
+                    },
+                    "animationId" : "attack_missile",
+                    "transitions" : [
+                        {
+                            "time"      : 450,
+                            "cardId" : {
+                                "pid" : 1
+                            },
+                            "direction" : "front"
+                        }
+                    ],
+                    "duration"    : 450
+                },
+                {
+                    "type"               : "animation",
+                    "delay"              : 3083,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "animationId"        : "attack_target_hpbar",
+                    "duration"           : 360,
+                    "relativeToTemplate" : true
+                },
+                {
+                    "type"         : "attribChange",
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "newAttrib"    : 0,
+                    "attribSetter" : "setHp",
+                    "transitions" : [
+                        {
+                            "time" : 450
+                        }
+                    ],
+                    "duration"     : 450,
+                    "delay"        : 3263
+                },
+                {
+                    "type"        : "text",
+                    "delay"       : 3353,
+                    "cardId" : {
+                        "pid" : 1
+                    },
+                    "text"        : "-200",
+                    "style"       : "attack_card",
+                    "transitions" : [
+                        {
+                            "alpha" : 0,
+                            "time"  : 0
+                        },
+                        {
+                            "alpha" : 1,
+                            "time"  : 180
+                        },
+                        {
+                            "alpha"  : 0,
+                            "time"   : 450,
+                            "xScale" : 2,
+                            "yScale" : 2,
+                            "delay"  : 180
+                        }
+                    ],
+                    "duration"    : 630
+                },
+                {
+                    "type"    : "sound",
+                    "soundId" : "attack_impact_ally_directhit",
+                    "delay"   : 3263
+                }
+            ]
+        }
+    ],
+    "finalState" : [
+        {
+            "hp"    : 0,
+            "maxHp" : 1500,
+            "cards" : [ ]
+        },
+        {
+            "hp"    : 300,
+            "maxHp" : 300,
+            "cards" : [
+                null,
+                {
+                    "hp"     : 100,
+                    "maxHp"  : 100,
+                    "attack" : 300
+                },
+                {
+                    "hp"     : 100,
+                    "maxHp"  : 200,
+                    "attack" : 300
+                },
+                {
+                    "hp"     : 100,
+                    "maxHp"  : 100,
+                    "attack" : 200
+                },
+                null
+            ]
+        }
+    ]
+}

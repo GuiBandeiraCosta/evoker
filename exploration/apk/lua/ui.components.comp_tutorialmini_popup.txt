@@ -1,0 +1,176 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'components.comp_slicedbox', 'ui.renderer.textfieldlabelrenderernoshadow', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "components.comp_slicedbox"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "ui.renderer.textfieldlabelrenderernoshadow"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] GETGLOBAL R2 := _G["require"]
+     9 [   0] LOADK     R3 := "util.util"
+    10 [   0] CALL      R2(...) nargs=1 nret=1
+    11 [   0] CLOSURE   R3 := closure #0
+    12 [   0] MOVE      R0 := R1
+    13 [   0] MOVE      R0 := R2
+    14 [   0] MOVE      R0 := R0
+    15 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+    16 [   0] SETTABLE  R4["create"] := R3
+    17 [   0] RETURN    return R4.. (1 values)
+    18 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 12-98, upvals=[], locals=[])
+    constants: strings=['ui', 'createLabel', 'parent', 'renderer', 'layout', 'width', 'height', 'x', 'y', 'alignment', 'center', 'style', 'tutorialBold', 'txt', '', 'isVisible', 'require', 'util.typeanimatedtext', 'getLines', 'text', 'safeRemoveObject', 'fglib', 'utils', 'Util', 'deepcopy', 'background', 'assets/gfx/hud/popupframe/popup_fill.png', 'border', 'horiTop', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe02.png', 'horiBottom', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe07.png', 'vertiLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe04.png', 'vertiRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe05.png', 'corner', 'topLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe01.png', 'topRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe03.png', 'bottomLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe06.png', 'bottomRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe08.png', 'create', 'animateText', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[0, 27, 30, 10, 1, 2, 5]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] GETGLOBAL R2 := _G["ui"]
+       2 [   0] GETTABLE  R2 := R2["createLabel"]
+       3 [   0] NEWTABLE  R3 := {} (array 0, hash 5)
+       4 [   0] GETTABLE  R4 := R0["parent"]
+       5 [   0] SETTABLE  R3["parent"] := R4
+       6 [   0] GETUPVAL  R4 := upval 0
+       7 [   0] SETTABLE  R3["renderer"] := R4
+       8 [   0] NEWTABLE  R4 := {} (array 0, hash 5)
+       9 [   0] GETTABLE  R5 := R0["layout"]
+      10 [   0] GETTABLE  R5 := R5["width"]
+      11 [   0] SETTABLE  R4["width"] := R5
+      12 [   0] GETTABLE  R5 := R0["layout"]
+      13 [   0] GETTABLE  R5 := R5["height"]
+      14 [   0] SETTABLE  R4["height"] := R5
+      15 [   0] SETTABLE  R4["x"] := 0
+      16 [   0] SETTABLE  R4["y"] := 0
+      17 [   0] SETTABLE  R4["alignment"] := "center"
+      18 [   0] SETTABLE  R3["layout"] := R4
+      19 [   0] SETTABLE  R3["style"] := "tutorialBold"
+      20 [   0] SETTABLE  R3["txt"] := ""
+      21 [   0] CALL      R2(...) nargs=1 nret=1
+      22 [   0] SETTABLE  R2["isVisible"] := False
+      23 [   0] GETGLOBAL R3 := _G["require"]
+      24 [   0] LOADK     R4 := "util.typeanimatedtext"
+      25 [   0] CALL      R3(...) nargs=1 nret=1
+      26 [   0] GETTABLE  R4 := R3["getLines"]
+      27 [   0] MOVE      R5 := R2
+      28 [   0] GETTABLE  R6 := R0["text"]
+      29 [   0] CALL      R4(...) nargs=2 nret=1
+      30 [   0] GETUPVAL  R5 := upval 1
+      31 [   0] GETTABLE  R5 := R5["safeRemoveObject"]
+      32 [   0] MOVE      R6 := R2
+      33 [   0] CALL      R5(...) nargs=1 nret=0
+      34 [   0] GETTABLE  R5 := R0["layout"]
+      35 [   0] MUL       R6 := R4 * 27
+      36 [   0] SETTABLE  R5["height"] := R6
+      37 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      38 [   0] GETGLOBAL R6 := _G["fglib"]
+      39 [   0] GETTABLE  R6 := R6["utils"]
+      40 [   0] GETTABLE  R6 := R6["Util"]
+      41 [   0] GETTABLE  R6 := R6["deepcopy"]
+      42 [   0] GETTABLE  R7 := R0["layout"]
+      43 [   0] LOADBOOL  R8 := True
+      44 [   0] MOVE      R9 := R5
+      45 [   0] CALL      R6(...) nargs=3 nret=0
+      46 [   0] GETTABLE  R6 := R5["width"]
+      47 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      48 [   0] JMP       jmp +3 -> 52
+      49 [   0] GETTABLE  R6 := R5["width"]
+      50 [   0] ADD       R6 := R6 + 30
+      51 [   0] SETTABLE  R5["width"] := R6
+      52 [   0] GETTABLE  R6 := R5["height"]
+      53 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      54 [   0] JMP       jmp +3 -> 58
+      55 [   0] GETTABLE  R6 := R5["height"]
+      56 [   0] ADD       R6 := R6 + 10
+      57 [   0] SETTABLE  R5["height"] := R6
+      58 [   0] NEWTABLE  R6 := {} (array 0, hash 5)
+      59 [   0] GETTABLE  R7 := R0["parent"]
+      60 [   0] SETTABLE  R6["parent"] := R7
+      61 [   0] SETTABLE  R6["layout"] := R5
+      62 [   0] SETTABLE  R6["background"] := "assets/gfx/hud/popupframe/popup_fill.png"
+      63 [   0] NEWTABLE  R7 := {} (array 0, hash 4)
+      64 [   0] SETTABLE  R7["horiTop"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe02.png"
+      65 [   0] SETTABLE  R7["horiBottom"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe07.png"
+      66 [   0] SETTABLE  R7["vertiLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe04.png"
+      67 [   0] SETTABLE  R7["vertiRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe05.png"
+      68 [   0] SETTABLE  R6["border"] := R7
+      69 [   0] NEWTABLE  R7 := {} (array 0, hash 4)
+      70 [   0] SETTABLE  R7["topLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe01.png"
+      71 [   0] SETTABLE  R7["topRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe03.png"
+      72 [   0] SETTABLE  R7["bottomLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe06.png"
+      73 [   0] SETTABLE  R7["bottomRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe08.png"
+      74 [   0] SETTABLE  R6["corner"] := R7
+      75 [   0] GETUPVAL  R7 := upval 2
+      76 [   0] GETTABLE  R7 := R7["create"]
+      77 [   0] MOVE      R8 := R6
+      78 [   0] CALL      R7(...) nargs=1 nret=1
+      79 [   0] MOVE      R1 := R7
+      80 [   0] GETGLOBAL R7 := _G["ui"]
+      81 [   0] GETTABLE  R7 := R7["createLabel"]
+      82 [   0] NEWTABLE  R8 := {} (array 0, hash 5)
+      83 [   0] SETTABLE  R8["parent"] := R1
+      84 [   0] GETUPVAL  R9 := upval 0
+      85 [   0] SETTABLE  R8["renderer"] := R9
+      86 [   0] NEWTABLE  R9 := {} (array 0, hash 5)
+      87 [   0] GETTABLE  R10 := R0["layout"]
+      88 [   0] GETTABLE  R10 := R10["width"]
+      89 [   0] SETTABLE  R9["width"] := R10
+      90 [   0] GETTABLE  R10 := R0["layout"]
+      91 [   0] GETTABLE  R10 := R10["height"]
+      92 [   0] SETTABLE  R9["height"] := R10
+      93 [   0] SETTABLE  R9["x"] := 0
+      94 [   0] SUB       R10 := R4 - 1
+      95 [   0] MUL       R10 := R10 * 2
+      96 [   0] ADD       R10 := R10 + 5
+      97 [   0] SETTABLE  R9["y"] := R10
+      98 [   0] SETTABLE  R9["alignment"] := "center"
+      99 [   0] SETTABLE  R8["layout"] := R9
+     100 [   0] SETTABLE  R8["style"] := "tutorialBold"
+     101 [   0] SETTABLE  R8["txt"] := ""
+     102 [   0] CALL      R7(...) nargs=1 nret=1
+     103 [   0] GETGLOBAL R8 := _G["require"]
+     104 [   0] LOADK     R9 := "util.typeanimatedtext"
+     105 [   0] CALL      R8(...) nargs=1 nret=1
+     106 [   0] GETTABLE  R8 := R8["animateText"]
+     107 [   0] MOVE      R9 := R7
+     108 [   0] GETTABLE  R10 := R0["text"]
+     109 [   0] CALL      R8(...) nargs=2 nret=1
+     110 [   0] CLOSURE   R9 := closure #0
+     111 [   0] MOVE      R0 := R8
+     112 [   0] MOVE      R10 := R9
+     113 [   0] CALL      R10(...) nargs=0 nret=0
+     114 [   0] CLOSURE   R10 := closure #1
+     115 [   0] SETTABLE  R1["enter"] := R10
+     116 [   0] CLOSURE   R10 := closure #2
+     117 [   0] SETTABLE  R1["exit"] := R10
+     118 [   0] CLOSURE   R10 := closure #3
+     119 [   0] MOVE      R0 := R1
+     120 [   0] SETTABLE  R1["destroy"] := R10
+     121 [   0] GETUPVAL  R10 := upval 1
+     122 [   0] GETTABLE  R10 := R10["inherit"]
+     123 [   0] MOVE      R11 := R1
+     124 [   0] LOADK     R12 := "_flaregames_remove"
+     125 [   0] CLOSURE   R13 := closure #4
+     126 [   0] MOVE      R0 := R1
+     127 [   0] CALL      R10(...) nargs=3 nret=0
+     128 [   0] RETURN    return R1.. (1 values)
+     129 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 76-78, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 82-83, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 85-86, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 88-90, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 92-94, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

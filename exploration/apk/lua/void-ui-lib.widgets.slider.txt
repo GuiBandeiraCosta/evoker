@@ -1,0 +1,595 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['createSlider'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] MOVE      R1 := R0
+     2 [   0] CALL      R1(...) nargs=0 nret=1
+     3 [   0] CLOSURE   R2 := closure #1
+     4 [   0] MOVE      R0 := R1
+     5 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+     6 [   0] SETTABLE  R3["createSlider"] := R2
+     7 [   0] RETURN    return R3.. (1 values)
+     8 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 1-87, upvals=[], locals=[])
+    constants: strings=['init', 'update'] numbers=[]
+       0 [   0] CLOSURE   R0 := closure #0
+       1 [   0] CLOSURE   R1 := closure #1
+       2 [   0] MOVE      R0 := R0
+       3 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+       4 [   0] SETTABLE  R2["init"] := R1
+       5 [   0] SETTABLE  R2["update"] := R0
+       6 [   0] RETURN    return R2.. (1 values)
+       7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 2-63, upvals=[], locals=[])
+      constants: strings=['img', 'renderer', 'removeSelf', 'assets', 'getImage', 'insert', 'w', 'contentWidth', 'h', 'contentHeight', 'x', 'y', 'imgxscale', 'xScale', 'imgyscale', 'yScale', 'imgrotation', 'rotation', 'touchArea', 'direction', 'display', 'newRect', 'setFillColor', 'isVisible', 'sliderimg', 'sliderimgxscale', 'sliderimgyscale', 'sliderimgrotation', 'layoutData', 'layoutManager', 'getDataFor', 'initOptions', 'layout', 'parent'] numbers=[0, 30, 0.5, 2, 255]
+         0 [   0] GETTABLE  R2 := R1["img"]
+         1 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +106 -> 109
+         3 [   0] GETTABLE  R2 := R0["renderer"]
+         4 [   0] GETTABLE  R2 := R2["img"]
+         5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +4 -> 11
+         7 [   0] GETTABLE  R2 := R0["renderer"]
+         8 [   0] GETTABLE  R2 := R2["img"]
+         9 [   0] SELF      R3 := R2; R2 := R2["removeSelf"]
+        10 [   0] CALL      R2(...) nargs=1 nret=0
+        11 [   0] GETTABLE  R2 := R0["renderer"]
+        12 [   0] GETGLOBAL R3 := _G["assets"]
+        13 [   0] GETTABLE  R3 := R3["getImage"]
+        14 [   0] GETTABLE  R4 := R1["img"]
+        15 [   0] CALL      R3(...) nargs=1 nret=1
+        16 [   0] SETTABLE  R2["img"] := R3
+        17 [   0] SELF      R3 := R0; R2 := R0["insert"]
+        18 [   0] GETTABLE  R4 := R0["renderer"]
+        19 [   0] GETTABLE  R4 := R4["img"]
+        20 [   0] CALL      R2(...) nargs=2 nret=0
+        21 [   0] GETTABLE  R2 := R0["renderer"]
+        22 [   0] GETTABLE  R3 := R0["renderer"]
+        23 [   0] GETTABLE  R3 := R3["img"]
+        24 [   0] GETTABLE  R3 := R3["contentWidth"]
+        25 [   0] SETTABLE  R2["w"] := R3
+        26 [   0] GETTABLE  R2 := R0["renderer"]
+        27 [   0] GETTABLE  R3 := R0["renderer"]
+        28 [   0] GETTABLE  R3 := R3["img"]
+        29 [   0] GETTABLE  R3 := R3["contentHeight"]
+        30 [   0] SETTABLE  R2["h"] := R3
+        31 [   0] GETTABLE  R2 := R0["renderer"]
+        32 [   0] GETTABLE  R2 := R2["img"]
+        33 [   0] SETTABLE  R2["x"] := 0
+        34 [   0] GETTABLE  R2 := R0["renderer"]
+        35 [   0] GETTABLE  R2 := R2["img"]
+        36 [   0] SETTABLE  R2["y"] := 0
+        37 [   0] GETTABLE  R2 := R1["imgxscale"]
+        38 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        39 [   0] JMP       jmp +4 -> 44
+        40 [   0] GETTABLE  R2 := R0["renderer"]
+        41 [   0] GETTABLE  R2 := R2["img"]
+        42 [   0] GETTABLE  R3 := R1["imgxscale"]
+        43 [   0] SETTABLE  R2["xScale"] := R3
+        44 [   0] GETTABLE  R2 := R1["imgyscale"]
+        45 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        46 [   0] JMP       jmp +4 -> 51
+        47 [   0] GETTABLE  R2 := R0["renderer"]
+        48 [   0] GETTABLE  R2 := R2["img"]
+        49 [   0] GETTABLE  R3 := R1["imgyscale"]
+        50 [   0] SETTABLE  R2["yScale"] := R3
+        51 [   0] GETTABLE  R2 := R1["imgrotation"]
+        52 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        53 [   0] JMP       jmp +4 -> 58
+        54 [   0] GETTABLE  R2 := R0["renderer"]
+        55 [   0] GETTABLE  R2 := R2["img"]
+        56 [   0] GETTABLE  R3 := R1["imgrotation"]
+        57 [   0] SETTABLE  R2["rotation"] := R3
+        58 [   0] GETTABLE  R2 := R0["renderer"]
+        59 [   0] GETTABLE  R2 := R2["touchArea"]
+        60 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        61 [   0] JMP       jmp +4 -> 66
+        62 [   0] GETTABLE  R2 := R0["renderer"]
+        63 [   0] GETTABLE  R2 := R2["touchArea"]
+        64 [   0] SELF      R3 := R2; R2 := R2["removeSelf"]
+        65 [   0] CALL      R2(...) nargs=1 nret=0
+        66 [   0] LOADK     R2 := 0
+        67 [   0] LOADK     R3 := 0
+        68 [   0] GETTABLE  R4 := R0["direction"]
+        69 [   0] EQ        if (R4 == "x") ~= 0 then skip next
+        70 [   0] JMP       jmp +2 -> 73
+        71 [   0] LOADK     R3 := 30
+        72 [   0] JMP       jmp +1 -> 74
+        73 [   0] LOADK     R2 := 30
+        74 [   0] GETTABLE  R4 := R0["renderer"]
+        75 [   0] GETGLOBAL R5 := _G["display"]
+        76 [   0] GETTABLE  R5 := R5["newRect"]
+        77 [   0] MOVE      R6 := R0
+        78 [   0] UNM       R7 := -R2
+        79 [   0] GETTABLE  R8 := R0["renderer"]
+        80 [   0] GETTABLE  R8 := R8["w"]
+        81 [   0] MUL       R8 := R8 * 0.5
+        82 [   0] SUB       R7 := R7 - R8
+        83 [   0] UNM       R8 := -R3
+        84 [   0] GETTABLE  R9 := R0["renderer"]
+        85 [   0] GETTABLE  R9 := R9["h"]
+        86 [   0] MUL       R9 := R9 * 0.5
+        87 [   0] SUB       R8 := R8 - R9
+        88 [   0] GETTABLE  R9 := R0["renderer"]
+        89 [   0] GETTABLE  R9 := R9["w"]
+        90 [   0] MUL       R10 := 2 * R2
+        91 [   0] ADD       R9 := R9 + R10
+        92 [   0] GETTABLE  R10 := R0["renderer"]
+        93 [   0] GETTABLE  R10 := R10["h"]
+        94 [   0] MUL       R11 := 2 * R3
+        95 [   0] ADD       R10 := R10 + R11
+        96 [   0] CALL      R5(...) nargs=5 nret=1
+        97 [   0] SETTABLE  R4["touchArea"] := R5
+        98 [   0] GETTABLE  R4 := R0["renderer"]
+        99 [   0] GETTABLE  R4 := R4["touchArea"]
+       100 [   0] SELF      R5 := R4; R4 := R4["setFillColor"]
+       101 [   0] LOADK     R6 := 255
+       102 [   0] LOADK     R7 := 0
+       103 [   0] LOADK     R8 := 0
+       104 [   0] LOADK     R9 := 0
+       105 [   0] CALL      R4(...) nargs=5 nret=0
+       106 [   0] GETTABLE  R4 := R0["renderer"]
+       107 [   0] GETTABLE  R4 := R4["touchArea"]
+       108 [   0] SETTABLE  R4["isVisible"] := False
+       109 [   0] GETTABLE  R2 := R1["sliderimg"]
+       110 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       111 [   0] JMP       jmp +55 -> 167
+       112 [   0] GETTABLE  R2 := R0["renderer"]
+       113 [   0] GETTABLE  R2 := R2["sliderimg"]
+       114 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       115 [   0] JMP       jmp +4 -> 120
+       116 [   0] GETTABLE  R2 := R0["renderer"]
+       117 [   0] GETTABLE  R2 := R2["sliderimg"]
+       118 [   0] SELF      R3 := R2; R2 := R2["removeSelf"]
+       119 [   0] CALL      R2(...) nargs=1 nret=0
+       120 [   0] GETTABLE  R2 := R0["renderer"]
+       121 [   0] GETGLOBAL R3 := _G["assets"]
+       122 [   0] GETTABLE  R3 := R3["getImage"]
+       123 [   0] GETTABLE  R4 := R1["sliderimg"]
+       124 [   0] CALL      R3(...) nargs=1 nret=1
+       125 [   0] SETTABLE  R2["sliderimg"] := R3
+       126 [   0] SELF      R3 := R0; R2 := R0["insert"]
+       127 [   0] GETTABLE  R4 := R0["renderer"]
+       128 [   0] GETTABLE  R4 := R4["sliderimg"]
+       129 [   0] CALL      R2(...) nargs=2 nret=0
+       130 [   0] GETTABLE  R2 := R0["renderer"]
+       131 [   0] GETTABLE  R3 := R0["renderer"]
+       132 [   0] GETTABLE  R3 := R3["sliderimg"]
+       133 [   0] GETTABLE  R3 := R3["contentWidth"]
+       134 [   0] SETTABLE  R2["w"] := R3
+       135 [   0] GETTABLE  R2 := R0["renderer"]
+       136 [   0] GETTABLE  R3 := R0["renderer"]
+       137 [   0] GETTABLE  R3 := R3["sliderimg"]
+       138 [   0] GETTABLE  R3 := R3["contentHeight"]
+       139 [   0] SETTABLE  R2["h"] := R3
+       140 [   0] GETTABLE  R2 := R0["renderer"]
+       141 [   0] GETTABLE  R2 := R2["sliderimg"]
+       142 [   0] SETTABLE  R2["x"] := 0
+       143 [   0] GETTABLE  R2 := R0["renderer"]
+       144 [   0] GETTABLE  R2 := R2["sliderimg"]
+       145 [   0] SETTABLE  R2["y"] := 0
+       146 [   0] GETTABLE  R2 := R1["sliderimgxscale"]
+       147 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       148 [   0] JMP       jmp +4 -> 153
+       149 [   0] GETTABLE  R2 := R0["renderer"]
+       150 [   0] GETTABLE  R2 := R2["sliderimg"]
+       151 [   0] GETTABLE  R3 := R1["sliderimgxscale"]
+       152 [   0] SETTABLE  R2["xScale"] := R3
+       153 [   0] GETTABLE  R2 := R1["sliderimgyscale"]
+       154 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       155 [   0] JMP       jmp +4 -> 160
+       156 [   0] GETTABLE  R2 := R0["renderer"]
+       157 [   0] GETTABLE  R2 := R2["sliderimg"]
+       158 [   0] GETTABLE  R3 := R1["sliderimgyscale"]
+       159 [   0] SETTABLE  R2["yScale"] := R3
+       160 [   0] GETTABLE  R2 := R1["sliderimgrotation"]
+       161 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       162 [   0] JMP       jmp +4 -> 167
+       163 [   0] GETTABLE  R2 := R0["renderer"]
+       164 [   0] GETTABLE  R2 := R2["sliderimg"]
+       165 [   0] GETTABLE  R3 := R1["sliderimgrotation"]
+       166 [   0] SETTABLE  R2["rotation"] := R3
+       167 [   0] GETGLOBAL R2 := _G["layoutManager"]
+       168 [   0] GETTABLE  R2 := R2["getDataFor"]
+       169 [   0] GETTABLE  R3 := R0["initOptions"]
+       170 [   0] GETTABLE  R3 := R3["layout"]
+       171 [   0] GETTABLE  R4 := R0["initOptions"]
+       172 [   0] GETTABLE  R4 := R4["parent"]
+       173 [   0] MOVE      R5 := R0
+       174 [   0] CALL      R2(...) nargs=3 nret=1
+       175 [   0] SETTABLE  R0["layoutData"] := R2
+       176 [   0] GETTABLE  R2 := R1["x"]
+       177 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       178 [   0] JMP       jmp +2 -> 181
+       179 [   0] GETTABLE  R2 := R0["layoutData"]
+       180 [   0] GETTABLE  R2 := R2["x"]
+       181 [   0] SETTABLE  R0["x"] := R2
+       182 [   0] GETTABLE  R2 := R1["y"]
+       183 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       184 [   0] JMP       jmp +2 -> 187
+       185 [   0] GETTABLE  R2 := R0["layoutData"]
+       186 [   0] GETTABLE  R2 := R2["y"]
+       187 [   0] SETTABLE  R0["y"] := R2
+       188 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 65-81, upvals=[], locals=[])
+      constants: strings=['layoutData', 'layoutManager', 'getLayout', 'layout', 'parent', 'renderer', 'initOptions', 'getWidth', 'getHeight'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["layoutManager"]
+         1 [   0] GETTABLE  R2 := R2["getLayout"]
+         2 [   0] GETTABLE  R3 := R1["layout"]
+         3 [   0] GETTABLE  R4 := R1["parent"]
+         4 [   0] CALL      R2(...) nargs=2 nret=1
+         5 [   0] SETTABLE  R0["layoutData"] := R2
+         6 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         7 [   0] SETTABLE  R0["renderer"] := R2
+         8 [   0] SETTABLE  R0["initOptions"] := R1
+         9 [   0] CLOSURE   R2 := closure #0
+        10 [   0] MOVE      R0 := R0
+        11 [   0] SETTABLE  R0["getWidth"] := R2
+        12 [   0] CLOSURE   R2 := closure #1
+        13 [   0] MOVE      R0 := R0
+        14 [   0] SETTABLE  R0["getHeight"] := R2
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] MOVE      R3 := R0
+        17 [   0] MOVE      R4 := R1
+        18 [   0] CALL      R2(...) nargs=2 nret=0
+        19 [   0] RETURN    return R0.. (1 values)
+        20 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 70-73, upvals=[], locals=[])
+        constants: strings=['layoutData', 'width', 'renderer', 'w'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["layoutData"]
+           2 [   0] GETTABLE  R0 := R0["width"]
+           3 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+           4 [   0] JMP       jmp +5 -> 10
+           5 [   0] GETUPVAL  R0 := upval 0
+           6 [   0] GETTABLE  R0 := R0["layoutData"]
+           7 [   0] GETTABLE  R0 := R0["width"]
+           8 [   0] RETURN    return R0.. (1 values)
+           9 [   0] JMP       jmp +9 -> 19
+          10 [   0] GETUPVAL  R0 := upval 0
+          11 [   0] GETTABLE  R0 := R0["renderer"]
+          12 [   0] GETTABLE  R0 := R0["w"]
+          13 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+          14 [   0] JMP       jmp +4 -> 19
+          15 [   0] GETUPVAL  R0 := upval 0
+          16 [   0] GETTABLE  R0 := R0["renderer"]
+          17 [   0] GETTABLE  R0 := R0["w"]
+          18 [   0] RETURN    return R0.. (1 values)
+          19 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#1 (params=0, lines 74-77, upvals=[], locals=[])
+        constants: strings=['layoutData', 'height', 'renderer', 'h'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["layoutData"]
+           2 [   0] GETTABLE  R0 := R0["height"]
+           3 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+           4 [   0] JMP       jmp +5 -> 10
+           5 [   0] GETUPVAL  R0 := upval 0
+           6 [   0] GETTABLE  R0 := R0["layoutData"]
+           7 [   0] GETTABLE  R0 := R0["height"]
+           8 [   0] RETURN    return R0.. (1 values)
+           9 [   0] JMP       jmp +9 -> 19
+          10 [   0] GETUPVAL  R0 := upval 0
+          11 [   0] GETTABLE  R0 := R0["renderer"]
+          12 [   0] GETTABLE  R0 := R0["h"]
+          13 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+          14 [   0] JMP       jmp +4 -> 19
+          15 [   0] GETUPVAL  R0 := upval 0
+          16 [   0] GETTABLE  R0 := R0["renderer"]
+          17 [   0] GETTABLE  R0 := R0["h"]
+          18 [   0] RETURN    return R0.. (1 values)
+          19 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 91-195, upvals=[], locals=[])
+    constants: strings=['widgets', 'createWidget', 'direction', 'x', 'directionDimension', 'width', 'y', 'height', 'getCurrentValue', 'setCurrentValue', 'update', 'addEventListener', 'touch'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["widgets"]
+       1 [   0] GETTABLE  R1 := R1["createWidget"]
+       2 [   0] MOVE      R2 := R0
+       3 [   0] GETUPVAL  R3 := upval 0
+       4 [   0] CALL      R1(...) nargs=2 nret=1
+       5 [   0] GETTABLE  R2 := R0["direction"]
+       6 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       7 [   0] JMP       jmp +1 -> 9
+       8 [   0] LOADK     R2 := "x"
+       9 [   0] SETTABLE  R1["direction"] := R2
+      10 [   0] GETTABLE  R2 := R1["direction"]
+      11 [   0] EQ        if (R2 == "x") ~= 0 then skip next
+      12 [   0] JMP       jmp +2 -> 15
+      13 [   0] SETTABLE  R1["directionDimension"] := "width"
+      14 [   0] JMP       jmp +4 -> 19
+      15 [   0] GETTABLE  R2 := R1["direction"]
+      16 [   0] EQ        if (R2 == "y") ~= 0 then skip next
+      17 [   0] JMP       jmp +1 -> 19
+      18 [   0] SETTABLE  R1["directionDimension"] := "height"
+      19 [   0] LOADNIL   R2..R8 := nil
+      20 [   0] CLOSURE   R9 := closure #0
+      21 [   0] MOVE      R0 := R6
+      22 [   0] MOVE      R0 := R1
+      23 [   0] MOVE      R0 := R5
+      24 [   0] MOVE      R0 := R8
+      25 [   0] MOVE      R0 := R3
+      26 [   0] MOVE      R0 := R4
+      27 [   0] CLOSURE   R10 := closure #1
+      28 [   0] MOVE      R0 := R7
+      29 [   0] MOVE      R0 := R6
+      30 [   0] MOVE      R0 := R5
+      31 [   0] MOVE      R0 := R1
+      32 [   0] CLOSURE   R11 := closure #2
+      33 [   0] MOVE      R0 := R1
+      34 [   0] MOVE      R0 := R6
+      35 [   0] MOVE      R0 := R5
+      36 [   0] MOVE      R0 := R8
+      37 [   0] CLOSURE   R12 := closure #3
+      38 [   0] MOVE      R0 := R7
+      39 [   0] SETTABLE  R1["getCurrentValue"] := R12
+      40 [   0] CLOSURE   R12 := closure #4
+      41 [   0] MOVE      R0 := R7
+      42 [   0] MOVE      R0 := R11
+      43 [   0] SETTABLE  R1["setCurrentValue"] := R12
+      44 [   0] CLOSURE   R12 := closure #5
+      45 [   0] MOVE      R0 := R0
+      46 [   0] MOVE      R0 := R1
+      47 [   0] MOVE      R0 := R2
+      48 [   0] MOVE      R0 := R9
+      49 [   0] SETTABLE  R1["update"] := R12
+      50 [   0] CLOSURE   R12 := closure #6
+      51 [   0] MOVE      R0 := R1
+      52 [   0] MOVE      R0 := R3
+      53 [   0] MOVE      R0 := R4
+      54 [   0] MOVE      R0 := R10
+      55 [   0] MOVE      R0 := R2
+      56 [   0] MOVE      R0 := R0
+      57 [   0] SELF      R14 := R1; R13 := R1["addEventListener"]
+      58 [   0] LOADK     R15 := "touch"
+      59 [   0] MOVE      R16 := R12
+      60 [   0] CALL      R13(...) nargs=3 nret=0
+      61 [   0] GETTABLE  R13 := R1["update"]
+      62 [   0] MOVE      R14 := R0
+      63 [   0] CALL      R13(...) nargs=1 nret=0
+      64 [   0] RETURN    return R1.. (1 values)
+      65 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=0, lines 108-120, upvals=[], locals=[])
+      constants: strings=['renderer', 'img', 'directionDimension', 'displayBorder', 'min', 'max', 'valuerange', 'valueborder', 'math'] numbers=[0.5]
+         0 [   0] GETUPVAL  R0 := upval 1
+         1 [   0] GETTABLE  R0 := R0["renderer"]
+         2 [   0] GETTABLE  R0 := R0["img"]
+         3 [   0] GETUPVAL  R1 := upval 1
+         4 [   0] GETTABLE  R1 := R1["directionDimension"]
+         5 [   0] GETTABLE  R0 := R0[R1]
+         6 [   0] UNM       R0 := -R0
+         7 [   0] MUL       R0 := R0 * 0.5
+         8 [   0] GETUPVAL  R1 := upval 1
+         9 [   0] GETTABLE  R1 := R1["displayBorder"]
+        10 [   0] GETTABLE  R1 := R1["min"]
+        11 [   0] ADD       R0 := R0 + R1
+        12 [   0] SETUPVAL  upval 0 := R0
+        13 [   0] GETUPVAL  R0 := upval 1
+        14 [   0] GETTABLE  R0 := R0["renderer"]
+        15 [   0] GETTABLE  R0 := R0["img"]
+        16 [   0] GETUPVAL  R1 := upval 1
+        17 [   0] GETTABLE  R1 := R1["directionDimension"]
+        18 [   0] GETTABLE  R0 := R0[R1]
+        19 [   0] MUL       R0 := R0 * 0.5
+        20 [   0] GETUPVAL  R1 := upval 1
+        21 [   0] GETTABLE  R1 := R1["displayBorder"]
+        22 [   0] GETTABLE  R1 := R1["max"]
+        23 [   0] ADD       R0 := R0 + R1
+        24 [   0] GETUPVAL  R1 := upval 0
+        25 [   0] SUB       R1 := R0 - R1
+        26 [   0] SETUPVAL  upval 2 := R1
+        27 [   0] GETUPVAL  R1 := upval 1
+        28 [   0] GETTABLE  R1 := R1["valuerange"]
+        29 [   0] GETTABLE  R1 := R1["max"]
+        30 [   0] GETUPVAL  R2 := upval 1
+        31 [   0] GETTABLE  R2 := R2["valuerange"]
+        32 [   0] GETTABLE  R2 := R2["min"]
+        33 [   0] SUB       R1 := R1 - R2
+        34 [   0] SETUPVAL  upval 3 := R1
+        35 [   0] GETUPVAL  R1 := upval 1
+        36 [   0] GETTABLE  R1 := R1["valuerange"]
+        37 [   0] GETTABLE  R1 := R1["min"]
+        38 [   0] GETUPVAL  R2 := upval 1
+        39 [   0] GETTABLE  R2 := R2["valueborder"]
+        40 [   0] GETTABLE  R2 := R2["min"]
+        41 [   0] ADD       R1 := R1 + R2
+        42 [   0] GETUPVAL  R2 := upval 3
+        43 [   0] DIV       R1 := R1 / R2
+        44 [   0] GETUPVAL  R2 := upval 2
+        45 [   0] MUL       R1 := R1 * R2
+        46 [   0] GETUPVAL  R2 := upval 0
+        47 [   0] ADD       R1 := R1 + R2
+        48 [   0] GETUPVAL  R2 := upval 1
+        49 [   0] GETTABLE  R2 := R2["valueborder"]
+        50 [   0] GETTABLE  R2 := R2["max"]
+        51 [   0] GETUPVAL  R3 := upval 3
+        52 [   0] DIV       R2 := R2 / R3
+        53 [   0] GETUPVAL  R3 := upval 2
+        54 [   0] MUL       R2 := R2 * R3
+        55 [   0] GETUPVAL  R3 := upval 0
+        56 [   0] ADD       R2 := R2 + R3
+        57 [   0] GETGLOBAL R3 := _G["math"]
+        58 [   0] GETTABLE  R3 := R3["max"]
+        59 [   0] GETUPVAL  R4 := upval 0
+        60 [   0] MOVE      R5 := R1
+        61 [   0] CALL      R3(...) nargs=2 nret=1
+        62 [   0] SETUPVAL  upval 4 := R3
+        63 [   0] GETGLOBAL R3 := _G["math"]
+        64 [   0] GETTABLE  R3 := R3["min"]
+        65 [   0] MOVE      R4 := R0
+        66 [   0] MOVE      R5 := R2
+        67 [   0] CALL      R3(...) nargs=2 nret=1
+        68 [   0] SETUPVAL  upval 5 := R3
+        69 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#1 (params=1, lines 122-124, upvals=[], locals=[])
+      constants: strings=['valuerange', 'max', 'min'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 1
+         1 [   0] SUB       R1 := R0 - R1
+         2 [   0] GETUPVAL  R2 := upval 2
+         3 [   0] DIV       R1 := R1 / R2
+         4 [   0] GETUPVAL  R2 := upval 3
+         5 [   0] GETTABLE  R2 := R2["valuerange"]
+         6 [   0] GETTABLE  R2 := R2["max"]
+         7 [   0] GETUPVAL  R3 := upval 3
+         8 [   0] GETTABLE  R3 := R3["valuerange"]
+         9 [   0] GETTABLE  R3 := R3["min"]
+        10 [   0] SUB       R2 := R2 - R3
+        11 [   0] MUL       R1 := R1 * R2
+        12 [   0] SETUPVAL  upval 0 := R1
+        13 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#2 (params=1, lines 126-128, upvals=[], locals=[])
+      constants: strings=['renderer', 'sliderimg', 'direction'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["renderer"]
+         2 [   0] GETTABLE  R1 := R1["sliderimg"]
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["direction"]
+         5 [   0] GETUPVAL  R3 := upval 1
+         6 [   0] GETUPVAL  R4 := upval 2
+         7 [   0] GETUPVAL  R5 := upval 3
+         8 [   0] DIV       R5 := R0 / R5
+         9 [   0] MUL       R4 := R4 * R5
+        10 [   0] ADD       R3 := R3 + R4
+        11 [   0] SETTABLE  R1[R2] := R3
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#3 (params=0, lines 130-132, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#4 (params=1, lines 134-137, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] MOVE      R2 := R0
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#5 (params=1, lines 139-158, upvals=[], locals=[])
+      constants: strings=['renderer', 'update', 'cb', 'valuerange', 'valueborder', 'displayBorder'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["renderer"]
+         2 [   0] GETTABLE  R1 := R1["update"]
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] MOVE      R3 := R0
+         5 [   0] CALL      R1(...) nargs=2 nret=0
+         6 [   0] GETTABLE  R1 := R0["cb"]
+         7 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +2 -> 11
+         9 [   0] GETTABLE  R1 := R0["cb"]
+        10 [   0] SETUPVAL  upval 2 := R1
+        11 [   0] GETTABLE  R1 := R0["valuerange"]
+        12 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +3 -> 17
+        14 [   0] GETUPVAL  R1 := upval 1
+        15 [   0] GETTABLE  R2 := R0["valuerange"]
+        16 [   0] SETTABLE  R1["valuerange"] := R2
+        17 [   0] GETTABLE  R1 := R0["valueborder"]
+        18 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        19 [   0] JMP       jmp +4 -> 24
+        20 [   0] GETUPVAL  R1 := upval 1
+        21 [   0] GETTABLE  R2 := R0["valueborder"]
+        22 [   0] SETTABLE  R1["valueborder"] := R2
+        23 [   0] JMP       jmp +2 -> 26
+        24 [   0] GETTABLE  R1 := R0["valuerange"]
+        25 [   0] SETTABLE  R0["valueborder"] := R1
+        26 [   0] GETTABLE  R1 := R0["displayBorder"]
+        27 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        28 [   0] JMP       jmp +3 -> 32
+        29 [   0] GETUPVAL  R1 := upval 1
+        30 [   0] GETTABLE  R2 := R0["displayBorder"]
+        31 [   0] SETTABLE  R1["displayBorder"] := R2
+        32 [   0] GETUPVAL  R1 := upval 3
+        33 [   0] CALL      R1(...) nargs=0 nret=0
+        34 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#6 (params=1, lines 160-189, upvals=[], locals=[])
+      constants: strings=['x', 'y', 'contentToLocal', 'renderer', 'sliderimg', 'direction', 'phase', 'began', 'touchArea', 'isVisible', 'ended', 'SAVE_CALL', 'ret'] numbers=[]
+         0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] SELF      R3 := R2; R2 := R2["contentToLocal"]
+         3 [   0] GETTABLE  R4 := R0["x"]
+         4 [   0] GETTABLE  R5 := R0["y"]
+         5 [   0] CALL      R2(...) nargs=3 nret=2
+         6 [   0] SETTABLE  R1["y"] := R3
+         7 [   0] SETTABLE  R1["x"] := R2
+         8 [   0] GETUPVAL  R2 := upval 0
+         9 [   0] GETTABLE  R2 := R2["renderer"]
+        10 [   0] GETTABLE  R2 := R2["sliderimg"]
+        11 [   0] GETUPVAL  R3 := upval 0
+        12 [   0] GETTABLE  R3 := R3["direction"]
+        13 [   0] GETUPVAL  R4 := upval 0
+        14 [   0] GETTABLE  R4 := R4["direction"]
+        15 [   0] GETTABLE  R4 := R1[R4]
+        16 [   0] SETTABLE  R2[R3] := R4
+        17 [   0] GETUPVAL  R2 := upval 0
+        18 [   0] GETTABLE  R2 := R2["renderer"]
+        19 [   0] GETTABLE  R2 := R2["sliderimg"]
+        20 [   0] GETUPVAL  R3 := upval 0
+        21 [   0] GETTABLE  R3 := R3["direction"]
+        22 [   0] GETTABLE  R2 := R2[R3]
+        23 [   0] GETUPVAL  R3 := upval 1
+        24 [   0] LT        if (R2 < R3) ~= 0 then skip next
+        25 [   0] JMP       jmp +8 -> 34
+        26 [   0] GETUPVAL  R2 := upval 0
+        27 [   0] GETTABLE  R2 := R2["renderer"]
+        28 [   0] GETTABLE  R2 := R2["sliderimg"]
+        29 [   0] GETUPVAL  R3 := upval 0
+        30 [   0] GETTABLE  R3 := R3["direction"]
+        31 [   0] GETUPVAL  R4 := upval 1
+        32 [   0] SETTABLE  R2[R3] := R4
+        33 [   0] JMP       jmp +16 -> 50
+        34 [   0] GETUPVAL  R2 := upval 0
+        35 [   0] GETTABLE  R2 := R2["renderer"]
+        36 [   0] GETTABLE  R2 := R2["sliderimg"]
+        37 [   0] GETUPVAL  R3 := upval 0
+        38 [   0] GETTABLE  R3 := R3["direction"]
+        39 [   0] GETTABLE  R2 := R2[R3]
+        40 [   0] GETUPVAL  R3 := upval 2
+        41 [   0] LT        if (R3 < R2) ~= 0 then skip next
+        42 [   0] JMP       jmp +7 -> 50
+        43 [   0] GETUPVAL  R2 := upval 0
+        44 [   0] GETTABLE  R2 := R2["renderer"]
+        45 [   0] GETTABLE  R2 := R2["sliderimg"]
+        46 [   0] GETUPVAL  R3 := upval 0
+        47 [   0] GETTABLE  R3 := R3["direction"]
+        48 [   0] GETUPVAL  R4 := upval 2
+        49 [   0] SETTABLE  R2[R3] := R4
+        50 [   0] GETUPVAL  R2 := upval 3
+        51 [   0] GETUPVAL  R3 := upval 0
+        52 [   0] GETTABLE  R3 := R3["renderer"]
+        53 [   0] GETTABLE  R3 := R3["sliderimg"]
+        54 [   0] GETUPVAL  R4 := upval 0
+        55 [   0] GETTABLE  R4 := R4["direction"]
+        56 [   0] GETTABLE  R3 := R3[R4]
+        57 [   0] CALL      R2(...) nargs=1 nret=0
+        58 [   0] GETTABLE  R2 := R0["phase"]
+        59 [   0] EQ        if (R2 == "began") ~= 0 then skip next
+        60 [   0] JMP       jmp +5 -> 66
+        61 [   0] GETUPVAL  R2 := upval 0
+        62 [   0] GETTABLE  R2 := R2["renderer"]
+        63 [   0] GETTABLE  R2 := R2["touchArea"]
+        64 [   0] SETTABLE  R2["isVisible"] := True
+        65 [   0] JMP       jmp +7 -> 73
+        66 [   0] GETTABLE  R2 := R0["phase"]
+        67 [   0] EQ        if (R2 == "ended") ~= 0 then skip next
+        68 [   0] JMP       jmp +4 -> 73
+        69 [   0] GETUPVAL  R2 := upval 0
+        70 [   0] GETTABLE  R2 := R2["renderer"]
+        71 [   0] GETTABLE  R2 := R2["touchArea"]
+        72 [   0] SETTABLE  R2["isVisible"] := False
+        73 [   0] GETUPVAL  R2 := upval 4
+        74 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        75 [   0] JMP       jmp +11 -> 87
+        76 [   0] GETGLOBAL R2 := _G["SAVE_CALL"]
+        77 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        78 [   0] JMP       jmp +5 -> 84
+        79 [   0] GETGLOBAL R2 := _G["SAVE_CALL"]
+        80 [   0] GETUPVAL  R3 := upval 4
+        81 [   0] GETUPVAL  R4 := upval 5
+        82 [   0] CALL      R2(...) nargs=2 nret=0
+        83 [   0] JMP       jmp +3 -> 87
+        84 [   0] GETUPVAL  R2 := upval 4
+        85 [   0] GETUPVAL  R3 := upval 5
+        86 [   0] CALL      R2(...) nargs=1 nret=0
+        87 [   0] GETUPVAL  R2 := upval 5
+        88 [   0] GETTABLE  R2 := R2["ret"]
+        89 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        90 [   0] JMP       jmp +2 -> 93
+        91 [   0] LOADBOOL  R2 := True
+        92 [   0] RETURN    return R2.. (1 values)
+        93 [   0] RETURN    return R0.. (0 values)

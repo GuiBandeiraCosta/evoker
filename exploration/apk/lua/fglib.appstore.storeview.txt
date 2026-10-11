@@ -1,0 +1,173 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'displaygroupcontainer', 'eventlistener', 'eventdispatcher', 'new'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "displaygroupcontainer"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "eventlistener"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "eventdispatcher"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+    16 [   0] CLOSURE   R4 := closure #0
+    17 [   0] CLOSURE   R5 := closure #1
+    18 [   0] MOVE      R0 := R4
+    19 [   0] MOVE      R0 := R0
+    20 [   0] MOVE      R0 := R1
+    21 [   0] MOVE      R0 := R2
+    22 [   0] SETTABLE  R3["new"] := R5
+    23 [   0] RETURN    return R3.. (1 values)
+    24 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 8-54, upvals=[], locals=[])
+    constants: strings=['tracker', 'setTracker', 'show', 'hide', 'emitPurchaseProduct', 'emitVerifyCode', 'purchaseInitiatedHandler', 'purchaseFinishedHandler', 'productsReceivedHandler', 'productsFetchingHandler', 'giveRewardHandler'] numbers=[]
+       0 [   0] SETTABLE  R0["tracker"] := None
+       1 [   0] CLOSURE   R1 := closure #0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] SETTABLE  R0["setTracker"] := R1
+       4 [   0] CLOSURE   R1 := closure #1
+       5 [   0] SETTABLE  R0["show"] := R1
+       6 [   0] CLOSURE   R1 := closure #2
+       7 [   0] SETTABLE  R0["hide"] := R1
+       8 [   0] CLOSURE   R1 := closure #3
+       9 [   0] MOVE      R0 := R0
+      10 [   0] SETTABLE  R0["emitPurchaseProduct"] := R1
+      11 [   0] CLOSURE   R1 := closure #4
+      12 [   0] MOVE      R0 := R0
+      13 [   0] SETTABLE  R0["emitVerifyCode"] := R1
+      14 [   0] CLOSURE   R1 := closure #5
+      15 [   0] SETTABLE  R0["purchaseInitiatedHandler"] := R1
+      16 [   0] CLOSURE   R1 := closure #6
+      17 [   0] SETTABLE  R0["purchaseFinishedHandler"] := R1
+      18 [   0] CLOSURE   R1 := closure #7
+      19 [   0] SETTABLE  R0["productsReceivedHandler"] := R1
+      20 [   0] CLOSURE   R1 := closure #8
+      21 [   0] SETTABLE  R0["productsFetchingHandler"] := R1
+      22 [   0] CLOSURE   R1 := closure #9
+      23 [   0] SETTABLE  R0["giveRewardHandler"] := R1
+      24 [   0] RETURN    return R0.. (1 values)
+      25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 12-14, upvals=[], locals=[])
+      constants: strings=['tracker'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["tracker"] := R0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 16-18, upvals=[], locals=[])
+      constants: strings=['DebugLog', 'logmsg', 'logLevel', 'ASPECT_APPSTORE', 'StoreView:show'] numbers=[3]
+         0 [   0] GETGLOBAL R0 := _G["DebugLog"]
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETGLOBAL R1 := _G["logLevel"]
+         3 [   0] GETGLOBAL R2 := _G["DebugLog"]
+         4 [   0] GETTABLE  R2 := R2["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "StoreView:show"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 20-22, upvals=[], locals=[])
+      constants: strings=['DebugLog', 'logmsg', 'logLevel', 'ASPECT_APPSTORE', 'StoreView:hide'] numbers=[3]
+         0 [   0] GETGLOBAL R0 := _G["DebugLog"]
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETGLOBAL R1 := _G["logLevel"]
+         3 [   0] GETGLOBAL R2 := _G["DebugLog"]
+         4 [   0] GETTABLE  R2 := R2["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "StoreView:hide"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 24-26, upvals=[], locals=[])
+      constants: strings=['emit', 'purchaseProduct'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["emit"]
+         2 [   0] LOADK     R2 := "purchaseProduct"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 28-30, upvals=[], locals=[])
+      constants: strings=['emit', 'verifyCode'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["emit"]
+         2 [   0] LOADK     R2 := "verifyCode"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=2, lines 32-34, upvals=[], locals=[])
+      constants: strings=['DebugLog', 'logmsg', 'logLevel', 'ASPECT_APPSTORE', 'StoreView:purchaseInitiatedHandler'] numbers=[3]
+         0 [   0] GETGLOBAL R2 := _G["DebugLog"]
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETGLOBAL R3 := _G["logLevel"]
+         3 [   0] GETGLOBAL R4 := _G["DebugLog"]
+         4 [   0] GETTABLE  R4 := R4["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "StoreView:purchaseInitiatedHandler"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 36-38, upvals=[], locals=[])
+      constants: strings=['DebugLog', 'logmsg', 'logLevel', 'ASPECT_APPSTORE', 'StoreView:purchaseFinishedHandler'] numbers=[3]
+         0 [   0] GETGLOBAL R2 := _G["DebugLog"]
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETGLOBAL R3 := _G["logLevel"]
+         3 [   0] GETGLOBAL R4 := _G["DebugLog"]
+         4 [   0] GETTABLE  R4 := R4["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "StoreView:purchaseFinishedHandler"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 40-42, upvals=[], locals=[])
+      constants: strings=['DebugLog', 'logmsg', 'logLevel', 'ASPECT_APPSTORE', 'StoreView:productsReceivedHandler'] numbers=[3]
+         0 [   0] GETGLOBAL R2 := _G["DebugLog"]
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETGLOBAL R3 := _G["logLevel"]
+         3 [   0] GETGLOBAL R4 := _G["DebugLog"]
+         4 [   0] GETTABLE  R4 := R4["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "StoreView:productsReceivedHandler"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 44-46, upvals=[], locals=[])
+      constants: strings=['DebugLog', 'logmsg', 'logLevel', 'ASPECT_APPSTORE', 'StoreView:productsFetchingHandler'] numbers=[3]
+         0 [   0] GETGLOBAL R2 := _G["DebugLog"]
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETGLOBAL R3 := _G["logLevel"]
+         3 [   0] GETGLOBAL R4 := _G["DebugLog"]
+         4 [   0] GETTABLE  R4 := R4["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "StoreView:productsFetchingHandler"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=2, lines 48-50, upvals=[], locals=[])
+      constants: strings=['DebugLog', 'logmsg', 'logLevel', 'ASPECT_APPSTORE', 'StoreView:giveRewardHandler'] numbers=[3]
+         0 [   0] GETGLOBAL R2 := _G["DebugLog"]
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETGLOBAL R3 := _G["logLevel"]
+         3 [   0] GETGLOBAL R4 := _G["DebugLog"]
+         4 [   0] GETTABLE  R4 := R4["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "StoreView:giveRewardHandler"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 56-60, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new_inherit"]
+       3 [   0] GETUPVAL  R2 := upval 2
+       4 [   0] GETTABLE  R2 := R2["new_inherit"]
+       5 [   0] GETUPVAL  R3 := upval 3
+       6 [   0] GETTABLE  R3 := R3["new"]
+       7 [   0] CALL      R3(...) nargs=0 nret=-1
+       8 [   0] CALL      R2(...) nargs=-1 nret=-1
+       9 [   0] CALL      R1(...) nargs=-1 nret=-1
+      10 [   0] TAILCALL  return R0(...) nargs=-1
+      11 [   0] RETURN    return R0.. (-1 values)
+      12 [   0] RETURN    return R0.. (0 values)

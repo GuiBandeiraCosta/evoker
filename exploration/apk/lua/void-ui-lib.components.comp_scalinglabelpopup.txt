@@ -1,0 +1,388 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'common.nav_controller', 'create'] numbers=[150]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "common.nav_controller"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] LOADK     R1 := 150
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] MOVE      R0 := R0
+     8 [   0] MOVE      R0 := R1
+     9 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+    10 [   0] SETTABLE  R3["create"] := R2
+    11 [   0] RETURN    return R3.. (1 values)
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 5-129, upvals=[], locals=[])
+    constants: strings=['ui', 'createContainer', 'layout', '.container', 'parent', 'isOpen', 'x', 'positionSmall', 'y', 'noUnderlay', 'underlay', '.underlay', 'renderer', 'require', 'UI_LIB_PATH', 'renderer.rectrenderer', 'ret', 'color', 'r', 'g', 'b', 'a', 'alpha', 'background', '.background', 'img', 'smallContent', 'setReferencePoint', 'display', 'CenterReferencePoint', 'insert', 'createBigContentFunc', 'createBigContent', 'exitBigContentFunc', 'exitBigContent', 'xScale', 'smallScaleX', 'yScale', 'smallScaleY', 'grow', 'shrink'] numbers=[0, 130, 0.1]
+       0 [   0] GETGLOBAL R1 := _G["ui"]
+       1 [   0] GETTABLE  R1 := R1["createContainer"]
+       2 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+       3 [   0] GETTABLE  R3 := R0["layout"]
+       4 [   0] LOADK     R4 := ".container"
+       5 [   0] CONCAT    R3 := R3 .. ... .. R4
+       6 [   0] SETTABLE  R2["layout"] := R3
+       7 [   0] GETTABLE  R3 := R0["parent"]
+       8 [   0] SETTABLE  R2["parent"] := R3
+       9 [   0] CALL      R1(...) nargs=1 nret=1
+      10 [   0] SETTABLE  R1["isOpen"] := False
+      11 [   0] GETTABLE  R2 := R0["positionSmall"]
+      12 [   0] GETTABLE  R2 := R2["x"]
+      13 [   0] SETTABLE  R1["x"] := R2
+      14 [   0] GETTABLE  R2 := R0["positionSmall"]
+      15 [   0] GETTABLE  R2 := R2["y"]
+      16 [   0] SETTABLE  R1["y"] := R2
+      17 [   0] GETTABLE  R2 := R0["noUnderlay"]
+      18 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+      19 [   0] JMP       jmp +25 -> 45
+      20 [   0] GETGLOBAL R2 := _G["ui"]
+      21 [   0] GETTABLE  R2 := R2["createContainer"]
+      22 [   0] NEWTABLE  R3 := {} (array 0, hash 5)
+      23 [   0] GETTABLE  R4 := R0["layout"]
+      24 [   0] LOADK     R5 := ".underlay"
+      25 [   0] CONCAT    R4 := R4 .. ... .. R5
+      26 [   0] SETTABLE  R3["layout"] := R4
+      27 [   0] SETTABLE  R3["parent"] := R1
+      28 [   0] GETGLOBAL R4 := _G["require"]
+      29 [   0] GETGLOBAL R5 := _G["UI_LIB_PATH"]
+      30 [   0] LOADK     R6 := "renderer.rectrenderer"
+      31 [   0] CONCAT    R5 := R5 .. ... .. R6
+      32 [   0] CALL      R4(...) nargs=1 nret=1
+      33 [   0] SETTABLE  R3["renderer"] := R4
+      34 [   0] SETTABLE  R3["ret"] := True
+      35 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+      36 [   0] SETTABLE  R4["r"] := 0
+      37 [   0] SETTABLE  R4["g"] := 0
+      38 [   0] SETTABLE  R4["b"] := 0
+      39 [   0] SETTABLE  R4["a"] := 130
+      40 [   0] SETTABLE  R3["color"] := R4
+      41 [   0] CALL      R2(...) nargs=1 nret=1
+      42 [   0] SETTABLE  R1["underlay"] := R2
+      43 [   0] GETTABLE  R2 := R1["underlay"]
+      44 [   0] SETTABLE  R2["alpha"] := 0
+      45 [   0] GETGLOBAL R2 := _G["ui"]
+      46 [   0] GETTABLE  R2 := R2["createContainer"]
+      47 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+      48 [   0] SETTABLE  R3["parent"] := R1
+      49 [   0] GETTABLE  R4 := R0["layout"]
+      50 [   0] LOADK     R5 := ".background"
+      51 [   0] CONCAT    R4 := R4 .. ... .. R5
+      52 [   0] SETTABLE  R3["layout"] := R4
+      53 [   0] GETTABLE  R4 := R0["img"]
+      54 [   0] SETTABLE  R3["img"] := R4
+      55 [   0] CALL      R2(...) nargs=1 nret=1
+      56 [   0] SETTABLE  R1["background"] := R2
+      57 [   0] GETTABLE  R2 := R0["smallContent"]
+      58 [   0] SETTABLE  R1["smallContent"] := R2
+      59 [   0] GETTABLE  R2 := R1["smallContent"]
+      60 [   0] SELF      R3 := R2; R2 := R2["setReferencePoint"]
+      61 [   0] GETGLOBAL R4 := _G["display"]
+      62 [   0] GETTABLE  R4 := R4["CenterReferencePoint"]
+      63 [   0] CALL      R2(...) nargs=2 nret=0
+      64 [   0] SELF      R3 := R1; R2 := R1["insert"]
+      65 [   0] GETTABLE  R4 := R1["smallContent"]
+      66 [   0] CALL      R2(...) nargs=2 nret=0
+      67 [   0] GETTABLE  R2 := R0["createBigContent"]
+      68 [   0] SETTABLE  R1["createBigContentFunc"] := R2
+      69 [   0] GETTABLE  R2 := R0["exitBigContent"]
+      70 [   0] SETTABLE  R1["exitBigContentFunc"] := R2
+      71 [   0] GETTABLE  R2 := R1["background"]
+      72 [   0] GETTABLE  R3 := R0["smallScaleX"]
+      73 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      74 [   0] JMP       jmp +1 -> 76
+      75 [   0] LOADK     R3 := 0.1
+      76 [   0] SETTABLE  R2["xScale"] := R3
+      77 [   0] GETTABLE  R2 := R1["background"]
+      78 [   0] GETTABLE  R3 := R0["smallScaleY"]
+      79 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      80 [   0] JMP       jmp +1 -> 82
+      81 [   0] LOADK     R3 := 0.1
+      82 [   0] SETTABLE  R2["yScale"] := R3
+      83 [   0] CLOSURE   R2 := closure #0
+      84 [   0] MOVE      R0 := R1
+      85 [   0] CLOSURE   R3 := closure #1
+      86 [   0] MOVE      R0 := R1
+      87 [   0] MOVE      R0 := R2
+      88 [   0] GETUPVAL  R0 := upval 0
+      89 [   0] CLOSURE   R4 := closure #2
+      90 [   0] MOVE      R0 := R1
+      91 [   0] MOVE      R0 := R3
+      92 [   0] GETUPVAL  R0 := upval 1
+      93 [   0] MOVE      R0 := R0
+      94 [   0] SETTABLE  R1["grow"] := R4
+      95 [   0] CLOSURE   R4 := closure #3
+      96 [   0] MOVE      R0 := R1
+      97 [   0] GETUPVAL  R0 := upval 1
+      98 [   0] MOVE      R0 := R0
+      99 [   0] MOVE      R0 := R2
+     100 [   0] SETTABLE  R1["shrink"] := R4
+     101 [   0] RETURN    return R1.. (1 values)
+     102 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 44-55, upvals=[], locals=[])
+      constants: strings=['bcview', 'exit', 'removeSelf', 'bigContent', 'exitBigContentFunc', 'destroyContentTimer'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["bcview"]
+         2 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +21 -> 25
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETTABLE  R0 := R0["bcview"]
+         6 [   0] GETTABLE  R0 := R0["exit"]
+         7 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +5 -> 14
+         9 [   0] GETUPVAL  R0 := upval 0
+        10 [   0] GETTABLE  R0 := R0["bcview"]
+        11 [   0] GETTABLE  R0 := R0["exit"]
+        12 [   0] CALL      R0(...) nargs=0 nret=0
+        13 [   0] JMP       jmp +9 -> 23
+        14 [   0] GETUPVAL  R0 := upval 0
+        15 [   0] GETTABLE  R0 := R0["bcview"]
+        16 [   0] GETTABLE  R0 := R0["removeSelf"]
+        17 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        18 [   0] JMP       jmp +4 -> 23
+        19 [   0] GETUPVAL  R0 := upval 0
+        20 [   0] GETTABLE  R0 := R0["bcview"]
+        21 [   0] SELF      R1 := R0; R0 := R0["removeSelf"]
+        22 [   0] CALL      R0(...) nargs=1 nret=0
+        23 [   0] GETUPVAL  R0 := upval 0
+        24 [   0] SETTABLE  R0["bcview"] := None
+        25 [   0] GETUPVAL  R0 := upval 0
+        26 [   0] SETTABLE  R0["bigContent"] := None
+        27 [   0] GETUPVAL  R0 := upval 0
+        28 [   0] GETTABLE  R0 := R0["exitBigContentFunc"]
+        29 [   0] CALL      R0(...) nargs=0 nret=0
+        30 [   0] GETUPVAL  R0 := upval 0
+        31 [   0] SETTABLE  R0["destroyContentTimer"] := None
+        32 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 57-67, upvals=[], locals=[])
+      constants: strings=['bigContent', 'bcview', 'createBigContentFunc', 'show', 'setCloseCallback', 'popView', 'container', 'alpha', 'setReferencePoint', 'display', 'CenterReferencePoint'] numbers=[0]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["bigContent"]
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +2 -> 6
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] CALL      R1(...) nargs=0 nret=0
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] GETTABLE  R2 := R2["createBigContentFunc"]
+         9 [   0] CALL      R2(...) nargs=0 nret=1
+        10 [   0] SETTABLE  R1["bcview"] := R2
+        11 [   0] GETUPVAL  R1 := upval 0
+        12 [   0] GETTABLE  R1 := R1["bcview"]
+        13 [   0] GETTABLE  R1 := R1["show"]
+        14 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +4 -> 20
+        16 [   0] GETUPVAL  R1 := upval 0
+        17 [   0] GETTABLE  R1 := R1["bcview"]
+        18 [   0] GETTABLE  R1 := R1["show"]
+        19 [   0] CALL      R1(...) nargs=0 nret=0
+        20 [   0] GETUPVAL  R1 := upval 0
+        21 [   0] GETTABLE  R1 := R1["bcview"]
+        22 [   0] GETTABLE  R1 := R1["setCloseCallback"]
+        23 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        24 [   0] JMP       jmp +6 -> 31
+        25 [   0] GETUPVAL  R1 := upval 0
+        26 [   0] GETTABLE  R1 := R1["bcview"]
+        27 [   0] GETTABLE  R1 := R1["setCloseCallback"]
+        28 [   0] GETUPVAL  R2 := upval 2
+        29 [   0] GETTABLE  R2 := R2["popView"]
+        30 [   0] CALL      R1(...) nargs=1 nret=0
+        31 [   0] GETUPVAL  R1 := upval 0
+        32 [   0] GETUPVAL  R2 := upval 0
+        33 [   0] GETTABLE  R2 := R2["bcview"]
+        34 [   0] GETTABLE  R2 := R2["container"]
+        35 [   0] SETTABLE  R1["bigContent"] := R2
+        36 [   0] GETUPVAL  R1 := upval 0
+        37 [   0] GETTABLE  R1 := R1["bigContent"]
+        38 [   0] SETTABLE  R1["alpha"] := 0
+        39 [   0] GETUPVAL  R1 := upval 0
+        40 [   0] GETTABLE  R1 := R1["bigContent"]
+        41 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+        42 [   0] GETGLOBAL R3 := _G["display"]
+        43 [   0] GETTABLE  R3 := R3["CenterReferencePoint"]
+        44 [   0] CALL      R1(...) nargs=2 nret=0
+        45 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 69-100, upvals=[], locals=[])
+      constants: strings=['destroyContentTimer', 'timer', 'cancel', 'isOpen', 'transition', 'to', 'background', 'time', 'xScale', 'bigScale', 'yScale', 'x', 'positionBig', 'y', 'smallContent', 'alpha', 'bigContent', 'delay', 'underlay', 'toFront'] numbers=[1, 0]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["destroyContentTimer"]
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +7 -> 11
+         4 [   0] GETGLOBAL R1 := _G["timer"]
+         5 [   0] GETTABLE  R1 := R1["cancel"]
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] GETTABLE  R2 := R2["destroyContentTimer"]
+         8 [   0] CALL      R1(...) nargs=1 nret=0
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] SETTABLE  R1["destroyContentTimer"] := None
+        11 [   0] GETUPVAL  R1 := upval 0
+        12 [   0] GETTABLE  R1 := R1["isOpen"]
+        13 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +1 -> 16
+        15 [   0] RETURN    return R0.. (0 values)
+        16 [   0] GETUPVAL  R1 := upval 0
+        17 [   0] SETTABLE  R1["isOpen"] := True
+        18 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+        19 [   0] JMP       jmp +1 -> 21
+        20 [   0] LOADK     R0 := 1
+        21 [   0] GETUPVAL  R1 := upval 1
+        22 [   0] MOVE      R2 := R0
+        23 [   0] CALL      R1(...) nargs=1 nret=0
+        24 [   0] GETGLOBAL R1 := _G["transition"]
+        25 [   0] GETTABLE  R1 := R1["to"]
+        26 [   0] GETUPVAL  R2 := upval 0
+        27 [   0] GETTABLE  R2 := R2["background"]
+        28 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+        29 [   0] GETUPVAL  R4 := upval 2
+        30 [   0] SETTABLE  R3["time"] := R4
+        31 [   0] GETUPVAL  R4 := upval 3
+        32 [   0] GETTABLE  R4 := R4["bigScale"]
+        33 [   0] MUL       R4 := R4 * R0
+        34 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        35 [   0] JMP       jmp +1 -> 37
+        36 [   0] LOADK     R4 := 1
+        37 [   0] SETTABLE  R3["xScale"] := R4
+        38 [   0] GETUPVAL  R4 := upval 3
+        39 [   0] GETTABLE  R4 := R4["bigScale"]
+        40 [   0] MUL       R4 := R4 * R0
+        41 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        42 [   0] JMP       jmp +1 -> 44
+        43 [   0] LOADK     R4 := 1
+        44 [   0] SETTABLE  R3["yScale"] := R4
+        45 [   0] CALL      R1(...) nargs=2 nret=0
+        46 [   0] GETGLOBAL R1 := _G["transition"]
+        47 [   0] GETTABLE  R1 := R1["to"]
+        48 [   0] GETUPVAL  R2 := upval 0
+        49 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+        50 [   0] GETUPVAL  R4 := upval 2
+        51 [   0] SETTABLE  R3["time"] := R4
+        52 [   0] GETUPVAL  R4 := upval 3
+        53 [   0] GETTABLE  R4 := R4["positionBig"]
+        54 [   0] GETTABLE  R4 := R4["x"]
+        55 [   0] SETTABLE  R3["x"] := R4
+        56 [   0] GETUPVAL  R4 := upval 3
+        57 [   0] GETTABLE  R4 := R4["positionBig"]
+        58 [   0] GETTABLE  R4 := R4["y"]
+        59 [   0] SETTABLE  R3["y"] := R4
+        60 [   0] CALL      R1(...) nargs=2 nret=0
+        61 [   0] GETGLOBAL R1 := _G["transition"]
+        62 [   0] GETTABLE  R1 := R1["to"]
+        63 [   0] GETUPVAL  R2 := upval 0
+        64 [   0] GETTABLE  R2 := R2["smallContent"]
+        65 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+        66 [   0] SETTABLE  R3["time"] := 0
+        67 [   0] SETTABLE  R3["alpha"] := 0
+        68 [   0] CALL      R1(...) nargs=2 nret=0
+        69 [   0] GETGLOBAL R1 := _G["transition"]
+        70 [   0] GETTABLE  R1 := R1["to"]
+        71 [   0] GETUPVAL  R2 := upval 0
+        72 [   0] GETTABLE  R2 := R2["bigContent"]
+        73 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+        74 [   0] GETUPVAL  R4 := upval 2
+        75 [   0] SETTABLE  R3["time"] := R4
+        76 [   0] SETTABLE  R3["alpha"] := 1
+        77 [   0] GETUPVAL  R4 := upval 2
+        78 [   0] SETTABLE  R3["delay"] := R4
+        79 [   0] CALL      R1(...) nargs=2 nret=0
+        80 [   0] GETUPVAL  R1 := upval 0
+        81 [   0] GETTABLE  R1 := R1["underlay"]
+        82 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        83 [   0] JMP       jmp +9 -> 93
+        84 [   0] GETGLOBAL R1 := _G["transition"]
+        85 [   0] GETTABLE  R1 := R1["to"]
+        86 [   0] GETUPVAL  R2 := upval 0
+        87 [   0] GETTABLE  R2 := R2["underlay"]
+        88 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+        89 [   0] GETUPVAL  R4 := upval 2
+        90 [   0] SETTABLE  R3["time"] := R4
+        91 [   0] SETTABLE  R3["alpha"] := 1
+        92 [   0] CALL      R1(...) nargs=2 nret=0
+        93 [   0] GETUPVAL  R1 := upval 0
+        94 [   0] SELF      R2 := R1; R1 := R1["toFront"]
+        95 [   0] CALL      R1(...) nargs=1 nret=0
+        96 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 103-125, upvals=[], locals=[])
+      constants: strings=['isOpen', 'transition', 'to', 'background', 'time', 'xScale', 'smallScaleX', 'yScale', 'smallScaleY', 'delay', 'x', 'positionSmall', 'y', 'smallContent', 'alpha', 'bigContent', 'underlay', 'destroyContentTimer', 'timer', 'performWithDelay'] numbers=[0.1, 0, 1, 2]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["isOpen"] := False
+         2 [   0] GETGLOBAL R0 := _G["transition"]
+         3 [   0] GETTABLE  R0 := R0["to"]
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETTABLE  R1 := R1["background"]
+         6 [   0] NEWTABLE  R2 := {} (array 0, hash 4)
+         7 [   0] GETUPVAL  R3 := upval 1
+         8 [   0] SETTABLE  R2["time"] := R3
+         9 [   0] GETUPVAL  R3 := upval 2
+        10 [   0] GETTABLE  R3 := R3["smallScaleX"]
+        11 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        12 [   0] JMP       jmp +1 -> 14
+        13 [   0] LOADK     R3 := 0.1
+        14 [   0] SETTABLE  R2["xScale"] := R3
+        15 [   0] GETUPVAL  R3 := upval 2
+        16 [   0] GETTABLE  R3 := R3["smallScaleY"]
+        17 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        18 [   0] JMP       jmp +1 -> 20
+        19 [   0] LOADK     R3 := 0.1
+        20 [   0] SETTABLE  R2["yScale"] := R3
+        21 [   0] GETUPVAL  R3 := upval 1
+        22 [   0] SETTABLE  R2["delay"] := R3
+        23 [   0] CALL      R0(...) nargs=2 nret=0
+        24 [   0] GETGLOBAL R0 := _G["transition"]
+        25 [   0] GETTABLE  R0 := R0["to"]
+        26 [   0] GETUPVAL  R1 := upval 0
+        27 [   0] NEWTABLE  R2 := {} (array 0, hash 4)
+        28 [   0] GETUPVAL  R3 := upval 1
+        29 [   0] SETTABLE  R2["time"] := R3
+        30 [   0] GETUPVAL  R3 := upval 2
+        31 [   0] GETTABLE  R3 := R3["positionSmall"]
+        32 [   0] GETTABLE  R3 := R3["x"]
+        33 [   0] SETTABLE  R2["x"] := R3
+        34 [   0] GETUPVAL  R3 := upval 2
+        35 [   0] GETTABLE  R3 := R3["positionSmall"]
+        36 [   0] GETTABLE  R3 := R3["y"]
+        37 [   0] SETTABLE  R2["y"] := R3
+        38 [   0] GETUPVAL  R3 := upval 1
+        39 [   0] SETTABLE  R2["delay"] := R3
+        40 [   0] CALL      R0(...) nargs=2 nret=0
+        41 [   0] GETGLOBAL R0 := _G["transition"]
+        42 [   0] GETTABLE  R0 := R0["to"]
+        43 [   0] GETUPVAL  R1 := upval 0
+        44 [   0] GETTABLE  R1 := R1["smallContent"]
+        45 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+        46 [   0] SETTABLE  R2["time"] := 0
+        47 [   0] SETTABLE  R2["alpha"] := 1
+        48 [   0] GETUPVAL  R3 := upval 1
+        49 [   0] MUL       R3 := R3 * 2
+        50 [   0] SETTABLE  R2["delay"] := R3
+        51 [   0] CALL      R0(...) nargs=2 nret=0
+        52 [   0] GETGLOBAL R0 := _G["transition"]
+        53 [   0] GETTABLE  R0 := R0["to"]
+        54 [   0] GETUPVAL  R1 := upval 0
+        55 [   0] GETTABLE  R1 := R1["bigContent"]
+        56 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+        57 [   0] GETUPVAL  R3 := upval 1
+        58 [   0] SETTABLE  R2["time"] := R3
+        59 [   0] SETTABLE  R2["alpha"] := 0
+        60 [   0] CALL      R0(...) nargs=2 nret=0
+        61 [   0] GETUPVAL  R0 := upval 0
+        62 [   0] GETTABLE  R0 := R0["underlay"]
+        63 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        64 [   0] JMP       jmp +9 -> 74
+        65 [   0] GETGLOBAL R0 := _G["transition"]
+        66 [   0] GETTABLE  R0 := R0["to"]
+        67 [   0] GETUPVAL  R1 := upval 0
+        68 [   0] GETTABLE  R1 := R1["underlay"]
+        69 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+        70 [   0] GETUPVAL  R3 := upval 1
+        71 [   0] SETTABLE  R2["time"] := R3
+        72 [   0] SETTABLE  R2["alpha"] := 0
+        73 [   0] CALL      R0(...) nargs=2 nret=0
+        74 [   0] GETUPVAL  R0 := upval 0
+        75 [   0] GETGLOBAL R1 := _G["timer"]
+        76 [   0] GETTABLE  R1 := R1["performWithDelay"]
+        77 [   0] GETUPVAL  R2 := upval 1
+        78 [   0] MUL       R2 := R2 * 2
+        79 [   0] ADD       R2 := R2 + 1
+        80 [   0] GETUPVAL  R3 := upval 3
+        81 [   0] CALL      R1(...) nargs=2 nret=1
+        82 [   0] SETTABLE  R0["destroyContentTimer"] := R1
+        83 [   0] RETURN    return R0.. (0 values)

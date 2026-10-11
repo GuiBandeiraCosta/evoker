@@ -1,0 +1,515 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'eventdispatcher', 'logging.logger', 'utils.util', 'settings.settingsmanager', 'json', 'string', 'getInstance'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "eventdispatcher"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+     8 [   0] LOADK     R4 := "logging.logger"
+     9 [   0] CONCAT    R3 := R3 .. ... .. R4
+    10 [   0] CALL      R2(...) nargs=1 nret=1
+    11 [   0] GETGLOBAL R3 := _G["require"]
+    12 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    13 [   0] LOADK     R5 := "utils.util"
+    14 [   0] CONCAT    R4 := R4 .. ... .. R5
+    15 [   0] CALL      R3(...) nargs=1 nret=1
+    16 [   0] GETGLOBAL R4 := _G["require"]
+    17 [   0] GETGLOBAL R5 := _G["FGLIB_PATH"]
+    18 [   0] LOADK     R6 := "settings.settingsmanager"
+    19 [   0] CONCAT    R5 := R5 .. ... .. R6
+    20 [   0] CALL      R4(...) nargs=1 nret=1
+    21 [   0] GETGLOBAL R5 := _G["json"]
+    22 [   0] GETGLOBAL R6 := _G["string"]
+    23 [   0] LOADBOOL  R7 := False
+    24 [   0] CLOSURE   R8 := closure #0
+    25 [   0] MOVE      R0 := R4
+    26 [   0] MOVE      R0 := R7
+    27 [   0] MOVE      R0 := R3
+    28 [   0] MOVE      R0 := R6
+    29 [   0] MOVE      R0 := R5
+    30 [   0] CLOSURE   R9 := closure #1
+    31 [   0] MOVE      R0 := R8
+    32 [   0] MOVE      R0 := R1
+    33 [   0] LOADNIL   R10..R10 := nil
+    34 [   0] CLOSURE   R11 := closure #2
+    35 [   0] MOVE      R0 := R10
+    36 [   0] MOVE      R0 := R9
+    37 [   0] SETTABLE  R0["getInstance"] := R11
+    38 [   0] RETURN    return R0.. (1 values)
+    39 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 11-138, upvals=[], locals=[])
+    constants: strings=['getInstance', 'getValue', 'fglib.leaderboard.currentweek', 'firstWeek', 'otherWeek', 'setScore', 'getScore', 'setFriends', 'networkRequestHandler', 'request', 'registerPlayerData', 'setPlayerName', 'setCustomData'] numbers=[0, 1]
+       0 [   0] LOADK     R2 := 0
+       1 [   0] LOADBOOL  R3 := False
+       2 [   0] LOADK     R4 := 0
+       3 [   0] LOADK     R5 := 1
+       4 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+       5 [   0] GETUPVAL  R7 := upval 0
+       6 [   0] GETTABLE  R7 := R7["getInstance"]
+       7 [   0] CALL      R7(...) nargs=0 nret=1
+       8 [   0] GETTABLE  R7 := R7["getValue"]
+       9 [   0] LOADK     R8 := "fglib.leaderboard.currentweek"
+      10 [   0] LOADK     R9 := "firstWeek"
+      11 [   0] CALL      R7(...) nargs=2 nret=1
+      12 [   0] GETUPVAL  R8 := upval 1
+      13 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+      14 [   0] JMP       jmp +13 -> 28
+      15 [   0] GETUPVAL  R8 := upval 0
+      16 [   0] GETTABLE  R8 := R8["getInstance"]
+      17 [   0] CALL      R8(...) nargs=0 nret=1
+      18 [   0] GETTABLE  R8 := R8["getValue"]
+      19 [   0] LOADK     R9 := "fglib.leaderboard.currentweek"
+      20 [   0] LOADNIL   R10..R10 := nil
+      21 [   0] CALL      R8(...) nargs=2 nret=1
+      22 [   0] MOVE      R7 := R8
+      23 [   0] EQ        if (R7 == "firstWeek") ~= 0 then skip next
+      24 [   0] JMP       jmp +2 -> 27
+      25 [   0] LOADK     R7 := "otherWeek"
+      26 [   0] JMP       jmp +1 -> 28
+      27 [   0] LOADK     R7 := "firstWeek"
+      28 [   0] CLOSURE   R8 := closure #0
+      29 [   0] GETUPVAL  R0 := upval 2
+      30 [   0] MOVE      R0 := R6
+      31 [   0] MOVE      R0 := R0
+      32 [   0] CLOSURE   R9 := closure #1
+      33 [   0] MOVE      R0 := R1
+      34 [   0] MOVE      R0 := R2
+      35 [   0] MOVE      R0 := R6
+      36 [   0] MOVE      R0 := R3
+      37 [   0] MOVE      R0 := R4
+      38 [   0] MOVE      R0 := R5
+      39 [   0] MOVE      R0 := R8
+      40 [   0] MOVE      R0 := R0
+      41 [   0] SETTABLE  R0["setScore"] := R9
+      42 [   0] CLOSURE   R9 := closure #2
+      43 [   0] GETUPVAL  R0 := upval 2
+      44 [   0] MOVE      R0 := R6
+      45 [   0] MOVE      R0 := R0
+      46 [   0] MOVE      R0 := R7
+      47 [   0] SETTABLE  R0["getScore"] := R9
+      48 [   0] CLOSURE   R9 := closure #3
+      49 [   0] MOVE      R0 := R6
+      50 [   0] GETUPVAL  R0 := upval 3
+      51 [   0] GETUPVAL  R0 := upval 4
+      52 [   0] SETTABLE  R0["setFriends"] := R9
+      53 [   0] CLOSURE   R9 := closure #4
+      54 [   0] SETTABLE  R0["networkRequestHandler"] := R9
+      55 [   0] CLOSURE   R9 := closure #5
+      56 [   0] SETTABLE  R0["request"] := R9
+      57 [   0] CLOSURE   R9 := closure #6
+      58 [   0] SETTABLE  R0["registerPlayerData"] := R9
+      59 [   0] CLOSURE   R9 := closure #7
+      60 [   0] SETTABLE  R0["setPlayerName"] := R9
+      61 [   0] CLOSURE   R9 := closure #8
+      62 [   0] SETTABLE  R0["setCustomData"] := R9
+      63 [   0] RETURN    return R0.. (1 values)
+      64 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 28-32, upvals=[], locals=[])
+      constants: strings=['deepcopy', 'emit', 'leaderboardResponse', 'type', 'scores', 'success', 'data'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+         1 [   0] GETUPVAL  R1 := upval 0
+         2 [   0] GETTABLE  R1 := R1["deepcopy"]
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] LOADBOOL  R3 := True
+         5 [   0] MOVE      R4 := R0
+         6 [   0] CALL      R1(...) nargs=3 nret=0
+         7 [   0] GETUPVAL  R1 := upval 2
+         8 [   0] GETTABLE  R1 := R1["emit"]
+         9 [   0] LOADK     R2 := "leaderboardResponse"
+        10 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+        11 [   0] SETTABLE  R3["type"] := "scores"
+        12 [   0] SETTABLE  R3["success"] := True
+        13 [   0] SETTABLE  R3["data"] := R0
+        14 [   0] CALL      R1(...) nargs=2 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=5, lines 34-57, upvals=[], locals=[])
+      constants: strings=['fglib', 'getAppData', 'points', 'stars', 'pairs', 'getScore'] numbers=[10, 20]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] SETUPVAL  upval 1 := R1
+         2 [   0] GETGLOBAL R5 := _G["fglib"]
+         3 [   0] GETTABLE  R5 := R5["getAppData"]
+         4 [   0] CALL      R5(...) nargs=0 nret=1
+         5 [   0] GETUPVAL  R6 := upval 2
+         6 [   0] GETTABLE  R6 := R6[R0]
+         7 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +36 -> 45
+         9 [   0] GETUPVAL  R6 := upval 2
+        10 [   0] GETTABLE  R6 := R6[R0]
+        11 [   0] SETTABLE  R6["points"] := R1
+        12 [   0] GETUPVAL  R6 := upval 2
+        13 [   0] GETTABLE  R6 := R6[R0]
+        14 [   0] SETTABLE  R6["stars"] := R2
+        15 [   0] GETUPVAL  R6 := upval 3
+        16 [   0] EQ        if (R6 == False) ~= 0 then skip next
+        17 [   0] JMP       jmp +13 -> 31
+        18 [   0] ADD       R6 := R1 + 10
+        19 [   0] GETGLOBAL R7 := _G["pairs"]
+        20 [   0] GETUPVAL  R8 := upval 2
+        21 [   0] CALL      R7(...) nargs=1 nret=3
+        22 [   0] JMP       jmp +6 -> 29
+        23 [   0] EQ        if (R10 == R0) ~= 1 then skip next
+        24 [   0] JMP       jmp +4 -> 29
+        25 [   0] GETUPVAL  R12 := upval 2
+        26 [   0] GETTABLE  R12 := R12[R10]
+        27 [   0] SETTABLE  R12["points"] := R6
+        28 [   0] ADD       R6 := R6 + 20
+        29 [   0] TFORLOOP  tforloop R7 nres=2
+        30 [   0] JMP       jmp -8 -> 23
+        31 [   0] LOADBOOL  R6 := True
+        32 [   0] SETUPVAL  upval 3 := R6
+        33 [   0] GETUPVAL  R6 := upval 5
+        34 [   0] MUL       R6 := 10 * R6
+        35 [   0] ADD       R6 := R1 + R6
+        36 [   0] SETUPVAL  upval 4 := R6
+        37 [   0] GETUPVAL  R6 := upval 6
+        38 [   0] CALL      R6(...) nargs=0 nret=0
+        39 [   0] GETUPVAL  R6 := upval 7
+        40 [   0] GETTABLE  R6 := R6["getScore"]
+        41 [   0] GETUPVAL  R7 := upval 0
+        42 [   0] MOVE      R8 := R3
+        43 [   0] MOVE      R9 := R4
+        44 [   0] CALL      R6(...) nargs=3 nret=0
+        45 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=3, lines 59-75, upvals=[], locals=[])
+      constants: strings=['timer', 'performWithDelay'] numbers=[1000, 1]
+         0 [   0] CLOSURE   R3 := closure #0
+         1 [   0] GETUPVAL  R0 := upval 0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] MOVE      R0 := R1
+         4 [   0] GETUPVAL  R0 := upval 2
+         5 [   0] GETUPVAL  R0 := upval 3
+         6 [   0] GETGLOBAL R4 := _G["timer"]
+         7 [   0] GETTABLE  R4 := R4["performWithDelay"]
+         8 [   0] LOADK     R5 := 1000
+         9 [   0] MOVE      R6 := R3
+        10 [   0] LOADK     R7 := 1
+        11 [   0] CALL      R4(...) nargs=3 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#2.#0 (params=0, lines 60-73, upvals=[], locals=[])
+        constants: strings=['deepcopy', 'emit', 'leaderboardResponse', 'type', 'scores', 'success', 'data', 'week'] numbers=[]
+           0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+           1 [   0] GETUPVAL  R1 := upval 0
+           2 [   0] GETTABLE  R1 := R1["deepcopy"]
+           3 [   0] GETUPVAL  R2 := upval 1
+           4 [   0] LOADBOOL  R3 := True
+           5 [   0] MOVE      R4 := R0
+           6 [   0] CALL      R1(...) nargs=3 nret=0
+           7 [   0] GETUPVAL  R1 := upval 2
+           8 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+           9 [   0] JMP       jmp +11 -> 21
+          10 [   0] GETUPVAL  R1 := upval 3
+          11 [   0] GETTABLE  R1 := R1["emit"]
+          12 [   0] LOADK     R2 := "leaderboardResponse"
+          13 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+          14 [   0] SETTABLE  R3["type"] := "scores"
+          15 [   0] SETTABLE  R3["success"] := True
+          16 [   0] SETTABLE  R3["data"] := R0
+          17 [   0] GETUPVAL  R4 := upval 4
+          18 [   0] SETTABLE  R3["week"] := R4
+          19 [   0] CALL      R1(...) nargs=2 nret=0
+          20 [   0] JMP       jmp +15 -> 36
+          21 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+          22 [   0] GETUPVAL  R2 := upval 2
+          23 [   0] GETUPVAL  R3 := upval 2
+          24 [   0] GETTABLE  R3 := R0[R3]
+          25 [   0] SETTABLE  R1[R2] := R3
+          26 [   0] GETUPVAL  R2 := upval 3
+          27 [   0] GETTABLE  R2 := R2["emit"]
+          28 [   0] LOADK     R3 := "leaderboardResponse"
+          29 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+          30 [   0] SETTABLE  R4["type"] := "scores"
+          31 [   0] SETTABLE  R4["success"] := True
+          32 [   0] SETTABLE  R4["data"] := R1
+          33 [   0] GETUPVAL  R5 := upval 4
+          34 [   0] SETTABLE  R4["week"] := R5
+          35 [   0] CALL      R2(...) nargs=2 nret=0
+          36 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 77-119, upvals=[], locals=[])
+      constants: strings=['fglib', 'getAppData', 'find', ',', 'sub', 'points', 'math', 'random', 'stars', 'ceil', 'lastRank', 'overallPoints', 'overallRanks', 'rank1', 'rank2', 'rank3', 'oceantower', 'totalHeight', 'topFloors', 'bottomFloors', 'incomePerHour', 'custom', 'encode'] numbers=[1, 10, 50, 2, 999999, 5, 20, 100, 15, 0.2, 0.4, 10000, 20000, 35]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] SETUPVAL  upval 0 := R2
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         3 [   0] GETGLOBAL R3 := _G["fglib"]
+         4 [   0] GETTABLE  R3 := R3["getAppData"]
+         5 [   0] CALL      R3(...) nargs=0 nret=1
+         6 [   0] LOADBOOL  R4 := True
+         7 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +29 -> 38
+         9 [   0] GETUPVAL  R5 := upval 1
+        10 [   0] GETTABLE  R5 := R5["find"]
+        11 [   0] MOVE      R6 := R1
+        12 [   0] LOADK     R7 := ","
+        13 [   0] LOADK     R8 := 1
+        14 [   0] CALL      R5(...) nargs=3 nret=1
+        15 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        16 [   0] JMP       jmp +16 -> 33
+        17 [   0] LEN       R6 := #R2
+        18 [   0] ADD       R6 := R6 + 1
+        19 [   0] GETUPVAL  R7 := upval 1
+        20 [   0] GETTABLE  R7 := R7["sub"]
+        21 [   0] MOVE      R8 := R1
+        22 [   0] LOADK     R9 := 1
+        23 [   0] SUB       R10 := R5 - 1
+        24 [   0] CALL      R7(...) nargs=3 nret=1
+        25 [   0] SETTABLE  R2[R6] := R7
+        26 [   0] GETUPVAL  R6 := upval 1
+        27 [   0] GETTABLE  R6 := R6["sub"]
+        28 [   0] MOVE      R7 := R1
+        29 [   0] ADD       R8 := R5 + 1
+        30 [   0] CALL      R6(...) nargs=2 nret=1
+        31 [   0] MOVE      R1 := R6
+        32 [   0] JMP       jmp -26 -> 7
+        33 [   0] LEN       R6 := #R2
+        34 [   0] ADD       R6 := R6 + 1
+        35 [   0] SETTABLE  R2[R6] := R1
+        36 [   0] LOADBOOL  R4 := False
+        37 [   0] JMP       jmp -31 -> 7
+        38 [   0] LOADK     R5 := 1
+        39 [   0] LEN       R6 := #R2
+        40 [   0] LOADK     R7 := 1
+        41 [   0] FORPREP   for R5.. jmp +103
+        42 [   0] NEWTABLE  R9 := {} (array 0, hash 1)
+        43 [   0] NEWTABLE  R10 := {} (array 0, hash 0)
+        44 [   0] SETTABLE  R9["points"] := R10
+        45 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+        46 [   0] GETGLOBAL R11 := _G["math"]
+        47 [   0] GETTABLE  R11 := R11["random"]
+        48 [   0] LOADK     R12 := 10
+        49 [   0] CALL      R11(...) nargs=1 nret=1
+        50 [   0] SETTABLE  R10["points"] := R11
+        51 [   0] GETGLOBAL R11 := _G["math"]
+        52 [   0] GETTABLE  R11 := R11["ceil"]
+        53 [   0] GETGLOBAL R12 := _G["math"]
+        54 [   0] GETTABLE  R12 := R12["random"]
+        55 [   0] LOADK     R13 := 50
+        56 [   0] CALL      R12(...) nargs=1 nret=-1
+        57 [   0] CALL      R11(...) nargs=-1 nret=1
+        58 [   0] SETTABLE  R10["stars"] := R11
+        59 [   0] SETTABLE  R10["lastRank"] := 2
+        60 [   0] GETGLOBAL R11 := _G["math"]
+        61 [   0] GETTABLE  R11 := R11["ceil"]
+        62 [   0] GETGLOBAL R12 := _G["math"]
+        63 [   0] GETTABLE  R12 := R12["random"]
+        64 [   0] LOADK     R13 := 999999
+        65 [   0] CALL      R12(...) nargs=1 nret=-1
+        66 [   0] CALL      R11(...) nargs=-1 nret=1
+        67 [   0] SETTABLE  R10["overallPoints"] := R11
+        68 [   0] NEWTABLE  R11 := {} (array 0, hash 3)
+        69 [   0] GETGLOBAL R12 := _G["math"]
+        70 [   0] GETTABLE  R12 := R12["ceil"]
+        71 [   0] GETGLOBAL R13 := _G["math"]
+        72 [   0] GETTABLE  R13 := R13["random"]
+        73 [   0] LOADK     R14 := 5
+        74 [   0] CALL      R13(...) nargs=1 nret=-1
+        75 [   0] CALL      R12(...) nargs=-1 nret=1
+        76 [   0] SETTABLE  R11["rank1"] := R12
+        77 [   0] GETGLOBAL R12 := _G["math"]
+        78 [   0] GETTABLE  R12 := R12["ceil"]
+        79 [   0] GETGLOBAL R13 := _G["math"]
+        80 [   0] GETTABLE  R13 := R13["random"]
+        81 [   0] LOADK     R14 := 20
+        82 [   0] CALL      R13(...) nargs=1 nret=-1
+        83 [   0] CALL      R12(...) nargs=-1 nret=1
+        84 [   0] SETTABLE  R11["rank2"] := R12
+        85 [   0] GETGLOBAL R12 := _G["math"]
+        86 [   0] GETTABLE  R12 := R12["ceil"]
+        87 [   0] GETGLOBAL R13 := _G["math"]
+        88 [   0] GETTABLE  R13 := R13["random"]
+        89 [   0] LOADK     R14 := 100
+        90 [   0] CALL      R13(...) nargs=1 nret=-1
+        91 [   0] CALL      R12(...) nargs=-1 nret=1
+        92 [   0] SETTABLE  R11["rank3"] := R12
+        93 [   0] SETTABLE  R10["overallRanks"] := R11
+        94 [   0] MOVE      R9 := R10
+        95 [   0] GETUPVAL  R10 := upval 1
+        96 [   0] GETTABLE  R10 := R10["find"]
+        97 [   0] GETGLOBAL R11 := _G["fglib"]
+        98 [   0] GETTABLE  R11 := R11["getAppData"]
+        99 [   0] CALL      R11(...) nargs=0 nret=1
+       100 [   0] LOADK     R12 := "oceantower"
+       101 [   0] CALL      R10(...) nargs=2 nret=1
+       102 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+       103 [   0] JMP       jmp +38 -> 142
+       104 [   0] GETGLOBAL R10 := _G["math"]
+       105 [   0] GETTABLE  R10 := R10["ceil"]
+       106 [   0] GETGLOBAL R11 := _G["math"]
+       107 [   0] GETTABLE  R11 := R11["random"]
+       108 [   0] LOADK     R12 := 100
+       109 [   0] CALL      R11(...) nargs=1 nret=1
+       110 [   0] ADD       R11 := R11 + 15
+       111 [   0] CALL      R10(...) nargs=1 nret=1
+       112 [   0] GETGLOBAL R11 := _G["math"]
+       113 [   0] GETTABLE  R11 := R11["ceil"]
+       114 [   0] GETGLOBAL R12 := _G["math"]
+       115 [   0] GETTABLE  R12 := R12["random"]
+       116 [   0] CALL      R12(...) nargs=0 nret=1
+       117 [   0] MUL       R12 := R12 * 0.2
+       118 [   0] ADD       R12 := R12 + 0.4
+       119 [   0] MUL       R12 := R12 * R10
+       120 [   0] CALL      R11(...) nargs=1 nret=1
+       121 [   0] NEWTABLE  R12 := {} (array 0, hash 4)
+       122 [   0] ADD       R13 := R10 + 1
+       123 [   0] SETTABLE  R12["totalHeight"] := R13
+       124 [   0] SETTABLE  R12["topFloors"] := R11
+       125 [   0] SUB       R13 := R10 - R11
+       126 [   0] SETTABLE  R12["bottomFloors"] := R13
+       127 [   0] GETGLOBAL R13 := _G["math"]
+       128 [   0] GETTABLE  R13 := R13["ceil"]
+       129 [   0] GETGLOBAL R14 := _G["math"]
+       130 [   0] GETTABLE  R14 := R14["random"]
+       131 [   0] LOADK     R15 := 10000
+       132 [   0] CALL      R14(...) nargs=1 nret=1
+       133 [   0] ADD       R14 := R14 + 20000
+       134 [   0] CALL      R13(...) nargs=1 nret=1
+       135 [   0] SETTABLE  R12["incomePerHour"] := R13
+       136 [   0] SETTABLE  R9["points"] := R10
+       137 [   0] GETUPVAL  R13 := upval 2
+       138 [   0] GETTABLE  R13 := R13["encode"]
+       139 [   0] MOVE      R14 := R12
+       140 [   0] CALL      R13(...) nargs=1 nret=1
+       141 [   0] SETTABLE  R9["custom"] := R13
+       142 [   0] GETUPVAL  R10 := upval 0
+       143 [   0] GETTABLE  R11 := R2[R8]
+       144 [   0] SETTABLE  R10[R11] := R9
+       145 [   0] FORLOOP   forloop R5 jmp -104
+       146 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+       147 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+       148 [   0] SETTABLE  R5["points"] := R6
+       149 [   0] NEWTABLE  R6 := {} (array 0, hash 5)
+       150 [   0] GETGLOBAL R7 := _G["math"]
+       151 [   0] GETTABLE  R7 := R7["random"]
+       152 [   0] LOADK     R8 := 10
+       153 [   0] CALL      R7(...) nargs=1 nret=1
+       154 [   0] SETTABLE  R6["points"] := R7
+       155 [   0] GETGLOBAL R7 := _G["math"]
+       156 [   0] GETTABLE  R7 := R7["ceil"]
+       157 [   0] GETGLOBAL R8 := _G["math"]
+       158 [   0] GETTABLE  R8 := R8["random"]
+       159 [   0] LOADK     R9 := 50
+       160 [   0] CALL      R8(...) nargs=1 nret=-1
+       161 [   0] CALL      R7(...) nargs=-1 nret=1
+       162 [   0] SETTABLE  R6["stars"] := R7
+       163 [   0] SETTABLE  R6["lastRank"] := 1
+       164 [   0] GETGLOBAL R7 := _G["math"]
+       165 [   0] GETTABLE  R7 := R7["ceil"]
+       166 [   0] GETGLOBAL R8 := _G["math"]
+       167 [   0] GETTABLE  R8 := R8["random"]
+       168 [   0] LOADK     R9 := 999999
+       169 [   0] CALL      R8(...) nargs=1 nret=-1
+       170 [   0] CALL      R7(...) nargs=-1 nret=1
+       171 [   0] SETTABLE  R6["overallPoints"] := R7
+       172 [   0] NEWTABLE  R7 := {} (array 0, hash 3)
+       173 [   0] GETGLOBAL R8 := _G["math"]
+       174 [   0] GETTABLE  R8 := R8["ceil"]
+       175 [   0] GETGLOBAL R9 := _G["math"]
+       176 [   0] GETTABLE  R9 := R9["random"]
+       177 [   0] LOADK     R10 := 5
+       178 [   0] CALL      R9(...) nargs=1 nret=-1
+       179 [   0] CALL      R8(...) nargs=-1 nret=1
+       180 [   0] SETTABLE  R7["rank1"] := R8
+       181 [   0] GETGLOBAL R8 := _G["math"]
+       182 [   0] GETTABLE  R8 := R8["ceil"]
+       183 [   0] GETGLOBAL R9 := _G["math"]
+       184 [   0] GETTABLE  R9 := R9["random"]
+       185 [   0] LOADK     R10 := 20
+       186 [   0] CALL      R9(...) nargs=1 nret=-1
+       187 [   0] CALL      R8(...) nargs=-1 nret=1
+       188 [   0] SETTABLE  R7["rank2"] := R8
+       189 [   0] GETGLOBAL R8 := _G["math"]
+       190 [   0] GETTABLE  R8 := R8["ceil"]
+       191 [   0] GETGLOBAL R9 := _G["math"]
+       192 [   0] GETTABLE  R9 := R9["random"]
+       193 [   0] LOADK     R10 := 100
+       194 [   0] CALL      R9(...) nargs=1 nret=-1
+       195 [   0] CALL      R8(...) nargs=-1 nret=1
+       196 [   0] SETTABLE  R7["rank3"] := R8
+       197 [   0] SETTABLE  R6["overallRanks"] := R7
+       198 [   0] MOVE      R5 := R6
+       199 [   0] GETUPVAL  R6 := upval 1
+       200 [   0] GETTABLE  R6 := R6["find"]
+       201 [   0] GETGLOBAL R7 := _G["fglib"]
+       202 [   0] GETTABLE  R7 := R7["getAppData"]
+       203 [   0] CALL      R7(...) nargs=0 nret=1
+       204 [   0] LOADK     R8 := "oceantower"
+       205 [   0] CALL      R6(...) nargs=2 nret=1
+       206 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+       207 [   0] JMP       jmp +38 -> 246
+       208 [   0] GETGLOBAL R6 := _G["math"]
+       209 [   0] GETTABLE  R6 := R6["ceil"]
+       210 [   0] GETGLOBAL R7 := _G["math"]
+       211 [   0] GETTABLE  R7 := R7["random"]
+       212 [   0] LOADK     R8 := 50
+       213 [   0] CALL      R7(...) nargs=1 nret=1
+       214 [   0] ADD       R7 := R7 + 35
+       215 [   0] CALL      R6(...) nargs=1 nret=1
+       216 [   0] GETGLOBAL R7 := _G["math"]
+       217 [   0] GETTABLE  R7 := R7["ceil"]
+       218 [   0] GETGLOBAL R8 := _G["math"]
+       219 [   0] GETTABLE  R8 := R8["random"]
+       220 [   0] CALL      R8(...) nargs=0 nret=1
+       221 [   0] MUL       R8 := R8 * 0.2
+       222 [   0] ADD       R8 := R8 + 0.4
+       223 [   0] MUL       R8 := R8 * R6
+       224 [   0] CALL      R7(...) nargs=1 nret=1
+       225 [   0] NEWTABLE  R8 := {} (array 0, hash 4)
+       226 [   0] ADD       R9 := R6 + 1
+       227 [   0] SETTABLE  R8["totalHeight"] := R9
+       228 [   0] SETTABLE  R8["topFloors"] := R7
+       229 [   0] SUB       R9 := R6 - R7
+       230 [   0] SETTABLE  R8["bottomFloors"] := R9
+       231 [   0] GETGLOBAL R9 := _G["math"]
+       232 [   0] GETTABLE  R9 := R9["ceil"]
+       233 [   0] GETGLOBAL R10 := _G["math"]
+       234 [   0] GETTABLE  R10 := R10["random"]
+       235 [   0] LOADK     R11 := 10000
+       236 [   0] CALL      R10(...) nargs=1 nret=1
+       237 [   0] ADD       R10 := R10 + 20000
+       238 [   0] CALL      R9(...) nargs=1 nret=1
+       239 [   0] SETTABLE  R8["incomePerHour"] := R9
+       240 [   0] SETTABLE  R5["points"] := R6
+       241 [   0] GETUPVAL  R9 := upval 2
+       242 [   0] GETTABLE  R9 := R9["encode"]
+       243 [   0] MOVE      R10 := R8
+       244 [   0] CALL      R9(...) nargs=1 nret=1
+       245 [   0] SETTABLE  R5["custom"] := R9
+       246 [   0] GETUPVAL  R6 := upval 0
+       247 [   0] SETTABLE  R6[R0] := R5
+       248 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 121-122, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=3, lines 124-125, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 127-128, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 130-131, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 133-134, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 140-144, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new"]
+       3 [   0] CALL      R1(...) nargs=0 nret=-1
+       4 [   0] TAILCALL  return R0(...) nargs=-1
+       5 [   0] RETURN    return R0.. (-1 values)
+       6 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 147-152, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

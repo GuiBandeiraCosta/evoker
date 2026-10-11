@@ -1,0 +1,159 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['fglib', 'utils', 'Util', 'from', 'to', 'toAndFro'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["fglib"]
+     1 [   0] GETTABLE  R0 := R0["utils"]
+     2 [   0] GETTABLE  R0 := R0["Util"]
+     3 [   0] CLOSURE   R1 := closure #0
+     4 [   0] CLOSURE   R2 := closure #1
+     5 [   0] MOVE      R0 := R1
+     6 [   0] CLOSURE   R3 := closure #2
+     7 [   0] MOVE      R0 := R1
+     8 [   0] CLOSURE   R4 := closure #3
+     9 [   0] MOVE      R0 := R3
+    10 [   0] MOVE      R0 := R0
+    11 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+    12 [   0] SETTABLE  R5["from"] := R2
+    13 [   0] SETTABLE  R5["to"] := R3
+    14 [   0] SETTABLE  R5["toAndFro"] := R4
+    15 [   0] RETURN    return R5.. (1 values)
+    16 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=3, lines 3-19, upvals=[], locals=[])
+    constants: strings=['transition', 'easing', 'linear', 'setmetatable', '__call'] numbers=[]
+       0 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       1 [   0] GETTABLE  R4 := R1["transition"]
+       2 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+       3 [   0] JMP       jmp +2 -> 6
+       4 [   0] GETGLOBAL R4 := _G["easing"]
+       5 [   0] GETTABLE  R4 := R4["linear"]
+       6 [   0] GETGLOBAL R5 := _G["setmetatable"]
+       7 [   0] MOVE      R6 := R3
+       8 [   0] NEWTABLE  R7 := {} (array 0, hash 1)
+       9 [   0] CLOSURE   R8 := closure #0
+      10 [   0] MOVE      R0 := R1
+      11 [   0] MOVE      R0 := R0
+      12 [   0] MOVE      R0 := R4
+      13 [   0] SETTABLE  R7["__call"] := R8
+      14 [   0] CALL      R5(...) nargs=2 nret=0
+      15 [   0] SETTABLE  R1["transition"] := R3
+      16 [   0] MOVE      R5 := R2
+      17 [   0] MOVE      R6 := R0
+      18 [   0] MOVE      R7 := R1
+      19 [   0] TAILCALL  return R5(...) nargs=2
+      20 [   0] RETURN    return R5.. (-1 values)
+      21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=5, lines 9-14, upvals=[], locals=[])
+      constants: strings=['type', 'onUpdate', 'function'] numbers=[]
+         0 [   0] GETGLOBAL R5 := _G["type"]
+         1 [   0] GETUPVAL  R6 := upval 0
+         2 [   0] GETTABLE  R6 := R6["onUpdate"]
+         3 [   0] CALL      R5(...) nargs=1 nret=1
+         4 [   0] EQ        if (R5 == "function") ~= 0 then skip next
+         5 [   0] JMP       jmp +8 -> 14
+         6 [   0] GETUPVAL  R5 := upval 0
+         7 [   0] GETTABLE  R5 := R5["onUpdate"]
+         8 [   0] GETUPVAL  R6 := upval 1
+         9 [   0] MOVE      R7 := R1
+        10 [   0] MOVE      R8 := R2
+        11 [   0] MOVE      R9 := R3
+        12 [   0] MOVE      R10 := R4
+        13 [   0] CALL      R5(...) nargs=5 nret=0
+        14 [   0] GETUPVAL  R5 := upval 2
+        15 [   0] MOVE      R6 := R1
+        16 [   0] MOVE      R7 := R2
+        17 [   0] MOVE      R8 := R3
+        18 [   0] MOVE      R9 := R4
+        19 [   0] TAILCALL  return R5(...) nargs=4
+        20 [   0] RETURN    return R5.. (-1 values)
+        21 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=2, lines 22-24, upvals=[], locals=[])
+    constants: strings=['transition', 'from'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] MOVE      R3 := R0
+       2 [   0] MOVE      R4 := R1
+       3 [   0] GETGLOBAL R5 := _G["transition"]
+       4 [   0] GETTABLE  R5 := R5["from"]
+       5 [   0] TAILCALL  return R2(...) nargs=3
+       6 [   0] RETURN    return R2.. (-1 values)
+       7 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=2, lines 27-29, upvals=[], locals=[])
+    constants: strings=['transition', 'to'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] MOVE      R3 := R0
+       2 [   0] MOVE      R4 := R1
+       3 [   0] GETGLOBAL R5 := _G["transition"]
+       4 [   0] GETTABLE  R5 := R5["to"]
+       5 [   0] TAILCALL  return R2(...) nargs=3
+       6 [   0] RETURN    return R2.. (-1 values)
+       7 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=4, lines 32-53, upvals=[], locals=[])
+    constants: strings=['Log', 'assert', 'onComplete', "backAndForthTransition doesn't implement onComplete yet.", 'merge', 'cancel'] numbers=[]
+       0 [   0] GETGLOBAL R4 := _G["Log"]
+       1 [   0] GETTABLE  R4 := R4["assert"]
+       2 [   0] GETTABLE  R5 := R1["onComplete"]
+       3 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +6 -> 11
+       5 [   0] GETTABLE  R5 := R2["onComplete"]
+       6 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+       7 [   0] JMP       jmp +3 -> 11
+       8 [   0] GETTABLE  R5 := R3["onComplete"]
+       9 [   0] NOT       R5 := not R5
+      10 [   0] JMP       jmp +2 -> 13
+      11 [   0] LOADBOOL  R5 := False (skip)
+      12 [   0] LOADBOOL  R5 := True
+      13 [   0] LOADK     R6 := "backAndForthTransition doesn't implement onComplete yet."
+      14 [   0] CALL      R4(...) nargs=2 nret=0
+      15 [   0] LOADNIL   R4..R5 := nil
+      16 [   0] CLOSURE   R6 := closure #0
+      17 [   0] MOVE      R0 := R4
+      18 [   0] GETUPVAL  R0 := upval 0
+      19 [   0] MOVE      R0 := R0
+      20 [   0] MOVE      R0 := R5
+      21 [   0] GETUPVAL  R7 := upval 1
+      22 [   0] GETTABLE  R7 := R7["merge"]
+      23 [   0] MOVE      R8 := R2
+      24 [   0] MOVE      R9 := R3
+      25 [   0] CALL      R7(...) nargs=2 nret=1
+      26 [   0] SETTABLE  R7["onComplete"] := R6
+      27 [   0] GETUPVAL  R8 := upval 1
+      28 [   0] GETTABLE  R8 := R8["merge"]
+      29 [   0] MOVE      R9 := R1
+      30 [   0] MOVE      R10 := R3
+      31 [   0] CALL      R8(...) nargs=2 nret=1
+      32 [   0] MOVE      R5 := R8
+      33 [   0] CLOSURE   R8 := closure #1
+      34 [   0] MOVE      R0 := R4
+      35 [   0] GETUPVAL  R0 := upval 0
+      36 [   0] MOVE      R0 := R0
+      37 [   0] MOVE      R0 := R7
+      38 [   0] SETTABLE  R5["onComplete"] := R8
+      39 [   0] MOVE      R8 := R6
+      40 [   0] CALL      R8(...) nargs=0 nret=0
+      41 [   0] NEWTABLE  R8 := {} (array 0, hash 1)
+      42 [   0] CLOSURE   R9 := closure #2
+      43 [   0] MOVE      R0 := R4
+      44 [   0] SETTABLE  R8["cancel"] := R9
+      45 [   0] RETURN    return R8.. (1 values)
+      46 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#0 (params=0, lines 36-38, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 1
+         1 [   0] GETUPVAL  R1 := upval 2
+         2 [   0] GETUPVAL  R2 := upval 3
+         3 [   0] CALL      R0(...) nargs=2 nret=1
+         4 [   0] SETUPVAL  upval 0 := R0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#1 (params=0, lines 43-45, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 1
+         1 [   0] GETUPVAL  R1 := upval 2
+         2 [   0] GETUPVAL  R2 := upval 3
+         3 [   0] CALL      R0(...) nargs=2 nret=1
+         4 [   0] SETUPVAL  upval 0 := R0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#2 (params=0, lines 49-51, upvals=[], locals=[])
+      constants: strings=['transition', 'cancel'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["transition"]
+         1 [   0] GETTABLE  R0 := R0["cancel"]
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)

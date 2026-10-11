@@ -1,0 +1,545 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'fglib.eventlistener', 'util.synchronizer', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "fglib.eventlistener"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "util.synchronizer"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] MOVE      R0 := R1
+     8 [   0] MOVE      R0 := R0
+     9 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+    10 [   0] SETTABLE  R3["create"] := R2
+    11 [   0] RETURN    return R3.. (1 values)
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 8-199, upvals=[], locals=[])
+    constants: strings=['getName', 'enter', 'leave'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] LOADNIL   R1..R1 := nil
+       2 [   0] CLOSURE   R2 := closure #0
+       3 [   0] SETTABLE  R0["getName"] := R2
+       4 [   0] CLOSURE   R2 := closure #1
+       5 [   0] GETUPVAL  R0 := upval 0
+       6 [   0] MOVE      R0 := R1
+       7 [   0] GETUPVAL  R0 := upval 1
+       8 [   0] SETTABLE  R0["enter"] := R2
+       9 [   0] CLOSURE   R2 := closure #2
+      10 [   0] MOVE      R0 := R1
+      11 [   0] SETTABLE  R0["leave"] := R2
+      12 [   0] RETURN    return R0.. (1 values)
+      13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 16-18, upvals=[], locals=[])
+      constants: strings=['UPDATE_USER'] numbers=[]
+         0 [   0] LOADK     R0 := "UPDATE_USER"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 20-163, upvals=[], locals=[])
+      constants: strings=['create', 'user', 'cards', 'decks', 'quests', 'boosters', 'promotions', 'leagueInfos', 'facebook_popups', 'facebook_requests_list', 'facebook_finished_requests', 'facebook_friend_status', 'client_state_store', 'sets', 'fglib', 'utils', 'Util', 'isIPhone', 'native', 'nativeiospushregister', 'registerForPush', 'require', 'game.storemanager', 'getInstance', 'checkPendingTransactions', 'new', 'questStatusUpdatedHandler', 'userDataUpdatedHandler', 'game.boostermanager2', 'boosters3ReceivedHandler', 'leagueInfoReceivedHandler', 'cardsUpdatedHandler', 'decksUpdatedHandler', 'promotionsUpdatedHandler', 'facebookPopupsReceivedHandler', 'facebookFinishedRequestsReceivedHandler', 'facebookRequestListReceivedHandler', 'facebookFriendStatusReceivedHandler', 'clientStateStoreUpdatedHandler', 'setsReceivedHandler', 'reset', 'setCallback', 'game.usermanager', 'game.cardmanager', 'game.questmanager', 'game.promotionmanager', 'game.leaguemanager', 'game.facebookmanager', 'game.clientstatestore', 'game.setsmanager', 'subscribeTo', 'boosters3Received', 'userDataUpdated', 'cardsUpdated', 'decksUpdated', 'questStatusUpdated', 'promotionsUpdated', 'leagueInfoReceived', 'facebookPopupsReceived', 'facebookFinishedRequestsReceived', 'facebookRequestListReceived', 'facebookFriendStatusReceived', 'clientStateStoreUpdated', 'setsReceived', 'server.server', 'requestUserData', 'me', 'requestUserDecks', 'requestUserCards', 'requestQuestStatus', 'requestBoosters3', 'requestPromotions', 'requestAchievements', 'syncFromServer', 'requestSets', 'isWindows', 'isLoggedIn', 'getAccessToken', 'sendFacebookAccessToken', 'getFinishedFacebookRequest', 'requestFacebookRequestList', 'requestFacebookFriendStatus', 'set', 'requestLeagueInfo'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["create"]
+         2 [   0] LOADK     R2 := "user"
+         3 [   0] LOADK     R3 := "cards"
+         4 [   0] LOADK     R4 := "decks"
+         5 [   0] LOADK     R5 := "quests"
+         6 [   0] LOADK     R6 := "boosters"
+         7 [   0] LOADK     R7 := "promotions"
+         8 [   0] LOADK     R8 := "leagueInfos"
+         9 [   0] LOADK     R9 := "facebook_popups"
+        10 [   0] LOADK     R10 := "facebook_requests_list"
+        11 [   0] LOADK     R11 := "facebook_finished_requests"
+        12 [   0] LOADK     R12 := "facebook_friend_status"
+        13 [   0] LOADK     R13 := "client_state_store"
+        14 [   0] LOADK     R14 := "sets"
+        15 [   0] CALL      R1(...) nargs=13 nret=1
+        16 [   0] GETGLOBAL R2 := _G["fglib"]
+        17 [   0] GETTABLE  R2 := R2["utils"]
+        18 [   0] GETTABLE  R2 := R2["Util"]
+        19 [   0] GETTABLE  R2 := R2["isIPhone"]
+        20 [   0] CALL      R2(...) nargs=0 nret=1
+        21 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        22 [   0] JMP       jmp +5 -> 28
+        23 [   0] GETGLOBAL R2 := _G["fglib"]
+        24 [   0] GETTABLE  R2 := R2["native"]
+        25 [   0] GETTABLE  R2 := R2["nativeiospushregister"]
+        26 [   0] GETTABLE  R2 := R2["registerForPush"]
+        27 [   0] CALL      R2(...) nargs=0 nret=0
+        28 [   0] GETGLOBAL R2 := _G["require"]
+        29 [   0] LOADK     R3 := "game.storemanager"
+        30 [   0] CALL      R2(...) nargs=1 nret=1
+        31 [   0] GETTABLE  R2 := R2["getInstance"]
+        32 [   0] CALL      R2(...) nargs=0 nret=1
+        33 [   0] GETTABLE  R3 := R2["checkPendingTransactions"]
+        34 [   0] CALL      R3(...) nargs=0 nret=0
+        35 [   0] GETUPVAL  R3 := upval 2
+        36 [   0] GETTABLE  R3 := R3["new"]
+        37 [   0] CALL      R3(...) nargs=0 nret=1
+        38 [   0] SETUPVAL  upval 1 := R3
+        39 [   0] GETUPVAL  R3 := upval 1
+        40 [   0] CLOSURE   R4 := closure #0
+        41 [   0] MOVE      R0 := R1
+        42 [   0] SETTABLE  R3["questStatusUpdatedHandler"] := R4
+        43 [   0] GETUPVAL  R3 := upval 1
+        44 [   0] CLOSURE   R4 := closure #1
+        45 [   0] MOVE      R0 := R1
+        46 [   0] SETTABLE  R3["userDataUpdatedHandler"] := R4
+        47 [   0] GETGLOBAL R3 := _G["require"]
+        48 [   0] LOADK     R4 := "game.boostermanager2"
+        49 [   0] CALL      R3(...) nargs=1 nret=1
+        50 [   0] GETTABLE  R3 := R3["getInstance"]
+        51 [   0] CALL      R3(...) nargs=0 nret=1
+        52 [   0] GETUPVAL  R4 := upval 1
+        53 [   0] CLOSURE   R5 := closure #2
+        54 [   0] MOVE      R0 := R1
+        55 [   0] SETTABLE  R4["boosters3ReceivedHandler"] := R5
+        56 [   0] GETUPVAL  R4 := upval 1
+        57 [   0] CLOSURE   R5 := closure #3
+        58 [   0] MOVE      R0 := R1
+        59 [   0] SETTABLE  R4["leagueInfoReceivedHandler"] := R5
+        60 [   0] GETUPVAL  R4 := upval 1
+        61 [   0] CLOSURE   R5 := closure #4
+        62 [   0] MOVE      R0 := R1
+        63 [   0] SETTABLE  R4["cardsUpdatedHandler"] := R5
+        64 [   0] GETUPVAL  R4 := upval 1
+        65 [   0] CLOSURE   R5 := closure #5
+        66 [   0] MOVE      R0 := R1
+        67 [   0] SETTABLE  R4["decksUpdatedHandler"] := R5
+        68 [   0] GETUPVAL  R4 := upval 1
+        69 [   0] CLOSURE   R5 := closure #6
+        70 [   0] MOVE      R0 := R1
+        71 [   0] SETTABLE  R4["promotionsUpdatedHandler"] := R5
+        72 [   0] GETUPVAL  R4 := upval 1
+        73 [   0] CLOSURE   R5 := closure #7
+        74 [   0] MOVE      R0 := R1
+        75 [   0] SETTABLE  R4["facebookPopupsReceivedHandler"] := R5
+        76 [   0] GETUPVAL  R4 := upval 1
+        77 [   0] CLOSURE   R5 := closure #8
+        78 [   0] MOVE      R0 := R1
+        79 [   0] SETTABLE  R4["facebookFinishedRequestsReceivedHandler"] := R5
+        80 [   0] GETUPVAL  R4 := upval 1
+        81 [   0] CLOSURE   R5 := closure #9
+        82 [   0] MOVE      R0 := R1
+        83 [   0] SETTABLE  R4["facebookRequestListReceivedHandler"] := R5
+        84 [   0] GETUPVAL  R4 := upval 1
+        85 [   0] CLOSURE   R5 := closure #10
+        86 [   0] MOVE      R0 := R1
+        87 [   0] SETTABLE  R4["facebookFriendStatusReceivedHandler"] := R5
+        88 [   0] GETUPVAL  R4 := upval 1
+        89 [   0] CLOSURE   R5 := closure #11
+        90 [   0] MOVE      R0 := R1
+        91 [   0] SETTABLE  R4["clientStateStoreUpdatedHandler"] := R5
+        92 [   0] GETUPVAL  R4 := upval 1
+        93 [   0] CLOSURE   R5 := closure #12
+        94 [   0] MOVE      R0 := R1
+        95 [   0] SETTABLE  R4["setsReceivedHandler"] := R5
+        96 [   0] GETTABLE  R4 := R1["reset"]
+        97 [   0] CALL      R4(...) nargs=0 nret=0
+        98 [   0] GETTABLE  R4 := R1["setCallback"]
+        99 [   0] CLOSURE   R5 := closure #13
+       100 [   0] MOVE      R0 := R1
+       101 [   0] MOVE      R0 := R0
+       102 [   0] CALL      R4(...) nargs=1 nret=0
+       103 [   0] GETGLOBAL R4 := _G["require"]
+       104 [   0] LOADK     R5 := "game.usermanager"
+       105 [   0] CALL      R4(...) nargs=1 nret=1
+       106 [   0] GETTABLE  R4 := R4["getInstance"]
+       107 [   0] CALL      R4(...) nargs=0 nret=1
+       108 [   0] GETGLOBAL R5 := _G["require"]
+       109 [   0] LOADK     R6 := "game.cardmanager"
+       110 [   0] CALL      R5(...) nargs=1 nret=1
+       111 [   0] GETTABLE  R5 := R5["getInstance"]
+       112 [   0] CALL      R5(...) nargs=0 nret=1
+       113 [   0] GETGLOBAL R6 := _G["require"]
+       114 [   0] LOADK     R7 := "game.questmanager"
+       115 [   0] CALL      R6(...) nargs=1 nret=1
+       116 [   0] GETTABLE  R6 := R6["getInstance"]
+       117 [   0] CALL      R6(...) nargs=0 nret=1
+       118 [   0] GETGLOBAL R7 := _G["require"]
+       119 [   0] LOADK     R8 := "game.promotionmanager"
+       120 [   0] CALL      R7(...) nargs=1 nret=1
+       121 [   0] GETTABLE  R7 := R7["getInstance"]
+       122 [   0] CALL      R7(...) nargs=0 nret=1
+       123 [   0] GETGLOBAL R8 := _G["require"]
+       124 [   0] LOADK     R9 := "game.leaguemanager"
+       125 [   0] CALL      R8(...) nargs=1 nret=1
+       126 [   0] GETTABLE  R8 := R8["getInstance"]
+       127 [   0] CALL      R8(...) nargs=0 nret=1
+       128 [   0] GETGLOBAL R9 := _G["require"]
+       129 [   0] LOADK     R10 := "game.facebookmanager"
+       130 [   0] CALL      R9(...) nargs=1 nret=1
+       131 [   0] GETTABLE  R9 := R9["getInstance"]
+       132 [   0] CALL      R9(...) nargs=0 nret=1
+       133 [   0] GETGLOBAL R10 := _G["require"]
+       134 [   0] LOADK     R11 := "game.clientstatestore"
+       135 [   0] CALL      R10(...) nargs=1 nret=1
+       136 [   0] GETTABLE  R10 := R10["getInstance"]
+       137 [   0] CALL      R10(...) nargs=0 nret=1
+       138 [   0] GETGLOBAL R11 := _G["require"]
+       139 [   0] LOADK     R12 := "game.setsmanager"
+       140 [   0] CALL      R11(...) nargs=1 nret=1
+       141 [   0] GETTABLE  R11 := R11["getInstance"]
+       142 [   0] CALL      R11(...) nargs=0 nret=1
+       143 [   0] GETUPVAL  R12 := upval 1
+       144 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       145 [   0] MOVE      R13 := R3
+       146 [   0] LOADK     R14 := "boosters3Received"
+       147 [   0] CALL      R12(...) nargs=2 nret=0
+       148 [   0] GETUPVAL  R12 := upval 1
+       149 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       150 [   0] MOVE      R13 := R4
+       151 [   0] LOADK     R14 := "userDataUpdated"
+       152 [   0] CALL      R12(...) nargs=2 nret=0
+       153 [   0] GETUPVAL  R12 := upval 1
+       154 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       155 [   0] MOVE      R13 := R5
+       156 [   0] LOADK     R14 := "cardsUpdated"
+       157 [   0] CALL      R12(...) nargs=2 nret=0
+       158 [   0] GETUPVAL  R12 := upval 1
+       159 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       160 [   0] MOVE      R13 := R5
+       161 [   0] LOADK     R14 := "decksUpdated"
+       162 [   0] CALL      R12(...) nargs=2 nret=0
+       163 [   0] GETUPVAL  R12 := upval 1
+       164 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       165 [   0] MOVE      R13 := R6
+       166 [   0] LOADK     R14 := "questStatusUpdated"
+       167 [   0] CALL      R12(...) nargs=2 nret=0
+       168 [   0] GETUPVAL  R12 := upval 1
+       169 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       170 [   0] MOVE      R13 := R7
+       171 [   0] LOADK     R14 := "promotionsUpdated"
+       172 [   0] CALL      R12(...) nargs=2 nret=0
+       173 [   0] GETUPVAL  R12 := upval 1
+       174 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       175 [   0] MOVE      R13 := R8
+       176 [   0] LOADK     R14 := "leagueInfoReceived"
+       177 [   0] CALL      R12(...) nargs=2 nret=0
+       178 [   0] GETUPVAL  R12 := upval 1
+       179 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       180 [   0] MOVE      R13 := R9
+       181 [   0] LOADK     R14 := "facebookPopupsReceived"
+       182 [   0] CALL      R12(...) nargs=2 nret=0
+       183 [   0] GETUPVAL  R12 := upval 1
+       184 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       185 [   0] MOVE      R13 := R9
+       186 [   0] LOADK     R14 := "facebookFinishedRequestsReceived"
+       187 [   0] CALL      R12(...) nargs=2 nret=0
+       188 [   0] GETUPVAL  R12 := upval 1
+       189 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       190 [   0] MOVE      R13 := R9
+       191 [   0] LOADK     R14 := "facebookRequestListReceived"
+       192 [   0] CALL      R12(...) nargs=2 nret=0
+       193 [   0] GETUPVAL  R12 := upval 1
+       194 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       195 [   0] MOVE      R13 := R9
+       196 [   0] LOADK     R14 := "facebookFriendStatusReceived"
+       197 [   0] CALL      R12(...) nargs=2 nret=0
+       198 [   0] GETUPVAL  R12 := upval 1
+       199 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       200 [   0] MOVE      R13 := R10
+       201 [   0] LOADK     R14 := "clientStateStoreUpdated"
+       202 [   0] CALL      R12(...) nargs=2 nret=0
+       203 [   0] GETUPVAL  R12 := upval 1
+       204 [   0] GETTABLE  R12 := R12["subscribeTo"]
+       205 [   0] MOVE      R13 := R11
+       206 [   0] LOADK     R14 := "setsReceived"
+       207 [   0] CALL      R12(...) nargs=2 nret=0
+       208 [   0] GETGLOBAL R12 := _G["require"]
+       209 [   0] LOADK     R13 := "server.server"
+       210 [   0] CALL      R12(...) nargs=1 nret=1
+       211 [   0] GETTABLE  R12 := R12["getInstance"]
+       212 [   0] CALL      R12(...) nargs=0 nret=1
+       213 [   0] GETTABLE  R13 := R12["requestUserData"]
+       214 [   0] LOADK     R14 := "me"
+       215 [   0] CALL      R13(...) nargs=1 nret=0
+       216 [   0] GETTABLE  R13 := R12["requestUserDecks"]
+       217 [   0] CALL      R13(...) nargs=0 nret=0
+       218 [   0] GETTABLE  R13 := R12["requestUserCards"]
+       219 [   0] CALL      R13(...) nargs=0 nret=0
+       220 [   0] GETTABLE  R13 := R12["requestQuestStatus"]
+       221 [   0] CALL      R13(...) nargs=0 nret=0
+       222 [   0] GETTABLE  R13 := R12["requestBoosters3"]
+       223 [   0] CALL      R13(...) nargs=0 nret=0
+       224 [   0] GETTABLE  R13 := R12["requestPromotions"]
+       225 [   0] CALL      R13(...) nargs=0 nret=0
+       226 [   0] GETTABLE  R13 := R12["requestAchievements"]
+       227 [   0] CALL      R13(...) nargs=0 nret=0
+       228 [   0] GETTABLE  R13 := R10["syncFromServer"]
+       229 [   0] CALL      R13(...) nargs=0 nret=0
+       230 [   0] GETTABLE  R13 := R12["requestSets"]
+       231 [   0] CALL      R13(...) nargs=0 nret=0
+       232 [   0] GETGLOBAL R13 := _G["fglib"]
+       233 [   0] GETTABLE  R13 := R13["utils"]
+       234 [   0] GETTABLE  R13 := R13["Util"]
+       235 [   0] GETTABLE  R13 := R13["isWindows"]
+       236 [   0] CALL      R13(...) nargs=0 nret=1
+       237 [   0] TEST      if (R13 truthy) ~= 1 then skip next
+       238 [   0] JMP       jmp +17 -> 256
+       239 [   0] GETTABLE  R13 := R9["isLoggedIn"]
+       240 [   0] CALL      R13(...) nargs=0 nret=1
+       241 [   0] EQ        if (R13 == True) ~= 0 then skip next
+       242 [   0] JMP       jmp +13 -> 256
+       243 [   0] GETTABLE  R13 := R9["getAccessToken"]
+       244 [   0] CALL      R13(...) nargs=0 nret=1
+       245 [   0] EQ        if (R13 == None) ~= 1 then skip next
+       246 [   0] JMP       jmp +9 -> 256
+       247 [   0] GETTABLE  R13 := R9["sendFacebookAccessToken"]
+       248 [   0] CALL      R13(...) nargs=0 nret=0
+       249 [   0] GETTABLE  R13 := R9["getFinishedFacebookRequest"]
+       250 [   0] CALL      R13(...) nargs=0 nret=0
+       251 [   0] GETTABLE  R13 := R9["requestFacebookRequestList"]
+       252 [   0] CALL      R13(...) nargs=0 nret=0
+       253 [   0] GETTABLE  R13 := R9["requestFacebookFriendStatus"]
+       254 [   0] CALL      R13(...) nargs=0 nret=0
+       255 [   0] JMP       jmp +11 -> 267
+       256 [   0] GETTABLE  R13 := R9["sendFacebookAccessToken"]
+       257 [   0] CALL      R13(...) nargs=0 nret=0
+       258 [   0] GETTABLE  R13 := R1["set"]
+       259 [   0] LOADK     R14 := "facebook_finished_requests"
+       260 [   0] CALL      R13(...) nargs=1 nret=0
+       261 [   0] GETTABLE  R13 := R1["set"]
+       262 [   0] LOADK     R14 := "facebook_requests_list"
+       263 [   0] CALL      R13(...) nargs=1 nret=0
+       264 [   0] GETTABLE  R13 := R1["set"]
+       265 [   0] LOADK     R14 := "facebook_friend_status"
+       266 [   0] CALL      R13(...) nargs=1 nret=0
+       267 [   0] GETTABLE  R13 := R8["requestLeagueInfo"]
+       268 [   0] CALL      R13(...) nargs=0 nret=0
+       269 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=2, lines 47-49, upvals=[], locals=[])
+        constants: strings=['set', 'quests'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "quests"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#1 (params=2, lines 51-53, upvals=[], locals=[])
+        constants: strings=['set', 'user'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "user"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#2 (params=2, lines 57-59, upvals=[], locals=[])
+        constants: strings=['set', 'boosters'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "boosters"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#3 (params=0, lines 62-64, upvals=[], locals=[])
+        constants: strings=['set', 'leagueInfos'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["set"]
+           2 [   0] LOADK     R1 := "leagueInfos"
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#4 (params=2, lines 66-68, upvals=[], locals=[])
+        constants: strings=['set', 'cards'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "cards"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#5 (params=2, lines 70-72, upvals=[], locals=[])
+        constants: strings=['set', 'decks'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "decks"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#6 (params=2, lines 74-81, upvals=[], locals=[])
+        constants: strings=['require', 'game.promotionmanager', 'getInstance', 'getAssetList', 'server.remoteassetmanager', 'prefetchFiles'] numbers=[]
+           0 [   0] GETGLOBAL R2 := _G["require"]
+           1 [   0] LOADK     R3 := "game.promotionmanager"
+           2 [   0] CALL      R2(...) nargs=1 nret=1
+           3 [   0] GETTABLE  R2 := R2["getInstance"]
+           4 [   0] CALL      R2(...) nargs=0 nret=1
+           5 [   0] GETTABLE  R3 := R2["getAssetList"]
+           6 [   0] CALL      R3(...) nargs=0 nret=1
+           7 [   0] GETGLOBAL R4 := _G["require"]
+           8 [   0] LOADK     R5 := "server.remoteassetmanager"
+           9 [   0] CALL      R4(...) nargs=1 nret=1
+          10 [   0] GETTABLE  R4 := R4["getInstance"]
+          11 [   0] CALL      R4(...) nargs=0 nret=1
+          12 [   0] GETTABLE  R5 := R4["prefetchFiles"]
+          13 [   0] MOVE      R6 := R3
+          14 [   0] CLOSURE   R7 := closure #0
+          15 [   0] GETUPVAL  R0 := upval 0
+          16 [   0] CALL      R5(...) nargs=2 nret=0
+          17 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#1.#6.#0 (params=0, lines 78-80, upvals=[], locals=[])
+          constants: strings=['set', 'promotions'] numbers=[]
+             0 [   0] GETUPVAL  R0 := upval 0
+             1 [   0] GETTABLE  R0 := R0["set"]
+             2 [   0] LOADK     R1 := "promotions"
+             3 [   0] CALL      R0(...) nargs=1 nret=0
+             4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#7 (params=2, lines 83-85, upvals=[], locals=[])
+        constants: strings=['set', 'facebook_popups'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "facebook_popups"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#8 (params=2, lines 87-89, upvals=[], locals=[])
+        constants: strings=['set', 'facebook_finished_requests'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "facebook_finished_requests"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#9 (params=2, lines 91-93, upvals=[], locals=[])
+        constants: strings=['set', 'facebook_requests_list'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "facebook_requests_list"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#10 (params=2, lines 95-97, upvals=[], locals=[])
+        constants: strings=['set', 'facebook_friend_status'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "facebook_friend_status"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#11 (params=2, lines 99-101, upvals=[], locals=[])
+        constants: strings=['set', 'client_state_store'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "client_state_store"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#12 (params=2, lines 103-105, upvals=[], locals=[])
+        constants: strings=['set', 'sets'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["set"]
+           2 [   0] LOADK     R3 := "sets"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#13 (params=0, lines 108-111, upvals=[], locals=[])
+        constants: strings=['reset', 'triggerTo', 'SERVER_SYNCED'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["reset"]
+           2 [   0] CALL      R0(...) nargs=0 nret=0
+           3 [   0] GETUPVAL  R0 := upval 1
+           4 [   0] GETTABLE  R0 := R0["triggerTo"]
+           5 [   0] LOADK     R1 := "SERVER_SYNCED"
+           6 [   0] CALL      R0(...) nargs=1 nret=0
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 165-196, upvals=[], locals=[])
+      constants: strings=['require', 'server.server', 'getInstance', 'setLastSyncSequence', 'game.usermanager', 'game.boosterpackmanager', 'game.cardmanager', 'game.questmanager', 'game.promotionmanager', 'game.leaguemanager', 'game.facebookmanager', 'game.tutorial.tutorialmanagerv3', 'server.metadatamanager', 'setTutorial', 'getTutorialv3', 'unsubscribeFrom', 'userDataUpdated', 'boostersUpdated', 'cardsUpdated', 'decksUpdated', 'questStatusUpdated', 'promotionsUpdated', 'leagueInfoReceived', 'facebookPopupsReceived', 'facebookFinishedRequestsReceived', 'facebookRequestListReceived', 'facebookFriendStatusReceived'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "server.server"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R0 := R0["getInstance"]
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R1 := R0["setLastSyncSequence"]
+         6 [   0] CALL      R1(...) nargs=0 nret=0
+         7 [   0] GETGLOBAL R1 := _G["require"]
+         8 [   0] LOADK     R2 := "game.usermanager"
+         9 [   0] CALL      R1(...) nargs=1 nret=1
+        10 [   0] GETTABLE  R1 := R1["getInstance"]
+        11 [   0] CALL      R1(...) nargs=0 nret=1
+        12 [   0] GETGLOBAL R2 := _G["require"]
+        13 [   0] LOADK     R3 := "game.boosterpackmanager"
+        14 [   0] CALL      R2(...) nargs=1 nret=1
+        15 [   0] GETTABLE  R2 := R2["getInstance"]
+        16 [   0] CALL      R2(...) nargs=0 nret=1
+        17 [   0] GETGLOBAL R3 := _G["require"]
+        18 [   0] LOADK     R4 := "game.cardmanager"
+        19 [   0] CALL      R3(...) nargs=1 nret=1
+        20 [   0] GETTABLE  R3 := R3["getInstance"]
+        21 [   0] CALL      R3(...) nargs=0 nret=1
+        22 [   0] GETGLOBAL R4 := _G["require"]
+        23 [   0] LOADK     R5 := "game.questmanager"
+        24 [   0] CALL      R4(...) nargs=1 nret=1
+        25 [   0] GETTABLE  R4 := R4["getInstance"]
+        26 [   0] CALL      R4(...) nargs=0 nret=1
+        27 [   0] GETGLOBAL R5 := _G["require"]
+        28 [   0] LOADK     R6 := "game.promotionmanager"
+        29 [   0] CALL      R5(...) nargs=1 nret=1
+        30 [   0] GETTABLE  R5 := R5["getInstance"]
+        31 [   0] CALL      R5(...) nargs=0 nret=1
+        32 [   0] GETGLOBAL R6 := _G["require"]
+        33 [   0] LOADK     R7 := "game.leaguemanager"
+        34 [   0] CALL      R6(...) nargs=1 nret=1
+        35 [   0] GETTABLE  R6 := R6["getInstance"]
+        36 [   0] CALL      R6(...) nargs=0 nret=1
+        37 [   0] GETGLOBAL R7 := _G["require"]
+        38 [   0] LOADK     R8 := "game.facebookmanager"
+        39 [   0] CALL      R7(...) nargs=1 nret=1
+        40 [   0] GETTABLE  R7 := R7["getInstance"]
+        41 [   0] CALL      R7(...) nargs=0 nret=1
+        42 [   0] GETGLOBAL R8 := _G["require"]
+        43 [   0] LOADK     R9 := "game.tutorial.tutorialmanagerv3"
+        44 [   0] CALL      R8(...) nargs=1 nret=1
+        45 [   0] GETTABLE  R8 := R8["getInstance"]
+        46 [   0] CALL      R8(...) nargs=0 nret=1
+        47 [   0] GETGLOBAL R9 := _G["require"]
+        48 [   0] LOADK     R10 := "server.metadatamanager"
+        49 [   0] CALL      R9(...) nargs=1 nret=1
+        50 [   0] GETTABLE  R9 := R9["getInstance"]
+        51 [   0] CALL      R9(...) nargs=0 nret=1
+        52 [   0] GETTABLE  R10 := R8["setTutorial"]
+        53 [   0] GETTABLE  R11 := R9["getTutorialv3"]
+        54 [   0] CALL      R11(...) nargs=0 nret=-1
+        55 [   0] CALL      R10(...) nargs=-1 nret=0
+        56 [   0] GETUPVAL  R10 := upval 0
+        57 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        58 [   0] MOVE      R11 := R1
+        59 [   0] LOADK     R12 := "userDataUpdated"
+        60 [   0] CALL      R10(...) nargs=2 nret=0
+        61 [   0] GETUPVAL  R10 := upval 0
+        62 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        63 [   0] MOVE      R11 := R2
+        64 [   0] LOADK     R12 := "boostersUpdated"
+        65 [   0] CALL      R10(...) nargs=2 nret=0
+        66 [   0] GETUPVAL  R10 := upval 0
+        67 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        68 [   0] MOVE      R11 := R3
+        69 [   0] LOADK     R12 := "cardsUpdated"
+        70 [   0] CALL      R10(...) nargs=2 nret=0
+        71 [   0] GETUPVAL  R10 := upval 0
+        72 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        73 [   0] MOVE      R11 := R3
+        74 [   0] LOADK     R12 := "decksUpdated"
+        75 [   0] CALL      R10(...) nargs=2 nret=0
+        76 [   0] GETUPVAL  R10 := upval 0
+        77 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        78 [   0] MOVE      R11 := R4
+        79 [   0] LOADK     R12 := "questStatusUpdated"
+        80 [   0] CALL      R10(...) nargs=2 nret=0
+        81 [   0] GETUPVAL  R10 := upval 0
+        82 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        83 [   0] MOVE      R11 := R5
+        84 [   0] LOADK     R12 := "promotionsUpdated"
+        85 [   0] CALL      R10(...) nargs=2 nret=0
+        86 [   0] GETUPVAL  R10 := upval 0
+        87 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        88 [   0] MOVE      R11 := R6
+        89 [   0] LOADK     R12 := "leagueInfoReceived"
+        90 [   0] CALL      R10(...) nargs=2 nret=0
+        91 [   0] GETUPVAL  R10 := upval 0
+        92 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        93 [   0] MOVE      R11 := R7
+        94 [   0] LOADK     R12 := "facebookPopupsReceived"
+        95 [   0] CALL      R10(...) nargs=2 nret=0
+        96 [   0] GETUPVAL  R10 := upval 0
+        97 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+        98 [   0] MOVE      R11 := R7
+        99 [   0] LOADK     R12 := "facebookFinishedRequestsReceived"
+       100 [   0] CALL      R10(...) nargs=2 nret=0
+       101 [   0] GETUPVAL  R10 := upval 0
+       102 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+       103 [   0] MOVE      R11 := R7
+       104 [   0] LOADK     R12 := "facebookRequestListReceived"
+       105 [   0] CALL      R10(...) nargs=2 nret=0
+       106 [   0] GETUPVAL  R10 := upval 0
+       107 [   0] GETTABLE  R10 := R10["unsubscribeFrom"]
+       108 [   0] MOVE      R11 := R7
+       109 [   0] LOADK     R12 := "facebookFriendStatusReceived"
+       110 [   0] CALL      R10(...) nargs=2 nret=0
+       111 [   0] LOADNIL   R10..R10 := nil
+       112 [   0] SETUPVAL  upval 0 := R10
+       113 [   0] RETURN    return R0.. (0 values)

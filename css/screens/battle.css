@@ -1,0 +1,474 @@
+/* Evoker Web - battle screen (720 x 1280, no HUD / nav), dressed with the original client's sprites
+   (assets/orig/ui: seperator_big bands, hud_player01/02 frames, 3-slice HP bars, hud_bigbutton03, arena backdrop,
+   hud_victory / hud_defeat / hud_drawd banners, the post-battle result screen and the card level-up popup).
+   Layout: comp_fight_layout's numbers (client units from the screen centre, x 2.25 stage px around y 640):
+   enemy cards at y -70, own cards at +70 (rows 135 px apart, as in the user's 2016 arena screenshot and
+   round3/gameplay-feel.md §6), slots 65 units (146 px) apart, HP bars at -/+140, the stripes at -/+180 and
+   -/+210 (name and ROUND bands), portraits at -/+195, Skip fight under the player's name band. */
+
+.battle-screen { background: #1b1d1f; }
+.battle-field { position: absolute; inset: 0; overflow: hidden; }
+
+/* ---------- Backdrop: the PvP arena painting, or sky / painted horizon strip / ground for quests ---------- */
+.battle-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.battle-bg.valley { background: linear-gradient(#354353 0%, #396648 36%, #244a22 44%, #193917 50%, #0d2410 100%); }
+.battle-bg.sunset { background: url('/assets/orig/ui/arena.png') center top / 800px 1280px no-repeat #3a1a0c; }
+.battle-bg.swamp { background: linear-gradient(#584a3a 0%, #436130 36%, #35501f 44%, #2a3e14 50%, #11200a 100%); }
+.battle-bg.lava { background: linear-gradient(#3d2315 0%, #5a2a12 40%, #c1922e 48%, #7a3a12 60%, #2a1208 100%); }
+/* the painted horizon strip, faded into the sky and the ground */
+.battle-bg::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 476px; height: 290px;
+  background: center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+}
+.battle-bg.valley::before { background-image: url('/assets/bg/horizon-valley.jpg'); }
+.battle-bg.sunset::before { display: none; }
+.battle-bg.swamp::before { background-image: url('/assets/bg/horizon-swamp.jpg'); }
+.battle-bg.lava::before { background-image: url('/assets/orig/ui/fight_cardbackground01.png'); opacity: .85; }
+.battle-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .4) 0%, rgba(0, 0, 0, 0) 16%, rgba(0, 0, 0, 0) 78%, rgba(0, 0, 0, .45) 100%);
+}
+
+/* ---------- Carved stone bands (seperator_big) ---------- */
+.battle-band {
+  position: absolute; left: 0; right: 0; height: 54px;
+  background: url('/assets/orig/ui/seperator_big.png') center / 100% 100% no-repeat;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .6));
+}
+
+/* ---------- Top bar: portrait frame (hud_player01), name, ROUND n ---------- */
+.battle-top { position: absolute; left: 0; right: 0; top: 0; height: 290px; z-index: 5; }
+.battle-top .band-round { top: 140px; }
+.battle-top .band-name { top: 208px; }
+.battle-round {
+  position: absolute; right: 60px; top: 0; height: 100%;
+  display: flex; align-items: center;
+  font-size: 34px; font-weight: 600; letter-spacing: .02em; color: var(--text);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+}
+.battle-opp-name {
+  position: absolute; left: 150px; top: 0; height: 100%; right: 20px;
+  display: flex; align-items: center;
+  font-size: 34px; font-weight: 500; color: var(--text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+}
+/* hud_player01.png is a 342 x 200 sheet whose frame sits at (205, 78) with a 75 x 75 hole at (228, 102) */
+.battle-portrait {
+  position: absolute; left: 14px; top: 140px; width: 120px; height: 122px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .8));
+}
+.battle-portrait img {
+  position: absolute; left: 23px; top: 24px; width: 75px; height: 75px;
+  object-fit: cover; background: #0a0b0c;
+}
+.battle-portrait::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: url('/assets/orig/ui/hud_player01.png') -205px -78px no-repeat;
+}
+
+/* ---------- HP bars from the original sprites: 3-slice trough, green line, heart icon ----------
+   Shared with the pre-battle screen (.orig-hp). The caps are drawn as borders so the fill (absolute, 0..100 %)
+   spans exactly the trough between them. */
+.orig-hp { padding: 0; gap: 0; align-items: center; }
+.orig-hp > img {
+  width: 52px; height: 52px; margin-right: -24px; z-index: 1;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .9));
+}
+.orig-hp .bar.tall {
+  height: 32px; border-radius: 0; box-shadow: none;
+  border: 0 solid transparent; border-left-width: 18px; border-right-width: 20px;
+  background:
+    url('/assets/orig/ui/hud_progressbar_3sliceleft.png') left top / 18px 100% no-repeat,
+    url('/assets/orig/ui/hud_progressbar_3sliceright.png') right top / 20px 100% no-repeat,
+    url('/assets/orig/ui/hud_progressbar_3slice02.png') 18px 0 / calc(100% - 38px) 100% no-repeat;
+  background-origin: border-box; background-clip: border-box;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .7));
+}
+.orig-hp .bar.tall .bar-label { font-size: 24px; font-weight: 600; top: -1px; }
+.orig-hp .bar.tall .bar-fill { top: auto; bottom: 5px; height: 6px; background: url('/assets/orig/ui/hud_progressbarred02.png') 0 0 / 100% 100% no-repeat; box-shadow: 0 0 6px rgba(57, 180, 49, .8); }
+.battle-hp-row { position: absolute; left: 72px; right: 72px; z-index: 4; }
+.battle-hp-row.opp { top: 299px; }
+.battle-hp-row.me { top: 929px; }
+.hp-bar-wrap.hit .bar { animation: hpHit .45s ease-out both; }
+@keyframes hpHit { 0% { filter: brightness(1.6) saturate(2) drop-shadow(0 0 12px rgba(255, 50, 30, .9)); } 100% { filter: brightness(1) drop-shadow(0 2px 3px rgba(0, 0, 0, .7)); } }
+
+/* ---------- Rows and slots (cardslot01 for the empty recess) ---------- */
+.battle-row {
+  position: absolute; left: 0; right: 0; z-index: 3;
+  display: flex; justify-content: center; align-items: flex-start; gap: 30px;
+}
+.battle-row.top { top: 380px; }
+.battle-row.bottom { top: 715px; }
+.battle-slot {
+  position: relative; width: 116px; height: 183px; flex: none;
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+.battle-slot::before {
+  content: ''; position: absolute; left: 0; width: 116px; height: 164px;
+  background: url('/assets/orig/ui/cardslot01.png') center / 100% 100% no-repeat;
+  opacity: .96;
+}
+.battle-row.top .battle-slot::before { top: 19px; }
+.battle-row.bottom .battle-slot::before { top: 0; }
+.battle-row.top .battle-slot { justify-content: flex-start; }
+.battle-row.bottom .battle-slot { justify-content: flex-end; }
+.battle-slot .card-wrap { position: relative; z-index: 1; }
+/* card HP bar: the same 3-slice trough at 0.6 scale with the short green line */
+.battle-slot .card-wrap .card-hpbar {
+  width: 116px; height: 20px; padding: 0; border-radius: 0; box-shadow: none;
+  border: 0 solid transparent; border-left-width: 11px; border-right-width: 12px;
+  background:
+    url('/assets/orig/ui/hud_progressbar_3sliceleft.png') left top / 11px 100% no-repeat,
+    url('/assets/orig/ui/hud_progressbar_3sliceright.png') right top / 12px 100% no-repeat,
+    url('/assets/orig/ui/hud_progressbar_3slice02.png') 11px 0 / calc(100% - 23px) 100% no-repeat;
+  background-origin: border-box; background-clip: border-box;
+}
+.battle-slot .card-wrap .card-hpbar .bar-fill { top: auto; bottom: 4px; height: 4px; background: url('/assets/orig/ui/hud_progressbarred01.png') 0 0 / 100% 100% no-repeat; box-shadow: 0 0 4px rgba(57, 180, 49, .9); transition: width .45s var(--ease); }
+
+/* ---------- Bottom bar: name band, help frame (hud_player02), Skip fight (hud_bigbutton03) ---------- */
+.battle-bottom { position: absolute; left: 0; right: 0; top: 990px; height: 290px; z-index: 5; }
+.battle-bottom .band-player { top: 28px; }
+.battle-my-name {
+  position: absolute; right: 150px; top: 0; height: 100%; left: 20px;
+  display: flex; align-items: center; justify-content: flex-end;
+  font-size: 36px; font-weight: 500; color: var(--text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+}
+/* hud_player02.png: 122 x 122 frame with a 75 x 75 hole at (23, 24) */
+.battle-help-frame {
+  position: absolute; right: 14px; top: 24px; width: 122px; height: 122px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .8));
+}
+.battle-help-frame::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: url('/assets/orig/ui/hud_player02.png') 0 0 no-repeat; }
+.battle-help-frame .btn-icon { position: absolute; left: 23px; top: 24px; width: 75px; height: 75px; margin: 0; border-radius: 3px; box-shadow: none; }
+.battle-help-frame .btn-icon::after { inset: 2px 2px 50% 2px; }
+.battle-controls { position: absolute; left: 22px; top: 82px; display: flex; align-items: center; gap: 10px; }
+.battle-skip {
+  width: 214px; height: 76px; min-width: 0; min-height: 0; padding: 0 0 2px; margin: 5px;
+  border: 0; border-radius: 0; box-shadow: none;
+  background: url('/assets/orig/ui/hud_bigbutton03_fill.png') center / 100% 100% no-repeat;
+  font-size: 30px; font-weight: 600;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, .7));
+}
+.battle-skip::after { inset: 0; border-radius: 0; background: url('/assets/orig/ui/hud_bigbutton03_frame.png') center / 100% 100% no-repeat; }
+.battle-skip:disabled { background-image: url('/assets/orig/ui/hud_bigbutton03_fill_inactive.png'); filter: none; }
+/* our playback-speed convenience (not in the original): small and dim next to Skip fight */
+.battle-speed {
+  min-width: 52px; min-height: 38px; height: 38px; padding: 0 8px; margin-top: 14px;
+  font-size: 19px; font-weight: 600; opacity: .55;
+}
+.battle-speed:hover, .battle-speed:focus-visible { opacity: 1; }
+
+/* ---------- Entry (comp_fight_v3 fadeInHud): bands slide in, HP bars grow, cards fade in ---------- */
+.battle-screen .battle-top { animation: hudInTop var(--hud-in, 1000ms) cubic-bezier(.16, 1, .3, 1) both; }
+.battle-screen .battle-bottom { animation: hudInBottom var(--hud-in, 1000ms) cubic-bezier(.16, 1, .3, 1) both; }
+.battle-screen .battle-hp-row .bar-with-icon { animation: hudInBar var(--hud-in, 1000ms) cubic-bezier(.16, 1, .3, 1) both; }
+.battle-screen .battle-row .card-wrap { animation: hudInCard 500ms linear both; }
+@keyframes hudInTop { from { transform: translateY(-290px); } to { transform: none; } }
+@keyframes hudInBottom { from { transform: translateY(290px); } to { transform: none; } }
+@keyframes hudInBar { from { transform: scale(.001); } to { transform: none; } }
+@keyframes hudInCard { from { opacity: 0; } to { opacity: 1; } }
+
+/* "ROUND n": hidden before round 1, fades out (250 ms) when the fight ends */
+.battle-round.fading { opacity: 0; transition: opacity 250ms linear; }
+
+/* "Skip fight" fades in (400 ms) when round 1 starts; absent where the fight cannot be skipped */
+.battle-skip { transition: opacity 400ms linear; }
+.battle-skip.waiting { opacity: 0; pointer-events: none; }
+.battle-skip.locked { display: none; }
+
+/* ---------- "Loading..." strip (comp_server_wait): black band, spinning loading.png, text ---------- */
+.battle-loading {
+  position: absolute; left: 0; right: 0; top: 566px; height: 148px; z-index: 30;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  background: rgba(0, 0, 0, .75);
+  pointer-events: none;
+  animation: loadingIn 500ms cubic-bezier(.16, 1, .3, 1) both;
+}
+.battle-loading.closing { opacity: 0; transition: opacity 200ms linear; }
+.battle-loading-spinner { width: 86px; height: 86px; animation: loadingSpin 5s linear infinite; filter: drop-shadow(0 0 6px rgba(180, 120, 255, .7)); }
+.battle-loading-text { font-size: 27px; font-weight: 600; color: #e5e5e5; animation: loadingText 1s linear both; }
+@keyframes loadingIn { 0% { transform: scale(.001, .001); } 40% { transform: scale(.001, 1); } 100% { transform: none; } }
+@keyframes loadingSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes loadingText { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- fx_lightning: lightining.png stepping its height every 80 ms ---------- */
+.battle-lightning {
+  position: absolute; left: 50%; top: 640px; width: 900px; height: 186px; z-index: 29;
+  margin: -93px 0 0 -450px;
+  background: url('/assets/orig/ui/lightining.png') center / 100% 100% no-repeat;
+  mix-blend-mode: screen; pointer-events: none;
+  animation: lightning var(--dur, 560ms) step-end both;
+}
+@keyframes lightning {
+  0% { transform: scaleY(.25); opacity: 1; }
+  14% { transform: scaleY(.5); }
+  28% { transform: scaleY(1); }
+  42% { transform: scaleY(.5); }
+  57% { transform: scaleY(1); }
+  71% { transform: scaleY(.5); }
+  85% { transform: scaleY(.25); }
+  100% { transform: scaleY(.01); opacity: 0; }
+}
+
+/* the fade to black when the fight's screens are done (battle.js VEIL_MS) */
+.battle-veil { position: absolute; inset: 0; z-index: 300; background: #000; animation: veilIn var(--dur, 350ms) linear both; }
+@keyframes veilIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- Post-battle overlay (src/ui/screens/battle-result.js) ---------- */
+.battle-result { position: absolute; inset: 0; z-index: var(--z-popup); outline: none; }
+.battle-result[data-phase="banner"], .battle-result[data-phase="loot"], .battle-result[data-phase="xp"] { cursor: pointer; }
+
+/* fx_wonlost: hud_victory / hud_defeat / hud_drawd, blur echo, fx_glow03/04 */
+.wonlost { position: absolute; inset: 0; pointer-events: none; }
+.wonlost.done { opacity: 0; transition: opacity 300ms linear; }
+.wonlost-glow, .wonlost-img { position: absolute; left: 50%; top: 600px; }
+.wonlost-glow {
+  width: 279px; height: 279px; margin: -140px 0 0 -140px;
+  background: center / 100% 100% no-repeat; mix-blend-mode: screen;
+  animation: wonlostGlow calc(var(--glow-start) + var(--glow)) linear both;
+}
+.wonlost-glow.g4 { background-image: url('/assets/orig/ui/fx_glow04.png'); }
+.wonlost-glow.g3 { background-image: url('/assets/orig/ui/fx_glow03.png'); }
+.wonlost.victory .wonlost-glow { --g0: .01; }
+.wonlost:not(.victory) .wonlost-glow { --g0: 3; }
+@keyframes wonlostGlow { 0% { transform: scale(var(--g0)); opacity: 1; } 18% { transform: scale(var(--g0)); opacity: 1; } 100% { transform: scale(6); opacity: 0; } }
+.wonlost-img { width: 634px; height: 562px; margin: -281px 0 0 -317px; background: center / contain no-repeat; }
+.wonlost.victory .wonlost-img { background-image: url('/assets/orig/ui/hud_victory.png'); }
+.wonlost.defeat .wonlost-img { background-image: url('/assets/orig/ui/hud_defeat.png'); width: 562px; margin-left: -281px; }
+.wonlost.draw .wonlost-img { background-image: url('/assets/orig/ui/hud_drawd.png'); width: 562px; margin-left: -281px; }
+.wonlost-img.center { animation: wonlostCenter calc(var(--zoom) + var(--fade)) linear both; }
+.wonlost-img.blur { opacity: 0; filter: blur(3px); animation: wonlostBlur var(--blur) linear var(--zoom) both; }
+@keyframes wonlostCenter { 0% { transform: scale(3); opacity: 0; } 30% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+@keyframes wonlostBlur { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(4); opacity: 0; } }
+.wonlost-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* result screen: the battlefield under a 50 % black, card entries, the stripe with Continue / Proceed */
+.result-screen { position: absolute; inset: 0; opacity: 0; transition: opacity 500ms linear; }
+.result-screen.shown { opacity: 1; }
+.result-bg { position: absolute; inset: -64px; background: url('/assets/orig/ui/village_normal_bg.png') center / cover no-repeat #1a2a1a; }
+.result-bg.arena { background-image: url('/assets/orig/ui/arena.png'); }
+.result-dim { position: absolute; inset: 0; background: rgba(0, 0, 0, .5); }
+.result-entries { position: absolute; inset: 0; }
+.result-entry { position: absolute; width: 0; height: 0; opacity: 0; transition: opacity 500ms linear; }
+.result-entry.shown { opacity: 1; }
+.result-entry.instant { transition: none; }
+.result-entry-card { position: absolute; left: -47px; top: -66px; width: 93px; height: 131px; }
+.result-entry-card .card { transform: scale(.8); transform-origin: 0 0; pointer-events: none; }
+.result-entry .result-xpbar { position: absolute; top: -17px; width: 252px; }
+.result-entry.left .result-xpbar { left: 62px; }
+.result-entry.right .result-xpbar { right: 62px; }
+.result-xpbar { height: 34px; }
+.result-xpbar .xp-track {
+  position: absolute; inset: 0; overflow: hidden;
+  border: 0 solid transparent; border-left-width: 18px; border-right-width: 20px;
+  background:
+    url('/assets/orig/ui/hud_progressbar_3sliceleft.png') left top / 18px 100% no-repeat,
+    url('/assets/orig/ui/hud_progressbar_3sliceright.png') right top / 20px 100% no-repeat,
+    url('/assets/orig/ui/hud_progressbar_3slice02.png') 18px 0 / calc(100% - 38px) 100% no-repeat;
+  background-origin: border-box; background-clip: border-box;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .7));
+}
+.result-xpbar .xp-fill {
+  position: absolute; left: 0; right: 0; bottom: 6px; height: 7px;
+  background: url('/assets/orig/ui/hud_progressbarviolet03.png') 0 0 / 100% 100% no-repeat;
+  box-shadow: 0 0 6px rgba(190, 80, 255, .8);
+  transform-origin: 0 50%; transition: transform 150ms linear;
+}
+.result-xpbar .xp-label {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 600; color: #e5e5e5; text-shadow: 0 1px 2px #000; white-space: nowrap;
+}
+.result-xpbar .xp-icon { position: absolute; left: -22px; top: 50%; width: 46px; height: 46px; margin-top: -23px; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .9)); }
+
+.result-stripe {
+  position: absolute; left: -90px; right: -90px; top: 1204px; height: 61px;
+  display: flex; align-items: center; justify-content: center;
+  background: url('/assets/orig/ui/seperator_big.png') center / 100% 100% no-repeat;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .6));
+  opacity: 0; pointer-events: none; transition: opacity 500ms linear;
+}
+.result-stripe.shown { opacity: 1; pointer-events: auto; }
+.result-continue {
+  width: 304px; height: 86px; padding: 0 0 4px; border: 0; cursor: pointer;
+  background:
+    url('/assets/orig/ui/hud_bigbutton04_frame.png') center / 100% 100% no-repeat,
+    url('/assets/orig/ui/hud_bigbutton04_fill.png') center / 100% 100% no-repeat;
+  font: inherit; font-size: 32px; font-weight: 600; color: #f4f1ea; text-shadow: 0 2px 2px rgba(0, 0, 0, .9);
+}
+.result-continue.proceed {
+  background:
+    url('/assets/orig/ui/hud_bigbutton03_frame.png') center / 100% 100% no-repeat,
+    url('/assets/orig/ui/hud_bigbutton03_fill.png') center / 100% 100% no-repeat;
+}
+.result-continue:active { transform: scale(.95); }
+.result-continue:disabled { cursor: default; }
+
+/* loot (reward_comp): the keyframe animation, the reward card in its template slot, the flying amount */
+.result-loot { position: absolute; inset: 0; pointer-events: none; }
+.result-loot.taken { opacity: 0; transition: opacity 300ms linear; }
+.anim-root { position: absolute; width: 0; height: 0; }
+.anim-item { position: absolute; left: 0; top: 0; background: center / 100% 100% no-repeat; will-change: transform, opacity; }
+.anim-item.add {
+  -webkit-mask-image: var(--img); mask-image: var(--img); -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+  mask-mode: luminance;
+}
+.anim-item.template > * { width: 100%; height: 100%; }
+.reward-card { position: relative; border-radius: 22px; overflow: hidden; background: #000; box-shadow: 0 0 0 10px var(--frame, #c9c9c9), 0 0 40px rgba(255, 240, 200, .8); }
+.reward-card.rarity-common { --frame: var(--r-common); }
+.reward-card.rarity-standard { --frame: var(--r-standard); }
+.reward-card.rarity-uncommon { --frame: var(--r-uncommon); }
+.reward-card.rarity-rare { --frame: var(--r-rare); }
+.reward-card.rarity-heroic { --frame: var(--r-heroic); }
+.reward-card.rarity-legendary { --frame: var(--r-legendary); }
+.reward-card.rarity-ultimate { --frame: var(--r-ultimate); }
+.reward-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.reward-new {
+  position: absolute; left: 0; right: 0; bottom: 10%; padding: 8px 0;
+  background: rgba(200, 30, 20, .9); text-align: center;
+  font-size: 90px; font-weight: 700; color: #fff; letter-spacing: .08em;
+}
+/* a card piece: the art darkened under card_piece_overlay_thumb (dark card, white puzzle cut-out) */
+.reward-card.piece img { filter: brightness(.55) saturate(.8); }
+.reward-card.piece .reward-piece-overlay { position: absolute; inset: 0; width: 100%; height: 100%; filter: none; }
+.reward-object {
+  position: absolute; left: 50%; top: 640px; width: 288px; height: 288px; margin: -144px 0 0 -144px;
+  animation: rewardObject 300ms cubic-bezier(.34, 1.56, .64, 1) both;
+}
+.reward-object.taken { transform: scale(.001); transition: transform 500ms cubic-bezier(.16, 1, .3, 1); }
+@keyframes rewardObject { from { transform: scale(.01); } to { transform: none; } }
+.reward-fly {
+  position: absolute; left: 360px; top: 640px; transform: translate(-50%, -50%);
+  font-size: 72px; font-weight: 700; color: #ffd556; text-shadow: 0 2px 4px #000;
+  animation: rewardFly 800ms ease-in both;
+}
+.reward-fly.gems { color: #8fe3ff; }
+/* a portal token (no client sprite): the shop's triangle, sand (low) or violet (high), glowing */
+.reward-token-tri { display: flex; align-items: center; justify-content: center; }
+.reward-token-tri .tri {
+  position: relative; width: 150px; height: 150px;
+  background: linear-gradient(160deg, #fff4dc 0%, #d8b98a 45%, #8a6a3e 100%);
+  clip-path: polygon(50% 4%, 97% 92%, 3% 92%);
+}
+.reward-token-tri .tri::after {
+  content: ''; position: absolute; left: 34%; right: 34%; top: 46%; bottom: 20%;
+  background: #3b2a16; clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.reward-token-tri.high .tri { background: linear-gradient(160deg, #f1d5ff 0%, #a04fd6 45%, #4b1670 100%); }
+.reward-token-tri.high .tri::after { background: #ffffff; }
+.reward-token-tri::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('/assets/orig/ui/parks.png') center / 100% 100% no-repeat;
+  filter: drop-shadow(0 0 18px rgba(255, 236, 170, .9));
+}
+.reward-token-tri.high::before { filter: drop-shadow(0 0 18px rgba(214, 150, 255, .95)); }
+/* the token's name under it */
+.reward-caption {
+  position: absolute; left: 0; right: 0; top: 810px; text-align: center;
+  font-size: 34px; font-weight: 600; color: #f4f1ea; text-shadow: 0 2px 4px #000, 0 0 12px rgba(0, 0, 0, .8);
+  animation: rewardCaption 400ms ease-out 200ms both;
+}
+@keyframes rewardCaption { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes rewardFly { 0% { opacity: .3; transform: translate(-50%, -50%) scale(.001); } 20% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 81% { opacity: 1; transform: translate(170px, -560px) scale(.6); } 100% { opacity: 0; transform: translate(170px, -580px) scale(.5); } }
+
+/* the reward card full size (comp_cardfullscreen_v3) until tapped */
+.result-fullcard {
+  position: absolute; inset: 0; z-index: 2; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  background: rgba(0, 0, 0, .55);
+  animation: fullcardIn 300ms cubic-bezier(.16, 1, .3, 1) both;
+}
+.result-fullcard.closing { opacity: 0; transform: scale(.001); transition: opacity 250ms, transform 250ms cubic-bezier(.7, 0, .84, 0); }
+.result-fullcard .card-detail-wrap { pointer-events: none; }
+.result-fullcard.piece { background: rgba(0, 0, 0, .35); }
+.result-fullcard-tap { font-size: 28px; color: rgba(255, 255, 255, .85); text-shadow: 0 2px 4px #000; }
+@keyframes fullcardIn { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* "Card added to set: X n/8" (new_card_notify_comp): slides in from the left, waits 3 s, slides out. It sits
+   above the full card (whose name plate starts at ~200 px), never over it. */
+.result-setplate {
+  position: absolute; left: 45px; top: 24px; z-index: 3; width: 630px; height: 135px; padding: 10px 28px;
+  background: rgba(25, 25, 25, .86); border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, .7);
+  display: flex; flex-direction: column; justify-content: center; gap: 4px;
+  animation: setplate 5400ms both;
+}
+.result-setplate-label { font-size: 24px; font-weight: 700; color: #e5e5e5; }
+.result-setplate-name { font-size: 30px; font-weight: 700; color: rgb(140, 248, 210); }
+.result-setplate-bar { position: relative; height: 26px; background: rgba(0, 0, 0, .7); border: 2px solid #5a5a5a; border-radius: 4px; overflow: hidden; }
+.result-setplate-fill { position: absolute; left: 0; top: 0; bottom: 0; background: rgb(255, 130, 50); transition: width 1200ms cubic-bezier(.87, 0, .13, 1); }
+.result-setplate-bar .num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: #fff; text-shadow: 0 1px 2px #000; }
+@keyframes setplate {
+  0% { transform: translateX(-820px); animation-timing-function: cubic-bezier(.87, 0, .13, 1); }
+  22% { transform: none; }
+  78% { transform: none; animation-timing-function: cubic-bezier(.87, 0, .13, 1); }
+  100% { transform: translateX(820px); }
+}
+
+/* ---------- Card level-up popup (comp_levelup_card + ctrl_cardlevelup) ---------- */
+.card-levelup {
+  position: absolute; inset: 0; z-index: 5; cursor: pointer; outline: none;
+  background: rgba(0, 0, 0, .745);
+  animation: cluIn 500ms linear both;
+}
+.card-levelup.closing { opacity: 0; transition: opacity 500ms linear; }
+@keyframes cluIn { from { opacity: 0; } to { opacity: 1; } }
+.clu-card {
+  position: absolute; left: 54px; top: 206px; width: 612px; height: 868px;
+  border-radius: 24px; overflow: hidden; background: #000;
+  box-shadow: 0 0 0 8px var(--frame, #9a9a9a), 0 10px 30px rgba(0, 0, 0, .8);
+}
+.clu-card.rarity-common { --frame: var(--r-common); }
+.clu-card.rarity-standard { --frame: var(--r-standard); }
+.clu-card.rarity-uncommon { --frame: var(--r-uncommon); }
+.clu-card.rarity-rare { --frame: var(--r-rare); }
+.clu-card.rarity-heroic { --frame: var(--r-heroic); }
+.clu-card.rarity-legendary { --frame: var(--r-legendary); }
+.clu-card.rarity-ultimate { --frame: var(--r-ultimate); }
+.clu-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.clu-title {
+  position: absolute; left: 0; right: 0; top: 236px; text-align: center;
+  font-size: 76px; font-weight: 700; color: #e5e5e5; text-shadow: 0 3px 4px #000;
+  animation: cluTitle calc(var(--step, 500ms) * 2) linear both;
+}
+@keyframes cluTitle { 0% { opacity: 0; transform: scale(.01); } 50% { opacity: 1; transform: scale(.01); } 100% { opacity: 1; transform: scale(1); } }
+.clu-rows { position: absolute; inset: 0; pointer-events: none; }
+.clu-row {
+  position: absolute; left: 76px; right: 76px; height: 112px; margin-top: -56px;
+  background: rgba(0, 0, 0, .39);
+  opacity: 0; animation-name: cluRow; animation-timing-function: linear; animation-fill-mode: both;
+}
+.clu-row:nth-child(1) { top: 437px; }
+.clu-row:nth-child(2) { top: 595px; }
+.clu-row:nth-child(3) { top: 752px; }
+.clu-row:nth-child(4) { top: 910px; }
+@keyframes cluRow { from { opacity: 0; transform: scale(.01); } to { opacity: 1; transform: none; } }
+.clu-from, .clu-to { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; gap: 8px; }
+.clu-from { right: calc(50% + 112px); font-size: 45px; font-weight: 700; color: #e5e5e5; }
+.clu-to { left: calc(50% + 20px); font-size: 67px; font-weight: 700; }
+.clu-icon { width: 54px; height: 54px; }
+.clu-icon.big { width: 80px; height: 80px; }
+.clu-arrow { position: absolute; left: calc(50% - 67px - 30px); top: 50%; width: 60px; height: 60px; margin-top: -30px; object-fit: contain; }
+.clu-row.level .clu-to { color: rgb(254, 208, 15); }
+.clu-row.attack .clu-to { color: rgb(255, 0, 0); }
+.clu-row.hp .clu-to { color: rgb(55, 143, 11); }
+.clu-row.skill .clu-to { color: rgb(255, 128, 20); }
+.clu-to .num, .clu-from .num { text-shadow: 0 2px 3px #000; }
+.clu-tap {
+  position: absolute; right: 169px; top: 990px; font-size: 32px; color: #e5e5e5; text-shadow: 0 2px 3px #000;
+  animation: cluTapIn 200ms linear both, cluPulse 2000ms linear calc(var(--step, 500ms) * 0 + 200ms) infinite;
+}
+.clu-finger-bg, .clu-finger { position: absolute; width: 64px; height: 64px; opacity: 0; animation: cluTapIn 200ms linear both; }
+.clu-finger-bg { left: 548px; top: 975px; }
+.clu-finger { left: 566px; top: 995px; animation: cluTapIn 200ms linear both, cluFinger 2000ms linear infinite; }
+@keyframes cluTapIn { from { opacity: 0; } to { opacity: .9; } }
+@keyframes cluPulse { 0%, 100% { opacity: .9; } 50% { opacity: 0; } }
+@keyframes cluFinger { 0%, 100% { transform: scale(1); } 50% { transform: scale(.72); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .battle-screen .battle-top, .battle-screen .battle-bottom, .battle-screen .battle-hp-row .bar-with-icon, .battle-screen .battle-row .card-wrap,
+  .wonlost-img, .wonlost-glow, .hp-bar-wrap.hit .bar, .battle-lightning, .card-levelup, .clu-title, .clu-row { animation-duration: 1ms; }
+}

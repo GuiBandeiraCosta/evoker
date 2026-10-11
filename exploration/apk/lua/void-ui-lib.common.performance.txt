@@ -1,0 +1,103 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['show'] numbers=[]
+     0 [   0] LOADBOOL  R0 := False
+     1 [   0] CLOSURE   R1 := closure #0
+     2 [   0] MOVE      R0 := R0
+     3 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     4 [   0] SETTABLE  R2["show"] := R1
+     5 [   0] RETURN    return R2.. (1 values)
+     6 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 3-38, upvals=[], locals=[])
+    constants: strings=['display', 'newGroup', 'ui', 'createLabel', 'layout', 'hud.mem', 'style', 'middle', 'txtAlign', 'center', 'txt', '', 'insert', 'timer', 'performWithDelay', 'addEventListener', 'tap'] numbers=[1000, 0]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == True) ~= 0 then skip next
+       2 [   0] JMP       jmp +1 -> 4
+       3 [   0] RETURN    return R0.. (0 values)
+       4 [   0] GETGLOBAL R0 := _G["display"]
+       5 [   0] GETTABLE  R0 := R0["newGroup"]
+       6 [   0] CALL      R0(...) nargs=0 nret=1
+       7 [   0] LOADBOOL  R1 := True
+       8 [   0] SETUPVAL  upval 0 := R1
+       9 [   0] GETGLOBAL R1 := _G["ui"]
+      10 [   0] GETTABLE  R1 := R1["createLabel"]
+      11 [   0] NEWTABLE  R2 := {} (array 0, hash 4)
+      12 [   0] SETTABLE  R2["layout"] := "hud.mem"
+      13 [   0] SETTABLE  R2["style"] := "middle"
+      14 [   0] SETTABLE  R2["txtAlign"] := "center"
+      15 [   0] SETTABLE  R2["txt"] := ""
+      16 [   0] CALL      R1(...) nargs=1 nret=1
+      17 [   0] SELF      R3 := R0; R2 := R0["insert"]
+      18 [   0] MOVE      R4 := R1
+      19 [   0] CALL      R2(...) nargs=2 nret=0
+      20 [   0] CLOSURE   R2 := closure #0
+      21 [   0] MOVE      R0 := R1
+      22 [   0] MOVE      R3 := R2
+      23 [   0] CALL      R3(...) nargs=0 nret=0
+      24 [   0] GETGLOBAL R3 := _G["timer"]
+      25 [   0] GETTABLE  R3 := R3["performWithDelay"]
+      26 [   0] LOADK     R4 := 1000
+      27 [   0] MOVE      R5 := R2
+      28 [   0] LOADK     R6 := 0
+      29 [   0] CALL      R3(...) nargs=3 nret=1
+      30 [   0] SELF      R5 := R1; R4 := R1["addEventListener"]
+      31 [   0] LOADK     R6 := "tap"
+      32 [   0] CLOSURE   R7 := closure #1
+      33 [   0] GETUPVAL  R0 := upval 0
+      34 [   0] MOVE      R0 := R0
+      35 [   0] MOVE      R0 := R3
+      36 [   0] CALL      R4(...) nargs=3 nret=0
+      37 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 16-20, upvals=[], locals=[])
+      constants: strings=['string', 'format', '%f', 'system', 'getInfo', 'textureMemoryUsed', '%02.4s', 'tostring', 'update', 'txt', ' MB'] numbers=[1024]
+         0 [   0] GETGLOBAL R0 := _G["string"]
+         1 [   0] GETTABLE  R0 := R0["format"]
+         2 [   0] LOADK     R1 := "%f"
+         3 [   0] GETGLOBAL R2 := _G["system"]
+         4 [   0] GETTABLE  R2 := R2["getInfo"]
+         5 [   0] LOADK     R3 := "textureMemoryUsed"
+         6 [   0] CALL      R2(...) nargs=1 nret=1
+         7 [   0] DIV       R2 := R2 / 1024
+         8 [   0] DIV       R2 := R2 / 1024
+         9 [   0] CALL      R0(...) nargs=2 nret=1
+        10 [   0] GETGLOBAL R1 := _G["string"]
+        11 [   0] GETTABLE  R1 := R1["format"]
+        12 [   0] LOADK     R2 := "%02.4s"
+        13 [   0] GETGLOBAL R3 := _G["tostring"]
+        14 [   0] MOVE      R4 := R0
+        15 [   0] CALL      R3(...) nargs=1 nret=-1
+        16 [   0] CALL      R1(...) nargs=-1 nret=1
+        17 [   0] MOVE      R0 := R1
+        18 [   0] GETUPVAL  R1 := upval 0
+        19 [   0] GETTABLE  R1 := R1["update"]
+        20 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+        21 [   0] MOVE      R3 := R0
+        22 [   0] LOADK     R4 := " MB"
+        23 [   0] CONCAT    R3 := R3 .. ... .. R4
+        24 [   0] SETTABLE  R2["txt"] := R3
+        25 [   0] CALL      R1(...) nargs=1 nret=0
+        26 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 25-37, upvals=[], locals=[])
+      constants: strings=['removeSelf', 'timer', 'cancel'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] EQ        if (R1 == True) ~= 0 then skip next
+         2 [   0] JMP       jmp +19 -> 22
+         3 [   0] GETUPVAL  R1 := upval 1
+         4 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         5 [   0] JMP       jmp +5 -> 11
+         6 [   0] GETUPVAL  R1 := upval 1
+         7 [   0] SELF      R2 := R1; R1 := R1["removeSelf"]
+         8 [   0] CALL      R1(...) nargs=1 nret=0
+         9 [   0] LOADNIL   R1..R1 := nil
+        10 [   0] SETUPVAL  upval 1 := R1
+        11 [   0] GETUPVAL  R1 := upval 2
+        12 [   0] EQ        if (R1 == None) ~= 1 then skip next
+        13 [   0] JMP       jmp +6 -> 20
+        14 [   0] GETGLOBAL R1 := _G["timer"]
+        15 [   0] GETTABLE  R1 := R1["cancel"]
+        16 [   0] GETUPVAL  R2 := upval 2
+        17 [   0] CALL      R1(...) nargs=1 nret=0
+        18 [   0] LOADNIL   R1..R1 := nil
+        19 [   0] SETUPVAL  upval 2 := R1
+        20 [   0] LOADBOOL  R1 := False
+        21 [   0] SETUPVAL  upval 0 := R1
+        22 [   0] RETURN    return R0.. (0 values)

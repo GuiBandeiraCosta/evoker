@@ -1,0 +1,690 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['module', 'package', 'seeall', 'newButton', 'newLabel'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["module"]
+     1 [   0] VARARG    R1.. := ... (1)
+     2 [   0] GETGLOBAL R2 := _G["package"]
+     3 [   0] GETTABLE  R2 := R2["seeall"]
+     4 [   0] CALL      R0(...) nargs=2 nret=0
+     5 [   0] CLOSURE   R0 := closure #0
+     6 [   0] CLOSURE   R1 := closure #1
+     7 [   0] MOVE      R0 := R0
+     8 [   0] SETGLOBAL _G["newButton"] := R1
+     9 [   0] CLOSURE   R1 := closure #2
+    10 [   0] SETGLOBAL _G["newLabel"] := R1
+    11 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 28-101, upvals=[], locals=[])
+    constants: strings=['_onEvent', '_onPress', '_onRelease', '_id', 'id', 'phase', 'began', 'isVisible', 'press', 'display', 'getCurrentStage', 'setFocus', 'isFocus', 'stageBounds', 'x', 'y', 'xMin', 'xMax', 'yMin', 'yMax', 'moved', 'ended', 'cancelled', 'release'] numbers=[1, 2]
+       0 [   0] LOADBOOL  R2 := True
+       1 [   0] GETTABLE  R3 := R0[1]
+       2 [   0] GETTABLE  R4 := R0[2]
+       3 [   0] GETTABLE  R5 := R0["_onEvent"]
+       4 [   0] GETTABLE  R6 := R0["_onPress"]
+       5 [   0] GETTABLE  R7 := R0["_onRelease"]
+       6 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+       7 [   0] GETTABLE  R9 := R0["_id"]
+       8 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +2 -> 12
+      10 [   0] GETTABLE  R9 := R0["_id"]
+      11 [   0] SETTABLE  R8["id"] := R9
+      12 [   0] GETTABLE  R9 := R1["phase"]
+      13 [   0] EQ        if ("began" == R9) ~= 0 then skip next
+      14 [   0] JMP       jmp +27 -> 42
+      15 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      16 [   0] JMP       jmp +2 -> 19
+      17 [   0] SETTABLE  R3["isVisible"] := False
+      18 [   0] SETTABLE  R4["isVisible"] := True
+      19 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      20 [   0] JMP       jmp +6 -> 27
+      21 [   0] SETTABLE  R8["phase"] := "press"
+      22 [   0] MOVE      R10 := R5
+      23 [   0] MOVE      R11 := R8
+      24 [   0] CALL      R10(...) nargs=1 nret=1
+      25 [   0] MOVE      R2 := R10
+      26 [   0] JMP       jmp +6 -> 33
+      27 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      28 [   0] JMP       jmp +4 -> 33
+      29 [   0] MOVE      R10 := R6
+      30 [   0] MOVE      R11 := R1
+      31 [   0] CALL      R10(...) nargs=1 nret=1
+      32 [   0] MOVE      R2 := R10
+      33 [   0] GETGLOBAL R10 := _G["display"]
+      34 [   0] GETTABLE  R10 := R10["getCurrentStage"]
+      35 [   0] CALL      R10(...) nargs=0 nret=1
+      36 [   0] SELF      R11 := R10; R10 := R10["setFocus"]
+      37 [   0] MOVE      R12 := R0
+      38 [   0] GETTABLE  R13 := R1["id"]
+      39 [   0] CALL      R10(...) nargs=3 nret=0
+      40 [   0] SETTABLE  R0["isFocus"] := True
+      41 [   0] JMP       jmp +62 -> 104
+      42 [   0] GETTABLE  R10 := R0["isFocus"]
+      43 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+      44 [   0] JMP       jmp +59 -> 104
+      45 [   0] GETTABLE  R10 := R0["stageBounds"]
+      46 [   0] GETTABLE  R11 := R1["x"]
+      47 [   0] GETTABLE  R12 := R1["y"]
+      48 [   0] GETTABLE  R13 := R10["xMin"]
+      49 [   0] LE        if (R13 <= R11) ~= 0 then skip next
+      50 [   0] JMP       jmp +9 -> 60
+      51 [   0] GETTABLE  R13 := R10["xMax"]
+      52 [   0] LE        if (R11 <= R13) ~= 0 then skip next
+      53 [   0] JMP       jmp +6 -> 60
+      54 [   0] GETTABLE  R13 := R10["yMin"]
+      55 [   0] LE        if (R13 <= R12) ~= 0 then skip next
+      56 [   0] JMP       jmp +3 -> 60
+      57 [   0] GETTABLE  R13 := R10["yMax"]
+      58 [   0] LE        if (R12 <= R13) ~= 1 then skip next
+      59 [   0] JMP       jmp +1 -> 61
+      60 [   0] LOADBOOL  R13 := False (skip)
+      61 [   0] LOADBOOL  R13 := True
+      62 [   0] EQ        if ("moved" == R9) ~= 0 then skip next
+      63 [   0] JMP       jmp +6 -> 70
+      64 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      65 [   0] JMP       jmp +38 -> 104
+      66 [   0] NOT       R14 := not R13
+      67 [   0] SETTABLE  R3["isVisible"] := R14
+      68 [   0] SETTABLE  R4["isVisible"] := R13
+      69 [   0] JMP       jmp +34 -> 104
+      70 [   0] EQ        if ("ended" == R9) ~= 1 then skip next
+      71 [   0] JMP       jmp +2 -> 74
+      72 [   0] EQ        if ("cancelled" == R9) ~= 0 then skip next
+      73 [   0] JMP       jmp +30 -> 104
+      74 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      75 [   0] JMP       jmp +2 -> 78
+      76 [   0] SETTABLE  R3["isVisible"] := True
+      77 [   0] SETTABLE  R4["isVisible"] := False
+      78 [   0] EQ        if ("ended" == R9) ~= 0 then skip next
+      79 [   0] JMP       jmp +16 -> 96
+      80 [   0] TEST      if (R13 truthy) ~= 0 then skip next
+      81 [   0] JMP       jmp +14 -> 96
+      82 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      83 [   0] JMP       jmp +6 -> 90
+      84 [   0] SETTABLE  R8["phase"] := "release"
+      85 [   0] MOVE      R14 := R5
+      86 [   0] MOVE      R15 := R8
+      87 [   0] CALL      R14(...) nargs=1 nret=1
+      88 [   0] MOVE      R2 := R14
+      89 [   0] JMP       jmp +6 -> 96
+      90 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+      91 [   0] JMP       jmp +4 -> 96
+      92 [   0] MOVE      R14 := R7
+      93 [   0] MOVE      R15 := R1
+      94 [   0] CALL      R14(...) nargs=1 nret=1
+      95 [   0] MOVE      R2 := R14
+      96 [   0] GETGLOBAL R14 := _G["display"]
+      97 [   0] GETTABLE  R14 := R14["getCurrentStage"]
+      98 [   0] CALL      R14(...) nargs=0 nret=1
+      99 [   0] SELF      R15 := R14; R14 := R14["setFocus"]
+     100 [   0] MOVE      R16 := R0
+     101 [   0] LOADNIL   R17..R17 := nil
+     102 [   0] CALL      R14(...) nargs=3 nret=0
+     103 [   0] SETTABLE  R0["isFocus"] := False
+     104 [   0] RETURN    return R2.. (1 values)
+     105 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 107-237, upvals=[], locals=[])
+    constants: strings=['default', 'display', 'newGroup', 'newImage', 'insert', 'over', 'isVisible', 'setText', 'setScale', 'text', 'onPress', 'type', 'function', '_onPress', 'onRelease', '_onRelease', 'onEvent', '_onEvent', 'touch', 'addEventListener', 'onTap', 'tap', 'x', 'y', 'id', '_id'] numbers=[]
+       0 [   0] GETTABLE  R8 := R0["default"]
+       1 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+       2 [   0] JMP       jmp +13 -> 16
+       3 [   0] GETGLOBAL R8 := _G["display"]
+       4 [   0] GETTABLE  R8 := R8["newGroup"]
+       5 [   0] CALL      R8(...) nargs=0 nret=1
+       6 [   0] MOVE      R1 := R8
+       7 [   0] GETGLOBAL R8 := _G["display"]
+       8 [   0] GETTABLE  R8 := R8["newImage"]
+       9 [   0] GETTABLE  R9 := R0["default"]
+      10 [   0] CALL      R8(...) nargs=1 nret=1
+      11 [   0] MOVE      R2 := R8
+      12 [   0] SELF      R9 := R1; R8 := R1["insert"]
+      13 [   0] MOVE      R10 := R2
+      14 [   0] LOADBOOL  R11 := True
+      15 [   0] CALL      R8(...) nargs=3 nret=0
+      16 [   0] GETTABLE  R8 := R0["over"]
+      17 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+      18 [   0] JMP       jmp +10 -> 29
+      19 [   0] GETGLOBAL R8 := _G["display"]
+      20 [   0] GETTABLE  R8 := R8["newImage"]
+      21 [   0] GETTABLE  R9 := R0["over"]
+      22 [   0] CALL      R8(...) nargs=1 nret=1
+      23 [   0] MOVE      R3 := R8
+      24 [   0] SETTABLE  R3["isVisible"] := False
+      25 [   0] SELF      R9 := R1; R8 := R1["insert"]
+      26 [   0] MOVE      R10 := R3
+      27 [   0] LOADBOOL  R11 := True
+      28 [   0] CALL      R8(...) nargs=3 nret=0
+      29 [   0] CLOSURE   R8 := closure #0
+      30 [   0] MOVE      R0 := R0
+      31 [   0] MOVE      R0 := R4
+      32 [   0] MOVE      R0 := R5
+      33 [   0] MOVE      R0 := R6
+      34 [   0] MOVE      R0 := R7
+      35 [   0] MOVE      R0 := R1
+      36 [   0] SETTABLE  R1["setText"] := R8
+      37 [   0] CLOSURE   R8 := closure #1
+      38 [   0] MOVE      R0 := R2
+      39 [   0] MOVE      R0 := R3
+      40 [   0] SETTABLE  R1["setScale"] := R8
+      41 [   0] GETTABLE  R8 := R0["text"]
+      42 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+      43 [   0] JMP       jmp +3 -> 47
+      44 [   0] SELF      R9 := R1; R8 := R1["setText"]
+      45 [   0] GETTABLE  R10 := R0["text"]
+      46 [   0] CALL      R8(...) nargs=2 nret=0
+      47 [   0] GETTABLE  R8 := R0["onPress"]
+      48 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+      49 [   0] JMP       jmp +7 -> 57
+      50 [   0] GETGLOBAL R8 := _G["type"]
+      51 [   0] GETTABLE  R9 := R0["onPress"]
+      52 [   0] CALL      R8(...) nargs=1 nret=1
+      53 [   0] EQ        if (R8 == "function") ~= 0 then skip next
+      54 [   0] JMP       jmp +2 -> 57
+      55 [   0] GETTABLE  R8 := R0["onPress"]
+      56 [   0] SETTABLE  R1["_onPress"] := R8
+      57 [   0] GETTABLE  R8 := R0["onRelease"]
+      58 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+      59 [   0] JMP       jmp +7 -> 67
+      60 [   0] GETGLOBAL R8 := _G["type"]
+      61 [   0] GETTABLE  R9 := R0["onRelease"]
+      62 [   0] CALL      R8(...) nargs=1 nret=1
+      63 [   0] EQ        if (R8 == "function") ~= 0 then skip next
+      64 [   0] JMP       jmp +2 -> 67
+      65 [   0] GETTABLE  R8 := R0["onRelease"]
+      66 [   0] SETTABLE  R1["_onRelease"] := R8
+      67 [   0] GETTABLE  R8 := R0["onEvent"]
+      68 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+      69 [   0] JMP       jmp +7 -> 77
+      70 [   0] GETGLOBAL R8 := _G["type"]
+      71 [   0] GETTABLE  R9 := R0["onEvent"]
+      72 [   0] CALL      R8(...) nargs=1 nret=1
+      73 [   0] EQ        if (R8 == "function") ~= 0 then skip next
+      74 [   0] JMP       jmp +2 -> 77
+      75 [   0] GETTABLE  R8 := R0["onEvent"]
+      76 [   0] SETTABLE  R1["_onEvent"] := R8
+      77 [   0] GETUPVAL  R8 := upval 0
+      78 [   0] SETTABLE  R1["touch"] := R8
+      79 [   0] SELF      R9 := R1; R8 := R1["addEventListener"]
+      80 [   0] LOADK     R10 := "touch"
+      81 [   0] MOVE      R11 := R1
+      82 [   0] CALL      R8(...) nargs=3 nret=0
+      83 [   0] CLOSURE   R8 := closure #2
+      84 [   0] GETTABLE  R9 := R0["onTap"]
+      85 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+      86 [   0] JMP       jmp +10 -> 97
+      87 [   0] GETGLOBAL R9 := _G["type"]
+      88 [   0] GETTABLE  R10 := R0["onTap"]
+      89 [   0] CALL      R9(...) nargs=1 nret=1
+      90 [   0] EQ        if (R9 == "function") ~= 0 then skip next
+      91 [   0] JMP       jmp +5 -> 97
+      92 [   0] SELF      R10 := R1; R9 := R1["addEventListener"]
+      93 [   0] LOADK     R11 := "tap"
+      94 [   0] GETTABLE  R12 := R0["onTap"]
+      95 [   0] CALL      R9(...) nargs=3 nret=0
+      96 [   0] JMP       jmp +4 -> 101
+      97 [   0] SELF      R10 := R1; R9 := R1["addEventListener"]
+      98 [   0] LOADK     R11 := "tap"
+      99 [   0] MOVE      R12 := R8
+     100 [   0] CALL      R9(...) nargs=3 nret=0
+     101 [   0] GETTABLE  R9 := R0["x"]
+     102 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+     103 [   0] JMP       jmp +2 -> 106
+     104 [   0] GETTABLE  R9 := R0["x"]
+     105 [   0] SETTABLE  R1["x"] := R9
+     106 [   0] GETTABLE  R9 := R0["y"]
+     107 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+     108 [   0] JMP       jmp +2 -> 111
+     109 [   0] GETTABLE  R9 := R0["y"]
+     110 [   0] SETTABLE  R1["y"] := R9
+     111 [   0] GETTABLE  R9 := R0["id"]
+     112 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+     113 [   0] JMP       jmp +2 -> 116
+     114 [   0] GETTABLE  R9 := R0["id"]
+     115 [   0] SETTABLE  R1["_id"] := R9
+     116 [   0] RETURN    return R1.. (1 values)
+     117 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=2, lines 123-185, upvals=[], locals=[])
+      constants: strings=['text', 'removeSelf', 'shadow', 'highlight', 'size', 'type', 'number', 'font', 'native', 'systemFontBold', 'textColor', 'offset', 'xoffset', 'emboss', 'display', 'newText', 'setTextColor', 'insert', 'x', 'y', 'setReferencePoint', 'CenterReferencePoint'] numbers=[20, 255, 0, 1, 2, 3, 127, 140, 1.5, 128, 4]
+         0 [   0] GETTABLE  R2 := R0["text"]
+         1 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] SELF      R4 := R2; R3 := R2["removeSelf"]
+         4 [   0] CALL      R3(...) nargs=1 nret=0
+         5 [   0] SETTABLE  R0["text"] := None
+         6 [   0] GETTABLE  R3 := R0["shadow"]
+         7 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +3 -> 12
+         9 [   0] SELF      R5 := R3; R4 := R3["removeSelf"]
+        10 [   0] CALL      R4(...) nargs=1 nret=0
+        11 [   0] SETTABLE  R0["shadow"] := None
+        12 [   0] GETTABLE  R4 := R0["highlight"]
+        13 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +3 -> 18
+        15 [   0] SELF      R6 := R4; R5 := R4["removeSelf"]
+        16 [   0] CALL      R5(...) nargs=1 nret=0
+        17 [   0] SETTABLE  R0["highlight"] := None
+        18 [   0] GETUPVAL  R5 := upval 0
+        19 [   0] GETTABLE  R5 := R5["size"]
+        20 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        21 [   0] JMP       jmp +10 -> 32
+        22 [   0] GETGLOBAL R5 := _G["type"]
+        23 [   0] GETUPVAL  R6 := upval 0
+        24 [   0] GETTABLE  R6 := R6["size"]
+        25 [   0] CALL      R5(...) nargs=1 nret=1
+        26 [   0] EQ        if (R5 == "number") ~= 0 then skip next
+        27 [   0] JMP       jmp +4 -> 32
+        28 [   0] GETUPVAL  R5 := upval 0
+        29 [   0] GETTABLE  R5 := R5["size"]
+        30 [   0] SETUPVAL  upval 1 := R5
+        31 [   0] JMP       jmp +2 -> 34
+        32 [   0] LOADK     R5 := 20
+        33 [   0] SETUPVAL  upval 1 := R5
+        34 [   0] GETUPVAL  R5 := upval 0
+        35 [   0] GETTABLE  R5 := R5["font"]
+        36 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        37 [   0] JMP       jmp +4 -> 42
+        38 [   0] GETUPVAL  R5 := upval 0
+        39 [   0] GETTABLE  R5 := R5["font"]
+        40 [   0] SETUPVAL  upval 2 := R5
+        41 [   0] JMP       jmp +3 -> 45
+        42 [   0] GETGLOBAL R5 := _G["native"]
+        43 [   0] GETTABLE  R5 := R5["systemFontBold"]
+        44 [   0] SETUPVAL  upval 2 := R5
+        45 [   0] GETUPVAL  R5 := upval 0
+        46 [   0] GETTABLE  R5 := R5["textColor"]
+        47 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        48 [   0] JMP       jmp +4 -> 53
+        49 [   0] GETUPVAL  R5 := upval 0
+        50 [   0] GETTABLE  R5 := R5["textColor"]
+        51 [   0] SETUPVAL  upval 3 := R5
+        52 [   0] JMP       jmp +7 -> 60
+        53 [   0] NEWTABLE  R5 := {} (array 4, hash 0)
+        54 [   0] LOADK     R6 := 255
+        55 [   0] LOADK     R7 := 255
+        56 [   0] LOADK     R8 := 255
+        57 [   0] LOADK     R9 := 255
+        58 [   0] SETLIST   R5[...] := R6.. (n=4, block 1)
+        59 [   0] SETUPVAL  upval 3 := R5
+        60 [   0] GETUPVAL  R5 := upval 0
+        61 [   0] GETTABLE  R5 := R5["offset"]
+        62 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        63 [   0] JMP       jmp +10 -> 74
+        64 [   0] GETGLOBAL R5 := _G["type"]
+        65 [   0] GETUPVAL  R6 := upval 0
+        66 [   0] GETTABLE  R6 := R6["offset"]
+        67 [   0] CALL      R5(...) nargs=1 nret=1
+        68 [   0] EQ        if (R5 == "number") ~= 0 then skip next
+        69 [   0] JMP       jmp +4 -> 74
+        70 [   0] GETUPVAL  R5 := upval 0
+        71 [   0] GETTABLE  R5 := R5["offset"]
+        72 [   0] SETUPVAL  upval 4 := R5
+        73 [   0] JMP       jmp +2 -> 76
+        74 [   0] LOADK     R5 := 0
+        75 [   0] SETUPVAL  upval 4 := R5
+        76 [   0] GETUPVAL  R5 := upval 0
+        77 [   0] GETTABLE  R5 := R5["xoffset"]
+        78 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        79 [   0] JMP       jmp +10 -> 90
+        80 [   0] GETGLOBAL R5 := _G["type"]
+        81 [   0] GETUPVAL  R6 := upval 0
+        82 [   0] GETTABLE  R6 := R6["xoffset"]
+        83 [   0] CALL      R5(...) nargs=1 nret=1
+        84 [   0] EQ        if (R5 == "number") ~= 0 then skip next
+        85 [   0] JMP       jmp +4 -> 90
+        86 [   0] GETUPVAL  R5 := upval 0
+        87 [   0] GETTABLE  R5 := R5["xoffset"]
+        88 [   0] SETGLOBAL _G["xoffset"] := R5
+        89 [   0] JMP       jmp +2 -> 92
+        90 [   0] LOADK     R5 := 0
+        91 [   0] SETGLOBAL _G["xoffset"] := R5
+        92 [   0] GETUPVAL  R5 := upval 0
+        93 [   0] GETTABLE  R5 := R5["emboss"]
+        94 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        95 [   0] JMP       jmp +85 -> 181
+        96 [   0] GETUPVAL  R5 := upval 3
+        97 [   0] GETTABLE  R5 := R5[1]
+        98 [   0] GETUPVAL  R6 := upval 3
+        99 [   0] GETTABLE  R6 := R6[2]
+       100 [   0] ADD       R5 := R5 + R6
+       101 [   0] GETUPVAL  R6 := upval 3
+       102 [   0] GETTABLE  R6 := R6[3]
+       103 [   0] ADD       R5 := R5 + R6
+       104 [   0] DIV       R5 := R5 / 3
+       105 [   0] GETGLOBAL R6 := _G["display"]
+       106 [   0] GETTABLE  R6 := R6["newText"]
+       107 [   0] MOVE      R7 := R1
+       108 [   0] LOADK     R8 := 0
+       109 [   0] LOADK     R9 := 0
+       110 [   0] GETUPVAL  R10 := upval 2
+       111 [   0] GETUPVAL  R11 := upval 1
+       112 [   0] CALL      R6(...) nargs=5 nret=1
+       113 [   0] MOVE      R4 := R6
+       114 [   0] LT        if (127 < R5) ~= 0 then skip next
+       115 [   0] JMP       jmp +7 -> 123
+       116 [   0] SELF      R7 := R4; R6 := R4["setTextColor"]
+       117 [   0] LOADK     R8 := 255
+       118 [   0] LOADK     R9 := 255
+       119 [   0] LOADK     R10 := 255
+       120 [   0] LOADK     R11 := 20
+       121 [   0] CALL      R6(...) nargs=5 nret=0
+       122 [   0] JMP       jmp +6 -> 129
+       123 [   0] SELF      R7 := R4; R6 := R4["setTextColor"]
+       124 [   0] LOADK     R8 := 255
+       125 [   0] LOADK     R9 := 255
+       126 [   0] LOADK     R10 := 255
+       127 [   0] LOADK     R11 := 140
+       128 [   0] CALL      R6(...) nargs=5 nret=0
+       129 [   0] GETUPVAL  R6 := upval 5
+       130 [   0] SELF      R7 := R6; R6 := R6["insert"]
+       131 [   0] MOVE      R8 := R4
+       132 [   0] LOADBOOL  R9 := True
+       133 [   0] CALL      R6(...) nargs=3 nret=0
+       134 [   0] GETTABLE  R6 := R4["x"]
+       135 [   0] ADD       R6 := R6 + 1.5
+       136 [   0] SETTABLE  R4["x"] := R6
+       137 [   0] GETTABLE  R6 := R4["y"]
+       138 [   0] ADD       R6 := R6 + 1.5
+       139 [   0] GETUPVAL  R7 := upval 4
+       140 [   0] ADD       R6 := R6 + R7
+       141 [   0] SETTABLE  R4["y"] := R6
+       142 [   0] SETTABLE  R0["highlight"] := R4
+       143 [   0] GETGLOBAL R6 := _G["display"]
+       144 [   0] GETTABLE  R6 := R6["newText"]
+       145 [   0] MOVE      R7 := R1
+       146 [   0] LOADK     R8 := 0
+       147 [   0] LOADK     R9 := 0
+       148 [   0] GETUPVAL  R10 := upval 2
+       149 [   0] GETUPVAL  R11 := upval 1
+       150 [   0] CALL      R6(...) nargs=5 nret=1
+       151 [   0] MOVE      R3 := R6
+       152 [   0] LT        if (127 < R5) ~= 0 then skip next
+       153 [   0] JMP       jmp +7 -> 161
+       154 [   0] SELF      R7 := R3; R6 := R3["setTextColor"]
+       155 [   0] LOADK     R8 := 0
+       156 [   0] LOADK     R9 := 0
+       157 [   0] LOADK     R10 := 0
+       158 [   0] LOADK     R11 := 128
+       159 [   0] CALL      R6(...) nargs=5 nret=0
+       160 [   0] JMP       jmp +6 -> 167
+       161 [   0] SELF      R7 := R3; R6 := R3["setTextColor"]
+       162 [   0] LOADK     R8 := 0
+       163 [   0] LOADK     R9 := 0
+       164 [   0] LOADK     R10 := 0
+       165 [   0] LOADK     R11 := 20
+       166 [   0] CALL      R6(...) nargs=5 nret=0
+       167 [   0] GETUPVAL  R6 := upval 5
+       168 [   0] SELF      R7 := R6; R6 := R6["insert"]
+       169 [   0] MOVE      R8 := R3
+       170 [   0] LOADBOOL  R9 := True
+       171 [   0] CALL      R6(...) nargs=3 nret=0
+       172 [   0] GETTABLE  R6 := R3["x"]
+       173 [   0] SUB       R6 := R6 - 1
+       174 [   0] SETTABLE  R3["x"] := R6
+       175 [   0] GETTABLE  R6 := R3["y"]
+       176 [   0] SUB       R6 := R6 - 1
+       177 [   0] GETUPVAL  R7 := upval 4
+       178 [   0] ADD       R6 := R6 + R7
+       179 [   0] SETTABLE  R3["y"] := R6
+       180 [   0] SETTABLE  R0["shadow"] := R3
+       181 [   0] GETGLOBAL R5 := _G["display"]
+       182 [   0] GETTABLE  R5 := R5["newText"]
+       183 [   0] MOVE      R6 := R1
+       184 [   0] LOADK     R7 := 0
+       185 [   0] LOADK     R8 := 0
+       186 [   0] GETUPVAL  R9 := upval 2
+       187 [   0] GETUPVAL  R10 := upval 1
+       188 [   0] CALL      R5(...) nargs=5 nret=1
+       189 [   0] MOVE      R2 := R5
+       190 [   0] SELF      R6 := R2; R5 := R2["setTextColor"]
+       191 [   0] GETUPVAL  R7 := upval 3
+       192 [   0] GETTABLE  R7 := R7[1]
+       193 [   0] GETUPVAL  R8 := upval 3
+       194 [   0] GETTABLE  R8 := R8[2]
+       195 [   0] GETUPVAL  R9 := upval 3
+       196 [   0] GETTABLE  R9 := R9[3]
+       197 [   0] GETUPVAL  R10 := upval 3
+       198 [   0] GETTABLE  R10 := R10[4]
+       199 [   0] CALL      R5(...) nargs=5 nret=0
+       200 [   0] GETUPVAL  R5 := upval 5
+       201 [   0] SELF      R6 := R5; R5 := R5["insert"]
+       202 [   0] MOVE      R7 := R2
+       203 [   0] LOADBOOL  R8 := True
+       204 [   0] CALL      R5(...) nargs=3 nret=0
+       205 [   0] SELF      R6 := R2; R5 := R2["setReferencePoint"]
+       206 [   0] GETGLOBAL R7 := _G["display"]
+       207 [   0] GETTABLE  R7 := R7["CenterReferencePoint"]
+       208 [   0] CALL      R5(...) nargs=2 nret=0
+       209 [   0] GETTABLE  R5 := R2["y"]
+       210 [   0] GETUPVAL  R6 := upval 4
+       211 [   0] ADD       R5 := R5 + R6
+       212 [   0] SETTABLE  R2["y"] := R5
+       213 [   0] GETTABLE  R5 := R2["x"]
+       214 [   0] GETGLOBAL R6 := _G["xoffset"]
+       215 [   0] ADD       R5 := R5 + R6
+       216 [   0] SETTABLE  R2["x"] := R5
+       217 [   0] SETTABLE  R2["text"] := R1
+       218 [   0] SETTABLE  R0["text"] := R2
+       219 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#1 (params=3, lines 188-195, upvals=[], locals=[])
+      constants: strings=['xScale', 'yScale'] numbers=[]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +5 -> 8
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETUPVAL  R4 := upval 0
+         5 [   0] MOVE      R5 := R1
+         6 [   0] SETTABLE  R4["yScale"] := R2
+         7 [   0] SETTABLE  R3["xScale"] := R5
+         8 [   0] GETUPVAL  R3 := upval 1
+         9 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        10 [   0] JMP       jmp +5 -> 16
+        11 [   0] GETUPVAL  R3 := upval 1
+        12 [   0] GETUPVAL  R4 := upval 1
+        13 [   0] MOVE      R5 := R1
+        14 [   0] SETTABLE  R4["yScale"] := R2
+        15 [   0] SETTABLE  R3["xScale"] := R5
+        16 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#2 (params=1, lines 215-217, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] LOADBOOL  R1 := True
+         1 [   0] RETURN    return R1.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 243-311, upvals=[], locals=[])
+    constants: strings=['display', 'newGroup', 'bounds', 'size', 'type', 'number', 'font', 'native', 'systemFontBold', 'textColor', 'offset', 'align', 'center', 'text', 'newText', 'setTextColor', 'insert', 'left', 'x', 'stageWidth', 'right', 'y', 'stageHeight', 'setText'] numbers=[1, 2, 3, 4, 20, 255, 0, 0.5]
+       0 [   0] GETGLOBAL R6 := _G["display"]
+       1 [   0] GETTABLE  R6 := R6["newGroup"]
+       2 [   0] CALL      R6(...) nargs=0 nret=1
+       3 [   0] GETTABLE  R7 := R0["bounds"]
+       4 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+       5 [   0] JMP       jmp +108 -> 114
+       6 [   0] GETTABLE  R7 := R0["bounds"]
+       7 [   0] GETTABLE  R8 := R7[1]
+       8 [   0] GETTABLE  R9 := R7[2]
+       9 [   0] GETTABLE  R10 := R7[3]
+      10 [   0] GETTABLE  R11 := R7[4]
+      11 [   0] GETTABLE  R12 := R0["size"]
+      12 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      13 [   0] JMP       jmp +7 -> 21
+      14 [   0] GETGLOBAL R12 := _G["type"]
+      15 [   0] GETTABLE  R13 := R0["size"]
+      16 [   0] CALL      R12(...) nargs=1 nret=1
+      17 [   0] EQ        if (R12 == "number") ~= 0 then skip next
+      18 [   0] JMP       jmp +2 -> 21
+      19 [   0] GETTABLE  R2 := R0["size"]
+      20 [   0] JMP       jmp +1 -> 22
+      21 [   0] LOADK     R2 := 20
+      22 [   0] GETTABLE  R12 := R0["font"]
+      23 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      24 [   0] JMP       jmp +2 -> 27
+      25 [   0] GETTABLE  R3 := R0["font"]
+      26 [   0] JMP       jmp +2 -> 29
+      27 [   0] GETGLOBAL R12 := _G["native"]
+      28 [   0] GETTABLE  R3 := R12["systemFontBold"]
+      29 [   0] GETTABLE  R12 := R0["textColor"]
+      30 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      31 [   0] JMP       jmp +2 -> 34
+      32 [   0] GETTABLE  R4 := R0["textColor"]
+      33 [   0] JMP       jmp +7 -> 41
+      34 [   0] NEWTABLE  R12 := {} (array 4, hash 0)
+      35 [   0] LOADK     R13 := 255
+      36 [   0] LOADK     R14 := 255
+      37 [   0] LOADK     R15 := 255
+      38 [   0] LOADK     R16 := 255
+      39 [   0] SETLIST   R12[...] := R13.. (n=4, block 1)
+      40 [   0] MOVE      R4 := R12
+      41 [   0] GETTABLE  R12 := R0["offset"]
+      42 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      43 [   0] JMP       jmp +8 -> 52
+      44 [   0] GETGLOBAL R12 := _G["type"]
+      45 [   0] GETTABLE  R13 := R0["offset"]
+      46 [   0] CALL      R12(...) nargs=1 nret=1
+      47 [   0] EQ        if (R12 == "number") ~= 0 then skip next
+      48 [   0] JMP       jmp +3 -> 52
+      49 [   0] GETTABLE  R12 := R0["offset"]
+      50 [   0] SETGLOBAL _G["offset"] := R12
+      51 [   0] JMP       jmp +2 -> 54
+      52 [   0] LOADK     R12 := 0
+      53 [   0] SETGLOBAL _G["offset"] := R12
+      54 [   0] GETTABLE  R12 := R0["align"]
+      55 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      56 [   0] JMP       jmp +2 -> 59
+      57 [   0] GETTABLE  R5 := R0["align"]
+      58 [   0] JMP       jmp +1 -> 60
+      59 [   0] LOADK     R5 := "center"
+      60 [   0] GETTABLE  R12 := R0["text"]
+      61 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      62 [   0] JMP       jmp +37 -> 100
+      63 [   0] GETGLOBAL R12 := _G["display"]
+      64 [   0] GETTABLE  R12 := R12["newText"]
+      65 [   0] GETTABLE  R13 := R0["text"]
+      66 [   0] LOADK     R14 := 0
+      67 [   0] LOADK     R15 := 0
+      68 [   0] MOVE      R16 := R3
+      69 [   0] MOVE      R17 := R2
+      70 [   0] CALL      R12(...) nargs=5 nret=1
+      71 [   0] MOVE      R1 := R12
+      72 [   0] SELF      R13 := R1; R12 := R1["setTextColor"]
+      73 [   0] GETTABLE  R14 := R4[1]
+      74 [   0] GETTABLE  R15 := R4[2]
+      75 [   0] GETTABLE  R16 := R4[3]
+      76 [   0] GETTABLE  R17 := R4[4]
+      77 [   0] CALL      R12(...) nargs=5 nret=0
+      78 [   0] SELF      R13 := R6; R12 := R6["insert"]
+      79 [   0] MOVE      R14 := R1
+      80 [   0] CALL      R12(...) nargs=2 nret=0
+      81 [   0] EQ        if (R5 == "left") ~= 0 then skip next
+      82 [   0] JMP       jmp +5 -> 88
+      83 [   0] GETTABLE  R12 := R1["stageWidth"]
+      84 [   0] MUL       R12 := R12 * 0.5
+      85 [   0] ADD       R12 := R8 + R12
+      86 [   0] SETTABLE  R1["x"] := R12
+      87 [   0] JMP       jmp +12 -> 100
+      88 [   0] EQ        if (R5 == "right") ~= 0 then skip next
+      89 [   0] JMP       jmp +6 -> 96
+      90 [   0] ADD       R12 := R8 + R10
+      91 [   0] GETTABLE  R13 := R1["stageWidth"]
+      92 [   0] MUL       R13 := R13 * 0.5
+      93 [   0] SUB       R12 := R12 - R13
+      94 [   0] SETTABLE  R1["x"] := R12
+      95 [   0] JMP       jmp +4 -> 100
+      96 [   0] MUL       R12 := 2 * R8
+      97 [   0] ADD       R12 := R12 + R10
+      98 [   0] MUL       R12 := R12 * 0.5
+      99 [   0] SETTABLE  R1["x"] := R12
+     100 [   0] GETTABLE  R12 := R1["stageHeight"]
+     101 [   0] MUL       R12 := R12 * 0.5
+     102 [   0] ADD       R12 := R9 + R12
+     103 [   0] SETTABLE  R1["y"] := R12
+     104 [   0] CLOSURE   R12 := closure #0
+     105 [   0] MOVE      R0 := R1
+     106 [   0] MOVE      R0 := R5
+     107 [   0] MOVE      R0 := R8
+     108 [   0] MOVE      R0 := R10
+     109 [   0] SETTABLE  R6["setText"] := R12
+     110 [   0] CLOSURE   R12 := closure #1
+     111 [   0] MOVE      R0 := R1
+     112 [   0] SETTABLE  R6["setTextColor"] := R12
+     113 [   0] CLOSE     A=7 B=0 C=0
+     114 [   0] RETURN    return R6.. (1 values)
+     115 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#0 (params=2, lines 279-291, upvals=[], locals=[])
+      constants: strings=['text', 'left', 'x', 'stageWidth', 'right'] numbers=[2]
+         0 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +33 -> 35
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] SETTABLE  R2["text"] := R1
+         4 [   0] GETUPVAL  R2 := upval 1
+         5 [   0] EQ        if ("left" == R2) ~= 0 then skip next
+         6 [   0] JMP       jmp +8 -> 15
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] GETUPVAL  R3 := upval 2
+         9 [   0] GETUPVAL  R4 := upval 0
+        10 [   0] GETTABLE  R4 := R4["stageWidth"]
+        11 [   0] DIV       R4 := R4 / 2
+        12 [   0] ADD       R3 := R3 + R4
+        13 [   0] SETTABLE  R2["x"] := R3
+        14 [   0] JMP       jmp +20 -> 35
+        15 [   0] GETUPVAL  R2 := upval 1
+        16 [   0] EQ        if ("right" == R2) ~= 0 then skip next
+        17 [   0] JMP       jmp +10 -> 28
+        18 [   0] GETUPVAL  R2 := upval 0
+        19 [   0] GETUPVAL  R3 := upval 2
+        20 [   0] GETUPVAL  R4 := upval 3
+        21 [   0] ADD       R3 := R3 + R4
+        22 [   0] GETUPVAL  R4 := upval 0
+        23 [   0] GETTABLE  R4 := R4["stageWidth"]
+        24 [   0] DIV       R4 := R4 / 2
+        25 [   0] SUB       R3 := R3 - R4
+        26 [   0] SETTABLE  R2["x"] := R3
+        27 [   0] JMP       jmp +7 -> 35
+        28 [   0] GETUPVAL  R2 := upval 0
+        29 [   0] GETUPVAL  R3 := upval 2
+        30 [   0] MUL       R3 := 2 * R3
+        31 [   0] GETUPVAL  R4 := upval 3
+        32 [   0] ADD       R3 := R3 + R4
+        33 [   0] DIV       R3 := R3 / 2
+        34 [   0] SETTABLE  R2["x"] := R3
+        35 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#1 (params=5, lines 293-305, upvals=[], locals=[])
+      constants: strings=['type', 'number', 'setTextColor'] numbers=[255]
+         0 [   0] LOADK     R5 := 255
+         1 [   0] LOADK     R6 := 255
+         2 [   0] LOADK     R7 := 255
+         3 [   0] LOADK     R8 := 255
+         4 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +6 -> 12
+         6 [   0] GETGLOBAL R9 := _G["type"]
+         7 [   0] MOVE      R10 := R1
+         8 [   0] CALL      R9(...) nargs=1 nret=1
+         9 [   0] EQ        if (R9 == "number") ~= 0 then skip next
+        10 [   0] JMP       jmp +1 -> 12
+        11 [   0] MOVE      R5 := R1
+        12 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +6 -> 20
+        14 [   0] GETGLOBAL R9 := _G["type"]
+        15 [   0] MOVE      R10 := R2
+        16 [   0] CALL      R9(...) nargs=1 nret=1
+        17 [   0] EQ        if (R9 == "number") ~= 0 then skip next
+        18 [   0] JMP       jmp +1 -> 20
+        19 [   0] MOVE      R6 := R2
+        20 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        21 [   0] JMP       jmp +6 -> 28
+        22 [   0] GETGLOBAL R9 := _G["type"]
+        23 [   0] MOVE      R10 := R3
+        24 [   0] CALL      R9(...) nargs=1 nret=1
+        25 [   0] EQ        if (R9 == "number") ~= 0 then skip next
+        26 [   0] JMP       jmp +1 -> 28
+        27 [   0] MOVE      R7 := R3
+        28 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        29 [   0] JMP       jmp +6 -> 36
+        30 [   0] GETGLOBAL R9 := _G["type"]
+        31 [   0] MOVE      R10 := R4
+        32 [   0] CALL      R9(...) nargs=1 nret=1
+        33 [   0] EQ        if (R9 == "number") ~= 0 then skip next
+        34 [   0] JMP       jmp +1 -> 36
+        35 [   0] MOVE      R8 := R4
+        36 [   0] GETUPVAL  R9 := upval 0
+        37 [   0] SELF      R10 := R9; R9 := R9["setTextColor"]
+        38 [   0] MOVE      R11 := R1
+        39 [   0] MOVE      R12 := R2
+        40 [   0] MOVE      R13 := R3
+        41 [   0] MOVE      R14 := R4
+        42 [   0] CALL      R9(...) nargs=5 nret=0
+        43 [   0] RETURN    return R0.. (0 values)

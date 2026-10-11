@@ -1,0 +1,351 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'gameNetwork', 'FGLIB_PATH', 'logging.logger', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "gameNetwork"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     5 [   0] LOADK     R3 := "logging.logger"
+     6 [   0] CONCAT    R2 := R2 .. ... .. R3
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] CLOSURE   R2 := closure #0
+     9 [   0] CLOSURE   R3 := closure #1
+    10 [   0] MOVE      R0 := R1
+    11 [   0] MOVE      R0 := R2
+    12 [   0] MOVE      R0 := R0
+    13 [   0] LOADNIL   R4..R4 := nil
+    14 [   0] CLOSURE   R5 := closure #2
+    15 [   0] MOVE      R0 := R4
+    16 [   0] MOVE      R0 := R3
+    17 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+    18 [   0] SETTABLE  R6["getInstance"] := R5
+    19 [   0] RETURN    return R6.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 10-14, upvals=[], locals=[])
+    constants: strings=['type', 'function'] numbers=[]
+       0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       1 [   0] JMP       jmp +8 -> 10
+       2 [   0] GETGLOBAL R2 := _G["type"]
+       3 [   0] MOVE      R3 := R0
+       4 [   0] CALL      R2(...) nargs=1 nret=1
+       5 [   0] EQ        if (R2 == "function") ~= 0 then skip next
+       6 [   0] JMP       jmp +3 -> 10
+       7 [   0] MOVE      R2 := R0
+       8 [   0] VARARG    R3.. := ... (-1)
+       9 [   0] CALL      R2(...) nargs=-1 nret=0
+      10 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 16-133, upvals=[], locals=[])
+    constants: strings=['Runtime', 'addEventListener', 'system', 'signInGameNetwork', 'signOutGameNetwork', 'isLoggedInGameNetwork', 'unlockAchievement', 'setLeaderboardScore', 'showLeaderboard', 'showAchievements', 'isGameNetworkAvailable'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] LOADBOOL  R1 := False
+       2 [   0] LOADBOOL  R2 := True
+       3 [   0] GETGLOBAL R3 := _G["Runtime"]
+       4 [   0] SELF      R4 := R3; R3 := R3["addEventListener"]
+       5 [   0] LOADK     R5 := "system"
+       6 [   0] CLOSURE   R6 := closure #0
+       7 [   0] MOVE      R0 := R2
+       8 [   0] CALL      R3(...) nargs=3 nret=0
+       9 [   0] CLOSURE   R3 := closure #1
+      10 [   0] GETUPVAL  R0 := upval 0
+      11 [   0] GETUPVAL  R0 := upval 1
+      12 [   0] MOVE      R0 := R2
+      13 [   0] MOVE      R0 := R1
+      14 [   0] GETUPVAL  R0 := upval 2
+      15 [   0] SETTABLE  R0["signInGameNetwork"] := R3
+      16 [   0] CLOSURE   R3 := closure #2
+      17 [   0] GETUPVAL  R0 := upval 0
+      18 [   0] GETUPVAL  R0 := upval 1
+      19 [   0] SETTABLE  R0["signOutGameNetwork"] := R3
+      20 [   0] CLOSURE   R3 := closure #3
+      21 [   0] MOVE      R0 := R1
+      22 [   0] SETTABLE  R0["isLoggedInGameNetwork"] := R3
+      23 [   0] CLOSURE   R3 := closure #4
+      24 [   0] MOVE      R0 := R1
+      25 [   0] GETUPVAL  R0 := upval 0
+      26 [   0] GETUPVAL  R0 := upval 2
+      27 [   0] GETUPVAL  R0 := upval 1
+      28 [   0] SETTABLE  R0["unlockAchievement"] := R3
+      29 [   0] CLOSURE   R3 := closure #5
+      30 [   0] MOVE      R0 := R1
+      31 [   0] GETUPVAL  R0 := upval 0
+      32 [   0] GETUPVAL  R0 := upval 2
+      33 [   0] GETUPVAL  R0 := upval 1
+      34 [   0] SETTABLE  R0["setLeaderboardScore"] := R3
+      35 [   0] CLOSURE   R3 := closure #6
+      36 [   0] MOVE      R0 := R1
+      37 [   0] GETUPVAL  R0 := upval 2
+      38 [   0] GETUPVAL  R0 := upval 1
+      39 [   0] SETTABLE  R0["showLeaderboard"] := R3
+      40 [   0] CLOSURE   R3 := closure #7
+      41 [   0] MOVE      R0 := R1
+      42 [   0] GETUPVAL  R0 := upval 2
+      43 [   0] GETUPVAL  R0 := upval 1
+      44 [   0] SETTABLE  R0["showAchievements"] := R3
+      45 [   0] CLOSURE   R3 := closure #8
+      46 [   0] SETTABLE  R0["isGameNetworkAvailable"] := R3
+      47 [   0] RETURN    return R0.. (1 values)
+      48 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=1, lines 22-26, upvals=[], locals=[])
+      constants: strings=['type', 'applicationSuspend'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["type"]
+         1 [   0] EQ        if (R1 == "applicationSuspend") ~= 0 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] LOADBOOL  R1 := True
+         4 [   0] SETUPVAL  upval 0 := R1
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#1 (params=1, lines 28-55, upvals=[], locals=[])
+      constants: strings=['msg', '[GameServices] Signing In to Game Center ...', 'init', 'gamecenter', 'listener', 'type', 'data'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "[GameServices] Signing In to Game Center ..."
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] CLOSURE   R1 := closure #0
+         5 [   0] GETUPVAL  R0 := upval 1
+         6 [   0] MOVE      R0 := R0
+         7 [   0] CLOSURE   R2 := closure #1
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] GETUPVAL  R0 := upval 3
+        10 [   0] GETUPVAL  R0 := upval 0
+        11 [   0] GETUPVAL  R0 := upval 4
+        12 [   0] MOVE      R0 := R1
+        13 [   0] GETUPVAL  R3 := upval 2
+        14 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +9 -> 25
+        16 [   0] GETUPVAL  R3 := upval 4
+        17 [   0] GETTABLE  R3 := R3["init"]
+        18 [   0] LOADK     R4 := "gamecenter"
+        19 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+        20 [   0] SETTABLE  R5["listener"] := R2
+        21 [   0] CALL      R3(...) nargs=2 nret=0
+        22 [   0] LOADBOOL  R3 := False
+        23 [   0] SETUPVAL  upval 2 := R3
+        24 [   0] JMP       jmp +6 -> 31
+        25 [   0] MOVE      R3 := R2
+        26 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+        27 [   0] SETTABLE  R4["type"] := "init"
+        28 [   0] GETUPVAL  R5 := upval 3
+        29 [   0] SETTABLE  R4["data"] := R5
+        30 [   0] CALL      R3(...) nargs=1 nret=0
+        31 [   0] RETURN    return R0.. (0 values)
+      function main.#1.#1.#0 (params=1, lines 30-32, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETUPVAL  R2 := upval 1
+           2 [   0] MOVE      R3 := R0
+           3 [   0] CALL      R1(...) nargs=2 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#1.#1.#1 (params=1, lines 34-47, upvals=[], locals=[])
+        constants: strings=['type', 'init', 'data', 'msg', '[GameServices] Sign-In to Game Center ', 'succeeded', 'refused', 'request', 'loadLocalPlayer', 'listener'] numbers=[]
+           0 [   0] LOADBOOL  R1 := False
+           1 [   0] SETUPVAL  upval 0 := R1
+           2 [   0] GETTABLE  R1 := R0["type"]
+           3 [   0] EQ        if (R1 == "init") ~= 0 then skip next
+           4 [   0] JMP       jmp +30 -> 35
+           5 [   0] GETTABLE  R1 := R0["data"]
+           6 [   0] SETUPVAL  upval 1 := R1
+           7 [   0] GETUPVAL  R1 := upval 2
+           8 [   0] GETTABLE  R1 := R1["msg"]
+           9 [   0] LOADK     R2 := "[GameServices] Sign-In to Game Center "
+          10 [   0] GETUPVAL  R3 := upval 1
+          11 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+          12 [   0] JMP       jmp +3 -> 16
+          13 [   0] LOADK     R3 := "succeeded"
+          14 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+          15 [   0] JMP       jmp +1 -> 17
+          16 [   0] LOADK     R3 := "refused"
+          17 [   0] CONCAT    R2 := R2 .. ... .. R3
+          18 [   0] CALL      R1(...) nargs=1 nret=0
+          19 [   0] GETTABLE  R1 := R0["data"]
+          20 [   0] EQ        if (R1 == True) ~= 0 then skip next
+          21 [   0] JMP       jmp +10 -> 32
+          22 [   0] GETUPVAL  R1 := upval 3
+          23 [   0] GETTABLE  R1 := R1["request"]
+          24 [   0] LOADK     R2 := "loadLocalPlayer"
+          25 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+          26 [   0] CLOSURE   R4 := closure #0
+          27 [   0] GETUPVAL  R0 := upval 4
+          28 [   0] MOVE      R0 := R0
+          29 [   0] SETTABLE  R3["listener"] := R4
+          30 [   0] CALL      R1(...) nargs=2 nret=0
+          31 [   0] JMP       jmp +3 -> 35
+          32 [   0] GETUPVAL  R1 := upval 4
+          33 [   0] GETTABLE  R2 := R0["data"]
+          34 [   0] CALL      R1(...) nargs=1 nret=0
+          35 [   0] RETURN    return R0.. (0 values)
+        function main.#1.#1.#1.#0 (params=0, lines 40-42, upvals=[], locals=[])
+          constants: strings=['data'] numbers=[]
+             0 [   0] GETUPVAL  R0 := upval 0
+             1 [   0] GETUPVAL  R1 := upval 1
+             2 [   0] GETTABLE  R1 := R1["data"]
+             3 [   0] CALL      R0(...) nargs=1 nret=0
+             4 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#2 (params=1, lines 57-61, upvals=[], locals=[])
+      constants: strings=['msg', '[GameServices] Signing out from Game Center'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "[GameServices] Signing out from Game Center"
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] MOVE      R2 := R0
+         6 [   0] CALL      R1(...) nargs=1 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#3 (params=0, lines 63-65, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#4 (params=4, lines 67-86, upvals=[], locals=[])
+      constants: strings=['msg', '[GameServices] Unlocking Achievement on Game Center: id =', 'request', 'unlockAchievement', 'achievement', 'identifier', 'percentComplete', 'showsCompletionBanner', 'listener', '[GameServices] UnlockAchievement() called but not signed in Game Center: id ='] numbers=[]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +20 -> 23
+         3 [   0] GETUPVAL  R4 := upval 1
+         4 [   0] GETTABLE  R4 := R4["msg"]
+         5 [   0] LOADK     R5 := "[GameServices] Unlocking Achievement on Game Center: id ="
+         6 [   0] MOVE      R6 := R0
+         7 [   0] CALL      R4(...) nargs=2 nret=0
+         8 [   0] GETUPVAL  R4 := upval 2
+         9 [   0] GETTABLE  R4 := R4["request"]
+        10 [   0] LOADK     R5 := "unlockAchievement"
+        11 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+        12 [   0] NEWTABLE  R7 := {} (array 0, hash 3)
+        13 [   0] SETTABLE  R7["identifier"] := R0
+        14 [   0] SETTABLE  R7["percentComplete"] := R1
+        15 [   0] SETTABLE  R7["showsCompletionBanner"] := R2
+        16 [   0] SETTABLE  R6["achievement"] := R7
+        17 [   0] CLOSURE   R7 := closure #0
+        18 [   0] GETUPVAL  R0 := upval 3
+        19 [   0] MOVE      R0 := R3
+        20 [   0] SETTABLE  R6["listener"] := R7
+        21 [   0] CALL      R4(...) nargs=2 nret=0
+        22 [   0] JMP       jmp +9 -> 32
+        23 [   0] GETUPVAL  R4 := upval 1
+        24 [   0] GETTABLE  R4 := R4["msg"]
+        25 [   0] LOADK     R5 := "[GameServices] UnlockAchievement() called but not signed in Game Cente"
+        26 [   0] MOVE      R6 := R0
+        27 [   0] CALL      R4(...) nargs=2 nret=0
+        28 [   0] GETUPVAL  R4 := upval 3
+        29 [   0] MOVE      R5 := R3
+        30 [   0] LOADBOOL  R6 := False
+        31 [   0] CALL      R4(...) nargs=2 nret=0
+        32 [   0] RETURN    return R0.. (0 values)
+      function main.#1.#4.#0 (params=0, lines 78-80, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] LOADBOOL  R2 := True
+           3 [   0] CALL      R0(...) nargs=2 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#5 (params=3, lines 88-102, upvals=[], locals=[])
+      constants: strings=['msg', '[GameServices] Setting Leaderboard-Score on Game Center: leaderboard =', ' score =', 'request', 'setHighScore', 'localPlayerScore', 'category', 'value', 'listener', '[GameServices] setLeaderboardScore() called but not signed in Game Center: id ='] numbers=[]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +21 -> 24
+         3 [   0] GETUPVAL  R3 := upval 1
+         4 [   0] GETTABLE  R3 := R3["msg"]
+         5 [   0] LOADK     R4 := "[GameServices] Setting Leaderboard-Score on Game Center: leaderboard ="
+         6 [   0] MOVE      R5 := R0
+         7 [   0] LOADK     R6 := " score ="
+         8 [   0] MOVE      R7 := R1
+         9 [   0] CALL      R3(...) nargs=4 nret=0
+        10 [   0] GETUPVAL  R3 := upval 2
+        11 [   0] GETTABLE  R3 := R3["request"]
+        12 [   0] LOADK     R4 := "setHighScore"
+        13 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+        14 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+        15 [   0] SETTABLE  R6["category"] := R0
+        16 [   0] SETTABLE  R6["value"] := R1
+        17 [   0] SETTABLE  R5["localPlayerScore"] := R6
+        18 [   0] CLOSURE   R6 := closure #0
+        19 [   0] GETUPVAL  R0 := upval 3
+        20 [   0] MOVE      R0 := R2
+        21 [   0] SETTABLE  R5["listener"] := R6
+        22 [   0] CALL      R3(...) nargs=2 nret=0
+        23 [   0] JMP       jmp +9 -> 33
+        24 [   0] GETUPVAL  R3 := upval 1
+        25 [   0] GETTABLE  R3 := R3["msg"]
+        26 [   0] LOADK     R4 := "[GameServices] setLeaderboardScore() called but not signed in Game Cen"
+        27 [   0] MOVE      R5 := R0
+        28 [   0] CALL      R3(...) nargs=2 nret=0
+        29 [   0] GETUPVAL  R3 := upval 3
+        30 [   0] MOVE      R4 := R2
+        31 [   0] LOADBOOL  R5 := False
+        32 [   0] CALL      R3(...) nargs=2 nret=0
+        33 [   0] RETURN    return R0.. (0 values)
+      function main.#1.#5.#0 (params=0, lines 94-96, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] LOADBOOL  R2 := True
+           3 [   0] CALL      R0(...) nargs=2 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#6 (params=1, lines 104-114, upvals=[], locals=[])
+      constants: strings=['show', 'leaderboards', 'listener'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +10 -> 13
+         3 [   0] GETUPVAL  R1 := upval 1
+         4 [   0] GETTABLE  R1 := R1["show"]
+         5 [   0] LOADK     R2 := "leaderboards"
+         6 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+         7 [   0] CLOSURE   R4 := closure #0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] MOVE      R0 := R0
+        10 [   0] SETTABLE  R3["listener"] := R4
+        11 [   0] CALL      R1(...) nargs=2 nret=0
+        12 [   0] JMP       jmp +4 -> 17
+        13 [   0] GETUPVAL  R1 := upval 2
+        14 [   0] MOVE      R2 := R0
+        15 [   0] LOADBOOL  R3 := False
+        16 [   0] CALL      R1(...) nargs=2 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+      function main.#1.#6.#0 (params=0, lines 107-109, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] LOADBOOL  R2 := True
+           3 [   0] CALL      R0(...) nargs=2 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#7 (params=1, lines 116-126, upvals=[], locals=[])
+      constants: strings=['show', 'achievements', 'listener'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +10 -> 13
+         3 [   0] GETUPVAL  R1 := upval 1
+         4 [   0] GETTABLE  R1 := R1["show"]
+         5 [   0] LOADK     R2 := "achievements"
+         6 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+         7 [   0] CLOSURE   R4 := closure #0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] MOVE      R0 := R0
+        10 [   0] SETTABLE  R3["listener"] := R4
+        11 [   0] CALL      R1(...) nargs=2 nret=0
+        12 [   0] JMP       jmp +4 -> 17
+        13 [   0] GETUPVAL  R1 := upval 2
+        14 [   0] MOVE      R2 := R0
+        15 [   0] LOADBOOL  R3 := False
+        16 [   0] CALL      R1(...) nargs=2 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+      function main.#1.#7.#0 (params=0, lines 119-121, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] LOADBOOL  R2 := True
+           3 [   0] CALL      R0(...) nargs=2 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#8 (params=0, lines 128-130, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] LOADBOOL  R0 := True
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 137-142, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

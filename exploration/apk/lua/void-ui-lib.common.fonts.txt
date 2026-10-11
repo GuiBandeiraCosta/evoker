@@ -1,0 +1,95 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['system', 'getInfo', 'platformName', 'native', 'std', 'bold', 'thin', 'extrabold', 'googlebold', 'STANDARD', 'BOLD', 'THIN', 'EXTRABOLD', 'GOOGLEBOLD', 'initFonts', 'getStdFont', 'getBoldFont', 'getThinFont', 'getFont'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["system"]
+     1 [   0] GETTABLE  R0 := R0["getInfo"]
+     2 [   0] LOADK     R1 := "platformName"
+     3 [   0] CALL      R0(...) nargs=1 nret=1
+     4 [   0] GETGLOBAL R1 := _G["native"]
+     5 [   0] LOADK     R2 := "std"
+     6 [   0] LOADK     R3 := "bold"
+     7 [   0] LOADK     R4 := "thin"
+     8 [   0] LOADK     R5 := "extrabold"
+     9 [   0] LOADK     R6 := "googlebold"
+    10 [   0] LOADNIL   R7..R7 := nil
+    11 [   0] CLOSURE   R8 := closure #0
+    12 [   0] MOVE      R0 := R7
+    13 [   0] CLOSURE   R9 := closure #1
+    14 [   0] MOVE      R0 := R7
+    15 [   0] MOVE      R0 := R0
+    16 [   0] MOVE      R0 := R3
+    17 [   0] MOVE      R0 := R1
+    18 [   0] CLOSURE   R10 := closure #2
+    19 [   0] MOVE      R0 := R9
+    20 [   0] MOVE      R0 := R2
+    21 [   0] CLOSURE   R11 := closure #3
+    22 [   0] MOVE      R0 := R9
+    23 [   0] MOVE      R0 := R3
+    24 [   0] CLOSURE   R12 := closure #4
+    25 [   0] MOVE      R0 := R9
+    26 [   0] MOVE      R0 := R4
+    27 [   0] NEWTABLE  R13 := {} (array 0, hash 10)
+    28 [   0] SETTABLE  R13["STANDARD"] := R2
+    29 [   0] SETTABLE  R13["BOLD"] := R3
+    30 [   0] SETTABLE  R13["THIN"] := R4
+    31 [   0] SETTABLE  R13["EXTRABOLD"] := R5
+    32 [   0] SETTABLE  R13["GOOGLEBOLD"] := R6
+    33 [   0] SETTABLE  R13["initFonts"] := R8
+    34 [   0] SETTABLE  R13["getStdFont"] := R10
+    35 [   0] SETTABLE  R13["getBoldFont"] := R11
+    36 [   0] SETTABLE  R13["getThinFont"] := R12
+    37 [   0] SETTABLE  R13["getFont"] := R9
+    38 [   0] RETURN    return R13.. (1 values)
+    39 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 12-14, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] SETUPVAL  upval 0 := R0
+       1 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 16-26, upvals=[], locals=[])
+    constants: strings=['systemFont'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       2 [   0] JMP       jmp +19 -> 22
+       3 [   0] GETUPVAL  R1 := upval 0
+       4 [   0] GETTABLE  R1 := R1[R0]
+       5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       6 [   0] JMP       jmp +15 -> 22
+       7 [   0] GETUPVAL  R1 := upval 0
+       8 [   0] GETTABLE  R1 := R1[R0]
+       9 [   0] GETUPVAL  R2 := upval 1
+      10 [   0] GETTABLE  R1 := R1[R2]
+      11 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      12 [   0] JMP       jmp +9 -> 22
+      13 [   0] GETUPVAL  R1 := upval 2
+      14 [   0] EQ        if (R0 == R1) ~= 0 then skip next
+      15 [   0] JMP       jmp +0 -> 16
+      16 [   0] GETUPVAL  R1 := upval 0
+      17 [   0] GETTABLE  R1 := R1[R0]
+      18 [   0] GETUPVAL  R2 := upval 1
+      19 [   0] GETTABLE  R1 := R1[R2]
+      20 [   0] RETURN    return R1.. (1 values)
+      21 [   0] JMP       jmp +3 -> 25
+      22 [   0] GETUPVAL  R1 := upval 3
+      23 [   0] GETTABLE  R1 := R1["systemFont"]
+      24 [   0] RETURN    return R1.. (1 values)
+      25 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 28-30, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] TAILCALL  return R0(...) nargs=1
+       3 [   0] RETURN    return R0.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=0, lines 32-35, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] TAILCALL  return R0(...) nargs=1
+       3 [   0] RETURN    return R0.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=0, lines 37-39, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] TAILCALL  return R0(...) nargs=1
+       3 [   0] RETURN    return R0.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)

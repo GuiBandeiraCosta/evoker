@@ -1,0 +1,252 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'eventlistener', 'eventdispatcher', 'logging.logger', 'getInstance'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "eventlistener"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "eventdispatcher"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "logging.logger"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] LOADK     R3 := 3
+    16 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+    17 [   0] CLOSURE   R5 := closure #0
+    18 [   0] MOVE      R0 := R2
+    19 [   0] MOVE      R0 := R3
+    20 [   0] CLOSURE   R6 := closure #1
+    21 [   0] MOVE      R0 := R5
+    22 [   0] MOVE      R0 := R1
+    23 [   0] MOVE      R0 := R0
+    24 [   0] LOADNIL   R7..R7 := nil
+    25 [   0] CLOSURE   R8 := closure #2
+    26 [   0] MOVE      R0 := R7
+    27 [   0] MOVE      R0 := R6
+    28 [   0] SETTABLE  R4["getInstance"] := R8
+    29 [   0] RETURN    return R4.. (1 values)
+    30 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 8-106, upvals=[], locals=[])
+    constants: strings=['tracker', 'setTracker', 'attachView', 'detachView', 'postInvitation', 'sendInviteHandler', 'inviteByMail', 'inviteBySMS', 'inviteByFacebook'] numbers=[]
+       0 [   0] SETTABLE  R0["tracker"] := None
+       1 [   0] CLOSURE   R1 := closure #0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] SETTABLE  R0["setTracker"] := R1
+       4 [   0] CLOSURE   R1 := closure #1
+       5 [   0] MOVE      R0 := R0
+       6 [   0] SETTABLE  R0["attachView"] := R1
+       7 [   0] CLOSURE   R1 := closure #2
+       8 [   0] MOVE      R0 := R0
+       9 [   0] SETTABLE  R0["detachView"] := R1
+      10 [   0] CLOSURE   R1 := closure #3
+      11 [   0] SETTABLE  R0["postInvitation"] := R1
+      12 [   0] CLOSURE   R1 := closure #4
+      13 [   0] MOVE      R0 := R0
+      14 [   0] SETTABLE  R0["sendInviteHandler"] := R1
+      15 [   0] CLOSURE   R1 := closure #5
+      16 [   0] GETUPVAL  R0 := upval 0
+      17 [   0] GETUPVAL  R0 := upval 1
+      18 [   0] MOVE      R0 := R0
+      19 [   0] SETTABLE  R0["inviteByMail"] := R1
+      20 [   0] CLOSURE   R1 := closure #6
+      21 [   0] GETUPVAL  R0 := upval 0
+      22 [   0] GETUPVAL  R0 := upval 1
+      23 [   0] MOVE      R0 := R0
+      24 [   0] SETTABLE  R0["inviteBySMS"] := R1
+      25 [   0] CLOSURE   R1 := closure #7
+      26 [   0] GETUPVAL  R0 := upval 0
+      27 [   0] GETUPVAL  R0 := upval 1
+      28 [   0] MOVE      R0 := R0
+      29 [   0] SETTABLE  R0["inviteByFacebook"] := R1
+      30 [   0] RETURN    return R0.. (1 values)
+      31 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 12-14, upvals=[], locals=[])
+      constants: strings=['tracker'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["tracker"] := R0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 16-20, upvals=[], locals=[])
+      constants: strings=['subscribeTo', 'invitationSent', 'sendInvite'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["subscribeTo"]
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] LOADK     R3 := "invitationSent"
+         3 [   0] CALL      R1(...) nargs=2 nret=0
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETTABLE  R1 := R1["subscribeTo"]
+         6 [   0] MOVE      R2 := R0
+         7 [   0] LOADK     R3 := "sendInvite"
+         8 [   0] CALL      R1(...) nargs=2 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 22-26, upvals=[], locals=[])
+      constants: strings=['unsubscribeFrom'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["unsubscribeFrom"]
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] CALL      R1(...) nargs=1 nret=0
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["unsubscribeFrom"]
+         5 [   0] MOVE      R2 := R0
+         6 [   0] CALL      R1(...) nargs=1 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 28-30, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=2, lines 32-41, upvals=[], locals=[])
+      constants: strings=['invitetype', 'facebook', 'inviteByFacebook', 'mail', 'inviteByMail', 'sms', 'inviteBySMS'] numbers=[]
+         0 [   0] GETTABLE  R2 := R1["invitetype"]
+         1 [   0] EQ        if (R2 == "facebook") ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["inviteByFacebook"]
+         5 [   0] CALL      R2(...) nargs=0 nret=0
+         6 [   0] JMP       jmp +13 -> 20
+         7 [   0] GETTABLE  R2 := R1["invitetype"]
+         8 [   0] EQ        if (R2 == "mail") ~= 0 then skip next
+         9 [   0] JMP       jmp +4 -> 14
+        10 [   0] GETUPVAL  R2 := upval 0
+        11 [   0] GETTABLE  R2 := R2["inviteByMail"]
+        12 [   0] CALL      R2(...) nargs=0 nret=0
+        13 [   0] JMP       jmp +6 -> 20
+        14 [   0] GETTABLE  R2 := R1["invitetype"]
+        15 [   0] EQ        if (R2 == "sms") ~= 0 then skip next
+        16 [   0] JMP       jmp +3 -> 20
+        17 [   0] GETUPVAL  R2 := upval 0
+        18 [   0] GETTABLE  R2 := R2["inviteBySMS"]
+        19 [   0] CALL      R2(...) nargs=0 nret=0
+        20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 43-63, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_INVITES', 'InvitationManager.inviteByMail()', 'subject', '_T', 'INVITES_MAIL_SUBJECT', 'body', 'INVITES_MAIL_BODY', 'native', 'showPopup', 'mail', 'tracker', 'logInviteEvent', 'postInvitation'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_INVITES"]
+         5 [   0] LOADK     R3 := 1
+         6 [   0] LOADK     R4 := "InvitationManager.inviteByMail()"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] NEWTABLE  R0 := {} (array 0, hash 2)
+         9 [   0] GETGLOBAL R1 := _G["_T"]
+        10 [   0] LOADK     R2 := "INVITES_MAIL_SUBJECT"
+        11 [   0] CALL      R1(...) nargs=1 nret=1
+        12 [   0] SETTABLE  R0["subject"] := R1
+        13 [   0] GETGLOBAL R1 := _G["_T"]
+        14 [   0] LOADK     R2 := "INVITES_MAIL_BODY"
+        15 [   0] CALL      R1(...) nargs=1 nret=1
+        16 [   0] SETTABLE  R0["body"] := R1
+        17 [   0] GETGLOBAL R1 := _G["native"]
+        18 [   0] GETTABLE  R1 := R1["showPopup"]
+        19 [   0] LOADK     R2 := "mail"
+        20 [   0] MOVE      R3 := R0
+        21 [   0] CALL      R1(...) nargs=2 nret=1
+        22 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        23 [   0] JMP       jmp +15 -> 39
+        24 [   0] GETUPVAL  R2 := upval 2
+        25 [   0] GETTABLE  R2 := R2["tracker"]
+        26 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        27 [   0] JMP       jmp +5 -> 33
+        28 [   0] GETUPVAL  R2 := upval 2
+        29 [   0] GETTABLE  R2 := R2["tracker"]
+        30 [   0] GETTABLE  R2 := R2["logInviteEvent"]
+        31 [   0] LOADK     R3 := "mail"
+        32 [   0] CALL      R2(...) nargs=1 nret=0
+        33 [   0] GETUPVAL  R2 := upval 2
+        34 [   0] GETTABLE  R2 := R2["postInvitation"]
+        35 [   0] CALL      R2(...) nargs=0 nret=0
+        36 [   0] LOADBOOL  R2 := True
+        37 [   0] RETURN    return R2.. (1 values)
+        38 [   0] JMP       jmp +2 -> 41
+        39 [   0] LOADBOOL  R2 := False
+        40 [   0] RETURN    return R2.. (1 values)
+        41 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 65-83, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_INVITES', 'InvitationManager.inviteBySMS()', 'body', '_T', 'INVITES_SMS_BODY', 'native', 'showPopup', 'sms', 'tracker', 'logInviteEvent', 'postInvitation'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_INVITES"]
+         5 [   0] LOADK     R3 := 1
+         6 [   0] LOADK     R4 := "InvitationManager.inviteBySMS()"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         9 [   0] GETGLOBAL R1 := _G["_T"]
+        10 [   0] LOADK     R2 := "INVITES_SMS_BODY"
+        11 [   0] CALL      R1(...) nargs=1 nret=1
+        12 [   0] SETTABLE  R0["body"] := R1
+        13 [   0] GETGLOBAL R1 := _G["native"]
+        14 [   0] GETTABLE  R1 := R1["showPopup"]
+        15 [   0] LOADK     R2 := "sms"
+        16 [   0] MOVE      R3 := R0
+        17 [   0] CALL      R1(...) nargs=2 nret=1
+        18 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        19 [   0] JMP       jmp +15 -> 35
+        20 [   0] GETUPVAL  R2 := upval 2
+        21 [   0] GETTABLE  R2 := R2["tracker"]
+        22 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        23 [   0] JMP       jmp +5 -> 29
+        24 [   0] GETUPVAL  R2 := upval 2
+        25 [   0] GETTABLE  R2 := R2["tracker"]
+        26 [   0] GETTABLE  R2 := R2["logInviteEvent"]
+        27 [   0] LOADK     R3 := "sms"
+        28 [   0] CALL      R2(...) nargs=1 nret=0
+        29 [   0] GETUPVAL  R2 := upval 2
+        30 [   0] GETTABLE  R2 := R2["postInvitation"]
+        31 [   0] CALL      R2(...) nargs=0 nret=0
+        32 [   0] LOADBOOL  R2 := True
+        33 [   0] RETURN    return R2.. (1 values)
+        34 [   0] JMP       jmp +2 -> 37
+        35 [   0] LOADBOOL  R2 := False
+        36 [   0] RETURN    return R2.. (1 values)
+        37 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 86-102, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_INVITES', 'InvitationManager.inviteByFacebook()', 'tracker', 'logInviteEvent', 'facebook', 'postInvitation'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_INVITES"]
+         5 [   0] LOADK     R3 := 1
+         6 [   0] LOADK     R4 := "InvitationManager.inviteByFacebook()"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] GETTABLE  R0 := R0["tracker"]
+        10 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +5 -> 17
+        12 [   0] GETUPVAL  R0 := upval 2
+        13 [   0] GETTABLE  R0 := R0["tracker"]
+        14 [   0] GETTABLE  R0 := R0["logInviteEvent"]
+        15 [   0] LOADK     R1 := "facebook"
+        16 [   0] CALL      R0(...) nargs=1 nret=0
+        17 [   0] GETUPVAL  R0 := upval 2
+        18 [   0] GETTABLE  R0 := R0["postInvitation"]
+        19 [   0] CALL      R0(...) nargs=0 nret=0
+        20 [   0] LOADBOOL  R0 := True
+        21 [   0] RETURN    return R0.. (1 values)
+        22 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 108-112, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new_inherit"]
+       3 [   0] GETUPVAL  R2 := upval 2
+       4 [   0] GETTABLE  R2 := R2["new"]
+       5 [   0] CALL      R2(...) nargs=0 nret=-1
+       6 [   0] CALL      R1(...) nargs=-1 nret=-1
+       7 [   0] TAILCALL  return R0(...) nargs=-1
+       8 [   0] RETURN    return R0.. (-1 values)
+       9 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 115-120, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

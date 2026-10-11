@@ -1,0 +1,479 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['create'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["create"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 9-190, upvals=[], locals=[])
+    constants: strings=['_DEBUG', 'maxRunTime', 'interval', 'abortCoroutine', 'addCoroutine', 'logTimings', 'enableTiming', 'waitTillFinished', 'start', 'enter', 'exit', 'destroy'] numbers=[1, 25, 5]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       2 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       3 [   0] LOADK     R4 := 1
+       4 [   0] LOADBOOL  R5 := False
+       5 [   0] GETGLOBAL R6 := _G["_DEBUG"]
+       6 [   0] LOADNIL   R7..R7 := nil
+       7 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+       8 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +3 -> 13
+      10 [   0] GETTABLE  R9 := R0["maxRunTime"]
+      11 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+      12 [   0] JMP       jmp +1 -> 14
+      13 [   0] LOADK     R9 := 25
+      14 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      15 [   0] JMP       jmp +3 -> 19
+      16 [   0] GETTABLE  R10 := R0["interval"]
+      17 [   0] TEST      if (R10 truthy) ~= 1 then skip next
+      18 [   0] JMP       jmp +1 -> 20
+      19 [   0] LOADK     R10 := 5
+      20 [   0] NEWTABLE  R11 := {} (array 0, hash 0)
+      21 [   0] CLOSURE   R12 := closure #0
+      22 [   0] MOVE      R0 := R4
+      23 [   0] MOVE      R0 := R2
+      24 [   0] MOVE      R0 := R3
+      25 [   0] MOVE      R0 := R8
+      26 [   0] CLOSURE   R13 := closure #1
+      27 [   0] MOVE      R0 := R5
+      28 [   0] MOVE      R0 := R2
+      29 [   0] MOVE      R0 := R9
+      30 [   0] MOVE      R0 := R12
+      31 [   0] MOVE      R0 := R6
+      32 [   0] MOVE      R0 := R11
+      33 [   0] MOVE      R0 := R7
+      34 [   0] MOVE      R0 := R10
+      35 [   0] MOVE      R0 := R13
+      36 [   0] CLOSURE   R14 := closure #2
+      37 [   0] MOVE      R0 := R2
+      38 [   0] MOVE      R0 := R3
+      39 [   0] SETTABLE  R1["abortCoroutine"] := R14
+      40 [   0] CLOSURE   R14 := closure #3
+      41 [   0] MOVE      R0 := R2
+      42 [   0] MOVE      R0 := R3
+      43 [   0] MOVE      R0 := R5
+      44 [   0] MOVE      R0 := R7
+      45 [   0] MOVE      R0 := R13
+      46 [   0] SETTABLE  R1["addCoroutine"] := R14
+      47 [   0] CLOSURE   R14 := closure #4
+      48 [   0] MOVE      R0 := R11
+      49 [   0] SETTABLE  R1["logTimings"] := R14
+      50 [   0] CLOSURE   R14 := closure #5
+      51 [   0] MOVE      R0 := R6
+      52 [   0] SETTABLE  R1["enableTiming"] := R14
+      53 [   0] CLOSURE   R14 := closure #6
+      54 [   0] MOVE      R0 := R3
+      55 [   0] SETTABLE  R1["waitTillFinished"] := R14
+      56 [   0] CLOSURE   R14 := closure #7
+      57 [   0] MOVE      R0 := R5
+      58 [   0] MOVE      R0 := R7
+      59 [   0] MOVE      R0 := R13
+      60 [   0] SETTABLE  R1["start"] := R14
+      61 [   0] CLOSURE   R14 := closure #8
+      62 [   0] MOVE      R0 := R1
+      63 [   0] SETTABLE  R1["enter"] := R14
+      64 [   0] CLOSURE   R14 := closure #9
+      65 [   0] MOVE      R0 := R7
+      66 [   0] MOVE      R0 := R8
+      67 [   0] MOVE      R0 := R5
+      68 [   0] MOVE      R0 := R1
+      69 [   0] SETTABLE  R1["exit"] := R14
+      70 [   0] CLOSURE   R14 := closure #10
+      71 [   0] MOVE      R0 := R1
+      72 [   0] SETTABLE  R1["destroy"] := R14
+      73 [   0] RETURN    return R1.. (1 values)
+      74 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 28-56, upvals=[], locals=[])
+      constants: strings=['coroutine', 'status', 'dead', 'resume', 'log', 'err', 'coroutine failed with error ', 'table', 'remove', 'cb', 'timer', 'performWithDelay'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] LEN       R1 := #R1
+         3 [   0] LT        if (R1 < R0) ~= 0 then skip next
+         4 [   0] JMP       jmp +2 -> 7
+         5 [   0] LOADK     R0 := 1
+         6 [   0] SETUPVAL  upval 0 := R0
+         7 [   0] GETUPVAL  R0 := upval 1
+         8 [   0] GETUPVAL  R1 := upval 0
+         9 [   0] GETTABLE  R0 := R0[R1]
+        10 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +60 -> 72
+        12 [   0] GETGLOBAL R1 := _G["coroutine"]
+        13 [   0] GETTABLE  R1 := R1["status"]
+        14 [   0] MOVE      R2 := R0
+        15 [   0] CALL      R1(...) nargs=1 nret=1
+        16 [   0] EQ        if (R1 == "dead") ~= 1 then skip next
+        17 [   0] JMP       jmp +16 -> 34
+        18 [   0] GETGLOBAL R2 := _G["coroutine"]
+        19 [   0] GETTABLE  R2 := R2["resume"]
+        20 [   0] MOVE      R3 := R0
+        21 [   0] CALL      R2(...) nargs=1 nret=2
+        22 [   0] EQ        if (R2 == False) ~= 0 then skip next
+        23 [   0] JMP       jmp +10 -> 34
+        24 [   0] GETGLOBAL R4 := _G["log"]
+        25 [   0] GETTABLE  R4 := R4["err"]
+        26 [   0] LOADK     R5 := "coroutine failed with error "
+        27 [   0] MOVE      R6 := R3
+        28 [   0] CALL      R4(...) nargs=2 nret=0
+        29 [   0] GETGLOBAL R4 := _G["table"]
+        30 [   0] GETTABLE  R4 := R4["remove"]
+        31 [   0] GETUPVAL  R5 := upval 1
+        32 [   0] GETUPVAL  R6 := upval 0
+        33 [   0] CALL      R4(...) nargs=2 nret=0
+        34 [   0] GETGLOBAL R2 := _G["coroutine"]
+        35 [   0] GETTABLE  R2 := R2["status"]
+        36 [   0] MOVE      R3 := R0
+        37 [   0] CALL      R2(...) nargs=1 nret=1
+        38 [   0] MOVE      R1 := R2
+        39 [   0] GETUPVAL  R2 := upval 2
+        40 [   0] GETTABLE  R2 := R2[R0]
+        41 [   0] SETTABLE  R2["status"] := R1
+        42 [   0] EQ        if (R1 == "dead") ~= 0 then skip next
+        43 [   0] JMP       jmp +28 -> 72
+        44 [   0] GETUPVAL  R2 := upval 2
+        45 [   0] GETTABLE  R2 := R2[R0]
+        46 [   0] GETTABLE  R2 := R2["cb"]
+        47 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        48 [   0] JMP       jmp +18 -> 67
+        49 [   0] GETUPVAL  R2 := upval 2
+        50 [   0] GETTABLE  R2 := R2[R0]
+        51 [   0] GETTABLE  R2 := R2["cb"]
+        52 [   0] GETUPVAL  R3 := upval 2
+        53 [   0] GETTABLE  R3 := R3[R0]
+        54 [   0] SETTABLE  R3["cb"] := None
+        55 [   0] GETUPVAL  R3 := upval 3
+        56 [   0] GETUPVAL  R4 := upval 3
+        57 [   0] LEN       R4 := #R4
+        58 [   0] ADD       R4 := R4 + 1
+        59 [   0] GETGLOBAL R5 := _G["timer"]
+        60 [   0] GETTABLE  R5 := R5["performWithDelay"]
+        61 [   0] LOADK     R6 := 1
+        62 [   0] CLOSURE   R7 := closure #0
+        63 [   0] MOVE      R0 := R2
+        64 [   0] CALL      R5(...) nargs=2 nret=1
+        65 [   0] SETTABLE  R3[R4] := R5
+        66 [   0] CLOSE     A=2 B=0 C=0
+        67 [   0] GETGLOBAL R2 := _G["table"]
+        68 [   0] GETTABLE  R2 := R2["remove"]
+        69 [   0] GETUPVAL  R3 := upval 1
+        70 [   0] GETUPVAL  R4 := upval 0
+        71 [   0] CALL      R2(...) nargs=2 nret=0
+        72 [   0] GETUPVAL  R1 := upval 0
+        73 [   0] ADD       R1 := R1 + 1
+        74 [   0] SETUPVAL  upval 0 := R1
+        75 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#0.#0 (params=0, lines 48-50, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] CALL      R0(...) nargs=0 nret=0
+           2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 58-78, upvals=[], locals=[])
+      constants: strings=['system', 'getTimer', 'timer', 'performWithDelay'] numbers=[0, 1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] GETUPVAL  R0 := upval 1
+         5 [   0] LEN       R0 := #R0
+         6 [   0] LT        if (0 < R0) ~= 0 then skip next
+         7 [   0] JMP       jmp +28 -> 36
+         8 [   0] GETGLOBAL R0 := _G["system"]
+         9 [   0] GETTABLE  R0 := R0["getTimer"]
+        10 [   0] CALL      R0(...) nargs=0 nret=1
+        11 [   0] LOADK     R1 := 0
+        12 [   0] LOADK     R2 := 0
+        13 [   0] GETUPVAL  R3 := upval 2
+        14 [   0] LT        if (R1 < R3) ~= 0 then skip next
+        15 [   0] JMP       jmp +12 -> 28
+        16 [   0] GETUPVAL  R3 := upval 1
+        17 [   0] LEN       R3 := #R3
+        18 [   0] LT        if (0 < R3) ~= 0 then skip next
+        19 [   0] JMP       jmp +8 -> 28
+        20 [   0] GETUPVAL  R3 := upval 3
+        21 [   0] CALL      R3(...) nargs=0 nret=0
+        22 [   0] GETGLOBAL R3 := _G["system"]
+        23 [   0] GETTABLE  R3 := R3["getTimer"]
+        24 [   0] CALL      R3(...) nargs=0 nret=1
+        25 [   0] SUB       R1 := R3 - R0
+        26 [   0] ADD       R2 := R2 + 1
+        27 [   0] JMP       jmp -15 -> 13
+        28 [   0] GETUPVAL  R3 := upval 4
+        29 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        30 [   0] JMP       jmp +5 -> 36
+        31 [   0] GETUPVAL  R3 := upval 5
+        32 [   0] GETUPVAL  R4 := upval 5
+        33 [   0] LEN       R4 := #R4
+        34 [   0] ADD       R4 := R4 + 1
+        35 [   0] SETTABLE  R3[R4] := R1
+        36 [   0] GETUPVAL  R0 := upval 1
+        37 [   0] LEN       R0 := #R0
+        38 [   0] LT        if (0 < R0) ~= 0 then skip next
+        39 [   0] JMP       jmp +7 -> 47
+        40 [   0] GETGLOBAL R0 := _G["timer"]
+        41 [   0] GETTABLE  R0 := R0["performWithDelay"]
+        42 [   0] GETUPVAL  R1 := upval 7
+        43 [   0] GETUPVAL  R2 := upval 8
+        44 [   0] CALL      R0(...) nargs=2 nret=1
+        45 [   0] SETUPVAL  upval 6 := R0
+        46 [   0] JMP       jmp +2 -> 49
+        47 [   0] LOADNIL   R0..R0 := nil
+        48 [   0] SETUPVAL  upval 6 := R0
+        49 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 80-95, upvals=[], locals=[])
+      constants: strings=['table', 'remove', 'status', 'dead', 'aborted'] numbers=[1]
+         0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] RETURN    return R0.. (0 values)
+         3 [   0] LOADNIL   R1..R1 := nil
+         4 [   0] LOADK     R2 := 1
+         5 [   0] GETUPVAL  R3 := upval 0
+         6 [   0] LEN       R3 := #R3
+         7 [   0] LOADK     R4 := 1
+         8 [   0] FORPREP   for R2.. jmp +6
+         9 [   0] GETUPVAL  R6 := upval 0
+        10 [   0] GETTABLE  R6 := R6[R5]
+        11 [   0] EQ        if (R6 == R0) ~= 0 then skip next
+        12 [   0] JMP       jmp +2 -> 15
+        13 [   0] MOVE      R1 := R5
+        14 [   0] JMP       jmp +1 -> 16
+        15 [   0] FORLOOP   forloop R2 jmp -7
+        16 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        17 [   0] JMP       jmp +17 -> 35
+        18 [   0] GETGLOBAL R2 := _G["table"]
+        19 [   0] GETTABLE  R2 := R2["remove"]
+        20 [   0] GETUPVAL  R3 := upval 0
+        21 [   0] MOVE      R4 := R1
+        22 [   0] CALL      R2(...) nargs=2 nret=0
+        23 [   0] GETUPVAL  R2 := upval 1
+        24 [   0] GETTABLE  R2 := R2[R0]
+        25 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        26 [   0] JMP       jmp +8 -> 35
+        27 [   0] GETUPVAL  R2 := upval 1
+        28 [   0] GETTABLE  R2 := R2[R0]
+        29 [   0] GETTABLE  R2 := R2["status"]
+        30 [   0] EQ        if (R2 == "dead") ~= 1 then skip next
+        31 [   0] JMP       jmp +3 -> 35
+        32 [   0] GETUPVAL  R2 := upval 1
+        33 [   0] GETTABLE  R2 := R2[R0]
+        34 [   0] SETTABLE  R2["status"] := "aborted"
+        35 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 97-103, upvals=[], locals=[])
+      constants: strings=['status', 'coroutine', 'timer', 'performWithDelay'] numbers=[1]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] LEN       R2 := #R2
+         3 [   0] ADD       R2 := R2 + 1
+         4 [   0] SETTABLE  R1[R2] := R0
+         5 [   0] GETUPVAL  R1 := upval 1
+         6 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+         7 [   0] GETGLOBAL R3 := _G["coroutine"]
+         8 [   0] GETTABLE  R3 := R3["status"]
+         9 [   0] MOVE      R4 := R0
+        10 [   0] CALL      R3(...) nargs=1 nret=1
+        11 [   0] SETTABLE  R2["status"] := R3
+        12 [   0] SETTABLE  R1[R0] := R2
+        13 [   0] GETUPVAL  R1 := upval 2
+        14 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +9 -> 25
+        16 [   0] GETUPVAL  R1 := upval 3
+        17 [   0] EQ        if (R1 == None) ~= 0 then skip next
+        18 [   0] JMP       jmp +6 -> 25
+        19 [   0] GETGLOBAL R1 := _G["timer"]
+        20 [   0] GETTABLE  R1 := R1["performWithDelay"]
+        21 [   0] LOADK     R2 := 1
+        22 [   0] GETUPVAL  R3 := upval 4
+        23 [   0] CALL      R1(...) nargs=2 nret=1
+        24 [   0] SETUPVAL  upval 3 := R1
+        25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 106-141, upvals=[], locals=[])
+      constants: strings=['table', 'sort', 'math', 'ceil', 'log', 'msg', 'timings over ', ' samples : min: ', ' max: ', ' avg: ', ' med: ', ' p1: ', ' p9: '] numbers=[0, 2, 1, 0.5, 0.1, 0.9]
+         0 [   0] LOADK     R2 := 0
+         1 [   0] GETGLOBAL R3 := _G["table"]
+         2 [   0] GETTABLE  R3 := R3["sort"]
+         3 [   0] GETUPVAL  R4 := upval 0
+         4 [   0] CALL      R3(...) nargs=1 nret=0
+         5 [   0] LOADK     R3 := 0
+         6 [   0] LOADK     R4 := 0
+         7 [   0] LOADK     R5 := 0
+         8 [   0] GETUPVAL  R6 := upval 0
+         9 [   0] LEN       R6 := #R6
+        10 [   0] LT        if (0 < R6) ~= 0 then skip next
+        11 [   0] JMP       jmp +43 -> 55
+        12 [   0] GETUPVAL  R6 := upval 0
+        13 [   0] LEN       R6 := #R6
+        14 [   0] MOD       R6 := R6 % 2
+        15 [   0] EQ        if (R6 == 1) ~= 0 then skip next
+        16 [   0] JMP       jmp +9 -> 26
+        17 [   0] GETUPVAL  R6 := upval 0
+        18 [   0] GETGLOBAL R7 := _G["math"]
+        19 [   0] GETTABLE  R7 := R7["ceil"]
+        20 [   0] GETUPVAL  R8 := upval 0
+        21 [   0] LEN       R8 := #R8
+        22 [   0] DIV       R8 := R8 / 2
+        23 [   0] CALL      R7(...) nargs=1 nret=1
+        24 [   0] GETTABLE  R3 := R6[R7]
+        25 [   0] JMP       jmp +13 -> 39
+        26 [   0] GETUPVAL  R6 := upval 0
+        27 [   0] GETUPVAL  R7 := upval 0
+        28 [   0] LEN       R7 := #R7
+        29 [   0] DIV       R7 := R7 / 2
+        30 [   0] GETTABLE  R6 := R6[R7]
+        31 [   0] GETUPVAL  R7 := upval 0
+        32 [   0] GETUPVAL  R8 := upval 0
+        33 [   0] LEN       R8 := #R8
+        34 [   0] DIV       R8 := R8 / 2
+        35 [   0] ADD       R8 := R8 + 1
+        36 [   0] GETTABLE  R7 := R7[R8]
+        37 [   0] ADD       R6 := R6 + R7
+        38 [   0] MUL       R3 := R6 * 0.5
+        39 [   0] GETUPVAL  R6 := upval 0
+        40 [   0] GETGLOBAL R7 := _G["math"]
+        41 [   0] GETTABLE  R7 := R7["ceil"]
+        42 [   0] GETUPVAL  R8 := upval 0
+        43 [   0] LEN       R8 := #R8
+        44 [   0] MUL       R8 := R8 * 0.1
+        45 [   0] CALL      R7(...) nargs=1 nret=1
+        46 [   0] GETTABLE  R4 := R6[R7]
+        47 [   0] GETUPVAL  R6 := upval 0
+        48 [   0] GETGLOBAL R7 := _G["math"]
+        49 [   0] GETTABLE  R7 := R7["ceil"]
+        50 [   0] GETUPVAL  R8 := upval 0
+        51 [   0] LEN       R8 := #R8
+        52 [   0] MUL       R8 := R8 * 0.9
+        53 [   0] CALL      R7(...) nargs=1 nret=1
+        54 [   0] GETTABLE  R5 := R6[R7]
+        55 [   0] LOADK     R6 := 1
+        56 [   0] GETUPVAL  R7 := upval 0
+        57 [   0] LEN       R7 := #R7
+        58 [   0] LOADK     R8 := 1
+        59 [   0] FORPREP   for R6.. jmp +13
+        60 [   0] GETUPVAL  R10 := upval 0
+        61 [   0] GETTABLE  R10 := R10[R9]
+        62 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        63 [   0] JMP       jmp +2 -> 66
+        64 [   0] LT        if (R10 < R0) ~= 0 then skip next
+        65 [   0] JMP       jmp +1 -> 67
+        66 [   0] MOVE      R0 := R10
+        67 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        68 [   0] JMP       jmp +2 -> 71
+        69 [   0] LT        if (R1 < R10) ~= 0 then skip next
+        70 [   0] JMP       jmp +1 -> 72
+        71 [   0] MOVE      R1 := R10
+        72 [   0] ADD       R2 := R2 + R10
+        73 [   0] FORLOOP   forloop R6 jmp -14
+        74 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        75 [   0] JMP       jmp +1 -> 77
+        76 [   0] LOADK     R1 := 0
+        77 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+        78 [   0] JMP       jmp +1 -> 80
+        79 [   0] LOADK     R0 := 0
+        80 [   0] GETUPVAL  R6 := upval 0
+        81 [   0] LEN       R6 := #R6
+        82 [   0] DIV       R2 := R2 / R6
+        83 [   0] GETGLOBAL R6 := _G["log"]
+        84 [   0] GETTABLE  R6 := R6["msg"]
+        85 [   0] LOADK     R7 := "timings over "
+        86 [   0] GETUPVAL  R8 := upval 0
+        87 [   0] LEN       R8 := #R8
+        88 [   0] LOADK     R9 := " samples : min: "
+        89 [   0] MOVE      R10 := R0
+        90 [   0] LOADK     R11 := " max: "
+        91 [   0] MOVE      R12 := R1
+        92 [   0] LOADK     R13 := " avg: "
+        93 [   0] MOVE      R14 := R2
+        94 [   0] LOADK     R15 := " med: "
+        95 [   0] MOVE      R16 := R3
+        96 [   0] LOADK     R17 := " p1: "
+        97 [   0] MOVE      R18 := R4
+        98 [   0] LOADK     R19 := " p9: "
+        99 [   0] MOVE      R20 := R5
+       100 [   0] CONCAT    R7 := R7 .. ... .. R20
+       101 [   0] CALL      R6(...) nargs=1 nret=0
+       102 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+       103 [   0] SETUPVAL  upval 0 := R6
+       104 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 143-145, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 147-155, upvals=[], locals=[])
+      constants: strings=['type', 'function', 'status', 'dead', 'cb'] numbers=[]
+         0 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +16 -> 18
+         2 [   0] GETGLOBAL R2 := _G["type"]
+         3 [   0] MOVE      R3 := R1
+         4 [   0] CALL      R2(...) nargs=1 nret=1
+         5 [   0] EQ        if (R2 == "function") ~= 0 then skip next
+         6 [   0] JMP       jmp +11 -> 18
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] GETTABLE  R2 := R2[R0]
+         9 [   0] GETTABLE  R2 := R2["status"]
+        10 [   0] EQ        if (R2 == "dead") ~= 0 then skip next
+        11 [   0] JMP       jmp +3 -> 15
+        12 [   0] MOVE      R2 := R1
+        13 [   0] CALL      R2(...) nargs=0 nret=0
+        14 [   0] JMP       jmp +3 -> 18
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2[R0]
+        17 [   0] SETTABLE  R2["cb"] := R1
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 157-164, upvals=[], locals=[])
+      constants: strings=['timer', 'performWithDelay'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +11 -> 14
+         3 [   0] LOADBOOL  R0 := True
+         4 [   0] SETUPVAL  upval 0 := R0
+         5 [   0] GETUPVAL  R0 := upval 1
+         6 [   0] EQ        if (R0 == None) ~= 0 then skip next
+         7 [   0] JMP       jmp +6 -> 14
+         8 [   0] GETGLOBAL R0 := _G["timer"]
+         9 [   0] GETTABLE  R0 := R0["performWithDelay"]
+        10 [   0] LOADK     R1 := 1
+        11 [   0] GETUPVAL  R2 := upval 2
+        12 [   0] CALL      R0(...) nargs=2 nret=1
+        13 [   0] SETUPVAL  upval 1 := R0
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 166-168, upvals=[], locals=[])
+      constants: strings=['start'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["start"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 170-183, upvals=[], locals=[])
+      constants: strings=['timer', 'cancel', '_DEBUG', 'logTimings'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETGLOBAL R0 := _G["timer"]
+         4 [   0] GETTABLE  R0 := R0["cancel"]
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] LOADNIL   R0..R0 := nil
+         8 [   0] SETUPVAL  upval 0 := R0
+         9 [   0] LOADK     R0 := 1
+        10 [   0] GETUPVAL  R1 := upval 1
+        11 [   0] LEN       R1 := #R1
+        12 [   0] LOADK     R2 := 1
+        13 [   0] FORPREP   for R0.. jmp +5
+        14 [   0] GETGLOBAL R4 := _G["timer"]
+        15 [   0] GETTABLE  R4 := R4["cancel"]
+        16 [   0] GETUPVAL  R5 := upval 1
+        17 [   0] GETTABLE  R5 := R5[R3]
+        18 [   0] CALL      R4(...) nargs=1 nret=0
+        19 [   0] FORLOOP   forloop R0 jmp -6
+        20 [   0] LOADBOOL  R0 := False
+        21 [   0] SETUPVAL  upval 2 := R0
+        22 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+        23 [   0] SETUPVAL  upval 1 := R0
+        24 [   0] GETGLOBAL R0 := _G["_DEBUG"]
+        25 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        26 [   0] JMP       jmp +3 -> 30
+        27 [   0] GETUPVAL  R0 := upval 3
+        28 [   0] GETTABLE  R0 := R0["logTimings"]
+        29 [   0] CALL      R0(...) nargs=0 nret=0
+        30 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 185-187, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

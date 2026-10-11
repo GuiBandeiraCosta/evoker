@@ -1,0 +1,182 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'Handler', 'utils.util', 'new_inherit', 'new'] numbers=[3]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "logging.logger"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] LOADK     R2 := 3
+     7 [   0] LOADK     R3 := "Handler"
+     8 [   0] GETGLOBAL R4 := _G["require"]
+     9 [   0] GETGLOBAL R5 := _G["FGLIB_PATH"]
+    10 [   0] LOADK     R6 := "utils.util"
+    11 [   0] CONCAT    R5 := R5 .. ... .. R6
+    12 [   0] CALL      R4(...) nargs=1 nret=1
+    13 [   0] CLOSURE   R5 := closure #0
+    14 [   0] MOVE      R0 := R4
+    15 [   0] MOVE      R0 := R3
+    16 [   0] SETTABLE  R0["new_inherit"] := R5
+    17 [   0] CLOSURE   R5 := closure #1
+    18 [   0] MOVE      R0 := R0
+    19 [   0] SETTABLE  R0["new"] := R5
+    20 [   0] RETURN    return R0.. (1 values)
+    21 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 12-68, upvals=[], locals=[])
+    constants: strings=['listeners', 'emit', 'addEventListener', 'hasEventListeners', 'removeEventListener', 'removeAllEventListeners'] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] SETTABLE  R0["listeners"] := R1
+       2 [   0] CLOSURE   R1 := closure #0
+       3 [   0] MOVE      R0 := R0
+       4 [   0] GETUPVAL  R0 := upval 0
+       5 [   0] SETTABLE  R0["emit"] := R1
+       6 [   0] CLOSURE   R1 := closure #1
+       7 [   0] GETUPVAL  R0 := upval 1
+       8 [   0] MOVE      R0 := R0
+       9 [   0] SETTABLE  R0["addEventListener"] := R1
+      10 [   0] CLOSURE   R1 := closure #2
+      11 [   0] MOVE      R0 := R0
+      12 [   0] SETTABLE  R0["hasEventListeners"] := R1
+      13 [   0] CLOSURE   R1 := closure #3
+      14 [   0] MOVE      R0 := R0
+      15 [   0] GETUPVAL  R0 := upval 1
+      16 [   0] SETTABLE  R0["removeEventListener"] := R1
+      17 [   0] CLOSURE   R1 := closure #4
+      18 [   0] MOVE      R0 := R0
+      19 [   0] SETTABLE  R0["removeAllEventListeners"] := R1
+      20 [   0] RETURN    return R0.. (1 values)
+      21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 16-25, upvals=[], locals=[])
+      constants: strings=['listeners', 'copy', 'pairs'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["listeners"]
+         2 [   0] GETTABLE  R2 := R2[R0]
+         3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] RETURN    return R0.. (0 values)
+         6 [   0] GETUPVAL  R2 := upval 1
+         7 [   0] GETTABLE  R2 := R2["copy"]
+         8 [   0] GETUPVAL  R3 := upval 0
+         9 [   0] GETTABLE  R3 := R3["listeners"]
+        10 [   0] GETTABLE  R3 := R3[R0]
+        11 [   0] CALL      R2(...) nargs=1 nret=1
+        12 [   0] GETGLOBAL R3 := _G["pairs"]
+        13 [   0] MOVE      R4 := R2
+        14 [   0] CALL      R3(...) nargs=1 nret=3
+        15 [   0] JMP       jmp +4 -> 20
+        16 [   0] MOVE      R8 := R7
+        17 [   0] GETUPVAL  R9 := upval 0
+        18 [   0] MOVE      R10 := R1
+        19 [   0] CALL      R8(...) nargs=2 nret=0
+        20 [   0] TFORLOOP  tforloop R3 nres=2
+        21 [   0] JMP       jmp -6 -> 16
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 27-37, upvals=[], locals=[])
+      constants: strings=['print', 'EventDispatcher could not add event listener for ', '. No such function', 'listeners', 'table', 'insert'] numbers=[]
+         0 [   0] MOVE      R2 := R0
+         1 [   0] GETUPVAL  R3 := upval 0
+         2 [   0] CONCAT    R2 := R2 .. ... .. R3
+         3 [   0] GETTABLE  R2 := R1[R2]
+         4 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         5 [   0] JMP       jmp +8 -> 14
+         6 [   0] GETGLOBAL R2 := _G["print"]
+         7 [   0] LOADK     R3 := "EventDispatcher could not add event listener for "
+         8 [   0] MOVE      R4 := R0
+         9 [   0] GETUPVAL  R5 := upval 0
+        10 [   0] LOADK     R6 := ". No such function"
+        11 [   0] CONCAT    R3 := R3 .. ... .. R6
+        12 [   0] CALL      R2(...) nargs=1 nret=0
+        13 [   0] RETURN    return R0.. (0 values)
+        14 [   0] GETUPVAL  R2 := upval 1
+        15 [   0] GETTABLE  R2 := R2["listeners"]
+        16 [   0] GETTABLE  R2 := R2[R0]
+        17 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        18 [   0] JMP       jmp +4 -> 23
+        19 [   0] GETUPVAL  R2 := upval 1
+        20 [   0] GETTABLE  R2 := R2["listeners"]
+        21 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+        22 [   0] SETTABLE  R2[R0] := R3
+        23 [   0] GETGLOBAL R2 := _G["table"]
+        24 [   0] GETTABLE  R2 := R2["insert"]
+        25 [   0] GETUPVAL  R3 := upval 1
+        26 [   0] GETTABLE  R3 := R3["listeners"]
+        27 [   0] GETTABLE  R3 := R3[R0]
+        28 [   0] MOVE      R4 := R0
+        29 [   0] GETUPVAL  R5 := upval 0
+        30 [   0] CONCAT    R4 := R4 .. ... .. R5
+        31 [   0] GETTABLE  R4 := R1[R4]
+        32 [   0] CALL      R2(...) nargs=2 nret=0
+        33 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 39-44, upvals=[], locals=[])
+      constants: strings=['listeners'] numbers=[0]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["listeners"]
+         2 [   0] GETTABLE  R1 := R1[R0]
+         3 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +2 -> 7
+         5 [   0] LOADBOOL  R1 := False
+         6 [   0] RETURN    return R1.. (1 values)
+         7 [   0] GETUPVAL  R1 := upval 0
+         8 [   0] GETTABLE  R1 := R1["listeners"]
+         9 [   0] GETTABLE  R1 := R1[R0]
+        10 [   0] LEN       R1 := #R1
+        11 [   0] LT        if (0 < R1) ~= 1 then skip next
+        12 [   0] JMP       jmp +1 -> 14
+        13 [   0] LOADBOOL  R1 := False (skip)
+        14 [   0] LOADBOOL  R1 := True
+        15 [   0] RETURN    return R1.. (1 values)
+        16 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 46-57, upvals=[], locals=[])
+      constants: strings=['listeners', 'pairs', 'table', 'remove'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["listeners"]
+         2 [   0] GETTABLE  R2 := R2[R0]
+         3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] RETURN    return R0.. (0 values)
+         6 [   0] GETGLOBAL R2 := _G["pairs"]
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETTABLE  R3 := R3["listeners"]
+         9 [   0] GETTABLE  R3 := R3[R0]
+        10 [   0] CALL      R2(...) nargs=1 nret=3
+        11 [   0] JMP       jmp +14 -> 26
+        12 [   0] MOVE      R7 := R0
+        13 [   0] GETUPVAL  R8 := upval 1
+        14 [   0] CONCAT    R7 := R7 .. ... .. R8
+        15 [   0] GETTABLE  R7 := R1[R7]
+        16 [   0] EQ        if (R6 == R7) ~= 0 then skip next
+        17 [   0] JMP       jmp +8 -> 26
+        18 [   0] GETGLOBAL R7 := _G["table"]
+        19 [   0] GETTABLE  R7 := R7["remove"]
+        20 [   0] GETUPVAL  R8 := upval 0
+        21 [   0] GETTABLE  R8 := R8["listeners"]
+        22 [   0] GETTABLE  R8 := R8[R0]
+        23 [   0] MOVE      R9 := R5
+        24 [   0] CALL      R7(...) nargs=2 nret=0
+        25 [   0] JMP       jmp +2 -> 28
+        26 [   0] TFORLOOP  tforloop R2 nres=2
+        27 [   0] JMP       jmp -16 -> 12
+        28 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 59-64, upvals=[], locals=[])
+      constants: strings=['pairs', 'listeners', 'removeEventListener'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["pairs"]
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] GETTABLE  R2 := R2["listeners"]
+         3 [   0] CALL      R1(...) nargs=1 nret=3
+         4 [   0] JMP       jmp +5 -> 10
+         5 [   0] GETUPVAL  R6 := upval 0
+         6 [   0] GETTABLE  R6 := R6["removeEventListener"]
+         7 [   0] MOVE      R7 := R4
+         8 [   0] MOVE      R8 := R0
+         9 [   0] CALL      R6(...) nargs=2 nret=0
+        10 [   0] TFORLOOP  tforloop R1 nres=2
+        11 [   0] JMP       jmp -7 -> 5
+        12 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 70-72, upvals=[], locals=[])
+    constants: strings=['new_inherit'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["new_inherit"]
+       2 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       3 [   0] TAILCALL  return R0(...) nargs=1
+       4 [   0] RETURN    return R0.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)

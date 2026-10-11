@@ -1,0 +1,424 @@
+{
+  "$comment": "Manual fixes applied by tools/build-cards.js on top of docs/research/wiki-card-catalog.json. Keys are card ids (slug rule). Fields: mana, rarity, tribe, dirs, caps, base{attack,hp,ability}, growth{attack,hp,ability}[5] (null = unknown, derived from the rarity table), set, sets, sourceText, flags. Every entry needs a reason.",
+  "lightning-spirit": {
+    "reason": "Wiki infobox lists mana 1 and attack 'Monster' (placeholders). Other Legendaries cost 21-25; its 1400 hp / 700 ability put it in the middle of the tier, so 23 is used. The page says it never attacks the player, so it has no attack directions.",
+    "mana": 23,
+    "dirs": [],
+    "base": {
+      "attack": 0
+    }
+  },
+  "thief-of-time": {
+    "reason": "Wiki has no attack column. Battle screens in 2016–17 videos show ATK 0 (docs/research/round3/cardstats.md §1.3); its damage comes from the cumulative +ability per round (800 at L1, 5109 at ++++ L63). Kept at a flat 1 (like Scrapmaster) because the build requires an attacking card to have attack; the difference is 1 damage per hit.",
+    "base": {
+      "attack": 1
+    },
+    "flat": [
+      "attack"
+    ]
+  },
+  "scrapmaster": {
+    "reason": "Wiki lists attack 1 at level 1 and at every stage cap (1/1/1/1/1/1): the attack is a flat 1 and all its damage comes from the cumulative ability. Flagged flat so the 1.15 fusion reset does not round it up to 2 at +++.",
+    "flat": [
+      "attack"
+    ]
+  },
+  "isegrimm-stormgaze": {
+    "reason": "The catalog parser missed her hand-written table; values copied from docs/research/wiki/Isegrimm_Stormgaze.txt (lvl 1 / 12 / 18 / 24; +++ and ++++ unknown).",
+    "base": {
+      "attack": 360,
+      "hp": 960,
+      "ability": 360
+    },
+    "growth": {
+      "attack": [
+        553,
+        761,
+        1079,
+        null,
+        null
+      ],
+      "hp": [
+        1477,
+        2033,
+        2883,
+        null,
+        null
+      ],
+      "ability": [
+        553,
+        761,
+        1079,
+        null,
+        null
+      ]
+    }
+  },
+  "pyromancer": {
+    "reason": "Wiki '+' row (345/230/460) is below the unfused cap row and equals base × 1.15, i.e. the stage-1 level-1 values were typed in instead of the cap values. Marked unknown so the rarity table derives them. Album set Dwarven Apprentice (10/26; 2014 client: 1/17, nb_0000_hand.jpg): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "growth": {
+      "attack": [
+        496,
+        null,
+        null,
+        null,
+        null
+      ],
+      "hp": [
+        331,
+        null,
+        null,
+        null,
+        null
+      ],
+      "ability": [
+        661,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "sets": [
+      "main",
+      "dwarven-apprentice"
+    ]
+  },
+  "bone-dragon": {
+    "reason": "Wiki attack is 100 at level 1 and still 100 at the stage-0 cap (L15), then 650 / 300 / 400 / 500 at the + / ++ / +++ / ++++ caps: the attack does not grow with the level, only per fusion stage (its real damage comes from the revive that adds the ability value). The 650 at '+' breaks the +100-per-stage pattern and is treated as a typo for 200. Flagged flat so each stage uses its constant.",
+    "flat": [
+      "attack"
+    ],
+    "growth": {
+      "attack": [
+        100,
+        200,
+        300,
+        400,
+        500
+      ]
+    }
+  },
+  "herb-collector": {
+    "reason": "Wiki '+++' life cell holds the junk value 'sorry' and the ability 2173 is below the curve; a talk-page comment gives L30 3299 / 2699, which fits the progression (2399 → 3299 → 4406, 1963 → 2699 → 3605).",
+    "growth": {
+      "hp": [
+        1116,
+        1680,
+        2399,
+        3299,
+        4406
+      ],
+      "ability": [
+        912,
+        1374,
+        1963,
+        2699,
+        3605
+      ]
+    }
+  },
+  "siren": {
+    "reason": "The wiki says \"Very Common\", but 2016–17 battle screens show her with a green Uncommon frame at +2 L19, +3 L23 and +4 L27 (docs/research/round3/cardstats.md §3), i.e. Uncommon caps. The wiki checkpoints at 24/29 are the 23/27 caps mislabelled.",
+    "rarity": "uncommon",
+    "caps": [
+      11,
+      15,
+      19,
+      23,
+      27
+    ]
+  },
+  "blood-spitter": {
+    "reason": "Self-damage is a flat 100 at every level and stage (wiki lists 100 at ++++ level 27 as well as at level 1); flagged flat so it does not grow. Album set Orc Grunt (12/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "abilityFlat": true,
+    "growth": {
+      "ability": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    "sets": [
+      "main",
+      "orc-grunt"
+    ]
+  },
+  "goblin-mob": {
+    "reason": "The card's wiki infobox has no portal field, but the portal page lists it among the 8 set cards (docs/research/wiki/Desert_Twilight.txt, PortalCardTable).",
+    "set": "desert-twilight"
+  },
+  "blood-fairy": {
+    "reason": "The card's wiki infobox has no portal field, but the portal page lists it among the 8 set cards (docs/research/wiki/Desert_Twilight.txt, PortalCardTable).",
+    "set": "desert-twilight"
+  },
+  "sky-guardian": {
+    "reason": "The card's wiki infobox has no portal field, but the portal page lists it among the 8 set cards (docs/research/wiki/Dragon_Hunt.txt, PortalCardTable).",
+    "set": "dragon-hunt"
+  },
+  "baby-dragon": {
+    "reason": "The card's wiki infobox has no portal field, but the portal page lists it among the 8 set cards (docs/research/wiki/Dragon_Hunt.txt, PortalCardTable).",
+    "set": "dragon-hunt"
+  },
+  "gasher": {
+    "reason": "The card's wiki infobox has no portal field, but the portal page lists it among the 8 set cards (docs/research/wiki/Dread_Empress.txt, PortalCardTable).",
+    "set": "dread-empress"
+  },
+  "bog-yeti": {
+    "reason": "The card's wiki infobox has no portal field, but the portal page lists it among the 8 set cards (docs/research/wiki/Dread_Empress.txt, PortalCardTable).",
+    "set": "dread-empress"
+  },
+  "war-pangolin": {
+    "reason": "The card's wiki infobox has no portal field, but the portal page lists it among the 8 set cards (docs/research/wiki/Dwarven_Rage.txt, PortalCardTable).",
+    "set": "dwarven-rage"
+  },
+  "stonemason": {
+    "reason": "The card's wiki infobox has no portal field, but the portal page lists it among the 8 set cards (docs/research/wiki/Dwarven_Rage.txt, PortalCardTable).",
+    "set": "dwarven-rage"
+  },
+  "crystal-breeder": {
+    "reason": "The wiki infobox says Desert Twilight, but the Desert Twilight page never mentions the card while the Dwarven Rage page lists it as set card 4 and as the boss of quests 10-12 (docs/research/wiki/Dwarven_Rage.txt); the infobox is a copy-paste slip.",
+    "set": "dwarven-rage"
+  },
+  "tamer": {
+    "reason": "The wiki has only a partial row at L7 (855 / 428) and no cap value. Under the video-fitted growth curve (value = start + (cap − start)·t^1.1) that row implies stage-0 cap values of 1047 / 525 at L11.",
+    "growth": {
+      "attack": [
+        1047,
+        null,
+        null,
+        null,
+        null
+      ],
+      "hp": [
+        525,
+        null,
+        null,
+        null,
+        null
+      ],
+      "ability": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "pikeman": {
+    "reason": "Album set Dwarven Apprentice (10/26; 2014 client: 1/17, nb_0000_hand.jpg): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "dwarven-apprentice"
+    ]
+  },
+  "master-brewer": {
+    "reason": "Album set Dwarven Apprentice (10/26; 2014 client: 1/17, nb_0000_hand.jpg): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "dwarven-apprentice"
+    ]
+  },
+  "iron-breaker": {
+    "reason": "Album set Dwarven Apprentice (10/26; 2014 client: 1/17, nb_0000_hand.jpg): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "dwarven-apprentice"
+    ]
+  },
+  "blunderbuss-gunner": {
+    "reason": "Album set Dwarven Apprentice (10/26; 2014 client: 1/17, nb_0000_hand.jpg): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "dwarven-apprentice"
+    ]
+  },
+  "lance-stabber": {
+    "reason": "Album set Dwarven Apprentice (10/26; 2014 client: 1/17, nb_0000_hand.jpg): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "dwarven-apprentice"
+    ]
+  },
+  "korim-stoneskull": {
+    "reason": "Album set Dwarven Apprentice (10/26; 2014 client: 1/17, nb_0000_hand.jpg): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "dwarven-apprentice"
+    ]
+  },
+  "axe-whirler": {
+    "reason": "Album set Dwarven Apprentice (10/26; 2014 client: 1/17, nb_0000_hand.jpg): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "dwarven-apprentice"
+    ]
+  },
+  "envoy": {
+    "reason": "Album set Elven Novice (11/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "elven-novice"
+    ]
+  },
+  "keeper": {
+    "reason": "Album set Elven Novice (11/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "elven-novice"
+    ]
+  },
+  "falconer": {
+    "reason": "Album set Elven Novice (11/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "elven-novice"
+    ]
+  },
+  "scout": {
+    "reason": "Album set Elven Novice (11/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "elven-novice"
+    ]
+  },
+  "archer": {
+    "reason": "Album set Elven Novice (11/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "elven-novice"
+    ]
+  },
+  "meadow-guard": {
+    "reason": "Album set Elven Novice (11/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "elven-novice"
+    ]
+  },
+  "hunter": {
+    "reason": "Album set Elven Novice (11/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "elven-novice"
+    ]
+  },
+  "tree-of-life": {
+    "reason": "Album set Elven Novice (11/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "elven-novice"
+    ]
+  },
+  "pouch-tearer": {
+    "reason": "Album set Orc Grunt (12/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "orc-grunt"
+    ]
+  },
+  "throat-cutter": {
+    "reason": "Album set Orc Grunt (12/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "orc-grunt"
+    ]
+  },
+  "lurking-goblin": {
+    "reason": "Album set Orc Grunt (12/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "orc-grunt"
+    ]
+  },
+  "bone-breaker": {
+    "reason": "Album set Orc Grunt (12/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "orc-grunt"
+    ]
+  },
+  "worm-shaman": {
+    "reason": "Album set Orc Grunt (12/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "orc-grunt"
+    ]
+  },
+  "flinger": {
+    "reason": "Album set Orc Grunt (12/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "orc-grunt"
+    ]
+  },
+  "tribe-avenger": {
+    "reason": "Album set Orc Grunt (12/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "orc-grunt"
+    ]
+  },
+  "gremlin": {
+    "reason": "Album set Arborearch (22/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "arborearch"
+    ]
+  },
+  "will-o-the-wisp": {
+    "reason": "Album set Arborearch (22/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "arborearch"
+    ]
+  },
+  "ogre": {
+    "reason": "Album set Arborearch (22/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "arborearch"
+    ]
+  },
+  "giant-lizard": {
+    "reason": "Album set Arborearch (22/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "arborearch"
+    ]
+  },
+  "giant": {
+    "reason": "Album set Arborearch (22/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "arborearch"
+    ]
+  },
+  "giant-spider": {
+    "reason": "Album set Arborearch (22/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "arborearch"
+    ]
+  },
+  "griffin": {
+    "reason": "Album set Arborearch (22/26): the set page of the 1.7.4-style client lists it (videos WzDCvHuf8FE / hJoyeys0cnI, silhouettes matched to the card art; docs/research/round5/starter-sets.md).",
+    "sets": [
+      "main",
+      "arborearch"
+    ]
+  },
+  "$removed": {
+    "reason": "Dungeon Casino (May 2017): the user removed the gambling portal and its cards from the game on 2026-10-10 - the random effects (gamble, wheel, swap, random stuns and kills) were more confusing than fun. Army of Ghosts stays (it is a Dawn of Eternity card the casino only re-ran).",
+    "ids": [
+      "bouncer",
+      "goblin-thieves",
+      "umbral-dragon",
+      "wheel-of-fortune",
+      "wizard-apprentice"
+    ]
+  }
+}

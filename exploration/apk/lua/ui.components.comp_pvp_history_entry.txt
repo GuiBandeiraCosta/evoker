@@ -1,0 +1,480 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'components.comp_slicedbox', 'ui.renderer.iconbuttonrenderer', 'server.metadatamanager', 'getInstance', 'game.cardmanager', 'renderer.shadowedlabelrenderer', 'server.server', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "components.comp_slicedbox"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "ui.renderer.iconbuttonrenderer"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] GETGLOBAL R2 := _G["require"]
+     9 [   0] LOADK     R3 := "server.metadatamanager"
+    10 [   0] CALL      R2(...) nargs=1 nret=1
+    11 [   0] GETTABLE  R2 := R2["getInstance"]
+    12 [   0] CALL      R2(...) nargs=0 nret=1
+    13 [   0] GETGLOBAL R3 := _G["require"]
+    14 [   0] LOADK     R4 := "game.cardmanager"
+    15 [   0] CALL      R3(...) nargs=1 nret=1
+    16 [   0] GETTABLE  R3 := R3["getInstance"]
+    17 [   0] CALL      R3(...) nargs=0 nret=1
+    18 [   0] GETGLOBAL R4 := _G["require"]
+    19 [   0] GETGLOBAL R5 := _G["UI_LIB_PATH"]
+    20 [   0] LOADK     R6 := "renderer.shadowedlabelrenderer"
+    21 [   0] CONCAT    R5 := R5 .. ... .. R6
+    22 [   0] CALL      R4(...) nargs=1 nret=1
+    23 [   0] GETGLOBAL R5 := _G["require"]
+    24 [   0] LOADK     R6 := "server.server"
+    25 [   0] CALL      R5(...) nargs=1 nret=1
+    26 [   0] GETTABLE  R5 := R5["getInstance"]
+    27 [   0] CALL      R5(...) nargs=0 nret=1
+    28 [   0] GETGLOBAL R6 := _G["require"]
+    29 [   0] LOADK     R7 := "util.util"
+    30 [   0] CALL      R6(...) nargs=1 nret=1
+    31 [   0] CLOSURE   R7 := closure #0
+    32 [   0] MOVE      R0 := R2
+    33 [   0] MOVE      R0 := R3
+    34 [   0] MOVE      R0 := R0
+    35 [   0] MOVE      R0 := R4
+    36 [   0] MOVE      R0 := R5
+    37 [   0] MOVE      R0 := R6
+    38 [   0] MOVE      R0 := R1
+    39 [   0] NEWTABLE  R8 := {} (array 0, hash 1)
+    40 [   0] SETTABLE  R8["create"] := R7
+    41 [   0] RETURN    return R8.. (1 values)
+    42 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 17-229, upvals=[], locals=[])
+    constants: strings=['data', 'enemy', 'pvp', 'strongestCard', 'template', 'getCardTemplate', 'assets/gfx/hud/deckedit/cardslot_question01_thumb.png', 'image', 'getThumbImageOfCard', 'strongestEnemyCardImage', 'layout', 'background', 'assets/gfx/hud/popupframe/popup_fill.png', 'border', 'horiTop', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe02.png', 'horiBottom', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe07.png', 'width', 'height', 'parent', 'create', 'enemyId', 'attackerId', 'assets/gfx/hud/icons/defended_icon.png', 'assets/gfx/hud/icons/attacked_icon.png', 'ui', 'createLabel', 'renderer', 'pvpHistoryEntry.name', 'style', 'cardLevel', 'fontSize', 'txt', 'name', 'createContainer', 'pvpHistoryEntry.attackerIcon', 'img', 'styles', 'colors', 'newGray', 'status', '_T', 'Won', 'r', 'g', 'b', 'Lost', 'red', 'Draw', 'brightOrange', 'pvpHistoryEntry.resultLabelData', 'defaultBold', 'update', 'txtColor', 'convertServerToLocalTime', 'time', 'os', 'date', '*t', 'day', '0', 'month', 'hour', 'min', 'sec', 'pvpHistoryEntry.dateLabelData', '.', 'year', 'pvpHistoryEntry.timeLabelData', ':', 'createButton', 'pvpHistoryEntry.characterImageContainer', 'require', 'ui.renderer.labeledbuttonrenderer', 'transitionDisabled', 'ret', 'cb', 'xScale', 'contentWidth', 'yScale', 'contentHeight', 'pvpHistoryEntry.infoButton', 'borderImg', 'assets/gfx/hud/commons/hud_smallbutton_frame.png', 'fillImg', 'assets/gfx/hud/commons/hud_smallbutton_fill.png', 'activeIcn', 'assets/gfx/hud/icons/info_icon.png', 'beganSound', 'ui_button_circular', 'pvpHistoryEntry.attackButton', 'assets/gfx/hud/commons/button_default_frame.png', 'assets/gfx/hud/commons/button_default_fill.png', 'assets/gfx/hud/icons/hud_eyebutton01.png', 'icnxscale', 'icnyscale', 'ui_button_attack', 'getHistoryData', 'exit'] numbers=[14, 1, 25, 150, 50, 2, 20, 10, 16, 74, 104, 0.75]
+       0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       1 [   0] GETTABLE  R3 := R0["data"]
+       2 [   0] LOADNIL   R4..R4 := nil
+       3 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       4 [   0] JMP       jmp +26 -> 31
+       5 [   0] GETTABLE  R5 := R3["enemy"]
+       6 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+       7 [   0] JMP       jmp +23 -> 31
+       8 [   0] GETTABLE  R5 := R3["enemy"]
+       9 [   0] GETTABLE  R5 := R5["pvp"]
+      10 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      11 [   0] JMP       jmp +19 -> 31
+      12 [   0] GETTABLE  R5 := R3["enemy"]
+      13 [   0] GETTABLE  R5 := R5["pvp"]
+      14 [   0] GETTABLE  R5 := R5["strongestCard"]
+      15 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      16 [   0] JMP       jmp +14 -> 31
+      17 [   0] GETTABLE  R5 := R3["enemy"]
+      18 [   0] GETTABLE  R5 := R5["pvp"]
+      19 [   0] GETTABLE  R5 := R5["strongestCard"]
+      20 [   0] GETTABLE  R5 := R5["template"]
+      21 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      22 [   0] JMP       jmp +8 -> 31
+      23 [   0] GETUPVAL  R5 := upval 0
+      24 [   0] GETTABLE  R5 := R5["getCardTemplate"]
+      25 [   0] GETTABLE  R6 := R3["enemy"]
+      26 [   0] GETTABLE  R6 := R6["pvp"]
+      27 [   0] GETTABLE  R6 := R6["strongestCard"]
+      28 [   0] GETTABLE  R6 := R6["template"]
+      29 [   0] CALL      R5(...) nargs=1 nret=1
+      30 [   0] MOVE      R4 := R5
+      31 [   0] LOADK     R5 := "assets/gfx/hud/deckedit/cardslot_question01_thumb.png"
+      32 [   0] LOADBOOL  R6 := False
+      33 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      34 [   0] JMP       jmp +9 -> 44
+      35 [   0] GETTABLE  R7 := R4["image"]
+      36 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+      37 [   0] JMP       jmp +6 -> 44
+      38 [   0] GETUPVAL  R7 := upval 1
+      39 [   0] GETTABLE  R7 := R7["getThumbImageOfCard"]
+      40 [   0] MOVE      R8 := R4
+      41 [   0] CALL      R7(...) nargs=1 nret=1
+      42 [   0] MOVE      R5 := R7
+      43 [   0] LOADBOOL  R6 := True
+      44 [   0] GETTABLE  R7 := R3["enemy"]
+      45 [   0] SETTABLE  R7["strongestEnemyCardImage"] := R5
+      46 [   0] LOADNIL   R7..R7 := nil
+      47 [   0] CLOSURE   R8 := closure #0
+      48 [   0] MOVE      R0 := R7
+      49 [   0] NEWTABLE  R9 := {} (array 0, hash 6)
+      50 [   0] GETTABLE  R10 := R0["layout"]
+      51 [   0] SETTABLE  R9["layout"] := R10
+      52 [   0] GETTABLE  R10 := R0["background"]
+      53 [   0] TEST      if (R10 truthy) ~= 1 then skip next
+      54 [   0] JMP       jmp +1 -> 56
+      55 [   0] LOADK     R10 := "assets/gfx/hud/popupframe/popup_fill.png"
+      56 [   0] SETTABLE  R9["background"] := R10
+      57 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      58 [   0] SETTABLE  R10["horiTop"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe02.png"
+      59 [   0] SETTABLE  R10["horiBottom"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe07.png"
+      60 [   0] SETTABLE  R9["border"] := R10
+      61 [   0] GETTABLE  R10 := R0["width"]
+      62 [   0] SETTABLE  R9["width"] := R10
+      63 [   0] GETTABLE  R10 := R0["height"]
+      64 [   0] SETTABLE  R9["height"] := R10
+      65 [   0] GETTABLE  R10 := R0["parent"]
+      66 [   0] SETTABLE  R9["parent"] := R10
+      67 [   0] GETUPVAL  R10 := upval 2
+      68 [   0] GETTABLE  R10 := R10["create"]
+      69 [   0] MOVE      R11 := R9
+      70 [   0] CALL      R10(...) nargs=1 nret=1
+      71 [   0] MOVE      R2 := R10
+      72 [   0] LOADNIL   R10..R10 := nil
+      73 [   0] GETTABLE  R11 := R3["enemyId"]
+      74 [   0] GETTABLE  R12 := R3["attackerId"]
+      75 [   0] EQ        if (R11 == R12) ~= 0 then skip next
+      76 [   0] JMP       jmp +2 -> 79
+      77 [   0] LOADK     R10 := "assets/gfx/hud/icons/defended_icon.png"
+      78 [   0] JMP       jmp +1 -> 80
+      79 [   0] LOADK     R10 := "assets/gfx/hud/icons/attacked_icon.png"
+      80 [   0] GETGLOBAL R11 := _G["ui"]
+      81 [   0] GETTABLE  R11 := R11["createLabel"]
+      82 [   0] NEWTABLE  R12 := {} (array 0, hash 6)
+      83 [   0] SETTABLE  R12["parent"] := R2
+      84 [   0] GETUPVAL  R13 := upval 3
+      85 [   0] SETTABLE  R12["renderer"] := R13
+      86 [   0] SETTABLE  R12["layout"] := "pvpHistoryEntry.name"
+      87 [   0] SETTABLE  R12["style"] := "cardLevel"
+      88 [   0] SETTABLE  R12["fontSize"] := 14
+      89 [   0] GETTABLE  R13 := R3["enemy"]
+      90 [   0] GETTABLE  R13 := R13["name"]
+      91 [   0] SETTABLE  R12["txt"] := R13
+      92 [   0] CALL      R11(...) nargs=1 nret=1
+      93 [   0] MOVE      R12 := R8
+      94 [   0] MOVE      R13 := R11
+      95 [   0] CALL      R12(...) nargs=1 nret=0
+      96 [   0] GETGLOBAL R12 := _G["ui"]
+      97 [   0] GETTABLE  R12 := R12["createContainer"]
+      98 [   0] NEWTABLE  R13 := {} (array 0, hash 3)
+      99 [   0] SETTABLE  R13["parent"] := R2
+     100 [   0] SETTABLE  R13["layout"] := "pvpHistoryEntry.attackerIcon"
+     101 [   0] SETTABLE  R13["img"] := R10
+     102 [   0] CALL      R12(...) nargs=1 nret=1
+     103 [   0] LOADNIL   R13..R13 := nil
+     104 [   0] GETGLOBAL R14 := _G["styles"]
+     105 [   0] GETTABLE  R14 := R14["colors"]
+     106 [   0] GETTABLE  R14 := R14["newGray"]
+     107 [   0] GETTABLE  R15 := R3["status"]
+     108 [   0] EQ        if (R15 == 1) ~= 0 then skip next
+     109 [   0] JMP       jmp +10 -> 120
+     110 [   0] GETGLOBAL R15 := _G["_T"]
+     111 [   0] LOADK     R16 := "Won"
+     112 [   0] CALL      R15(...) nargs=1 nret=1
+     113 [   0] MOVE      R13 := R15
+     114 [   0] NEWTABLE  R15 := {} (array 0, hash 3)
+     115 [   0] SETTABLE  R15["r"] := 25
+     116 [   0] SETTABLE  R15["g"] := 150
+     117 [   0] SETTABLE  R15["b"] := 50
+     118 [   0] MOVE      R14 := R15
+     119 [   0] JMP       jmp +18 -> 138
+     120 [   0] GETTABLE  R15 := R3["status"]
+     121 [   0] EQ        if (R15 == 2) ~= 0 then skip next
+     122 [   0] JMP       jmp +8 -> 131
+     123 [   0] GETGLOBAL R15 := _G["_T"]
+     124 [   0] LOADK     R16 := "Lost"
+     125 [   0] CALL      R15(...) nargs=1 nret=1
+     126 [   0] MOVE      R13 := R15
+     127 [   0] GETGLOBAL R15 := _G["styles"]
+     128 [   0] GETTABLE  R15 := R15["colors"]
+     129 [   0] GETTABLE  R14 := R15["red"]
+     130 [   0] JMP       jmp +7 -> 138
+     131 [   0] GETGLOBAL R15 := _G["_T"]
+     132 [   0] LOADK     R16 := "Draw"
+     133 [   0] CALL      R15(...) nargs=1 nret=1
+     134 [   0] MOVE      R13 := R15
+     135 [   0] GETGLOBAL R15 := _G["styles"]
+     136 [   0] GETTABLE  R15 := R15["colors"]
+     137 [   0] GETTABLE  R14 := R15["brightOrange"]
+     138 [   0] GETGLOBAL R15 := _G["ui"]
+     139 [   0] GETTABLE  R15 := R15["createLabel"]
+     140 [   0] NEWTABLE  R16 := {} (array 0, hash 6)
+     141 [   0] SETTABLE  R16["parent"] := R2
+     142 [   0] GETUPVAL  R17 := upval 3
+     143 [   0] SETTABLE  R16["renderer"] := R17
+     144 [   0] SETTABLE  R16["layout"] := "pvpHistoryEntry.resultLabelData"
+     145 [   0] SETTABLE  R16["style"] := "defaultBold"
+     146 [   0] SETTABLE  R16["fontSize"] := 20
+     147 [   0] SETTABLE  R16["txt"] := R13
+     148 [   0] CALL      R15(...) nargs=1 nret=1
+     149 [   0] GETTABLE  R16 := R15["update"]
+     150 [   0] NEWTABLE  R17 := {} (array 0, hash 1)
+     151 [   0] SETTABLE  R17["txtColor"] := R14
+     152 [   0] CALL      R16(...) nargs=1 nret=0
+     153 [   0] MOVE      R16 := R8
+     154 [   0] MOVE      R17 := R15
+     155 [   0] CALL      R16(...) nargs=1 nret=0
+     156 [   0] GETUPVAL  R16 := upval 4
+     157 [   0] GETTABLE  R16 := R16["convertServerToLocalTime"]
+     158 [   0] GETTABLE  R17 := R3["time"]
+     159 [   0] CALL      R16(...) nargs=1 nret=1
+     160 [   0] GETGLOBAL R17 := _G["os"]
+     161 [   0] GETTABLE  R17 := R17["date"]
+     162 [   0] LOADK     R18 := "*t"
+     163 [   0] MOVE      R19 := R16
+     164 [   0] CALL      R17(...) nargs=2 nret=1
+     165 [   0] GETTABLE  R18 := R17["day"]
+     166 [   0] LT        if (R18 < 10) ~= 0 then skip next
+     167 [   0] JMP       jmp +4 -> 172
+     168 [   0] LOADK     R18 := "0"
+     169 [   0] GETTABLE  R19 := R17["day"]
+     170 [   0] CONCAT    R18 := R18 .. ... .. R19
+     171 [   0] SETTABLE  R17["day"] := R18
+     172 [   0] GETTABLE  R18 := R17["month"]
+     173 [   0] LT        if (R18 < 10) ~= 0 then skip next
+     174 [   0] JMP       jmp +4 -> 179
+     175 [   0] LOADK     R18 := "0"
+     176 [   0] GETTABLE  R19 := R17["month"]
+     177 [   0] CONCAT    R18 := R18 .. ... .. R19
+     178 [   0] SETTABLE  R17["month"] := R18
+     179 [   0] GETTABLE  R18 := R17["hour"]
+     180 [   0] LT        if (R18 < 10) ~= 0 then skip next
+     181 [   0] JMP       jmp +4 -> 186
+     182 [   0] LOADK     R18 := "0"
+     183 [   0] GETTABLE  R19 := R17["hour"]
+     184 [   0] CONCAT    R18 := R18 .. ... .. R19
+     185 [   0] SETTABLE  R17["hour"] := R18
+     186 [   0] GETTABLE  R18 := R17["min"]
+     187 [   0] LT        if (R18 < 10) ~= 0 then skip next
+     188 [   0] JMP       jmp +4 -> 193
+     189 [   0] LOADK     R18 := "0"
+     190 [   0] GETTABLE  R19 := R17["min"]
+     191 [   0] CONCAT    R18 := R18 .. ... .. R19
+     192 [   0] SETTABLE  R17["min"] := R18
+     193 [   0] GETTABLE  R18 := R17["sec"]
+     194 [   0] LT        if (R18 < 10) ~= 0 then skip next
+     195 [   0] JMP       jmp +4 -> 200
+     196 [   0] LOADK     R18 := "0"
+     197 [   0] GETTABLE  R19 := R17["sec"]
+     198 [   0] CONCAT    R18 := R18 .. ... .. R19
+     199 [   0] SETTABLE  R17["sec"] := R18
+     200 [   0] GETGLOBAL R18 := _G["ui"]
+     201 [   0] GETTABLE  R18 := R18["createLabel"]
+     202 [   0] NEWTABLE  R19 := {} (array 0, hash 6)
+     203 [   0] SETTABLE  R19["parent"] := R2
+     204 [   0] GETUPVAL  R20 := upval 3
+     205 [   0] SETTABLE  R19["renderer"] := R20
+     206 [   0] SETTABLE  R19["layout"] := "pvpHistoryEntry.dateLabelData"
+     207 [   0] SETTABLE  R19["style"] := "defaultBold"
+     208 [   0] SETTABLE  R19["fontSize"] := 16
+     209 [   0] GETTABLE  R20 := R17["day"]
+     210 [   0] LOADK     R21 := "."
+     211 [   0] GETTABLE  R22 := R17["month"]
+     212 [   0] LOADK     R23 := "."
+     213 [   0] GETTABLE  R24 := R17["year"]
+     214 [   0] CONCAT    R20 := R20 .. ... .. R24
+     215 [   0] SETTABLE  R19["txt"] := R20
+     216 [   0] CALL      R18(...) nargs=1 nret=1
+     217 [   0] MOVE      R19 := R8
+     218 [   0] MOVE      R20 := R18
+     219 [   0] CALL      R19(...) nargs=1 nret=0
+     220 [   0] GETGLOBAL R19 := _G["ui"]
+     221 [   0] GETTABLE  R19 := R19["createLabel"]
+     222 [   0] NEWTABLE  R20 := {} (array 0, hash 6)
+     223 [   0] SETTABLE  R20["parent"] := R2
+     224 [   0] GETUPVAL  R21 := upval 3
+     225 [   0] SETTABLE  R20["renderer"] := R21
+     226 [   0] SETTABLE  R20["layout"] := "pvpHistoryEntry.timeLabelData"
+     227 [   0] SETTABLE  R20["style"] := "defaultBold"
+     228 [   0] SETTABLE  R20["fontSize"] := 16
+     229 [   0] GETTABLE  R21 := R17["hour"]
+     230 [   0] LOADK     R22 := ":"
+     231 [   0] GETTABLE  R23 := R17["min"]
+     232 [   0] LOADK     R24 := ":"
+     233 [   0] GETTABLE  R25 := R17["sec"]
+     234 [   0] CONCAT    R21 := R21 .. ... .. R25
+     235 [   0] SETTABLE  R20["txt"] := R21
+     236 [   0] CALL      R19(...) nargs=1 nret=1
+     237 [   0] MOVE      R20 := R8
+     238 [   0] MOVE      R21 := R19
+     239 [   0] CALL      R20(...) nargs=1 nret=0
+     240 [   0] LOADNIL   R20..R20 := nil
+     241 [   0] GETGLOBAL R21 := _G["ui"]
+     242 [   0] GETTABLE  R21 := R21["createButton"]
+     243 [   0] NEWTABLE  R22 := {} (array 0, hash 7)
+     244 [   0] SETTABLE  R22["parent"] := R2
+     245 [   0] SETTABLE  R22["layout"] := "pvpHistoryEntry.characterImageContainer"
+     246 [   0] GETGLOBAL R23 := _G["require"]
+     247 [   0] LOADK     R24 := "ui.renderer.labeledbuttonrenderer"
+     248 [   0] CALL      R23(...) nargs=1 nret=1
+     249 [   0] SETTABLE  R22["renderer"] := R23
+     250 [   0] SETTABLE  R22["transitionDisabled"] := True
+     251 [   0] TESTSET   if (R5 truthy) == 1 then R23 := R5 else skip next
+     252 [   0] JMP       jmp +1 -> 254
+     253 [   0] LOADK     R23 := "assets/gfx/hud/deckedit/cardslot_question01_thumb.png"
+     254 [   0] SETTABLE  R22["img"] := R23
+     255 [   0] SETTABLE  R22["ret"] := True
+     256 [   0] CLOSURE   R23 := closure #1
+     257 [   0] MOVE      R0 := R6
+     258 [   0] MOVE      R0 := R1
+     259 [   0] GETUPVAL  R0 := upval 5
+     260 [   0] MOVE      R0 := R4
+     261 [   0] MOVE      R0 := R20
+     262 [   0] SETTABLE  R22["cb"] := R23
+     263 [   0] CALL      R21(...) nargs=1 nret=1
+     264 [   0] MOVE      R20 := R21
+     265 [   0] GETTABLE  R21 := R20["contentWidth"]
+     266 [   0] DIV       R21 := 74 / R21
+     267 [   0] SETTABLE  R20["xScale"] := R21
+     268 [   0] GETTABLE  R21 := R20["contentHeight"]
+     269 [   0] DIV       R21 := 104 / R21
+     270 [   0] SETTABLE  R20["yScale"] := R21
+     271 [   0] GETGLOBAL R21 := _G["ui"]
+     272 [   0] GETTABLE  R21 := R21["createButton"]
+     273 [   0] NEWTABLE  R22 := {} (array 0, hash 9)
+     274 [   0] SETTABLE  R22["layout"] := "pvpHistoryEntry.infoButton"
+     275 [   0] SETTABLE  R22["parent"] := R2
+     276 [   0] GETUPVAL  R23 := upval 6
+     277 [   0] SETTABLE  R22["renderer"] := R23
+     278 [   0] SETTABLE  R22["borderImg"] := "assets/gfx/hud/commons/hud_smallbutton_frame.png"
+     279 [   0] SETTABLE  R22["fillImg"] := "assets/gfx/hud/commons/hud_smallbutton_fill.png"
+     280 [   0] SETTABLE  R22["activeIcn"] := "assets/gfx/hud/icons/info_icon.png"
+     281 [   0] SETTABLE  R22["beganSound"] := "ui_button_circular"
+     282 [   0] SETTABLE  R22["ret"] := True
+     283 [   0] CLOSURE   R23 := closure #2
+     284 [   0] MOVE      R0 := R2
+     285 [   0] MOVE      R0 := R3
+     286 [   0] SETTABLE  R22["cb"] := R23
+     287 [   0] CALL      R21(...) nargs=1 nret=1
+     288 [   0] GETGLOBAL R22 := _G["ui"]
+     289 [   0] GETTABLE  R22 := R22["createButton"]
+     290 [   0] NEWTABLE  R23 := {} (array 0, hash 11)
+     291 [   0] SETTABLE  R23["layout"] := "pvpHistoryEntry.attackButton"
+     292 [   0] GETUPVAL  R24 := upval 6
+     293 [   0] SETTABLE  R23["renderer"] := R24
+     294 [   0] SETTABLE  R23["borderImg"] := "assets/gfx/hud/commons/button_default_frame.png"
+     295 [   0] SETTABLE  R23["fillImg"] := "assets/gfx/hud/commons/button_default_fill.png"
+     296 [   0] SETTABLE  R23["activeIcn"] := "assets/gfx/hud/icons/hud_eyebutton01.png"
+     297 [   0] SETTABLE  R23["icnxscale"] := 0.75
+     298 [   0] SETTABLE  R23["icnyscale"] := 0.75
+     299 [   0] SETTABLE  R23["beganSound"] := "ui_button_attack"
+     300 [   0] SETTABLE  R23["parent"] := R2
+     301 [   0] SETTABLE  R23["ret"] := True
+     302 [   0] CLOSURE   R24 := closure #3
+     303 [   0] MOVE      R0 := R2
+     304 [   0] MOVE      R0 := R3
+     305 [   0] SETTABLE  R23["cb"] := R24
+     306 [   0] CALL      R22(...) nargs=1 nret=1
+     307 [   0] CLOSURE   R23 := closure #4
+     308 [   0] MOVE      R0 := R3
+     309 [   0] SETTABLE  R2["getHistoryData"] := R23
+     310 [   0] CLOSURE   R23 := closure #5
+     311 [   0] MOVE      R0 := R1
+     312 [   0] GETUPVAL  R0 := upval 5
+     313 [   0] SETTABLE  R2["exit"] := R23
+     314 [   0] CLOSURE   R23 := closure #6
+     315 [   0] SETTABLE  R2["enter"] := R23
+     316 [   0] CLOSURE   R23 := closure #7
+     317 [   0] MOVE      R0 := R2
+     318 [   0] SETTABLE  R2["destroy"] := R23
+     319 [   0] GETUPVAL  R23 := upval 5
+     320 [   0] GETTABLE  R23 := R23["inherit"]
+     321 [   0] MOVE      R24 := R2
+     322 [   0] LOADK     R25 := "_flaregames_remove"
+     323 [   0] CLOSURE   R26 := closure #8
+     324 [   0] MOVE      R0 := R2
+     325 [   0] CALL      R23(...) nargs=3 nret=0
+     326 [   0] RETURN    return R2.. (1 values)
+     327 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 36-40, upvals=[], locals=[])
+      constants: strings=['x', 'setReferencePoint', 'display', 'CenterLeftReferencePoint'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["x"]
+         1 [   0] SETUPVAL  upval 0 := R1
+         2 [   0] SELF      R2 := R0; R1 := R0["setReferencePoint"]
+         3 [   0] GETGLOBAL R3 := _G["display"]
+         4 [   0] GETTABLE  R3 := R3["CenterLeftReferencePoint"]
+         5 [   0] CALL      R1(...) nargs=2 nret=0
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] SETTABLE  R0["x"] := R1
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 151-170, upvals=[], locals=[])
+      constants: strings=['safeRemoveObject', 'require', 'ui.components.comp_cardfullscreen_v3', 'createFullCardWithDefaultScaleBehaviour', 'onlyZoomButton'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == True) ~= 0 then skip next
+         2 [   0] JMP       jmp +22 -> 25
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +6 -> 12
+         6 [   0] GETUPVAL  R0 := upval 2
+         7 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+         8 [   0] GETUPVAL  R1 := upval 1
+         9 [   0] CALL      R0(...) nargs=1 nret=0
+        10 [   0] LOADNIL   R0..R0 := nil
+        11 [   0] SETUPVAL  upval 1 := R0
+        12 [   0] GETGLOBAL R0 := _G["require"]
+        13 [   0] LOADK     R1 := "ui.components.comp_cardfullscreen_v3"
+        14 [   0] CALL      R0(...) nargs=1 nret=1
+        15 [   0] GETTABLE  R0 := R0["createFullCardWithDefaultScaleBehaviour"]
+        16 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+        17 [   0] SETTABLE  R1["onlyZoomButton"] := True
+        18 [   0] GETUPVAL  R2 := upval 3
+        19 [   0] GETUPVAL  R3 := upval 4
+        20 [   0] CLOSURE   R4 := closure #0
+        21 [   0] GETUPVAL  R0 := upval 2
+        22 [   0] GETUPVAL  R0 := upval 1
+        23 [   0] CALL      R0(...) nargs=4 nret=1
+        24 [   0] SETUPVAL  upval 1 := R0
+        25 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 164-167, upvals=[], locals=[])
+        constants: strings=['safeRemoveObject'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] LOADNIL   R0..R0 := nil
+           5 [   0] SETUPVAL  upval 1 := R0
+           6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 185-187, upvals=[], locals=[])
+      constants: strings=['dispatchEvent', 'name', 'showEnemyInfo', 'sender', 'enemyInfo', 'enemy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["dispatchEvent"]
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+         3 [   0] SETTABLE  R2["name"] := "showEnemyInfo"
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] SETTABLE  R2["sender"] := R3
+         6 [   0] GETUPVAL  R3 := upval 1
+         7 [   0] GETTABLE  R3 := R3["enemy"]
+         8 [   0] SETTABLE  R2["enemyInfo"] := R3
+         9 [   0] CALL      R0(...) nargs=2 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 201-203, upvals=[], locals=[])
+      constants: strings=['dispatchEvent', 'name', 'watchFight', 'sender', 'data'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["dispatchEvent"]
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+         3 [   0] SETTABLE  R2["name"] := "watchFight"
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] SETTABLE  R2["sender"] := R3
+         6 [   0] GETUPVAL  R3 := upval 1
+         7 [   0] SETTABLE  R2["data"] := R3
+         8 [   0] CALL      R0(...) nargs=2 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 206-208, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 210-215, upvals=[], locals=[])
+      constants: strings=['safeRemoveObject'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +6 -> 9
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] LOADNIL   R0..R0 := nil
+         8 [   0] SETUPVAL  upval 0 := R0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 217-218, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 220-222, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 224-226, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

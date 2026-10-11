@@ -1,0 +1,117 @@
+'use strict';
+/**
+ * The scripted opening fight of a new game, ported from the client's assets/scripts/script_intro_fight.json and
+ * intro_fight_config.json (ui.controls.ctrl_intro_fight plays it with comp_fight_v3 between the two intro
+ * animations). The Worm Shaman (300 HP) with Throat-Cutter, Flinger and Lurking Goblin against "You" (1500 HP)
+ * with the Envoy alone: two rounds, the Envoy dies in the first, the player's HP falls to 0 in the second.
+ * Card ids: kehlenschlitzer = throat-cutter, schleuderer = flinger, lauergoblin = lurking-goblin, botin = envoy.
+ *
+ * rounds[].time = round length in ms; events = [delay ms from the round start, kind, target, value?] with kinds
+ * attacker (wind-up) / missile (from, to) / target / target_hpbar / shake / hp (new value) / text (damage
+ * number) / sound (client sound id) / death_target / fade, targets p<slot> / e<slot> (1-based slots) and p / e
+ * for the players' HP bars.
+ */
+export const INTRO_FIGHT = Object.freeze({
+  enemyName: 'Worm Shaman',
+  enemyPortrait: '/assets/orig/ui/shaman_portrait.png',
+  playerName: 'You',
+  playerPortrait: '/assets/orig/ui/default_player.png',
+  enemyMaxHp: 300,
+  playerMaxHp: 1500,
+  enemyCards: [null, { cardId: 'throat-cutter', level: 1 }, { cardId: 'flinger', level: 1 }, { cardId: 'lurking-goblin', level: 1 }, null],
+  playerCards: [null, null, { cardId: 'envoy', level: 1 }, null, null],
+  rounds: [
+    { time: 7300, events: [
+      [0, 'attacker', 'p3'],
+      [0, 'sound', 'attack_shot_ally'],
+      [200, 'missile', 'p3', 'e3'],
+      [500, 'target', 'e3'],
+      [700, 'shake', 'e3'],
+      [700, 'hp', 'e3', 100],
+      [700, 'sound', 'attack_impact_enemy'],
+      [800, 'text', 'e3', '-100'],
+      [1500, 'attacker', 'e2'],
+      [1500, 'sound', 'attack_shot_enemy'],
+      [1700, 'missile', 'e2', 'p'],
+      [2000, 'target_hpbar', 'p'],
+      [2200, 'hp', 'p', 1200],
+      [2200, 'sound', 'attack_impact_ally_directhit'],
+      [2300, 'text', 'p', '-300'],
+      [3000, 'attacker', 'e3'],
+      [3000, 'sound', 'attack_shot_enemy'],
+      [3200, 'missile', 'e3', 'p'],
+      [3200, 'sound', 'attack_shot_enemy'],
+      [3400, 'missile', 'e3', 'p'],
+      [3400, 'sound', 'attack_shot_enemy'],
+      [3500, 'target_hpbar', 'p'],
+      [3600, 'missile', 'e3', 'p3'],
+      [3700, 'hp', 'p', 1100],
+      [3700, 'sound', 'attack_impact_ally_directhit'],
+      [3700, 'target_hpbar', 'p'],
+      [3800, 'text', 'p', '-100'],
+      [3900, 'hp', 'p', 1000],
+      [3900, 'sound', 'attack_impact_ally_directhit'],
+      [3900, 'target', 'p3'],
+      [4000, 'text', 'p', '-100'],
+      [4100, 'shake', 'p3'],
+      [4100, 'hp', 'p3', 0],
+      [4100, 'sound', 'attack_impact_ally'],
+      [4200, 'text', 'p3', '-100'],
+      [4900, 'attacker', 'e4'],
+      [4900, 'sound', 'attack_shot_enemy'],
+      [5100, 'missile', 'e4', 'p'],
+      [5400, 'target_hpbar', 'p'],
+      [5600, 'hp', 'p', 800],
+      [5600, 'sound', 'attack_impact_ally_directhit'],
+      [5700, 'text', 'p', '-200'],
+      [6400, 'sound', 'fight_card_death'],
+      [6400, 'death_target', 'p3'],
+      [7000, 'fade', 'p3'],
+    ] },
+    { time: 3983, events: [
+      [0, 'attacker', 'e2'],
+      [0, 'sound', 'attack_shot_enemy'],
+      [180, 'missile', 'e2', 'p'],
+      [450, 'target_hpbar', 'p'],
+      [630, 'hp', 'p', 500],
+      [630, 'sound', 'attack_impact_ally_directhit'],
+      [720, 'text', 'p', '-300'],
+      [1215, 'attacker', 'e3'],
+      [1215, 'sound', 'attack_shot_enemy'],
+      [1395, 'missile', 'e3', 'p'],
+      [1395, 'sound', 'attack_shot_enemy'],
+      [1575, 'missile', 'e3', 'p'],
+      [1575, 'sound', 'attack_shot_enemy'],
+      [1665, 'target_hpbar', 'p'],
+      [1755, 'missile', 'e3', 'p'],
+      [1845, 'hp', 'p', 400],
+      [1845, 'sound', 'attack_impact_ally_directhit'],
+      [1845, 'target_hpbar', 'p'],
+      [1935, 'text', 'p', '-100'],
+      [2025, 'hp', 'p', 300],
+      [2025, 'sound', 'attack_impact_ally_directhit'],
+      [2025, 'target_hpbar', 'p'],
+      [2115, 'text', 'p', '-100'],
+      [2205, 'hp', 'p', 200],
+      [2205, 'sound', 'attack_impact_ally_directhit'],
+      [2295, 'text', 'p', '-100'],
+      [2633, 'attacker', 'e4'],
+      [2633, 'sound', 'attack_shot_enemy'],
+      [2813, 'missile', 'e4', 'p'],
+      [3083, 'target_hpbar', 'p'],
+      [3263, 'hp', 'p', 0],
+      [3263, 'sound', 'attack_impact_ally_directhit'],
+      [3353, 'text', 'p', '-200'],
+    ] },
+  ],
+});
+
+/** Client sound ids of the script -> original sound files (assets/orig/sfx). */
+export const INTRO_SOUNDS = Object.freeze({
+  attack_shot_ally: ['anim_attack_missile_shot_01', 'anim_attack_missile_shot_02', 'anim_attack_missile_shot_03'],
+  attack_shot_enemy: ['anim_attack_missile_shadow_01', 'anim_attack_missile_shadow_02', 'anim_attack_missile_shadow_03'],
+  attack_impact_enemy: ['anim_attack_target_01', 'anim_attack_target_02', 'anim_attack_target_03'],
+  attack_impact_ally: ['anim_attack_target_blood_01', 'anim_attack_target_blood_02'],
+  attack_impact_ally_directhit: ['anim_attack_target_hpbar_01', 'anim_attack_target_hpbar_02', 'anim_attack_target_hpbar_03'],
+  fight_card_death: ['fight_card_death_1'],
+});

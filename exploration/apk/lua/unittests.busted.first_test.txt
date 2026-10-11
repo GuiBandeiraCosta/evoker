@@ -1,0 +1,431 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['describe', 'semantic description blog', 'Tests with setup and teardown', 'first test of a small util function', 'spies', 'stubs', 'mocks'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["describe"]
+     1 [   0] LOADK     R1 := "semantic description blog"
+     2 [   0] CLOSURE   R2 := closure #0
+     3 [   0] CALL      R0(...) nargs=2 nret=0
+     4 [   0] GETGLOBAL R0 := _G["describe"]
+     5 [   0] LOADK     R1 := "Tests with setup and teardown"
+     6 [   0] CLOSURE   R2 := closure #1
+     7 [   0] CALL      R0(...) nargs=2 nret=0
+     8 [   0] GETGLOBAL R0 := _G["describe"]
+     9 [   0] LOADK     R1 := "first test of a small util function"
+    10 [   0] CLOSURE   R2 := closure #2
+    11 [   0] CALL      R0(...) nargs=2 nret=0
+    12 [   0] GETGLOBAL R0 := _G["describe"]
+    13 [   0] LOADK     R1 := "spies"
+    14 [   0] CLOSURE   R2 := closure #3
+    15 [   0] CALL      R0(...) nargs=2 nret=0
+    16 [   0] GETGLOBAL R0 := _G["describe"]
+    17 [   0] LOADK     R1 := "stubs"
+    18 [   0] CLOSURE   R2 := closure #4
+    19 [   0] CALL      R0(...) nargs=2 nret=0
+    20 [   0] GETGLOBAL R0 := _G["describe"]
+    21 [   0] LOADK     R1 := "mocks"
+    22 [   0] CLOSURE   R2 := closure #5
+    23 [   0] CALL      R0(...) nargs=2 nret=0
+    24 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 9-15, upvals=[], locals=[])
+    constants: strings=['it', 'a unit test'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["it"]
+       1 [   0] LOADK     R1 := "a unit test"
+       2 [   0] CLOSURE   R2 := closure #0
+       3 [   0] CALL      R0(...) nargs=2 nret=0
+       4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 10-14, upvals=[], locals=[])
+      constants: strings=['test', 'yes', 'assert', 'same'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         1 [   0] SETTABLE  R0["test"] := "yes"
+         2 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+         3 [   0] SETTABLE  R1["test"] := "yes"
+         4 [   0] GETGLOBAL R2 := _G["assert"]
+         5 [   0] GETTABLE  R2 := R2["same"]
+         6 [   0] MOVE      R3 := R0
+         7 [   0] MOVE      R4 := R1
+         8 [   0] CALL      R2(...) nargs=2 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 25-60, upvals=[], locals=[])
+    constants: strings=['setup', 'teardown', 'before_each', 'after_each', 'it', 'sets up vars with the before_each'] numbers=[]
+       0 [   0] GETGLOBAL R3 := _G["setup"]
+       1 [   0] CLOSURE   R4 := closure #0
+       2 [   0] MOVE      R0 := R2
+       3 [   0] CALL      R3(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R3 := _G["teardown"]
+       5 [   0] CLOSURE   R4 := closure #1
+       6 [   0] MOVE      R0 := R2
+       7 [   0] CALL      R3(...) nargs=1 nret=0
+       8 [   0] GETGLOBAL R3 := _G["before_each"]
+       9 [   0] CLOSURE   R4 := closure #2
+      10 [   0] MOVE      R0 := R0
+      11 [   0] MOVE      R0 := R1
+      12 [   0] CALL      R3(...) nargs=1 nret=0
+      13 [   0] GETGLOBAL R3 := _G["after_each"]
+      14 [   0] CLOSURE   R4 := closure #3
+      15 [   0] MOVE      R0 := R0
+      16 [   0] MOVE      R0 := R1
+      17 [   0] CALL      R3(...) nargs=1 nret=0
+      18 [   0] GETGLOBAL R3 := _G["it"]
+      19 [   0] LOADK     R4 := "sets up vars with the before_each"
+      20 [   0] CLOSURE   R5 := closure #4
+      21 [   0] MOVE      R0 := R1
+      22 [   0] MOVE      R0 := R0
+      23 [   0] CALL      R3(...) nargs=2 nret=0
+      24 [   0] GETGLOBAL R3 := _G["it"]
+      25 [   0] LOADK     R4 := "sets up vars with the before_each"
+      26 [   0] CLOSURE   R5 := closure #5
+      27 [   0] MOVE      R0 := R0
+      28 [   0] MOVE      R0 := R1
+      29 [   0] CALL      R3(...) nargs=2 nret=0
+      30 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=0, lines 29-32, upvals=[], locals=[])
+      constants: strings=['test', 'no'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         1 [   0] SETTABLE  R0["test"] := "no"
+         2 [   0] SETUPVAL  upval 0 := R0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#1 (params=0, lines 34-36, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#2 (params=0, lines 38-41, upvals=[], locals=[])
+      constants: strings=['test', 'yes'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         1 [   0] SETTABLE  R0["test"] := "yes"
+         2 [   0] SETUPVAL  upval 0 := R0
+         3 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         4 [   0] SETTABLE  R0["test"] := "yes"
+         5 [   0] SETUPVAL  upval 1 := R0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#3 (params=0, lines 43-46, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] LOADNIL   R0..R0 := nil
+         2 [   0] SETUPVAL  upval 1 := R0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#4 (params=0, lines 48-51, upvals=[], locals=[])
+      constants: strings=['test', 'no', 'assert', 'are_not', 'same'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         1 [   0] SETTABLE  R0["test"] := "no"
+         2 [   0] SETUPVAL  upval 0 := R0
+         3 [   0] GETGLOBAL R0 := _G["assert"]
+         4 [   0] GETTABLE  R0 := R0["are_not"]
+         5 [   0] GETTABLE  R0 := R0["same"]
+         6 [   0] GETUPVAL  R1 := upval 1
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] CALL      R0(...) nargs=2 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#5 (params=0, lines 53-56, upvals=[], locals=[])
+      constants: strings=['assert', 'same'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["assert"]
+         1 [   0] GETTABLE  R0 := R0["same"]
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] CALL      R0(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 63-99, upvals=[], locals=[])
+    constants: strings=['setup', 'teardown', 'it', 'test util double'] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["setup"]
+       1 [   0] CLOSURE   R3 := closure #0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] CALL      R2(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R2 := _G["teardown"]
+       5 [   0] CLOSURE   R3 := closure #1
+       6 [   0] MOVE      R0 := R0
+       7 [   0] CALL      R2(...) nargs=1 nret=0
+       8 [   0] GETGLOBAL R2 := _G["it"]
+       9 [   0] LOADK     R3 := "test util double"
+      10 [   0] CLOSURE   R4 := closure #2
+      11 [   0] MOVE      R0 := R1
+      12 [   0] MOVE      R0 := R0
+      13 [   0] CALL      R2(...) nargs=2 nret=0
+      14 [   0] GETGLOBAL R2 := _G["it"]
+      15 [   0] LOADK     R3 := "test util double"
+      16 [   0] CLOSURE   R4 := closure #3
+      17 [   0] MOVE      R0 := R1
+      18 [   0] MOVE      R0 := R0
+      19 [   0] CALL      R2(...) nargs=2 nret=0
+      20 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#0 (params=0, lines 67-69, upvals=[], locals=[])
+      constants: strings=['require', 'util.tmputil'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "util.tmputil"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] SETUPVAL  upval 0 := R0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#1 (params=0, lines 71-73, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#2 (params=0, lines 75-84, upvals=[], locals=[])
+      constants: strings=['self', 'double', 'assert', 'same'] numbers=[1, 2, 4, 8]
+         0 [   0] GETUPVAL  R0 := upval 1
+         1 [   0] GETTABLE  R0 := R0["self"]
+         2 [   0] GETTABLE  R0 := R0["double"]
+         3 [   0] LOADK     R1 := 1
+         4 [   0] CALL      R0(...) nargs=1 nret=1
+         5 [   0] SETUPVAL  upval 0 := R0
+         6 [   0] GETGLOBAL R0 := _G["assert"]
+         7 [   0] GETTABLE  R0 := R0["same"]
+         8 [   0] LOADK     R1 := 2
+         9 [   0] GETUPVAL  R2 := upval 0
+        10 [   0] CALL      R0(...) nargs=2 nret=0
+        11 [   0] GETUPVAL  R0 := upval 1
+        12 [   0] GETTABLE  R0 := R0["self"]
+        13 [   0] GETTABLE  R0 := R0["double"]
+        14 [   0] LOADK     R1 := 2
+        15 [   0] CALL      R0(...) nargs=1 nret=1
+        16 [   0] SETUPVAL  upval 0 := R0
+        17 [   0] GETGLOBAL R0 := _G["assert"]
+        18 [   0] GETTABLE  R0 := R0["same"]
+        19 [   0] LOADK     R1 := 4
+        20 [   0] GETUPVAL  R2 := upval 0
+        21 [   0] CALL      R0(...) nargs=2 nret=0
+        22 [   0] GETUPVAL  R0 := upval 1
+        23 [   0] GETTABLE  R0 := R0["self"]
+        24 [   0] GETTABLE  R0 := R0["double"]
+        25 [   0] LOADK     R1 := 4
+        26 [   0] CALL      R0(...) nargs=1 nret=1
+        27 [   0] SETUPVAL  upval 0 := R0
+        28 [   0] GETGLOBAL R0 := _G["assert"]
+        29 [   0] GETTABLE  R0 := R0["same"]
+        30 [   0] LOADK     R1 := 8
+        31 [   0] GETUPVAL  R2 := upval 0
+        32 [   0] CALL      R0(...) nargs=2 nret=0
+        33 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#3 (params=0, lines 87-96, upvals=[], locals=[])
+      constants: strings=['self', 'tripple', 'assert', 'same'] numbers=[1, 3, 9, 4, 12]
+         0 [   0] GETUPVAL  R0 := upval 1
+         1 [   0] GETTABLE  R0 := R0["self"]
+         2 [   0] GETTABLE  R0 := R0["tripple"]
+         3 [   0] LOADK     R1 := 1
+         4 [   0] CALL      R0(...) nargs=1 nret=1
+         5 [   0] SETUPVAL  upval 0 := R0
+         6 [   0] GETGLOBAL R0 := _G["assert"]
+         7 [   0] GETTABLE  R0 := R0["same"]
+         8 [   0] LOADK     R1 := 3
+         9 [   0] GETUPVAL  R2 := upval 0
+        10 [   0] CALL      R0(...) nargs=2 nret=0
+        11 [   0] GETUPVAL  R0 := upval 1
+        12 [   0] GETTABLE  R0 := R0["self"]
+        13 [   0] GETTABLE  R0 := R0["tripple"]
+        14 [   0] LOADK     R1 := 3
+        15 [   0] CALL      R0(...) nargs=1 nret=1
+        16 [   0] SETUPVAL  upval 0 := R0
+        17 [   0] GETGLOBAL R0 := _G["assert"]
+        18 [   0] GETTABLE  R0 := R0["same"]
+        19 [   0] LOADK     R1 := 9
+        20 [   0] GETUPVAL  R2 := upval 0
+        21 [   0] CALL      R0(...) nargs=2 nret=0
+        22 [   0] GETUPVAL  R0 := upval 1
+        23 [   0] GETTABLE  R0 := R0["self"]
+        24 [   0] GETTABLE  R0 := R0["tripple"]
+        25 [   0] LOADK     R1 := 4
+        26 [   0] CALL      R0(...) nargs=1 nret=1
+        27 [   0] SETUPVAL  upval 0 := R0
+        28 [   0] GETGLOBAL R0 := _G["assert"]
+        29 [   0] GETTABLE  R0 := R0["same"]
+        30 [   0] LOADK     R1 := 12
+        31 [   0] GETUPVAL  R2 := upval 0
+        32 [   0] CALL      R0(...) nargs=2 nret=0
+        33 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=0, lines 102-141, upvals=[], locals=[])
+    constants: strings=['setup', 'teardown', 'it', 'registers a new spy as a callback', 'replaces an original function'] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["setup"]
+       1 [   0] CLOSURE   R3 := closure #0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] CALL      R2(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R2 := _G["teardown"]
+       5 [   0] CLOSURE   R3 := closure #1
+       6 [   0] MOVE      R0 := R0
+       7 [   0] CALL      R2(...) nargs=1 nret=0
+       8 [   0] GETGLOBAL R2 := _G["it"]
+       9 [   0] LOADK     R3 := "registers a new spy as a callback"
+      10 [   0] CLOSURE   R4 := closure #2
+      11 [   0] MOVE      R0 := R0
+      12 [   0] CALL      R2(...) nargs=2 nret=0
+      13 [   0] GETGLOBAL R2 := _G["it"]
+      14 [   0] LOADK     R3 := "replaces an original function"
+      15 [   0] CLOSURE   R4 := closure #3
+      16 [   0] CALL      R2(...) nargs=2 nret=0
+      17 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#0 (params=0, lines 106-108, upvals=[], locals=[])
+      constants: strings=['require', 'util.tmputil'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "util.tmputil"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] SETUPVAL  upval 0 := R0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#1 (params=0, lines 110-112, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#2 (params=0, lines 114-123, upvals=[], locals=[])
+      constants: strings=['spy', 'new', 'self', 'double', 'assert', 'was', 'called', 'called_with'] numbers=[1, 4, 2]
+         0 [   0] GETGLOBAL R0 := _G["spy"]
+         1 [   0] GETTABLE  R0 := R0["new"]
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] GETTABLE  R1 := R1["self"]
+         4 [   0] GETTABLE  R1 := R1["double"]
+         5 [   0] CALL      R0(...) nargs=1 nret=1
+         6 [   0] MOVE      R1 := R0
+         7 [   0] LOADK     R2 := 1
+         8 [   0] CALL      R1(...) nargs=1 nret=0
+         9 [   0] MOVE      R1 := R0
+        10 [   0] LOADK     R2 := 4
+        11 [   0] CALL      R1(...) nargs=1 nret=0
+        12 [   0] GETGLOBAL R1 := _G["assert"]
+        13 [   0] GETTABLE  R1 := R1["spy"]
+        14 [   0] MOVE      R2 := R0
+        15 [   0] CALL      R1(...) nargs=1 nret=1
+        16 [   0] GETTABLE  R1 := R1["was"]
+        17 [   0] GETTABLE  R1 := R1["called"]
+        18 [   0] CALL      R1(...) nargs=0 nret=0
+        19 [   0] GETGLOBAL R1 := _G["assert"]
+        20 [   0] GETTABLE  R1 := R1["spy"]
+        21 [   0] MOVE      R2 := R0
+        22 [   0] CALL      R1(...) nargs=1 nret=1
+        23 [   0] GETTABLE  R1 := R1["was"]
+        24 [   0] GETTABLE  R1 := R1["called"]
+        25 [   0] LOADK     R2 := 2
+        26 [   0] CALL      R1(...) nargs=1 nret=0
+        27 [   0] GETGLOBAL R1 := _G["assert"]
+        28 [   0] GETTABLE  R1 := R1["spy"]
+        29 [   0] MOVE      R2 := R0
+        30 [   0] CALL      R1(...) nargs=1 nret=1
+        31 [   0] GETTABLE  R1 := R1["was"]
+        32 [   0] GETTABLE  R1 := R1["called_with"]
+        33 [   0] LOADK     R2 := 4
+        34 [   0] CALL      R1(...) nargs=1 nret=0
+        35 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#3 (params=0, lines 125-140, upvals=[], locals=[])
+      constants: strings=['greet', 'spy', 'on', 'Hey!', 'assert', 'was_called_with', 'revert', 'Hello!', 'was_not_called_with'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         1 [   0] CLOSURE   R1 := closure #0
+         2 [   0] SETTABLE  R0["greet"] := R1
+         3 [   0] GETGLOBAL R1 := _G["spy"]
+         4 [   0] GETTABLE  R1 := R1["on"]
+         5 [   0] MOVE      R2 := R0
+         6 [   0] LOADK     R3 := "greet"
+         7 [   0] CALL      R1(...) nargs=2 nret=1
+         8 [   0] GETTABLE  R2 := R0["greet"]
+         9 [   0] LOADK     R3 := "Hey!"
+        10 [   0] CALL      R2(...) nargs=1 nret=0
+        11 [   0] GETGLOBAL R2 := _G["assert"]
+        12 [   0] GETTABLE  R2 := R2["spy"]
+        13 [   0] GETTABLE  R3 := R0["greet"]
+        14 [   0] CALL      R2(...) nargs=1 nret=1
+        15 [   0] GETTABLE  R2 := R2["was_called_with"]
+        16 [   0] LOADK     R3 := "Hey!"
+        17 [   0] CALL      R2(...) nargs=1 nret=0
+        18 [   0] GETTABLE  R2 := R0["greet"]
+        19 [   0] SELF      R3 := R2; R2 := R2["revert"]
+        20 [   0] CALL      R2(...) nargs=1 nret=0
+        21 [   0] GETTABLE  R2 := R0["greet"]
+        22 [   0] LOADK     R3 := "Hello!"
+        23 [   0] CALL      R2(...) nargs=1 nret=0
+        24 [   0] GETGLOBAL R2 := _G["assert"]
+        25 [   0] GETTABLE  R2 := R2["spy"]
+        26 [   0] MOVE      R3 := R1
+        27 [   0] CALL      R2(...) nargs=1 nret=1
+        28 [   0] GETTABLE  R2 := R2["was_not_called_with"]
+        29 [   0] LOADK     R3 := "Hello!"
+        30 [   0] CALL      R2(...) nargs=1 nret=0
+        31 [   0] RETURN    return R0.. (0 values)
+      function main.#3.#3.#0 (params=1, lines 127-129, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=0, lines 144-160, upvals=[], locals=[])
+    constants: strings=['it', 'replaces an original function'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["it"]
+       1 [   0] LOADK     R1 := "replaces an original function"
+       2 [   0] CLOSURE   R2 := closure #0
+       3 [   0] CALL      R0(...) nargs=2 nret=0
+       4 [   0] RETURN    return R0.. (0 values)
+    function main.#4.#0 (params=0, lines 145-159, upvals=[], locals=[])
+      constants: strings=['greet', 'stub', 'Hey!', 'assert', 'was', 'called_with', 'revert'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         1 [   0] CLOSURE   R1 := closure #0
+         2 [   0] SETTABLE  R0["greet"] := R1
+         3 [   0] GETGLOBAL R1 := _G["stub"]
+         4 [   0] MOVE      R2 := R0
+         5 [   0] LOADK     R3 := "greet"
+         6 [   0] CALL      R1(...) nargs=2 nret=0
+         7 [   0] GETTABLE  R1 := R0["greet"]
+         8 [   0] LOADK     R2 := "Hey!"
+         9 [   0] CALL      R1(...) nargs=1 nret=0
+        10 [   0] GETGLOBAL R1 := _G["assert"]
+        11 [   0] GETTABLE  R1 := R1["stub"]
+        12 [   0] GETTABLE  R2 := R0["greet"]
+        13 [   0] CALL      R1(...) nargs=1 nret=1
+        14 [   0] GETTABLE  R1 := R1["was"]
+        15 [   0] GETTABLE  R1 := R1["called_with"]
+        16 [   0] LOADK     R2 := "Hey!"
+        17 [   0] CALL      R1(...) nargs=1 nret=0
+        18 [   0] GETTABLE  R1 := R0["greet"]
+        19 [   0] SELF      R2 := R1; R1 := R1["revert"]
+        20 [   0] CALL      R1(...) nargs=1 nret=0
+        21 [   0] GETTABLE  R1 := R0["greet"]
+        22 [   0] LOADK     R2 := "Hey!"
+        23 [   0] CALL      R1(...) nargs=1 nret=0
+        24 [   0] RETURN    return R0.. (0 values)
+      function main.#4.#0.#0 (params=1, lines 147-149, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=0, lines 164-190, upvals=[], locals=[])
+    constants: strings=['it', 'replaces a table with spies', 'replaces a table with stubs'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["it"]
+       1 [   0] LOADK     R1 := "replaces a table with spies"
+       2 [   0] CLOSURE   R2 := closure #0
+       3 [   0] CALL      R0(...) nargs=2 nret=0
+       4 [   0] GETGLOBAL R0 := _G["it"]
+       5 [   0] LOADK     R1 := "replaces a table with stubs"
+       6 [   0] CLOSURE   R2 := closure #1
+       7 [   0] CALL      R0(...) nargs=2 nret=0
+       8 [   0] RETURN    return R0.. (0 values)
+    function main.#5.#0 (params=0, lines 165-176, upvals=[], locals=[])
+      constants: strings=['thing', 'mock', 'Coffee', 'assert', 'spy', 'was', 'called_with'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         1 [   0] CLOSURE   R1 := closure #0
+         2 [   0] SETTABLE  R0["thing"] := R1
+         3 [   0] GETGLOBAL R1 := _G["mock"]
+         4 [   0] MOVE      R2 := R0
+         5 [   0] CALL      R1(...) nargs=1 nret=1
+         6 [   0] GETTABLE  R2 := R1["thing"]
+         7 [   0] LOADK     R3 := "Coffee"
+         8 [   0] CALL      R2(...) nargs=1 nret=0
+         9 [   0] GETGLOBAL R2 := _G["assert"]
+        10 [   0] GETTABLE  R2 := R2["spy"]
+        11 [   0] GETTABLE  R3 := R1["thing"]
+        12 [   0] CALL      R2(...) nargs=1 nret=1
+        13 [   0] GETTABLE  R2 := R2["was"]
+        14 [   0] GETTABLE  R2 := R2["called_with"]
+        15 [   0] LOADK     R3 := "Coffee"
+        16 [   0] CALL      R2(...) nargs=1 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+      function main.#5.#0.#0 (params=1, lines 167-169, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] RETURN    return R0.. (0 values)
+    function main.#5.#1 (params=0, lines 178-189, upvals=[], locals=[])
+      constants: strings=['thing', 'mock', 'Coffee', 'assert', 'stub', 'was', 'called_with'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+         1 [   0] CLOSURE   R1 := closure #0
+         2 [   0] SETTABLE  R0["thing"] := R1
+         3 [   0] GETGLOBAL R1 := _G["mock"]
+         4 [   0] MOVE      R2 := R0
+         5 [   0] LOADBOOL  R3 := True
+         6 [   0] CALL      R1(...) nargs=2 nret=1
+         7 [   0] GETTABLE  R2 := R1["thing"]
+         8 [   0] LOADK     R3 := "Coffee"
+         9 [   0] CALL      R2(...) nargs=1 nret=0
+        10 [   0] GETGLOBAL R2 := _G["assert"]
+        11 [   0] GETTABLE  R2 := R2["stub"]
+        12 [   0] GETTABLE  R3 := R1["thing"]
+        13 [   0] CALL      R2(...) nargs=1 nret=1
+        14 [   0] GETTABLE  R2 := R2["was"]
+        15 [   0] GETTABLE  R2 := R2["called_with"]
+        16 [   0] LOADK     R3 := "Coffee"
+        17 [   0] CALL      R2(...) nargs=1 nret=0
+        18 [   0] RETURN    return R0.. (0 values)
+      function main.#5.#1.#0 (params=1, lines 180-182, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] RETURN    return R0.. (0 values)

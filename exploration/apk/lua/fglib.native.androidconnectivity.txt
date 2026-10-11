@@ -1,0 +1,45 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'isFrameworkAvailable', 'getNetworkConnectivity', 'pcall'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] SETTABLE  R1["isFrameworkAvailable"] := R2
+     8 [   0] CLOSURE   R2 := closure #1
+     9 [   0] SETTABLE  R1["getNetworkConnectivity"] := R2
+    10 [   0] LOADNIL   R2..R2 := nil
+    11 [   0] CLOSURE   R3 := closure #2
+    12 [   0] MOVE      R0 := R2
+    13 [   0] GETGLOBAL R4 := _G["pcall"]
+    14 [   0] MOVE      R5 := R3
+    15 [   0] CALL      R4(...) nargs=1 nret=0
+    16 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+    17 [   0] JMP       jmp +2 -> 20
+    18 [   0] RETURN    return R2.. (1 values)
+    19 [   0] JMP       jmp +1 -> 21
+    20 [   0] RETURN    return R1.. (1 values)
+    21 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 6-8, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] LOADBOOL  R0 := False
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 10-13, upvals=[], locals=[])
+    constants: strings=['print', 'connectivityDummy returns WIFI true, Cellular true'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["print"]
+       1 [   0] LOADK     R1 := "connectivityDummy returns WIFI true, Cellular true"
+       2 [   0] CALL      R0(...) nargs=1 nret=0
+       3 [   0] LOADBOOL  R0 := True
+       4 [   0] LOADBOOL  R1 := True
+       5 [   0] RETURN    return R0.. (2 values)
+       6 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 19-21, upvals=[], locals=[])
+    constants: strings=['require', 'fgextension.networkconnectivity'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["require"]
+       1 [   0] LOADK     R1 := "fgextension.networkconnectivity"
+       2 [   0] CALL      R0(...) nargs=1 nret=1
+       3 [   0] SETUPVAL  upval 0 := R0
+       4 [   0] RETURN    return R0.. (0 values)

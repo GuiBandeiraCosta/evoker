@@ -1,0 +1,51 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=[] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] CALL      R0(...) nargs=0 nret=0
+     2 [   0] CLOSURE   R0 := closure #1
+     3 [   0] CALL      R0(...) nargs=0 nret=0
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 0-0, upvals=[], locals=[])
+    constants: strings=['application', 'content', 'width', 'height', 'scale', 'letterbox', 'fps', 'notification', 'iphone', 'types', 'badge', 'sound', 'alert'] numbers=[320, 480, 60]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 2)
+       1 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+       2 [   0] SETTABLE  R1["width"] := 320
+       3 [   0] SETTABLE  R1["height"] := 480
+       4 [   0] SETTABLE  R1["scale"] := "letterbox"
+       5 [   0] SETTABLE  R1["fps"] := 60
+       6 [   0] SETTABLE  R0["content"] := R1
+       7 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+       8 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+       9 [   0] NEWTABLE  R3 := {} (array 3, hash 0)
+      10 [   0] LOADK     R4 := "badge"
+      11 [   0] LOADK     R5 := "sound"
+      12 [   0] LOADK     R6 := "alert"
+      13 [   0] SETLIST   R3[...] := R4.. (n=3, block 1)
+      14 [   0] SETTABLE  R2["types"] := R3
+      15 [   0] SETTABLE  R1["iphone"] := R2
+      16 [   0] SETTABLE  R0["notification"] := R1
+      17 [   0] SETGLOBAL _G["application"] := R0
+      18 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 0-0, upvals=[], locals=[])
+    constants: strings=['application', 'type', 'table', 'metadata', 'appName', 'android', 'appVersion', '1.0', 'appPackageId', 'com.mycompany.unknownapp', 'appId', 'ca47d770607c1cf0c0a98ea26624b43c', 'userId', '', 'subscription', 'enterprise', 'mode', 'distribution'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["application"]
+       1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       2 [   0] JMP       jmp +5 -> 8
+       3 [   0] GETGLOBAL R0 := _G["type"]
+       4 [   0] GETGLOBAL R1 := _G["application"]
+       5 [   0] CALL      R0(...) nargs=1 nret=1
+       6 [   0] EQ        if (R0 == "table") ~= 1 then skip next
+       7 [   0] JMP       jmp +2 -> 10
+       8 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       9 [   0] SETGLOBAL _G["application"] := R0
+      10 [   0] GETGLOBAL R0 := _G["application"]
+      11 [   0] NEWTABLE  R1 := {} (array 0, hash 7)
+      12 [   0] SETTABLE  R1["appName"] := "android"
+      13 [   0] SETTABLE  R1["appVersion"] := "1.0"
+      14 [   0] SETTABLE  R1["appPackageId"] := "com.mycompany.unknownapp"
+      15 [   0] SETTABLE  R1["appId"] := "ca47d770607c1cf0c0a98ea26624b43c"
+      16 [   0] SETTABLE  R1["userId"] := ""
+      17 [   0] SETTABLE  R1["subscription"] := "enterprise"
+      18 [   0] SETTABLE  R1["mode"] := "distribution"
+      19 [   0] SETTABLE  R0["metadata"] := R1
+      20 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,58 @@
+/* Card detail screen: the full card (carddetail plates) over a painted backdrop tinted by tribe; zoom overlay. */
+
+.card-detail-screen { position: absolute; }
+.detail-backdrop {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(20, 22, 24, .35) 0%, rgba(20, 22, 24, .1) 40%, rgba(20, 22, 24, .85) 100%),
+    url('/assets/bg/quest-valley.jpg') center 35% / cover no-repeat,
+    #1b1d1f;
+  filter: saturate(.85);
+}
+/* tribe tint over the painted valley (the original shows the card over a landscape tinted by the card's mood) */
+.detail-backdrop.tribe-orc { background-image: linear-gradient(180deg, rgba(110, 30, 10, .55), rgba(60, 20, 10, .35) 40%, rgba(20, 22, 24, .9)), url('/assets/bg/quest-valley.jpg'); }
+.detail-backdrop.tribe-elf { background-image: linear-gradient(180deg, rgba(10, 40, 90, .5), rgba(10, 30, 60, .3) 40%, rgba(20, 22, 24, .9)), url('/assets/bg/quest-valley.jpg'); }
+.detail-backdrop.tribe-dwarf { background-image: linear-gradient(180deg, rgba(10, 50, 20, .5), rgba(10, 40, 20, .3) 40%, rgba(20, 22, 24, .9)), url('/assets/bg/quest-valley.jpg'); }
+.detail-backdrop.tribe-neutral { background-image: linear-gradient(180deg, rgba(120, 60, 10, .5), rgba(80, 40, 10, .3) 40%, rgba(20, 22, 24, .9)), url('/assets/bg/quest-valley.jpg'); }
+/* card + stats + buttons + the meta chips fit the 1162 px body (the chips were half under the stage edge) */
+.detail-stack { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 0 6px; }
+.detail-stack .card-detail-wrap { animation: detailIn var(--t-slow) var(--ease) both; }
+@keyframes detailIn { from { transform: translateY(16px) scale(.98); opacity: 0; } to { transform: none; opacity: 1; } }
+.card-detail-wrap.just-fused .card.size-detail { filter: drop-shadow(0 0 18px rgba(255, 190, 60, .9)); }
+.card-detail-wrap.in-deck .card-detail-actions .btn-icon:last-child { filter: grayscale(.8) brightness(.7); }
+/* the stats panel and the action buttons read as one stone panel like the original's bottom plate */
+.detail-stack .card-detail-stats { border-radius: 10px 10px 0 0; margin-top: 4px; }
+.detail-stack .card-detail-actions {
+  width: 600px; margin-top: 0; padding: 6px 0 8px;
+  background: linear-gradient(180deg, #141617, #101213) var(--hex-texture);
+  border: 3px solid var(--stone-edge); border-top: 0; border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 0 1px var(--stone-edge-dark), inset 0 -2px 0 var(--bevel-lo), 0 3px 8px rgba(0, 0, 0, .55);
+}
+.detail-meta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; width: 600px; }
+.meta-chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 2px 12px;
+  background: rgba(10, 11, 12, .78); border: 2px solid var(--stone-edge); border-radius: 6px;
+  color: var(--muted); font-size: 18px; font-weight: 500;
+}
+.meta-chip img { width: 26px; height: 26px; }
+.meta-chip.deck { color: var(--c-mana); border-color: var(--c-mana); }
+.meta-chip.ability { color: #ff8014; }
+.detail-missing { margin: 60px 40px; padding: 30px; text-align: center; font-size: 26px; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+
+/* Zoom overlay */
+.art-zoom {
+  position: absolute; inset: 0; z-index: var(--z-popup);
+  background: rgba(0, 0, 0, .92);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  cursor: zoom-out;
+  animation: screenFadeIn var(--t-med) var(--ease) both;
+}
+.art-zoom.closing { animation: screenFadeOut var(--t-med) var(--ease) both; pointer-events: none; }
+.art-zoom img {
+  width: 700px; max-height: 1080px; object-fit: contain;
+  border: 4px solid #4a4f54; border-radius: 6px;
+  box-shadow: 0 0 0 2px #0a0b0c, 0 10px 50px rgba(0, 0, 0, .95);
+  animation: dialogIn var(--t-slow) var(--ease) both;
+}
+.art-zoom-name { font-size: 34px; }
+.art-zoom-hint { color: rgba(255, 255, 255, .7); font-size: 22px; }

@@ -1,0 +1,645 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'fglib.eventdispatcher', 'fglib.eventlistener', 'store.decorater', 'appversion', 'server.server', 'getInstance', 'util.rewardutil'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "fglib.eventdispatcher"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "fglib.eventlistener"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] LOADK     R3 := "store.decorater"
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] GETGLOBAL R3 := _G["require"]
+    10 [   0] LOADK     R4 := "appversion"
+    11 [   0] CALL      R3(...) nargs=1 nret=1
+    12 [   0] GETGLOBAL R4 := _G["require"]
+    13 [   0] LOADK     R5 := "server.server"
+    14 [   0] CALL      R4(...) nargs=1 nret=1
+    15 [   0] GETTABLE  R4 := R4["getInstance"]
+    16 [   0] CALL      R4(...) nargs=0 nret=1
+    17 [   0] GETGLOBAL R5 := _G["require"]
+    18 [   0] LOADK     R6 := "util.rewardutil"
+    19 [   0] CALL      R5(...) nargs=1 nret=1
+    20 [   0] CLOSURE   R6 := closure #0
+    21 [   0] MOVE      R0 := R1
+    22 [   0] MOVE      R0 := R0
+    23 [   0] MOVE      R0 := R3
+    24 [   0] MOVE      R0 := R2
+    25 [   0] MOVE      R0 := R4
+    26 [   0] MOVE      R0 := R5
+    27 [   0] LOADNIL   R7..R7 := nil
+    28 [   0] CLOSURE   R8 := closure #1
+    29 [   0] MOVE      R0 := R7
+    30 [   0] MOVE      R0 := R6
+    31 [   0] NEWTABLE  R9 := {} (array 0, hash 1)
+    32 [   0] SETTABLE  R9["getInstance"] := R8
+    33 [   0] RETURN    return R9.. (1 values)
+    34 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 17-249, upvals=[], locals=[])
+    constants: strings=['fglib', 'appstore', 'PurchaseManager', 'getInstance', 'new_inherit', 'new', 'bundleId', 'LocalstoreInterface', 'productsReceivedHandler', 'clearCaches', 'receiptReceivedHandler', 'purchaseSuccessHandler', 'purchaseFinishedHandler', 'buyProduct', 'clearReceipts', 'restoreTransactions', 'shopInfoReceivedHandler', 'subscribeTo', 'shopInfoReceived', 'receiptReceived', 'productsReceived', 'purchaseSuccess', 'purchaseFinished', 'giveReward', 'getProducts', 'checkPendingTransactions'] numbers=[]
+       0 [   0] LOADBOOL  R0 := False
+       1 [   0] GETGLOBAL R1 := _G["fglib"]
+       2 [   0] GETTABLE  R1 := R1["appstore"]
+       3 [   0] GETTABLE  R2 := R1["PurchaseManager"]
+       4 [   0] GETTABLE  R2 := R2["getInstance"]
+       5 [   0] CALL      R2(...) nargs=0 nret=1
+       6 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       7 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+       8 [   0] GETUPVAL  R5 := upval 0
+       9 [   0] GETTABLE  R5 := R5["new_inherit"]
+      10 [   0] GETUPVAL  R6 := upval 1
+      11 [   0] GETTABLE  R6 := R6["new"]
+      12 [   0] CALL      R6(...) nargs=0 nret=-1
+      13 [   0] CALL      R5(...) nargs=-1 nret=1
+      14 [   0] GETUPVAL  R6 := upval 2
+      15 [   0] GETTABLE  R6 := R6["bundleId"]
+      16 [   0] GETTABLE  R7 := R1["LocalstoreInterface"]
+      17 [   0] GETTABLE  R7 := R7["getInstance"]
+      18 [   0] CALL      R7(...) nargs=0 nret=1
+      19 [   0] LOADNIL   R8..R8 := nil
+      20 [   0] CLOSURE   R9 := closure #0
+      21 [   0] MOVE      R0 := R2
+      22 [   0] MOVE      R0 := R7
+      23 [   0] CLOSURE   R10 := closure #1
+      24 [   0] CLOSURE   R11 := closure #2
+      25 [   0] GETUPVAL  R0 := upval 3
+      26 [   0] MOVE      R0 := R10
+      27 [   0] MOVE      R0 := R7
+      28 [   0] MOVE      R0 := R1
+      29 [   0] MOVE      R0 := R2
+      30 [   0] MOVE      R0 := R6
+      31 [   0] CLOSURE   R12 := closure #3
+      32 [   0] MOVE      R0 := R4
+      33 [   0] MOVE      R0 := R5
+      34 [   0] MOVE      R0 := R3
+      35 [   0] SETTABLE  R5["productsReceivedHandler"] := R12
+      36 [   0] CLOSURE   R12 := closure #4
+      37 [   0] MOVE      R0 := R2
+      38 [   0] CLOSURE   R13 := closure #5
+      39 [   0] MOVE      R0 := R4
+      40 [   0] CLOSURE   R14 := closure #6
+      41 [   0] MOVE      R0 := R2
+      42 [   0] SETTABLE  R5["clearCaches"] := R14
+      43 [   0] CLOSURE   R14 := closure #7
+      44 [   0] MOVE      R0 := R12
+      45 [   0] MOVE      R0 := R13
+      46 [   0] MOVE      R0 := R5
+      47 [   0] MOVE      R0 := R2
+      48 [   0] GETUPVAL  R0 := upval 4
+      49 [   0] MOVE      R0 := R8
+      50 [   0] GETUPVAL  R0 := upval 5
+      51 [   0] SETTABLE  R5["receiptReceivedHandler"] := R14
+      52 [   0] CLOSURE   R14 := closure #8
+      53 [   0] MOVE      R0 := R5
+      54 [   0] SETTABLE  R5["purchaseSuccessHandler"] := R14
+      55 [   0] CLOSURE   R14 := closure #9
+      56 [   0] MOVE      R0 := R5
+      57 [   0] SETTABLE  R5["purchaseFinishedHandler"] := R14
+      58 [   0] CLOSURE   R14 := closure #10
+      59 [   0] MOVE      R0 := R2
+      60 [   0] SETTABLE  R5["buyProduct"] := R14
+      61 [   0] CLOSURE   R14 := closure #11
+      62 [   0] MOVE      R0 := R2
+      63 [   0] SETTABLE  R5["clearReceipts"] := R14
+      64 [   0] CLOSURE   R14 := closure #12
+      65 [   0] MOVE      R0 := R2
+      66 [   0] SETTABLE  R5["restoreTransactions"] := R14
+      67 [   0] CLOSURE   R14 := closure #13
+      68 [   0] MOVE      R0 := R3
+      69 [   0] MOVE      R0 := R4
+      70 [   0] MOVE      R0 := R11
+      71 [   0] SETTABLE  R5["shopInfoReceivedHandler"] := R14
+      72 [   0] EQ        if (R0 == False) ~= 0 then skip next
+      73 [   0] JMP       jmp +25 -> 99
+      74 [   0] GETTABLE  R14 := R5["subscribeTo"]
+      75 [   0] GETUPVAL  R15 := upval 4
+      76 [   0] LOADK     R16 := "shopInfoReceived"
+      77 [   0] CALL      R14(...) nargs=2 nret=0
+      78 [   0] GETTABLE  R14 := R5["subscribeTo"]
+      79 [   0] GETUPVAL  R15 := upval 4
+      80 [   0] LOADK     R16 := "receiptReceived"
+      81 [   0] CALL      R14(...) nargs=2 nret=0
+      82 [   0] GETTABLE  R14 := R5["subscribeTo"]
+      83 [   0] MOVE      R15 := R2
+      84 [   0] LOADK     R16 := "productsReceived"
+      85 [   0] CALL      R14(...) nargs=2 nret=0
+      86 [   0] GETTABLE  R14 := R5["subscribeTo"]
+      87 [   0] MOVE      R15 := R2
+      88 [   0] LOADK     R16 := "purchaseSuccess"
+      89 [   0] CALL      R14(...) nargs=2 nret=0
+      90 [   0] GETTABLE  R14 := R5["subscribeTo"]
+      91 [   0] MOVE      R15 := R2
+      92 [   0] LOADK     R16 := "purchaseFinished"
+      93 [   0] CALL      R14(...) nargs=2 nret=0
+      94 [   0] GETTABLE  R14 := R5["subscribeTo"]
+      95 [   0] MOVE      R15 := R2
+      96 [   0] LOADK     R16 := "giveReward"
+      97 [   0] CALL      R14(...) nargs=2 nret=0
+      98 [   0] LOADBOOL  R0 := True
+      99 [   0] CLOSURE   R14 := closure #14
+     100 [   0] GETUPVAL  R0 := upval 4
+     101 [   0] SETTABLE  R5["getProducts"] := R14
+     102 [   0] CLOSURE   R14 := closure #15
+     103 [   0] MOVE      R0 := R2
+     104 [   0] MOVE      R0 := R4
+     105 [   0] MOVE      R0 := R8
+     106 [   0] GETUPVAL  R0 := upval 4
+     107 [   0] SETTABLE  R5["checkPendingTransactions"] := R14
+     108 [   0] MOVE      R14 := R9
+     109 [   0] CALL      R14(...) nargs=0 nret=0
+     110 [   0] RETURN    return R5.. (1 values)
+     111 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 30-38, upvals=[], locals=[])
+      constants: strings=['toggleCollectTransactions', 'system', 'getInfo', 'environment', 'simulator', 'setInterface'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["toggleCollectTransactions"]
+         2 [   0] LOADBOOL  R1 := True
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETGLOBAL R0 := _G["system"]
+         5 [   0] GETTABLE  R0 := R0["getInfo"]
+         6 [   0] LOADK     R1 := "environment"
+         7 [   0] CALL      R0(...) nargs=1 nret=1
+         8 [   0] EQ        if (R0 == "simulator") ~= 0 then skip next
+         9 [   0] JMP       jmp +4 -> 14
+        10 [   0] GETUPVAL  R0 := upval 0
+        11 [   0] GETTABLE  R0 := R0["setInterface"]
+        12 [   0] GETUPVAL  R1 := upval 1
+        13 [   0] CALL      R0(...) nargs=1 nret=0
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 41-56, upvals=[], locals=[])
+      constants: strings=['replacesProductIdentifier', 'usergroup', 'promotion', 'pid', 'shopitemid', 'amount', 'title', 'description', 'default'] numbers=[1]
+         0 [   0] MOVE      R1 := R0
+         1 [   0] LOADK     R2 := 1
+         2 [   0] LEN       R3 := #R0
+         3 [   0] LOADK     R4 := 1
+         4 [   0] FORPREP   for R2.. jmp +34
+         5 [   0] GETTABLE  R6 := R0[R5]
+         6 [   0] GETTABLE  R6 := R6["replacesProductIdentifier"]
+         7 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +30 -> 39
+         9 [   0] GETTABLE  R6 := R0[R5]
+        10 [   0] GETTABLE  R6 := R6["usergroup"]
+        11 [   0] EQ        if (R6 == "promotion") ~= 0 then skip next
+        12 [   0] JMP       jmp +26 -> 39
+        13 [   0] LEN       R6 := #R1
+        14 [   0] ADD       R6 := R6 + 1
+        15 [   0] NEWTABLE  R7 := {} (array 0, hash 0)
+        16 [   0] SETTABLE  R1[R6] := R7
+        17 [   0] GETTABLE  R7 := R1[R6]
+        18 [   0] GETTABLE  R8 := R0[R5]
+        19 [   0] GETTABLE  R8 := R8["replacesProductIdentifier"]
+        20 [   0] SETTABLE  R7["pid"] := R8
+        21 [   0] GETTABLE  R7 := R1[R6]
+        22 [   0] GETTABLE  R8 := R0[R5]
+        23 [   0] GETTABLE  R8 := R8["replacesProductIdentifier"]
+        24 [   0] SETTABLE  R7["shopitemid"] := R8
+        25 [   0] GETTABLE  R7 := R1[R6]
+        26 [   0] GETTABLE  R8 := R0[R5]
+        27 [   0] GETTABLE  R8 := R8["amount"]
+        28 [   0] SETTABLE  R7["amount"] := R8
+        29 [   0] GETTABLE  R7 := R1[R6]
+        30 [   0] GETTABLE  R8 := R0[R5]
+        31 [   0] GETTABLE  R8 := R8["title"]
+        32 [   0] SETTABLE  R7["title"] := R8
+        33 [   0] GETTABLE  R7 := R1[R6]
+        34 [   0] GETTABLE  R8 := R0[R5]
+        35 [   0] GETTABLE  R8 := R8["description"]
+        36 [   0] SETTABLE  R7["description"] := R8
+        37 [   0] GETTABLE  R7 := R1[R6]
+        38 [   0] SETTABLE  R7["usergroup"] := "default"
+        39 [   0] FORLOOP   forloop R2 jmp -35
+        40 [   0] RETURN    return R1.. (1 values)
+        41 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 58-76, upvals=[], locals=[])
+      constants: strings=['decorate', 'items', 'system', 'getInfo', 'environment', 'simulator', 'pairs', 'price', 'setProductData', 'productIdentifier', 'title', 'localizedPrice', 'description', 'StaticProductListProvider', 'new', '', 'setProductListFilter', 'filter', 'setProductListProvider', 'init', '_DEBUG', 'disableBuyInTracking', 'log', 'msg', 'onShopUpdated'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["decorate"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETTABLE  R3 := R0["items"]
+         4 [   0] CALL      R2(...) nargs=1 nret=-1
+         5 [   0] CALL      R1(...) nargs=-1 nret=1
+         6 [   0] GETGLOBAL R2 := _G["system"]
+         7 [   0] GETTABLE  R2 := R2["getInfo"]
+         8 [   0] LOADK     R3 := "environment"
+         9 [   0] CALL      R2(...) nargs=1 nret=1
+        10 [   0] EQ        if (R2 == "simulator") ~= 0 then skip next
+        11 [   0] JMP       jmp +18 -> 30
+        12 [   0] GETGLOBAL R2 := _G["pairs"]
+        13 [   0] GETTABLE  R3 := R1["items"]
+        14 [   0] CALL      R2(...) nargs=1 nret=3
+        15 [   0] JMP       jmp +12 -> 28
+        16 [   0] GETTABLE  R7 := R6["price"]
+        17 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+        18 [   0] JMP       jmp +9 -> 28
+        19 [   0] GETUPVAL  R7 := upval 2
+        20 [   0] GETTABLE  R7 := R7["setProductData"]
+        21 [   0] GETTABLE  R8 := R6["productIdentifier"]
+        22 [   0] GETTABLE  R9 := R6["title"]
+        23 [   0] GETTABLE  R10 := R6["price"]
+        24 [   0] LOADBOOL  R11 := True
+        25 [   0] GETTABLE  R12 := R6["localizedPrice"]
+        26 [   0] GETTABLE  R13 := R6["description"]
+        27 [   0] CALL      R7(...) nargs=6 nret=0
+        28 [   0] TFORLOOP  tforloop R2 nres=2
+        29 [   0] JMP       jmp -14 -> 16
+        30 [   0] GETUPVAL  R2 := upval 3
+        31 [   0] GETTABLE  R2 := R2["StaticProductListProvider"]
+        32 [   0] GETTABLE  R2 := R2["new"]
+        33 [   0] LOADK     R3 := ""
+        34 [   0] GETTABLE  R4 := R1["items"]
+        35 [   0] CALL      R2(...) nargs=2 nret=1
+        36 [   0] GETUPVAL  R3 := upval 4
+        37 [   0] GETTABLE  R3 := R3["setProductListFilter"]
+        38 [   0] GETTABLE  R4 := R1["filter"]
+        39 [   0] CALL      R3(...) nargs=1 nret=0
+        40 [   0] GETUPVAL  R3 := upval 4
+        41 [   0] GETTABLE  R3 := R3["setProductListProvider"]
+        42 [   0] MOVE      R4 := R2
+        43 [   0] CALL      R3(...) nargs=1 nret=0
+        44 [   0] GETUPVAL  R3 := upval 4
+        45 [   0] GETTABLE  R3 := R3["init"]
+        46 [   0] GETUPVAL  R4 := upval 5
+        47 [   0] GETGLOBAL R5 := _G["_DEBUG"]
+        48 [   0] CALL      R3(...) nargs=2 nret=0
+        49 [   0] GETUPVAL  R3 := upval 4
+        50 [   0] GETTABLE  R3 := R3["disableBuyInTracking"]
+        51 [   0] CALL      R3(...) nargs=0 nret=0
+        52 [   0] GETGLOBAL R3 := _G["log"]
+        53 [   0] GETTABLE  R3 := R3["msg"]
+        54 [   0] LOADK     R4 := "onShopUpdated"
+        55 [   0] CALL      R3(...) nargs=1 nret=0
+        56 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 79-113, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'productsReceivedHandler', 'products', 'productIdentifier', 'pid', 'cleanPrice', 'trackingPrice', 'replacesProductId', 'oldLocalizedPrice', 'localizedPrice', 'emit', 'productsUpdated', 'banners'] numbers=[1]
+         0 [   0] GETGLOBAL R2 := _G["log"]
+         1 [   0] GETTABLE  R2 := R2["msg"]
+         2 [   0] LOADK     R3 := "productsReceivedHandler"
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         5 [   0] LOADK     R3 := 1
+         6 [   0] GETTABLE  R4 := R1["products"]
+         7 [   0] LEN       R4 := #R4
+         8 [   0] LOADK     R5 := 1
+         9 [   0] FORPREP   for R3.. jmp +37
+        10 [   0] GETTABLE  R7 := R1["products"]
+        11 [   0] GETTABLE  R7 := R7[R6]
+        12 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +33 -> 47
+        14 [   0] GETTABLE  R8 := R7["productIdentifier"]
+        15 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        16 [   0] JMP       jmp +30 -> 47
+        17 [   0] LOADK     R8 := 1
+        18 [   0] GETUPVAL  R9 := upval 0
+        19 [   0] LEN       R9 := #R9
+        20 [   0] LOADK     R10 := 1
+        21 [   0] FORPREP   for R8.. jmp +24
+        22 [   0] GETUPVAL  R12 := upval 0
+        23 [   0] GETTABLE  R12 := R12[R11]
+        24 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+        25 [   0] JMP       jmp +20 -> 46
+        26 [   0] GETUPVAL  R12 := upval 0
+        27 [   0] GETTABLE  R12 := R12[R11]
+        28 [   0] GETTABLE  R12 := R12["pid"]
+        29 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+        30 [   0] JMP       jmp +15 -> 46
+        31 [   0] GETUPVAL  R12 := upval 0
+        32 [   0] GETTABLE  R12 := R12[R11]
+        33 [   0] GETTABLE  R12 := R12["pid"]
+        34 [   0] GETTABLE  R13 := R7["productIdentifier"]
+        35 [   0] EQ        if (R12 == R13) ~= 0 then skip next
+        36 [   0] JMP       jmp +9 -> 46
+        37 [   0] LEN       R12 := #R2
+        38 [   0] ADD       R12 := R12 + 1
+        39 [   0] SETTABLE  R2[R12] := R7
+        40 [   0] GETTABLE  R13 := R2[R12]
+        41 [   0] GETUPVAL  R14 := upval 0
+        42 [   0] GETTABLE  R14 := R14[R11]
+        43 [   0] GETTABLE  R14 := R14["trackingPrice"]
+        44 [   0] SETTABLE  R13["cleanPrice"] := R14
+        45 [   0] JMP       jmp +1 -> 47
+        46 [   0] FORLOOP   forloop R8 jmp -25
+        47 [   0] FORLOOP   forloop R3 jmp -38
+        48 [   0] LOADK     R3 := 1
+        49 [   0] LEN       R4 := #R2
+        50 [   0] LOADK     R5 := 1
+        51 [   0] FORPREP   for R3.. jmp +27
+        52 [   0] GETTABLE  R7 := R2[R6]
+        53 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+        54 [   0] JMP       jmp +24 -> 79
+        55 [   0] GETTABLE  R8 := R7["replacesProductId"]
+        56 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        57 [   0] JMP       jmp +21 -> 79
+        58 [   0] LOADK     R8 := 1
+        59 [   0] GETTABLE  R9 := R1["products"]
+        60 [   0] LEN       R9 := #R9
+        61 [   0] LOADK     R10 := 1
+        62 [   0] FORPREP   for R8.. jmp +15
+        63 [   0] GETTABLE  R12 := R1["products"]
+        64 [   0] GETTABLE  R12 := R12[R11]
+        65 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+        66 [   0] JMP       jmp +11 -> 78
+        67 [   0] GETTABLE  R12 := R1["products"]
+        68 [   0] GETTABLE  R12 := R12[R11]
+        69 [   0] GETTABLE  R12 := R12["productIdentifier"]
+        70 [   0] GETTABLE  R13 := R7["replacesProductId"]
+        71 [   0] EQ        if (R12 == R13) ~= 0 then skip next
+        72 [   0] JMP       jmp +5 -> 78
+        73 [   0] GETTABLE  R12 := R1["products"]
+        74 [   0] GETTABLE  R12 := R12[R11]
+        75 [   0] GETTABLE  R12 := R12["localizedPrice"]
+        76 [   0] SETTABLE  R7["oldLocalizedPrice"] := R12
+        77 [   0] JMP       jmp +1 -> 79
+        78 [   0] FORLOOP   forloop R8 jmp -16
+        79 [   0] FORLOOP   forloop R3 jmp -28
+        80 [   0] GETUPVAL  R3 := upval 1
+        81 [   0] GETTABLE  R3 := R3["emit"]
+        82 [   0] LOADK     R4 := "productsUpdated"
+        83 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+        84 [   0] SETTABLE  R5["products"] := R2
+        85 [   0] GETUPVAL  R6 := upval 2
+        86 [   0] SETTABLE  R5["banners"] := R6
+        87 [   0] CALL      R3(...) nargs=2 nret=0
+        88 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 115-129, upvals=[], locals=[])
+      constants: strings=['transactionId', 'getTransactions', 'pairs', 'id'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +20 -> 22
+         2 [   0] GETTABLE  R1 := R0["transactionId"]
+         3 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +17 -> 22
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] GETTABLE  R1 := R1["getTransactions"]
+         7 [   0] CALL      R1(...) nargs=0 nret=1
+         8 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +12 -> 22
+        10 [   0] GETGLOBAL R2 := _G["pairs"]
+        11 [   0] MOVE      R3 := R1
+        12 [   0] CALL      R2(...) nargs=1 nret=3
+        13 [   0] JMP       jmp +6 -> 20
+        14 [   0] GETTABLE  R7 := R0["transactionId"]
+        15 [   0] GETTABLE  R8 := R6["id"]
+        16 [   0] EQ        if (R7 == R8) ~= 0 then skip next
+        17 [   0] JMP       jmp +2 -> 20
+        18 [   0] LOADBOOL  R7 := True
+        19 [   0] RETURN    return R7.. (1 values)
+        20 [   0] TFORLOOP  tforloop R2 nres=2
+        21 [   0] JMP       jmp -8 -> 14
+        22 [   0] LOADBOOL  R1 := False
+        23 [   0] RETURN    return R1.. (1 values)
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 131-142, upvals=[], locals=[])
+      constants: strings=['type', 'gems', 'pid', 'fglib', 'native', 'facebookmai', 'fbtrackpurchase', 'trackingPrice', 'trackingIsoCode', 'hasoffers', 'matpurchase', 'appsflyer', 'purchase'] numbers=[1]
+         0 [   0] GETTABLE  R1 := R0["type"]
+         1 [   0] EQ        if (R1 == "gems") ~= 0 then skip next
+         2 [   0] JMP       jmp +46 -> 49
+         3 [   0] LOADK     R1 := 1
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] LEN       R2 := #R2
+         6 [   0] LOADK     R3 := 1
+         7 [   0] FORPREP   for R1.. jmp +40
+         8 [   0] GETUPVAL  R5 := upval 0
+         9 [   0] GETTABLE  R5 := R5[R4]
+        10 [   0] GETTABLE  R5 := R5["pid"]
+        11 [   0] GETTABLE  R6 := R0["pid"]
+        12 [   0] EQ        if (R5 == R6) ~= 0 then skip next
+        13 [   0] JMP       jmp +34 -> 48
+        14 [   0] GETGLOBAL R5 := _G["fglib"]
+        15 [   0] GETTABLE  R5 := R5["native"]
+        16 [   0] GETTABLE  R5 := R5["facebookmai"]
+        17 [   0] GETTABLE  R5 := R5["fbtrackpurchase"]
+        18 [   0] GETUPVAL  R6 := upval 0
+        19 [   0] GETTABLE  R6 := R6[R4]
+        20 [   0] GETTABLE  R6 := R6["trackingPrice"]
+        21 [   0] GETUPVAL  R7 := upval 0
+        22 [   0] GETTABLE  R7 := R7[R4]
+        23 [   0] GETTABLE  R7 := R7["trackingIsoCode"]
+        24 [   0] CALL      R5(...) nargs=2 nret=0
+        25 [   0] GETGLOBAL R5 := _G["fglib"]
+        26 [   0] GETTABLE  R5 := R5["native"]
+        27 [   0] GETTABLE  R5 := R5["hasoffers"]
+        28 [   0] GETTABLE  R5 := R5["matpurchase"]
+        29 [   0] GETUPVAL  R6 := upval 0
+        30 [   0] GETTABLE  R6 := R6[R4]
+        31 [   0] GETTABLE  R6 := R6["trackingIsoCode"]
+        32 [   0] GETUPVAL  R7 := upval 0
+        33 [   0] GETTABLE  R7 := R7[R4]
+        34 [   0] GETTABLE  R7 := R7["trackingPrice"]
+        35 [   0] CALL      R5(...) nargs=2 nret=0
+        36 [   0] GETGLOBAL R5 := _G["fglib"]
+        37 [   0] GETTABLE  R5 := R5["native"]
+        38 [   0] GETTABLE  R5 := R5["appsflyer"]
+        39 [   0] GETTABLE  R5 := R5["purchase"]
+        40 [   0] GETUPVAL  R6 := upval 0
+        41 [   0] GETTABLE  R6 := R6[R4]
+        42 [   0] GETTABLE  R6 := R6["trackingIsoCode"]
+        43 [   0] GETUPVAL  R7 := upval 0
+        44 [   0] GETTABLE  R7 := R7[R4]
+        45 [   0] GETTABLE  R7 := R7["trackingPrice"]
+        46 [   0] CALL      R5(...) nargs=2 nret=0
+        47 [   0] JMP       jmp +1 -> 49
+        48 [   0] FORLOOP   forloop R1 jmp -41
+        49 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 144-146, upvals=[], locals=[])
+      constants: strings=['clearCache'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["clearCache"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 148-173, upvals=[], locals=[])
+      constants: strings=['code', 'emit', 'receiptReceived', 'clearTransaction', 'transactionId', 'wasBeforeLastSync', 'addRewardsToUser', 'rewards', 'receiptReceivedError', 'log', 'msg', 'ERROR, unhandled Error Code: '] numbers=[0, 1, 2]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] MOVE      R3 := R1
+         2 [   0] CALL      R2(...) nargs=1 nret=1
+         3 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +60 -> 65
+         5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +58 -> 65
+         7 [   0] GETTABLE  R2 := R1["code"]
+         8 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +55 -> 65
+        10 [   0] GETTABLE  R2 := R1["code"]
+        11 [   0] EQ        if (R2 == 0) ~= 0 then skip next
+        12 [   0] JMP       jmp +23 -> 36
+        13 [   0] GETUPVAL  R2 := upval 1
+        14 [   0] MOVE      R3 := R1
+        15 [   0] CALL      R2(...) nargs=1 nret=0
+        16 [   0] GETUPVAL  R2 := upval 2
+        17 [   0] GETTABLE  R2 := R2["emit"]
+        18 [   0] LOADK     R3 := "receiptReceived"
+        19 [   0] MOVE      R4 := R1
+        20 [   0] CALL      R2(...) nargs=2 nret=0
+        21 [   0] GETUPVAL  R2 := upval 3
+        22 [   0] GETTABLE  R2 := R2["clearTransaction"]
+        23 [   0] GETTABLE  R3 := R1["transactionId"]
+        24 [   0] CALL      R2(...) nargs=1 nret=0
+        25 [   0] GETUPVAL  R2 := upval 4
+        26 [   0] GETTABLE  R2 := R2["wasBeforeLastSync"]
+        27 [   0] GETUPVAL  R3 := upval 5
+        28 [   0] CALL      R2(...) nargs=1 nret=1
+        29 [   0] EQ        if (R2 == False) ~= 0 then skip next
+        30 [   0] JMP       jmp +32 -> 63
+        31 [   0] GETUPVAL  R2 := upval 6
+        32 [   0] GETTABLE  R2 := R2["addRewardsToUser"]
+        33 [   0] GETTABLE  R3 := R1["rewards"]
+        34 [   0] CALL      R2(...) nargs=1 nret=0
+        35 [   0] JMP       jmp +27 -> 63
+        36 [   0] GETTABLE  R2 := R1["code"]
+        37 [   0] EQ        if (R2 == 1) ~= 0 then skip next
+        38 [   0] JMP       jmp +10 -> 49
+        39 [   0] GETUPVAL  R2 := upval 2
+        40 [   0] GETTABLE  R2 := R2["emit"]
+        41 [   0] LOADK     R3 := "receiptReceivedError"
+        42 [   0] MOVE      R4 := R1
+        43 [   0] CALL      R2(...) nargs=2 nret=0
+        44 [   0] GETUPVAL  R2 := upval 3
+        45 [   0] GETTABLE  R2 := R2["clearTransaction"]
+        46 [   0] GETTABLE  R3 := R1["transactionId"]
+        47 [   0] CALL      R2(...) nargs=1 nret=0
+        48 [   0] JMP       jmp +14 -> 63
+        49 [   0] GETTABLE  R2 := R1["code"]
+        50 [   0] EQ        if (R2 == 2) ~= 0 then skip next
+        51 [   0] JMP       jmp +6 -> 58
+        52 [   0] GETUPVAL  R2 := upval 2
+        53 [   0] GETTABLE  R2 := R2["emit"]
+        54 [   0] LOADK     R3 := "receiptReceivedError"
+        55 [   0] MOVE      R4 := R1
+        56 [   0] CALL      R2(...) nargs=2 nret=0
+        57 [   0] JMP       jmp +5 -> 63
+        58 [   0] GETGLOBAL R2 := _G["log"]
+        59 [   0] GETTABLE  R2 := R2["msg"]
+        60 [   0] LOADK     R3 := "ERROR, unhandled Error Code: "
+        61 [   0] GETTABLE  R4 := R1["code"]
+        62 [   0] CALL      R2(...) nargs=2 nret=0
+        63 [   0] LOADNIL   R2..R2 := nil
+        64 [   0] SETUPVAL  upval 5 := R2
+        65 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 175-179, upvals=[], locals=[])
+      constants: strings=['transaction', 'state', 'purchased', 'metadata', 'checkPendingTransactions'] numbers=[]
+         0 [   0] GETTABLE  R2 := R1["transaction"]
+         1 [   0] GETTABLE  R2 := R2["state"]
+         2 [   0] EQ        if (R2 == "purchased") ~= 0 then skip next
+         3 [   0] JMP       jmp +6 -> 10
+         4 [   0] GETTABLE  R2 := R1["metadata"]
+         5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +3 -> 10
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] GETTABLE  R2 := R2["checkPendingTransactions"]
+         9 [   0] CALL      R2(...) nargs=0 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=2, lines 181-184, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'emitting purchase finished!', 'emit', 'purchaseFinished'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["log"]
+         1 [   0] GETTABLE  R2 := R2["msg"]
+         2 [   0] LOADK     R3 := "emitting purchase finished!"
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] GETTABLE  R2 := R2["emit"]
+         6 [   0] LOADK     R3 := "purchaseFinished"
+         7 [   0] MOVE      R4 := R1
+         8 [   0] CALL      R2(...) nargs=2 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=1, lines 186-190, upvals=[], locals=[])
+      constants: strings=['require', 'game.lifecyclemanager', 'getInstance', 'gotoShopMode', 'buyProduct'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["require"]
+         1 [   0] LOADK     R2 := "game.lifecyclemanager"
+         2 [   0] CALL      R1(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R1 := R1["getInstance"]
+         4 [   0] CALL      R1(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R1 := R1["gotoShopMode"]
+         6 [   0] CALL      R1(...) nargs=0 nret=0
+         7 [   0] GETUPVAL  R1 := upval 0
+         8 [   0] GETTABLE  R1 := R1["buyProduct"]
+         9 [   0] MOVE      R2 := R0
+        10 [   0] CALL      R1(...) nargs=1 nret=0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=0, lines 192-194, upvals=[], locals=[])
+      constants: strings=['clearTransactions'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["clearTransactions"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=0, lines 196-198, upvals=[], locals=[])
+      constants: strings=['restoreTransactions'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["restoreTransactions"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=2, lines 200-211, upvals=[], locals=[])
+      constants: strings=['banners', 'items'] numbers=[1]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] SETUPVAL  upval 0 := R2
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         3 [   0] SETUPVAL  upval 1 := R2
+         4 [   0] GETTABLE  R2 := R1["banners"]
+         5 [   0] SETUPVAL  upval 0 := R2
+         6 [   0] LOADK     R2 := 1
+         7 [   0] GETTABLE  R3 := R1["items"]
+         8 [   0] LEN       R3 := #R3
+         9 [   0] LOADK     R4 := 1
+        10 [   0] FORPREP   for R2.. jmp +4
+        11 [   0] GETUPVAL  R6 := upval 1
+        12 [   0] GETTABLE  R7 := R1["items"]
+        13 [   0] GETTABLE  R7 := R7[R5]
+        14 [   0] SETTABLE  R6[R5] := R7
+        15 [   0] FORLOOP   forloop R2 jmp -5
+        16 [   0] GETUPVAL  R2 := upval 2
+        17 [   0] MOVE      R3 := R1
+        18 [   0] CALL      R2(...) nargs=1 nret=0
+        19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=0, lines 223-225, upvals=[], locals=[])
+      constants: strings=['requestShopInfo'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["requestShopInfo"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=0, lines 227-243, upvals=[], locals=[])
+      constants: strings=['getTransactions', 'pairs', 'default', 'pid', 'usergroup', 'validateReceipt', 'receipt', 'id', 'signature'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["getTransactions"]
+         2 [   0] CALL      R0(...) nargs=0 nret=1
+         3 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +32 -> 37
+         5 [   0] GETGLOBAL R1 := _G["pairs"]
+         6 [   0] MOVE      R2 := R0
+         7 [   0] CALL      R1(...) nargs=1 nret=3
+         8 [   0] JMP       jmp +26 -> 35
+         9 [   0] LOADK     R6 := "default"
+        10 [   0] LOADK     R7 := 1
+        11 [   0] GETUPVAL  R8 := upval 1
+        12 [   0] LEN       R8 := #R8
+        13 [   0] LOADK     R9 := 1
+        14 [   0] FORPREP   for R7.. jmp +10
+        15 [   0] GETUPVAL  R11 := upval 1
+        16 [   0] GETTABLE  R11 := R11[R10]
+        17 [   0] GETTABLE  R11 := R11["pid"]
+        18 [   0] GETTABLE  R12 := R5["pid"]
+        19 [   0] EQ        if (R11 == R12) ~= 0 then skip next
+        20 [   0] JMP       jmp +4 -> 25
+        21 [   0] GETUPVAL  R11 := upval 1
+        22 [   0] GETTABLE  R11 := R11[R10]
+        23 [   0] GETTABLE  R6 := R11["usergroup"]
+        24 [   0] JMP       jmp +1 -> 26
+        25 [   0] FORLOOP   forloop R7 jmp -11
+        26 [   0] GETUPVAL  R7 := upval 3
+        27 [   0] GETTABLE  R7 := R7["validateReceipt"]
+        28 [   0] GETTABLE  R8 := R5["pid"]
+        29 [   0] GETTABLE  R9 := R5["receipt"]
+        30 [   0] GETTABLE  R10 := R5["id"]
+        31 [   0] MOVE      R11 := R6
+        32 [   0] GETTABLE  R12 := R5["signature"]
+        33 [   0] CALL      R7(...) nargs=5 nret=1
+        34 [   0] SETUPVAL  upval 2 := R7
+        35 [   0] TFORLOOP  tforloop R1 nres=2
+        36 [   0] JMP       jmp -28 -> 9
+        37 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 253-258, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

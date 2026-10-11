@@ -1,0 +1,1146 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['kobold', 'attack', 'hp', 'mana', 'buffs', 'type', 'die', 'directions', 'self', 'event', 'always', 'botin', 'front', 'beutelreisser', 'pikentraeger', 'rabenschamane', 'heal', 'left', 'strength', 'wurmschamane', 'right', 'bewahrer', 'eisenberster', 'steingolem', 'kehlenschlitzer', 'korim steinschaedel', 'raise_attack', 'lebensbaum', 'raise_player_hp', 'onDeath', 'eventData', 'irrlicht', 'reflect_damage', 'onDamage', 'greif', 'kaiserdrache', 'frontLeft', 'frontRight', 'tulzakk knochenbrecher', 'erdelementar', 'invulnerable', 'round_eq', 'kampfeber', 'riesenspinne', 'opponent_cards', 'tundugar erzauge', 'no_buff', 'no_damage', 'schwester elenia', 'phoenix', 'resurrect', 'erzengel', 'raise_hp', 'sternenseher', 'reflect_damage_to_player', 'sklavenmedicus', 'baummensch', 'emptyReduction', 'basilisk', 'hoehlendrache', 'stammesraecher', 'deal_damage_to_all_opponent_cards', 'rattenfresser', 'adept', 'einhorn', 'dryadenorakel', 'deal_damage_to_opponent_player', 'blutspeier', 'self_damage', 'goldsucher', 'knochensammler', 'increment_attack', 'hoehlentroll', 'niederer daemon', 'deal_damage_to_player', 'homunkulus', 'katapult', 'round_ge', 'getCard'] numbers=[0, 200, 1, 100, 2, 400, 8, 300, 5, 3, 4, 600, 6, 500, -500, 800, 1400, 24, 1500, 1000, 25, 1200, 17, 700, 13, 900, 1100, 21, 19, 9, -400, 12, 11, 10, -200, 14]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+     2 [   0] SETTABLE  R1["attack"] := 0
+     3 [   0] SETTABLE  R1["hp"] := 200
+     4 [   0] SETTABLE  R1["mana"] := 1
+     5 [   0] NEWTABLE  R2 := {} (array 1, hash 0)
+     6 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+     7 [   0] SETTABLE  R3["type"] := "die"
+     8 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+     9 [   0] LOADK     R5 := "self"
+    10 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+    11 [   0] SETTABLE  R3["directions"] := R4
+    12 [   0] SETTABLE  R3["event"] := "always"
+    13 [   0] SETLIST   R2[...] := R3.. (n=1, block 1)
+    14 [   0] SETTABLE  R1["buffs"] := R2
+    15 [   0] SETTABLE  R0["kobold"] := R1
+    16 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+    17 [   0] SETTABLE  R1["attack"] := 100
+    18 [   0] SETTABLE  R1["hp"] := 100
+    19 [   0] SETTABLE  R1["mana"] := 2
+    20 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+    21 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+    22 [   0] SETTABLE  R3["type"] := "attack"
+    23 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+    24 [   0] LOADK     R5 := "front"
+    25 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+    26 [   0] SETTABLE  R3["directions"] := R4
+    27 [   0] SETTABLE  R3["event"] := "always"
+    28 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+    29 [   0] SETTABLE  R4["type"] := "die"
+    30 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+    31 [   0] LOADK     R6 := "self"
+    32 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+    33 [   0] SETTABLE  R4["directions"] := R5
+    34 [   0] SETTABLE  R4["event"] := "always"
+    35 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+    36 [   0] SETTABLE  R1["buffs"] := R2
+    37 [   0] SETTABLE  R0["botin"] := R1
+    38 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+    39 [   0] SETTABLE  R1["attack"] := 100
+    40 [   0] SETTABLE  R1["hp"] := 100
+    41 [   0] SETTABLE  R1["mana"] := 2
+    42 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+    43 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+    44 [   0] SETTABLE  R3["type"] := "attack"
+    45 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+    46 [   0] LOADK     R5 := "front"
+    47 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+    48 [   0] SETTABLE  R3["directions"] := R4
+    49 [   0] SETTABLE  R3["event"] := "always"
+    50 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+    51 [   0] SETTABLE  R4["type"] := "die"
+    52 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+    53 [   0] LOADK     R6 := "self"
+    54 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+    55 [   0] SETTABLE  R4["directions"] := R5
+    56 [   0] SETTABLE  R4["event"] := "always"
+    57 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+    58 [   0] SETTABLE  R1["buffs"] := R2
+    59 [   0] SETTABLE  R0["beutelreisser"] := R1
+    60 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+    61 [   0] SETTABLE  R1["attack"] := 100
+    62 [   0] SETTABLE  R1["hp"] := 100
+    63 [   0] SETTABLE  R1["mana"] := 2
+    64 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+    65 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+    66 [   0] SETTABLE  R3["type"] := "attack"
+    67 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+    68 [   0] LOADK     R5 := "front"
+    69 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+    70 [   0] SETTABLE  R3["directions"] := R4
+    71 [   0] SETTABLE  R3["event"] := "always"
+    72 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+    73 [   0] SETTABLE  R4["type"] := "die"
+    74 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+    75 [   0] LOADK     R6 := "self"
+    76 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+    77 [   0] SETTABLE  R4["directions"] := R5
+    78 [   0] SETTABLE  R4["event"] := "always"
+    79 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+    80 [   0] SETTABLE  R1["buffs"] := R2
+    81 [   0] SETTABLE  R0["pikentraeger"] := R1
+    82 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+    83 [   0] SETTABLE  R1["attack"] := 200
+    84 [   0] SETTABLE  R1["hp"] := 400
+    85 [   0] SETTABLE  R1["mana"] := 8
+    86 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+    87 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+    88 [   0] SETTABLE  R3["type"] := "attack"
+    89 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+    90 [   0] LOADK     R5 := "front"
+    91 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+    92 [   0] SETTABLE  R3["directions"] := R4
+    93 [   0] SETTABLE  R3["event"] := "always"
+    94 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+    95 [   0] SETTABLE  R4["type"] := "die"
+    96 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+    97 [   0] LOADK     R6 := "self"
+    98 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+    99 [   0] SETTABLE  R4["directions"] := R5
+   100 [   0] SETTABLE  R4["event"] := "always"
+   101 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   102 [   0] SETTABLE  R5["type"] := "heal"
+   103 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   104 [   0] LOADK     R7 := "left"
+   105 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   106 [   0] SETTABLE  R5["directions"] := R6
+   107 [   0] SETTABLE  R5["strength"] := 200
+   108 [   0] SETTABLE  R5["event"] := "always"
+   109 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   110 [   0] SETTABLE  R1["buffs"] := R2
+   111 [   0] SETTABLE  R0["rabenschamane"] := R1
+   112 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   113 [   0] SETTABLE  R1["attack"] := 100
+   114 [   0] SETTABLE  R1["hp"] := 300
+   115 [   0] SETTABLE  R1["mana"] := 5
+   116 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   117 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   118 [   0] SETTABLE  R3["type"] := "attack"
+   119 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   120 [   0] LOADK     R5 := "front"
+   121 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   122 [   0] SETTABLE  R3["directions"] := R4
+   123 [   0] SETTABLE  R3["event"] := "always"
+   124 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   125 [   0] SETTABLE  R4["type"] := "die"
+   126 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   127 [   0] LOADK     R6 := "self"
+   128 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   129 [   0] SETTABLE  R4["directions"] := R5
+   130 [   0] SETTABLE  R4["event"] := "always"
+   131 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   132 [   0] SETTABLE  R5["type"] := "heal"
+   133 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   134 [   0] LOADK     R7 := "right"
+   135 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   136 [   0] SETTABLE  R5["directions"] := R6
+   137 [   0] SETTABLE  R5["strength"] := 100
+   138 [   0] SETTABLE  R5["event"] := "always"
+   139 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   140 [   0] SETTABLE  R1["buffs"] := R2
+   141 [   0] SETTABLE  R0["wurmschamane"] := R1
+   142 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   143 [   0] SETTABLE  R1["attack"] := 0
+   144 [   0] SETTABLE  R1["hp"] := 200
+   145 [   0] SETTABLE  R1["mana"] := 3
+   146 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   147 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   148 [   0] SETTABLE  R3["type"] := "die"
+   149 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   150 [   0] LOADK     R5 := "self"
+   151 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   152 [   0] SETTABLE  R3["directions"] := R4
+   153 [   0] SETTABLE  R3["event"] := "always"
+   154 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+   155 [   0] SETTABLE  R4["type"] := "heal"
+   156 [   0] NEWTABLE  R5 := {} (array 2, hash 0)
+   157 [   0] LOADK     R6 := "left"
+   158 [   0] LOADK     R7 := "right"
+   159 [   0] SETLIST   R5[...] := R6.. (n=2, block 1)
+   160 [   0] SETTABLE  R4["directions"] := R5
+   161 [   0] SETTABLE  R4["strength"] := 200
+   162 [   0] SETTABLE  R4["event"] := "always"
+   163 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   164 [   0] SETTABLE  R1["buffs"] := R2
+   165 [   0] SETTABLE  R0["bewahrer"] := R1
+   166 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   167 [   0] SETTABLE  R1["attack"] := 100
+   168 [   0] SETTABLE  R1["hp"] := 300
+   169 [   0] SETTABLE  R1["mana"] := 4
+   170 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   171 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   172 [   0] SETTABLE  R3["type"] := "die"
+   173 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   174 [   0] LOADK     R5 := "self"
+   175 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   176 [   0] SETTABLE  R3["directions"] := R4
+   177 [   0] SETTABLE  R3["event"] := "always"
+   178 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   179 [   0] SETTABLE  R4["type"] := "attack"
+   180 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   181 [   0] LOADK     R6 := "front"
+   182 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   183 [   0] SETTABLE  R4["directions"] := R5
+   184 [   0] SETTABLE  R4["event"] := "always"
+   185 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   186 [   0] SETTABLE  R1["buffs"] := R2
+   187 [   0] SETTABLE  R0["eisenberster"] := R1
+   188 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   189 [   0] SETTABLE  R1["attack"] := 0
+   190 [   0] SETTABLE  R1["hp"] := 400
+   191 [   0] SETTABLE  R1["mana"] := 3
+   192 [   0] NEWTABLE  R2 := {} (array 1, hash 0)
+   193 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   194 [   0] SETTABLE  R3["type"] := "die"
+   195 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   196 [   0] LOADK     R5 := "self"
+   197 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   198 [   0] SETTABLE  R3["directions"] := R4
+   199 [   0] SETTABLE  R3["event"] := "always"
+   200 [   0] SETLIST   R2[...] := R3.. (n=1, block 1)
+   201 [   0] SETTABLE  R1["buffs"] := R2
+   202 [   0] SETTABLE  R0["steingolem"] := R1
+   203 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   204 [   0] SETTABLE  R1["attack"] := 200
+   205 [   0] SETTABLE  R1["hp"] := 100
+   206 [   0] SETTABLE  R1["mana"] := 3
+   207 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   208 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   209 [   0] SETTABLE  R3["type"] := "die"
+   210 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   211 [   0] LOADK     R5 := "self"
+   212 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   213 [   0] SETTABLE  R3["directions"] := R4
+   214 [   0] SETTABLE  R3["event"] := "always"
+   215 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   216 [   0] SETTABLE  R4["type"] := "attack"
+   217 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   218 [   0] LOADK     R6 := "front"
+   219 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   220 [   0] SETTABLE  R4["directions"] := R5
+   221 [   0] SETTABLE  R4["event"] := "always"
+   222 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   223 [   0] SETTABLE  R1["buffs"] := R2
+   224 [   0] SETTABLE  R0["kehlenschlitzer"] := R1
+   225 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   226 [   0] SETTABLE  R1["attack"] := 0
+   227 [   0] SETTABLE  R1["hp"] := 400
+   228 [   0] SETTABLE  R1["mana"] := 5
+   229 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   230 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   231 [   0] SETTABLE  R3["type"] := "die"
+   232 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   233 [   0] LOADK     R5 := "self"
+   234 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   235 [   0] SETTABLE  R3["directions"] := R4
+   236 [   0] SETTABLE  R3["event"] := "always"
+   237 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+   238 [   0] SETTABLE  R4["type"] := "raise_attack"
+   239 [   0] NEWTABLE  R5 := {} (array 2, hash 0)
+   240 [   0] LOADK     R6 := "left"
+   241 [   0] LOADK     R7 := "right"
+   242 [   0] SETLIST   R5[...] := R6.. (n=2, block 1)
+   243 [   0] SETTABLE  R4["directions"] := R5
+   244 [   0] SETTABLE  R4["event"] := "always"
+   245 [   0] SETTABLE  R4["strength"] := 200
+   246 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   247 [   0] SETTABLE  R1["buffs"] := R2
+   248 [   0] SETTABLE  R0["korim steinschaedel"] := R1
+   249 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   250 [   0] SETTABLE  R1["attack"] := 0
+   251 [   0] SETTABLE  R1["hp"] := 600
+   252 [   0] SETTABLE  R1["mana"] := 6
+   253 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   254 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   255 [   0] SETTABLE  R3["type"] := "die"
+   256 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   257 [   0] LOADK     R5 := "self"
+   258 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   259 [   0] SETTABLE  R3["directions"] := R4
+   260 [   0] SETTABLE  R3["event"] := "always"
+   261 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+   262 [   0] SETTABLE  R4["type"] := "raise_player_hp"
+   263 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+   264 [   0] SETTABLE  R4["directions"] := R5
+   265 [   0] SETTABLE  R4["event"] := "always"
+   266 [   0] SETTABLE  R4["strength"] := 500
+   267 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+   268 [   0] SETTABLE  R5["type"] := "raise_player_hp"
+   269 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+   270 [   0] SETTABLE  R5["directions"] := R6
+   271 [   0] SETTABLE  R5["event"] := "onDeath"
+   272 [   0] SETTABLE  R5["eventData"] := "self"
+   273 [   0] SETTABLE  R5["strength"] := -500
+   274 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   275 [   0] SETTABLE  R1["buffs"] := R2
+   276 [   0] SETTABLE  R0["lebensbaum"] := R1
+   277 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   278 [   0] SETTABLE  R1["attack"] := 0
+   279 [   0] SETTABLE  R1["hp"] := 400
+   280 [   0] SETTABLE  R1["mana"] := 6
+   281 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   282 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   283 [   0] SETTABLE  R3["type"] := "die"
+   284 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   285 [   0] LOADK     R5 := "self"
+   286 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   287 [   0] SETTABLE  R3["directions"] := R4
+   288 [   0] SETTABLE  R3["event"] := "always"
+   289 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+   290 [   0] SETTABLE  R4["type"] := "reflect_damage"
+   291 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+   292 [   0] SETTABLE  R4["directions"] := R5
+   293 [   0] SETTABLE  R4["event"] := "onDamage"
+   294 [   0] SETTABLE  R4["eventData"] := "self"
+   295 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   296 [   0] SETTABLE  R1["buffs"] := R2
+   297 [   0] SETTABLE  R0["irrlicht"] := R1
+   298 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   299 [   0] SETTABLE  R1["attack"] := 800
+   300 [   0] SETTABLE  R1["hp"] := 1400
+   301 [   0] SETTABLE  R1["mana"] := 24
+   302 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   303 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   304 [   0] SETTABLE  R3["type"] := "die"
+   305 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   306 [   0] LOADK     R5 := "self"
+   307 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   308 [   0] SETTABLE  R3["directions"] := R4
+   309 [   0] SETTABLE  R3["event"] := "always"
+   310 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   311 [   0] SETTABLE  R4["type"] := "attack"
+   312 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   313 [   0] LOADK     R6 := "front"
+   314 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   315 [   0] SETTABLE  R4["directions"] := R5
+   316 [   0] SETTABLE  R4["event"] := "always"
+   317 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   318 [   0] SETTABLE  R5["type"] := "heal"
+   319 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   320 [   0] LOADK     R7 := "self"
+   321 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   322 [   0] SETTABLE  R5["directions"] := R6
+   323 [   0] SETTABLE  R5["event"] := "always"
+   324 [   0] SETTABLE  R5["strength"] := 200
+   325 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   326 [   0] SETTABLE  R1["buffs"] := R2
+   327 [   0] SETTABLE  R0["greif"] := R1
+   328 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   329 [   0] SETTABLE  R1["attack"] := 1500
+   330 [   0] SETTABLE  R1["hp"] := 1000
+   331 [   0] SETTABLE  R1["mana"] := 25
+   332 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   333 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   334 [   0] SETTABLE  R3["type"] := "die"
+   335 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   336 [   0] LOADK     R5 := "self"
+   337 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   338 [   0] SETTABLE  R3["directions"] := R4
+   339 [   0] SETTABLE  R3["event"] := "always"
+   340 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   341 [   0] SETTABLE  R4["type"] := "attack"
+   342 [   0] NEWTABLE  R5 := {} (array 3, hash 0)
+   343 [   0] LOADK     R6 := "frontLeft"
+   344 [   0] LOADK     R7 := "front"
+   345 [   0] LOADK     R8 := "frontRight"
+   346 [   0] SETLIST   R5[...] := R6.. (n=3, block 1)
+   347 [   0] SETTABLE  R4["directions"] := R5
+   348 [   0] SETTABLE  R4["event"] := "always"
+   349 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   350 [   0] SETTABLE  R1["buffs"] := R2
+   351 [   0] SETTABLE  R0["kaiserdrache"] := R1
+   352 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   353 [   0] SETTABLE  R1["attack"] := 1200
+   354 [   0] SETTABLE  R1["hp"] := 800
+   355 [   0] SETTABLE  R1["mana"] := 24
+   356 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   357 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   358 [   0] SETTABLE  R3["type"] := "die"
+   359 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   360 [   0] LOADK     R5 := "self"
+   361 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   362 [   0] SETTABLE  R3["directions"] := R4
+   363 [   0] SETTABLE  R3["event"] := "always"
+   364 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   365 [   0] SETTABLE  R4["type"] := "attack"
+   366 [   0] NEWTABLE  R5 := {} (array 2, hash 0)
+   367 [   0] LOADK     R6 := "frontLeft"
+   368 [   0] LOADK     R7 := "front"
+   369 [   0] SETLIST   R5[...] := R6.. (n=2, block 1)
+   370 [   0] SETTABLE  R4["directions"] := R5
+   371 [   0] SETTABLE  R4["event"] := "always"
+   372 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   373 [   0] SETTABLE  R5["type"] := "raise_attack"
+   374 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   375 [   0] LOADK     R7 := "right"
+   376 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   377 [   0] SETTABLE  R5["directions"] := R6
+   378 [   0] SETTABLE  R5["event"] := "always"
+   379 [   0] SETTABLE  R5["strength"] := 400
+   380 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   381 [   0] SETTABLE  R1["buffs"] := R2
+   382 [   0] SETTABLE  R0["tulzakk knochenbrecher"] := R1
+   383 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   384 [   0] SETTABLE  R1["attack"] := 300
+   385 [   0] SETTABLE  R1["hp"] := 1200
+   386 [   0] SETTABLE  R1["mana"] := 17
+   387 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   388 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   389 [   0] SETTABLE  R3["type"] := "die"
+   390 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   391 [   0] LOADK     R5 := "self"
+   392 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   393 [   0] SETTABLE  R3["directions"] := R4
+   394 [   0] SETTABLE  R3["event"] := "always"
+   395 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   396 [   0] SETTABLE  R4["type"] := "attack"
+   397 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   398 [   0] LOADK     R6 := "front"
+   399 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   400 [   0] SETTABLE  R4["directions"] := R5
+   401 [   0] SETTABLE  R4["event"] := "always"
+   402 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   403 [   0] SETTABLE  R5["type"] := "invulnerable"
+   404 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   405 [   0] LOADK     R7 := "self"
+   406 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   407 [   0] SETTABLE  R5["directions"] := R6
+   408 [   0] SETTABLE  R5["event"] := "round_eq"
+   409 [   0] SETTABLE  R5["eventData"] := 1
+   410 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   411 [   0] SETTABLE  R1["buffs"] := R2
+   412 [   0] SETTABLE  R0["erdelementar"] := R1
+   413 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   414 [   0] SETTABLE  R1["attack"] := 500
+   415 [   0] SETTABLE  R1["hp"] := 700
+   416 [   0] SETTABLE  R1["mana"] := 13
+   417 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   418 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   419 [   0] SETTABLE  R3["type"] := "die"
+   420 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   421 [   0] LOADK     R5 := "self"
+   422 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   423 [   0] SETTABLE  R3["directions"] := R4
+   424 [   0] SETTABLE  R3["event"] := "always"
+   425 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   426 [   0] SETTABLE  R4["type"] := "attack"
+   427 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   428 [   0] LOADK     R6 := "front"
+   429 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   430 [   0] SETTABLE  R4["directions"] := R5
+   431 [   0] SETTABLE  R4["event"] := "always"
+   432 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+   433 [   0] SETTABLE  R5["type"] := "raise_attack"
+   434 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   435 [   0] LOADK     R7 := "self"
+   436 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   437 [   0] SETTABLE  R5["directions"] := R6
+   438 [   0] SETTABLE  R5["event"] := "round_eq"
+   439 [   0] SETTABLE  R5["eventData"] := 1
+   440 [   0] SETTABLE  R5["strength"] := 200
+   441 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   442 [   0] SETTABLE  R1["buffs"] := R2
+   443 [   0] SETTABLE  R0["kampfeber"] := R1
+   444 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   445 [   0] SETTABLE  R1["attack"] := 900
+   446 [   0] SETTABLE  R1["hp"] := 1100
+   447 [   0] SETTABLE  R1["mana"] := 21
+   448 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   449 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   450 [   0] SETTABLE  R3["type"] := "die"
+   451 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   452 [   0] LOADK     R5 := "self"
+   453 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   454 [   0] SETTABLE  R3["directions"] := R4
+   455 [   0] SETTABLE  R3["event"] := "always"
+   456 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   457 [   0] SETTABLE  R4["type"] := "attack"
+   458 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   459 [   0] LOADK     R6 := "front"
+   460 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   461 [   0] SETTABLE  R4["directions"] := R5
+   462 [   0] SETTABLE  R4["event"] := "always"
+   463 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+   464 [   0] SETTABLE  R5["type"] := "heal"
+   465 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   466 [   0] LOADK     R7 := "self"
+   467 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   468 [   0] SETTABLE  R5["directions"] := R6
+   469 [   0] SETTABLE  R5["event"] := "onDeath"
+   470 [   0] SETTABLE  R5["eventData"] := "opponent_cards"
+   471 [   0] SETTABLE  R5["strength"] := 200
+   472 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   473 [   0] SETTABLE  R1["buffs"] := R2
+   474 [   0] SETTABLE  R0["riesenspinne"] := R1
+   475 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   476 [   0] SETTABLE  R1["attack"] := 700
+   477 [   0] SETTABLE  R1["hp"] := 1000
+   478 [   0] SETTABLE  R1["mana"] := 19
+   479 [   0] NEWTABLE  R2 := {} (array 4, hash 0)
+   480 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   481 [   0] SETTABLE  R3["type"] := "die"
+   482 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   483 [   0] LOADK     R5 := "self"
+   484 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   485 [   0] SETTABLE  R3["directions"] := R4
+   486 [   0] SETTABLE  R3["event"] := "always"
+   487 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   488 [   0] SETTABLE  R4["type"] := "attack"
+   489 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   490 [   0] LOADK     R6 := "front"
+   491 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   492 [   0] SETTABLE  R4["directions"] := R5
+   493 [   0] SETTABLE  R4["event"] := "always"
+   494 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   495 [   0] SETTABLE  R5["type"] := "no_buff"
+   496 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   497 [   0] LOADK     R7 := "front"
+   498 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   499 [   0] SETTABLE  R5["directions"] := R6
+   500 [   0] SETTABLE  R5["event"] := "round_eq"
+   501 [   0] SETTABLE  R5["eventData"] := 1
+   502 [   0] NEWTABLE  R6 := {} (array 0, hash 4)
+   503 [   0] SETTABLE  R6["type"] := "no_damage"
+   504 [   0] NEWTABLE  R7 := {} (array 1, hash 0)
+   505 [   0] LOADK     R8 := "front"
+   506 [   0] SETLIST   R7[...] := R8.. (n=1, block 1)
+   507 [   0] SETTABLE  R6["directions"] := R7
+   508 [   0] SETTABLE  R6["event"] := "round_eq"
+   509 [   0] SETTABLE  R6["eventData"] := 1
+   510 [   0] SETLIST   R2[...] := R3.. (n=4, block 1)
+   511 [   0] SETTABLE  R1["buffs"] := R2
+   512 [   0] SETTABLE  R0["tundugar erzauge"] := R1
+   513 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   514 [   0] SETTABLE  R1["attack"] := 600
+   515 [   0] SETTABLE  R1["hp"] := 900
+   516 [   0] SETTABLE  R1["mana"] := 19
+   517 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   518 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   519 [   0] SETTABLE  R3["type"] := "die"
+   520 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   521 [   0] LOADK     R5 := "self"
+   522 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   523 [   0] SETTABLE  R3["directions"] := R4
+   524 [   0] SETTABLE  R3["event"] := "always"
+   525 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   526 [   0] SETTABLE  R4["type"] := "attack"
+   527 [   0] NEWTABLE  R5 := {} (array 3, hash 0)
+   528 [   0] LOADK     R6 := "frontLeft"
+   529 [   0] LOADK     R7 := "front"
+   530 [   0] LOADK     R8 := "frontRight"
+   531 [   0] SETLIST   R5[...] := R6.. (n=3, block 1)
+   532 [   0] SETTABLE  R4["directions"] := R5
+   533 [   0] SETTABLE  R4["event"] := "always"
+   534 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   535 [   0] SETTABLE  R5["type"] := "heal"
+   536 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   537 [   0] LOADK     R7 := "left"
+   538 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   539 [   0] SETTABLE  R5["directions"] := R6
+   540 [   0] SETTABLE  R5["event"] := "always"
+   541 [   0] SETTABLE  R5["strength"] := 400
+   542 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   543 [   0] SETTABLE  R1["buffs"] := R2
+   544 [   0] SETTABLE  R0["schwester elenia"] := R1
+   545 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   546 [   0] SETTABLE  R1["attack"] := 600
+   547 [   0] SETTABLE  R1["hp"] := 400
+   548 [   0] SETTABLE  R1["mana"] := 13
+   549 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   550 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   551 [   0] SETTABLE  R3["type"] := "die"
+   552 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   553 [   0] LOADK     R5 := "self"
+   554 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   555 [   0] SETTABLE  R3["directions"] := R4
+   556 [   0] SETTABLE  R3["event"] := "always"
+   557 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   558 [   0] SETTABLE  R4["type"] := "attack"
+   559 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   560 [   0] LOADK     R6 := "front"
+   561 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   562 [   0] SETTABLE  R4["directions"] := R5
+   563 [   0] SETTABLE  R4["event"] := "always"
+   564 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   565 [   0] SETTABLE  R5["type"] := "resurrect"
+   566 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   567 [   0] LOADK     R7 := "self"
+   568 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   569 [   0] SETTABLE  R5["directions"] := R6
+   570 [   0] SETTABLE  R5["event"] := "onDeath"
+   571 [   0] SETTABLE  R5["eventData"] := "self"
+   572 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   573 [   0] SETTABLE  R1["buffs"] := R2
+   574 [   0] SETTABLE  R0["phoenix"] := R1
+   575 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   576 [   0] SETTABLE  R1["attack"] := 200
+   577 [   0] SETTABLE  R1["hp"] := 500
+   578 [   0] SETTABLE  R1["mana"] := 9
+   579 [   0] NEWTABLE  R2 := {} (array 4, hash 0)
+   580 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   581 [   0] SETTABLE  R3["type"] := "die"
+   582 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   583 [   0] LOADK     R5 := "self"
+   584 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   585 [   0] SETTABLE  R3["directions"] := R4
+   586 [   0] SETTABLE  R3["event"] := "always"
+   587 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   588 [   0] SETTABLE  R4["type"] := "attack"
+   589 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   590 [   0] LOADK     R6 := "front"
+   591 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   592 [   0] SETTABLE  R4["directions"] := R5
+   593 [   0] SETTABLE  R4["event"] := "always"
+   594 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   595 [   0] SETTABLE  R5["type"] := "raise_hp"
+   596 [   0] NEWTABLE  R6 := {} (array 2, hash 0)
+   597 [   0] LOADK     R7 := "left"
+   598 [   0] LOADK     R8 := "right"
+   599 [   0] SETLIST   R6[...] := R7.. (n=2, block 1)
+   600 [   0] SETTABLE  R5["directions"] := R6
+   601 [   0] SETTABLE  R5["event"] := "always"
+   602 [   0] SETTABLE  R5["strength"] := 400
+   603 [   0] NEWTABLE  R6 := {} (array 0, hash 5)
+   604 [   0] SETTABLE  R6["type"] := "raise_hp"
+   605 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+   606 [   0] LOADK     R8 := "left"
+   607 [   0] LOADK     R9 := "right"
+   608 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   609 [   0] SETTABLE  R6["directions"] := R7
+   610 [   0] SETTABLE  R6["event"] := "onDeath"
+   611 [   0] SETTABLE  R6["eventData"] := "self"
+   612 [   0] SETTABLE  R6["strength"] := -400
+   613 [   0] SETLIST   R2[...] := R3.. (n=4, block 1)
+   614 [   0] SETTABLE  R1["buffs"] := R2
+   615 [   0] SETTABLE  R0["erzengel"] := R1
+   616 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   617 [   0] SETTABLE  R1["attack"] := 200
+   618 [   0] SETTABLE  R1["hp"] := 600
+   619 [   0] SETTABLE  R1["mana"] := 12
+   620 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   621 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   622 [   0] SETTABLE  R3["type"] := "die"
+   623 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   624 [   0] LOADK     R5 := "self"
+   625 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   626 [   0] SETTABLE  R3["directions"] := R4
+   627 [   0] SETTABLE  R3["event"] := "always"
+   628 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   629 [   0] SETTABLE  R4["type"] := "attack"
+   630 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   631 [   0] LOADK     R6 := "front"
+   632 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   633 [   0] SETTABLE  R4["directions"] := R5
+   634 [   0] SETTABLE  R4["event"] := "always"
+   635 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   636 [   0] SETTABLE  R5["type"] := "reflect_damage_to_player"
+   637 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+   638 [   0] SETTABLE  R5["directions"] := R6
+   639 [   0] SETTABLE  R5["event"] := "onDamage"
+   640 [   0] SETTABLE  R5["eventData"] := "self"
+   641 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   642 [   0] SETTABLE  R1["buffs"] := R2
+   643 [   0] SETTABLE  R0["sternenseher"] := R1
+   644 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   645 [   0] SETTABLE  R1["attack"] := 0
+   646 [   0] SETTABLE  R1["hp"] := 800
+   647 [   0] SETTABLE  R1["mana"] := 11
+   648 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   649 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   650 [   0] SETTABLE  R3["type"] := "die"
+   651 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   652 [   0] LOADK     R5 := "self"
+   653 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   654 [   0] SETTABLE  R3["directions"] := R4
+   655 [   0] SETTABLE  R3["event"] := "always"
+   656 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+   657 [   0] SETTABLE  R4["type"] := "heal"
+   658 [   0] NEWTABLE  R5 := {} (array 2, hash 0)
+   659 [   0] LOADK     R6 := "left"
+   660 [   0] LOADK     R7 := "right"
+   661 [   0] SETLIST   R5[...] := R6.. (n=2, block 1)
+   662 [   0] SETTABLE  R4["directions"] := R5
+   663 [   0] SETTABLE  R4["event"] := "always"
+   664 [   0] SETTABLE  R4["strength"] := 400
+   665 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   666 [   0] SETTABLE  R1["buffs"] := R2
+   667 [   0] SETTABLE  R0["sklavenmedicus"] := R1
+   668 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   669 [   0] SETTABLE  R1["attack"] := 300
+   670 [   0] SETTABLE  R1["hp"] := 600
+   671 [   0] SETTABLE  R1["mana"] := 8
+   672 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   673 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   674 [   0] SETTABLE  R3["type"] := "die"
+   675 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   676 [   0] LOADK     R5 := "self"
+   677 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   678 [   0] SETTABLE  R3["directions"] := R4
+   679 [   0] SETTABLE  R3["event"] := "always"
+   680 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+   681 [   0] SETTABLE  R4["type"] := "attack"
+   682 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   683 [   0] LOADK     R6 := "front"
+   684 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   685 [   0] SETTABLE  R4["directions"] := R5
+   686 [   0] SETTABLE  R4["event"] := "always"
+   687 [   0] SETTABLE  R4["emptyReduction"] := 200
+   688 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   689 [   0] SETTABLE  R1["buffs"] := R2
+   690 [   0] SETTABLE  R0["baummensch"] := R1
+   691 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   692 [   0] SETTABLE  R1["attack"] := 100
+   693 [   0] SETTABLE  R1["hp"] := 400
+   694 [   0] SETTABLE  R1["mana"] := 9
+   695 [   0] NEWTABLE  R2 := {} (array 4, hash 0)
+   696 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   697 [   0] SETTABLE  R3["type"] := "die"
+   698 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   699 [   0] LOADK     R5 := "self"
+   700 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   701 [   0] SETTABLE  R3["directions"] := R4
+   702 [   0] SETTABLE  R3["event"] := "always"
+   703 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   704 [   0] SETTABLE  R4["type"] := "attack"
+   705 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   706 [   0] LOADK     R6 := "front"
+   707 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   708 [   0] SETTABLE  R4["directions"] := R5
+   709 [   0] SETTABLE  R4["event"] := "always"
+   710 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+   711 [   0] SETTABLE  R5["type"] := "no_buff"
+   712 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   713 [   0] LOADK     R7 := "front"
+   714 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   715 [   0] SETTABLE  R5["directions"] := R6
+   716 [   0] SETTABLE  R5["event"] := "always"
+   717 [   0] NEWTABLE  R6 := {} (array 0, hash 3)
+   718 [   0] SETTABLE  R6["type"] := "no_damage"
+   719 [   0] NEWTABLE  R7 := {} (array 1, hash 0)
+   720 [   0] LOADK     R8 := "front"
+   721 [   0] SETLIST   R7[...] := R8.. (n=1, block 1)
+   722 [   0] SETTABLE  R6["directions"] := R7
+   723 [   0] SETTABLE  R6["event"] := "always"
+   724 [   0] SETLIST   R2[...] := R3.. (n=4, block 1)
+   725 [   0] SETTABLE  R1["buffs"] := R2
+   726 [   0] SETTABLE  R0["basilisk"] := R1
+   727 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   728 [   0] SETTABLE  R1["attack"] := 600
+   729 [   0] SETTABLE  R1["hp"] := 400
+   730 [   0] SETTABLE  R1["mana"] := 10
+   731 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   732 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   733 [   0] SETTABLE  R3["type"] := "die"
+   734 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   735 [   0] LOADK     R5 := "self"
+   736 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   737 [   0] SETTABLE  R3["directions"] := R4
+   738 [   0] SETTABLE  R3["event"] := "always"
+   739 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   740 [   0] SETTABLE  R4["type"] := "attack"
+   741 [   0] NEWTABLE  R5 := {} (array 3, hash 0)
+   742 [   0] LOADK     R6 := "frontLeft"
+   743 [   0] LOADK     R7 := "front"
+   744 [   0] LOADK     R8 := "frontRight"
+   745 [   0] SETLIST   R5[...] := R6.. (n=3, block 1)
+   746 [   0] SETTABLE  R4["directions"] := R5
+   747 [   0] SETTABLE  R4["event"] := "always"
+   748 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   749 [   0] SETTABLE  R1["buffs"] := R2
+   750 [   0] SETTABLE  R0["hoehlendrache"] := R1
+   751 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   752 [   0] SETTABLE  R1["attack"] := 300
+   753 [   0] SETTABLE  R1["hp"] := 100
+   754 [   0] SETTABLE  R1["mana"] := 6
+   755 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   756 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   757 [   0] SETTABLE  R3["type"] := "die"
+   758 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   759 [   0] LOADK     R5 := "self"
+   760 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   761 [   0] SETTABLE  R3["directions"] := R4
+   762 [   0] SETTABLE  R3["event"] := "always"
+   763 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   764 [   0] SETTABLE  R4["type"] := "attack"
+   765 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   766 [   0] LOADK     R6 := "front"
+   767 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   768 [   0] SETTABLE  R4["directions"] := R5
+   769 [   0] SETTABLE  R4["event"] := "always"
+   770 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+   771 [   0] SETTABLE  R5["type"] := "deal_damage_to_all_opponent_cards"
+   772 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+   773 [   0] SETTABLE  R5["directions"] := R6
+   774 [   0] SETTABLE  R5["event"] := "onDeath"
+   775 [   0] SETTABLE  R5["eventData"] := "self"
+   776 [   0] SETTABLE  R5["strength"] := 100
+   777 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   778 [   0] SETTABLE  R1["buffs"] := R2
+   779 [   0] SETTABLE  R0["stammesraecher"] := R1
+   780 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   781 [   0] SETTABLE  R1["attack"] := 400
+   782 [   0] SETTABLE  R1["hp"] := 600
+   783 [   0] SETTABLE  R1["mana"] := 11
+   784 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   785 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   786 [   0] SETTABLE  R3["type"] := "die"
+   787 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   788 [   0] LOADK     R5 := "self"
+   789 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   790 [   0] SETTABLE  R3["directions"] := R4
+   791 [   0] SETTABLE  R3["event"] := "always"
+   792 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+   793 [   0] SETTABLE  R4["type"] := "attack"
+   794 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   795 [   0] LOADK     R6 := "front"
+   796 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   797 [   0] SETTABLE  R4["directions"] := R5
+   798 [   0] SETTABLE  R4["event"] := "always"
+   799 [   0] SETTABLE  R4["emptyReduction"] := -200
+   800 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   801 [   0] SETTABLE  R1["buffs"] := R2
+   802 [   0] SETTABLE  R0["rattenfresser"] := R1
+   803 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   804 [   0] SETTABLE  R1["attack"] := 600
+   805 [   0] SETTABLE  R1["hp"] := 500
+   806 [   0] SETTABLE  R1["mana"] := 11
+   807 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+   808 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   809 [   0] SETTABLE  R3["type"] := "die"
+   810 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   811 [   0] LOADK     R5 := "self"
+   812 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   813 [   0] SETTABLE  R3["directions"] := R4
+   814 [   0] SETTABLE  R3["event"] := "always"
+   815 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   816 [   0] SETTABLE  R4["type"] := "attack"
+   817 [   0] NEWTABLE  R5 := {} (array 2, hash 0)
+   818 [   0] LOADK     R6 := "frontLeft"
+   819 [   0] LOADK     R7 := "front"
+   820 [   0] SETLIST   R5[...] := R6.. (n=2, block 1)
+   821 [   0] SETTABLE  R4["directions"] := R5
+   822 [   0] SETTABLE  R4["event"] := "always"
+   823 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+   824 [   0] SETTABLE  R1["buffs"] := R2
+   825 [   0] SETTABLE  R0["adept"] := R1
+   826 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   827 [   0] SETTABLE  R1["attack"] := 300
+   828 [   0] SETTABLE  R1["hp"] := 500
+   829 [   0] SETTABLE  R1["mana"] := 10
+   830 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   831 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   832 [   0] SETTABLE  R3["type"] := "die"
+   833 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   834 [   0] LOADK     R5 := "self"
+   835 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   836 [   0] SETTABLE  R3["directions"] := R4
+   837 [   0] SETTABLE  R3["event"] := "always"
+   838 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   839 [   0] SETTABLE  R4["type"] := "attack"
+   840 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   841 [   0] LOADK     R6 := "front"
+   842 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   843 [   0] SETTABLE  R4["directions"] := R5
+   844 [   0] SETTABLE  R4["event"] := "always"
+   845 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   846 [   0] SETTABLE  R5["type"] := "invulnerable"
+   847 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   848 [   0] LOADK     R7 := "self"
+   849 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   850 [   0] SETTABLE  R5["directions"] := R6
+   851 [   0] SETTABLE  R5["event"] := "round_eq"
+   852 [   0] SETTABLE  R5["eventData"] := 1
+   853 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   854 [   0] SETTABLE  R1["buffs"] := R2
+   855 [   0] SETTABLE  R0["einhorn"] := R1
+   856 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   857 [   0] SETTABLE  R1["attack"] := 600
+   858 [   0] SETTABLE  R1["hp"] := 500
+   859 [   0] SETTABLE  R1["mana"] := 14
+   860 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   861 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   862 [   0] SETTABLE  R3["type"] := "die"
+   863 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   864 [   0] LOADK     R5 := "self"
+   865 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   866 [   0] SETTABLE  R3["directions"] := R4
+   867 [   0] SETTABLE  R3["event"] := "always"
+   868 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   869 [   0] SETTABLE  R4["type"] := "attack"
+   870 [   0] NEWTABLE  R5 := {} (array 2, hash 0)
+   871 [   0] LOADK     R6 := "frontLeft"
+   872 [   0] LOADK     R7 := "frontRight"
+   873 [   0] SETLIST   R5[...] := R6.. (n=2, block 1)
+   874 [   0] SETTABLE  R4["directions"] := R5
+   875 [   0] SETTABLE  R4["event"] := "always"
+   876 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+   877 [   0] SETTABLE  R5["type"] := "deal_damage_to_opponent_player"
+   878 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+   879 [   0] SETTABLE  R5["directions"] := R6
+   880 [   0] SETTABLE  R5["event"] := "onDeath"
+   881 [   0] SETTABLE  R5["eventData"] := "self"
+   882 [   0] SETTABLE  R5["strength"] := 500
+   883 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   884 [   0] SETTABLE  R1["buffs"] := R2
+   885 [   0] SETTABLE  R0["dryadenorakel"] := R1
+   886 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   887 [   0] SETTABLE  R1["attack"] := 500
+   888 [   0] SETTABLE  R1["hp"] := 300
+   889 [   0] SETTABLE  R1["mana"] := 6
+   890 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   891 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   892 [   0] SETTABLE  R3["type"] := "die"
+   893 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   894 [   0] LOADK     R5 := "self"
+   895 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   896 [   0] SETTABLE  R3["directions"] := R4
+   897 [   0] SETTABLE  R3["event"] := "always"
+   898 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   899 [   0] SETTABLE  R4["type"] := "attack"
+   900 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   901 [   0] LOADK     R6 := "front"
+   902 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   903 [   0] SETTABLE  R4["directions"] := R5
+   904 [   0] SETTABLE  R4["event"] := "always"
+   905 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   906 [   0] SETTABLE  R5["type"] := "self_damage"
+   907 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+   908 [   0] SETTABLE  R5["directions"] := R6
+   909 [   0] SETTABLE  R5["event"] := "always"
+   910 [   0] SETTABLE  R5["strength"] := 100
+   911 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   912 [   0] SETTABLE  R1["buffs"] := R2
+   913 [   0] SETTABLE  R0["blutspeier"] := R1
+   914 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   915 [   0] SETTABLE  R1["attack"] := 200
+   916 [   0] SETTABLE  R1["hp"] := 500
+   917 [   0] SETTABLE  R1["mana"] := 11
+   918 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   919 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   920 [   0] SETTABLE  R3["type"] := "die"
+   921 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   922 [   0] LOADK     R5 := "self"
+   923 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   924 [   0] SETTABLE  R3["directions"] := R4
+   925 [   0] SETTABLE  R3["event"] := "always"
+   926 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   927 [   0] SETTABLE  R4["type"] := "attack"
+   928 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   929 [   0] LOADK     R6 := "front"
+   930 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   931 [   0] SETTABLE  R4["directions"] := R5
+   932 [   0] SETTABLE  R4["event"] := "always"
+   933 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   934 [   0] SETTABLE  R5["type"] := "heal"
+   935 [   0] NEWTABLE  R6 := {} (array 2, hash 0)
+   936 [   0] LOADK     R7 := "left"
+   937 [   0] LOADK     R8 := "right"
+   938 [   0] SETLIST   R6[...] := R7.. (n=2, block 1)
+   939 [   0] SETTABLE  R5["directions"] := R6
+   940 [   0] SETTABLE  R5["event"] := "always"
+   941 [   0] SETTABLE  R5["strength"] := 400
+   942 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   943 [   0] SETTABLE  R1["buffs"] := R2
+   944 [   0] SETTABLE  R0["goldsucher"] := R1
+   945 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   946 [   0] SETTABLE  R1["attack"] := 200
+   947 [   0] SETTABLE  R1["hp"] := 500
+   948 [   0] SETTABLE  R1["mana"] := 9
+   949 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   950 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   951 [   0] SETTABLE  R3["type"] := "die"
+   952 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   953 [   0] LOADK     R5 := "self"
+   954 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   955 [   0] SETTABLE  R3["directions"] := R4
+   956 [   0] SETTABLE  R3["event"] := "always"
+   957 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   958 [   0] SETTABLE  R4["type"] := "attack"
+   959 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   960 [   0] LOADK     R6 := "front"
+   961 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   962 [   0] SETTABLE  R4["directions"] := R5
+   963 [   0] SETTABLE  R4["event"] := "always"
+   964 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+   965 [   0] SETTABLE  R5["type"] := "increment_attack"
+   966 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   967 [   0] LOADK     R7 := "self"
+   968 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+   969 [   0] SETTABLE  R5["directions"] := R6
+   970 [   0] SETTABLE  R5["event"] := "onDeath"
+   971 [   0] SETTABLE  R5["eventData"] := "opponent_cards"
+   972 [   0] SETTABLE  R5["strength"] := 100
+   973 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+   974 [   0] SETTABLE  R1["buffs"] := R2
+   975 [   0] SETTABLE  R0["knochensammler"] := R1
+   976 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+   977 [   0] SETTABLE  R1["attack"] := 400
+   978 [   0] SETTABLE  R1["hp"] := 500
+   979 [   0] SETTABLE  R1["mana"] := 10
+   980 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+   981 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+   982 [   0] SETTABLE  R3["type"] := "die"
+   983 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+   984 [   0] LOADK     R5 := "self"
+   985 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+   986 [   0] SETTABLE  R3["directions"] := R4
+   987 [   0] SETTABLE  R3["event"] := "always"
+   988 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+   989 [   0] SETTABLE  R4["type"] := "attack"
+   990 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+   991 [   0] LOADK     R6 := "front"
+   992 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+   993 [   0] SETTABLE  R4["directions"] := R5
+   994 [   0] SETTABLE  R4["event"] := "always"
+   995 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+   996 [   0] SETTABLE  R5["type"] := "heal"
+   997 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+   998 [   0] LOADK     R7 := "self"
+   999 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+  1000 [   0] SETTABLE  R5["directions"] := R6
+  1001 [   0] SETTABLE  R5["event"] := "always"
+  1002 [   0] SETTABLE  R5["strength"] := 100
+  1003 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+  1004 [   0] SETTABLE  R1["buffs"] := R2
+  1005 [   0] SETTABLE  R0["hoehlentroll"] := R1
+  1006 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+  1007 [   0] SETTABLE  R1["attack"] := 500
+  1008 [   0] SETTABLE  R1["hp"] := 500
+  1009 [   0] SETTABLE  R1["mana"] := 8
+  1010 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+  1011 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+  1012 [   0] SETTABLE  R3["type"] := "die"
+  1013 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+  1014 [   0] LOADK     R5 := "self"
+  1015 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+  1016 [   0] SETTABLE  R3["directions"] := R4
+  1017 [   0] SETTABLE  R3["event"] := "always"
+  1018 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+  1019 [   0] SETTABLE  R4["type"] := "attack"
+  1020 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+  1021 [   0] LOADK     R6 := "front"
+  1022 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+  1023 [   0] SETTABLE  R4["directions"] := R5
+  1024 [   0] SETTABLE  R4["event"] := "always"
+  1025 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+  1026 [   0] SETTABLE  R5["type"] := "deal_damage_to_player"
+  1027 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+  1028 [   0] SETTABLE  R5["directions"] := R6
+  1029 [   0] SETTABLE  R5["event"] := "always"
+  1030 [   0] SETTABLE  R5["strength"] := 100
+  1031 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+  1032 [   0] SETTABLE  R1["buffs"] := R2
+  1033 [   0] SETTABLE  R0["niederer daemon"] := R1
+  1034 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+  1035 [   0] SETTABLE  R1["attack"] := 100
+  1036 [   0] SETTABLE  R1["hp"] := 500
+  1037 [   0] SETTABLE  R1["mana"] := 8
+  1038 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+  1039 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+  1040 [   0] SETTABLE  R3["type"] := "die"
+  1041 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+  1042 [   0] LOADK     R5 := "self"
+  1043 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+  1044 [   0] SETTABLE  R3["directions"] := R4
+  1045 [   0] SETTABLE  R3["event"] := "always"
+  1046 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+  1047 [   0] SETTABLE  R4["type"] := "attack"
+  1048 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+  1049 [   0] LOADK     R6 := "front"
+  1050 [   0] SETLIST   R5[...] := R6.. (n=1, block 1)
+  1051 [   0] SETTABLE  R4["directions"] := R5
+  1052 [   0] SETTABLE  R4["event"] := "always"
+  1053 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+  1054 [   0] SETTABLE  R5["type"] := "deal_damage_to_opponent_player"
+  1055 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+  1056 [   0] SETTABLE  R5["directions"] := R6
+  1057 [   0] SETTABLE  R5["event"] := "always"
+  1058 [   0] SETTABLE  R5["strength"] := 100
+  1059 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+  1060 [   0] SETTABLE  R1["buffs"] := R2
+  1061 [   0] SETTABLE  R0["homunkulus"] := R1
+  1062 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+  1063 [   0] SETTABLE  R1["attack"] := 600
+  1064 [   0] SETTABLE  R1["hp"] := 500
+  1065 [   0] SETTABLE  R1["mana"] := 10
+  1066 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+  1067 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+  1068 [   0] SETTABLE  R3["type"] := "die"
+  1069 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+  1070 [   0] LOADK     R5 := "self"
+  1071 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+  1072 [   0] SETTABLE  R3["directions"] := R4
+  1073 [   0] SETTABLE  R3["event"] := "always"
+  1074 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+  1075 [   0] SETTABLE  R4["type"] := "attack"
+  1076 [   0] NEWTABLE  R5 := {} (array 3, hash 0)
+  1077 [   0] LOADK     R6 := "frontLeft"
+  1078 [   0] LOADK     R7 := "front"
+  1079 [   0] LOADK     R8 := "frontRight"
+  1080 [   0] SETLIST   R5[...] := R6.. (n=3, block 1)
+  1081 [   0] SETTABLE  R4["directions"] := R5
+  1082 [   0] SETTABLE  R4["event"] := "always"
+  1083 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+  1084 [   0] SETTABLE  R5["type"] := "no_damage"
+  1085 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+  1086 [   0] LOADK     R7 := "self"
+  1087 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+  1088 [   0] SETTABLE  R5["directions"] := R6
+  1089 [   0] SETTABLE  R5["event"] := "round_ge"
+  1090 [   0] SETTABLE  R5["eventData"] := 4
+  1091 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+  1092 [   0] SETTABLE  R1["buffs"] := R2
+  1093 [   0] SETTABLE  R0["katapult"] := R1
+  1094 [   0] CLOSURE   R1 := closure #0
+  1095 [   0] MOVE      R0 := R0
+  1096 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+  1097 [   0] SETTABLE  R2["getCard"] := R1
+  1098 [   0] RETURN    return R2.. (1 values)
+  1099 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 396-408, upvals=[], locals=[])
+    constants: strings=['fglib', 'logging', 'Logger', 'msg', 'getting card ', 'string', 'lower', 'utils', 'Util', 'deepcopy', 'name'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["fglib"]
+       1 [   0] GETTABLE  R1 := R1["logging"]
+       2 [   0] GETTABLE  R1 := R1["Logger"]
+       3 [   0] GETTABLE  R1 := R1["msg"]
+       4 [   0] LOADK     R2 := "getting card "
+       5 [   0] MOVE      R3 := R0
+       6 [   0] CALL      R1(...) nargs=2 nret=0
+       7 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       8 [   0] JMP       jmp +2 -> 11
+       9 [   0] LOADNIL   R1..R1 := nil
+      10 [   0] RETURN    return R1.. (1 values)
+      11 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+      12 [   0] GETUPVAL  R2 := upval 0
+      13 [   0] GETGLOBAL R3 := _G["string"]
+      14 [   0] GETTABLE  R3 := R3["lower"]
+      15 [   0] MOVE      R4 := R0
+      16 [   0] CALL      R3(...) nargs=1 nret=1
+      17 [   0] GETTABLE  R2 := R2[R3]
+      18 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+      19 [   0] JMP       jmp +2 -> 22
+      20 [   0] LOADNIL   R2..R2 := nil
+      21 [   0] RETURN    return R2.. (1 values)
+      22 [   0] GETGLOBAL R2 := _G["fglib"]
+      23 [   0] GETTABLE  R2 := R2["utils"]
+      24 [   0] GETTABLE  R2 := R2["Util"]
+      25 [   0] GETTABLE  R2 := R2["deepcopy"]
+      26 [   0] GETUPVAL  R3 := upval 0
+      27 [   0] GETGLOBAL R4 := _G["string"]
+      28 [   0] GETTABLE  R4 := R4["lower"]
+      29 [   0] MOVE      R5 := R0
+      30 [   0] CALL      R4(...) nargs=1 nret=1
+      31 [   0] GETTABLE  R3 := R3[R4]
+      32 [   0] LOADBOOL  R4 := False
+      33 [   0] MOVE      R5 := R1
+      34 [   0] CALL      R2(...) nargs=3 nret=0
+      35 [   0] GETGLOBAL R2 := _G["string"]
+      36 [   0] GETTABLE  R2 := R2["lower"]
+      37 [   0] MOVE      R3 := R0
+      38 [   0] CALL      R2(...) nargs=1 nret=1
+      39 [   0] SETTABLE  R1["name"] := R2
+      40 [   0] RETURN    return R1.. (1 values)
+      41 [   0] RETURN    return R0.. (0 values)

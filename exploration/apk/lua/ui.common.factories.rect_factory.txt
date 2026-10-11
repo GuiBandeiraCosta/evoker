@@ -1,0 +1,50 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'renderer.rectrenderer', 'util.util', 'decorate', 'default_rect'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "renderer.rectrenderer"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "util.util"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] CLOSURE   R2 := closure #0
+     9 [   0] MOVE      R0 := R0
+    10 [   0] MOVE      R0 := R1
+    11 [   0] CLOSURE   R3 := closure #1
+    12 [   0] MOVE      R0 := R2
+    13 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+    14 [   0] SETTABLE  R4["decorate"] := R3
+    15 [   0] SETTABLE  R4["default_rect"] := R2
+    16 [   0] RETURN    return R4.. (1 values)
+    17 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 9-22, upvals=[], locals=[])
+    constants: strings=['renderer', 'parent', 'layout', 'default.center', 'color', 'r', 'g', 'b', 'a', 'copyToExistingTable', 'ui', 'createContainer'] numbers=[255, 0]
+       0 [   0] NEWTABLE  R2 := {} (array 0, hash 4)
+       1 [   0] GETUPVAL  R3 := upval 0
+       2 [   0] SETTABLE  R2["renderer"] := R3
+       3 [   0] SETTABLE  R2["parent"] := R1
+       4 [   0] SETTABLE  R2["layout"] := "default.center"
+       5 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+       6 [   0] SETTABLE  R3["r"] := 255
+       7 [   0] SETTABLE  R3["g"] := 0
+       8 [   0] SETTABLE  R3["b"] := 0
+       9 [   0] SETTABLE  R3["a"] := 255
+      10 [   0] SETTABLE  R2["color"] := R3
+      11 [   0] GETUPVAL  R3 := upval 1
+      12 [   0] GETTABLE  R3 := R3["copyToExistingTable"]
+      13 [   0] MOVE      R4 := R0
+      14 [   0] MOVE      R5 := R2
+      15 [   0] CALL      R3(...) nargs=2 nret=1
+      16 [   0] MOVE      R2 := R3
+      17 [   0] GETGLOBAL R3 := _G["ui"]
+      18 [   0] GETTABLE  R3 := R3["createContainer"]
+      19 [   0] MOVE      R4 := R2
+      20 [   0] CALL      R3(...) nargs=1 nret=1
+      21 [   0] RETURN    return R3.. (1 values)
+      22 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 24-26, upvals=[], locals=[])
+    constants: strings=['default_rect'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] SETTABLE  R0["default_rect"] := R1
+       2 [   0] RETURN    return R0.. (0 values)

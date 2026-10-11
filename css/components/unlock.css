@@ -1,0 +1,10 @@
+/* Feature unlock popup (src/ui/components/popup-unlock.js, view_unlocked_feature_popup): header plate, the
+   unlock picture (rewardanimation/unlocks/unlock_*) over a yellow reward glow, one line of text, OK. */
+.dialog.dialog-unlock { width: 560px; }
+.unlock-body { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.unlock-art { position: relative; width: 320px; height: 300px; display: flex; align-items: center; justify-content: center; }
+.unlock-glow { position: absolute; inset: -30px; width: calc(100% + 60px); height: calc(100% + 60px); object-fit: contain; opacity: .8; animation: unlockSpin 9s linear infinite; }
+.unlock-img { position: relative; width: 290px; height: 285px; object-fit: contain; animation: unlockPop 420ms cubic-bezier(.2, 1.5, .4, 1) both; }
+.unlock-text { margin: 0; font-size: 30px; font-weight: var(--fw-bold); line-height: 1.3; }
+@keyframes unlockSpin { to { transform: rotate(360deg); } }
+@keyframes unlockPop { from { transform: scale(.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }

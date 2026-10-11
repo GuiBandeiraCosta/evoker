@@ -1,0 +1,450 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'eventdispatcher', 'io.directoryinterface', 'logging.logger', 'json', 'new'] numbers=[3, 10, 2000]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "eventdispatcher"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "io.directoryinterface"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "logging.logger"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] LOADK     R3 := 3
+    16 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+    17 [   0] GETGLOBAL R5 := _G["require"]
+    18 [   0] LOADK     R6 := "json"
+    19 [   0] CALL      R5(...) nargs=1 nret=1
+    20 [   0] LOADK     R6 := 10
+    21 [   0] LOADK     R7 := 2000
+    22 [   0] CLOSURE   R8 := closure #0
+    23 [   0] MOVE      R0 := R1
+    24 [   0] MOVE      R0 := R2
+    25 [   0] MOVE      R0 := R3
+    26 [   0] MOVE      R0 := R5
+    27 [   0] MOVE      R0 := R6
+    28 [   0] MOVE      R0 := R7
+    29 [   0] CLOSURE   R9 := closure #1
+    30 [   0] MOVE      R0 := R8
+    31 [   0] MOVE      R0 := R0
+    32 [   0] SETTABLE  R4["new"] := R9
+    33 [   0] RETURN    return R4.. (1 values)
+    34 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 11-157, upvals=[], locals=[])
+    constants: strings=['session', 'docdir', 'new', 'system', 'DocumentsDirectory', 'session_server', 'requestAttempts', 'login', 'emitError', 'emitLogin', 'emitManualLogin', 'loginCallback', 'registerCallback', 'getCurrentSession'] numbers=[1]
+       0 [   0] SETTABLE  R0["session"] := None
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] GETTABLE  R2 := R2["new"]
+       3 [   0] GETGLOBAL R3 := _G["system"]
+       4 [   0] GETTABLE  R3 := R3["DocumentsDirectory"]
+       5 [   0] CALL      R2(...) nargs=1 nret=1
+       6 [   0] SETTABLE  R0["docdir"] := R2
+       7 [   0] SETTABLE  R0["session_server"] := R1
+       8 [   0] SETTABLE  R0["requestAttempts"] := 1
+       9 [   0] CLOSURE   R2 := closure #0
+      10 [   0] GETUPVAL  R0 := upval 1
+      11 [   0] GETUPVAL  R0 := upval 2
+      12 [   0] MOVE      R0 := R0
+      13 [   0] SETTABLE  R0["login"] := R2
+      14 [   0] CLOSURE   R2 := closure #1
+      15 [   0] GETUPVAL  R0 := upval 1
+      16 [   0] GETUPVAL  R0 := upval 2
+      17 [   0] MOVE      R0 := R0
+      18 [   0] SETTABLE  R0["emitError"] := R2
+      19 [   0] CLOSURE   R2 := closure #2
+      20 [   0] MOVE      R0 := R0
+      21 [   0] SETTABLE  R0["emitLogin"] := R2
+      22 [   0] CLOSURE   R2 := closure #3
+      23 [   0] MOVE      R0 := R0
+      24 [   0] SETTABLE  R0["emitManualLogin"] := R2
+      25 [   0] CLOSURE   R2 := closure #4
+      26 [   0] GETUPVAL  R0 := upval 1
+      27 [   0] GETUPVAL  R0 := upval 2
+      28 [   0] MOVE      R0 := R0
+      29 [   0] GETUPVAL  R0 := upval 3
+      30 [   0] GETUPVAL  R0 := upval 4
+      31 [   0] GETUPVAL  R0 := upval 5
+      32 [   0] SETTABLE  R0["loginCallback"] := R2
+      33 [   0] CLOSURE   R2 := closure #5
+      34 [   0] GETUPVAL  R0 := upval 1
+      35 [   0] GETUPVAL  R0 := upval 2
+      36 [   0] MOVE      R0 := R0
+      37 [   0] GETUPVAL  R0 := upval 3
+      38 [   0] GETUPVAL  R0 := upval 4
+      39 [   0] GETUPVAL  R0 := upval 5
+      40 [   0] SETTABLE  R0["registerCallback"] := R2
+      41 [   0] CLOSURE   R2 := closure #6
+      42 [   0] MOVE      R0 := R0
+      43 [   0] SETTABLE  R0["getCurrentSession"] := R2
+      44 [   0] RETURN    return R0.. (1 values)
+      45 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=3, lines 18-73, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_TRACKING', 'RUMI:deleting UID', 'docdir', 'deleteFile', 'tracking.uid', 'getFileContents', 'RUMI:login UID', 'session_server', '/user/login/', '?', '?appversion=', 'tostring', '&', 'locale=', 'network', 'request', 'GET', 'RUMI:login NO UID', '/user/register', 'LocalUserMGMInterface would send request to '] numbers=[3]
+         0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R0 := False
+         3 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +13 -> 18
+         5 [   0] GETUPVAL  R3 := upval 0
+         6 [   0] GETTABLE  R3 := R3["logmsg"]
+         7 [   0] GETUPVAL  R4 := upval 1
+         8 [   0] GETUPVAL  R5 := upval 0
+         9 [   0] GETTABLE  R5 := R5["ASPECT_TRACKING"]
+        10 [   0] LOADK     R6 := 3
+        11 [   0] LOADK     R7 := "RUMI:deleting UID"
+        12 [   0] CALL      R3(...) nargs=4 nret=0
+        13 [   0] GETUPVAL  R3 := upval 2
+        14 [   0] GETTABLE  R3 := R3["docdir"]
+        15 [   0] GETTABLE  R3 := R3["deleteFile"]
+        16 [   0] LOADK     R4 := "tracking.uid"
+        17 [   0] CALL      R3(...) nargs=1 nret=0
+        18 [   0] GETUPVAL  R3 := upval 2
+        19 [   0] GETTABLE  R3 := R3["docdir"]
+        20 [   0] GETTABLE  R3 := R3["getFileContents"]
+        21 [   0] LOADK     R4 := "tracking.uid"
+        22 [   0] CALL      R3(...) nargs=1 nret=1
+        23 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        24 [   0] JMP       jmp +43 -> 68
+        25 [   0] GETUPVAL  R4 := upval 0
+        26 [   0] GETTABLE  R4 := R4["logmsg"]
+        27 [   0] GETUPVAL  R5 := upval 1
+        28 [   0] GETUPVAL  R6 := upval 0
+        29 [   0] GETTABLE  R6 := R6["ASPECT_TRACKING"]
+        30 [   0] LOADK     R7 := 3
+        31 [   0] LOADK     R8 := "RUMI:login UID"
+        32 [   0] CALL      R4(...) nargs=4 nret=0
+        33 [   0] GETUPVAL  R4 := upval 2
+        34 [   0] GETTABLE  R4 := R4["session_server"]
+        35 [   0] LOADK     R5 := "/user/login/"
+        36 [   0] MOVE      R6 := R3
+        37 [   0] CONCAT    R4 := R4 .. ... .. R6
+        38 [   0] LOADK     R5 := "?"
+        39 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        40 [   0] JMP       jmp +7 -> 48
+        41 [   0] MOVE      R6 := R4
+        42 [   0] LOADK     R7 := "?appversion="
+        43 [   0] GETGLOBAL R8 := _G["tostring"]
+        44 [   0] MOVE      R9 := R1
+        45 [   0] CALL      R8(...) nargs=1 nret=1
+        46 [   0] CONCAT    R4 := R6 .. ... .. R8
+        47 [   0] LOADK     R5 := "&"
+        48 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        49 [   0] JMP       jmp +7 -> 57
+        50 [   0] MOVE      R6 := R4
+        51 [   0] MOVE      R7 := R5
+        52 [   0] LOADK     R8 := "locale="
+        53 [   0] GETGLOBAL R9 := _G["tostring"]
+        54 [   0] MOVE      R10 := R2
+        55 [   0] CALL      R9(...) nargs=1 nret=1
+        56 [   0] CONCAT    R4 := R6 .. ... .. R9
+        57 [   0] GETGLOBAL R6 := _G["network"]
+        58 [   0] GETTABLE  R6 := R6["request"]
+        59 [   0] MOVE      R7 := R4
+        60 [   0] LOADK     R8 := "GET"
+        61 [   0] CLOSURE   R9 := closure #0
+        62 [   0] GETUPVAL  R0 := upval 2
+        63 [   0] MOVE      R0 := R0
+        64 [   0] MOVE      R0 := R1
+        65 [   0] MOVE      R0 := R2
+        66 [   0] CALL      R6(...) nargs=3 nret=0
+        67 [   0] JMP       jmp +51 -> 119
+        68 [   0] GETUPVAL  R4 := upval 0
+        69 [   0] GETTABLE  R4 := R4["logmsg"]
+        70 [   0] GETUPVAL  R5 := upval 1
+        71 [   0] GETUPVAL  R6 := upval 0
+        72 [   0] GETTABLE  R6 := R6["ASPECT_TRACKING"]
+        73 [   0] LOADK     R7 := 3
+        74 [   0] LOADK     R8 := "RUMI:login NO UID"
+        75 [   0] CALL      R4(...) nargs=4 nret=0
+        76 [   0] GETUPVAL  R4 := upval 2
+        77 [   0] GETTABLE  R4 := R4["session_server"]
+        78 [   0] LOADK     R5 := "/user/register"
+        79 [   0] CONCAT    R4 := R4 .. ... .. R5
+        80 [   0] LOADK     R5 := "?"
+        81 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        82 [   0] JMP       jmp +7 -> 90
+        83 [   0] MOVE      R6 := R4
+        84 [   0] LOADK     R7 := "?appversion="
+        85 [   0] GETGLOBAL R8 := _G["tostring"]
+        86 [   0] MOVE      R9 := R1
+        87 [   0] CALL      R8(...) nargs=1 nret=1
+        88 [   0] CONCAT    R4 := R6 .. ... .. R8
+        89 [   0] LOADK     R5 := "&"
+        90 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        91 [   0] JMP       jmp +7 -> 99
+        92 [   0] MOVE      R6 := R4
+        93 [   0] MOVE      R7 := R5
+        94 [   0] LOADK     R8 := "locale="
+        95 [   0] GETGLOBAL R9 := _G["tostring"]
+        96 [   0] MOVE      R10 := R2
+        97 [   0] CALL      R9(...) nargs=1 nret=1
+        98 [   0] CONCAT    R4 := R6 .. ... .. R9
+        99 [   0] GETUPVAL  R6 := upval 0
+       100 [   0] GETTABLE  R6 := R6["logmsg"]
+       101 [   0] GETUPVAL  R7 := upval 1
+       102 [   0] GETUPVAL  R8 := upval 0
+       103 [   0] GETTABLE  R8 := R8["ASPECT_TRACKING"]
+       104 [   0] LOADK     R9 := 3
+       105 [   0] LOADK     R10 := "LocalUserMGMInterface would send request to "
+       106 [   0] MOVE      R11 := R4
+       107 [   0] CONCAT    R10 := R10 .. ... .. R11
+       108 [   0] CALL      R6(...) nargs=4 nret=0
+       109 [   0] GETGLOBAL R6 := _G["network"]
+       110 [   0] GETTABLE  R6 := R6["request"]
+       111 [   0] MOVE      R7 := R4
+       112 [   0] LOADK     R8 := "GET"
+       113 [   0] CLOSURE   R9 := closure #1
+       114 [   0] GETUPVAL  R0 := upval 2
+       115 [   0] MOVE      R0 := R0
+       116 [   0] MOVE      R0 := R1
+       117 [   0] MOVE      R0 := R2
+       118 [   0] CALL      R6(...) nargs=3 nret=0
+       119 [   0] LOADNIL   R4..R4 := nil
+       120 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#0.#0 (params=1, lines 44-47, upvals=[], locals=[])
+        constants: strings=['loginCallback'] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R1 := R1["loginCallback"]
+           2 [   0] MOVE      R2 := R0
+           3 [   0] GETUPVAL  R3 := upval 1
+           4 [   0] GETUPVAL  R4 := upval 2
+           5 [   0] GETUPVAL  R5 := upval 3
+           6 [   0] CALL      R1(...) nargs=4 nret=0
+           7 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#0.#1 (params=1, lines 65-68, upvals=[], locals=[])
+        constants: strings=['registerCallback'] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R1 := R1["registerCallback"]
+           2 [   0] MOVE      R2 := R0
+           3 [   0] GETUPVAL  R3 := upval 1
+           4 [   0] GETUPVAL  R4 := upval 2
+           5 [   0] GETUPVAL  R5 := upval 3
+           6 [   0] CALL      R1(...) nargs=4 nret=0
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 75-79, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_TRACKING', 'emitError', 'emit', 'userMgmtError', 'errorcode', 'phase'] numbers=[3]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETUPVAL  R3 := upval 1
+         3 [   0] GETUPVAL  R4 := upval 0
+         4 [   0] GETTABLE  R4 := R4["ASPECT_TRACKING"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "emitError"
+         7 [   0] MOVE      R7 := R0
+         8 [   0] MOVE      R8 := R1
+         9 [   0] CALL      R2(...) nargs=6 nret=0
+        10 [   0] GETUPVAL  R2 := upval 2
+        11 [   0] GETTABLE  R2 := R2["emit"]
+        12 [   0] LOADK     R3 := "userMgmtError"
+        13 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+        14 [   0] SETTABLE  R4["errorcode"] := R0
+        15 [   0] SETTABLE  R4["phase"] := R1
+        16 [   0] CALL      R2(...) nargs=2 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 81-84, upvals=[], locals=[])
+      constants: strings=['emit', 'userLogin', 'session'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["emit"]
+         2 [   0] LOADK     R1 := "userLogin"
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["session"]
+         5 [   0] CALL      R0(...) nargs=2 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 86-90, upvals=[], locals=[])
+      constants: strings=['session', 'emitLogin'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["session"] := R0
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] GETTABLE  R1 := R1["emitLogin"]
+         4 [   0] CALL      R1(...) nargs=0 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=4, lines 92-119, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_TRACKING', 'RemoteUserMgmtInterface:loginCallback', 'requestAttempts', 'status', 'currentSession', 'stats', 'decode', 'response', 'id', 'userId', 'session', 'emitLogin', 'timer', 'performWithDelay', 'isError', 'emitError', 'login'] numbers=[3, 1, 200]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["logmsg"]
+         2 [   0] GETUPVAL  R5 := upval 1
+         3 [   0] GETUPVAL  R6 := upval 0
+         4 [   0] GETTABLE  R6 := R6["ASPECT_TRACKING"]
+         5 [   0] LOADK     R7 := 3
+         6 [   0] LOADK     R8 := "RemoteUserMgmtInterface:loginCallback"
+         7 [   0] MOVE      R9 := R0
+         8 [   0] CALL      R4(...) nargs=5 nret=0
+         9 [   0] GETUPVAL  R4 := upval 2
+        10 [   0] GETUPVAL  R5 := upval 2
+        11 [   0] GETTABLE  R5 := R5["requestAttempts"]
+        12 [   0] ADD       R5 := R5 + 1
+        13 [   0] SETTABLE  R4["requestAttempts"] := R5
+        14 [   0] GETTABLE  R4 := R0["status"]
+        15 [   0] EQ        if (R4 == 200) ~= 0 then skip next
+        16 [   0] JMP       jmp +26 -> 43
+        17 [   0] GETUPVAL  R4 := upval 3
+        18 [   0] GETTABLE  R4 := R4["decode"]
+        19 [   0] GETTABLE  R5 := R0["response"]
+        20 [   0] CALL      R4(...) nargs=1 nret=2
+        21 [   0] SETTABLE  R0["stats"] := R5
+        22 [   0] SETGLOBAL _G["currentSession"] := R4
+        23 [   0] GETGLOBAL R4 := _G["currentSession"]
+        24 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        25 [   0] JMP       jmp +17 -> 43
+        26 [   0] GETGLOBAL R4 := _G["currentSession"]
+        27 [   0] GETTABLE  R4 := R4["id"]
+        28 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        29 [   0] JMP       jmp +13 -> 43
+        30 [   0] GETGLOBAL R4 := _G["currentSession"]
+        31 [   0] GETTABLE  R4 := R4["userId"]
+        32 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        33 [   0] JMP       jmp +9 -> 43
+        34 [   0] GETUPVAL  R4 := upval 2
+        35 [   0] SETTABLE  R4["requestAttempts"] := 1
+        36 [   0] GETUPVAL  R4 := upval 2
+        37 [   0] GETGLOBAL R5 := _G["currentSession"]
+        38 [   0] SETTABLE  R4["session"] := R5
+        39 [   0] GETUPVAL  R4 := upval 2
+        40 [   0] GETTABLE  R4 := R4["emitLogin"]
+        41 [   0] CALL      R4(...) nargs=0 nret=0
+        42 [   0] RETURN    return R0.. (0 values)
+        43 [   0] GETUPVAL  R4 := upval 2
+        44 [   0] GETTABLE  R4 := R4["requestAttempts"]
+        45 [   0] GETUPVAL  R5 := upval 4
+        46 [   0] LE        if (R4 <= R5) ~= 0 then skip next
+        47 [   0] JMP       jmp +10 -> 58
+        48 [   0] GETGLOBAL R4 := _G["timer"]
+        49 [   0] GETTABLE  R4 := R4["performWithDelay"]
+        50 [   0] GETUPVAL  R5 := upval 5
+        51 [   0] CLOSURE   R6 := closure #0
+        52 [   0] GETUPVAL  R0 := upval 2
+        53 [   0] MOVE      R0 := R1
+        54 [   0] MOVE      R0 := R2
+        55 [   0] MOVE      R0 := R3
+        56 [   0] CALL      R4(...) nargs=2 nret=0
+        57 [   0] JMP       jmp +6 -> 64
+        58 [   0] SETTABLE  R0["isError"] := True
+        59 [   0] GETUPVAL  R4 := upval 2
+        60 [   0] GETTABLE  R4 := R4["emitError"]
+        61 [   0] GETTABLE  R5 := R0["status"]
+        62 [   0] LOADK     R6 := "login"
+        63 [   0] CALL      R4(...) nargs=2 nret=0
+        64 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#4.#0 (params=0, lines 111-114, upvals=[], locals=[])
+        constants: strings=['log', 'msg', '[Tracking, remoteusermgmt] retry login', 'login'] numbers=[]
+           0 [   0] GETGLOBAL R0 := _G["log"]
+           1 [   0] GETTABLE  R0 := R0["msg"]
+           2 [   0] LOADK     R1 := "[Tracking, remoteusermgmt] retry login"
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] GETUPVAL  R0 := upval 0
+           5 [   0] GETTABLE  R0 := R0["login"]
+           6 [   0] GETUPVAL  R1 := upval 1
+           7 [   0] GETUPVAL  R2 := upval 2
+           8 [   0] GETUPVAL  R3 := upval 3
+           9 [   0] CALL      R0(...) nargs=3 nret=0
+          10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=4, lines 121-149, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_TRACKING', 'RemoteUserMgmtInterface:registerCallback', 'requestAttempts', 'status', 'currentSession', 'stats', 'decode', 'response', 'id', 'userId', 'docdir', 'createFileAndWriteContent', 'tracking.uid', 'tostring', 'session', 'emitLogin', 'timer', 'performWithDelay', 'isError', 'emitError', 'register'] numbers=[3, 1, 200]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["logmsg"]
+         2 [   0] GETUPVAL  R5 := upval 1
+         3 [   0] GETUPVAL  R6 := upval 0
+         4 [   0] GETTABLE  R6 := R6["ASPECT_TRACKING"]
+         5 [   0] LOADK     R7 := 3
+         6 [   0] LOADK     R8 := "RemoteUserMgmtInterface:registerCallback"
+         7 [   0] MOVE      R9 := R0
+         8 [   0] CALL      R4(...) nargs=5 nret=0
+         9 [   0] GETUPVAL  R4 := upval 2
+        10 [   0] GETUPVAL  R5 := upval 2
+        11 [   0] GETTABLE  R5 := R5["requestAttempts"]
+        12 [   0] ADD       R5 := R5 + 1
+        13 [   0] SETTABLE  R4["requestAttempts"] := R5
+        14 [   0] GETTABLE  R4 := R0["status"]
+        15 [   0] EQ        if (R4 == 200) ~= 0 then skip next
+        16 [   0] JMP       jmp +35 -> 52
+        17 [   0] GETUPVAL  R4 := upval 3
+        18 [   0] GETTABLE  R4 := R4["decode"]
+        19 [   0] GETTABLE  R5 := R0["response"]
+        20 [   0] CALL      R4(...) nargs=1 nret=2
+        21 [   0] SETTABLE  R0["stats"] := R5
+        22 [   0] SETGLOBAL _G["currentSession"] := R4
+        23 [   0] GETGLOBAL R4 := _G["currentSession"]
+        24 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        25 [   0] JMP       jmp +26 -> 52
+        26 [   0] GETGLOBAL R4 := _G["currentSession"]
+        27 [   0] GETTABLE  R4 := R4["id"]
+        28 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        29 [   0] JMP       jmp +22 -> 52
+        30 [   0] GETGLOBAL R4 := _G["currentSession"]
+        31 [   0] GETTABLE  R4 := R4["userId"]
+        32 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        33 [   0] JMP       jmp +18 -> 52
+        34 [   0] GETUPVAL  R4 := upval 2
+        35 [   0] SETTABLE  R4["requestAttempts"] := 1
+        36 [   0] GETUPVAL  R4 := upval 2
+        37 [   0] GETTABLE  R4 := R4["docdir"]
+        38 [   0] GETTABLE  R4 := R4["createFileAndWriteContent"]
+        39 [   0] LOADK     R5 := "tracking.uid"
+        40 [   0] GETGLOBAL R6 := _G["tostring"]
+        41 [   0] GETGLOBAL R7 := _G["currentSession"]
+        42 [   0] GETTABLE  R7 := R7["userId"]
+        43 [   0] CALL      R6(...) nargs=1 nret=-1
+        44 [   0] CALL      R4(...) nargs=-1 nret=0
+        45 [   0] GETUPVAL  R4 := upval 2
+        46 [   0] GETGLOBAL R5 := _G["currentSession"]
+        47 [   0] SETTABLE  R4["session"] := R5
+        48 [   0] GETUPVAL  R4 := upval 2
+        49 [   0] GETTABLE  R4 := R4["emitLogin"]
+        50 [   0] CALL      R4(...) nargs=0 nret=0
+        51 [   0] RETURN    return R0.. (0 values)
+        52 [   0] GETUPVAL  R4 := upval 2
+        53 [   0] GETTABLE  R4 := R4["requestAttempts"]
+        54 [   0] GETUPVAL  R5 := upval 4
+        55 [   0] LE        if (R4 <= R5) ~= 0 then skip next
+        56 [   0] JMP       jmp +10 -> 67
+        57 [   0] GETGLOBAL R4 := _G["timer"]
+        58 [   0] GETTABLE  R4 := R4["performWithDelay"]
+        59 [   0] GETUPVAL  R5 := upval 5
+        60 [   0] CLOSURE   R6 := closure #0
+        61 [   0] GETUPVAL  R0 := upval 2
+        62 [   0] MOVE      R0 := R1
+        63 [   0] MOVE      R0 := R2
+        64 [   0] MOVE      R0 := R3
+        65 [   0] CALL      R4(...) nargs=2 nret=0
+        66 [   0] JMP       jmp +6 -> 73
+        67 [   0] SETTABLE  R0["isError"] := True
+        68 [   0] GETUPVAL  R4 := upval 2
+        69 [   0] GETTABLE  R4 := R4["emitError"]
+        70 [   0] GETTABLE  R5 := R0["status"]
+        71 [   0] LOADK     R6 := "register"
+        72 [   0] CALL      R4(...) nargs=2 nret=0
+        73 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#5.#0 (params=0, lines 141-144, upvals=[], locals=[])
+        constants: strings=['log', 'msg', '[Tracking, remoteusermgmt] retry register', 'login'] numbers=[]
+           0 [   0] GETGLOBAL R0 := _G["log"]
+           1 [   0] GETTABLE  R0 := R0["msg"]
+           2 [   0] LOADK     R1 := "[Tracking, remoteusermgmt] retry register"
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] GETUPVAL  R0 := upval 0
+           5 [   0] GETTABLE  R0 := R0["login"]
+           6 [   0] GETUPVAL  R1 := upval 1
+           7 [   0] GETUPVAL  R2 := upval 2
+           8 [   0] GETUPVAL  R3 := upval 3
+           9 [   0] CALL      R0(...) nargs=3 nret=0
+          10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 151-153, upvals=[], locals=[])
+      constants: strings=['session'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["session"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 159-163, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] GETUPVAL  R2 := upval 1
+       2 [   0] GETTABLE  R2 := R2["new"]
+       3 [   0] CALL      R2(...) nargs=0 nret=1
+       4 [   0] MOVE      R3 := R0
+       5 [   0] TAILCALL  return R1(...) nargs=2
+       6 [   0] RETURN    return R1.. (-1 values)
+       7 [   0] RETURN    return R0.. (0 values)

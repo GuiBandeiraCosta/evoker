@@ -1,0 +1,362 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['key', 'loca_test_head_EN', 'value', 'THE QUICK BROWN FOX', 'loca_test_body_EN', 'The quick brown fox jumped over the lazy cat', 'loca_test_head_FR', 'Àœ*, àçÔ : « éÉÎ ». ŒæÇô ù€È !', 'loca_test_body_FR', 'Ü@ïâ°= +Ï % _ö$£™ "%üê" ; &’ÎäûÆ Êî® ? Ùë-(/)< ÂèÖ£©. §²ËÛ>.', 'loca_test_head_DE', 'Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.', 'loca_test_body_DE', 'AÄBCD EFG HIJKLM NOÖP QRS ẞTUÜV WXYZ aäbcd efgh ijklmn oöpqr sßtuü vwxyz „e“', 'loca_test_head_IT', "«Perché è un'idea»", 'loca_test_body_IT', 'È sé farà € più: ‘Altroché’! Éicché? “Sì, può; antáni”. L’Arsì l’atò-pirù...', 'loca_test_head_ES', '¡loz Élago hindÚ ía «llo» kiwi!', 'loca_test_body_ES', '¿cigüeña xofÓn trÁs qpaja? áver Wamba: —rey-godo EspaÑa—;exhÜ y trÁs zÍnó € “kilo”.', 'loca_test_head_PT', 'Ánon ább àbdgh Àptp quãojpi Ãjlcfrt', 'loca_test_body_PT', 'Âpifâ Éjél ê Êtv Ím í “ón” Ópçõb tô Õu Ôni ú Ú açs Ças! A? …: —i €  fi&o >h> 1º 5ª «g»', 'loca_test_head_TR', 'Ümit Etmek Isırmak Öğün Şok Çok Uyuşuk Korkunç İş', 'loca_test_body_TR_1', 'Üşütmek / öğrenmek, ışığa “çok” karışıktır. Iğdır’a gidiyoruz! Oldukça şaşırtıcı imkânsızdı. İstenen', 'loca_test_head_RU', '— «Ёйцукнгшщзхъэ-ждлпвыфячитьбю» –', 'loca_test_body_RU', 'Эй князь подъём бьют лыжи грош два щуп расчувствовавшееся офицерьё чих —«ёЙ»–', 'loca_test_head_JA', '全角Ａ ｂ ﾊﾝｶｸｶﾅ 漢字 かな Ⅰ ㍉ 覬 鎹', 'loca_test_body_JA', '全角Ａ ｂ ﾊﾝｶｸｶﾅ 漢字 かな 〜 ｱ ｲ ｳ ｴ ｵⅠ㍉ ㎜ ㍻ № ㏍ ℡ ㊨ ㈱ ∫ 僦 僨 僩 僯 僱 僶 表 ソ', 'loca_test_head_KO', '하루의 시작은 아침밥부터… 아 허가 졌거늘. 마당쇠야!', 'loca_test_body_KO', '어허!? 이리 오너라! 아침에 일찍 일어나, 이게 도대체 무슨 봉변이란 말인가? 내 너에게', 'loca_test_head_TH', 'ชื่อพันธมิตร', 'loca_test_body_TH', 'เพราะการครองราชย์ที่ฉลาดและห่วงใยผู้อื่นของคุณ ประชากรของ #t# จึงปรารถนาที่จะเสนอของขวัญให้คุณ', 'loca_test_head_CH-Sim', '𣂔𠀤𠖠𡇣★', 'loca_test_body_CH-Sim', '驚豔惊艳☆脏污髒汙臲卼鸑鷟髽鬏藠羴尛鹹⑾⑿⒀⒁⒂ⅩⅪⅫ', 'loca_test_head_CH-Tra', '《小王子復國戰》！', 'loca_test_body_CH-Tra', '我正在玩《小王子復國戰》！一款非常棒的免費塔防遊戲！', 'loca_test_uni_latin1_1', '¡ $ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬  ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ', 'loca_test_uni_latin1_2', 'Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ', 'loca_test_uni_latinA_1', 'Ā ā Ă ă Ą ą Ć ć Ĉ ĉ Ċ ċ Č č Ď ď Đ đ Ē ē Ĕ ĕ Ė ė Ę ę Ě ě Ĝ ĝ Ğ ğ Ġ ġ Ģ ģ Ĥ ĥ Ħ ħ Ĩ ĩ Ī ī Ĭ ĭ Į į İ ı Ĳ ĳ Ĵ ĵ Ķ ķ ĸ ſ', 'loca_test_uni_latinA_2', 'Ĺ ĺ Ļ ļ Ľ ľ Ŀ ŀ Ł ł Ń ń Ņ ņ Ň ň ŉ Ŋ ŋ Ō ō Ŏ ŏ Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś Ŝ ŝ Ş ş Š š Ţ ţ Ť ť Ŧ ŧ Ũ ũ Ū ū Ŭ ŭ Ů ů', 'loca_test_uni_latinB1', 'Ű ű ƀ Ɓ Ƃ ƃ Ƅ ƅ Ɔ Ƈ ƈ Ɖ Ɗ Ƌ ƌ ƍ Ǝ Ə Ɛ Ƒ ƒ Ɠ Ɣ ƕ Ɩ Ɨ Ƙ ƙ ƚ ƛ Ɯ Ɲ ƞ Ɵ Ơ ơ Ƣ ƣ Ƥ ƥ Ʀ Ƨ ƨ Ʃ ƪ ƫ Ƭ ƭ Ʈ Ư ư Ʊ', 'loca_test_uni_latinB2', 'Ʋ Ƴ ƴ Ƶ ƶ Ʒ Ƹ ƹ ƺ ƻ Ƽ ƽ ƾ ƿ ǀ ǁ ǂ ǃ Ǆ ǅ ǆ Ǉ ǈ ǉ Ǌ ǋ ǌ Ǎ ǎ Ǐ ǐ Ǒ ǒ Ǔ ǔ Ǖ ǖ Ǘ ǘ Ǚ ǚ Ǜ ǜ ǝ Ǟ ǟ Ǡ ǡ Ǣ ǣ', 'loca_test_uni_latinB3', 'Ǥ ǥ Ǧ ǧ Ǩ ǩ Ǫ ǫ Ǭ ǭ Ǯ ǯ ǰ Ǳ ǲ ǳ Ǵ ǵ Ƕ Ƿ Ǹ ǹ Ǻ ǻ Ǽ ǽ Ǿ ǿ Ȁ ȁ Ȃ ȃ Ȅ ȅ Ȇ ȇ Ȉ ȉ Ȋ ȋ Ȍ ȍ Ȏ ȏ Ȑ ȑ Ȓ ȓ Ȕ ȕ Ȗ ȗ', 'loca_test_uni_latinB4', 'Ș ș Ț ț Ȝ ȝ Ȟ ȟ Ƞ ȡ Ȣ ȣ Ȥ ȥ Ȧ ȧ Ȩ ȩ Ȫ ȫ Ȭ ȭ Ȯ ȯ Ȱ ȱ Ȳ ȳ ȴ ȵ ȶ ȷ ȸ ȹ Ⱥ Ȼ ȼ Ƚ Ⱦ ȿ ɀ Ɂ  Ƀ Ʉ Ʌ Ɇ ɇ Ɉ ɉ Ɋ ɋ Ɍ ɍ Ɏ ɏ', 'create'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 25, hash 0)
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+     2 [   0] SETTABLE  R1["key"] := "loca_test_head_EN"
+     3 [   0] SETTABLE  R1["value"] := "THE QUICK BROWN FOX"
+     4 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+     5 [   0] SETTABLE  R2["key"] := "loca_test_body_EN"
+     6 [   0] SETTABLE  R2["value"] := "The quick brown fox jumped over the lazy cat"
+     7 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+     8 [   0] SETTABLE  R3["key"] := "loca_test_head_FR"
+     9 [   0] SETTABLE  R3["value"] := "Àœ*, àçÔ : « éÉÎ ». ŒæÇô ù€È !"
+    10 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+    11 [   0] SETTABLE  R4["key"] := "loca_test_body_FR"
+    12 [   0] SETTABLE  R4["value"] := "Ü@ïâ°= +Ï % _ö$£™ "%üê" ; &’ÎäûÆ Êî® ? Ùë-(/)< ÂèÖ£©. §²ËÛ>."
+    13 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+    14 [   0] SETTABLE  R5["key"] := "loca_test_head_DE"
+    15 [   0] SETTABLE  R5["value"] := "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern."
+    16 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+    17 [   0] SETTABLE  R6["key"] := "loca_test_body_DE"
+    18 [   0] SETTABLE  R6["value"] := "AÄBCD EFG HIJKLM NOÖP QRS ẞTUÜV WXYZ aäbcd efgh ijklmn oöpqr sßtuü vwx"
+    19 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+    20 [   0] SETTABLE  R7["key"] := "loca_test_head_IT"
+    21 [   0] SETTABLE  R7["value"] := "«Perché è un'idea»"
+    22 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+    23 [   0] SETTABLE  R8["key"] := "loca_test_body_IT"
+    24 [   0] SETTABLE  R8["value"] := "È sé farà € più: ‘Altroché’! Éicché? “Sì, può; antáni”. L’Arsì l’atò-p"
+    25 [   0] NEWTABLE  R9 := {} (array 0, hash 2)
+    26 [   0] SETTABLE  R9["key"] := "loca_test_head_ES"
+    27 [   0] SETTABLE  R9["value"] := "¡loz Élago hindÚ ía «llo» kiwi!"
+    28 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+    29 [   0] SETTABLE  R10["key"] := "loca_test_body_ES"
+    30 [   0] SETTABLE  R10["value"] := "¿cigüeña xofÓn trÁs qpaja? áver Wamba: —rey-godo EspaÑa—;exhÜ y trÁs z"
+    31 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+    32 [   0] SETTABLE  R11["key"] := "loca_test_head_PT"
+    33 [   0] SETTABLE  R11["value"] := "Ánon ább àbdgh Àptp quãojpi Ãjlcfrt"
+    34 [   0] NEWTABLE  R12 := {} (array 0, hash 2)
+    35 [   0] SETTABLE  R12["key"] := "loca_test_body_PT"
+    36 [   0] SETTABLE  R12["value"] := "Âpifâ Éjél ê Êtv Ím í “ón” Ópçõb tô Õu Ôni ú Ú açs Ças! A? …: —i €  fi"
+    37 [   0] NEWTABLE  R13 := {} (array 0, hash 2)
+    38 [   0] SETTABLE  R13["key"] := "loca_test_head_TR"
+    39 [   0] SETTABLE  R13["value"] := "Ümit Etmek Isırmak Öğün Şok Çok Uyuşuk Korkunç İş"
+    40 [   0] NEWTABLE  R14 := {} (array 0, hash 2)
+    41 [   0] SETTABLE  R14["key"] := "loca_test_body_TR_1"
+    42 [   0] SETTABLE  R14["value"] := "Üşütmek / öğrenmek, ışığa “çok” karışıktır. Iğdır’a gidiyoruz! Oldukça"
+    43 [   0] NEWTABLE  R15 := {} (array 0, hash 2)
+    44 [   0] SETTABLE  R15["key"] := "loca_test_head_RU"
+    45 [   0] SETTABLE  R15["value"] := "— «Ёйцукнгшщзхъэ-ждлпвыфячитьбю» –"
+    46 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+    47 [   0] SETTABLE  R16["key"] := "loca_test_body_RU"
+    48 [   0] SETTABLE  R16["value"] := "Эй князь подъём бьют лыжи грош два щуп расчувствовавшееся офицерьё чих"
+    49 [   0] NEWTABLE  R17 := {} (array 0, hash 2)
+    50 [   0] SETTABLE  R17["key"] := "loca_test_head_JA"
+    51 [   0] SETTABLE  R17["value"] := "全角Ａ ｂ ﾊﾝｶｸｶﾅ 漢字 かな Ⅰ ㍉ 覬 鎹"
+    52 [   0] NEWTABLE  R18 := {} (array 0, hash 2)
+    53 [   0] SETTABLE  R18["key"] := "loca_test_body_JA"
+    54 [   0] SETTABLE  R18["value"] := "全角Ａ ｂ ﾊﾝｶｸｶﾅ 漢字 かな 〜 ｱ ｲ ｳ ｴ ｵⅠ㍉ ㎜ ㍻ № ㏍ ℡ ㊨ ㈱ ∫ 僦 僨 僩 僯 僱 僶 表 ソ"
+    55 [   0] NEWTABLE  R19 := {} (array 0, hash 2)
+    56 [   0] SETTABLE  R19["key"] := "loca_test_head_KO"
+    57 [   0] SETTABLE  R19["value"] := "하루의 시작은 아침밥부터… 아 허가 졌거늘. 마당쇠야!"
+    58 [   0] NEWTABLE  R20 := {} (array 0, hash 2)
+    59 [   0] SETTABLE  R20["key"] := "loca_test_body_KO"
+    60 [   0] SETTABLE  R20["value"] := "어허!? 이리 오너라! 아침에 일찍 일어나, 이게 도대체 무슨 봉변이란 말인가? 내 너에게"
+    61 [   0] NEWTABLE  R21 := {} (array 0, hash 2)
+    62 [   0] SETTABLE  R21["key"] := "loca_test_head_TH"
+    63 [   0] SETTABLE  R21["value"] := "ชื่อพันธมิตร"
+    64 [   0] NEWTABLE  R22 := {} (array 0, hash 2)
+    65 [   0] SETTABLE  R22["key"] := "loca_test_body_TH"
+    66 [   0] SETTABLE  R22["value"] := "เพราะการครองราชย์ที่ฉลาดและห่วงใยผู้อื่นของคุณ ประชากรของ #t# จึงปรารถ"
+    67 [   0] NEWTABLE  R23 := {} (array 0, hash 2)
+    68 [   0] SETTABLE  R23["key"] := "loca_test_head_CH-Sim"
+    69 [   0] SETTABLE  R23["value"] := "𣂔𠀤𠖠𡇣★"
+    70 [   0] NEWTABLE  R24 := {} (array 0, hash 2)
+    71 [   0] SETTABLE  R24["key"] := "loca_test_body_CH-Sim"
+    72 [   0] SETTABLE  R24["value"] := "驚豔惊艳☆脏污髒汙臲卼鸑鷟髽鬏藠羴尛鹹⑾⑿⒀⒁⒂ⅩⅪⅫ"
+    73 [   0] NEWTABLE  R25 := {} (array 0, hash 2)
+    74 [   0] SETTABLE  R25["key"] := "loca_test_head_CH-Tra"
+    75 [   0] SETTABLE  R25["value"] := "《小王子復國戰》！"
+    76 [   0] NEWTABLE  R26 := {} (array 0, hash 2)
+    77 [   0] SETTABLE  R26["key"] := "loca_test_body_CH-Tra"
+    78 [   0] SETTABLE  R26["value"] := "我正在玩《小王子復國戰》！一款非常棒的免費塔防遊戲！"
+    79 [   0] NEWTABLE  R27 := {} (array 0, hash 2)
+    80 [   0] SETTABLE  R27["key"] := "loca_test_uni_latin1_1"
+    81 [   0] SETTABLE  R27["value"] := "¡ $ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬  ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã"
+    82 [   0] NEWTABLE  R28 := {} (array 0, hash 2)
+    83 [   0] SETTABLE  R28["key"] := "loca_test_uni_latin1_2"
+    84 [   0] SETTABLE  R28["value"] := "Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô "
+    85 [   0] NEWTABLE  R29 := {} (array 0, hash 2)
+    86 [   0] SETTABLE  R29["key"] := "loca_test_uni_latinA_1"
+    87 [   0] SETTABLE  R29["value"] := "Ā ā Ă ă Ą ą Ć ć Ĉ ĉ Ċ ċ Č č Ď ď Đ đ Ē ē Ĕ ĕ Ė ė Ę ę Ě ě Ĝ ĝ Ğ ğ Ġ ġ Ģ "
+    88 [   0] NEWTABLE  R30 := {} (array 0, hash 2)
+    89 [   0] SETTABLE  R30["key"] := "loca_test_uni_latinA_2"
+    90 [   0] SETTABLE  R30["value"] := "Ĺ ĺ Ļ ļ Ľ ľ Ŀ ŀ Ł ł Ń ń Ņ ņ Ň ň ŉ Ŋ ŋ Ō ō Ŏ ŏ Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś "
+    91 [   0] NEWTABLE  R31 := {} (array 0, hash 2)
+    92 [   0] SETTABLE  R31["key"] := "loca_test_uni_latinB1"
+    93 [   0] SETTABLE  R31["value"] := "Ű ű ƀ Ɓ Ƃ ƃ Ƅ ƅ Ɔ Ƈ ƈ Ɖ Ɗ Ƌ ƌ ƍ Ǝ Ə Ɛ Ƒ ƒ Ɠ Ɣ ƕ Ɩ Ɨ Ƙ ƙ ƚ ƛ Ɯ Ɲ ƞ Ɵ Ơ "
+    94 [   0] NEWTABLE  R32 := {} (array 0, hash 2)
+    95 [   0] SETTABLE  R32["key"] := "loca_test_uni_latinB2"
+    96 [   0] SETTABLE  R32["value"] := "Ʋ Ƴ ƴ Ƶ ƶ Ʒ Ƹ ƹ ƺ ƻ Ƽ ƽ ƾ ƿ ǀ ǁ ǂ ǃ Ǆ ǅ ǆ Ǉ ǈ ǉ Ǌ ǋ ǌ Ǎ ǎ Ǐ ǐ Ǒ ǒ Ǔ ǔ "
+    97 [   0] NEWTABLE  R33 := {} (array 0, hash 2)
+    98 [   0] SETTABLE  R33["key"] := "loca_test_uni_latinB3"
+    99 [   0] SETTABLE  R33["value"] := "Ǥ ǥ Ǧ ǧ Ǩ ǩ Ǫ ǫ Ǭ ǭ Ǯ ǯ ǰ Ǳ ǲ ǳ Ǵ ǵ Ƕ Ƿ Ǹ ǹ Ǻ ǻ Ǽ ǽ Ǿ ǿ Ȁ ȁ Ȃ ȃ Ȅ ȅ Ȇ "
+   100 [   0] NEWTABLE  R34 := {} (array 0, hash 2)
+   101 [   0] SETTABLE  R34["key"] := "loca_test_uni_latinB4"
+   102 [   0] SETTABLE  R34["value"] := "Ș ș Ț ț Ȝ ȝ Ȟ ȟ Ƞ ȡ Ȣ ȣ Ȥ ȥ Ȧ ȧ Ȩ ȩ Ȫ ȫ Ȭ ȭ Ȯ ȯ Ȱ ȱ Ȳ ȳ ȴ ȵ ȶ ȷ ȸ ȹ Ⱥ "
+   103 [   0] SETLIST   R0[...] := R1.. (n=34, block 1)
+   104 [   0] CLOSURE   R1 := closure #0
+   105 [   0] MOVE      R0 := R0
+   106 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+   107 [   0] SETTABLE  R2["create"] := R1
+   108 [   0] RETURN    return R2.. (1 values)
+   109 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 39-141, upvals=[], locals=[])
+    constants: strings=['group', 'ui', 'createContainer', 'renderer', 'require', 'UI_LIB_PATH', 'renderer.rectrenderer', 'layout', 'fonttest.parent', 'color', 'r', 'g', 'b', 'a', 'list', 'createListView', 'update', 'toFront', 'hide', 'show', 'exit'] numbers=[255]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] GETGLOBAL R1 := _G["ui"]
+       2 [   0] GETTABLE  R1 := R1["createContainer"]
+       3 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+       4 [   0] GETGLOBAL R3 := _G["require"]
+       5 [   0] GETGLOBAL R4 := _G["UI_LIB_PATH"]
+       6 [   0] LOADK     R5 := "renderer.rectrenderer"
+       7 [   0] CONCAT    R4 := R4 .. ... .. R5
+       8 [   0] CALL      R3(...) nargs=1 nret=1
+       9 [   0] SETTABLE  R2["renderer"] := R3
+      10 [   0] SETTABLE  R2["layout"] := "fonttest.parent"
+      11 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+      12 [   0] SETTABLE  R3["r"] := 255
+      13 [   0] SETTABLE  R3["g"] := 255
+      14 [   0] SETTABLE  R3["b"] := 255
+      15 [   0] SETTABLE  R3["a"] := 255
+      16 [   0] SETTABLE  R2["color"] := R3
+      17 [   0] CALL      R1(...) nargs=1 nret=1
+      18 [   0] SETTABLE  R0["group"] := R1
+      19 [   0] GETGLOBAL R1 := _G["ui"]
+      20 [   0] GETTABLE  R1 := R1["createListView"]
+      21 [   0] CALL      R1(...) nargs=0 nret=1
+      22 [   0] SETTABLE  R0["list"] := R1
+      23 [   0] CLOSURE   R1 := closure #0
+      24 [   0] CLOSURE   R2 := closure #1
+      25 [   0] MOVE      R0 := R0
+      26 [   0] GETUPVAL  R0 := upval 0
+      27 [   0] MOVE      R0 := R1
+      28 [   0] SETTABLE  R0["update"] := R2
+      29 [   0] CLOSURE   R2 := closure #2
+      30 [   0] MOVE      R0 := R0
+      31 [   0] SETTABLE  R0["toFront"] := R2
+      32 [   0] CLOSURE   R2 := closure #3
+      33 [   0] MOVE      R0 := R0
+      34 [   0] SETTABLE  R0["hide"] := R2
+      35 [   0] CLOSURE   R2 := closure #4
+      36 [   0] MOVE      R0 := R0
+      37 [   0] SETTABLE  R0["show"] := R2
+      38 [   0] GETTABLE  R2 := R0["list"]
+      39 [   0] GETTABLE  R2 := R2["exit"]
+      40 [   0] SETTABLE  R0["exit"] := R2
+      41 [   0] GETTABLE  R2 := R0["hide"]
+      42 [   0] CALL      R2(...) nargs=0 nret=0
+      43 [   0] RETURN    return R0.. (1 values)
+      44 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 50-82, upvals=[], locals=[])
+      constants: strings=['parent', 'ui', 'createContainer', 'renderer', 'require', 'UI_LIB_PATH', 'renderer.rectrenderer', 'layout', 'fonttest.elemParent', 'color', 'r', 'g', 'b', 'a', 'key', 'createLabel', 'txt', 'fonttest.elemKey', 'txtColor', 'fontSize', 'value', 'renderer.textfieldlabelrenderer', 'fonttest.elemValue', 'font', 'update'] numbers=[255, 0, 12.95, 10.45]
+         0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+         1 [   0] GETGLOBAL R2 := _G["ui"]
+         2 [   0] GETTABLE  R2 := R2["createContainer"]
+         3 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+         4 [   0] GETGLOBAL R4 := _G["require"]
+         5 [   0] GETGLOBAL R5 := _G["UI_LIB_PATH"]
+         6 [   0] LOADK     R6 := "renderer.rectrenderer"
+         7 [   0] CONCAT    R5 := R5 .. ... .. R6
+         8 [   0] CALL      R4(...) nargs=1 nret=1
+         9 [   0] SETTABLE  R3["renderer"] := R4
+        10 [   0] SETTABLE  R3["layout"] := "fonttest.elemParent"
+        11 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+        12 [   0] SETTABLE  R4["r"] := 255
+        13 [   0] SETTABLE  R4["g"] := 255
+        14 [   0] SETTABLE  R4["b"] := 255
+        15 [   0] SETTABLE  R4["a"] := 255
+        16 [   0] SETTABLE  R3["color"] := R4
+        17 [   0] CALL      R2(...) nargs=1 nret=1
+        18 [   0] SETTABLE  R1["parent"] := R2
+        19 [   0] GETGLOBAL R2 := _G["ui"]
+        20 [   0] GETTABLE  R2 := R2["createLabel"]
+        21 [   0] NEWTABLE  R3 := {} (array 0, hash 5)
+        22 [   0] GETTABLE  R4 := R1["parent"]
+        23 [   0] SETTABLE  R3["parent"] := R4
+        24 [   0] GETTABLE  R4 := R0["key"]
+        25 [   0] SETTABLE  R3["txt"] := R4
+        26 [   0] SETTABLE  R3["layout"] := "fonttest.elemKey"
+        27 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+        28 [   0] SETTABLE  R4["r"] := 0
+        29 [   0] SETTABLE  R4["g"] := 0
+        30 [   0] SETTABLE  R4["b"] := 0
+        31 [   0] SETTABLE  R4["a"] := 255
+        32 [   0] SETTABLE  R3["txtColor"] := R4
+        33 [   0] SETTABLE  R3["fontSize"] := 12.95
+        34 [   0] CALL      R2(...) nargs=1 nret=1
+        35 [   0] SETTABLE  R1["key"] := R2
+        36 [   0] GETGLOBAL R2 := _G["ui"]
+        37 [   0] GETTABLE  R2 := R2["createLabel"]
+        38 [   0] NEWTABLE  R3 := {} (array 0, hash 7)
+        39 [   0] GETTABLE  R4 := R1["parent"]
+        40 [   0] SETTABLE  R3["parent"] := R4
+        41 [   0] GETGLOBAL R4 := _G["require"]
+        42 [   0] GETGLOBAL R5 := _G["UI_LIB_PATH"]
+        43 [   0] LOADK     R6 := "renderer.textfieldlabelrenderer"
+        44 [   0] CONCAT    R5 := R5 .. ... .. R6
+        45 [   0] CALL      R4(...) nargs=1 nret=1
+        46 [   0] SETTABLE  R3["renderer"] := R4
+        47 [   0] GETTABLE  R4 := R0["value"]
+        48 [   0] SETTABLE  R3["txt"] := R4
+        49 [   0] SETTABLE  R3["layout"] := "fonttest.elemValue"
+        50 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+        51 [   0] SETTABLE  R4["r"] := 0
+        52 [   0] SETTABLE  R4["g"] := 0
+        53 [   0] SETTABLE  R4["b"] := 0
+        54 [   0] SETTABLE  R4["a"] := 255
+        55 [   0] SETTABLE  R3["txtColor"] := R4
+        56 [   0] SETTABLE  R3["fontSize"] := 10.45
+        57 [   0] GETTABLE  R4 := R0["font"]
+        58 [   0] SETTABLE  R3["font"] := R4
+        59 [   0] CALL      R2(...) nargs=1 nret=1
+        60 [   0] SETTABLE  R1["value"] := R2
+        61 [   0] CLOSURE   R2 := closure #0
+        62 [   0] SETTABLE  R1["update"] := R2
+        63 [   0] RETURN    return R1.. (1 values)
+        64 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#0.#0 (params=0, lines 77-79, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 84-117, upvals=[], locals=[])
+      constants: strings=['list', 'init', 'touchGrp', 'group', 'stayAtPosition', 'push_back', 'height', 'pairs', 'ui', 'createLabel', 'txt', 'layout', 'fonttest.fontName', 'txtColor', 'r', 'g', 'b', 'a', 'fontSize', 'forceReferencePoint', 'key', 'value', 'font', 'parent', 'insert', 'getGrp'] numbers=[80, 0, 255, 14.95, 6, 16, 180]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["list"]
+         2 [   0] GETTABLE  R1 := R1["init"]
+         3 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] GETTABLE  R3 := R3["group"]
+         6 [   0] SETTABLE  R2["touchGrp"] := R3
+         7 [   0] SETTABLE  R2["stayAtPosition"] := True
+         8 [   0] CALL      R1(...) nargs=1 nret=0
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] GETTABLE  R1 := R1["list"]
+        11 [   0] GETTABLE  R1 := R1["push_back"]
+        12 [   0] LOADNIL   R2..R2 := nil
+        13 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+        14 [   0] SETTABLE  R3["height"] := 80
+        15 [   0] CALL      R1(...) nargs=2 nret=0
+        16 [   0] GETGLOBAL R1 := _G["pairs"]
+        17 [   0] TESTSET   if (R0 truthy) == 1 then R2 := R0 else skip next
+        18 [   0] JMP       jmp +1 -> 20
+        19 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+        20 [   0] CALL      R1(...) nargs=1 nret=3
+        21 [   0] JMP       jmp +55 -> 77
+        22 [   0] GETGLOBAL R6 := _G["ui"]
+        23 [   0] GETTABLE  R6 := R6["createLabel"]
+        24 [   0] NEWTABLE  R7 := {} (array 0, hash 4)
+        25 [   0] SETTABLE  R7["txt"] := R5
+        26 [   0] SETTABLE  R7["layout"] := "fonttest.fontName"
+        27 [   0] NEWTABLE  R8 := {} (array 0, hash 4)
+        28 [   0] SETTABLE  R8["r"] := 0
+        29 [   0] SETTABLE  R8["g"] := 0
+        30 [   0] SETTABLE  R8["b"] := 0
+        31 [   0] SETTABLE  R8["a"] := 255
+        32 [   0] SETTABLE  R7["txtColor"] := R8
+        33 [   0] SETTABLE  R7["fontSize"] := 14.95
+        34 [   0] CALL      R6(...) nargs=1 nret=1
+        35 [   0] GETUPVAL  R7 := upval 0
+        36 [   0] GETTABLE  R7 := R7["list"]
+        37 [   0] GETTABLE  R7 := R7["push_back"]
+        38 [   0] MOVE      R8 := R6
+        39 [   0] NEWTABLE  R9 := {} (array 0, hash 1)
+        40 [   0] SETTABLE  R9["forceReferencePoint"] := False
+        41 [   0] CALL      R7(...) nargs=2 nret=0
+        42 [   0] GETGLOBAL R7 := _G["pairs"]
+        43 [   0] GETUPVAL  R8 := upval 1
+        44 [   0] CALL      R7(...) nargs=1 nret=3
+        45 [   0] JMP       jmp +22 -> 68
+        46 [   0] GETUPVAL  R12 := upval 2
+        47 [   0] NEWTABLE  R13 := {} (array 0, hash 3)
+        48 [   0] GETTABLE  R14 := R11["key"]
+        49 [   0] SETTABLE  R13["key"] := R14
+        50 [   0] GETTABLE  R14 := R11["value"]
+        51 [   0] SETTABLE  R13["value"] := R14
+        52 [   0] SETTABLE  R13["font"] := R5
+        53 [   0] CALL      R12(...) nargs=1 nret=1
+        54 [   0] GETUPVAL  R13 := upval 0
+        55 [   0] GETTABLE  R13 := R13["list"]
+        56 [   0] GETTABLE  R13 := R13["push_back"]
+        57 [   0] GETTABLE  R14 := R12["parent"]
+        58 [   0] NEWTABLE  R15 := {} (array 0, hash 1)
+        59 [   0] SETTABLE  R15["forceReferencePoint"] := False
+        60 [   0] CALL      R13(...) nargs=2 nret=0
+        61 [   0] GETUPVAL  R13 := upval 0
+        62 [   0] GETTABLE  R13 := R13["list"]
+        63 [   0] GETTABLE  R13 := R13["push_back"]
+        64 [   0] LOADNIL   R14..R14 := nil
+        65 [   0] NEWTABLE  R15 := {} (array 0, hash 1)
+        66 [   0] SETTABLE  R15["height"] := 6
+        67 [   0] CALL      R13(...) nargs=2 nret=0
+        68 [   0] TFORLOOP  tforloop R7 nres=2
+        69 [   0] JMP       jmp -24 -> 46
+        70 [   0] GETUPVAL  R7 := upval 0
+        71 [   0] GETTABLE  R7 := R7["list"]
+        72 [   0] GETTABLE  R7 := R7["push_back"]
+        73 [   0] LOADNIL   R8..R8 := nil
+        74 [   0] NEWTABLE  R9 := {} (array 0, hash 1)
+        75 [   0] SETTABLE  R9["height"] := 16
+        76 [   0] CALL      R7(...) nargs=2 nret=0
+        77 [   0] TFORLOOP  tforloop R1 nres=2
+        78 [   0] JMP       jmp -57 -> 22
+        79 [   0] GETUPVAL  R1 := upval 0
+        80 [   0] GETTABLE  R1 := R1["list"]
+        81 [   0] GETTABLE  R1 := R1["push_back"]
+        82 [   0] LOADNIL   R2..R2 := nil
+        83 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+        84 [   0] SETTABLE  R3["height"] := 180
+        85 [   0] CALL      R1(...) nargs=2 nret=0
+        86 [   0] GETUPVAL  R1 := upval 0
+        87 [   0] GETTABLE  R1 := R1["group"]
+        88 [   0] SELF      R2 := R1; R1 := R1["insert"]
+        89 [   0] GETUPVAL  R3 := upval 0
+        90 [   0] GETTABLE  R3 := R3["list"]
+        91 [   0] GETTABLE  R3 := R3["getGrp"]
+        92 [   0] CALL      R3(...) nargs=0 nret=-1
+        93 [   0] CALL      R1(...) nargs=-1 nret=0
+        94 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 119-121, upvals=[], locals=[])
+      constants: strings=['group', 'toFront'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["group"]
+         2 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +4 -> 8
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETTABLE  R0 := R0["group"]
+         6 [   0] SELF      R1 := R0; R0 := R0["toFront"]
+         7 [   0] CALL      R0(...) nargs=1 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 123-127, upvals=[], locals=[])
+      constants: strings=['group', 'hide'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["group"]
+         2 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +4 -> 8
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETTABLE  R0 := R0["group"]
+         6 [   0] GETTABLE  R0 := R0["hide"]
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 129-134, upvals=[], locals=[])
+      constants: strings=['group', 'show', 'toFront'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["group"]
+         2 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +7 -> 11
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETTABLE  R0 := R0["group"]
+         6 [   0] GETTABLE  R0 := R0["show"]
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] GETUPVAL  R0 := upval 0
+         9 [   0] GETTABLE  R0 := R0["toFront"]
+        10 [   0] CALL      R0(...) nargs=0 nret=0
+        11 [   0] RETURN    return R0.. (0 values)

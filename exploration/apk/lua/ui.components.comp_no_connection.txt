@@ -1,0 +1,161 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'renderer.textfieldlabelrenderer2', 'util.util', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "renderer.textfieldlabelrenderer2"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "util.util"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] CLOSURE   R2 := closure #0
+     9 [   0] MOVE      R0 := R0
+    10 [   0] MOVE      R0 := R1
+    11 [   0] LOADNIL   R3..R3 := nil
+    12 [   0] CLOSURE   R4 := closure #1
+    13 [   0] MOVE      R0 := R3
+    14 [   0] MOVE      R0 := R2
+    15 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+    16 [   0] SETTABLE  R5["getInstance"] := R4
+    17 [   0] RETURN    return R5.. (1 values)
+    18 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 10-59, upvals=[], locals=[])
+    constants: strings=['display', 'contentWidth', 'screenOriginX', 'contentHeight', 'screenOriginY', 'ui', 'createContainer', 'layout', 'default.topCenter', 'parent', 'y', 'x', 'width', 'height', 'alignment', 'center', 'renderer', 'require', 'UI_LIB_PATH', 'renderer.rectrenderer', 'color', 'r', 'g', 'b', 'a', 'createLabel', 'style', 'defaultCenterBold', 'fitText', 'debugRect', 'txt', '_T', 'No connection available at the moment. Check your internet connection.', 'img', 'assets/gfx/hud/icons/no_connection.png', 'imgxscale', 'imgyscale', 'isVisible', 'show', 'hide', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[-2, 40, 0, 80, 192, 220, 60, -110, 0.75]
+       0 [   0] GETGLOBAL R0 := _G["display"]
+       1 [   0] GETTABLE  R0 := R0["contentWidth"]
+       2 [   0] GETGLOBAL R1 := _G["display"]
+       3 [   0] GETTABLE  R1 := R1["screenOriginX"]
+       4 [   0] MUL       R1 := -2 * R1
+       5 [   0] ADD       R0 := R0 + R1
+       6 [   0] GETGLOBAL R1 := _G["display"]
+       7 [   0] GETTABLE  R1 := R1["contentHeight"]
+       8 [   0] GETGLOBAL R2 := _G["display"]
+       9 [   0] GETTABLE  R2 := R2["screenOriginY"]
+      10 [   0] MUL       R2 := -2 * R2
+      11 [   0] ADD       R1 := R1 + R2
+      12 [   0] GETGLOBAL R2 := _G["ui"]
+      13 [   0] GETTABLE  R2 := R2["createContainer"]
+      14 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+      15 [   0] SETTABLE  R3["layout"] := "default.topCenter"
+      16 [   0] SETTABLE  R3["parent"] := None
+      17 [   0] CALL      R2(...) nargs=1 nret=1
+      18 [   0] GETTABLE  R3 := R2["y"]
+      19 [   0] ADD       R3 := R3 + 40
+      20 [   0] SETTABLE  R2["y"] := R3
+      21 [   0] GETGLOBAL R3 := _G["ui"]
+      22 [   0] GETTABLE  R3 := R3["createContainer"]
+      23 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+      24 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+      25 [   0] SETTABLE  R5["x"] := 0
+      26 [   0] SETTABLE  R5["y"] := 0
+      27 [   0] SETTABLE  R5["width"] := R0
+      28 [   0] SETTABLE  R5["height"] := 80
+      29 [   0] SETTABLE  R5["alignment"] := "center"
+      30 [   0] SETTABLE  R4["layout"] := R5
+      31 [   0] SETTABLE  R4["parent"] := R2
+      32 [   0] GETGLOBAL R5 := _G["require"]
+      33 [   0] GETGLOBAL R6 := _G["UI_LIB_PATH"]
+      34 [   0] LOADK     R7 := "renderer.rectrenderer"
+      35 [   0] CONCAT    R6 := R6 .. ... .. R7
+      36 [   0] CALL      R5(...) nargs=1 nret=1
+      37 [   0] SETTABLE  R4["renderer"] := R5
+      38 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+      39 [   0] SETTABLE  R5["r"] := 0
+      40 [   0] SETTABLE  R5["g"] := 0
+      41 [   0] SETTABLE  R5["b"] := 0
+      42 [   0] SETTABLE  R5["a"] := 192
+      43 [   0] SETTABLE  R4["color"] := R5
+      44 [   0] CALL      R3(...) nargs=1 nret=1
+      45 [   0] GETGLOBAL R4 := _G["ui"]
+      46 [   0] GETTABLE  R4 := R4["createLabel"]
+      47 [   0] NEWTABLE  R5 := {} (array 0, hash 7)
+      48 [   0] NEWTABLE  R6 := {} (array 0, hash 4)
+      49 [   0] SETTABLE  R6["x"] := 40
+      50 [   0] SETTABLE  R6["y"] := 0
+      51 [   0] SETTABLE  R6["width"] := 220
+      52 [   0] SETTABLE  R6["height"] := 60
+      53 [   0] SETTABLE  R5["layout"] := R6
+      54 [   0] SETTABLE  R5["parent"] := R2
+      55 [   0] GETUPVAL  R6 := upval 0
+      56 [   0] SETTABLE  R5["renderer"] := R6
+      57 [   0] SETTABLE  R5["style"] := "defaultCenterBold"
+      58 [   0] SETTABLE  R5["fitText"] := True
+      59 [   0] SETTABLE  R5["debugRect"] := False
+      60 [   0] GETGLOBAL R6 := _G["_T"]
+      61 [   0] LOADK     R7 := "No connection available at the moment. Check your internet connection."
+      62 [   0] CALL      R6(...) nargs=1 nret=1
+      63 [   0] SETTABLE  R5["txt"] := R6
+      64 [   0] CALL      R4(...) nargs=1 nret=1
+      65 [   0] GETGLOBAL R5 := _G["ui"]
+      66 [   0] GETTABLE  R5 := R5["createContainer"]
+      67 [   0] NEWTABLE  R6 := {} (array 0, hash 5)
+      68 [   0] SETTABLE  R6["parent"] := R3
+      69 [   0] NEWTABLE  R7 := {} (array 0, hash 5)
+      70 [   0] SETTABLE  R7["x"] := -110
+      71 [   0] SETTABLE  R7["y"] := 0
+      72 [   0] SETTABLE  R7["width"] := 0
+      73 [   0] SETTABLE  R7["height"] := 0
+      74 [   0] SETTABLE  R7["alignment"] := "center"
+      75 [   0] SETTABLE  R6["layout"] := R7
+      76 [   0] SETTABLE  R6["img"] := "assets/gfx/hud/icons/no_connection.png"
+      77 [   0] SETTABLE  R6["imgxscale"] := 0.75
+      78 [   0] SETTABLE  R6["imgyscale"] := 0.75
+      79 [   0] CALL      R5(...) nargs=1 nret=1
+      80 [   0] SETTABLE  R2["isVisible"] := False
+      81 [   0] CLOSURE   R6 := closure #0
+      82 [   0] MOVE      R0 := R2
+      83 [   0] SETTABLE  R2["show"] := R6
+      84 [   0] CLOSURE   R6 := closure #1
+      85 [   0] MOVE      R0 := R2
+      86 [   0] SETTABLE  R2["hide"] := R6
+      87 [   0] CLOSURE   R6 := closure #2
+      88 [   0] SETTABLE  R2["enter"] := R6
+      89 [   0] CLOSURE   R6 := closure #3
+      90 [   0] SETTABLE  R2["exit"] := R6
+      91 [   0] CLOSURE   R6 := closure #4
+      92 [   0] SETTABLE  R2["destroy"] := R6
+      93 [   0] GETUPVAL  R6 := upval 1
+      94 [   0] GETTABLE  R6 := R6["inherit"]
+      95 [   0] MOVE      R7 := R2
+      96 [   0] LOADK     R8 := "_flaregames_remove"
+      97 [   0] CLOSURE   R9 := closure #5
+      98 [   0] MOVE      R0 := R2
+      99 [   0] CALL      R6(...) nargs=3 nret=0
+     100 [   0] RETURN    return R2.. (1 values)
+     101 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 37-39, upvals=[], locals=[])
+      constants: strings=['isVisible'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["isVisible"] := True
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 41-43, upvals=[], locals=[])
+      constants: strings=['isVisible'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["isVisible"] := False
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 45-46, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 48-49, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 51-52, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 54-56, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 63-68, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,72 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.idgenerator', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "util.idgenerator"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] CLOSURE   R1 := closure #0
+     4 [   0] MOVE      R0 := R0
+     5 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     6 [   0] SETTABLE  R2["getInstance"] := R1
+     7 [   0] RETURN    return R2.. (1 values)
+     8 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 11-45, upvals=[], locals=[])
+    constants: strings=['add', 'remove', 'getAll'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       2 [   0] CLOSURE   R2 := closure #0
+       3 [   0] GETUPVAL  R0 := upval 0
+       4 [   0] MOVE      R0 := R1
+       5 [   0] SETTABLE  R0["add"] := R2
+       6 [   0] CLOSURE   R2 := closure #1
+       7 [   0] MOVE      R0 := R1
+       8 [   0] SETTABLE  R0["remove"] := R2
+       9 [   0] CLOSURE   R2 := closure #2
+      10 [   0] MOVE      R0 := R1
+      11 [   0] SETTABLE  R0["getAll"] := R2
+      12 [   0] RETURN    return R0.. (1 values)
+      13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 15-24, upvals=[], locals=[])
+      constants: strings=['getId', '__object_tracker_id', 'assert'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["getId"]
+         2 [   0] CALL      R1(...) nargs=0 nret=1
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] SETTABLE  R2[R1] := R0
+         5 [   0] GETTABLE  R2 := R0["__object_tracker_id"]
+         6 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         7 [   0] JMP       jmp +2 -> 10
+         8 [   0] SETTABLE  R0["__object_tracker_id"] := R1
+         9 [   0] JMP       jmp +2 -> 12
+        10 [   0] GETGLOBAL R2 := _G["assert"]
+        11 [   0] CALL      R2(...) nargs=0 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 26-32, upvals=[], locals=[])
+      constants: strings=['__object_tracker_id'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["__object_tracker_id"]
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +7 -> 10
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2[R1]
+         5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +3 -> 10
+         7 [   0] SETTABLE  R0["__object_tracker_id"] := None
+         8 [   0] GETUPVAL  R2 := upval 0
+         9 [   0] SETTABLE  R2[R1] := None
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 34-42, upvals=[], locals=[])
+      constants: strings=['pairs', '__object_tracker_id'] numbers=[1]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+         1 [   0] GETGLOBAL R1 := _G["pairs"]
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] CALL      R1(...) nargs=1 nret=3
+         4 [   0] JMP       jmp +4 -> 9
+         5 [   0] SETTABLE  R5["__object_tracker_id"] := None
+         6 [   0] LEN       R6 := #R0
+         7 [   0] ADD       R6 := R6 + 1
+         8 [   0] SETTABLE  R0[R6] := R5
+         9 [   0] TFORLOOP  tforloop R1 nres=2
+        10 [   0] JMP       jmp -6 -> 5
+        11 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+        12 [   0] SETUPVAL  upval 0 := R1
+        13 [   0] RETURN    return R0.. (1 values)
+        14 [   0] RETURN    return R0.. (0 values)

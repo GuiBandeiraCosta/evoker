@@ -1,0 +1,74 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['autoWrappedTextInternal'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["autoWrappedTextInternal"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=6, lines 1-25, upvals=[], locals=[])
+    constants: strings=['', 'native', 'systemFont', 'tonumber', 'styles', 'colors', 'white', 'display', 'newGroup', 'string', 'gmatch', '[^\n]+', 'assets', 'getText', 'insert', 'x', 'y', 'align', 'center', 'setTextColor', 'r', 'g', 'b', 'a', 'alignTxt'] numbers=[12, 0]
+       0 [   0] EQ        if (R0 == "") ~= 0 then skip next
+       1 [   0] JMP       jmp +2 -> 4
+       2 [   0] LOADBOOL  R6 := False
+       3 [   0] RETURN    return R6.. (1 values)
+       4 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       5 [   0] JMP       jmp +2 -> 8
+       6 [   0] GETGLOBAL R6 := _G["native"]
+       7 [   0] GETTABLE  R1 := R6["systemFont"]
+       8 [   0] GETGLOBAL R6 := _G["tonumber"]
+       9 [   0] MOVE      R7 := R2
+      10 [   0] CALL      R6(...) nargs=1 nret=1
+      11 [   0] TESTSET   if (R6 truthy) == 1 then R2 := R6 else skip next
+      12 [   0] JMP       jmp +1 -> 14
+      13 [   0] LOADK     R2 := 12
+      14 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      15 [   0] JMP       jmp +3 -> 19
+      16 [   0] GETGLOBAL R6 := _G["styles"]
+      17 [   0] GETTABLE  R6 := R6["colors"]
+      18 [   0] GETTABLE  R3 := R6["white"]
+      19 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+      20 [   0] JMP       jmp +1 -> 22
+      21 [   0] MOVE      R4 := R2
+      22 [   0] LOADK     R6 := 0
+      23 [   0] GETGLOBAL R7 := _G["display"]
+      24 [   0] GETTABLE  R7 := R7["newGroup"]
+      25 [   0] CALL      R7(...) nargs=0 nret=1
+      26 [   0] GETGLOBAL R8 := _G["string"]
+      27 [   0] GETTABLE  R8 := R8["gmatch"]
+      28 [   0] MOVE      R9 := R0
+      29 [   0] LOADK     R10 := "[^\n]+"
+      30 [   0] CALL      R8(...) nargs=2 nret=3
+      31 [   0] JMP       jmp +28 -> 60
+      32 [   0] GETGLOBAL R12 := _G["assets"]
+      33 [   0] GETTABLE  R12 := R12["getText"]
+      34 [   0] MOVE      R13 := R11
+      35 [   0] LOADK     R14 := 0
+      36 [   0] LOADK     R15 := 0
+      37 [   0] MOVE      R16 := R1
+      38 [   0] MOVE      R17 := R2
+      39 [   0] CALL      R12(...) nargs=5 nret=1
+      40 [   0] SELF      R14 := R7; R13 := R7["insert"]
+      41 [   0] MOVE      R15 := R12
+      42 [   0] CALL      R13(...) nargs=2 nret=0
+      43 [   0] SETTABLE  R12["x"] := 0
+      44 [   0] SETTABLE  R12["y"] := R6
+      45 [   0] TESTSET   if (R5 truthy) == 1 then R13 := R5 else skip next
+      46 [   0] JMP       jmp +1 -> 48
+      47 [   0] LOADK     R13 := "center"
+      48 [   0] SETTABLE  R12["align"] := R13
+      49 [   0] SELF      R14 := R12; R13 := R12["setTextColor"]
+      50 [   0] GETTABLE  R15 := R3["r"]
+      51 [   0] GETTABLE  R16 := R3["g"]
+      52 [   0] GETTABLE  R17 := R3["b"]
+      53 [   0] GETTABLE  R18 := R3["a"]
+      54 [   0] CALL      R13(...) nargs=5 nret=0
+      55 [   0] GETGLOBAL R13 := _G["assets"]
+      56 [   0] GETTABLE  R13 := R13["alignTxt"]
+      57 [   0] MOVE      R14 := R12
+      58 [   0] CALL      R13(...) nargs=1 nret=0
+      59 [   0] ADD       R6 := R6 + R4
+      60 [   0] TFORLOOP  tforloop R8 nres=1
+      61 [   0] JMP       jmp -30 -> 32
+      62 [   0] SETTABLE  R7["y"] := 0
+      63 [   0] RETURN    return R7.. (1 values)
+      64 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,115 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'fglib.eventlistener', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "fglib.eventlistener"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] CLOSURE   R1 := closure #0
+     4 [   0] MOVE      R0 := R0
+     5 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     6 [   0] SETTABLE  R2["create"] := R1
+     7 [   0] RETURN    return R2.. (1 values)
+     8 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 9-48, upvals=[], locals=[])
+    constants: strings=['new', 'getName', 'enter', 'leave'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] GETUPVAL  R1 := upval 0
+       2 [   0] GETTABLE  R1 := R1["new"]
+       3 [   0] CALL      R1(...) nargs=0 nret=1
+       4 [   0] LOADNIL   R2..R3 := nil
+       5 [   0] CLOSURE   R4 := closure #0
+       6 [   0] SETTABLE  R0["getName"] := R4
+       7 [   0] CLOSURE   R4 := closure #1
+       8 [   0] MOVE      R0 := R2
+       9 [   0] MOVE      R0 := R3
+      10 [   0] MOVE      R0 := R1
+      11 [   0] SETTABLE  R0["enter"] := R4
+      12 [   0] CLOSURE   R4 := closure #2
+      13 [   0] MOVE      R0 := R1
+      14 [   0] MOVE      R0 := R2
+      15 [   0] MOVE      R0 := R3
+      16 [   0] SETTABLE  R0["leave"] := R4
+      17 [   0] RETURN    return R0.. (1 values)
+      18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 16-18, upvals=[], locals=[])
+      constants: strings=['SHOP'] numbers=[]
+         0 [   0] LOADK     R0 := "SHOP"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 20-40, upvals=[], locals=[])
+      constants: strings=['getSharedContext', 'require', 'game.storemanager', 'getInstance', 'server.server', 'receiptReceivedHandler', 'purchaseFinishedHandler', 'subscribeTo', 'purchaseFinished', 'receiptReceived'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["getSharedContext"]
+         1 [   0] CALL      R1(...) nargs=0 nret=1
+         2 [   0] GETGLOBAL R2 := _G["require"]
+         3 [   0] LOADK     R3 := "game.storemanager"
+         4 [   0] CALL      R2(...) nargs=1 nret=1
+         5 [   0] GETTABLE  R2 := R2["getInstance"]
+         6 [   0] CALL      R2(...) nargs=0 nret=1
+         7 [   0] SETUPVAL  upval 0 := R2
+         8 [   0] GETGLOBAL R2 := _G["require"]
+         9 [   0] LOADK     R3 := "server.server"
+        10 [   0] CALL      R2(...) nargs=1 nret=1
+        11 [   0] GETTABLE  R2 := R2["getInstance"]
+        12 [   0] CALL      R2(...) nargs=0 nret=1
+        13 [   0] SETUPVAL  upval 1 := R2
+        14 [   0] GETUPVAL  R2 := upval 2
+        15 [   0] CLOSURE   R3 := closure #0
+        16 [   0] MOVE      R0 := R0
+        17 [   0] SETTABLE  R2["receiptReceivedHandler"] := R3
+        18 [   0] GETUPVAL  R2 := upval 2
+        19 [   0] CLOSURE   R3 := closure #1
+        20 [   0] MOVE      R0 := R0
+        21 [   0] SETTABLE  R2["purchaseFinishedHandler"] := R3
+        22 [   0] GETUPVAL  R2 := upval 2
+        23 [   0] GETTABLE  R2 := R2["subscribeTo"]
+        24 [   0] GETUPVAL  R3 := upval 0
+        25 [   0] LOADK     R4 := "purchaseFinished"
+        26 [   0] CALL      R2(...) nargs=2 nret=0
+        27 [   0] GETUPVAL  R2 := upval 2
+        28 [   0] GETTABLE  R2 := R2["subscribeTo"]
+        29 [   0] GETUPVAL  R3 := upval 1
+        30 [   0] LOADK     R4 := "receiptReceived"
+        31 [   0] CALL      R2(...) nargs=2 nret=0
+        32 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=2, lines 24-27, upvals=[], locals=[])
+        constants: strings=['triggerTo', 'SERVER_SYNCED'] numbers=[]
+           0 [   0] GETUPVAL  R2 := upval 0
+           1 [   0] GETTABLE  R2 := R2["triggerTo"]
+           2 [   0] LOADK     R3 := "SERVER_SYNCED"
+           3 [   0] CALL      R2(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#1 (params=2, lines 28-36, upvals=[], locals=[])
+        constants: strings=['transaction', 'state', 'purchased', 'restored', 'triggerTo', 'SERVER_SYNCED'] numbers=[]
+           0 [   0] GETTABLE  R2 := R1["transaction"]
+           1 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+           2 [   0] JMP       jmp +13 -> 16
+           3 [   0] GETTABLE  R2 := R1["transaction"]
+           4 [   0] GETTABLE  R2 := R2["state"]
+           5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+           6 [   0] JMP       jmp +9 -> 16
+           7 [   0] GETTABLE  R2 := R1["transaction"]
+           8 [   0] GETTABLE  R2 := R2["state"]
+           9 [   0] EQ        if (R2 == "purchased") ~= 1 then skip next
+          10 [   0] JMP       jmp +9 -> 20
+          11 [   0] GETTABLE  R2 := R1["transaction"]
+          12 [   0] GETTABLE  R2 := R2["state"]
+          13 [   0] EQ        if (R2 == "restored") ~= 0 then skip next
+          14 [   0] JMP       jmp +1 -> 16
+          15 [   0] JMP       jmp +4 -> 20
+          16 [   0] GETUPVAL  R2 := upval 0
+          17 [   0] GETTABLE  R2 := R2["triggerTo"]
+          18 [   0] LOADK     R3 := "SERVER_SYNCED"
+          19 [   0] CALL      R2(...) nargs=1 nret=0
+          20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 42-45, upvals=[], locals=[])
+      constants: strings=['unsubscribeFrom', 'purchaseFinished', 'receiptReceived'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] LOADK     R2 := "purchaseFinished"
+         4 [   0] CALL      R0(...) nargs=2 nret=0
+         5 [   0] GETUPVAL  R0 := upval 0
+         6 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+         7 [   0] GETUPVAL  R1 := upval 2
+         8 [   0] LOADK     R2 := "receiptReceived"
+         9 [   0] CALL      R0(...) nargs=2 nret=0
+        10 [   0] RETURN    return R0.. (0 values)

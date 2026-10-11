@@ -1,0 +1,43 @@
+/* Title screen: dragon key art with the painted logo, "Tap to continue" under it (reference: Evoker-tap-to-continue.jpg).
+   The opening of a new game (intro animations, scripted fight) is styled in css/tutorial.css. */
+.title-screen {
+  position: absolute; inset: 0;
+  overflow: hidden; cursor: pointer;
+  background: #000;
+  outline: none;
+}
+.title-screen:focus-visible { outline: none; }
+/* The painting (1536 x 1760) ends with the logo plate: it fills the top 94 % of the stage so the whole logo
+   shows, and the black band below it carries the tap prompt like the original. */
+.title-art {
+  position: absolute; left: 0; right: 0; top: 0; height: 1204px;
+  background: url('/assets/bg/title.jpg') center top / auto 100% no-repeat;
+  transform-origin: 50% 100%;
+  animation: titleZoom 14s ease-in-out infinite alternate;
+}
+@keyframes titleZoom { from { transform: scale(1); } to { transform: scale(1.05); } }
+.title-vignette {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .25) 0%, rgba(0, 0, 0, 0) 25%),
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, .5) 100%);
+  pointer-events: none;
+}
+.title-tap {
+  position: absolute; left: 0; right: 0; top: 1204px; height: 76px;
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  font-size: 30px; font-weight: 400; color: rgba(255, 255, 255, .92);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .95);
+  animation: tapPulse 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes tapPulse { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
+.title-hand { width: 46px; height: 46px; animation: handTap 1.2s ease-in-out infinite; }
+.title-version {
+  position: absolute; right: 16px; top: 12px;
+  font-size: 14px; color: rgba(255, 255, 255, .45);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+  pointer-events: none;
+}
+.title-screen.intro-running .title-tap, .title-screen.intro-running .title-version { visibility: hidden; }
+.title-screen.intro-running .title-art { animation-play-state: paused; }

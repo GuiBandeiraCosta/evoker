@@ -1,0 +1,200 @@
+/* Cards screen = the client's deck screen (ui.layouts.iphone.scene_deck_layout, ctrl_deckedit_layout,
+   ctrl_enhance_layout, ctrl_evolve_layout, comp_deck_layout). Client units × 2.25 on the 720 × 1280 stage
+   (content height 569 units). The client puts the title 78 units above the box centre, the box 120 units tall,
+   the mode stripe 242 and the slider (205 units) 37 units above the bottom; on this taller stage the block
+   from title to stripe sits like in the user's 2016 screenshot (title at stage y 232, stripe at 640) and the
+   slider fills the rest down to the nav. Coordinates below are relative to the .screen-body (stage y − 118).
+   Sprites: fullscreen_background (screen, ×1.25), fight_cardbackground01 (slider), small_white frame (deck box),
+   hud_nineframe (training / fusion box), cardslot / cardslotlocked / cardslotskull (slots), seperator_big
+   (mode stripe), hud_quadbutton_02 frame + fill with deckedit / enhance / fusion _off icons and _on glows,
+   deckeditbutton_locked, badge, hud_manaicon01, hud_progressbarblue03 + hud_progressbar_pinocle01 (mana bar),
+   hud_coinsicon01, fuse_background (training / fusion animation). */
+
+.cards-screen {
+  overflow: clip; /* not a scroll container: scrollIntoView / wheel must never shift the fixed layout */
+  background: url('/assets/orig/ui/fullscreen_background.png') -90px -198px / 900px 1440px no-repeat, #0b0a09;
+  user-select: none; -webkit-user-select: none;
+}
+
+/* ----- header ----- */
+.cards-title {
+  position: absolute; left: 0; right: 0; top: 114px; z-index: 3;
+  transform: translateY(-50%);
+  text-align: center; font-size: 40px; font-weight: var(--fw-bold); color: #f2efe7;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .9);
+  pointer-events: none;
+}
+
+/* ----- the framed box (deck: small_white plate frame; training / fusion: hud_nineframe) ----- */
+.cards-box { position: absolute; left: 10px; top: 154px; width: 700px; height: 270px; z-index: 3; }
+.cards-box::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  border: 8px solid transparent;
+  border-image: url('/assets/orig/ui/frames/small_white.png') 12 / 12px stretch;
+  background: rgba(26, 25, 24, .9); background-clip: padding-box;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .6);
+}
+.cards-box.op-box::before {
+  border: 10px solid transparent;
+  border-image: url('/assets/orig/ui/frames/hud_nineframe.png') 16 / 16px stretch;
+  background: rgba(26, 25, 24, .92); background-clip: padding-box;
+}
+.cards-box > * { position: absolute; z-index: 1; }
+
+/* deck slots (comp_deck_layout: x = ±62 / ±124 units, y = −14, 49 × 64 → cardslot.png 104 × 148) */
+/* deck box as in the user's 2016 screenshot (deck.png): five big cards nearly touching across the width
+   (≈ 1/5.3 of the screen each), "Your cards" plate below left, the mana bar to its right */
+.cards-box.deck-box { left: 2px; top: 152px; width: 716px; height: 226px; }
+.cards-box .deck-row { left: 0; top: 14px; width: 716px; padding: 0; margin: 0; display: flex; justify-content: center; gap: 22px; }
+.cards-screen .deck-box .deck-slot { width: 124px; height: 146px; }
+.cards-screen .deck-box .deck-slot.locked { background: url('/assets/orig/ui/cardslotlocked.png') center / auto 100% no-repeat, #070707; }
+/* the slot card: the compact card at the slot width, cut to the slot height (art shorter, stat rows kept) */
+.cards-screen .deck-box .deck-slot > .card { height: 141px; transform: scale(1.0333); }
+.cards-screen .deck-slot, .cards-screen .cards-zone {
+  position: relative; width: 104px; height: 148px; flex: none;
+  border: 0; border-radius: 3px;
+  background: url('/assets/orig/ui/cardslot.png') center / 100% 100% no-repeat;
+  box-shadow: none;
+}
+.cards-screen .deck-slot.locked { background-image: url('/assets/orig/ui/cardslotlocked.png'); }
+.cards-screen .deck-slot.locked::after { display: none; }
+.cards-screen .cards-zone { position: absolute; }
+.cards-screen .deck-slot > .card, .cards-screen .cards-zone > .card {
+  position: absolute; left: 0; top: 1px; transform: scale(.8667); transform-origin: 0 0;
+}
+.cards-screen .deck-slot.drop-target, .cards-screen .cards-zone.drop-target { box-shadow: 0 0 0 3px var(--c-mana), 0 0 18px var(--c-mana); }
+.cards-screen .deck-slot.drop-invalid, .cards-screen .cards-zone.drop-invalid {
+  box-shadow: 0 0 0 3px var(--c-attack), 0 0 18px var(--c-attack);
+}
+.cards-screen .deck-slot.drop-invalid:not(.locked) { background-image: url('/assets/orig/ui/cardslot.png'); filter: drop-shadow(0 0 6px var(--c-attack)); }
+
+/* "Your cards n/100" (deckCtrl.yourCardsContainer: x −102, y +40, 100 × 26 units) */
+.cards-pool {
+  left: 4px; top: 168px; width: 222px; height: 50px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.05;
+  border: 6px solid transparent;
+  border-image: url('/assets/orig/ui/frames/small_white.png') 12 / 12px stretch;
+  background: #121212; background-clip: padding-box; border-radius: 3px;
+  color: #e5e5e5; text-shadow: 0 1px 2px #000;
+}
+.cards-pool .pool-label { font-size: 20px; font-weight: var(--fw-bold); }
+.cards-pool .pool-count { font-size: 20px; font-weight: var(--fw-bold); }
+.cards-pool .pool-count.full { color: #ff0000; }
+
+/* "Mana needed" bar (deckCtrl.manabar x +57, manaIcon x −95 scale .8): fill = current mana, marker = deck need */
+.cards-mana-icon { left: 246px; top: 171px; width: 44px; height: 44px; z-index: 2 !important; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .8)); }
+.cards-mana {
+  left: 280px; top: 178px; width: 428px; height: 30px;
+  background: rgba(6, 7, 8, .92); border: 2px solid #050505; border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 1px 0 rgba(255, 255, 255, .06);
+}
+.cards-mana .mana-fill {
+  position: absolute; left: 0; bottom: 0; height: 5px; max-width: 100%;
+  background: url('/assets/orig/ui/hud_progressbarblue03.png') left center / 100% 100% no-repeat;
+  box-shadow: 0 0 5px rgba(36, 216, 255, .7);
+}
+.cards-mana .mana-label {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: var(--fw-bold); color: #e5e5e5; text-shadow: 0 1px 2px #000; white-space: nowrap;
+}
+.cards-mana.short .mana-label { color: #ff0000; }
+.cards-mana .mana-marker { position: absolute; top: 14px; width: 14px; height: 38px; margin-left: -7px; filter: drop-shadow(0 1px 2px #000); }
+
+/* training / fusion box (ctrl_enhance_layout / ctrl_evolve_layout: slots x ∓100 y −10, labels y +40,
+   price y −25, button y +10 units from the box centre) */
+.op-box .cards-zone { top: 38px; }
+.op-box .training-slot, .op-box .fusion-slot.slot-1 { left: 73px; }
+.op-box .sacrifice-stack, .op-box .fusion-slot.slot-2 { left: 523px; }
+.op-box .sacrifice-stack { background-image: url('/assets/orig/ui/cardslotskull.png'); }
+.op-box .sacrifice-stack > .card { left: calc(var(--i, 0) * 2px); top: calc(1px - var(--i, 0) * 3px); box-shadow: 0 0 0 1px #0a0b0c, 0 4px 8px rgba(0, 0, 0, .8); }
+.op-box .sacrifice-stack > .card.under { pointer-events: none; }
+.op-box .zone-label {
+  top: 205px; width: 236px; text-align: center;
+  font-size: 32px; font-weight: var(--fw-bold); color: #f2efe7; text-shadow: 0 2px 2px rgba(0, 0, 0, .9); white-space: nowrap;
+  pointer-events: none;
+}
+.op-box .zone-label.left { left: 7px; }
+.op-box .zone-label.right { left: 457px; }
+.op-box .cards-cost {
+  left: 250px; top: 50px; width: 200px; height: 58px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  font-size: 40px; font-weight: var(--fw-bold); color: #f2efe7; text-shadow: 0 2px 2px rgba(0, 0, 0, .9);
+}
+.op-box .cards-cost img { width: 62px; height: 62px; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .8)); }
+.op-box .cards-cost.short .num { color: #ff3b2f; }
+.op-box .cards-ok {
+  left: 235px; top: 122px; width: 230px; min-height: 0; height: 72px; margin: 0; padding: 0;
+  font-size: 36px;
+}
+.op-box .cards-ok.ready { filter: brightness(1.15); box-shadow: 0 0 14px rgba(150, 215, 255, .55); }
+
+/* ----- mode stripe (seperator_big, buttons at x −100 / 0 / +100 units) ----- */
+.mode-stripe {
+  position: absolute; left: -90px; top: 491px; width: 900px; height: 61px; z-index: 4;
+  background: url('/assets/orig/ui/seperator_big.png') center / 100% 100% no-repeat;
+}
+.mode-btn {
+  position: absolute; top: -12px; width: 158px; height: 86px; padding: 0; border: 0;
+  background:
+    url('/assets/orig/ui/hud_quadbutton_02_frame.png') center / 100% 100% no-repeat,
+    url('/assets/orig/ui/hud_quadbutton_02_fill.png') center / 100% 100% no-repeat;
+  cursor: pointer;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .6));
+  transition: transform var(--t-fast), filter var(--t-fast);
+}
+.mode-btn.mode-training { left: 146px; }
+.mode-btn.mode-deck { left: 371px; }
+.mode-btn.mode-fusion { left: 596px; }
+.mode-btn:active:not(.locked) { transform: scale(.95); }
+.mode-btn .mode-icon { position: absolute; left: 50%; top: 50%; width: 172px; height: 95px; transform: translate(-50%, -50%); pointer-events: none; }
+.mode-btn .mode-glow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.mode-btn.active .mode-icon { opacity: 0; }
+.mode-btn.locked { background: none; cursor: default; }
+.mode-btn .mode-locked { position: absolute; left: 50%; top: 50%; width: 172px; height: 95px; transform: translate(-50%, -50%); }
+.mode-btn .mode-badge { position: absolute; left: 95px; top: -29px; width: 81px; height: 81px; pointer-events: none; animation: modeBadgePulse 1.6s ease-in-out infinite; }
+@keyframes modeBadgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+
+/* ----- card slider (comp_cardslider2: 320 × 205 units above the nav, fight_cardbackground01) ----- */
+.card-slider {
+  position: absolute; left: -90px; top: 522px; width: 900px; height: 504px;
+  background: url('/assets/orig/ui/fight_cardbackground01.png') center top / cover no-repeat;
+  touch-action: none;
+}
+.slider-cards { position: absolute; left: 450px; top: 258px; width: 0; height: 0; z-index: 2; }
+.slider-cards > .card { position: absolute; left: -60px; top: -84px; transform-origin: 50% 50%; will-change: transform; cursor: grab; }
+.slider-cards > .card.drag-source { opacity: .3; }
+
+/* ----- warning popups (warning_popup: image + text) ----- */
+.cards-warning { display: flex; align-items: center; gap: 22px; padding: 6px 4px; }
+.cards-warning .warning-img { width: 92px; height: auto; flex: none; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .8)); }
+.cards-warning .warning-img.coin { width: 80px; }
+.cards-warning .warning-text { margin: 0; font-size: 26px; line-height: 1.35; color: var(--text); }
+
+/* ----- training / fusion animation (enhance_part1/2, evolve_part1/2 on fuse_background) ----- */
+.cards-fx {
+  position: absolute; inset: 0; z-index: var(--z-popup);
+  background: #000 url('/assets/orig/ui/fuse_background.png') center / cover no-repeat;
+  overflow: hidden; cursor: pointer;
+  animation: screenFadeIn var(--t-med) var(--ease) both;
+}
+.cards-fx .anim-root { position: absolute; width: 0; height: 0; }
+.cards-fx .anim-item { position: absolute; left: 0; top: 0; background: center / 100% 100% no-repeat; will-change: transform, opacity; }
+.cards-fx .anim-item.add {
+  -webkit-mask-image: var(--img); mask-image: var(--img); -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+  mask-mode: luminance;
+}
+.cards-fx .anim-item.template > * { width: 100%; height: 100%; }
+.fx-card { position: relative; }
+.fx-card > .card { position: absolute; left: 0; top: 0; transform: scale(8.456); transform-origin: 0 0; box-shadow: none; }
+/* comp_card_decoration: ornament_top plate with the label across the card's middle, side ornaments */
+.card-deco { position: absolute; left: -6%; right: -6%; top: 50%; height: 300px; transform: translateY(-50%); z-index: 9; }
+.card-deco .deco-plate {
+  position: absolute; inset: 0;
+  background: url('/assets/orig/ui/ornament_top.png') center / 100% 100% no-repeat;
+  display: flex; align-items: center; justify-content: center; padding-top: 36px;
+}
+.card-deco .deco-plate span { font-size: 132px; font-weight: var(--fw-bold); color: #fff6dc; letter-spacing: .02em; text-shadow: 0 6px 10px #000, 0 0 30px rgba(255, 200, 80, .7); white-space: nowrap; }
+.card-deco .deco-left, .card-deco .deco-right { position: absolute; top: 50%; width: 120px; height: 187px; transform: translateY(-30%); }
+.card-deco .deco-left { left: -40px; }
+.card-deco .deco-right { right: -40px; }

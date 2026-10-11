@@ -1,0 +1,65 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['create'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["create"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 9-31, upvals=[], locals=[])
+    constants: strings=['fglib', 'tracking', 'Tracker', 'getInstance', 'timer', 'performWithDelay', 'Runtime', 'addEventListener', 'system'] numbers=[0]
+       0 [   0] LOADK     R2 := 0
+       1 [   0] GETGLOBAL R3 := _G["fglib"]
+       2 [   0] GETTABLE  R3 := R3["tracking"]
+       3 [   0] GETTABLE  R3 := R3["Tracker"]
+       4 [   0] GETTABLE  R3 := R3["getInstance"]
+       5 [   0] CALL      R3(...) nargs=0 nret=1
+       6 [   0] CLOSURE   R4 := closure #0
+       7 [   0] MOVE      R0 := R2
+       8 [   0] MOVE      R0 := R3
+       9 [   0] GETGLOBAL R5 := _G["timer"]
+      10 [   0] GETTABLE  R5 := R5["performWithDelay"]
+      11 [   0] MOVE      R6 := R1
+      12 [   0] MOVE      R7 := R4
+      13 [   0] MOVE      R8 := R0
+      14 [   0] CALL      R5(...) nargs=3 nret=1
+      15 [   0] GETGLOBAL R6 := _G["Runtime"]
+      16 [   0] SELF      R7 := R6; R6 := R6["addEventListener"]
+      17 [   0] LOADK     R8 := "system"
+      18 [   0] CLOSURE   R9 := closure #1
+      19 [   0] MOVE      R0 := R5
+      20 [   0] CALL      R6(...) nargs=3 nret=0
+      21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 14-18, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'timing.t', 'flush'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] ADD       R0 := R0 + 1
+         2 [   0] SETUPVAL  upval 0 := R0
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETTABLE  R0 := R0["logCustomEvent"]
+         5 [   0] LOADK     R1 := "timing.t"
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] CONCAT    R1 := R1 .. ... .. R2
+         8 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         9 [   0] CALL      R0(...) nargs=2 nret=0
+        10 [   0] GETUPVAL  R0 := upval 1
+        11 [   0] GETTABLE  R0 := R0["flush"]
+        12 [   0] CALL      R0(...) nargs=0 nret=0
+        13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 22-29, upvals=[], locals=[])
+      constants: strings=['type', 'applicationSuspend', 'applicationExit', 'timer', 'cancel'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["type"]
+         1 [   0] EQ        if (R1 == "applicationSuspend") ~= 1 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETTABLE  R1 := R0["type"]
+         4 [   0] EQ        if (R1 == "applicationExit") ~= 0 then skip next
+         5 [   0] JMP       jmp +9 -> 15
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +4 -> 13
+         9 [   0] GETGLOBAL R1 := _G["timer"]
+        10 [   0] GETTABLE  R1 := R1["cancel"]
+        11 [   0] GETUPVAL  R2 := upval 0
+        12 [   0] CALL      R1(...) nargs=1 nret=0
+        13 [   0] LOADNIL   R1..R1 := nil
+        14 [   0] SETUPVAL  upval 0 := R1
+        15 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,125 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'json', 'fglib.eventlistener', 'fglib.eventdispatcher', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "json"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "fglib.eventlistener"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] LOADK     R3 := "fglib.eventdispatcher"
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] CLOSURE   R3 := closure #0
+    10 [   0] MOVE      R0 := R2
+    11 [   0] MOVE      R0 := R0
+    12 [   0] MOVE      R0 := R1
+    13 [   0] LOADNIL   R4..R4 := nil
+    14 [   0] CLOSURE   R5 := closure #1
+    15 [   0] MOVE      R0 := R4
+    16 [   0] MOVE      R0 := R3
+    17 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+    18 [   0] SETTABLE  R6["getInstance"] := R5
+    19 [   0] RETURN    return R6.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 11-52, upvals=[], locals=[])
+    constants: strings=['require', 'server.server', 'getInstance', 'new', 'syncFromServer', 'clientStateStoreReceivedHandler', 'set', 'get', 'subscribeTo', 'clientStateStoreReceived'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["require"]
+       1 [   0] LOADK     R1 := "server.server"
+       2 [   0] CALL      R0(...) nargs=1 nret=1
+       3 [   0] GETTABLE  R0 := R0["getInstance"]
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] GETUPVAL  R1 := upval 0
+       6 [   0] GETTABLE  R1 := R1["new"]
+       7 [   0] CALL      R1(...) nargs=0 nret=1
+       8 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       9 [   0] CLOSURE   R3 := closure #0
+      10 [   0] MOVE      R0 := R0
+      11 [   0] SETTABLE  R1["syncFromServer"] := R3
+      12 [   0] CLOSURE   R3 := closure #1
+      13 [   0] MOVE      R0 := R2
+      14 [   0] GETUPVAL  R0 := upval 1
+      15 [   0] MOVE      R0 := R1
+      16 [   0] GETUPVAL  R4 := upval 2
+      17 [   0] GETTABLE  R4 := R4["new"]
+      18 [   0] CALL      R4(...) nargs=0 nret=1
+      19 [   0] CLOSURE   R5 := closure #2
+      20 [   0] MOVE      R0 := R3
+      21 [   0] SETTABLE  R4["clientStateStoreReceivedHandler"] := R5
+      22 [   0] CLOSURE   R5 := closure #3
+      23 [   0] MOVE      R0 := R2
+      24 [   0] MOVE      R0 := R0
+      25 [   0] GETUPVAL  R0 := upval 1
+      26 [   0] SETTABLE  R1["set"] := R5
+      27 [   0] CLOSURE   R5 := closure #4
+      28 [   0] MOVE      R0 := R2
+      29 [   0] SETTABLE  R1["get"] := R5
+      30 [   0] GETTABLE  R5 := R4["subscribeTo"]
+      31 [   0] MOVE      R6 := R0
+      32 [   0] LOADK     R7 := "clientStateStoreReceived"
+      33 [   0] CALL      R5(...) nargs=2 nret=0
+      34 [   0] RETURN    return R1.. (1 values)
+      35 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 18-20, upvals=[], locals=[])
+      constants: strings=['requestClientStateStore'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["requestClientStateStore"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 22-29, upvals=[], locals=[])
+      constants: strings=['pairs', 'decode', 'emit', 'clientStateStoreUpdated'] numbers=[]
+         0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+         1 [   0] SETUPVAL  upval 0 := R1
+         2 [   0] GETGLOBAL R1 := _G["pairs"]
+         3 [   0] MOVE      R2 := R0
+         4 [   0] CALL      R1(...) nargs=1 nret=3
+         5 [   0] JMP       jmp +6 -> 12
+         6 [   0] GETUPVAL  R6 := upval 1
+         7 [   0] GETTABLE  R6 := R6["decode"]
+         8 [   0] MOVE      R7 := R5
+         9 [   0] CALL      R6(...) nargs=1 nret=1
+        10 [   0] GETUPVAL  R7 := upval 0
+        11 [   0] SETTABLE  R7[R4] := R6
+        12 [   0] TFORLOOP  tforloop R1 nres=2
+        13 [   0] JMP       jmp -8 -> 6
+        14 [   0] GETUPVAL  R1 := upval 2
+        15 [   0] GETTABLE  R1 := R1["emit"]
+        16 [   0] LOADK     R2 := "clientStateStoreUpdated"
+        17 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+        18 [   0] CALL      R1(...) nargs=2 nret=0
+        19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=2, lines 33-36, upvals=[], locals=[])
+      constants: strings=['state'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R3 := R1["state"]
+         2 [   0] CALL      R2(...) nargs=1 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 40-43, upvals=[], locals=[])
+      constants: strings=['setClientStateStore', 'encode'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] SETTABLE  R2[R0] := R1
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETTABLE  R2 := R2["setClientStateStore"]
+         4 [   0] MOVE      R3 := R0
+         5 [   0] GETUPVAL  R4 := upval 2
+         6 [   0] GETTABLE  R4 := R4["encode"]
+         7 [   0] MOVE      R5 := R1
+         8 [   0] CALL      R4(...) nargs=1 nret=-1
+         9 [   0] CALL      R2(...) nargs=-1 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 45-47, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] RETURN    return R1.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 56-61, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,298 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'fglib.eventdispatcher', 'fglib.eventlistener', 'server.server', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "fglib.eventdispatcher"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "fglib.eventlistener"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] LOADK     R3 := "server.server"
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] LOADNIL   R3..R3 := nil
+    10 [   0] CLOSURE   R4 := closure #0
+    11 [   0] MOVE      R0 := R1
+    12 [   0] MOVE      R0 := R0
+    13 [   0] MOVE      R0 := R2
+    14 [   0] CLOSURE   R5 := closure #1
+    15 [   0] MOVE      R0 := R3
+    16 [   0] MOVE      R0 := R4
+    17 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+    18 [   0] SETTABLE  R6["getInstance"] := R5
+    19 [   0] RETURN    return R6.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 13-112, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new', 'getInstance', 'getLeagueData', 'isLeagueActive', 'requestLeagueInfo', 'requestLeague', 'leagueInfoReceivedHandler', 'leagueListReceivedHandler', 'leagueRewardReceivedHandler', 'getValidTime', 'getLocalizedLeagueTimeout', 'getLeagueInfo', 'getCurrentRankingPoints', 'subscribeTo', 'leagueInfoReceived', 'leagueListReceived', 'leagueRewardReceived'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["new_inherit"]
+       2 [   0] GETUPVAL  R1 := upval 1
+       3 [   0] GETTABLE  R1 := R1["new"]
+       4 [   0] CALL      R1(...) nargs=0 nret=-1
+       5 [   0] CALL      R0(...) nargs=-1 nret=1
+       6 [   0] LOADNIL   R1..R2 := nil
+       7 [   0] GETUPVAL  R3 := upval 2
+       8 [   0] GETTABLE  R3 := R3["getInstance"]
+       9 [   0] CALL      R3(...) nargs=0 nret=1
+      10 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+      11 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      12 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+      13 [   0] LOADBOOL  R7 := False
+      14 [   0] CLOSURE   R8 := closure #0
+      15 [   0] MOVE      R0 := R7
+      16 [   0] MOVE      R0 := R0
+      17 [   0] CLOSURE   R9 := closure #1
+      18 [   0] MOVE      R0 := R2
+      19 [   0] MOVE      R0 := R3
+      20 [   0] MOVE      R0 := R8
+      21 [   0] CLOSURE   R10 := closure #2
+      22 [   0] MOVE      R0 := R4
+      23 [   0] SETTABLE  R0["getLeagueData"] := R10
+      24 [   0] CLOSURE   R10 := closure #3
+      25 [   0] MOVE      R0 := R7
+      26 [   0] SETTABLE  R0["isLeagueActive"] := R10
+      27 [   0] CLOSURE   R10 := closure #4
+      28 [   0] MOVE      R0 := R3
+      29 [   0] SETTABLE  R0["requestLeagueInfo"] := R10
+      30 [   0] CLOSURE   R10 := closure #5
+      31 [   0] MOVE      R0 := R1
+      32 [   0] MOVE      R0 := R3
+      33 [   0] SETTABLE  R0["requestLeague"] := R10
+      34 [   0] CLOSURE   R10 := closure #6
+      35 [   0] MOVE      R0 := R5
+      36 [   0] MOVE      R0 := R7
+      37 [   0] MOVE      R0 := R9
+      38 [   0] MOVE      R0 := R0
+      39 [   0] SETTABLE  R0["leagueInfoReceivedHandler"] := R10
+      40 [   0] CLOSURE   R10 := closure #7
+      41 [   0] MOVE      R0 := R4
+      42 [   0] MOVE      R0 := R7
+      43 [   0] MOVE      R0 := R1
+      44 [   0] MOVE      R0 := R0
+      45 [   0] SETTABLE  R0["leagueListReceivedHandler"] := R10
+      46 [   0] CLOSURE   R10 := closure #8
+      47 [   0] MOVE      R0 := R6
+      48 [   0] MOVE      R0 := R1
+      49 [   0] MOVE      R0 := R0
+      50 [   0] SETTABLE  R0["leagueRewardReceivedHandler"] := R10
+      51 [   0] CLOSURE   R10 := closure #9
+      52 [   0] MOVE      R0 := R3
+      53 [   0] SETTABLE  R0["getValidTime"] := R10
+      54 [   0] CLOSURE   R10 := closure #10
+      55 [   0] MOVE      R0 := R5
+      56 [   0] MOVE      R0 := R0
+      57 [   0] SETTABLE  R0["getLocalizedLeagueTimeout"] := R10
+      58 [   0] CLOSURE   R10 := closure #11
+      59 [   0] MOVE      R0 := R5
+      60 [   0] SETTABLE  R0["getLeagueInfo"] := R10
+      61 [   0] CLOSURE   R10 := closure #12
+      62 [   0] MOVE      R0 := R4
+      63 [   0] SETTABLE  R0["getCurrentRankingPoints"] := R10
+      64 [   0] GETTABLE  R10 := R0["subscribeTo"]
+      65 [   0] MOVE      R11 := R3
+      66 [   0] LOADK     R12 := "leagueInfoReceived"
+      67 [   0] CALL      R10(...) nargs=2 nret=0
+      68 [   0] GETTABLE  R10 := R0["subscribeTo"]
+      69 [   0] MOVE      R11 := R3
+      70 [   0] LOADK     R12 := "leagueListReceived"
+      71 [   0] CALL      R10(...) nargs=2 nret=0
+      72 [   0] GETTABLE  R10 := R0["subscribeTo"]
+      73 [   0] MOVE      R11 := R3
+      74 [   0] LOADK     R12 := "leagueRewardReceived"
+      75 [   0] CALL      R10(...) nargs=2 nret=0
+      76 [   0] RETURN    return R0.. (1 values)
+      77 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 25-29, upvals=[], locals=[])
+      constants: strings=['requestLeagueInfo', 'emit', 'leagueFinished'] numbers=[]
+         0 [   0] LOADBOOL  R0 := False
+         1 [   0] SETUPVAL  upval 0 := R0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETTABLE  R0 := R0["requestLeagueInfo"]
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] GETUPVAL  R0 := upval 1
+         6 [   0] GETTABLE  R0 := R0["emit"]
+         7 [   0] LOADK     R1 := "leagueFinished"
+         8 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         9 [   0] CALL      R0(...) nargs=2 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 31-38, upvals=[], locals=[])
+      constants: strings=['timer', 'cancel', 'convertServerToLocalTime', 'math', 'round', 'max', 'os', 'time', 'performWithDelay'] numbers=[0, 1000]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETGLOBAL R1 := _G["timer"]
+         4 [   0] GETTABLE  R1 := R1["cancel"]
+         5 [   0] GETUPVAL  R2 := upval 0
+         6 [   0] CALL      R1(...) nargs=1 nret=0
+         7 [   0] GETUPVAL  R1 := upval 1
+         8 [   0] GETTABLE  R1 := R1["convertServerToLocalTime"]
+         9 [   0] MOVE      R2 := R0
+        10 [   0] CALL      R1(...) nargs=1 nret=1
+        11 [   0] GETGLOBAL R2 := _G["math"]
+        12 [   0] GETTABLE  R2 := R2["round"]
+        13 [   0] GETGLOBAL R3 := _G["math"]
+        14 [   0] GETTABLE  R3 := R3["max"]
+        15 [   0] GETGLOBAL R4 := _G["os"]
+        16 [   0] GETTABLE  R4 := R4["time"]
+        17 [   0] CALL      R4(...) nargs=0 nret=1
+        18 [   0] SUB       R4 := R1 - R4
+        19 [   0] LOADK     R5 := 0
+        20 [   0] CALL      R3(...) nargs=2 nret=1
+        21 [   0] MUL       R3 := R3 * 1000
+        22 [   0] CALL      R2(...) nargs=1 nret=1
+        23 [   0] GETGLOBAL R3 := _G["timer"]
+        24 [   0] GETTABLE  R3 := R3["performWithDelay"]
+        25 [   0] MOVE      R4 := R2
+        26 [   0] GETUPVAL  R5 := upval 2
+        27 [   0] CALL      R3(...) nargs=2 nret=1
+        28 [   0] SETUPVAL  upval 0 := R3
+        29 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 40-42, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 44-46, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 48-50, upvals=[], locals=[])
+      constants: strings=['requestLeagueInfo'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["requestLeagueInfo"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 52-54, upvals=[], locals=[])
+      constants: strings=['requestLeague'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 1
+         1 [   0] GETTABLE  R0 := R0["requestLeague"]
+         2 [   0] CALL      R0(...) nargs=0 nret=1
+         3 [   0] SETUPVAL  upval 0 := R0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 56-63, upvals=[], locals=[])
+      constants: strings=['activeLeague', 'timeout', 'emit', 'leagueInfoReceived'] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R1
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] GETTABLE  R2 := R2["activeLeague"]
+         3 [   0] SETUPVAL  upval 1 := R2
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] GETTABLE  R2 := R2["activeLeague"]
+         6 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         7 [   0] JMP       jmp +8 -> 16
+         8 [   0] GETUPVAL  R2 := upval 0
+         9 [   0] GETTABLE  R2 := R2["timeout"]
+        10 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +4 -> 16
+        12 [   0] GETUPVAL  R2 := upval 2
+        13 [   0] GETUPVAL  R3 := upval 0
+        14 [   0] GETTABLE  R3 := R3["timeout"]
+        15 [   0] CALL      R2(...) nargs=1 nret=0
+        16 [   0] GETUPVAL  R2 := upval 3
+        17 [   0] GETTABLE  R2 := R2["emit"]
+        18 [   0] LOADK     R3 := "leagueInfoReceived"
+        19 [   0] MOVE      R4 := R1
+        20 [   0] CALL      R2(...) nargs=2 nret=0
+        21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 65-70, upvals=[], locals=[])
+      constants: strings=['leagueRequestSequenceNumber', 'emit', 'leagueListReceived'] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R1
+         1 [   0] LOADBOOL  R2 := True
+         2 [   0] SETUPVAL  upval 1 := R2
+         3 [   0] GETUPVAL  R2 := upval 2
+         4 [   0] SETTABLE  R1["leagueRequestSequenceNumber"] := R2
+         5 [   0] GETUPVAL  R2 := upval 3
+         6 [   0] GETTABLE  R2 := R2["emit"]
+         7 [   0] LOADK     R3 := "leagueListReceived"
+         8 [   0] MOVE      R4 := R1
+         9 [   0] CALL      R2(...) nargs=2 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 72-76, upvals=[], locals=[])
+      constants: strings=['leagueRequestSequenceNumber', 'emit', 'leagueRewardsReceived'] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R1
+         1 [   0] GETUPVAL  R2 := upval 1
+         2 [   0] SETTABLE  R1["leagueRequestSequenceNumber"] := R2
+         3 [   0] GETUPVAL  R2 := upval 2
+         4 [   0] GETTABLE  R2 := R2["emit"]
+         5 [   0] LOADK     R3 := "leagueRewardsReceived"
+         6 [   0] MOVE      R4 := R1
+         7 [   0] CALL      R2(...) nargs=2 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=1, lines 78-82, upvals=[], locals=[])
+      constants: strings=['convertServerToLocalTime', 'timeout'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["convertServerToLocalTime"]
+         2 [   0] GETTABLE  R2 := R0["timeout"]
+         3 [   0] CALL      R1(...) nargs=1 nret=1
+         4 [   0] RETURN    return R1.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 84-88, upvals=[], locals=[])
+      constants: strings=['timeout', 'getValidTime'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +9 -> 12
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] GETTABLE  R0 := R0["timeout"]
+         5 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +5 -> 12
+         7 [   0] GETUPVAL  R0 := upval 1
+         8 [   0] GETTABLE  R0 := R0["getValidTime"]
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] TAILCALL  return R0(...) nargs=1
+        11 [   0] RETURN    return R0.. (-1 values)
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=0, lines 90-92, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=0, lines 94-105, upvals=[], locals=[])
+      constants: strings=['require', 'game.usermanager', 'getInstance', 'getUserData', 'players', 'id', 'leaguePoints'] numbers=[1]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "game.usermanager"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R0 := R0["getInstance"]
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R1 := R0["getUserData"]
+         6 [   0] CALL      R1(...) nargs=0 nret=1
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +27 -> 37
+        10 [   0] GETUPVAL  R2 := upval 0
+        11 [   0] GETTABLE  R2 := R2["players"]
+        12 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +23 -> 37
+        14 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +21 -> 37
+        16 [   0] GETTABLE  R2 := R1["id"]
+        17 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        18 [   0] JMP       jmp +18 -> 37
+        19 [   0] LOADK     R2 := 1
+        20 [   0] GETUPVAL  R3 := upval 0
+        21 [   0] GETTABLE  R3 := R3["players"]
+        22 [   0] LEN       R3 := #R3
+        23 [   0] LOADK     R4 := 1
+        24 [   0] FORPREP   for R2.. jmp +11
+        25 [   0] GETUPVAL  R6 := upval 0
+        26 [   0] GETTABLE  R6 := R6["players"]
+        27 [   0] GETTABLE  R6 := R6[R5]
+        28 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        29 [   0] JMP       jmp +6 -> 36
+        30 [   0] GETTABLE  R7 := R6["id"]
+        31 [   0] GETTABLE  R8 := R1["id"]
+        32 [   0] EQ        if (R7 == R8) ~= 0 then skip next
+        33 [   0] JMP       jmp +2 -> 36
+        34 [   0] GETTABLE  R7 := R6["leaguePoints"]
+        35 [   0] RETURN    return R7.. (1 values)
+        36 [   0] FORLOOP   forloop R2 jmp -12
+        37 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 114-119, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

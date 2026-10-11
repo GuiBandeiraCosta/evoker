@@ -1,0 +1,806 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'ui.common.screenhelper', 'util.util', 'ui.common.nav_controllerv3', 'game.usermanager', 'ui.components.comp_not_enough_gems_popup', 'fglib.eventlistener', 'server.server', 'util.gfxutil', 'util.tracking_util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "ui.common.screenhelper"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "util.util"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] LOADK     R3 := "ui.common.nav_controllerv3"
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] GETGLOBAL R3 := _G["require"]
+    10 [   0] LOADK     R4 := "game.usermanager"
+    11 [   0] CALL      R3(...) nargs=1 nret=1
+    12 [   0] GETGLOBAL R4 := _G["require"]
+    13 [   0] LOADK     R5 := "ui.components.comp_not_enough_gems_popup"
+    14 [   0] CALL      R4(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R5 := _G["require"]
+    16 [   0] LOADK     R6 := "fglib.eventlistener"
+    17 [   0] CALL      R5(...) nargs=1 nret=1
+    18 [   0] GETGLOBAL R6 := _G["require"]
+    19 [   0] LOADK     R7 := "server.server"
+    20 [   0] CALL      R6(...) nargs=1 nret=1
+    21 [   0] GETGLOBAL R7 := _G["require"]
+    22 [   0] LOADK     R8 := "util.gfxutil"
+    23 [   0] CALL      R7(...) nargs=1 nret=1
+    24 [   0] GETGLOBAL R8 := _G["require"]
+    25 [   0] LOADK     R9 := "util.tracking_util"
+    26 [   0] CALL      R8(...) nargs=1 nret=1
+    27 [   0] CLOSURE   R9 := closure #0
+    28 [   0] MOVE      R0 := R0
+    29 [   0] MOVE      R0 := R1
+    30 [   0] MOVE      R0 := R6
+    31 [   0] MOVE      R0 := R2
+    32 [   0] MOVE      R0 := R3
+    33 [   0] MOVE      R0 := R7
+    34 [   0] MOVE      R0 := R5
+    35 [   0] MOVE      R0 := R4
+    36 [   0] MOVE      R0 := R8
+    37 [   0] NEWTABLE  R10 := {} (array 0, hash 1)
+    38 [   0] SETTABLE  R10["create"] := R9
+    39 [   0] RETURN    return R10.. (1 values)
+    40 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 19-327, upvals=[], locals=[])
+    constants: strings=['createNewScreen', 'getView', 'promotionPopup', 'loalayout', 'enter', 'refresh', 'exit', 'destroy', 'inherit', '_flaregames_remove', 'closePopup', 'okButtonCallback', 'getPopupImage', 'getPromotionId', 'getCost', 'getRewards', 'getShopItem', 'init', 'executeShopAction', 'removeButtonCallbacks', 'removeListenerFromServer', 'addBoughtItemsToUser', 'playSingleAnimation', 'playBoughtAnimations', 'checkPlayerMoney', 'createAndProcessNoGemsPopup', 'sendPromoTrackingData', 'redirectToGemShop', 'hasEnoughGems'] numbers=[]
+       0 [   0] GETUPVAL  R5 := upval 0
+       1 [   0] GETTABLE  R5 := R5["createNewScreen"]
+       2 [   0] CALL      R5(...) nargs=0 nret=1
+       3 [   0] GETTABLE  R6 := R5["getView"]
+       4 [   0] CALL      R6(...) nargs=0 nret=1
+       5 [   0] NEWTABLE  R7 := {} (array 0, hash 0)
+       6 [   0] LOADBOOL  R8 := False
+       7 [   0] TESTSET   if (R0 truthy) == 0 then R9 := R0 else skip next
+       8 [   0] JMP       jmp +9 -> 18
+       9 [   0] GETTABLE  R9 := R0["promotionPopup"]
+      10 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+      11 [   0] JMP       jmp +6 -> 18
+      12 [   0] GETTABLE  R9 := R0["promotionPopup"]
+      13 [   0] GETTABLE  R9 := R9["loalayout"]
+      14 [   0] EQ        if (R9 == None) ~= 0 then skip next
+      15 [   0] JMP       jmp +1 -> 17
+      16 [   0] LOADBOOL  R9 := False (skip)
+      17 [   0] LOADBOOL  R9 := True
+      18 [   0] LOADNIL   R10..R14 := nil
+      19 [   0] CLOSURE   R15 := closure #0
+      20 [   0] MOVE      R0 := R8
+      21 [   0] MOVE      R0 := R7
+      22 [   0] MOVE      R0 := R10
+      23 [   0] SETTABLE  R5["enter"] := R15
+      24 [   0] CLOSURE   R15 := closure #1
+      25 [   0] MOVE      R0 := R5
+      26 [   0] SETTABLE  R5["refresh"] := R15
+      27 [   0] CLOSURE   R15 := closure #2
+      28 [   0] MOVE      R0 := R8
+      29 [   0] MOVE      R0 := R10
+      30 [   0] SETTABLE  R5["exit"] := R15
+      31 [   0] CLOSURE   R15 := closure #3
+      32 [   0] MOVE      R0 := R14
+      33 [   0] GETUPVAL  R0 := upval 1
+      34 [   0] MOVE      R0 := R5
+      35 [   0] SETTABLE  R5["destroy"] := R15
+      36 [   0] GETUPVAL  R15 := upval 1
+      37 [   0] GETTABLE  R15 := R15["inherit"]
+      38 [   0] MOVE      R16 := R5
+      39 [   0] LOADK     R17 := "_flaregames_remove"
+      40 [   0] CLOSURE   R18 := closure #4
+      41 [   0] MOVE      R0 := R5
+      42 [   0] CALL      R15(...) nargs=3 nret=0
+      43 [   0] CLOSURE   R15 := closure #5
+      44 [   0] MOVE      R0 := R8
+      45 [   0] MOVE      R0 := R1
+      46 [   0] SETTABLE  R7["closePopup"] := R15
+      47 [   0] CLOSURE   R15 := closure #6
+      48 [   0] MOVE      R0 := R8
+      49 [   0] MOVE      R0 := R7
+      50 [   0] SETTABLE  R7["okButtonCallback"] := R15
+      51 [   0] CLOSURE   R15 := closure #7
+      52 [   0] MOVE      R0 := R11
+      53 [   0] SETTABLE  R7["getPopupImage"] := R15
+      54 [   0] CLOSURE   R15 := closure #8
+      55 [   0] MOVE      R0 := R11
+      56 [   0] SETTABLE  R7["getPromotionId"] := R15
+      57 [   0] CLOSURE   R15 := closure #9
+      58 [   0] MOVE      R0 := R11
+      59 [   0] SETTABLE  R7["getCost"] := R15
+      60 [   0] CLOSURE   R15 := closure #10
+      61 [   0] MOVE      R0 := R11
+      62 [   0] SETTABLE  R7["getRewards"] := R15
+      63 [   0] CLOSURE   R15 := closure #11
+      64 [   0] MOVE      R0 := R11
+      65 [   0] SETTABLE  R7["getShopItem"] := R15
+      66 [   0] CLOSURE   R15 := closure #12
+      67 [   0] MOVE      R0 := R4
+      68 [   0] GETUPVAL  R0 := upval 2
+      69 [   0] MOVE      R0 := R1
+      70 [   0] GETUPVAL  R0 := upval 3
+      71 [   0] MOVE      R0 := R2
+      72 [   0] GETUPVAL  R0 := upval 4
+      73 [   0] MOVE      R0 := R11
+      74 [   0] MOVE      R0 := R0
+      75 [   0] MOVE      R0 := R10
+      76 [   0] MOVE      R0 := R9
+      77 [   0] MOVE      R0 := R6
+      78 [   0] MOVE      R0 := R7
+      79 [   0] GETUPVAL  R0 := upval 5
+      80 [   0] SETTABLE  R7["init"] := R15
+      81 [   0] CLOSURE   R15 := closure #13
+      82 [   0] MOVE      R0 := R3
+      83 [   0] GETUPVAL  R0 := upval 6
+      84 [   0] MOVE      R0 := R7
+      85 [   0] MOVE      R0 := R1
+      86 [   0] MOVE      R0 := R4
+      87 [   0] MOVE      R0 := R2
+      88 [   0] SETTABLE  R7["executeShopAction"] := R15
+      89 [   0] CLOSURE   R15 := closure #14
+      90 [   0] MOVE      R0 := R10
+      91 [   0] SETTABLE  R7["removeButtonCallbacks"] := R15
+      92 [   0] CLOSURE   R15 := closure #15
+      93 [   0] MOVE      R0 := R3
+      94 [   0] MOVE      R0 := R4
+      95 [   0] SETTABLE  R7["removeListenerFromServer"] := R15
+      96 [   0] CLOSURE   R15 := closure #16
+      97 [   0] SETTABLE  R7["addBoughtItemsToUser"] := R15
+      98 [   0] CLOSURE   R15 := closure #17
+      99 [   0] MOVE      R0 := R14
+     100 [   0] MOVE      R0 := R6
+     101 [   0] GETUPVAL  R0 := upval 1
+     102 [   0] SETTABLE  R7["playSingleAnimation"] := R15
+     103 [   0] CLOSURE   R15 := closure #18
+     104 [   0] MOVE      R0 := R7
+     105 [   0] GETUPVAL  R0 := upval 1
+     106 [   0] SETTABLE  R7["playBoughtAnimations"] := R15
+     107 [   0] CLOSURE   R15 := closure #19
+     108 [   0] MOVE      R0 := R7
+     109 [   0] SETTABLE  R7["checkPlayerMoney"] := R15
+     110 [   0] CLOSURE   R15 := closure #20
+     111 [   0] GETUPVAL  R0 := upval 7
+     112 [   0] MOVE      R0 := R6
+     113 [   0] GETUPVAL  R0 := upval 1
+     114 [   0] MOVE      R0 := R7
+     115 [   0] SETTABLE  R7["createAndProcessNoGemsPopup"] := R15
+     116 [   0] CLOSURE   R15 := closure #21
+     117 [   0] MOVE      R0 := R7
+     118 [   0] MOVE      R0 := R2
+     119 [   0] GETUPVAL  R0 := upval 8
+     120 [   0] SETTABLE  R7["sendPromoTrackingData"] := R15
+     121 [   0] CLOSURE   R15 := closure #22
+     122 [   0] MOVE      R0 := R7
+     123 [   0] MOVE      R0 := R1
+     124 [   0] SETTABLE  R7["redirectToGemShop"] := R15
+     125 [   0] CLOSURE   R15 := closure #23
+     126 [   0] MOVE      R0 := R2
+     127 [   0] MOVE      R0 := R7
+     128 [   0] SETTABLE  R7["hasEnoughGems"] := R15
+     129 [   0] GETTABLE  R15 := R7["init"]
+     130 [   0] CALL      R15(...) nargs=0 nret=0
+     131 [   0] RETURN    return R5.. (1 values)
+     132 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 41-53, upvals=[], locals=[])
+      constants: strings=['sendPromoTrackingData', 'displayed', 'backgroundClickCatcher', 'enter', 'update', 'active', 'toBack'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] LOADBOOL  R0 := True
+         5 [   0] SETUPVAL  upval 0 := R0
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] GETTABLE  R0 := R0["sendPromoTrackingData"]
+         8 [   0] LOADK     R1 := "displayed"
+         9 [   0] CALL      R0(...) nargs=1 nret=0
+        10 [   0] GETUPVAL  R0 := upval 2
+        11 [   0] GETTABLE  R0 := R0["backgroundClickCatcher"]
+        12 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +14 -> 28
+        14 [   0] GETUPVAL  R0 := upval 2
+        15 [   0] GETTABLE  R0 := R0["backgroundClickCatcher"]
+        16 [   0] GETTABLE  R0 := R0["enter"]
+        17 [   0] CALL      R0(...) nargs=0 nret=0
+        18 [   0] GETUPVAL  R0 := upval 2
+        19 [   0] GETTABLE  R0 := R0["backgroundClickCatcher"]
+        20 [   0] GETTABLE  R0 := R0["update"]
+        21 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+        22 [   0] SETTABLE  R1["active"] := True
+        23 [   0] CALL      R0(...) nargs=1 nret=0
+        24 [   0] GETUPVAL  R0 := upval 2
+        25 [   0] GETTABLE  R0 := R0["backgroundClickCatcher"]
+        26 [   0] SELF      R1 := R0; R0 := R0["toBack"]
+        27 [   0] CALL      R0(...) nargs=1 nret=0
+        28 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 55-57, upvals=[], locals=[])
+      constants: strings=['updateBlockerRect'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["updateBlockerRect"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 59-65, upvals=[], locals=[])
+      constants: strings=['backgroundClickCatcher', 'exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] LOADBOOL  R0 := False
+         5 [   0] SETUPVAL  upval 0 := R0
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] GETTABLE  R0 := R0["backgroundClickCatcher"]
+         8 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +4 -> 14
+        10 [   0] GETUPVAL  R0 := upval 1
+        11 [   0] GETTABLE  R0 := R0["backgroundClickCatcher"]
+        12 [   0] GETTABLE  R0 := R0["exit"]
+        13 [   0] CALL      R0(...) nargs=0 nret=0
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 67-74, upvals=[], locals=[])
+      constants: strings=['safeRemoveObject', 'exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +6 -> 9
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] LOADNIL   R0..R0 := nil
+         8 [   0] SETUPVAL  upval 0 := R0
+         9 [   0] GETUPVAL  R0 := upval 2
+        10 [   0] GETTABLE  R0 := R0["exit"]
+        11 [   0] CALL      R0(...) nargs=0 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 76-78, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 81-86, upvals=[], locals=[])
+      constants: strings=['popOverlay'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == True) ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETTABLE  R0 := R0["popOverlay"]
+         5 [   0] CALL      R0(...) nargs=0 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 88-99, upvals=[], locals=[])
+      constants: strings=['getCost', 'checkPlayerMoney'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == True) ~= 0 then skip next
+         2 [   0] JMP       jmp +8 -> 11
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETTABLE  R0 := R0["getCost"]
+         5 [   0] CALL      R0(...) nargs=0 nret=1
+         6 [   0] GETUPVAL  R1 := upval 1
+         7 [   0] GETTABLE  R1 := R1["checkPlayerMoney"]
+         8 [   0] CLOSURE   R2 := closure #0
+         9 [   0] GETUPVAL  R0 := upval 1
+        10 [   0] CALL      R1(...) nargs=1 nret=0
+        11 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#6.#0 (params=1, lines 91-97, upvals=[], locals=[])
+        constants: strings=['executeShopAction'] numbers=[]
+           0 [   0] EQ        if (R0 == True) ~= 0 then skip next
+           1 [   0] JMP       jmp +4 -> 6
+           2 [   0] GETUPVAL  R1 := upval 0
+           3 [   0] GETTABLE  R1 := R1["executeShopAction"]
+           4 [   0] CALL      R1(...) nargs=0 nret=0
+           5 [   0] JMP       jmp +2 -> 8
+           6 [   0] EQ        if (R0 == False) ~= 0 then skip next
+           7 [   0] JMP       jmp +0 -> 8
+           8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 102-104, upvals=[], locals=[])
+      constants: strings=['popupImage'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["popupImage"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 106-108, upvals=[], locals=[])
+      constants: strings=['id'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["id"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 110-112, upvals=[], locals=[])
+      constants: strings=['cost'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["cost"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 114-116, upvals=[], locals=[])
+      constants: strings=['rewards'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["rewards"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=0, lines 118-120, upvals=[], locals=[])
+      constants: strings=['promoPackage'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["promoPackage"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=0, lines 122-173, upvals=[], locals=[])
+      constants: strings=['require', 'ui.common.view_factory', 'getInstance', 'ui.screens.overlays.promotion_popup2_def', 'createFromData', 'promotionPopup', 'loalayout', 'createFrom', 'popupImg', 'img', 'getPopupImage', 'getWidthAndHeightFromDispObject', 'okButton', 'update', 'txt', 'getCost', 'amount', 'cancelButton', 'setCallback', 'closePopup', 'okButtonCallback'] numbers=[]
+         0 [   0] CLOSURE   R0 := closure #0
+         1 [   0] GETUPVAL  R0 := upval 0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETUPVAL  R0 := upval 2
+         4 [   0] GETUPVAL  R0 := upval 3
+         5 [   0] GETUPVAL  R0 := upval 4
+         6 [   0] GETUPVAL  R0 := upval 5
+         7 [   0] CLOSURE   R1 := closure #1
+         8 [   0] GETUPVAL  R0 := upval 6
+         9 [   0] GETUPVAL  R0 := upval 7
+        10 [   0] CLOSURE   R2 := closure #2
+        11 [   0] GETUPVAL  R0 := upval 8
+        12 [   0] CLOSURE   R3 := closure #3
+        13 [   0] GETUPVAL  R0 := upval 8
+        14 [   0] MOVE      R4 := R0
+        15 [   0] CALL      R4(...) nargs=0 nret=0
+        16 [   0] MOVE      R4 := R1
+        17 [   0] CALL      R4(...) nargs=0 nret=0
+        18 [   0] GETGLOBAL R4 := _G["require"]
+        19 [   0] LOADK     R5 := "ui.common.view_factory"
+        20 [   0] CALL      R4(...) nargs=1 nret=1
+        21 [   0] GETTABLE  R4 := R4["getInstance"]
+        22 [   0] CALL      R4(...) nargs=0 nret=1
+        23 [   0] LOADK     R5 := "ui.screens.overlays.promotion_popup2_def"
+        24 [   0] GETUPVAL  R6 := upval 9
+        25 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        26 [   0] JMP       jmp +8 -> 35
+        27 [   0] GETTABLE  R6 := R4["createFromData"]
+        28 [   0] GETUPVAL  R7 := upval 7
+        29 [   0] GETTABLE  R7 := R7["promotionPopup"]
+        30 [   0] GETTABLE  R7 := R7["loalayout"]
+        31 [   0] GETUPVAL  R8 := upval 10
+        32 [   0] CALL      R6(...) nargs=2 nret=1
+        33 [   0] SETUPVAL  upval 8 := R6
+        34 [   0] JMP       jmp +12 -> 47
+        35 [   0] GETTABLE  R6 := R4["createFrom"]
+        36 [   0] MOVE      R7 := R5
+        37 [   0] GETUPVAL  R8 := upval 10
+        38 [   0] NEWTABLE  R9 := {} (array 0, hash 1)
+        39 [   0] NEWTABLE  R10 := {} (array 0, hash 1)
+        40 [   0] GETUPVAL  R11 := upval 11
+        41 [   0] GETTABLE  R11 := R11["getPopupImage"]
+        42 [   0] CALL      R11(...) nargs=0 nret=1
+        43 [   0] SETTABLE  R10["img"] := R11
+        44 [   0] SETTABLE  R9["popupImg"] := R10
+        45 [   0] CALL      R6(...) nargs=3 nret=1
+        46 [   0] SETUPVAL  upval 8 := R6
+        47 [   0] GETUPVAL  R6 := upval 9
+        48 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+        49 [   0] JMP       jmp +23 -> 73
+        50 [   0] GETUPVAL  R6 := upval 12
+        51 [   0] GETTABLE  R6 := R6["getWidthAndHeightFromDispObject"]
+        52 [   0] GETUPVAL  R7 := upval 8
+        53 [   0] GETTABLE  R7 := R7["popupImg"]
+        54 [   0] CALL      R6(...) nargs=1 nret=2
+        55 [   0] MOVE      R8 := R2
+        56 [   0] MOVE      R9 := R6
+        57 [   0] MOVE      R10 := R7
+        58 [   0] CALL      R8(...) nargs=2 nret=0
+        59 [   0] MOVE      R8 := R3
+        60 [   0] MOVE      R9 := R6
+        61 [   0] MOVE      R10 := R7
+        62 [   0] CALL      R8(...) nargs=2 nret=0
+        63 [   0] GETUPVAL  R8 := upval 8
+        64 [   0] GETTABLE  R8 := R8["okButton"]
+        65 [   0] GETTABLE  R8 := R8["update"]
+        66 [   0] NEWTABLE  R9 := {} (array 0, hash 1)
+        67 [   0] GETUPVAL  R10 := upval 11
+        68 [   0] GETTABLE  R10 := R10["getCost"]
+        69 [   0] CALL      R10(...) nargs=0 nret=1
+        70 [   0] GETTABLE  R10 := R10["amount"]
+        71 [   0] SETTABLE  R9["txt"] := R10
+        72 [   0] CALL      R8(...) nargs=1 nret=0
+        73 [   0] GETUPVAL  R6 := upval 8
+        74 [   0] GETTABLE  R6 := R6["cancelButton"]
+        75 [   0] GETTABLE  R6 := R6["setCallback"]
+        76 [   0] GETUPVAL  R7 := upval 11
+        77 [   0] GETTABLE  R7 := R7["closePopup"]
+        78 [   0] CALL      R6(...) nargs=1 nret=0
+        79 [   0] GETUPVAL  R6 := upval 8
+        80 [   0] GETTABLE  R6 := R6["okButton"]
+        81 [   0] GETTABLE  R6 := R6["setCallback"]
+        82 [   0] GETUPVAL  R7 := upval 11
+        83 [   0] GETTABLE  R7 := R7["okButtonCallback"]
+        84 [   0] CALL      R6(...) nargs=1 nret=0
+        85 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#12.#0 (params=0, lines 123-127, upvals=[], locals=[])
+        constants: strings=['getInstance'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 1
+           1 [   0] GETTABLE  R0 := R0["getInstance"]
+           2 [   0] CALL      R0(...) nargs=0 nret=1
+           3 [   0] SETUPVAL  upval 0 := R0
+           4 [   0] GETUPVAL  R0 := upval 3
+           5 [   0] GETTABLE  R0 := R0["getInstance"]
+           6 [   0] CALL      R0(...) nargs=0 nret=1
+           7 [   0] SETUPVAL  upval 2 := R0
+           8 [   0] GETUPVAL  R0 := upval 5
+           9 [   0] GETTABLE  R0 := R0["getInstance"]
+          10 [   0] CALL      R0(...) nargs=0 nret=1
+          11 [   0] SETUPVAL  upval 4 := R0
+          12 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#12.#1 (params=0, lines 129-131, upvals=[], locals=[])
+        constants: strings=['promotionPopup'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 1
+           1 [   0] GETTABLE  R0 := R0["promotionPopup"]
+           2 [   0] SETUPVAL  upval 0 := R0
+           3 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#12.#2 (params=2, lines 133-138, upvals=[], locals=[])
+        constants: strings=['cancelButton', 'x', 'y'] numbers=[-10, 10, 0.5]
+           0 [   0] LOADK     R2 := -10
+           1 [   0] LOADK     R3 := 10
+           2 [   0] GETUPVAL  R4 := upval 0
+           3 [   0] GETTABLE  R4 := R4["cancelButton"]
+           4 [   0] MUL       R5 := R0 * 0.5
+           5 [   0] ADD       R5 := R5 + R2
+           6 [   0] SETTABLE  R4["x"] := R5
+           7 [   0] GETUPVAL  R4 := upval 0
+           8 [   0] GETTABLE  R4 := R4["cancelButton"]
+           9 [   0] UNM       R5 := -R1
+          10 [   0] MUL       R5 := R5 * 0.5
+          11 [   0] ADD       R5 := R5 + R3
+          12 [   0] SETTABLE  R4["y"] := R5
+          13 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#12.#3 (params=2, lines 140-144, upvals=[], locals=[])
+        constants: strings=['okButton', 'x', 'y'] numbers=[-29, 0, 0.5]
+           0 [   0] LOADK     R2 := -29
+           1 [   0] GETUPVAL  R3 := upval 0
+           2 [   0] GETTABLE  R3 := R3["okButton"]
+           3 [   0] SETTABLE  R3["x"] := 0
+           4 [   0] GETUPVAL  R3 := upval 0
+           5 [   0] GETTABLE  R3 := R3["okButton"]
+           6 [   0] MUL       R4 := R1 * 0.5
+           7 [   0] ADD       R4 := R4 + R2
+           8 [   0] SETTABLE  R3["y"] := R4
+           9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=0, lines 175-203, upvals=[], locals=[])
+      constants: strings=['require', 'server.server', 'getInstance', 'getShopItem', 'buyIngameItem', 'reduceMoney', 'getCost'] numbers=[]
+         0 [   0] CLOSURE   R0 := closure #0
+         1 [   0] GETUPVAL  R0 := upval 0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETUPVAL  R0 := upval 2
+         4 [   0] GETUPVAL  R0 := upval 3
+         5 [   0] GETUPVAL  R0 := upval 4
+         6 [   0] GETGLOBAL R1 := _G["require"]
+         7 [   0] LOADK     R2 := "server.server"
+         8 [   0] CALL      R1(...) nargs=1 nret=1
+         9 [   0] GETTABLE  R1 := R1["getInstance"]
+        10 [   0] CALL      R1(...) nargs=0 nret=1
+        11 [   0] SETUPVAL  upval 4 := R1
+        12 [   0] MOVE      R1 := R0
+        13 [   0] CALL      R1(...) nargs=0 nret=0
+        14 [   0] GETUPVAL  R1 := upval 2
+        15 [   0] GETTABLE  R1 := R1["getShopItem"]
+        16 [   0] CALL      R1(...) nargs=0 nret=1
+        17 [   0] GETUPVAL  R2 := upval 4
+        18 [   0] GETTABLE  R2 := R2["buyIngameItem"]
+        19 [   0] MOVE      R3 := R1
+        20 [   0] CALL      R2(...) nargs=1 nret=0
+        21 [   0] GETUPVAL  R2 := upval 5
+        22 [   0] GETTABLE  R2 := R2["reduceMoney"]
+        23 [   0] GETUPVAL  R3 := upval 2
+        24 [   0] GETTABLE  R3 := R3["getCost"]
+        25 [   0] CALL      R3(...) nargs=0 nret=-1
+        26 [   0] CALL      R2(...) nargs=-1 nret=0
+        27 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#13.#0 (params=0, lines 176-195, upvals=[], locals=[])
+        constants: strings=['new', 'boughtIngameItemHandler', 'subscribeTo', 'boughtIngameItem'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 1
+           1 [   0] GETTABLE  R0 := R0["new"]
+           2 [   0] CALL      R0(...) nargs=0 nret=1
+           3 [   0] SETUPVAL  upval 0 := R0
+           4 [   0] GETUPVAL  R0 := upval 0
+           5 [   0] CLOSURE   R1 := closure #0
+           6 [   0] GETUPVAL  R0 := upval 2
+           7 [   0] GETUPVAL  R0 := upval 3
+           8 [   0] SETTABLE  R0["boughtIngameItemHandler"] := R1
+           9 [   0] GETUPVAL  R0 := upval 0
+          10 [   0] GETTABLE  R0 := R0["subscribeTo"]
+          11 [   0] GETUPVAL  R1 := upval 4
+          12 [   0] LOADK     R2 := "boughtIngameItem"
+          13 [   0] CALL      R0(...) nargs=2 nret=0
+          14 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#13.#0.#0 (params=2, lines 178-192, upvals=[], locals=[])
+          constants: strings=['removeListenerFromServer', 'rewards', 'sendPromoTrackingData', 'purchased', 'addBoughtItemsToUser', 'removeButtonCallbacks', 'playBoughtAnimations', 'popOverlay'] numbers=[]
+             0 [   0] GETUPVAL  R2 := upval 0
+             1 [   0] GETTABLE  R2 := R2["removeListenerFromServer"]
+             2 [   0] CALL      R2(...) nargs=0 nret=0
+             3 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+             4 [   0] JMP       jmp +21 -> 26
+             5 [   0] GETTABLE  R2 := R1["rewards"]
+             6 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+             7 [   0] JMP       jmp +18 -> 26
+             8 [   0] GETUPVAL  R2 := upval 0
+             9 [   0] GETTABLE  R2 := R2["sendPromoTrackingData"]
+            10 [   0] LOADK     R3 := "purchased"
+            11 [   0] CALL      R2(...) nargs=1 nret=0
+            12 [   0] GETUPVAL  R2 := upval 0
+            13 [   0] GETTABLE  R2 := R2["addBoughtItemsToUser"]
+            14 [   0] GETTABLE  R3 := R1["rewards"]
+            15 [   0] CALL      R2(...) nargs=1 nret=0
+            16 [   0] GETUPVAL  R2 := upval 0
+            17 [   0] GETTABLE  R2 := R2["removeButtonCallbacks"]
+            18 [   0] CALL      R2(...) nargs=0 nret=0
+            19 [   0] GETUPVAL  R2 := upval 0
+            20 [   0] GETTABLE  R2 := R2["playBoughtAnimations"]
+            21 [   0] GETTABLE  R3 := R1["rewards"]
+            22 [   0] CLOSURE   R4 := closure #0
+            23 [   0] GETUPVAL  R0 := upval 1
+            24 [   0] CALL      R2(...) nargs=2 nret=0
+            25 [   0] JMP       jmp +3 -> 29
+            26 [   0] GETUPVAL  R2 := upval 1
+            27 [   0] GETTABLE  R2 := R2["popOverlay"]
+            28 [   0] CALL      R2(...) nargs=0 nret=0
+            29 [   0] RETURN    return R0.. (0 values)
+          function main.#0.#13.#0.#0.#0 (params=0, lines 186-188, upvals=[], locals=[])
+            constants: strings=['popOverlay'] numbers=[]
+               0 [   0] GETUPVAL  R0 := upval 0
+               1 [   0] GETTABLE  R0 := R0["popOverlay"]
+               2 [   0] CALL      R0(...) nargs=0 nret=0
+               3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=0, lines 205-208, upvals=[], locals=[])
+      constants: strings=['cancelButton', 'setCallback', 'okButton'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["cancelButton"]
+         2 [   0] GETTABLE  R0 := R0["setCallback"]
+         3 [   0] LOADNIL   R1..R1 := nil
+         4 [   0] CALL      R0(...) nargs=1 nret=0
+         5 [   0] GETUPVAL  R0 := upval 0
+         6 [   0] GETTABLE  R0 := R0["okButton"]
+         7 [   0] GETTABLE  R0 := R0["setCallback"]
+         8 [   0] LOADNIL   R1..R1 := nil
+         9 [   0] CALL      R0(...) nargs=1 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=0, lines 210-214, upvals=[], locals=[])
+      constants: strings=['unsubscribeFrom', 'boughtIngameItem'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +8 -> 11
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +5 -> 11
+         6 [   0] GETUPVAL  R0 := upval 0
+         7 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+         8 [   0] GETUPVAL  R1 := upval 1
+         9 [   0] LOADK     R2 := "boughtIngameItem"
+        10 [   0] CALL      R0(...) nargs=2 nret=0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#16 (params=1, lines 216-219, upvals=[], locals=[])
+      constants: strings=['require', 'util.rewardutil', 'addRewardsToUser'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["require"]
+         1 [   0] LOADK     R2 := "util.rewardutil"
+         2 [   0] CALL      R1(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R2 := R1["addRewardsToUser"]
+         4 [   0] MOVE      R3 := R0
+         5 [   0] CALL      R2(...) nargs=1 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#17 (params=2, lines 221-236, upvals=[], locals=[])
+      constants: strings=['require', 'ui.components.reward_comp', 'create', 'parent', 'layout', 'default.center', 'reward', 'onlyTakenAnimation', 'enter', 'start'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["require"]
+         1 [   0] LOADK     R3 := "ui.components.reward_comp"
+         2 [   0] CALL      R2(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R2 := R2["create"]
+         4 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+         5 [   0] GETUPVAL  R4 := upval 1
+         6 [   0] SETTABLE  R3["parent"] := R4
+         7 [   0] SETTABLE  R3["layout"] := "default.center"
+         8 [   0] SETTABLE  R3["reward"] := R0
+         9 [   0] SETTABLE  R3["onlyTakenAnimation"] := True
+        10 [   0] CALL      R2(...) nargs=1 nret=1
+        11 [   0] SETUPVAL  upval 0 := R2
+        12 [   0] GETUPVAL  R2 := upval 0
+        13 [   0] GETTABLE  R2 := R2["enter"]
+        14 [   0] CALL      R2(...) nargs=0 nret=0
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2["start"]
+        17 [   0] CLOSURE   R3 := closure #0
+        18 [   0] GETUPVAL  R0 := upval 2
+        19 [   0] GETUPVAL  R0 := upval 0
+        20 [   0] MOVE      R0 := R1
+        21 [   0] CALL      R2(...) nargs=1 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#17.#0 (params=1, lines 231-235, upvals=[], locals=[])
+        constants: strings=['safeRemoveObject', 'safeCall'] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R1 := R1["safeRemoveObject"]
+           2 [   0] GETUPVAL  R2 := upval 1
+           3 [   0] CALL      R1(...) nargs=1 nret=0
+           4 [   0] LOADNIL   R1..R1 := nil
+           5 [   0] SETUPVAL  upval 1 := R1
+           6 [   0] GETUPVAL  R1 := upval 0
+           7 [   0] GETTABLE  R1 := R1["safeCall"]
+           8 [   0] GETUPVAL  R2 := upval 2
+           9 [   0] CALL      R1(...) nargs=1 nret=0
+          10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#18 (params=3, lines 239-252, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'playSingleAnimation', 'safeCall'] numbers=[1]
+         0 [   0] TESTSET   if (R2 truthy) == 1 then R3 := R2 else skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADK     R3 := 1
+         3 [   0] LEN       R4 := #R0
+         4 [   0] LE        if (R3 <= R4) ~= 0 then skip next
+         5 [   0] JMP       jmp +14 -> 20
+         6 [   0] GETGLOBAL R4 := _G["log"]
+         7 [   0] GETTABLE  R4 := R4["msg"]
+         8 [   0] GETTABLE  R5 := R0[R3]
+         9 [   0] CALL      R4(...) nargs=1 nret=0
+        10 [   0] GETUPVAL  R4 := upval 0
+        11 [   0] GETTABLE  R4 := R4["playSingleAnimation"]
+        12 [   0] GETTABLE  R5 := R0[R3]
+        13 [   0] CLOSURE   R6 := closure #0
+        14 [   0] GETUPVAL  R0 := upval 0
+        15 [   0] MOVE      R0 := R0
+        16 [   0] MOVE      R0 := R1
+        17 [   0] MOVE      R0 := R3
+        18 [   0] CALL      R4(...) nargs=2 nret=0
+        19 [   0] JMP       jmp +4 -> 24
+        20 [   0] GETUPVAL  R4 := upval 1
+        21 [   0] GETTABLE  R4 := R4["safeCall"]
+        22 [   0] MOVE      R5 := R1
+        23 [   0] CALL      R4(...) nargs=1 nret=0
+        24 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#18.#0 (params=0, lines 246-248, upvals=[], locals=[])
+        constants: strings=['playBoughtAnimations'] numbers=[1]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["playBoughtAnimations"]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] GETUPVAL  R2 := upval 2
+           4 [   0] GETUPVAL  R3 := upval 3
+           5 [   0] ADD       R3 := R3 + 1
+           6 [   0] CALL      R0(...) nargs=3 nret=0
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#19 (params=1, lines 254-264, upvals=[], locals=[])
+      constants: strings=['getCost', 'currency', 'gems', 'hasEnoughGems', 'createAndProcessNoGemsPopup', 'type', 'function'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["getCost"]
+         2 [   0] CALL      R1(...) nargs=0 nret=1
+         3 [   0] GETTABLE  R1 := R1["currency"]
+         4 [   0] EQ        if (R1 == "gems") ~= 0 then skip next
+         5 [   0] JMP       jmp +19 -> 25
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] GETTABLE  R1 := R1["hasEnoughGems"]
+         8 [   0] CALL      R1(...) nargs=0 nret=1
+         9 [   0] EQ        if (R1 == False) ~= 0 then skip next
+        10 [   0] JMP       jmp +4 -> 15
+        11 [   0] GETUPVAL  R1 := upval 0
+        12 [   0] GETTABLE  R1 := R1["createAndProcessNoGemsPopup"]
+        13 [   0] CALL      R1(...) nargs=0 nret=0
+        14 [   0] JMP       jmp +10 -> 25
+        15 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        16 [   0] JMP       jmp +8 -> 25
+        17 [   0] GETGLOBAL R1 := _G["type"]
+        18 [   0] MOVE      R2 := R0
+        19 [   0] CALL      R1(...) nargs=1 nret=1
+        20 [   0] EQ        if (R1 == "function") ~= 0 then skip next
+        21 [   0] JMP       jmp +3 -> 25
+        22 [   0] MOVE      R1 := R0
+        23 [   0] LOADBOOL  R2 := True
+        24 [   0] CALL      R1(...) nargs=1 nret=0
+        25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#20 (params=0, lines 267-295, upvals=[], locals=[])
+      constants: strings=['create', 'layout', 'default.center', 'parent', 'enter', 'addEventListener', 'comp_not_enough_gems_popup_ok', 'comp_not_enough_gems_popup_cancel'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["create"]
+         2 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+         3 [   0] SETTABLE  R1["layout"] := "default.center"
+         4 [   0] GETUPVAL  R2 := upval 1
+         5 [   0] SETTABLE  R1["parent"] := R2
+         6 [   0] CALL      R0(...) nargs=1 nret=1
+         7 [   0] LOADNIL   R1..R2 := nil
+         8 [   0] GETTABLE  R3 := R0["enter"]
+         9 [   0] CALL      R3(...) nargs=0 nret=0
+        10 [   0] CLOSURE   R3 := closure #0
+        11 [   0] MOVE      R0 := R0
+        12 [   0] MOVE      R0 := R2
+        13 [   0] MOVE      R0 := R1
+        14 [   0] CLOSURE   R2 := closure #1
+        15 [   0] MOVE      R0 := R3
+        16 [   0] GETUPVAL  R0 := upval 2
+        17 [   0] MOVE      R0 := R0
+        18 [   0] GETUPVAL  R0 := upval 3
+        19 [   0] CLOSURE   R1 := closure #2
+        20 [   0] MOVE      R0 := R3
+        21 [   0] GETUPVAL  R0 := upval 2
+        22 [   0] MOVE      R0 := R0
+        23 [   0] SELF      R5 := R0; R4 := R0["addEventListener"]
+        24 [   0] LOADK     R6 := "comp_not_enough_gems_popup_ok"
+        25 [   0] MOVE      R7 := R2
+        26 [   0] CALL      R4(...) nargs=3 nret=0
+        27 [   0] SELF      R5 := R0; R4 := R0["addEventListener"]
+        28 [   0] LOADK     R6 := "comp_not_enough_gems_popup_cancel"
+        29 [   0] MOVE      R7 := R1
+        30 [   0] CALL      R4(...) nargs=3 nret=0
+        31 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#20.#0 (params=0, lines 277-280, upvals=[], locals=[])
+        constants: strings=['removeEventListener', 'comp_not_enough_gems_popup_ok', 'comp_not_enough_gems_popup_cancel'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+           2 [   0] LOADK     R2 := "comp_not_enough_gems_popup_ok"
+           3 [   0] GETUPVAL  R3 := upval 1
+           4 [   0] CALL      R0(...) nargs=3 nret=0
+           5 [   0] GETUPVAL  R0 := upval 0
+           6 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+           7 [   0] LOADK     R2 := "comp_not_enough_gems_popup_cancel"
+           8 [   0] GETUPVAL  R3 := upval 2
+           9 [   0] CALL      R0(...) nargs=3 nret=0
+          10 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#20.#1 (params=0, lines 282-286, upvals=[], locals=[])
+        constants: strings=['safeRemoveObject', 'redirectToGemShop'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] CALL      R0(...) nargs=0 nret=0
+           2 [   0] GETUPVAL  R0 := upval 1
+           3 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+           4 [   0] GETUPVAL  R1 := upval 2
+           5 [   0] CALL      R0(...) nargs=1 nret=0
+           6 [   0] GETUPVAL  R0 := upval 3
+           7 [   0] GETTABLE  R0 := R0["redirectToGemShop"]
+           8 [   0] CALL      R0(...) nargs=0 nret=0
+           9 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#20.#2 (params=0, lines 288-291, upvals=[], locals=[])
+        constants: strings=['safeRemoveObject'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] CALL      R0(...) nargs=0 nret=0
+           2 [   0] GETUPVAL  R0 := upval 1
+           3 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+           4 [   0] GETUPVAL  R1 := upval 2
+           5 [   0] CALL      R0(...) nargs=1 nret=0
+           6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#21 (params=1, lines 297-308, upvals=[], locals=[])
+      constants: strings=['name', 'getPromotionId', 'action', 'amount', 'getCost', 'currency', 'gem_balance', 'getGems', 'coin_balance', 'getCoins', 'trackEvent', 'promotion'] numbers=[]
+         0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] GETTABLE  R2 := R2["getPromotionId"]
+         3 [   0] CALL      R2(...) nargs=0 nret=1
+         4 [   0] SETTABLE  R1["name"] := R2
+         5 [   0] SETTABLE  R1["action"] := R0
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] GETTABLE  R2 := R2["getCost"]
+         8 [   0] CALL      R2(...) nargs=0 nret=1
+         9 [   0] GETTABLE  R2 := R2["amount"]
+        10 [   0] SETTABLE  R1["amount"] := R2
+        11 [   0] GETUPVAL  R2 := upval 0
+        12 [   0] GETTABLE  R2 := R2["getCost"]
+        13 [   0] CALL      R2(...) nargs=0 nret=1
+        14 [   0] GETTABLE  R2 := R2["currency"]
+        15 [   0] SETTABLE  R1["currency"] := R2
+        16 [   0] GETUPVAL  R2 := upval 1
+        17 [   0] GETTABLE  R2 := R2["getGems"]
+        18 [   0] CALL      R2(...) nargs=0 nret=1
+        19 [   0] SETTABLE  R1["gem_balance"] := R2
+        20 [   0] GETUPVAL  R2 := upval 1
+        21 [   0] GETTABLE  R2 := R2["getCoins"]
+        22 [   0] CALL      R2(...) nargs=0 nret=1
+        23 [   0] SETTABLE  R1["coin_balance"] := R2
+        24 [   0] GETUPVAL  R2 := upval 2
+        25 [   0] GETTABLE  R2 := R2["trackEvent"]
+        26 [   0] LOADK     R3 := "promotion"
+        27 [   0] MOVE      R4 := R1
+        28 [   0] CALL      R2(...) nargs=2 nret=0
+        29 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#22 (params=0, lines 310-313, upvals=[], locals=[])
+      constants: strings=['sendPromoTrackingData', 'proceed_to_shop', 'pushOverlay', 'ui.screens.overlays.premiumshop'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["sendPromoTrackingData"]
+         2 [   0] LOADK     R1 := "proceed_to_shop"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R0 := upval 1
+         5 [   0] GETTABLE  R0 := R0["pushOverlay"]
+         6 [   0] LOADK     R1 := "ui.screens.overlays.premiumshop"
+         7 [   0] CALL      R0(...) nargs=1 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#23 (params=0, lines 315-322, upvals=[], locals=[])
+      constants: strings=['getGems', 'getCost', 'amount'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["getGems"]
+         2 [   0] CALL      R1(...) nargs=0 nret=1
+         3 [   0] MOVE      R0 := R1
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] GETTABLE  R1 := R1["getCost"]
+         6 [   0] CALL      R1(...) nargs=0 nret=1
+         7 [   0] GETTABLE  R1 := R1["amount"]
+         8 [   0] LT        if (R0 < R1) ~= 0 then skip next
+         9 [   0] JMP       jmp +2 -> 12
+        10 [   0] LOADBOOL  R1 := False
+        11 [   0] RETURN    return R1.. (1 values)
+        12 [   0] LOADBOOL  R1 := True
+        13 [   0] RETURN    return R1.. (1 values)
+        14 [   0] RETURN    return R0.. (0 values)

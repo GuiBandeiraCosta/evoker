@@ -1,0 +1,1143 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.util', 'ui.components.comp_anim_player', 'ui.components.comp_fight_v3', 'game.cardmanager', 'server.metadatamanager', 'ui.components.fight.comp_start_fight_btn', 'ui.components.comp_carddeck', 'ui.components.comp_card_v3', 'game.tutorial.tutorialmanagerv3', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "util.util"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "ui.components.comp_anim_player"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] LOADK     R3 := "ui.components.comp_fight_v3"
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] GETGLOBAL R3 := _G["require"]
+    10 [   0] LOADK     R4 := "game.cardmanager"
+    11 [   0] CALL      R3(...) nargs=1 nret=1
+    12 [   0] GETGLOBAL R4 := _G["require"]
+    13 [   0] LOADK     R5 := "server.metadatamanager"
+    14 [   0] CALL      R4(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R5 := _G["require"]
+    16 [   0] LOADK     R6 := "ui.components.fight.comp_start_fight_btn"
+    17 [   0] CALL      R5(...) nargs=1 nret=1
+    18 [   0] GETGLOBAL R6 := _G["require"]
+    19 [   0] LOADK     R7 := "ui.components.comp_carddeck"
+    20 [   0] CALL      R6(...) nargs=1 nret=1
+    21 [   0] GETGLOBAL R7 := _G["require"]
+    22 [   0] LOADK     R8 := "ui.components.comp_card_v3"
+    23 [   0] CALL      R7(...) nargs=1 nret=1
+    24 [   0] GETGLOBAL R8 := _G["require"]
+    25 [   0] LOADK     R9 := "game.tutorial.tutorialmanagerv3"
+    26 [   0] CALL      R8(...) nargs=1 nret=1
+    27 [   0] CLOSURE   R9 := closure #0
+    28 [   0] MOVE      R0 := R0
+    29 [   0] MOVE      R0 := R7
+    30 [   0] MOVE      R0 := R6
+    31 [   0] MOVE      R0 := R2
+    32 [   0] MOVE      R0 := R3
+    33 [   0] MOVE      R0 := R4
+    34 [   0] MOVE      R0 := R8
+    35 [   0] MOVE      R0 := R1
+    36 [   0] MOVE      R0 := R5
+    37 [   0] NEWTABLE  R10 := {} (array 0, hash 1)
+    38 [   0] SETTABLE  R10["create"] := R9
+    39 [   0] RETURN    return R10.. (1 values)
+    40 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 12-474, upvals=[], locals=[])
+    constants: strings=['ui', 'createContainer', 'layout', 'parent', 'assets/scripts/script_intro_fight.json', 'assets/scripts/intro_fight_config.json', 'require', 'warcards', 'assets_warcards/scripts/script_intro_fight.json', 'assets_warcards/scripts/intro_fight_config.json', 'io', 'open', 'system', 'pathForFile', 'ResourceDirectory', 'r', 'read', '*a', 'json', 'decode', 'close', 'assets/gfx/hud/icons/default_player.jpg', 'assets/gfx/hud/icons/shaman_portrait.jpg', 'Worm Shaman', 'display', 'contentHeight', 'screenOriginY', 'util.safetransition', 'create', 'update', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[-2, 1000]
+       0 [   0] LOADBOOL  R1 := False
+       1 [   0] GETGLOBAL R2 := _G["ui"]
+       2 [   0] GETTABLE  R2 := R2["createContainer"]
+       3 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+       4 [   0] GETTABLE  R4 := R0["layout"]
+       5 [   0] SETTABLE  R3["layout"] := R4
+       6 [   0] GETTABLE  R4 := R0["parent"]
+       7 [   0] SETTABLE  R3["parent"] := R4
+       8 [   0] CALL      R2(...) nargs=1 nret=1
+       9 [   0] LOADNIL   R3..R8 := nil
+      10 [   0] NEWTABLE  R9 := {} (array 0, hash 0)
+      11 [   0] LOADNIL   R10..R14 := nil
+      12 [   0] LOADK     R15 := "assets/scripts/script_intro_fight.json"
+      13 [   0] LOADK     R16 := "assets/scripts/intro_fight_config.json"
+      14 [   0] GETGLOBAL R17 := _G["require"]
+      15 [   0] LOADK     R18 := "warcards"
+      16 [   0] CALL      R17(...) nargs=1 nret=1
+      17 [   0] EQ        if (R17 == True) ~= 0 then skip next
+      18 [   0] JMP       jmp +2 -> 21
+      19 [   0] LOADK     R15 := "assets_warcards/scripts/script_intro_fight.json"
+      20 [   0] LOADK     R16 := "assets_warcards/scripts/intro_fight_config.json"
+      21 [   0] LOADNIL   R18..R18 := nil
+      22 [   0] GETGLOBAL R19 := _G["io"]
+      23 [   0] GETTABLE  R19 := R19["open"]
+      24 [   0] GETGLOBAL R20 := _G["system"]
+      25 [   0] GETTABLE  R20 := R20["pathForFile"]
+      26 [   0] MOVE      R21 := R16
+      27 [   0] GETGLOBAL R22 := _G["system"]
+      28 [   0] GETTABLE  R22 := R22["ResourceDirectory"]
+      29 [   0] CALL      R20(...) nargs=2 nret=1
+      30 [   0] LOADK     R21 := "r"
+      31 [   0] CALL      R19(...) nargs=2 nret=1
+      32 [   0] TEST      if (R19 truthy) ~= 0 then skip next
+      33 [   0] JMP       jmp +14 -> 48
+      34 [   0] SELF      R21 := R19; R20 := R19["read"]
+      35 [   0] LOADK     R22 := "*a"
+      36 [   0] CALL      R20(...) nargs=2 nret=1
+      37 [   0] GETGLOBAL R21 := _G["require"]
+      38 [   0] LOADK     R22 := "json"
+      39 [   0] CALL      R21(...) nargs=1 nret=1
+      40 [   0] GETTABLE  R22 := R21["decode"]
+      41 [   0] MOVE      R23 := R20
+      42 [   0] CALL      R22(...) nargs=1 nret=1
+      43 [   0] MOVE      R18 := R22
+      44 [   0] GETGLOBAL R22 := _G["io"]
+      45 [   0] GETTABLE  R22 := R22["close"]
+      46 [   0] MOVE      R23 := R19
+      47 [   0] CALL      R22(...) nargs=1 nret=0
+      48 [   0] LOADK     R20 := "assets/gfx/hud/icons/default_player.jpg"
+      49 [   0] LOADK     R21 := "assets/gfx/hud/icons/shaman_portrait.jpg"
+      50 [   0] LOADK     R22 := "Worm Shaman"
+      51 [   0] NEWTABLE  R23 := {} (array 0, hash 0)
+      52 [   0] GETGLOBAL R24 := _G["display"]
+      53 [   0] GETTABLE  R24 := R24["contentHeight"]
+      54 [   0] GETGLOBAL R25 := _G["display"]
+      55 [   0] GETTABLE  R25 := R25["screenOriginY"]
+      56 [   0] MUL       R25 := -2 * R25
+      57 [   0] ADD       R24 := R24 + R25
+      58 [   0] GETGLOBAL R25 := _G["require"]
+      59 [   0] LOADK     R26 := "util.safetransition"
+      60 [   0] CALL      R25(...) nargs=1 nret=1
+      61 [   0] GETTABLE  R25 := R25["create"]
+      62 [   0] CALL      R25(...) nargs=0 nret=1
+      63 [   0] LOADNIL   R26..R26 := nil
+      64 [   0] CLOSURE   R27 := closure #0
+      65 [   0] CLOSURE   R28 := closure #1
+      66 [   0] MOVE      R0 := R9
+      67 [   0] GETUPVAL  R0 := upval 0
+      68 [   0] CLOSURE   R29 := closure #2
+      69 [   0] CLOSURE   R30 := closure #3
+      70 [   0] MOVE      R0 := R12
+      71 [   0] MOVE      R0 := R10
+      72 [   0] MOVE      R0 := R23
+      73 [   0] MOVE      R0 := R11
+      74 [   0] CLOSURE   R31 := closure #4
+      75 [   0] GETUPVAL  R0 := upval 1
+      76 [   0] MOVE      R0 := R2
+      77 [   0] MOVE      R0 := R30
+      78 [   0] CLOSURE   R32 := closure #5
+      79 [   0] GETUPVAL  R0 := upval 0
+      80 [   0] CLOSURE   R33 := closure #6
+      81 [   0] GETUPVAL  R0 := upval 2
+      82 [   0] MOVE      R0 := R2
+      83 [   0] MOVE      R0 := R31
+      84 [   0] CLOSURE   R34 := closure #7
+      85 [   0] MOVE      R0 := R25
+      86 [   0] MOVE      R0 := R14
+      87 [   0] MOVE      R0 := R13
+      88 [   0] MOVE      R0 := R4
+      89 [   0] MOVE      R0 := R20
+      90 [   0] MOVE      R0 := R22
+      91 [   0] MOVE      R0 := R21
+      92 [   0] MOVE      R0 := R2
+      93 [   0] GETUPVAL  R0 := upval 0
+      94 [   0] CLOSURE   R35 := closure #8
+      95 [   0] MOVE      R0 := R4
+      96 [   0] GETUPVAL  R0 := upval 3
+      97 [   0] MOVE      R0 := R2
+      98 [   0] MOVE      R0 := R15
+      99 [   0] MOVE      R0 := R23
+     100 [   0] MOVE      R0 := R10
+     101 [   0] MOVE      R0 := R34
+     102 [   0] MOVE      R0 := R32
+     103 [   0] MOVE      R0 := R3
+     104 [   0] CLOSURE   R36 := closure #9
+     105 [   0] MOVE      R0 := R5
+     106 [   0] GETUPVAL  R0 := upval 0
+     107 [   0] MOVE      R0 := R6
+     108 [   0] CLOSURE   R37 := closure #10
+     109 [   0] MOVE      R0 := R8
+     110 [   0] MOVE      R0 := R37
+     111 [   0] MOVE      R0 := R28
+     112 [   0] MOVE      R0 := R7
+     113 [   0] MOVE      R0 := R35
+     114 [   0] LOADK     R38 := 1000
+     115 [   0] CLOSURE   R39 := closure #11
+     116 [   0] MOVE      R0 := R25
+     117 [   0] MOVE      R0 := R38
+     118 [   0] CLOSURE   R40 := closure #12
+     119 [   0] MOVE      R0 := R9
+     120 [   0] CLOSURE   R41 := closure #13
+     121 [   0] MOVE      R0 := R27
+     122 [   0] SETTABLE  R2["update"] := R41
+     123 [   0] CLOSURE   R41 := closure #14
+     124 [   0] MOVE      R0 := R1
+     125 [   0] MOVE      R0 := R3
+     126 [   0] MOVE      R0 := R8
+     127 [   0] MOVE      R0 := R13
+     128 [   0] MOVE      R0 := R14
+     129 [   0] MOVE      R0 := R36
+     130 [   0] MOVE      R0 := R39
+     131 [   0] MOVE      R0 := R37
+     132 [   0] MOVE      R0 := R40
+     133 [   0] SETTABLE  R2["enter"] := R41
+     134 [   0] CLOSURE   R41 := closure #15
+     135 [   0] MOVE      R0 := R1
+     136 [   0] MOVE      R0 := R28
+     137 [   0] MOVE      R0 := R8
+     138 [   0] MOVE      R0 := R37
+     139 [   0] SETTABLE  R2["exit"] := R41
+     140 [   0] CLOSURE   R41 := closure #16
+     141 [   0] MOVE      R0 := R2
+     142 [   0] SETTABLE  R2["destroy"] := R41
+     143 [   0] GETUPVAL  R41 := upval 0
+     144 [   0] GETTABLE  R41 := R41["inherit"]
+     145 [   0] MOVE      R42 := R2
+     146 [   0] LOADK     R43 := "_flaregames_remove"
+     147 [   0] CLOSURE   R44 := closure #17
+     148 [   0] MOVE      R0 := R2
+     149 [   0] CALL      R41(...) nargs=3 nret=0
+     150 [   0] CLOSURE   R41 := closure #18
+     151 [   0] MOVE      R0 := R10
+     152 [   0] GETUPVAL  R0 := upval 4
+     153 [   0] MOVE      R0 := R11
+     154 [   0] GETUPVAL  R0 := upval 5
+     155 [   0] MOVE      R0 := R12
+     156 [   0] MOVE      R0 := R7
+     157 [   0] GETUPVAL  R0 := upval 6
+     158 [   0] MOVE      R0 := R3
+     159 [   0] MOVE      R0 := R5
+     160 [   0] GETUPVAL  R0 := upval 7
+     161 [   0] MOVE      R0 := R2
+     162 [   0] GETUPVAL  R0 := upval 0
+     163 [   0] MOVE      R0 := R22
+     164 [   0] MOVE      R0 := R18
+     165 [   0] MOVE      R0 := R30
+     166 [   0] MOVE      R0 := R6
+     167 [   0] MOVE      R0 := R8
+     168 [   0] GETUPVAL  R0 := upval 8
+     169 [   0] MOVE      R0 := R13
+     170 [   0] MOVE      R0 := R33
+     171 [   0] MOVE      R0 := R14
+     172 [   0] MOVE      R0 := R24
+     173 [   0] MOVE      R42 := R41
+     174 [   0] MOVE      R43 := R0
+     175 [   0] CALL      R42(...) nargs=1 nret=0
+     176 [   0] RETURN    return R2.. (1 values)
+     177 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 71-72, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 74-79, upvals=[], locals=[])
+      constants: strings=['pairs', 'safeRemoveObject'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["pairs"]
+         1 [   0] GETUPVAL  R1 := upval 0
+         2 [   0] CALL      R0(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +4 -> 8
+         4 [   0] GETUPVAL  R5 := upval 1
+         5 [   0] GETTABLE  R5 := R5["safeRemoveObject"]
+         6 [   0] MOVE      R6 := R4
+         7 [   0] CALL      R5(...) nargs=1 nret=0
+         8 [   0] TFORLOOP  tforloop R0 nres=2
+         9 [   0] JMP       jmp -6 -> 4
+        10 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+        11 [   0] SETUPVAL  upval 0 := R0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 81-93, upvals=[], locals=[])
+      constants: strings=['card_template_id', 'level', 'xp'] numbers=[1, 5]
+         0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+         1 [   0] LOADK     R2 := 1
+         2 [   0] LOADK     R3 := 5
+         3 [   0] LOADK     R4 := 1
+         4 [   0] FORPREP   for R2.. jmp +14
+         5 [   0] GETTABLE  R6 := R0[R5]
+         6 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+         7 [   0] JMP       jmp +11 -> 19
+         8 [   0] NEWTABLE  R6 := {} (array 0, hash 3)
+         9 [   0] GETTABLE  R7 := R0[R5]
+        10 [   0] GETTABLE  R7 := R7["card_template_id"]
+        11 [   0] SETTABLE  R6["card_template_id"] := R7
+        12 [   0] GETTABLE  R7 := R0[R5]
+        13 [   0] GETTABLE  R7 := R7["level"]
+        14 [   0] SETTABLE  R6["level"] := R7
+        15 [   0] GETTABLE  R7 := R0[R5]
+        16 [   0] GETTABLE  R7 := R7["xp"]
+        17 [   0] SETTABLE  R6["xp"] := R7
+        18 [   0] SETTABLE  R1[R5] := R6
+        19 [   0] FORLOOP   forloop R2 jmp -15
+        20 [   0] RETURN    return R1.. (1 values)
+        21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=3, lines 95-124, upvals=[], locals=[])
+      constants: strings=['cid', 'getCard', 'createNewCard', 'id', 'getCardLevelData', 'levelCurve', 'level', 'addXpToCard', 'xp', 'attack', 'originalAttack', 'hp', 'originalHP'] numbers=[1]
+         0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] RETURN    return R0.. (0 values)
+         3 [   0] EQ        if (R1 == None) ~= 0 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] LOADK     R1 := 1
+         6 [   0] LOADK     R3 := 1
+         7 [   0] GETUPVAL  R4 := upval 0
+         8 [   0] LEN       R4 := #R4
+         9 [   0] LOADK     R5 := 1
+        10 [   0] FORPREP   for R3.. jmp +56
+        11 [   0] GETUPVAL  R7 := upval 0
+        12 [   0] GETTABLE  R7 := R7[R6]
+        13 [   0] GETTABLE  R7 := R7["cid"]
+        14 [   0] EQ        if (R7 == R0) ~= 0 then skip next
+        15 [   0] JMP       jmp +51 -> 67
+        16 [   0] GETUPVAL  R7 := upval 1
+        17 [   0] GETTABLE  R7 := R7["getCard"]
+        18 [   0] GETUPVAL  R8 := upval 1
+        19 [   0] GETTABLE  R8 := R8["createNewCard"]
+        20 [   0] GETUPVAL  R9 := upval 0
+        21 [   0] GETTABLE  R9 := R9[R6]
+        22 [   0] GETTABLE  R9 := R9["id"]
+        23 [   0] CALL      R8(...) nargs=1 nret=-1
+        24 [   0] CALL      R7(...) nargs=-1 nret=1
+        25 [   0] GETUPVAL  R8 := upval 2
+        26 [   0] GETUPVAL  R9 := upval 2
+        27 [   0] LEN       R9 := #R9
+        28 [   0] ADD       R9 := R9 + 1
+        29 [   0] SETTABLE  R8[R9] := R7
+        30 [   0] GETUPVAL  R8 := upval 3
+        31 [   0] GETTABLE  R8 := R8["getCardLevelData"]
+        32 [   0] GETTABLE  R9 := R7["levelCurve"]
+        33 [   0] CALL      R8(...) nargs=1 nret=1
+        34 [   0] LOADK     R9 := 1
+        35 [   0] LEN       R10 := #R8
+        36 [   0] LOADK     R11 := 1
+        37 [   0] FORPREP   for R9.. jmp +11
+        38 [   0] GETTABLE  R13 := R8[R12]
+        39 [   0] GETTABLE  R13 := R13["level"]
+        40 [   0] EQ        if (R13 == R1) ~= 0 then skip next
+        41 [   0] JMP       jmp +7 -> 49
+        42 [   0] GETUPVAL  R13 := upval 1
+        43 [   0] GETTABLE  R13 := R13["addXpToCard"]
+        44 [   0] GETTABLE  R14 := R7["id"]
+        45 [   0] GETTABLE  R15 := R8[R12]
+        46 [   0] GETTABLE  R15 := R15["xp"]
+        47 [   0] CALL      R13(...) nargs=2 nret=0
+        48 [   0] JMP       jmp +1 -> 50
+        49 [   0] FORLOOP   forloop R9 jmp -12
+        50 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        51 [   0] JMP       jmp +14 -> 66
+        52 [   0] GETTABLE  R9 := R2["attack"]
+        53 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+        54 [   0] JMP       jmp +4 -> 59
+        55 [   0] GETTABLE  R9 := R2["attack"]
+        56 [   0] SETTABLE  R7["attack"] := R9
+        57 [   0] GETTABLE  R9 := R2["attack"]
+        58 [   0] SETTABLE  R7["originalAttack"] := R9
+        59 [   0] GETTABLE  R9 := R2["hp"]
+        60 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+        61 [   0] JMP       jmp +4 -> 66
+        62 [   0] GETTABLE  R9 := R2["hp"]
+        63 [   0] SETTABLE  R7["hp"] := R9
+        64 [   0] GETTABLE  R9 := R2["hp"]
+        65 [   0] SETTABLE  R7["originalHP"] := R9
+        66 [   0] RETURN    return R7.. (1 values)
+        67 [   0] FORLOOP   forloop R3 jmp -57
+        68 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=4, lines 126-139, upvals=[], locals=[])
+      constants: strings=['create', 'parent', 'stats', 'enemyMode', 'xpBar', 'showMana', 'showLevel', 'showArrows', 'isVisible', 'update', 'cardData'] numbers=[]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["create"]
+         2 [   0] NEWTABLE  R5 := {} (array 0, hash 7)
+         3 [   0] GETUPVAL  R6 := upval 1
+         4 [   0] SETTABLE  R5["parent"] := R6
+         5 [   0] SETTABLE  R5["stats"] := True
+         6 [   0] SETTABLE  R5["enemyMode"] := R3
+         7 [   0] SETTABLE  R5["xpBar"] := False
+         8 [   0] SETTABLE  R5["showMana"] := False
+         9 [   0] SETTABLE  R5["showLevel"] := True
+        10 [   0] SETTABLE  R5["showArrows"] := True
+        11 [   0] CALL      R4(...) nargs=1 nret=1
+        12 [   0] SETTABLE  R4["isVisible"] := True
+        13 [   0] GETTABLE  R5 := R4["update"]
+        14 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+        15 [   0] GETUPVAL  R7 := upval 2
+        16 [   0] MOVE      R8 := R0
+        17 [   0] MOVE      R9 := R1
+        18 [   0] MOVE      R10 := R2
+        19 [   0] CALL      R7(...) nargs=3 nret=1
+        20 [   0] SETTABLE  R6["cardData"] := R7
+        21 [   0] CALL      R5(...) nargs=1 nret=0
+        22 [   0] RETURN    return R4.. (1 values)
+        23 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 141-146, upvals=[], locals=[])
+      constants: strings=['safeCall'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["safeCall"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 148-166, upvals=[], locals=[])
+      constants: strings=['ctrlIntroFight.playerDeck', 'ctrlIntroFight.bossDeck', 'create', 'parent', 'layout', 'nodnd', 'setCard'] numbers=[1, 5, 2, 3]
+         0 [   0] LOADK     R2 := "ctrlIntroFight.playerDeck"
+         1 [   0] EQ        if (R1 == True) ~= 0 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] LOADK     R2 := "ctrlIntroFight.bossDeck"
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] GETTABLE  R3 := R3["create"]
+         6 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+         7 [   0] GETUPVAL  R5 := upval 1
+         8 [   0] SETTABLE  R4["parent"] := R5
+         9 [   0] SETTABLE  R4["layout"] := R2
+        10 [   0] SETTABLE  R4["nodnd"] := True
+        11 [   0] CALL      R3(...) nargs=1 nret=1
+        12 [   0] LOADK     R4 := 1
+        13 [   0] LOADK     R5 := 5
+        14 [   0] LOADK     R6 := 1
+        15 [   0] FORPREP   for R4.. jmp +12
+        16 [   0] GETTABLE  R8 := R0[R7]
+        17 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        18 [   0] JMP       jmp +9 -> 28
+        19 [   0] GETTABLE  R9 := R3["setCard"]
+        20 [   0] MOVE      R10 := R7
+        21 [   0] GETUPVAL  R11 := upval 2
+        22 [   0] GETTABLE  R12 := R8[1]
+        23 [   0] GETTABLE  R13 := R8[2]
+        24 [   0] GETTABLE  R14 := R8[3]
+        25 [   0] MOVE      R15 := R1
+        26 [   0] CALL      R11(...) nargs=4 nret=-1
+        27 [   0] CALL      R9(...) nargs=-1 nret=0
+        28 [   0] FORLOOP   forloop R4 jmp -13
+        29 [   0] RETURN    return R3.. (1 values)
+        30 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=1, lines 168-213, upvals=[], locals=[])
+      constants: strings=['to', 'y', 'transition', 'easing', 'outExpo', 'time', 'update', 'player1Name', '_T', 'You', 'player1Image', 'player2Name', 'player2Image', 'isVisible', 'fadeInHud'] numbers=[30, 1000, 1500, 300]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["to"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+         4 [   0] GETUPVAL  R4 := upval 1
+         5 [   0] GETTABLE  R4 := R4["y"]
+         6 [   0] ADD       R4 := R4 + 30
+         7 [   0] SETTABLE  R3["y"] := R4
+         8 [   0] GETGLOBAL R4 := _G["easing"]
+         9 [   0] GETTABLE  R4 := R4["outExpo"]
+        10 [   0] SETTABLE  R3["transition"] := R4
+        11 [   0] SETTABLE  R3["time"] := 1000
+        12 [   0] CALL      R1(...) nargs=2 nret=0
+        13 [   0] GETUPVAL  R1 := upval 0
+        14 [   0] GETTABLE  R1 := R1["to"]
+        15 [   0] GETUPVAL  R2 := upval 2
+        16 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+        17 [   0] GETUPVAL  R4 := upval 2
+        18 [   0] GETTABLE  R4 := R4["y"]
+        19 [   0] SUB       R4 := R4 - 30
+        20 [   0] SETTABLE  R3["y"] := R4
+        21 [   0] GETGLOBAL R4 := _G["easing"]
+        22 [   0] GETTABLE  R4 := R4["outExpo"]
+        23 [   0] SETTABLE  R3["transition"] := R4
+        24 [   0] SETTABLE  R3["time"] := 1000
+        25 [   0] CALL      R1(...) nargs=2 nret=0
+        26 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+        27 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+        28 [   0] LOADK     R3 := 1500
+        29 [   0] LOADK     R4 := 300
+        30 [   0] GETUPVAL  R5 := upval 3
+        31 [   0] GETTABLE  R5 := R5["update"]
+        32 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+        33 [   0] GETGLOBAL R7 := _G["_T"]
+        34 [   0] LOADK     R8 := "You"
+        35 [   0] CALL      R7(...) nargs=1 nret=1
+        36 [   0] SETTABLE  R6["player1Name"] := R7
+        37 [   0] GETUPVAL  R7 := upval 4
+        38 [   0] SETTABLE  R6["player1Image"] := R7
+        39 [   0] CALL      R5(...) nargs=1 nret=0
+        40 [   0] GETUPVAL  R5 := upval 3
+        41 [   0] GETTABLE  R5 := R5["update"]
+        42 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+        43 [   0] GETUPVAL  R7 := upval 5
+        44 [   0] SETTABLE  R6["player2Name"] := R7
+        45 [   0] GETUPVAL  R7 := upval 6
+        46 [   0] SETTABLE  R6["player2Image"] := R7
+        47 [   0] CALL      R5(...) nargs=1 nret=0
+        48 [   0] GETUPVAL  R5 := upval 3
+        49 [   0] SETTABLE  R5["isVisible"] := True
+        50 [   0] GETUPVAL  R5 := upval 3
+        51 [   0] GETTABLE  R5 := R5["fadeInHud"]
+        52 [   0] CLOSURE   R6 := closure #0
+        53 [   0] GETUPVAL  R0 := upval 1
+        54 [   0] GETUPVAL  R0 := upval 7
+        55 [   0] MOVE      R0 := R1
+        56 [   0] GETUPVAL  R0 := upval 2
+        57 [   0] MOVE      R0 := R2
+        58 [   0] GETUPVAL  R0 := upval 3
+        59 [   0] MOVE      R0 := R3
+        60 [   0] MOVE      R0 := R4
+        61 [   0] GETUPVAL  R0 := upval 0
+        62 [   0] GETUPVAL  R0 := upval 8
+        63 [   0] MOVE      R0 := R0
+        64 [   0] CALL      R5(...) nargs=1 nret=0
+        65 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#0 (params=0, lines 187-212, upvals=[], locals=[])
+        constants: strings=['removeCardSlotComponent', 'changeParent', 'update', 'player1Health', 'player1Deck', 'player2Health', 'player2Deck', 'useExistingComponents', 'to', 'alpha', 'time', 'onComplete'] numbers=[1, 5, 6, 0, 500]
+           0 [   0] LOADK     R0 := 1
+           1 [   0] LOADK     R1 := 5
+           2 [   0] LOADK     R2 := 1
+           3 [   0] FORPREP   for R0.. jmp +23
+           4 [   0] GETUPVAL  R4 := upval 0
+           5 [   0] GETTABLE  R4 := R4["removeCardSlotComponent"]
+           6 [   0] MOVE      R5 := R3
+           7 [   0] CALL      R4(...) nargs=1 nret=1
+           8 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+           9 [   0] JMP       jmp +6 -> 16
+          10 [   0] GETTABLE  R5 := R4["changeParent"]
+          11 [   0] GETUPVAL  R6 := upval 1
+          12 [   0] CALL      R5(...) nargs=1 nret=0
+          13 [   0] GETUPVAL  R5 := upval 2
+          14 [   0] SUB       R6 := 6 - R3
+          15 [   0] SETTABLE  R5[R6] := R4
+          16 [   0] GETUPVAL  R5 := upval 3
+          17 [   0] GETTABLE  R5 := R5["removeCardSlotComponent"]
+          18 [   0] MOVE      R6 := R3
+          19 [   0] CALL      R5(...) nargs=1 nret=1
+          20 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+          21 [   0] JMP       jmp +5 -> 27
+          22 [   0] GETTABLE  R6 := R5["changeParent"]
+          23 [   0] GETUPVAL  R7 := upval 1
+          24 [   0] CALL      R6(...) nargs=1 nret=0
+          25 [   0] GETUPVAL  R6 := upval 4
+          26 [   0] SETTABLE  R6[R3] := R5
+          27 [   0] FORLOOP   forloop R0 jmp -24
+          28 [   0] GETUPVAL  R0 := upval 5
+          29 [   0] GETTABLE  R0 := R0["update"]
+          30 [   0] NEWTABLE  R1 := {} (array 0, hash 5)
+          31 [   0] GETUPVAL  R2 := upval 6
+          32 [   0] SETTABLE  R1["player1Health"] := R2
+          33 [   0] GETUPVAL  R2 := upval 4
+          34 [   0] SETTABLE  R1["player1Deck"] := R2
+          35 [   0] GETUPVAL  R2 := upval 7
+          36 [   0] SETTABLE  R1["player2Health"] := R2
+          37 [   0] GETUPVAL  R2 := upval 2
+          38 [   0] SETTABLE  R1["player2Deck"] := R2
+          39 [   0] SETTABLE  R1["useExistingComponents"] := True
+          40 [   0] CALL      R0(...) nargs=1 nret=0
+          41 [   0] GETUPVAL  R0 := upval 8
+          42 [   0] GETTABLE  R0 := R0["to"]
+          43 [   0] GETUPVAL  R1 := upval 0
+          44 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+          45 [   0] SETTABLE  R2["alpha"] := 0
+          46 [   0] SETTABLE  R2["time"] := 500
+          47 [   0] CALL      R0(...) nargs=2 nret=0
+          48 [   0] GETUPVAL  R0 := upval 8
+          49 [   0] GETTABLE  R0 := R0["to"]
+          50 [   0] GETUPVAL  R1 := upval 3
+          51 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+          52 [   0] SETTABLE  R2["alpha"] := 0
+          53 [   0] SETTABLE  R2["time"] := 500
+          54 [   0] CLOSURE   R3 := closure #0
+          55 [   0] GETUPVAL  R0 := upval 9
+          56 [   0] GETUPVAL  R0 := upval 10
+          57 [   0] SETTABLE  R2["onComplete"] := R3
+          58 [   0] CALL      R0(...) nargs=2 nret=0
+          59 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#7.#0.#0 (params=0, lines 208-210, upvals=[], locals=[])
+          constants: strings=['safeCall'] numbers=[]
+             0 [   0] GETUPVAL  R0 := upval 0
+             1 [   0] GETTABLE  R0 := R0["safeCall"]
+             2 [   0] GETUPVAL  R1 := upval 1
+             3 [   0] CALL      R0(...) nargs=1 nret=0
+             4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 215-267, upvals=[], locals=[])
+      constants: strings=['create', 'parent', 'layout', 'fight.screen', 'isVisible', 'require', 'server.server', 'getInstance', 'io', 'open', 'system', 'pathForFile', 'ResourceDirectory', 'r', 'read', '*a', 'json', 'decode', 'close', 'audioEngine', 'playMusic', 'music_fight_random', 'card_template_id', 'getCardImageList', 'game.hudmanager', 'scheduleWaitingIndicator', '_T', 'Loading', 'server.remoteassetmanager', 'prefetchFiles'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 1
+         1 [   0] GETTABLE  R0 := R0["create"]
+         2 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+         3 [   0] GETUPVAL  R2 := upval 2
+         4 [   0] SETTABLE  R1["parent"] := R2
+         5 [   0] SETTABLE  R1["layout"] := "fight.screen"
+         6 [   0] CALL      R0(...) nargs=1 nret=1
+         7 [   0] SETUPVAL  upval 0 := R0
+         8 [   0] GETUPVAL  R0 := upval 0
+         9 [   0] SETTABLE  R0["isVisible"] := False
+        10 [   0] LOADNIL   R0..R0 := nil
+        11 [   0] GETGLOBAL R1 := _G["require"]
+        12 [   0] LOADK     R2 := "server.server"
+        13 [   0] CALL      R1(...) nargs=1 nret=1
+        14 [   0] GETTABLE  R1 := R1["getInstance"]
+        15 [   0] CALL      R1(...) nargs=0 nret=1
+        16 [   0] LOADNIL   R2..R2 := nil
+        17 [   0] GETGLOBAL R3 := _G["io"]
+        18 [   0] GETTABLE  R3 := R3["open"]
+        19 [   0] GETGLOBAL R4 := _G["system"]
+        20 [   0] GETTABLE  R4 := R4["pathForFile"]
+        21 [   0] GETUPVAL  R5 := upval 3
+        22 [   0] GETGLOBAL R6 := _G["system"]
+        23 [   0] GETTABLE  R6 := R6["ResourceDirectory"]
+        24 [   0] CALL      R4(...) nargs=2 nret=1
+        25 [   0] LOADK     R5 := "r"
+        26 [   0] CALL      R3(...) nargs=2 nret=1
+        27 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        28 [   0] JMP       jmp +14 -> 43
+        29 [   0] SELF      R5 := R3; R4 := R3["read"]
+        30 [   0] LOADK     R6 := "*a"
+        31 [   0] CALL      R4(...) nargs=2 nret=1
+        32 [   0] GETGLOBAL R5 := _G["require"]
+        33 [   0] LOADK     R6 := "json"
+        34 [   0] CALL      R5(...) nargs=1 nret=1
+        35 [   0] GETTABLE  R6 := R5["decode"]
+        36 [   0] MOVE      R7 := R4
+        37 [   0] CALL      R6(...) nargs=1 nret=1
+        38 [   0] MOVE      R2 := R6
+        39 [   0] GETGLOBAL R6 := _G["io"]
+        40 [   0] GETTABLE  R6 := R6["close"]
+        41 [   0] MOVE      R7 := R3
+        42 [   0] CALL      R6(...) nargs=1 nret=0
+        43 [   0] GETGLOBAL R4 := _G["audioEngine"]
+        44 [   0] GETTABLE  R4 := R4["playMusic"]
+        45 [   0] LOADK     R5 := "music_fight_random"
+        46 [   0] CALL      R4(...) nargs=1 nret=0
+        47 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        48 [   0] JMP       jmp +56 -> 105
+        49 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+        50 [   0] LOADK     R5 := 1
+        51 [   0] GETUPVAL  R6 := upval 4
+        52 [   0] LEN       R6 := #R6
+        53 [   0] LOADK     R7 := 1
+        54 [   0] FORPREP   for R5.. jmp +20
+        55 [   0] GETUPVAL  R9 := upval 4
+        56 [   0] GETTABLE  R9 := R9[R8]
+        57 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+        58 [   0] JMP       jmp +16 -> 75
+        59 [   0] GETTABLE  R10 := R9["card_template_id"]
+        60 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+        61 [   0] JMP       jmp +13 -> 75
+        62 [   0] GETUPVAL  R10 := upval 5
+        63 [   0] GETTABLE  R10 := R10["getCardImageList"]
+        64 [   0] GETTABLE  R11 := R9["card_template_id"]
+        65 [   0] CALL      R10(...) nargs=1 nret=1
+        66 [   0] LOADK     R11 := 1
+        67 [   0] LEN       R12 := #R10
+        68 [   0] LOADK     R13 := 1
+        69 [   0] FORPREP   for R11.. jmp +4
+        70 [   0] LEN       R15 := #R4
+        71 [   0] ADD       R15 := R15 + 1
+        72 [   0] GETTABLE  R16 := R10[R14]
+        73 [   0] SETTABLE  R4[R15] := R16
+        74 [   0] FORLOOP   forloop R11 jmp -5
+        75 [   0] FORLOOP   forloop R5 jmp -21
+        76 [   0] GETGLOBAL R5 := _G["require"]
+        77 [   0] LOADK     R6 := "game.hudmanager"
+        78 [   0] CALL      R5(...) nargs=1 nret=1
+        79 [   0] GETTABLE  R5 := R5["getInstance"]
+        80 [   0] CALL      R5(...) nargs=0 nret=1
+        81 [   0] GETTABLE  R6 := R5["scheduleWaitingIndicator"]
+        82 [   0] LOADK     R7 := 1
+        83 [   0] GETGLOBAL R8 := _G["_T"]
+        84 [   0] LOADK     R9 := "Loading"
+        85 [   0] CALL      R8(...) nargs=1 nret=-1
+        86 [   0] CALL      R6(...) nargs=-1 nret=0
+        87 [   0] GETGLOBAL R6 := _G["require"]
+        88 [   0] LOADK     R7 := "server.remoteassetmanager"
+        89 [   0] CALL      R6(...) nargs=1 nret=1
+        90 [   0] GETTABLE  R6 := R6["getInstance"]
+        91 [   0] CALL      R6(...) nargs=0 nret=1
+        92 [   0] GETTABLE  R7 := R6["prefetchFiles"]
+        93 [   0] MOVE      R8 := R4
+        94 [   0] CLOSURE   R9 := closure #0
+        95 [   0] MOVE      R0 := R5
+        96 [   0] GETUPVAL  R0 := upval 6
+        97 [   0] GETUPVAL  R0 := upval 0
+        98 [   0] MOVE      R0 := R2
+        99 [   0] GETUPVAL  R0 := upval 5
+       100 [   0] GETUPVAL  R0 := upval 4
+       101 [   0] GETUPVAL  R0 := upval 7
+       102 [   0] GETUPVAL  R0 := upval 8
+       103 [   0] CALL      R7(...) nargs=2 nret=0
+       104 [   0] CLOSE     A=4 B=0 C=0
+       105 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#8.#0 (params=0, lines 253-265, upvals=[], locals=[])
+        constants: strings=['abortWaitingIndicator'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["abortWaitingIndicator"]
+           2 [   0] CALL      R0(...) nargs=0 nret=0
+           3 [   0] GETUPVAL  R0 := upval 1
+           4 [   0] CLOSURE   R1 := closure #0
+           5 [   0] GETUPVAL  R0 := upval 2
+           6 [   0] GETUPVAL  R0 := upval 3
+           7 [   0] GETUPVAL  R0 := upval 4
+           8 [   0] GETUPVAL  R0 := upval 5
+           9 [   0] GETUPVAL  R0 := upval 6
+          10 [   0] GETUPVAL  R0 := upval 7
+          11 [   0] CALL      R0(...) nargs=1 nret=0
+          12 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#8.#0.#0 (params=0, lines 256-264, upvals=[], locals=[])
+          constants: strings=['update', 'visualizationData', 'visualized', 'finalState', 'enter', 'play'] numbers=[]
+             0 [   0] GETUPVAL  R0 := upval 0
+             1 [   0] GETTABLE  R0 := R0["update"]
+             2 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+             3 [   0] GETUPVAL  R2 := upval 1
+             4 [   0] GETTABLE  R2 := R2["visualized"]
+             5 [   0] SETTABLE  R1["visualizationData"] := R2
+             6 [   0] GETUPVAL  R2 := upval 1
+             7 [   0] GETTABLE  R2 := R2["finalState"]
+             8 [   0] SETTABLE  R1["finalState"] := R2
+             9 [   0] CALL      R0(...) nargs=1 nret=0
+            10 [   0] GETUPVAL  R0 := upval 0
+            11 [   0] GETTABLE  R0 := R0["enter"]
+            12 [   0] CALL      R0(...) nargs=0 nret=0
+            13 [   0] GETUPVAL  R0 := upval 0
+            14 [   0] GETTABLE  R0 := R0["play"]
+            15 [   0] CLOSURE   R1 := closure #0
+            16 [   0] GETUPVAL  R0 := upval 2
+            17 [   0] GETUPVAL  R0 := upval 3
+            18 [   0] GETUPVAL  R0 := upval 4
+            19 [   0] GETUPVAL  R0 := upval 5
+            20 [   0] CALL      R0(...) nargs=1 nret=0
+            21 [   0] RETURN    return R0.. (0 values)
+          function main.#0.#8.#0.#0.#0 (params=0, lines 259-263, upvals=[], locals=[])
+            constants: strings=['destroyCards'] numbers=[]
+               0 [   0] GETUPVAL  R0 := upval 0
+               1 [   0] GETTABLE  R0 := R0["destroyCards"]
+               2 [   0] GETUPVAL  R1 := upval 1
+               3 [   0] CALL      R0(...) nargs=1 nret=0
+               4 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+               5 [   0] SETUPVAL  upval 1 := R0
+               6 [   0] GETUPVAL  R0 := upval 2
+               7 [   0] GETUPVAL  R1 := upval 3
+               8 [   0] CALL      R0(...) nargs=1 nret=0
+               9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=1, lines 269-276, upvals=[], locals=[])
+      constants: strings=['start'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["start"]
+         2 [   0] CLOSURE   R2 := closure #0
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] MOVE      R0 := R0
+         6 [   0] GETUPVAL  R3 := upval 2
+         7 [   0] CALL      R1(...) nargs=2 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#9.#0 (params=0, lines 271-274, upvals=[], locals=[])
+        constants: strings=['safeRemoveObject', 'safeCall'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] GETUPVAL  R0 := upval 0
+           5 [   0] GETTABLE  R0 := R0["safeCall"]
+           6 [   0] GETUPVAL  R1 := upval 2
+           7 [   0] CALL      R0(...) nargs=1 nret=0
+           8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=1, lines 278-286, upvals=[], locals=[])
+      constants: strings=['removeEventListener', 'buttonClicked', 'sendTutorialTracking', 'intro_start_fight', 'fadeOut'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SELF      R2 := R1; R1 := R1["removeEventListener"]
+         2 [   0] LOADK     R3 := "buttonClicked"
+         3 [   0] GETUPVAL  R4 := upval 1
+         4 [   0] CALL      R1(...) nargs=3 nret=0
+         5 [   0] GETUPVAL  R1 := upval 2
+         6 [   0] CALL      R1(...) nargs=0 nret=0
+         7 [   0] GETUPVAL  R1 := upval 3
+         8 [   0] GETTABLE  R1 := R1["sendTutorialTracking"]
+         9 [   0] LOADK     R2 := "intro_start_fight"
+        10 [   0] CALL      R1(...) nargs=1 nret=0
+        11 [   0] GETUPVAL  R1 := upval 0
+        12 [   0] GETTABLE  R1 := R1["fadeOut"]
+        13 [   0] CALL      R1(...) nargs=0 nret=0
+        14 [   0] GETUPVAL  R1 := upval 4
+        15 [   0] CALL      R1(...) nargs=0 nret=0
+        16 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=1, lines 289-296, upvals=[], locals=[])
+      constants: strings=['to', 'y', 'oldY', 'time', 'transition', 'easing', 'outExpo', 'onComplete'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["to"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+         4 [   0] GETTABLE  R4 := R0["oldY"]
+         5 [   0] SETTABLE  R3["y"] := R4
+         6 [   0] GETUPVAL  R4 := upval 1
+         7 [   0] SETTABLE  R3["time"] := R4
+         8 [   0] GETGLOBAL R4 := _G["easing"]
+         9 [   0] GETTABLE  R4 := R4["outExpo"]
+        10 [   0] SETTABLE  R3["transition"] := R4
+        11 [   0] SETTABLE  R3["onComplete"] := None
+        12 [   0] CALL      R1(...) nargs=2 nret=0
+        13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=1, lines 298-333, upvals=[], locals=[])
+      constants: strings=['require', 'ui.components.small.view_shp_highlights', 'game.hudmanager', 'getInstance', 'getTutorialGroup', 'create', 'parent', 'layout', 'default.center', 'type', 'sparkle', 'targetWidget', 'delay', 'enter', 'hand', 'pipe'] numbers=[1, 0, 2000, 4000]
+         0 [   0] GETGLOBAL R1 := _G["require"]
+         1 [   0] LOADK     R2 := "ui.components.small.view_shp_highlights"
+         2 [   0] CALL      R1(...) nargs=1 nret=1
+         3 [   0] GETGLOBAL R2 := _G["require"]
+         4 [   0] LOADK     R3 := "game.hudmanager"
+         5 [   0] CALL      R2(...) nargs=1 nret=1
+         6 [   0] GETTABLE  R3 := R2["getInstance"]
+         7 [   0] CALL      R3(...) nargs=0 nret=1
+         8 [   0] GETTABLE  R3 := R3["getTutorialGroup"]
+         9 [   0] CALL      R3(...) nargs=0 nret=1
+        10 [   0] GETUPVAL  R4 := upval 0
+        11 [   0] GETUPVAL  R5 := upval 0
+        12 [   0] LEN       R5 := #R5
+        13 [   0] ADD       R5 := R5 + 1
+        14 [   0] GETTABLE  R6 := R1["create"]
+        15 [   0] NEWTABLE  R7 := {} (array 0, hash 5)
+        16 [   0] SETTABLE  R7["parent"] := R3
+        17 [   0] SETTABLE  R7["layout"] := "default.center"
+        18 [   0] SETTABLE  R7["type"] := "sparkle"
+        19 [   0] SETTABLE  R7["targetWidget"] := R0
+        20 [   0] SETTABLE  R7["delay"] := 0
+        21 [   0] CALL      R6(...) nargs=1 nret=1
+        22 [   0] SETTABLE  R4[R5] := R6
+        23 [   0] GETUPVAL  R4 := upval 0
+        24 [   0] GETUPVAL  R5 := upval 0
+        25 [   0] LEN       R5 := #R5
+        26 [   0] GETTABLE  R4 := R4[R5]
+        27 [   0] GETTABLE  R4 := R4["enter"]
+        28 [   0] CALL      R4(...) nargs=0 nret=0
+        29 [   0] GETUPVAL  R4 := upval 0
+        30 [   0] GETUPVAL  R5 := upval 0
+        31 [   0] LEN       R5 := #R5
+        32 [   0] ADD       R5 := R5 + 1
+        33 [   0] GETTABLE  R6 := R1["create"]
+        34 [   0] NEWTABLE  R7 := {} (array 0, hash 5)
+        35 [   0] SETTABLE  R7["parent"] := R3
+        36 [   0] SETTABLE  R7["layout"] := "default.center"
+        37 [   0] SETTABLE  R7["type"] := "hand"
+        38 [   0] SETTABLE  R7["targetWidget"] := R0
+        39 [   0] SETTABLE  R7["delay"] := 2000
+        40 [   0] CALL      R6(...) nargs=1 nret=1
+        41 [   0] SETTABLE  R4[R5] := R6
+        42 [   0] GETUPVAL  R4 := upval 0
+        43 [   0] GETUPVAL  R5 := upval 0
+        44 [   0] LEN       R5 := #R5
+        45 [   0] GETTABLE  R4 := R4[R5]
+        46 [   0] GETTABLE  R4 := R4["enter"]
+        47 [   0] CALL      R4(...) nargs=0 nret=0
+        48 [   0] GETUPVAL  R4 := upval 0
+        49 [   0] GETUPVAL  R5 := upval 0
+        50 [   0] LEN       R5 := #R5
+        51 [   0] ADD       R5 := R5 + 1
+        52 [   0] GETTABLE  R6 := R1["create"]
+        53 [   0] NEWTABLE  R7 := {} (array 0, hash 5)
+        54 [   0] SETTABLE  R7["parent"] := R3
+        55 [   0] SETTABLE  R7["layout"] := "default.center"
+        56 [   0] SETTABLE  R7["type"] := "pipe"
+        57 [   0] SETTABLE  R7["targetWidget"] := R0
+        58 [   0] SETTABLE  R7["delay"] := 4000
+        59 [   0] CALL      R6(...) nargs=1 nret=1
+        60 [   0] SETTABLE  R4[R5] := R6
+        61 [   0] GETUPVAL  R4 := upval 0
+        62 [   0] GETUPVAL  R5 := upval 0
+        63 [   0] LEN       R5 := #R5
+        64 [   0] GETTABLE  R4 := R4[R5]
+        65 [   0] GETTABLE  R4 := R4["enter"]
+        66 [   0] CALL      R4(...) nargs=0 nret=0
+        67 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=1, lines 338-340, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] MOVE      R2 := R0
+         2 [   0] CALL      R1(...) nargs=1 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=1, lines 342-366, upvals=[], locals=[])
+      constants: strings=['toFront', 'enter', 'isVisible'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] EQ        if (R1 == False) ~= 0 then skip next
+         2 [   0] JMP       jmp +29 -> 32
+         3 [   0] TESTSET   if (R0 truthy) == 1 then R1 := R0 else skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] GETUPVAL  R1 := upval 1
+         6 [   0] SETUPVAL  upval 1 := R1
+         7 [   0] LOADBOOL  R1 := True
+         8 [   0] SETUPVAL  upval 0 := R1
+         9 [   0] GETUPVAL  R1 := upval 2
+        10 [   0] SELF      R2 := R1; R1 := R1["toFront"]
+        11 [   0] CALL      R1(...) nargs=1 nret=0
+        12 [   0] GETUPVAL  R1 := upval 2
+        13 [   0] GETTABLE  R1 := R1["enter"]
+        14 [   0] CALL      R1(...) nargs=0 nret=0
+        15 [   0] GETUPVAL  R1 := upval 3
+        16 [   0] GETTABLE  R1 := R1["enter"]
+        17 [   0] CALL      R1(...) nargs=0 nret=0
+        18 [   0] GETUPVAL  R1 := upval 4
+        19 [   0] GETTABLE  R1 := R1["enter"]
+        20 [   0] CALL      R1(...) nargs=0 nret=0
+        21 [   0] GETUPVAL  R1 := upval 2
+        22 [   0] SETTABLE  R1["isVisible"] := False
+        23 [   0] GETUPVAL  R1 := upval 5
+        24 [   0] CLOSURE   R2 := closure #0
+        25 [   0] GETUPVAL  R0 := upval 6
+        26 [   0] GETUPVAL  R0 := upval 4
+        27 [   0] GETUPVAL  R0 := upval 3
+        28 [   0] GETUPVAL  R0 := upval 2
+        29 [   0] GETUPVAL  R0 := upval 7
+        30 [   0] GETUPVAL  R0 := upval 8
+        31 [   0] CALL      R1(...) nargs=1 nret=0
+        32 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#14.#0 (params=0, lines 354-364, upvals=[], locals=[])
+        constants: strings=['audioEngine', 'playEffect', 'fx_metallic_transition', 'fadeIn'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] CALL      R0(...) nargs=1 nret=0
+           3 [   0] GETUPVAL  R0 := upval 0
+           4 [   0] GETUPVAL  R1 := upval 2
+           5 [   0] CALL      R0(...) nargs=1 nret=0
+           6 [   0] GETGLOBAL R0 := _G["audioEngine"]
+           7 [   0] GETTABLE  R0 := R0["playEffect"]
+           8 [   0] LOADK     R1 := "fx_metallic_transition"
+           9 [   0] CALL      R0(...) nargs=1 nret=0
+          10 [   0] GETUPVAL  R0 := upval 3
+          11 [   0] GETTABLE  R0 := R0["fadeIn"]
+          12 [   0] CLOSURE   R1 := closure #0
+          13 [   0] GETUPVAL  R0 := upval 3
+          14 [   0] GETUPVAL  R0 := upval 4
+          15 [   0] GETUPVAL  R0 := upval 5
+          16 [   0] CALL      R0(...) nargs=1 nret=0
+          17 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#14.#0.#0 (params=0, lines 360-363, upvals=[], locals=[])
+          constants: strings=['addEventListener', 'buttonClicked', 'getButton'] numbers=[]
+             0 [   0] GETUPVAL  R0 := upval 0
+             1 [   0] SELF      R1 := R0; R0 := R0["addEventListener"]
+             2 [   0] LOADK     R2 := "buttonClicked"
+             3 [   0] GETUPVAL  R3 := upval 1
+             4 [   0] CALL      R0(...) nargs=3 nret=0
+             5 [   0] GETUPVAL  R0 := upval 2
+             6 [   0] GETUPVAL  R1 := upval 0
+             7 [   0] GETTABLE  R1 := R1["getButton"]
+             8 [   0] CALL      R1(...) nargs=0 nret=-1
+             9 [   0] CALL      R0(...) nargs=-1 nret=0
+            10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=0, lines 368-375, upvals=[], locals=[])
+      constants: strings=['exit', 'removeEventListener', 'buttonClicked'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == True) ~= 0 then skip next
+         2 [   0] JMP       jmp +12 -> 15
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] GETUPVAL  R0 := upval 2
+         6 [   0] GETTABLE  R0 := R0["exit"]
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+        10 [   0] LOADK     R2 := "buttonClicked"
+        11 [   0] GETUPVAL  R3 := upval 3
+        12 [   0] CALL      R0(...) nargs=3 nret=0
+        13 [   0] LOADBOOL  R0 := False
+        14 [   0] SETUPVAL  upval 0 := R0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#16 (params=0, lines 377-379, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#17 (params=0, lines 381-383, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#18 (params=1, lines 385-469, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] CLOSURE   R1 := closure #0
+         1 [   0] GETUPVAL  R0 := upval 0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETUPVAL  R0 := upval 2
+         4 [   0] GETUPVAL  R0 := upval 3
+         5 [   0] GETUPVAL  R0 := upval 4
+         6 [   0] GETUPVAL  R0 := upval 5
+         7 [   0] GETUPVAL  R0 := upval 6
+         8 [   0] CLOSURE   R2 := closure #1
+         9 [   0] GETUPVAL  R0 := upval 7
+        10 [   0] MOVE      R0 := R0
+        11 [   0] GETUPVAL  R0 := upval 8
+        12 [   0] GETUPVAL  R0 := upval 9
+        13 [   0] GETUPVAL  R0 := upval 10
+        14 [   0] GETUPVAL  R0 := upval 11
+        15 [   0] GETUPVAL  R0 := upval 12
+        16 [   0] GETUPVAL  R0 := upval 13
+        17 [   0] GETUPVAL  R0 := upval 14
+        18 [   0] GETUPVAL  R0 := upval 15
+        19 [   0] GETUPVAL  R0 := upval 16
+        20 [   0] GETUPVAL  R0 := upval 17
+        21 [   0] GETUPVAL  R0 := upval 18
+        22 [   0] GETUPVAL  R0 := upval 19
+        23 [   0] GETUPVAL  R0 := upval 20
+        24 [   0] GETUPVAL  R0 := upval 21
+        25 [   0] MOVE      R3 := R1
+        26 [   0] CALL      R3(...) nargs=0 nret=0
+        27 [   0] MOVE      R3 := R2
+        28 [   0] CALL      R3(...) nargs=0 nret=0
+        29 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#18.#0 (params=0, lines 386-391, upvals=[], locals=[])
+        constants: strings=['getInstance', 'getMetadata', 'card_templates'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 1
+           1 [   0] GETTABLE  R0 := R0["getInstance"]
+           2 [   0] CALL      R0(...) nargs=0 nret=1
+           3 [   0] SETUPVAL  upval 0 := R0
+           4 [   0] GETUPVAL  R0 := upval 3
+           5 [   0] GETTABLE  R0 := R0["getInstance"]
+           6 [   0] CALL      R0(...) nargs=0 nret=1
+           7 [   0] SETUPVAL  upval 2 := R0
+           8 [   0] GETUPVAL  R0 := upval 2
+           9 [   0] GETTABLE  R0 := R0["getMetadata"]
+          10 [   0] CALL      R0(...) nargs=0 nret=1
+          11 [   0] GETTABLE  R0 := R0["card_templates"]
+          12 [   0] SETUPVAL  upval 4 := R0
+          13 [   0] GETUPVAL  R0 := upval 6
+          14 [   0] GETTABLE  R0 := R0["getInstance"]
+          15 [   0] CALL      R0(...) nargs=0 nret=1
+          16 [   0] SETUPVAL  upval 5 := R0
+          17 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#18.#1 (params=0, lines 393-464, upvals=[], locals=[])
+        constants: strings=['callback', 'create', 'parent', 'layout', 'default.center', 'anim_src', 'getAnimationSrc', 'assets/animations/bossfight_preview.json', 'speed', 'load', 'require', 'server.metadatamanager', 'getInstance', 'wurmschamane', 'enemyName', 'enemyImgId', 'log', 'msg', 'ui', 'createContainer', 'img', 'image', 'isVisible', 'util.gfxutil', 'getContentArea', 'y', 'dx', 'dy', 'baseCard', 'obj', 'easeOut', 'playerCards', 'cardId', 'level', 'enemyCards', 'oldY', 'height'] numbers=[1.2, 350, 5, 3, 2, 4, 0.5]
+           0 [   0] GETUPVAL  R0 := upval 1
+           1 [   0] GETTABLE  R0 := R0["callback"]
+           2 [   0] SETUPVAL  upval 0 := R0
+           3 [   0] GETUPVAL  R0 := upval 3
+           4 [   0] GETTABLE  R0 := R0["create"]
+           5 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+           6 [   0] GETUPVAL  R2 := upval 4
+           7 [   0] SETTABLE  R1["parent"] := R2
+           8 [   0] SETTABLE  R1["layout"] := "default.center"
+           9 [   0] GETUPVAL  R2 := upval 5
+          10 [   0] GETTABLE  R2 := R2["getAnimationSrc"]
+          11 [   0] LOADK     R3 := "assets/animations/bossfight_preview.json"
+          12 [   0] CALL      R2(...) nargs=1 nret=1
+          13 [   0] SETTABLE  R1["anim_src"] := R2
+          14 [   0] SETTABLE  R1["speed"] := 1.2
+          15 [   0] CALL      R0(...) nargs=1 nret=1
+          16 [   0] SETUPVAL  upval 2 := R0
+          17 [   0] GETUPVAL  R0 := upval 2
+          18 [   0] GETTABLE  R0 := R0["load"]
+          19 [   0] CALL      R0(...) nargs=0 nret=0
+          20 [   0] GETGLOBAL R0 := _G["require"]
+          21 [   0] LOADK     R1 := "server.metadatamanager"
+          22 [   0] CALL      R0(...) nargs=1 nret=1
+          23 [   0] GETTABLE  R0 := R0["getInstance"]
+          24 [   0] CALL      R0(...) nargs=0 nret=1
+          25 [   0] LOADK     R1 := "wurmschamane"
+          26 [   0] GETUPVAL  R2 := upval 7
+          27 [   0] GETTABLE  R2 := R2["enemyName"]
+          28 [   0] SETUPVAL  upval 6 := R2
+          29 [   0] GETUPVAL  R2 := upval 7
+          30 [   0] GETTABLE  R1 := R2["enemyImgId"]
+          31 [   0] GETGLOBAL R2 := _G["log"]
+          32 [   0] GETTABLE  R2 := R2["msg"]
+          33 [   0] GETUPVAL  R3 := upval 6
+          34 [   0] MOVE      R4 := R1
+          35 [   0] CALL      R2(...) nargs=2 nret=0
+          36 [   0] GETGLOBAL R2 := _G["ui"]
+          37 [   0] GETTABLE  R2 := R2["createContainer"]
+          38 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+          39 [   0] GETUPVAL  R4 := upval 4
+          40 [   0] SETTABLE  R3["parent"] := R4
+          41 [   0] SETTABLE  R3["layout"] := "default.center"
+          42 [   0] GETUPVAL  R4 := upval 8
+          43 [   0] MOVE      R5 := R1
+          44 [   0] CALL      R4(...) nargs=1 nret=1
+          45 [   0] GETTABLE  R4 := R4["image"]
+          46 [   0] SETTABLE  R3["img"] := R4
+          47 [   0] CALL      R2(...) nargs=1 nret=1
+          48 [   0] SETTABLE  R2["isVisible"] := False
+          49 [   0] GETGLOBAL R3 := _G["require"]
+          50 [   0] LOADK     R4 := "util.gfxutil"
+          51 [   0] CALL      R3(...) nargs=1 nret=1
+          52 [   0] GETTABLE  R4 := R3["getContentArea"]
+          53 [   0] MOVE      R5 := R2
+          54 [   0] CALL      R4(...) nargs=1 nret=1
+          55 [   0] GETTABLE  R5 := R4["y"]
+          56 [   0] SUB       R5 := R5 - 350
+          57 [   0] SETTABLE  R4["y"] := R5
+          58 [   0] GETTABLE  R5 := R4["dx"]
+          59 [   0] DIV       R5 := R5 / 5
+          60 [   0] SETTABLE  R4["dx"] := R5
+          61 [   0] GETTABLE  R5 := R4["dy"]
+          62 [   0] DIV       R5 := R5 / 5
+          63 [   0] SETTABLE  R4["dy"] := R5
+          64 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+          65 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+          66 [   0] SETTABLE  R6["obj"] := R2
+          67 [   0] SETTABLE  R6["easeOut"] := R4
+          68 [   0] SETTABLE  R5["baseCard"] := R6
+          69 [   0] SETUPVAL  upval 9 := R5
+          70 [   0] GETUPVAL  R5 := upval 11
+          71 [   0] GETTABLE  R5 := R5["create"]
+          72 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+          73 [   0] GETUPVAL  R7 := upval 4
+          74 [   0] SETTABLE  R6["parent"] := R7
+          75 [   0] SETTABLE  R6["layout"] := "default.center"
+          76 [   0] CALL      R5(...) nargs=1 nret=1
+          77 [   0] SETUPVAL  upval 10 := R5
+          78 [   0] GETUPVAL  R5 := upval 13
+          79 [   0] NEWTABLE  R6 := {} (array 5, hash 0)
+          80 [   0] LOADNIL   R7..R8 := nil
+          81 [   0] NEWTABLE  R9 := {} (array 2, hash 0)
+          82 [   0] GETUPVAL  R10 := upval 7
+          83 [   0] GETTABLE  R10 := R10["playerCards"]
+          84 [   0] GETTABLE  R10 := R10[3]
+          85 [   0] GETTABLE  R10 := R10["cardId"]
+          86 [   0] GETUPVAL  R11 := upval 7
+          87 [   0] GETTABLE  R11 := R11["playerCards"]
+          88 [   0] GETTABLE  R11 := R11[3]
+          89 [   0] GETTABLE  R11 := R11["level"]
+          90 [   0] SETLIST   R9[...] := R10.. (n=2, block 1)
+          91 [   0] LOADNIL   R10..R11 := nil
+          92 [   0] SETLIST   R6[...] := R7.. (n=5, block 1)
+          93 [   0] LOADBOOL  R7 := False
+          94 [   0] CALL      R5(...) nargs=2 nret=1
+          95 [   0] SETUPVAL  upval 12 := R5
+          96 [   0] GETUPVAL  R5 := upval 13
+          97 [   0] NEWTABLE  R6 := {} (array 5, hash 0)
+          98 [   0] LOADNIL   R7..R7 := nil
+          99 [   0] NEWTABLE  R8 := {} (array 2, hash 0)
+         100 [   0] GETUPVAL  R9 := upval 7
+         101 [   0] GETTABLE  R9 := R9["enemyCards"]
+         102 [   0] GETTABLE  R9 := R9[2]
+         103 [   0] GETTABLE  R9 := R9["cardId"]
+         104 [   0] GETUPVAL  R10 := upval 7
+         105 [   0] GETTABLE  R10 := R10["enemyCards"]
+         106 [   0] GETTABLE  R10 := R10[2]
+         107 [   0] GETTABLE  R10 := R10["level"]
+         108 [   0] SETLIST   R8[...] := R9.. (n=2, block 1)
+         109 [   0] NEWTABLE  R9 := {} (array 2, hash 0)
+         110 [   0] GETUPVAL  R10 := upval 7
+         111 [   0] GETTABLE  R10 := R10["enemyCards"]
+         112 [   0] GETTABLE  R10 := R10[3]
+         113 [   0] GETTABLE  R10 := R10["cardId"]
+         114 [   0] GETUPVAL  R11 := upval 7
+         115 [   0] GETTABLE  R11 := R11["enemyCards"]
+         116 [   0] GETTABLE  R11 := R11[3]
+         117 [   0] GETTABLE  R11 := R11["level"]
+         118 [   0] SETLIST   R9[...] := R10.. (n=2, block 1)
+         119 [   0] NEWTABLE  R10 := {} (array 2, hash 0)
+         120 [   0] GETUPVAL  R11 := upval 7
+         121 [   0] GETTABLE  R11 := R11["enemyCards"]
+         122 [   0] GETTABLE  R11 := R11[4]
+         123 [   0] GETTABLE  R11 := R11["cardId"]
+         124 [   0] GETUPVAL  R12 := upval 7
+         125 [   0] GETTABLE  R12 := R12["enemyCards"]
+         126 [   0] GETTABLE  R12 := R12[4]
+         127 [   0] GETTABLE  R12 := R12["level"]
+         128 [   0] SETLIST   R10[...] := R11.. (n=2, block 1)
+         129 [   0] LOADNIL   R11..R11 := nil
+         130 [   0] SETLIST   R6[...] := R7.. (n=5, block 1)
+         131 [   0] LOADBOOL  R7 := True
+         132 [   0] CALL      R5(...) nargs=2 nret=1
+         133 [   0] SETUPVAL  upval 14 := R5
+         134 [   0] GETUPVAL  R5 := upval 12
+         135 [   0] GETUPVAL  R6 := upval 12
+         136 [   0] GETTABLE  R6 := R6["y"]
+         137 [   0] SETTABLE  R5["oldY"] := R6
+         138 [   0] GETUPVAL  R5 := upval 12
+         139 [   0] GETUPVAL  R6 := upval 15
+         140 [   0] MUL       R6 := R6 * 0.5
+         141 [   0] GETUPVAL  R7 := upval 12
+         142 [   0] GETTABLE  R7 := R7["height"]
+         143 [   0] DIV       R7 := R7 / 2
+         144 [   0] ADD       R6 := R6 + R7
+         145 [   0] SETTABLE  R5["y"] := R6
+         146 [   0] GETUPVAL  R5 := upval 14
+         147 [   0] GETUPVAL  R6 := upval 14
+         148 [   0] GETTABLE  R6 := R6["y"]
+         149 [   0] SETTABLE  R5["oldY"] := R6
+         150 [   0] GETUPVAL  R5 := upval 14
+         151 [   0] GETUPVAL  R6 := upval 15
+         152 [   0] UNM       R6 := -R6
+         153 [   0] MUL       R6 := R6 * 0.5
+         154 [   0] GETUPVAL  R7 := upval 14
+         155 [   0] GETTABLE  R7 := R7["height"]
+         156 [   0] DIV       R7 := R7 / 2
+         157 [   0] SUB       R6 := R6 - R7
+         158 [   0] SETTABLE  R5["y"] := R6
+         159 [   0] RETURN    return R0.. (0 values)

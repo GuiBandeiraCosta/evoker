@@ -1,0 +1,394 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'io.crypteddirectoryinterface', 'tracking.eventqueue', 'json', '###SESSIONID###', 'new'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] LOADK     R1 := 3
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+     8 [   0] LOADK     R4 := "io.crypteddirectoryinterface"
+     9 [   0] CONCAT    R3 := R3 .. ... .. R4
+    10 [   0] CALL      R2(...) nargs=1 nret=1
+    11 [   0] GETGLOBAL R3 := _G["require"]
+    12 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    13 [   0] LOADK     R5 := "tracking.eventqueue"
+    14 [   0] CONCAT    R4 := R4 .. ... .. R5
+    15 [   0] CALL      R3(...) nargs=1 nret=1
+    16 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+    17 [   0] GETGLOBAL R5 := _G["require"]
+    18 [   0] LOADK     R6 := "json"
+    19 [   0] CALL      R5(...) nargs=1 nret=1
+    20 [   0] LOADK     R6 := "###SESSIONID###"
+    21 [   0] CLOSURE   R7 := closure #0
+    22 [   0] MOVE      R0 := R3
+    23 [   0] MOVE      R0 := R6
+    24 [   0] MOVE      R0 := R5
+    25 [   0] MOVE      R0 := R0
+    26 [   0] MOVE      R0 := R1
+    27 [   0] CLOSURE   R8 := closure #1
+    28 [   0] MOVE      R0 := R7
+    29 [   0] SETTABLE  R4["new"] := R8
+    30 [   0] RETURN    return R4.. (1 values)
+    31 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=5, lines 9-148, upvals=[], locals=[])
+    constants: strings=['filepath', 'eventqueue', 'new', 'numEventsInProgress', 'MAX_NUM_EVENTS_TO_SEND', 'url', 'sessionid', 'timer', 'useflushing', 'timerdelay', 'hassession', 'host', 'string', 'match', 'http://(.-)[:][0-9]*/.*$', 'hostIsReachable', 'hostReachableViaWiFi', 'hostReachableViaCellular', 'currenteventid', 'timeStampStartTime', 'system', 'getTimer', 'setSessionId', 'resetTimestamp', 'track', 'flush', 'trackCallback', 'processQueue', 'networkListener', 'network', 'canDetectNetworkStatusChanges', 'setStatusListener'] numbers=[0, 20, 10, 1]
+       0 [   0] GETGLOBAL R5 := _G["filepath"]
+       1 [   0] SETTABLE  R0["filepath"] := R5
+       2 [   0] GETUPVAL  R5 := upval 0
+       3 [   0] GETTABLE  R5 := R5["new"]
+       4 [   0] CALL      R5(...) nargs=0 nret=1
+       5 [   0] SETTABLE  R0["eventqueue"] := R5
+       6 [   0] SETTABLE  R0["numEventsInProgress"] := 0
+       7 [   0] TESTSET   if (R2 truthy) == 1 then R5 := R2 else skip next
+       8 [   0] JMP       jmp +1 -> 10
+       9 [   0] LOADK     R5 := 20
+      10 [   0] SETTABLE  R0["MAX_NUM_EVENTS_TO_SEND"] := R5
+      11 [   0] SETTABLE  R0["url"] := R1
+      12 [   0] GETUPVAL  R5 := upval 1
+      13 [   0] SETTABLE  R0["sessionid"] := R5
+      14 [   0] SETTABLE  R0["timer"] := None
+      15 [   0] TESTSET   if (R4 truthy) == 1 then R5 := R4 else skip next
+      16 [   0] JMP       jmp +1 -> 18
+      17 [   0] LOADBOOL  R5 := False
+      18 [   0] SETTABLE  R0["useflushing"] := R5
+      19 [   0] TESTSET   if (R3 truthy) == 1 then R5 := R3 else skip next
+      20 [   0] JMP       jmp +1 -> 22
+      21 [   0] LOADK     R5 := 10
+      22 [   0] SETTABLE  R0["timerdelay"] := R5
+      23 [   0] SETTABLE  R0["hassession"] := False
+      24 [   0] GETGLOBAL R5 := _G["string"]
+      25 [   0] GETTABLE  R5 := R5["match"]
+      26 [   0] GETTABLE  R6 := R0["url"]
+      27 [   0] LOADK     R7 := "http://(.-)[:][0-9]*/.*$"
+      28 [   0] CALL      R5(...) nargs=2 nret=1
+      29 [   0] SETTABLE  R0["host"] := R5
+      30 [   0] SETTABLE  R0["hostIsReachable"] := True
+      31 [   0] SETTABLE  R0["hostReachableViaWiFi"] := True
+      32 [   0] SETTABLE  R0["hostReachableViaCellular"] := True
+      33 [   0] SETTABLE  R0["currenteventid"] := 1
+      34 [   0] GETGLOBAL R5 := _G["system"]
+      35 [   0] GETTABLE  R5 := R5["getTimer"]
+      36 [   0] CALL      R5(...) nargs=0 nret=1
+      37 [   0] SETTABLE  R0["timeStampStartTime"] := R5
+      38 [   0] CLOSURE   R5 := closure #0
+      39 [   0] MOVE      R0 := R0
+      40 [   0] SETTABLE  R0["setSessionId"] := R5
+      41 [   0] CLOSURE   R5 := closure #1
+      42 [   0] MOVE      R0 := R0
+      43 [   0] SETTABLE  R0["resetTimestamp"] := R5
+      44 [   0] CLOSURE   R5 := closure #2
+      45 [   0] GETUPVAL  R0 := upval 1
+      46 [   0] MOVE      R0 := R0
+      47 [   0] GETUPVAL  R0 := upval 2
+      48 [   0] GETUPVAL  R0 := upval 3
+      49 [   0] GETUPVAL  R0 := upval 4
+      50 [   0] SETTABLE  R0["track"] := R5
+      51 [   0] CLOSURE   R5 := closure #3
+      52 [   0] MOVE      R0 := R0
+      53 [   0] SETTABLE  R0["flush"] := R5
+      54 [   0] CLOSURE   R5 := closure #4
+      55 [   0] GETUPVAL  R0 := upval 3
+      56 [   0] GETUPVAL  R0 := upval 4
+      57 [   0] MOVE      R0 := R0
+      58 [   0] SETTABLE  R0["trackCallback"] := R5
+      59 [   0] CLOSURE   R5 := closure #5
+      60 [   0] MOVE      R0 := R0
+      61 [   0] GETUPVAL  R0 := upval 3
+      62 [   0] GETUPVAL  R0 := upval 4
+      63 [   0] GETUPVAL  R0 := upval 1
+      64 [   0] SETTABLE  R0["processQueue"] := R5
+      65 [   0] CLOSURE   R5 := closure #6
+      66 [   0] GETUPVAL  R0 := upval 3
+      67 [   0] GETUPVAL  R0 := upval 4
+      68 [   0] MOVE      R0 := R0
+      69 [   0] SETTABLE  R0["networkListener"] := R5
+      70 [   0] GETGLOBAL R5 := _G["network"]
+      71 [   0] GETTABLE  R5 := R5["canDetectNetworkStatusChanges"]
+      72 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      73 [   0] JMP       jmp +8 -> 82
+      74 [   0] GETTABLE  R5 := R0["host"]
+      75 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      76 [   0] JMP       jmp +5 -> 82
+      77 [   0] GETGLOBAL R5 := _G["network"]
+      78 [   0] GETTABLE  R5 := R5["setStatusListener"]
+      79 [   0] GETTABLE  R6 := R0["host"]
+      80 [   0] GETTABLE  R7 := R0["networkListener"]
+      81 [   0] CALL      R5(...) nargs=2 nret=0
+      82 [   0] RETURN    return R0.. (1 values)
+      83 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 29-34, upvals=[], locals=[])
+      constants: strings=['sessionid', 'hassession', 'timer', 'performWithDelay', 'timerdelay', 'processQueue', 'flush'] numbers=[1000, 0]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["sessionid"] := R0
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] SETTABLE  R1["hassession"] := True
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETGLOBAL R2 := _G["timer"]
+         6 [   0] GETTABLE  R2 := R2["performWithDelay"]
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETTABLE  R3 := R3["timerdelay"]
+         9 [   0] MUL       R3 := R3 * 1000
+        10 [   0] GETUPVAL  R4 := upval 0
+        11 [   0] GETTABLE  R4 := R4["processQueue"]
+        12 [   0] LOADK     R5 := 0
+        13 [   0] CALL      R2(...) nargs=3 nret=1
+        14 [   0] SETTABLE  R1["timer"] := R2
+        15 [   0] GETUPVAL  R1 := upval 0
+        16 [   0] GETTABLE  R1 := R1["flush"]
+        17 [   0] CALL      R1(...) nargs=0 nret=0
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 36-38, upvals=[], locals=[])
+      constants: strings=['timeStampStartTime', 'system', 'getTimer'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETGLOBAL R1 := _G["system"]
+         2 [   0] GETTABLE  R1 := R1["getTimer"]
+         3 [   0] CALL      R1(...) nargs=0 nret=1
+         4 [   0] SETTABLE  R0["timeStampStartTime"] := R1
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=5, lines 40-72, upvals=[], locals=[])
+      constants: strings=['sid', 'action', 'tostring', 'attr', 'payload', 'appversion', 'unknown', 'sessionlength', 'system', 'getTimer', 'timeStampStartTime', 'encode', 'eventqueue', 'push', 'logmsg', 'ASPECT_TRACKING', 'USE FLUSHING?', 'useflushing', 'timer', 'performWithDelay', 'timerdelay', 'processQueue'] numbers=[3, 1000, 0]
+         0 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+         1 [   0] GETUPVAL  R6 := upval 0
+         2 [   0] SETTABLE  R5["sid"] := R6
+         3 [   0] GETGLOBAL R6 := _G["tostring"]
+         4 [   0] MOVE      R7 := R0
+         5 [   0] CALL      R6(...) nargs=1 nret=1
+         6 [   0] SETTABLE  R5["action"] := R6
+         7 [   0] TESTSET   if (R1 truthy) == 1 then R6 := R1 else skip next
+         8 [   0] JMP       jmp +1 -> 10
+         9 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+        10 [   0] SETTABLE  R5["attr"] := R6
+        11 [   0] TESTSET   if (R2 truthy) == 1 then R6 := R2 else skip next
+        12 [   0] JMP       jmp +1 -> 14
+        13 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+        14 [   0] SETTABLE  R5["payload"] := R6
+        15 [   0] GETGLOBAL R6 := _G["tostring"]
+        16 [   0] MOVE      R7 := R4
+        17 [   0] CALL      R6(...) nargs=1 nret=1
+        18 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+        19 [   0] JMP       jmp +1 -> 21
+        20 [   0] LOADK     R6 := "unknown"
+        21 [   0] SETTABLE  R5["appversion"] := R6
+        22 [   0] GETTABLE  R6 := R5["payload"]
+        23 [   0] GETGLOBAL R7 := _G["system"]
+        24 [   0] GETTABLE  R7 := R7["getTimer"]
+        25 [   0] CALL      R7(...) nargs=0 nret=1
+        26 [   0] GETUPVAL  R8 := upval 1
+        27 [   0] GETTABLE  R8 := R8["timeStampStartTime"]
+        28 [   0] SUB       R7 := R7 - R8
+        29 [   0] SETTABLE  R6["sessionlength"] := R7
+        30 [   0] GETUPVAL  R6 := upval 2
+        31 [   0] GETTABLE  R6 := R6["encode"]
+        32 [   0] MOVE      R7 := R5
+        33 [   0] CALL      R6(...) nargs=1 nret=1
+        34 [   0] GETUPVAL  R7 := upval 1
+        35 [   0] GETTABLE  R7 := R7["eventqueue"]
+        36 [   0] GETTABLE  R7 := R7["push"]
+        37 [   0] MOVE      R8 := R6
+        38 [   0] CALL      R7(...) nargs=1 nret=0
+        39 [   0] GETUPVAL  R7 := upval 3
+        40 [   0] GETTABLE  R7 := R7["logmsg"]
+        41 [   0] GETUPVAL  R8 := upval 4
+        42 [   0] GETUPVAL  R9 := upval 3
+        43 [   0] GETTABLE  R9 := R9["ASPECT_TRACKING"]
+        44 [   0] LOADK     R10 := 3
+        45 [   0] LOADK     R11 := "USE FLUSHING?"
+        46 [   0] GETUPVAL  R12 := upval 1
+        47 [   0] GETTABLE  R12 := R12["useflushing"]
+        48 [   0] CALL      R7(...) nargs=5 nret=0
+        49 [   0] GETUPVAL  R7 := upval 1
+        50 [   0] GETTABLE  R7 := R7["useflushing"]
+        51 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+        52 [   0] JMP       jmp +20 -> 73
+        53 [   0] GETUPVAL  R7 := upval 1
+        54 [   0] GETTABLE  R7 := R7["timer"]
+        55 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+        56 [   0] JMP       jmp +11 -> 68
+        57 [   0] GETUPVAL  R7 := upval 1
+        58 [   0] GETGLOBAL R8 := _G["timer"]
+        59 [   0] GETTABLE  R8 := R8["performWithDelay"]
+        60 [   0] GETUPVAL  R9 := upval 1
+        61 [   0] GETTABLE  R9 := R9["timerdelay"]
+        62 [   0] MUL       R9 := R9 * 1000
+        63 [   0] GETUPVAL  R10 := upval 1
+        64 [   0] GETTABLE  R10 := R10["processQueue"]
+        65 [   0] LOADK     R11 := 0
+        66 [   0] CALL      R8(...) nargs=3 nret=1
+        67 [   0] SETTABLE  R7["timer"] := R8
+        68 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        69 [   0] JMP       jmp +3 -> 73
+        70 [   0] GETUPVAL  R7 := upval 1
+        71 [   0] GETTABLE  R7 := R7["processQueue"]
+        72 [   0] CALL      R7(...) nargs=0 nret=0
+        73 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 74-78, upvals=[], locals=[])
+      constants: strings=['hassession', 'processQueue'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["hassession"]
+         2 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETTABLE  R0 := R0["processQueue"]
+         6 [   0] CALL      R0(...) nargs=0 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 81-95, upvals=[], locals=[])
+      constants: strings=['isError', 'logmsg', 'ASPECT_TRACKING', 'ERROR', 'numEventsInProgress', 'eventqueue', 'removehead', 'timer', 'performWithDelay', 'processQueue'] numbers=[3, 0, 5000]
+         0 [   0] GETTABLE  R1 := R0["isError"]
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +12 -> 15
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["logmsg"]
+         5 [   0] GETUPVAL  R2 := upval 1
+         6 [   0] GETUPVAL  R3 := upval 0
+         7 [   0] GETTABLE  R3 := R3["ASPECT_TRACKING"]
+         8 [   0] LOADK     R4 := 3
+         9 [   0] LOADK     R5 := "ERROR"
+        10 [   0] MOVE      R6 := R0
+        11 [   0] CALL      R1(...) nargs=5 nret=0
+        12 [   0] GETUPVAL  R1 := upval 2
+        13 [   0] SETTABLE  R1["numEventsInProgress"] := 0
+        14 [   0] JMP       jmp +14 -> 29
+        15 [   0] GETUPVAL  R1 := upval 2
+        16 [   0] GETTABLE  R1 := R1["eventqueue"]
+        17 [   0] GETTABLE  R1 := R1["removehead"]
+        18 [   0] GETUPVAL  R2 := upval 2
+        19 [   0] GETTABLE  R2 := R2["numEventsInProgress"]
+        20 [   0] CALL      R1(...) nargs=1 nret=0
+        21 [   0] GETUPVAL  R1 := upval 2
+        22 [   0] SETTABLE  R1["numEventsInProgress"] := 0
+        23 [   0] GETGLOBAL R1 := _G["timer"]
+        24 [   0] GETTABLE  R1 := R1["performWithDelay"]
+        25 [   0] LOADK     R2 := 5000
+        26 [   0] GETUPVAL  R3 := upval 2
+        27 [   0] GETTABLE  R3 := R3["processQueue"]
+        28 [   0] CALL      R1(...) nargs=2 nret=0
+        29 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 97-132, upvals=[], locals=[])
+      constants: strings=['numEventsInProgress', 'hassession', 'hostIsReachable', 'eventqueue', 'head', 'MAX_NUM_EVENTS_TO_SEND', 'logmsg', 'ASPECT_TRACKING', 'EVENTS: ', 'timer', 'cancel', 'Content-Type', 'application/json', 'headers', 'body', 'string', 'gsub', '[', 'table', 'concat', ',', ']', 'sessionid', '%[%]', '{}', 'processQueue', 'url', 'network', 'request', 'POST', 'trackCallback'] numbers=[0, 3]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["numEventsInProgress"]
+         2 [   0] EQ        if (R0 == 0) ~= 0 then skip next
+         3 [   0] JMP       jmp +8 -> 12
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETTABLE  R0 := R0["hassession"]
+         6 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         7 [   0] JMP       jmp +4 -> 12
+         8 [   0] GETUPVAL  R0 := upval 0
+         9 [   0] GETTABLE  R0 := R0["hostIsReachable"]
+        10 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+        11 [   0] JMP       jmp +1 -> 13
+        12 [   0] RETURN    return R0.. (0 values)
+        13 [   0] GETUPVAL  R0 := upval 0
+        14 [   0] GETTABLE  R0 := R0["eventqueue"]
+        15 [   0] GETTABLE  R0 := R0["head"]
+        16 [   0] GETUPVAL  R1 := upval 0
+        17 [   0] GETTABLE  R1 := R1["MAX_NUM_EVENTS_TO_SEND"]
+        18 [   0] CALL      R0(...) nargs=1 nret=1
+        19 [   0] GETUPVAL  R1 := upval 1
+        20 [   0] GETTABLE  R1 := R1["logmsg"]
+        21 [   0] GETUPVAL  R2 := upval 2
+        22 [   0] GETUPVAL  R3 := upval 1
+        23 [   0] GETTABLE  R3 := R3["ASPECT_TRACKING"]
+        24 [   0] LOADK     R4 := 3
+        25 [   0] LOADK     R5 := "EVENTS: "
+        26 [   0] MOVE      R6 := R0
+        27 [   0] CALL      R1(...) nargs=5 nret=0
+        28 [   0] LEN       R1 := #R0
+        29 [   0] EQ        if (R1 == 0) ~= 0 then skip next
+        30 [   0] JMP       jmp +12 -> 43
+        31 [   0] GETUPVAL  R1 := upval 0
+        32 [   0] GETTABLE  R1 := R1["timer"]
+        33 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        34 [   0] JMP       jmp +7 -> 42
+        35 [   0] GETGLOBAL R1 := _G["timer"]
+        36 [   0] GETTABLE  R1 := R1["cancel"]
+        37 [   0] GETUPVAL  R2 := upval 0
+        38 [   0] GETTABLE  R2 := R2["timer"]
+        39 [   0] CALL      R1(...) nargs=1 nret=0
+        40 [   0] GETUPVAL  R1 := upval 0
+        41 [   0] SETTABLE  R1["timer"] := None
+        42 [   0] RETURN    return R0.. (0 values)
+        43 [   0] GETUPVAL  R1 := upval 0
+        44 [   0] LEN       R2 := #R0
+        45 [   0] SETTABLE  R1["numEventsInProgress"] := R2
+        46 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+        47 [   0] SETTABLE  R1["Content-Type"] := "application/json"
+        48 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+        49 [   0] SETTABLE  R2["headers"] := R1
+        50 [   0] GETGLOBAL R3 := _G["string"]
+        51 [   0] GETTABLE  R3 := R3["gsub"]
+        52 [   0] LOADK     R4 := "["
+        53 [   0] GETGLOBAL R5 := _G["table"]
+        54 [   0] GETTABLE  R5 := R5["concat"]
+        55 [   0] MOVE      R6 := R0
+        56 [   0] LOADK     R7 := ","
+        57 [   0] CALL      R5(...) nargs=2 nret=1
+        58 [   0] LOADK     R6 := "]"
+        59 [   0] CONCAT    R4 := R4 .. ... .. R6
+        60 [   0] GETUPVAL  R5 := upval 3
+        61 [   0] GETUPVAL  R6 := upval 0
+        62 [   0] GETTABLE  R6 := R6["sessionid"]
+        63 [   0] CALL      R3(...) nargs=3 nret=1
+        64 [   0] SETTABLE  R2["body"] := R3
+        65 [   0] GETGLOBAL R3 := _G["string"]
+        66 [   0] GETTABLE  R3 := R3["gsub"]
+        67 [   0] GETTABLE  R4 := R2["body"]
+        68 [   0] LOADK     R5 := "%[%]"
+        69 [   0] LOADK     R6 := "{}"
+        70 [   0] CALL      R3(...) nargs=3 nret=1
+        71 [   0] SETTABLE  R2["body"] := R3
+        72 [   0] GETUPVAL  R3 := upval 1
+        73 [   0] GETTABLE  R3 := R3["logmsg"]
+        74 [   0] GETUPVAL  R4 := upval 2
+        75 [   0] GETUPVAL  R5 := upval 1
+        76 [   0] GETTABLE  R5 := R5["ASPECT_TRACKING"]
+        77 [   0] LOADK     R6 := 3
+        78 [   0] LOADK     R7 := "processQueue"
+        79 [   0] MOVE      R8 := R2
+        80 [   0] GETUPVAL  R9 := upval 0
+        81 [   0] GETTABLE  R9 := R9["url"]
+        82 [   0] CALL      R3(...) nargs=6 nret=0
+        83 [   0] GETGLOBAL R3 := _G["network"]
+        84 [   0] GETTABLE  R3 := R3["request"]
+        85 [   0] GETUPVAL  R4 := upval 0
+        86 [   0] GETTABLE  R4 := R4["url"]
+        87 [   0] LOADK     R5 := "POST"
+        88 [   0] GETUPVAL  R6 := upval 0
+        89 [   0] GETTABLE  R6 := R6["trackCallback"]
+        90 [   0] MOVE      R7 := R2
+        91 [   0] CALL      R3(...) nargs=4 nret=0
+        92 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=1, lines 134-140, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_TRACKING', 'RemoteTrackingInterface:networkListener', 'hostIsReachable', 'isReachable', 'hostReachableViaWiFi', 'isReachableViaWiFi', 'hostReachableViaCellular', 'isReachableViaCellular'] numbers=[3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logmsg"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["ASPECT_TRACKING"]
+         5 [   0] LOADK     R4 := 3
+         6 [   0] LOADK     R5 := "RemoteTrackingInterface:networkListener"
+         7 [   0] MOVE      R6 := R0
+         8 [   0] CALL      R1(...) nargs=5 nret=0
+         9 [   0] GETUPVAL  R1 := upval 2
+        10 [   0] GETTABLE  R2 := R0["isReachable"]
+        11 [   0] SETTABLE  R1["hostIsReachable"] := R2
+        12 [   0] GETUPVAL  R1 := upval 2
+        13 [   0] GETTABLE  R2 := R0["isReachableViaWiFi"]
+        14 [   0] SETTABLE  R1["hostReachableViaWiFi"] := R2
+        15 [   0] GETUPVAL  R1 := upval 2
+        16 [   0] GETTABLE  R2 := R0["isReachableViaCellular"]
+        17 [   0] SETTABLE  R1["hostReachableViaCellular"] := R2
+        18 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=4, lines 150-154, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R4 := upval 0
+       1 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+       2 [   0] MOVE      R6 := R0
+       3 [   0] MOVE      R7 := R1
+       4 [   0] MOVE      R8 := R2
+       5 [   0] MOVE      R9 := R3
+       6 [   0] TAILCALL  return R4(...) nargs=5
+       7 [   0] RETURN    return R4.. (-1 values)
+       8 [   0] RETURN    return R0.. (0 values)

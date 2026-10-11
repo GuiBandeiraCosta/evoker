@@ -1,0 +1,217 @@
+/* Evoker Web - Shop screen after the 1.7.4 booster list (boosterlist_def) and the 2016 shop screenshots:
+   fullscreen_background behind a "Need more Tokens? Visit the Shop!" small banner and the vertical list of framed
+   pack banners (ornate frame tinted per pack, card paintings, title plate, "May contain:" rarity squares, "Look
+   inside" or "Coming soon:" + countdown, token); the gem packs overlay (premiumshop entries with shop_gems sprites); the
+   warning popups (shop_gems01 / fx_alldieskull01); the potion deal and the set-collections link. */
+
+.screen-body.shop {
+  padding: 8px 14px 24px;
+  background:
+    linear-gradient(180deg, rgba(14, 16, 18, .2) 0%, rgba(14, 16, 18, .55) 100%),
+    url('/assets/orig/ui/fullscreen_background.png') center top / 100% auto repeat-y,
+    var(--bg);
+}
+
+/* ---------- "Need more Tokens? Visit the Shop!" ---------- */
+.shop-topbanner {
+  position: relative; display: flex; align-items: center; justify-content: flex-end;
+  width: 100%; height: 86px; margin: 0 0 14px; padding: 0 28px 0 150px;
+  border: 4px solid #b58a2c; border-radius: 4px;
+  background:
+    linear-gradient(90deg, rgba(120, 18, 18, .0) 0%, rgba(32, 22, 10, .6) 40%, rgba(32, 22, 10, .85) 100%),
+    url('/assets/orig/ui/eventbanner_cardboost02.png') left 30% / 70% auto no-repeat,
+    #3b2a12;
+  box-shadow: 0 0 0 2px #3a2a10, 0 4px 10px rgba(0, 0, 0, .7);
+  color: #fff; text-align: right;
+  font-size: 26px; font-weight: var(--fw-bold); line-height: 1.1;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .95);
+  transition: filter var(--t-fast);
+}
+.shop-topbanner:hover { filter: brightness(1.12); }
+.shop-topbanner-img { position: absolute; left: 14px; top: 50%; width: 120px; height: 64px; transform: translateY(-50%); object-fit: contain; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .8)); }
+
+/* ---------- pack banners (boosterlist_entry with the booster_template / booster_pre_template layout; the 2016
+   shop: frames/user/shop-1.png, shop-2.png) ----------
+   The ornate steel frame of cardshop_promobanner (its painting cut out: assets/ui/pack-frame.png, 9-slice 46 px),
+   tinted gold / violet per pack; inside, the pack's painting (card paintings side by side, blended), the title on
+   the header_framer_big plate, and the foot: "May contain:" + rarity squares, "Look inside" (promo_button frame +
+   fill) or "Coming soon:" + countdown, the pack's token. Main packs are wide strips, portal packs taller. */
+.pack-banner {
+  position: relative; display: block;
+  width: 100%; aspect-ratio: 649 / 270; margin: 0 0 12px;
+  cursor: pointer;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .75));
+  transition: transform var(--t-fast), filter var(--t-fast);
+}
+.pack-banner.portal { aspect-ratio: 649 / 372; }
+.pack-banner:not(.pre):hover { filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .75)) brightness(1.08); }
+.pack-banner:not(.pre):active { transform: scale(.99); }
+.pack-banner:focus-visible { outline: 3px solid var(--tan); outline-offset: 3px; }
+.pack-banner.pre { cursor: default; }
+
+.pack-art { position: absolute; inset: 30px; overflow: hidden; background: #0c0f13; }
+.pack-art-slice {
+  position: absolute; top: 0; bottom: 0; left: calc(var(--i) * 22%); width: 34%;
+  background: var(--art) center 18% / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 20%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 20%, #000 80%, transparent 100%);
+}
+.pack-art-slice:first-child { -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent 100%); mask-image: linear-gradient(90deg, #000 80%, transparent 100%); }
+.pack-art-slice:last-child { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 20%); mask-image: linear-gradient(90deg, transparent 0, #000 20%); }
+.pack-art::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .3) 0, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, .78) 100%);
+}
+
+.pack-frame {
+  position: absolute; inset: 0; pointer-events: none;
+  border: 49px solid transparent;
+  border-image: url('/assets/ui/pack-frame.png') 46 / 49px stretch;
+}
+.theme-gold .pack-frame { filter: sepia(1) saturate(2.4) hue-rotate(-10deg) brightness(1.08); }
+.theme-violet .pack-frame { filter: sepia(1) saturate(2.2) hue-rotate(228deg) brightness(1.05); }
+
+.pack-title {
+  position: absolute; left: 50%; top: 30px; transform: translateX(-50%);
+  width: 76%; height: 58px;
+  display: flex; align-items: center; justify-content: center;
+  background: url('/assets/orig/ui/header_framer_big.png') center / 100% 100% no-repeat;
+}
+.pack-title-text {
+  white-space: nowrap;
+  font-size: 36px; font-weight: var(--fw-bold); letter-spacing: .01em;
+  color: #e8eef6; text-shadow: 2px 2px 0 #280d0b, 0 0 8px rgba(0, 0, 0, .8);
+}
+.title-pink .pack-title-text { color: #ec8cf2; }
+.title-gold .pack-title-text { color: #f3c47a; }
+
+.pack-timer {
+  position: absolute; left: 50%; bottom: 106px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px; white-space: nowrap;
+  padding: 4px 14px; border-radius: 4px;
+  background: rgba(8, 10, 12, .78);
+  font-size: 18px; color: var(--muted);
+}
+.pack-timer .num { color: #fff; font-size: 22px; font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
+.pack-sale {
+  position: absolute; left: 44px; top: 96px;
+  padding: 4px 16px;
+  border: 6px solid transparent;
+  border-image: url('/assets/orig/ui/discount_bg.png') 14 fill / 12px stretch;
+  color: var(--sell-green); font-size: 22px; font-weight: var(--fw-bold);
+}
+
+.pack-foot {
+  position: absolute; left: 40px; right: 40px; bottom: 36px; height: 64px;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 8px;
+}
+.pack-contains { display: flex; flex-direction: column; gap: 4px; padding-bottom: 4px; font-size: 15px; color: #cfd3d6; text-shadow: 0 1px 2px #000; }
+.pack-squares { display: flex; gap: 5px; }
+.pack-square { width: 22px; height: 22px; border: 3px solid currentColor; border-radius: 4px; background: rgba(0, 0, 0, .55); box-shadow: 0 0 5px currentColor; }
+.pack-square.rarity-common { color: #c8c7c7; }
+.pack-square.rarity-uncommon { color: #6fd23a; }
+.pack-square.rarity-rare { color: #3f8cff; }
+.pack-square.rarity-heroic { color: #c05be0; }
+.pack-square.rarity-legendary { color: #ffc53a; }
+.pack-square.rarity-ultimate { color: #ff3b3b; }
+.pack-look {
+  min-width: 210px; height: 54px; margin: 0; padding: 0 22px;
+  border: 0; border-radius: 4px;
+  background: url('/assets/orig/ui/promo_button_frame.png') center / 100% 100% no-repeat, url('/assets/orig/ui/promo_button_fill.png') center / 100% 100% no-repeat;
+  color: #fff; font: inherit; font-size: 24px; font-weight: var(--fw-bold); text-shadow: 0 2px 2px #000;
+  cursor: pointer;
+}
+.pack-look:hover { filter: brightness(1.15); }
+.pack-soon {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  color: #fff; text-shadow: 0 2px 3px #000; white-space: nowrap;
+}
+.pack-soon .pack-timer-label { font-size: 22px; font-weight: var(--fw-bold); }
+.pack-soon .num { font-size: 26px; font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
+.pack-tokens {
+  justify-self: end; align-self: center;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 30px; font-weight: var(--fw-bold); color: #fff;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .95);
+}
+.pack-tokens img, .pack-tokens .token-img { width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(255, 170, 60, .55)); }
+
+/* token images shared with the booster screen */
+.token-img { display: inline-block; object-fit: contain; flex: none; }
+.token-tri {
+  width: 40px; height: 40px; position: relative;
+  background: linear-gradient(160deg, #fff4dc 0%, #d8b98a 45%, #8a6a3e 100%);
+  clip-path: polygon(50% 4%, 97% 92%, 3% 92%);
+}
+.token-tri::after {
+  content: ''; position: absolute; left: 34%; right: 34%; top: 46%; bottom: 20%;
+  background: #3b2a16; clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.token-tri.high { background: linear-gradient(160deg, #f1d5ff 0%, #a04fd6 45%, #4b1670 100%); }
+.token-tri.high::after { background: #ffffff; }
+
+/* ---------- gem packs overlay (premiumshop) ---------- */
+.dialog.gem-shop { width: 660px; max-width: 660px; }
+.gem-pack-list { display: flex; flex-direction: column; gap: 10px; max-height: 820px; overflow-y: auto; }
+.gem-pack {
+  display: grid; grid-template-columns: 130px 1fr auto; align-items: center; gap: 14px;
+  min-height: 112px; padding: 8px 14px;
+  border: 5px solid transparent;
+  border-image: url('/assets/orig/ui/frames/ironframe.png') 10 / 10px stretch;
+  background: rgba(8, 9, 10, .85); background-clip: padding-box;
+}
+.gem-pack-img { width: 124px; height: 96px; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .8)); }
+.gem-pack-amount { font-size: 30px; font-weight: var(--fw-bold); color: var(--c-gem); text-shadow: 0 2px 2px rgba(0, 0, 0, .9); }
+.gem-pack-name { font-size: 20px; color: var(--text); }
+.gem-pack-bonus { font-size: 17px; color: var(--muted); }
+.gem-pack-bonus .bonus { color: var(--sell-green); font-weight: var(--fw-bold); }
+.gem-pack .btn { min-width: 130px; }
+
+/* ---------- warning popups (not enough gems, new booster) ---------- */
+.shop-warning-body { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 10px 6px 0; text-align: center; }
+.shop-warning-body p { margin: 0; font-size: 28px; font-weight: var(--fw-bold); color: var(--text); }
+.shop-warning-img { width: 220px; height: 130px; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .8)); }
+.shop-warning-img.skull { width: 150px; height: 150px; }
+.shop-warning .dialog-buttons .btn { min-width: 260px; }
+
+/* ---------- Great Potion Deal ---------- */
+.shop-item {
+  display: grid; grid-template-columns: 124px 1fr 168px; align-items: center; gap: 10px;
+  min-height: 150px; margin: 0 0 18px; padding: 10px 12px;
+}
+.shop-token { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.shop-token.potions { flex-direction: row; gap: 0; }
+.shop-potion { width: 56px; height: 64px; margin: 0 -8px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 131, 47, .6)); }
+.shop-potion.blue { filter: drop-shadow(0 0 10px rgba(36, 216, 255, .6)); }
+.shop-info { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.shop-name { font-size: 28px; font-weight: var(--fw-bold); color: var(--text); text-shadow: 0 2px 2px rgba(0, 0, 0, .8); }
+.shop-pool { font-size: 16px; font-weight: var(--fw-light); color: var(--muted); line-height: 1.3; }
+.shop-buy { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.shop-buy .btn { min-width: 150px; }
+.shop-price {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 26px; font-weight: var(--fw-bold); color: var(--c-gem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+}
+.shop-price img { width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .8)); }
+.shop-deal::after {
+  content: ''; position: absolute; inset: -8px; pointer-events: none;
+  border: 24px solid transparent;
+  border-image: url('/assets/orig/ui/frames/glowgold.png') 26 / 24px stretch;
+  animation: glowPulse 1.6s ease-in-out infinite;
+}
+
+/* ---------- Set collections link ---------- */
+.shop-link {
+  display: flex; align-items: center; gap: 14px;
+  width: 100%; min-height: 84px; margin: 4px 0 0; padding: 10px 18px;
+  font-size: 26px; font-weight: var(--fw-bold); color: var(--text); text-align: left;
+}
+.shop-link:hover { filter: brightness(1.1); }
+.shop-link img { width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .8)); }
+.shop-link .muted { font-size: 18px; font-weight: var(--fw-light); }
+
+/* Great Potion Deal confirm: the price with a full-size gem, kept on one line with its "?" */
+.dialog .deal-price-wrap { display: inline-flex; align-items: center; gap: 2px; white-space: nowrap; }
+.dialog .gem-price.deal-price { gap: 4px; }
+.dialog .gem-price.deal-price img { width: 32px; height: 32px; }

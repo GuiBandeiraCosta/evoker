@@ -1,0 +1,2494 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['fglib', 'logging', 'Logger', 'no_buff', 'raise_attack', 'raise_hp', 'raise_player_hp', 'increment_attack', 'invulnerable', 'no_damage', 'attack', 'reflect_damage', 'reflect_damage_to_player', 'deal_damage_to_all_opponent_cards', 'self_damage', 'heal', 'heal_player', 'die', 'resurrect', 'deal_damage_to_opponent_player', 'deal_damage_to_player', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["fglib"]
+     1 [   0] GETTABLE  R0 := R0["logging"]
+     2 [   0] GETTABLE  R0 := R0["Logger"]
+     3 [   0] NEWTABLE  R1 := {} (array 1, hash 0)
+     4 [   0] LOADK     R2 := "no_buff"
+     5 [   0] SETLIST   R1[...] := R2.. (n=1, block 1)
+     6 [   0] NEWTABLE  R2 := {} (array 6, hash 0)
+     7 [   0] LOADK     R3 := "raise_attack"
+     8 [   0] LOADK     R4 := "raise_hp"
+     9 [   0] LOADK     R5 := "raise_player_hp"
+    10 [   0] LOADK     R6 := "increment_attack"
+    11 [   0] LOADK     R7 := "invulnerable"
+    12 [   0] LOADK     R8 := "no_damage"
+    13 [   0] SETLIST   R2[...] := R3.. (n=6, block 1)
+    14 [   0] NEWTABLE  R3 := {} (array 1, hash 0)
+    15 [   0] LOADK     R4 := "attack"
+    16 [   0] SETLIST   R3[...] := R4.. (n=1, block 1)
+    17 [   0] NEWTABLE  R4 := {} (array 4, hash 0)
+    18 [   0] LOADK     R5 := "reflect_damage"
+    19 [   0] LOADK     R6 := "reflect_damage_to_player"
+    20 [   0] LOADK     R7 := "deal_damage_to_all_opponent_cards"
+    21 [   0] LOADK     R8 := "self_damage"
+    22 [   0] SETLIST   R4[...] := R5.. (n=4, block 1)
+    23 [   0] NEWTABLE  R5 := {} (array 4, hash 0)
+    24 [   0] LOADK     R6 := "heal"
+    25 [   0] LOADK     R7 := "heal_player"
+    26 [   0] LOADK     R8 := "die"
+    27 [   0] LOADK     R9 := "resurrect"
+    28 [   0] SETLIST   R5[...] := R6.. (n=4, block 1)
+    29 [   0] NEWTABLE  R6 := {} (array 2, hash 0)
+    30 [   0] LOADK     R7 := "deal_damage_to_opponent_player"
+    31 [   0] LOADK     R8 := "deal_damage_to_player"
+    32 [   0] SETLIST   R6[...] := R7.. (n=2, block 1)
+    33 [   0] NEWTABLE  R7 := {} (array 17, hash 0)
+    34 [   0] NEWTABLE  R8 := {} (array 1, hash 0)
+    35 [   0] LOADK     R9 := "no_buff"
+    36 [   0] SETLIST   R8[...] := R9.. (n=1, block 1)
+    37 [   0] NEWTABLE  R9 := {} (array 1, hash 0)
+    38 [   0] LOADK     R10 := "raise_attack"
+    39 [   0] SETLIST   R9[...] := R10.. (n=1, block 1)
+    40 [   0] NEWTABLE  R10 := {} (array 1, hash 0)
+    41 [   0] LOADK     R11 := "raise_hp"
+    42 [   0] SETLIST   R10[...] := R11.. (n=1, block 1)
+    43 [   0] NEWTABLE  R11 := {} (array 1, hash 0)
+    44 [   0] LOADK     R12 := "raise_player_hp"
+    45 [   0] SETLIST   R11[...] := R12.. (n=1, block 1)
+    46 [   0] NEWTABLE  R12 := {} (array 1, hash 0)
+    47 [   0] LOADK     R13 := "increment_attack"
+    48 [   0] SETLIST   R12[...] := R13.. (n=1, block 1)
+    49 [   0] NEWTABLE  R13 := {} (array 1, hash 0)
+    50 [   0] LOADK     R14 := "invulnerable"
+    51 [   0] SETLIST   R13[...] := R14.. (n=1, block 1)
+    52 [   0] NEWTABLE  R14 := {} (array 1, hash 0)
+    53 [   0] LOADK     R15 := "no_damage"
+    54 [   0] SETLIST   R14[...] := R15.. (n=1, block 1)
+    55 [   0] NEWTABLE  R15 := {} (array 1, hash 0)
+    56 [   0] LOADK     R16 := "attack"
+    57 [   0] SETLIST   R15[...] := R16.. (n=1, block 1)
+    58 [   0] NEWTABLE  R16 := {} (array 1, hash 0)
+    59 [   0] LOADK     R17 := "reflect_damage"
+    60 [   0] SETLIST   R16[...] := R17.. (n=1, block 1)
+    61 [   0] NEWTABLE  R17 := {} (array 1, hash 0)
+    62 [   0] LOADK     R18 := "reflect_damage_to_player"
+    63 [   0] SETLIST   R17[...] := R18.. (n=1, block 1)
+    64 [   0] NEWTABLE  R18 := {} (array 1, hash 0)
+    65 [   0] LOADK     R19 := "deal_damage_to_all_opponent_cards"
+    66 [   0] SETLIST   R18[...] := R19.. (n=1, block 1)
+    67 [   0] NEWTABLE  R19 := {} (array 1, hash 0)
+    68 [   0] LOADK     R20 := "self_damage"
+    69 [   0] SETLIST   R19[...] := R20.. (n=1, block 1)
+    70 [   0] NEWTABLE  R20 := {} (array 1, hash 0)
+    71 [   0] LOADK     R21 := "heal"
+    72 [   0] SETLIST   R20[...] := R21.. (n=1, block 1)
+    73 [   0] NEWTABLE  R21 := {} (array 1, hash 0)
+    74 [   0] LOADK     R22 := "heal_player"
+    75 [   0] SETLIST   R21[...] := R22.. (n=1, block 1)
+    76 [   0] NEWTABLE  R22 := {} (array 1, hash 0)
+    77 [   0] LOADK     R23 := "die"
+    78 [   0] SETLIST   R22[...] := R23.. (n=1, block 1)
+    79 [   0] NEWTABLE  R23 := {} (array 1, hash 0)
+    80 [   0] LOADK     R24 := "resurrect"
+    81 [   0] SETLIST   R23[...] := R24.. (n=1, block 1)
+    82 [   0] NEWTABLE  R24 := {} (array 1, hash 0)
+    83 [   0] LOADK     R25 := "deal_damage_to_opponent_player"
+    84 [   0] SETLIST   R24[...] := R25.. (n=1, block 1)
+    85 [   0] NEWTABLE  R25 := {} (array 1, hash 0)
+    86 [   0] LOADK     R26 := "deal_damage_to_player"
+    87 [   0] SETLIST   R25[...] := R26.. (n=1, block 1)
+    88 [   0] SETLIST   R7[...] := R8.. (n=18, block 1)
+    89 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+    90 [   0] CLOSURE   R9 := closure #0
+    91 [   0] MOVE      R0 := R0
+    92 [   0] SETTABLE  R8["no_buff"] := R9
+    93 [   0] CLOSURE   R9 := closure #1
+    94 [   0] MOVE      R0 := R0
+    95 [   0] SETTABLE  R8["heal"] := R9
+    96 [   0] CLOSURE   R9 := closure #2
+    97 [   0] MOVE      R0 := R0
+    98 [   0] SETTABLE  R8["raise_attack"] := R9
+    99 [   0] CLOSURE   R9 := closure #3
+   100 [   0] MOVE      R0 := R0
+   101 [   0] SETTABLE  R8["raise_hp"] := R9
+   102 [   0] CLOSURE   R9 := closure #4
+   103 [   0] MOVE      R0 := R0
+   104 [   0] SETTABLE  R8["raise_player_hp"] := R9
+   105 [   0] CLOSURE   R9 := closure #5
+   106 [   0] MOVE      R0 := R0
+   107 [   0] SETTABLE  R8["heal_player"] := R9
+   108 [   0] CLOSURE   R9 := closure #6
+   109 [   0] MOVE      R0 := R0
+   110 [   0] SETTABLE  R8["increment_attack"] := R9
+   111 [   0] CLOSURE   R9 := closure #7
+   112 [   0] MOVE      R0 := R0
+   113 [   0] SETTABLE  R8["invulnerable"] := R9
+   114 [   0] CLOSURE   R9 := closure #8
+   115 [   0] MOVE      R0 := R0
+   116 [   0] SETTABLE  R8["no_damage"] := R9
+   117 [   0] CLOSURE   R9 := closure #9
+   118 [   0] MOVE      R0 := R0
+   119 [   0] SETTABLE  R8["attack"] := R9
+   120 [   0] CLOSURE   R9 := closure #10
+   121 [   0] MOVE      R0 := R0
+   122 [   0] SETTABLE  R8["resurrect"] := R9
+   123 [   0] CLOSURE   R9 := closure #11
+   124 [   0] MOVE      R0 := R0
+   125 [   0] SETTABLE  R8["die"] := R9
+   126 [   0] CLOSURE   R9 := closure #12
+   127 [   0] MOVE      R0 := R0
+   128 [   0] SETTABLE  R8["reflect_damage"] := R9
+   129 [   0] CLOSURE   R9 := closure #13
+   130 [   0] MOVE      R0 := R0
+   131 [   0] SETTABLE  R8["reflect_damage_to_player"] := R9
+   132 [   0] CLOSURE   R9 := closure #14
+   133 [   0] MOVE      R0 := R0
+   134 [   0] SETTABLE  R8["deal_damage_to_opponent_player"] := R9
+   135 [   0] CLOSURE   R9 := closure #15
+   136 [   0] MOVE      R0 := R0
+   137 [   0] SETTABLE  R8["deal_damage_to_player"] := R9
+   138 [   0] CLOSURE   R9 := closure #16
+   139 [   0] MOVE      R0 := R0
+   140 [   0] SETTABLE  R8["deal_damage_to_all_opponent_cards"] := R9
+   141 [   0] CLOSURE   R9 := closure #17
+   142 [   0] MOVE      R0 := R0
+   143 [   0] SETTABLE  R8["self_damage"] := R9
+   144 [   0] CLOSURE   R9 := closure #18
+   145 [   0] MOVE      R0 := R0
+   146 [   0] MOVE      R0 := R8
+   147 [   0] MOVE      R0 := R7
+   148 [   0] NEWTABLE  R10 := {} (array 0, hash 1)
+   149 [   0] SETTABLE  R10["create"] := R9
+   150 [   0] RETURN    return R10.. (1 values)
+   151 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=8, lines 37-43, upvals=[], locals=[])
+    constants: strings=['type', 'table', 'noBuffsAllowed', 'msg', 'Disbalig all Bufs from ', 'playerId', ':', 'cardId', ' to ', 'no_buff', 'from', 'pid', 'id', 'to', 'event'] numbers=[1]
+       0 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       1 [   0] JMP       jmp +36 -> 38
+       2 [   0] GETGLOBAL R8 := _G["type"]
+       3 [   0] MOVE      R9 := R1
+       4 [   0] CALL      R8(...) nargs=1 nret=1
+       5 [   0] EQ        if (R8 == "table") ~= 0 then skip next
+       6 [   0] JMP       jmp +31 -> 38
+       7 [   0] SETTABLE  R1["noBuffsAllowed"] := True
+       8 [   0] GETUPVAL  R8 := upval 0
+       9 [   0] GETTABLE  R8 := R8["msg"]
+      10 [   0] LOADK     R9 := "Disbalig all Bufs from "
+      11 [   0] GETTABLE  R10 := R0["playerId"]
+      12 [   0] LOADK     R11 := ":"
+      13 [   0] GETTABLE  R12 := R0["cardId"]
+      14 [   0] LOADK     R13 := " to "
+      15 [   0] GETTABLE  R14 := R1["playerId"]
+      16 [   0] LOADK     R15 := ":"
+      17 [   0] GETTABLE  R16 := R1["cardId"]
+      18 [   0] CONCAT    R9 := R9 .. ... .. R16
+      19 [   0] CALL      R8(...) nargs=1 nret=0
+      20 [   0] LEN       R8 := #R7
+      21 [   0] ADD       R8 := R8 + 1
+      22 [   0] NEWTABLE  R9 := {} (array 0, hash 4)
+      23 [   0] SETTABLE  R9["type"] := "no_buff"
+      24 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      25 [   0] GETTABLE  R11 := R0["playerId"]
+      26 [   0] SETTABLE  R10["pid"] := R11
+      27 [   0] GETTABLE  R11 := R0["id"]
+      28 [   0] SETTABLE  R10["id"] := R11
+      29 [   0] SETTABLE  R9["from"] := R10
+      30 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      31 [   0] GETTABLE  R11 := R1["playerId"]
+      32 [   0] SETTABLE  R10["pid"] := R11
+      33 [   0] GETTABLE  R11 := R1["id"]
+      34 [   0] SETTABLE  R10["id"] := R11
+      35 [   0] SETTABLE  R9["to"] := R10
+      36 [   0] SETTABLE  R9["event"] := R6
+      37 [   0] SETTABLE  R7[R8] := R9
+      38 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=8, lines 45-58, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'type', 'table', 'died', 'math', 'round', 'strength', 'directions', 'takenDamage', 'msg', 'Heal from ', 'playerId', ':', 'cardId', ' to ', ' with strength ', 'heal', 'from', 'pid', 'id', 'to', 'event', 'hp', 'Removed Died marker on card '] numbers=[1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +69 -> 72
+       3 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       4 [   0] JMP       jmp +67 -> 72
+       5 [   0] GETGLOBAL R8 := _G["type"]
+       6 [   0] MOVE      R9 := R1
+       7 [   0] CALL      R8(...) nargs=1 nret=1
+       8 [   0] EQ        if (R8 == "table") ~= 0 then skip next
+       9 [   0] JMP       jmp +62 -> 72
+      10 [   0] GETTABLE  R8 := R1["died"]
+      11 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+      12 [   0] JMP       jmp +59 -> 72
+      13 [   0] GETGLOBAL R8 := _G["math"]
+      14 [   0] GETTABLE  R8 := R8["round"]
+      15 [   0] GETTABLE  R9 := R4["strength"]
+      16 [   0] GETTABLE  R10 := R4["directions"]
+      17 [   0] LEN       R10 := #R10
+      18 [   0] DIV       R9 := R9 / R10
+      19 [   0] CALL      R8(...) nargs=1 nret=1
+      20 [   0] GETTABLE  R9 := R1["takenDamage"]
+      21 [   0] SUB       R9 := R9 - R8
+      22 [   0] SETTABLE  R1["takenDamage"] := R9
+      23 [   0] GETUPVAL  R9 := upval 0
+      24 [   0] GETTABLE  R9 := R9["msg"]
+      25 [   0] LOADK     R10 := "Heal from "
+      26 [   0] GETTABLE  R11 := R0["playerId"]
+      27 [   0] LOADK     R12 := ":"
+      28 [   0] GETTABLE  R13 := R0["cardId"]
+      29 [   0] LOADK     R14 := " to "
+      30 [   0] GETTABLE  R15 := R1["playerId"]
+      31 [   0] LOADK     R16 := ":"
+      32 [   0] GETTABLE  R17 := R1["cardId"]
+      33 [   0] LOADK     R18 := " with strength "
+      34 [   0] MOVE      R19 := R8
+      35 [   0] CONCAT    R10 := R10 .. ... .. R19
+      36 [   0] CALL      R9(...) nargs=1 nret=0
+      37 [   0] LEN       R9 := #R7
+      38 [   0] ADD       R9 := R9 + 1
+      39 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+      40 [   0] SETTABLE  R10["type"] := "heal"
+      41 [   0] SETTABLE  R10["strength"] := R8
+      42 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      43 [   0] GETTABLE  R12 := R0["playerId"]
+      44 [   0] SETTABLE  R11["pid"] := R12
+      45 [   0] GETTABLE  R12 := R0["id"]
+      46 [   0] SETTABLE  R11["id"] := R12
+      47 [   0] SETTABLE  R10["from"] := R11
+      48 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      49 [   0] GETTABLE  R12 := R1["playerId"]
+      50 [   0] SETTABLE  R11["pid"] := R12
+      51 [   0] GETTABLE  R12 := R1["id"]
+      52 [   0] SETTABLE  R11["id"] := R12
+      53 [   0] SETTABLE  R10["to"] := R11
+      54 [   0] SETTABLE  R10["event"] := R6
+      55 [   0] SETTABLE  R7[R9] := R10
+      56 [   0] GETTABLE  R9 := R1["died"]
+      57 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+      58 [   0] JMP       jmp +13 -> 72
+      59 [   0] GETTABLE  R9 := R1["takenDamage"]
+      60 [   0] GETTABLE  R10 := R1["hp"]
+      61 [   0] LT        if (R9 < R10) ~= 0 then skip next
+      62 [   0] JMP       jmp +9 -> 72
+      63 [   0] SETTABLE  R1["died"] := False
+      64 [   0] GETUPVAL  R9 := upval 0
+      65 [   0] GETTABLE  R9 := R9["msg"]
+      66 [   0] LOADK     R10 := "Removed Died marker on card "
+      67 [   0] GETTABLE  R11 := R1["playerId"]
+      68 [   0] LOADK     R12 := ":"
+      69 [   0] GETTABLE  R13 := R1["cardId"]
+      70 [   0] CONCAT    R10 := R10 .. ... .. R13
+      71 [   0] CALL      R9(...) nargs=1 nret=0
+      72 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=8, lines 60-69, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'type', 'table', 'math', 'round', 'strength', 'directions', 'attack', 'max', 'raise_attack', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Attack increased from ', ':', 'cardId', ' to ', ' with strength '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +57 -> 60
+       3 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       4 [   0] JMP       jmp +55 -> 60
+       5 [   0] GETGLOBAL R8 := _G["type"]
+       6 [   0] MOVE      R9 := R1
+       7 [   0] CALL      R8(...) nargs=1 nret=1
+       8 [   0] EQ        if (R8 == "table") ~= 0 then skip next
+       9 [   0] JMP       jmp +50 -> 60
+      10 [   0] GETGLOBAL R8 := _G["math"]
+      11 [   0] GETTABLE  R8 := R8["round"]
+      12 [   0] GETTABLE  R9 := R4["strength"]
+      13 [   0] GETTABLE  R10 := R4["directions"]
+      14 [   0] LEN       R10 := #R10
+      15 [   0] DIV       R9 := R9 / R10
+      16 [   0] CALL      R8(...) nargs=1 nret=1
+      17 [   0] GETGLOBAL R9 := _G["math"]
+      18 [   0] GETTABLE  R9 := R9["max"]
+      19 [   0] LOADK     R10 := 0
+      20 [   0] GETTABLE  R11 := R1["attack"]
+      21 [   0] TEST      if (R11 truthy) ~= 1 then skip next
+      22 [   0] JMP       jmp +1 -> 24
+      23 [   0] LOADK     R11 := 0
+      24 [   0] ADD       R11 := R11 + R8
+      25 [   0] CALL      R9(...) nargs=2 nret=1
+      26 [   0] SETTABLE  R1["attack"] := R9
+      27 [   0] LEN       R9 := #R7
+      28 [   0] ADD       R9 := R9 + 1
+      29 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+      30 [   0] SETTABLE  R10["type"] := "raise_attack"
+      31 [   0] SETTABLE  R10["strength"] := R8
+      32 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      33 [   0] GETTABLE  R12 := R0["playerId"]
+      34 [   0] SETTABLE  R11["pid"] := R12
+      35 [   0] GETTABLE  R12 := R0["id"]
+      36 [   0] SETTABLE  R11["id"] := R12
+      37 [   0] SETTABLE  R10["from"] := R11
+      38 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      39 [   0] GETTABLE  R12 := R1["playerId"]
+      40 [   0] SETTABLE  R11["pid"] := R12
+      41 [   0] GETTABLE  R12 := R1["id"]
+      42 [   0] SETTABLE  R11["id"] := R12
+      43 [   0] SETTABLE  R10["to"] := R11
+      44 [   0] SETTABLE  R10["event"] := R6
+      45 [   0] SETTABLE  R7[R9] := R10
+      46 [   0] GETUPVAL  R9 := upval 0
+      47 [   0] GETTABLE  R9 := R9["msg"]
+      48 [   0] LOADK     R10 := "Attack increased from "
+      49 [   0] GETTABLE  R11 := R0["playerId"]
+      50 [   0] LOADK     R12 := ":"
+      51 [   0] GETTABLE  R13 := R0["cardId"]
+      52 [   0] LOADK     R14 := " to "
+      53 [   0] GETTABLE  R15 := R1["playerId"]
+      54 [   0] LOADK     R16 := ":"
+      55 [   0] GETTABLE  R17 := R1["cardId"]
+      56 [   0] LOADK     R18 := " with strength "
+      57 [   0] MOVE      R19 := R8
+      58 [   0] CONCAT    R10 := R10 .. ... .. R19
+      59 [   0] CALL      R9(...) nargs=1 nret=0
+      60 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=8, lines 71-80, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'type', 'table', 'math', 'round', 'strength', 'directions', 'hp', 'max', 'raise_hp', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'HP increased from ', ':', 'cardId', ' to ', ' with strength '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +57 -> 60
+       3 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       4 [   0] JMP       jmp +55 -> 60
+       5 [   0] GETGLOBAL R8 := _G["type"]
+       6 [   0] MOVE      R9 := R1
+       7 [   0] CALL      R8(...) nargs=1 nret=1
+       8 [   0] EQ        if (R8 == "table") ~= 0 then skip next
+       9 [   0] JMP       jmp +50 -> 60
+      10 [   0] GETGLOBAL R8 := _G["math"]
+      11 [   0] GETTABLE  R8 := R8["round"]
+      12 [   0] GETTABLE  R9 := R4["strength"]
+      13 [   0] GETTABLE  R10 := R4["directions"]
+      14 [   0] LEN       R10 := #R10
+      15 [   0] DIV       R9 := R9 / R10
+      16 [   0] CALL      R8(...) nargs=1 nret=1
+      17 [   0] GETGLOBAL R9 := _G["math"]
+      18 [   0] GETTABLE  R9 := R9["max"]
+      19 [   0] LOADK     R10 := 0
+      20 [   0] GETTABLE  R11 := R1["hp"]
+      21 [   0] TEST      if (R11 truthy) ~= 1 then skip next
+      22 [   0] JMP       jmp +1 -> 24
+      23 [   0] LOADK     R11 := 0
+      24 [   0] ADD       R11 := R11 + R8
+      25 [   0] CALL      R9(...) nargs=2 nret=1
+      26 [   0] SETTABLE  R1["hp"] := R9
+      27 [   0] LEN       R9 := #R7
+      28 [   0] ADD       R9 := R9 + 1
+      29 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+      30 [   0] SETTABLE  R10["type"] := "raise_hp"
+      31 [   0] SETTABLE  R10["strength"] := R8
+      32 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      33 [   0] GETTABLE  R12 := R0["playerId"]
+      34 [   0] SETTABLE  R11["pid"] := R12
+      35 [   0] GETTABLE  R12 := R0["id"]
+      36 [   0] SETTABLE  R11["id"] := R12
+      37 [   0] SETTABLE  R10["from"] := R11
+      38 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      39 [   0] GETTABLE  R12 := R1["playerId"]
+      40 [   0] SETTABLE  R11["pid"] := R12
+      41 [   0] GETTABLE  R12 := R1["id"]
+      42 [   0] SETTABLE  R11["id"] := R12
+      43 [   0] SETTABLE  R10["to"] := R11
+      44 [   0] SETTABLE  R10["event"] := R6
+      45 [   0] SETTABLE  R7[R9] := R10
+      46 [   0] GETUPVAL  R9 := upval 0
+      47 [   0] GETTABLE  R9 := R9["msg"]
+      48 [   0] LOADK     R10 := "HP increased from "
+      49 [   0] GETTABLE  R11 := R0["playerId"]
+      50 [   0] LOADK     R12 := ":"
+      51 [   0] GETTABLE  R13 := R0["cardId"]
+      52 [   0] LOADK     R14 := " to "
+      53 [   0] GETTABLE  R15 := R1["playerId"]
+      54 [   0] LOADK     R16 := ":"
+      55 [   0] GETTABLE  R17 := R1["cardId"]
+      56 [   0] LOADK     R18 := " with strength "
+      57 [   0] MOVE      R19 := R8
+      58 [   0] CONCAT    R10 := R10 .. ... .. R19
+      59 [   0] CALL      R9(...) nargs=1 nret=0
+      60 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=8, lines 82-93, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'strength', 'directions', 'hp', 'math', 'max', 'type', 'raise_player_hp', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'HP increased from ', ':', 'cardId', ' to Player ', ' with strength '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +45 -> 48
+       3 [   0] GETTABLE  R8 := R4["strength"]
+       4 [   0] GETTABLE  R9 := R4["directions"]
+       5 [   0] LEN       R9 := #R9
+       6 [   0] EQ        if (R9 == 0) ~= 0 then skip next
+       7 [   0] JMP       jmp +1 -> 9
+       8 [   0] GETTABLE  R8 := R4["strength"]
+       9 [   0] GETGLOBAL R9 := _G["math"]
+      10 [   0] GETTABLE  R9 := R9["max"]
+      11 [   0] LOADK     R10 := 0
+      12 [   0] GETTABLE  R11 := R2["hp"]
+      13 [   0] TEST      if (R11 truthy) ~= 1 then skip next
+      14 [   0] JMP       jmp +1 -> 16
+      15 [   0] LOADK     R11 := 0
+      16 [   0] ADD       R11 := R11 + R8
+      17 [   0] CALL      R9(...) nargs=2 nret=1
+      18 [   0] SETTABLE  R2["hp"] := R9
+      19 [   0] LEN       R9 := #R7
+      20 [   0] ADD       R9 := R9 + 1
+      21 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+      22 [   0] SETTABLE  R10["type"] := "raise_player_hp"
+      23 [   0] SETTABLE  R10["strength"] := R8
+      24 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      25 [   0] GETTABLE  R12 := R0["playerId"]
+      26 [   0] SETTABLE  R11["pid"] := R12
+      27 [   0] GETTABLE  R12 := R0["id"]
+      28 [   0] SETTABLE  R11["id"] := R12
+      29 [   0] SETTABLE  R10["from"] := R11
+      30 [   0] NEWTABLE  R11 := {} (array 0, hash 1)
+      31 [   0] GETTABLE  R12 := R2["id"]
+      32 [   0] SETTABLE  R11["pid"] := R12
+      33 [   0] SETTABLE  R10["to"] := R11
+      34 [   0] SETTABLE  R10["event"] := R6
+      35 [   0] SETTABLE  R7[R9] := R10
+      36 [   0] GETUPVAL  R9 := upval 0
+      37 [   0] GETTABLE  R9 := R9["msg"]
+      38 [   0] LOADK     R10 := "HP increased from "
+      39 [   0] GETTABLE  R11 := R0["playerId"]
+      40 [   0] LOADK     R12 := ":"
+      41 [   0] GETTABLE  R13 := R0["cardId"]
+      42 [   0] LOADK     R14 := " to Player "
+      43 [   0] GETTABLE  R15 := R2["id"]
+      44 [   0] LOADK     R16 := " with strength "
+      45 [   0] MOVE      R17 := R8
+      46 [   0] CONCAT    R10 := R10 .. ... .. R17
+      47 [   0] CALL      R9(...) nargs=1 nret=0
+      48 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=8, lines 95-103, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'strength', 'takenDamage', 'math', 'max', 'type', 'heal_player', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Heal Payer increased from ', ':', 'cardId', ' to Player ', ' with strength '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +40 -> 43
+       3 [   0] GETTABLE  R8 := R4["strength"]
+       4 [   0] GETGLOBAL R9 := _G["math"]
+       5 [   0] GETTABLE  R9 := R9["max"]
+       6 [   0] LOADK     R10 := 0
+       7 [   0] GETTABLE  R11 := R2["takenDamage"]
+       8 [   0] TEST      if (R11 truthy) ~= 1 then skip next
+       9 [   0] JMP       jmp +1 -> 11
+      10 [   0] LOADK     R11 := 0
+      11 [   0] SUB       R11 := R11 - R8
+      12 [   0] CALL      R9(...) nargs=2 nret=1
+      13 [   0] SETTABLE  R2["takenDamage"] := R9
+      14 [   0] LEN       R9 := #R7
+      15 [   0] ADD       R9 := R9 + 1
+      16 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+      17 [   0] SETTABLE  R10["type"] := "heal_player"
+      18 [   0] SETTABLE  R10["strength"] := R8
+      19 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      20 [   0] GETTABLE  R12 := R0["playerId"]
+      21 [   0] SETTABLE  R11["pid"] := R12
+      22 [   0] GETTABLE  R12 := R0["id"]
+      23 [   0] SETTABLE  R11["id"] := R12
+      24 [   0] SETTABLE  R10["from"] := R11
+      25 [   0] NEWTABLE  R11 := {} (array 0, hash 1)
+      26 [   0] GETTABLE  R12 := R2["id"]
+      27 [   0] SETTABLE  R11["pid"] := R12
+      28 [   0] SETTABLE  R10["to"] := R11
+      29 [   0] SETTABLE  R10["event"] := R6
+      30 [   0] SETTABLE  R7[R9] := R10
+      31 [   0] GETUPVAL  R9 := upval 0
+      32 [   0] GETTABLE  R9 := R9["msg"]
+      33 [   0] LOADK     R10 := "Heal Payer increased from "
+      34 [   0] GETTABLE  R11 := R0["playerId"]
+      35 [   0] LOADK     R12 := ":"
+      36 [   0] GETTABLE  R13 := R0["cardId"]
+      37 [   0] LOADK     R14 := " to Player "
+      38 [   0] GETTABLE  R15 := R2["id"]
+      39 [   0] LOADK     R16 := " with strength "
+      40 [   0] MOVE      R17 := R8
+      41 [   0] CONCAT    R10 := R10 .. ... .. R17
+      42 [   0] CALL      R9(...) nargs=1 nret=0
+      43 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=8, lines 105-115, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'type', 'table', 'strength', 'origAttack', 'math', 'max', 'attack', 'increment_attack', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Permanently increased attack from ', ':', 'cardId', ' to ', ' with strength '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +57 -> 60
+       3 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       4 [   0] JMP       jmp +55 -> 60
+       5 [   0] GETGLOBAL R8 := _G["type"]
+       6 [   0] MOVE      R9 := R1
+       7 [   0] CALL      R8(...) nargs=1 nret=1
+       8 [   0] EQ        if (R8 == "table") ~= 0 then skip next
+       9 [   0] JMP       jmp +50 -> 60
+      10 [   0] GETTABLE  R8 := R4["strength"]
+      11 [   0] GETGLOBAL R9 := _G["math"]
+      12 [   0] GETTABLE  R9 := R9["max"]
+      13 [   0] LOADK     R10 := 0
+      14 [   0] GETTABLE  R11 := R1["origAttack"]
+      15 [   0] TEST      if (R11 truthy) ~= 1 then skip next
+      16 [   0] JMP       jmp +1 -> 18
+      17 [   0] LOADK     R11 := 0
+      18 [   0] ADD       R11 := R11 + R8
+      19 [   0] CALL      R9(...) nargs=2 nret=1
+      20 [   0] SETTABLE  R1["origAttack"] := R9
+      21 [   0] GETTABLE  R9 := R1["attack"]
+      22 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+      23 [   0] JMP       jmp +1 -> 25
+      24 [   0] LOADK     R9 := 0
+      25 [   0] ADD       R9 := R9 + R8
+      26 [   0] SETTABLE  R1["attack"] := R9
+      27 [   0] LEN       R9 := #R7
+      28 [   0] ADD       R9 := R9 + 1
+      29 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+      30 [   0] SETTABLE  R10["type"] := "increment_attack"
+      31 [   0] SETTABLE  R10["strength"] := R8
+      32 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      33 [   0] GETTABLE  R12 := R0["playerId"]
+      34 [   0] SETTABLE  R11["pid"] := R12
+      35 [   0] GETTABLE  R12 := R0["id"]
+      36 [   0] SETTABLE  R11["id"] := R12
+      37 [   0] SETTABLE  R10["from"] := R11
+      38 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      39 [   0] GETTABLE  R12 := R1["playerId"]
+      40 [   0] SETTABLE  R11["pid"] := R12
+      41 [   0] GETTABLE  R12 := R1["id"]
+      42 [   0] SETTABLE  R11["id"] := R12
+      43 [   0] SETTABLE  R10["to"] := R11
+      44 [   0] SETTABLE  R10["event"] := R6
+      45 [   0] SETTABLE  R7[R9] := R10
+      46 [   0] GETUPVAL  R9 := upval 0
+      47 [   0] GETTABLE  R9 := R9["msg"]
+      48 [   0] LOADK     R10 := "Permanently increased attack from "
+      49 [   0] GETTABLE  R11 := R0["playerId"]
+      50 [   0] LOADK     R12 := ":"
+      51 [   0] GETTABLE  R13 := R0["cardId"]
+      52 [   0] LOADK     R14 := " to "
+      53 [   0] GETTABLE  R15 := R1["playerId"]
+      54 [   0] LOADK     R16 := ":"
+      55 [   0] GETTABLE  R17 := R1["cardId"]
+      56 [   0] LOADK     R18 := " with strength "
+      57 [   0] MOVE      R19 := R8
+      58 [   0] CONCAT    R10 := R10 .. ... .. R19
+      59 [   0] CALL      R9(...) nargs=1 nret=0
+      60 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=8, lines 117-125, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'type', 'table', 'invulnerable', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Invulnerable from ', ':', 'cardId', ' to '] numbers=[1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +38 -> 41
+       3 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       4 [   0] JMP       jmp +36 -> 41
+       5 [   0] GETGLOBAL R8 := _G["type"]
+       6 [   0] MOVE      R9 := R1
+       7 [   0] CALL      R8(...) nargs=1 nret=1
+       8 [   0] EQ        if (R8 == "table") ~= 0 then skip next
+       9 [   0] JMP       jmp +31 -> 41
+      10 [   0] SETTABLE  R1["invulnerable"] := True
+      11 [   0] LEN       R8 := #R7
+      12 [   0] ADD       R8 := R8 + 1
+      13 [   0] NEWTABLE  R9 := {} (array 0, hash 4)
+      14 [   0] SETTABLE  R9["type"] := "invulnerable"
+      15 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      16 [   0] GETTABLE  R11 := R0["playerId"]
+      17 [   0] SETTABLE  R10["pid"] := R11
+      18 [   0] GETTABLE  R11 := R0["id"]
+      19 [   0] SETTABLE  R10["id"] := R11
+      20 [   0] SETTABLE  R9["from"] := R10
+      21 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      22 [   0] GETTABLE  R11 := R1["playerId"]
+      23 [   0] SETTABLE  R10["pid"] := R11
+      24 [   0] GETTABLE  R11 := R1["id"]
+      25 [   0] SETTABLE  R10["id"] := R11
+      26 [   0] SETTABLE  R9["to"] := R10
+      27 [   0] SETTABLE  R9["event"] := R6
+      28 [   0] SETTABLE  R7[R8] := R9
+      29 [   0] GETUPVAL  R8 := upval 0
+      30 [   0] GETTABLE  R8 := R8["msg"]
+      31 [   0] LOADK     R9 := "Invulnerable from "
+      32 [   0] GETTABLE  R10 := R0["playerId"]
+      33 [   0] LOADK     R11 := ":"
+      34 [   0] GETTABLE  R12 := R0["cardId"]
+      35 [   0] LOADK     R13 := " to "
+      36 [   0] GETTABLE  R14 := R1["playerId"]
+      37 [   0] LOADK     R15 := ":"
+      38 [   0] GETTABLE  R16 := R1["cardId"]
+      39 [   0] CONCAT    R9 := R9 .. ... .. R16
+      40 [   0] CALL      R8(...) nargs=1 nret=0
+      41 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=8, lines 127-135, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'type', 'table', 'attack', 'no_damage', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Disabling attack from ', ':', 'cardId', ' to '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +38 -> 41
+       3 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       4 [   0] JMP       jmp +36 -> 41
+       5 [   0] GETGLOBAL R8 := _G["type"]
+       6 [   0] MOVE      R9 := R1
+       7 [   0] CALL      R8(...) nargs=1 nret=1
+       8 [   0] EQ        if (R8 == "table") ~= 0 then skip next
+       9 [   0] JMP       jmp +31 -> 41
+      10 [   0] SETTABLE  R1["attack"] := 0
+      11 [   0] LEN       R8 := #R7
+      12 [   0] ADD       R8 := R8 + 1
+      13 [   0] NEWTABLE  R9 := {} (array 0, hash 4)
+      14 [   0] SETTABLE  R9["type"] := "no_damage"
+      15 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      16 [   0] GETTABLE  R11 := R0["playerId"]
+      17 [   0] SETTABLE  R10["pid"] := R11
+      18 [   0] GETTABLE  R11 := R0["id"]
+      19 [   0] SETTABLE  R10["id"] := R11
+      20 [   0] SETTABLE  R9["from"] := R10
+      21 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      22 [   0] GETTABLE  R11 := R1["playerId"]
+      23 [   0] SETTABLE  R10["pid"] := R11
+      24 [   0] GETTABLE  R11 := R1["id"]
+      25 [   0] SETTABLE  R10["id"] := R11
+      26 [   0] SETTABLE  R9["to"] := R10
+      27 [   0] SETTABLE  R9["event"] := R6
+      28 [   0] SETTABLE  R7[R8] := R9
+      29 [   0] GETUPVAL  R8 := upval 0
+      30 [   0] GETTABLE  R8 := R8["msg"]
+      31 [   0] LOADK     R9 := "Disabling attack from "
+      32 [   0] GETTABLE  R10 := R0["playerId"]
+      33 [   0] LOADK     R11 := ":"
+      34 [   0] GETTABLE  R12 := R0["cardId"]
+      35 [   0] LOADK     R13 := " to "
+      36 [   0] GETTABLE  R14 := R1["playerId"]
+      37 [   0] LOADK     R15 := ":"
+      38 [   0] GETTABLE  R16 := R1["cardId"]
+      39 [   0] CONCAT    R9 := R9 .. ... .. R16
+      40 [   0] CALL      R8(...) nargs=1 nret=0
+      41 [   0] RETURN    return R0.. (0 values)
+  function main.#9 (params=8, lines 137-167, upvals=[], locals=[])
+    constants: strings=['math', 'round', 'attack', 'directions', 'medium', 'emptyReduction', 'large', 'small', 'type', 'table', 'invulnerable', 'takenDamage', 'onDamage', 'from', 'to', 'player', 'opponent', 'value', 'strength', 'size', 'pid', 'playerId', 'id', 'event', 'msg', 'Attack from ', ':', 'cardId', ' to ', ' with strength ', 'is now: ', 'blocked', 'Card is invulnerable ', 'direction', ' to opponent with strength '] numbers=[0, 1]
+       0 [   0] GETGLOBAL R8 := _G["math"]
+       1 [   0] GETTABLE  R8 := R8["round"]
+       2 [   0] GETTABLE  R9 := R0["attack"]
+       3 [   0] GETTABLE  R10 := R4["directions"]
+       4 [   0] LEN       R10 := #R10
+       5 [   0] DIV       R9 := R9 / R10
+       6 [   0] CALL      R8(...) nargs=1 nret=1
+       7 [   0] MOVE      R9 := R8
+       8 [   0] LOADK     R10 := "medium"
+       9 [   0] GETTABLE  R11 := R4["emptyReduction"]
+      10 [   0] EQ        if (R11 == None) ~= 1 then skip next
+      11 [   0] JMP       jmp +18 -> 30
+      12 [   0] GETGLOBAL R11 := _G["math"]
+      13 [   0] GETTABLE  R11 := R11["round"]
+      14 [   0] GETTABLE  R12 := R0["attack"]
+      15 [   0] GETTABLE  R13 := R4["emptyReduction"]
+      16 [   0] SUB       R12 := R12 - R13
+      17 [   0] GETTABLE  R13 := R4["directions"]
+      18 [   0] LEN       R13 := #R13
+      19 [   0] DIV       R12 := R12 / R13
+      20 [   0] CALL      R11(...) nargs=1 nret=1
+      21 [   0] MOVE      R9 := R11
+      22 [   0] GETTABLE  R11 := R4["emptyReduction"]
+      23 [   0] LT        if (R11 < 0) ~= 0 then skip next
+      24 [   0] JMP       jmp +1 -> 26
+      25 [   0] LOADK     R10 := "large"
+      26 [   0] GETTABLE  R11 := R4["emptyReduction"]
+      27 [   0] LT        if (0 < R11) ~= 0 then skip next
+      28 [   0] JMP       jmp +1 -> 30
+      29 [   0] LOADK     R10 := "small"
+      30 [   0] EQ        if (R1 == None) ~= 1 then skip next
+      31 [   0] JMP       jmp +89 -> 121
+      32 [   0] GETGLOBAL R11 := _G["type"]
+      33 [   0] MOVE      R12 := R1
+      34 [   0] CALL      R11(...) nargs=1 nret=1
+      35 [   0] EQ        if (R11 == "table") ~= 0 then skip next
+      36 [   0] JMP       jmp +84 -> 121
+      37 [   0] LOADK     R10 := "medium"
+      38 [   0] GETTABLE  R11 := R1["invulnerable"]
+      39 [   0] TEST      if (R11 truthy) ~= 1 then skip next
+      40 [   0] JMP       jmp +50 -> 91
+      41 [   0] GETTABLE  R11 := R1["takenDamage"]
+      42 [   0] ADD       R11 := R11 + R8
+      43 [   0] SETTABLE  R1["takenDamage"] := R11
+      44 [   0] LEN       R11 := #R5
+      45 [   0] ADD       R11 := R11 + 1
+      46 [   0] NEWTABLE  R12 := {} (array 0, hash 6)
+      47 [   0] SETTABLE  R12["type"] := "onDamage"
+      48 [   0] SETTABLE  R12["from"] := R0
+      49 [   0] SETTABLE  R12["to"] := R1
+      50 [   0] SETTABLE  R12["player"] := R2
+      51 [   0] SETTABLE  R12["opponent"] := R3
+      52 [   0] SETTABLE  R12["value"] := R8
+      53 [   0] SETTABLE  R5[R11] := R12
+      54 [   0] LEN       R11 := #R7
+      55 [   0] ADD       R11 := R11 + 1
+      56 [   0] NEWTABLE  R12 := {} (array 0, hash 6)
+      57 [   0] SETTABLE  R12["type"] := "attack"
+      58 [   0] SETTABLE  R12["strength"] := R8
+      59 [   0] SETTABLE  R12["size"] := R10
+      60 [   0] NEWTABLE  R13 := {} (array 0, hash 2)
+      61 [   0] GETTABLE  R14 := R0["playerId"]
+      62 [   0] SETTABLE  R13["pid"] := R14
+      63 [   0] GETTABLE  R14 := R0["id"]
+      64 [   0] SETTABLE  R13["id"] := R14
+      65 [   0] SETTABLE  R12["from"] := R13
+      66 [   0] NEWTABLE  R13 := {} (array 0, hash 2)
+      67 [   0] GETTABLE  R14 := R1["playerId"]
+      68 [   0] SETTABLE  R13["pid"] := R14
+      69 [   0] GETTABLE  R14 := R1["id"]
+      70 [   0] SETTABLE  R13["id"] := R14
+      71 [   0] SETTABLE  R12["to"] := R13
+      72 [   0] SETTABLE  R12["event"] := R6
+      73 [   0] SETTABLE  R7[R11] := R12
+      74 [   0] GETUPVAL  R11 := upval 0
+      75 [   0] GETTABLE  R11 := R11["msg"]
+      76 [   0] LOADK     R12 := "Attack from "
+      77 [   0] GETTABLE  R13 := R0["playerId"]
+      78 [   0] LOADK     R14 := ":"
+      79 [   0] GETTABLE  R15 := R0["cardId"]
+      80 [   0] LOADK     R16 := " to "
+      81 [   0] GETTABLE  R17 := R1["playerId"]
+      82 [   0] LOADK     R18 := ":"
+      83 [   0] GETTABLE  R19 := R1["cardId"]
+      84 [   0] LOADK     R20 := " with strength "
+      85 [   0] MOVE      R21 := R8
+      86 [   0] LOADK     R22 := "is now: "
+      87 [   0] GETTABLE  R23 := R1["takenDamage"]
+      88 [   0] CONCAT    R12 := R12 .. ... .. R23
+      89 [   0] CALL      R11(...) nargs=1 nret=0
+      90 [   0] JMP       jmp +65 -> 156
+      91 [   0] LEN       R11 := #R7
+      92 [   0] ADD       R11 := R11 + 1
+      93 [   0] NEWTABLE  R12 := {} (array 0, hash 7)
+      94 [   0] SETTABLE  R12["type"] := "attack"
+      95 [   0] SETTABLE  R12["blocked"] := True
+      96 [   0] SETTABLE  R12["strength"] := R8
+      97 [   0] SETTABLE  R12["size"] := R10
+      98 [   0] NEWTABLE  R13 := {} (array 0, hash 2)
+      99 [   0] GETTABLE  R14 := R0["playerId"]
+     100 [   0] SETTABLE  R13["pid"] := R14
+     101 [   0] GETTABLE  R14 := R0["id"]
+     102 [   0] SETTABLE  R13["id"] := R14
+     103 [   0] SETTABLE  R12["from"] := R13
+     104 [   0] NEWTABLE  R13 := {} (array 0, hash 2)
+     105 [   0] GETTABLE  R14 := R1["playerId"]
+     106 [   0] SETTABLE  R13["pid"] := R14
+     107 [   0] GETTABLE  R14 := R1["id"]
+     108 [   0] SETTABLE  R13["id"] := R14
+     109 [   0] SETTABLE  R12["to"] := R13
+     110 [   0] SETTABLE  R12["event"] := R6
+     111 [   0] SETTABLE  R7[R11] := R12
+     112 [   0] GETUPVAL  R11 := upval 0
+     113 [   0] GETTABLE  R11 := R11["msg"]
+     114 [   0] LOADK     R12 := "Card is invulnerable "
+     115 [   0] GETTABLE  R13 := R1["playerId"]
+     116 [   0] LOADK     R14 := ":"
+     117 [   0] GETTABLE  R15 := R1["cardId"]
+     118 [   0] CONCAT    R12 := R12 .. ... .. R15
+     119 [   0] CALL      R11(...) nargs=1 nret=0
+     120 [   0] JMP       jmp +35 -> 156
+     121 [   0] GETTABLE  R11 := R3["takenDamage"]
+     122 [   0] TEST      if (R11 truthy) ~= 1 then skip next
+     123 [   0] JMP       jmp +1 -> 125
+     124 [   0] LOADK     R11 := 0
+     125 [   0] ADD       R11 := R11 + R9
+     126 [   0] SETTABLE  R3["takenDamage"] := R11
+     127 [   0] LEN       R11 := #R7
+     128 [   0] ADD       R11 := R11 + 1
+     129 [   0] NEWTABLE  R12 := {} (array 0, hash 7)
+     130 [   0] SETTABLE  R12["type"] := "attack"
+     131 [   0] SETTABLE  R12["strength"] := R9
+     132 [   0] SETTABLE  R12["size"] := R10
+     133 [   0] NEWTABLE  R13 := {} (array 0, hash 2)
+     134 [   0] GETTABLE  R14 := R0["playerId"]
+     135 [   0] SETTABLE  R13["pid"] := R14
+     136 [   0] GETTABLE  R14 := R0["id"]
+     137 [   0] SETTABLE  R13["id"] := R14
+     138 [   0] SETTABLE  R12["from"] := R13
+     139 [   0] NEWTABLE  R13 := {} (array 0, hash 1)
+     140 [   0] GETTABLE  R14 := R3["id"]
+     141 [   0] SETTABLE  R13["pid"] := R14
+     142 [   0] SETTABLE  R12["to"] := R13
+     143 [   0] SETTABLE  R12["direction"] := R1
+     144 [   0] SETTABLE  R12["event"] := R6
+     145 [   0] SETTABLE  R7[R11] := R12
+     146 [   0] GETUPVAL  R11 := upval 0
+     147 [   0] GETTABLE  R11 := R11["msg"]
+     148 [   0] LOADK     R12 := "Attack from "
+     149 [   0] GETTABLE  R13 := R0["playerId"]
+     150 [   0] LOADK     R14 := ":"
+     151 [   0] GETTABLE  R15 := R0["cardId"]
+     152 [   0] LOADK     R16 := " to opponent with strength "
+     153 [   0] MOVE      R17 := R9
+     154 [   0] CONCAT    R12 := R12 .. ... .. R17
+     155 [   0] CALL      R11(...) nargs=1 nret=0
+     156 [   0] RETURN    return R0.. (0 values)
+  function main.#10 (params=8, lines 169-177, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'resurrected', 'takenDamage', 'died', 'type', 'resurrect', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Resurrection from ', ':', 'cardId', ' to '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +36 -> 39
+       3 [   0] GETTABLE  R8 := R0["resurrected"]
+       4 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       5 [   0] JMP       jmp +33 -> 39
+       6 [   0] SETTABLE  R0["takenDamage"] := 0
+       7 [   0] SETTABLE  R0["died"] := False
+       8 [   0] SETTABLE  R0["resurrected"] := True
+       9 [   0] LEN       R8 := #R7
+      10 [   0] ADD       R8 := R8 + 1
+      11 [   0] NEWTABLE  R9 := {} (array 0, hash 4)
+      12 [   0] SETTABLE  R9["type"] := "resurrect"
+      13 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      14 [   0] GETTABLE  R11 := R0["playerId"]
+      15 [   0] SETTABLE  R10["pid"] := R11
+      16 [   0] GETTABLE  R11 := R0["id"]
+      17 [   0] SETTABLE  R10["id"] := R11
+      18 [   0] SETTABLE  R9["from"] := R10
+      19 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      20 [   0] GETTABLE  R11 := R0["playerId"]
+      21 [   0] SETTABLE  R10["pid"] := R11
+      22 [   0] GETTABLE  R11 := R0["id"]
+      23 [   0] SETTABLE  R10["id"] := R11
+      24 [   0] SETTABLE  R9["to"] := R10
+      25 [   0] SETTABLE  R9["event"] := R6
+      26 [   0] SETTABLE  R7[R8] := R9
+      27 [   0] GETUPVAL  R8 := upval 0
+      28 [   0] GETTABLE  R8 := R8["msg"]
+      29 [   0] LOADK     R9 := "Resurrection from "
+      30 [   0] GETTABLE  R10 := R0["playerId"]
+      31 [   0] LOADK     R11 := ":"
+      32 [   0] GETTABLE  R12 := R0["cardId"]
+      33 [   0] LOADK     R13 := " to "
+      34 [   0] GETTABLE  R14 := R0["playerId"]
+      35 [   0] LOADK     R15 := ":"
+      36 [   0] GETTABLE  R16 := R0["cardId"]
+      37 [   0] CONCAT    R9 := R9 .. ... .. R16
+      38 [   0] CALL      R8(...) nargs=1 nret=0
+      39 [   0] RETURN    return R0.. (0 values)
+  function main.#11 (params=8, lines 179-188, upvals=[], locals=[])
+    constants: strings=['type', 'table', 'died', 'takenDamage', 'hp', 'onDeath', 'from', 'to', 'pid', 'playerId', 'id', 'msg', 'Card ', ':', 'cardId', ' died.'] numbers=[1]
+       0 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       1 [   0] JMP       jmp +46 -> 48
+       2 [   0] GETGLOBAL R8 := _G["type"]
+       3 [   0] MOVE      R9 := R1
+       4 [   0] CALL      R8(...) nargs=1 nret=1
+       5 [   0] EQ        if (R8 == "table") ~= 0 then skip next
+       6 [   0] JMP       jmp +41 -> 48
+       7 [   0] GETTABLE  R8 := R1["died"]
+       8 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       9 [   0] JMP       jmp +38 -> 48
+      10 [   0] GETTABLE  R8 := R1["takenDamage"]
+      11 [   0] GETTABLE  R9 := R1["hp"]
+      12 [   0] LE        if (R9 <= R8) ~= 0 then skip next
+      13 [   0] JMP       jmp +34 -> 48
+      14 [   0] SETTABLE  R1["died"] := True
+      15 [   0] LEN       R8 := #R5
+      16 [   0] ADD       R8 := R8 + 1
+      17 [   0] NEWTABLE  R9 := {} (array 0, hash 3)
+      18 [   0] SETTABLE  R9["type"] := "onDeath"
+      19 [   0] SETTABLE  R9["from"] := R1
+      20 [   0] SETTABLE  R9["to"] := R1
+      21 [   0] SETTABLE  R5[R8] := R9
+      22 [   0] LEN       R8 := #R7
+      23 [   0] ADD       R8 := R8 + 1
+      24 [   0] NEWTABLE  R9 := {} (array 0, hash 3)
+      25 [   0] SETTABLE  R9["type"] := "died"
+      26 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      27 [   0] GETTABLE  R11 := R1["playerId"]
+      28 [   0] SETTABLE  R10["pid"] := R11
+      29 [   0] GETTABLE  R11 := R1["id"]
+      30 [   0] SETTABLE  R10["id"] := R11
+      31 [   0] SETTABLE  R9["from"] := R10
+      32 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      33 [   0] GETTABLE  R11 := R1["playerId"]
+      34 [   0] SETTABLE  R10["pid"] := R11
+      35 [   0] GETTABLE  R11 := R1["id"]
+      36 [   0] SETTABLE  R10["id"] := R11
+      37 [   0] SETTABLE  R9["to"] := R10
+      38 [   0] SETTABLE  R7[R8] := R9
+      39 [   0] GETUPVAL  R8 := upval 0
+      40 [   0] GETTABLE  R8 := R8["msg"]
+      41 [   0] LOADK     R9 := "Card "
+      42 [   0] GETTABLE  R10 := R1["playerId"]
+      43 [   0] LOADK     R11 := ":"
+      44 [   0] GETTABLE  R12 := R1["cardId"]
+      45 [   0] LOADK     R13 := " died."
+      46 [   0] CONCAT    R9 := R9 .. ... .. R13
+      47 [   0] CALL      R8(...) nargs=1 nret=0
+      48 [   0] RETURN    return R0.. (0 values)
+  function main.#12 (params=8, lines 190-204, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'type', 'onDamage', 'to', 'from', 'invulnerable', 'takenDamage', 'value', 'reflect', 'strength', 'pid', 'playerId', 'id', 'event', 'msg', 'Reflecting damge from ', ':', 'cardId', ' to ', 'blocked', ' but is invulnerable'] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +102 -> 105
+       3 [   0] GETTABLE  R8 := R6["type"]
+       4 [   0] EQ        if (R8 == "onDamage") ~= 0 then skip next
+       5 [   0] JMP       jmp +99 -> 105
+       6 [   0] GETTABLE  R8 := R6["to"]
+       7 [   0] EQ        if (R8 == R0) ~= 0 then skip next
+       8 [   0] JMP       jmp +96 -> 105
+       9 [   0] GETTABLE  R8 := R6["from"]
+      10 [   0] GETTABLE  R8 := R8["invulnerable"]
+      11 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+      12 [   0] JMP       jmp +50 -> 63
+      13 [   0] GETTABLE  R8 := R6["from"]
+      14 [   0] GETTABLE  R9 := R6["from"]
+      15 [   0] GETTABLE  R9 := R9["takenDamage"]
+      16 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+      17 [   0] JMP       jmp +1 -> 19
+      18 [   0] LOADK     R9 := 0
+      19 [   0] GETTABLE  R10 := R6["value"]
+      20 [   0] ADD       R9 := R9 + R10
+      21 [   0] SETTABLE  R8["takenDamage"] := R9
+      22 [   0] LEN       R8 := #R7
+      23 [   0] ADD       R8 := R8 + 1
+      24 [   0] NEWTABLE  R9 := {} (array 0, hash 5)
+      25 [   0] SETTABLE  R9["type"] := "reflect"
+      26 [   0] GETTABLE  R10 := R6["value"]
+      27 [   0] SETTABLE  R9["strength"] := R10
+      28 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      29 [   0] GETTABLE  R11 := R6["to"]
+      30 [   0] GETTABLE  R11 := R11["playerId"]
+      31 [   0] SETTABLE  R10["pid"] := R11
+      32 [   0] GETTABLE  R11 := R6["to"]
+      33 [   0] GETTABLE  R11 := R11["id"]
+      34 [   0] SETTABLE  R10["id"] := R11
+      35 [   0] SETTABLE  R9["from"] := R10
+      36 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      37 [   0] GETTABLE  R11 := R6["from"]
+      38 [   0] GETTABLE  R11 := R11["playerId"]
+      39 [   0] SETTABLE  R10["pid"] := R11
+      40 [   0] GETTABLE  R11 := R6["from"]
+      41 [   0] GETTABLE  R11 := R11["id"]
+      42 [   0] SETTABLE  R10["id"] := R11
+      43 [   0] SETTABLE  R9["to"] := R10
+      44 [   0] SETTABLE  R9["event"] := R6
+      45 [   0] SETTABLE  R7[R8] := R9
+      46 [   0] GETUPVAL  R8 := upval 0
+      47 [   0] GETTABLE  R8 := R8["msg"]
+      48 [   0] LOADK     R9 := "Reflecting damge from "
+      49 [   0] GETTABLE  R10 := R6["to"]
+      50 [   0] GETTABLE  R10 := R10["playerId"]
+      51 [   0] LOADK     R11 := ":"
+      52 [   0] GETTABLE  R12 := R6["to"]
+      53 [   0] GETTABLE  R12 := R12["cardId"]
+      54 [   0] LOADK     R13 := " to "
+      55 [   0] GETTABLE  R14 := R6["from"]
+      56 [   0] GETTABLE  R14 := R14["playerId"]
+      57 [   0] LOADK     R15 := ":"
+      58 [   0] GETTABLE  R16 := R6["from"]
+      59 [   0] GETTABLE  R16 := R16["cardId"]
+      60 [   0] CONCAT    R9 := R9 .. ... .. R16
+      61 [   0] CALL      R8(...) nargs=1 nret=0
+      62 [   0] JMP       jmp +42 -> 105
+      63 [   0] LEN       R8 := #R7
+      64 [   0] ADD       R8 := R8 + 1
+      65 [   0] NEWTABLE  R9 := {} (array 0, hash 6)
+      66 [   0] SETTABLE  R9["type"] := "reflect"
+      67 [   0] SETTABLE  R9["blocked"] := True
+      68 [   0] GETTABLE  R10 := R6["value"]
+      69 [   0] SETTABLE  R9["strength"] := R10
+      70 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      71 [   0] GETTABLE  R11 := R6["to"]
+      72 [   0] GETTABLE  R11 := R11["playerId"]
+      73 [   0] SETTABLE  R10["pid"] := R11
+      74 [   0] GETTABLE  R11 := R6["to"]
+      75 [   0] GETTABLE  R11 := R11["id"]
+      76 [   0] SETTABLE  R10["id"] := R11
+      77 [   0] SETTABLE  R9["from"] := R10
+      78 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      79 [   0] GETTABLE  R11 := R6["from"]
+      80 [   0] GETTABLE  R11 := R11["playerId"]
+      81 [   0] SETTABLE  R10["pid"] := R11
+      82 [   0] GETTABLE  R11 := R6["from"]
+      83 [   0] GETTABLE  R11 := R11["id"]
+      84 [   0] SETTABLE  R10["id"] := R11
+      85 [   0] SETTABLE  R9["to"] := R10
+      86 [   0] SETTABLE  R9["event"] := R6
+      87 [   0] SETTABLE  R7[R8] := R9
+      88 [   0] GETUPVAL  R8 := upval 0
+      89 [   0] GETTABLE  R8 := R8["msg"]
+      90 [   0] LOADK     R9 := "Reflecting damge from "
+      91 [   0] GETTABLE  R10 := R6["to"]
+      92 [   0] GETTABLE  R10 := R10["playerId"]
+      93 [   0] LOADK     R11 := ":"
+      94 [   0] GETTABLE  R12 := R6["to"]
+      95 [   0] GETTABLE  R12 := R12["cardId"]
+      96 [   0] LOADK     R13 := " to "
+      97 [   0] GETTABLE  R14 := R6["from"]
+      98 [   0] GETTABLE  R14 := R14["playerId"]
+      99 [   0] LOADK     R15 := ":"
+     100 [   0] GETTABLE  R16 := R6["from"]
+     101 [   0] GETTABLE  R16 := R16["cardId"]
+     102 [   0] LOADK     R17 := " but is invulnerable"
+     103 [   0] CONCAT    R9 := R9 .. ... .. R17
+     104 [   0] CALL      R8(...) nargs=1 nret=0
+     105 [   0] RETURN    return R0.. (0 values)
+  function main.#13 (params=8, lines 206-215, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'type', 'onDamage', 'player', 'takenDamage', 'value', 'reflect', 'strength', 'from', 'pid', 'to', 'playerId', 'id', 'event', 'msg', 'Reflecting damge from ', ':', 'cardId', ' to Player '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +46 -> 49
+       3 [   0] GETTABLE  R8 := R6["type"]
+       4 [   0] EQ        if (R8 == "onDamage") ~= 0 then skip next
+       5 [   0] JMP       jmp +43 -> 49
+       6 [   0] GETTABLE  R8 := R6["player"]
+       7 [   0] GETTABLE  R9 := R6["player"]
+       8 [   0] GETTABLE  R9 := R9["takenDamage"]
+       9 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+      10 [   0] JMP       jmp +1 -> 12
+      11 [   0] LOADK     R9 := 0
+      12 [   0] GETTABLE  R10 := R6["value"]
+      13 [   0] ADD       R9 := R9 + R10
+      14 [   0] SETTABLE  R8["takenDamage"] := R9
+      15 [   0] LEN       R8 := #R7
+      16 [   0] ADD       R8 := R8 + 1
+      17 [   0] NEWTABLE  R9 := {} (array 0, hash 5)
+      18 [   0] SETTABLE  R9["type"] := "reflect"
+      19 [   0] GETTABLE  R10 := R6["value"]
+      20 [   0] SETTABLE  R9["strength"] := R10
+      21 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      22 [   0] GETTABLE  R11 := R6["to"]
+      23 [   0] GETTABLE  R11 := R11["playerId"]
+      24 [   0] SETTABLE  R10["pid"] := R11
+      25 [   0] GETTABLE  R11 := R6["to"]
+      26 [   0] GETTABLE  R11 := R11["id"]
+      27 [   0] SETTABLE  R10["id"] := R11
+      28 [   0] SETTABLE  R9["from"] := R10
+      29 [   0] NEWTABLE  R10 := {} (array 0, hash 1)
+      30 [   0] GETTABLE  R11 := R6["player"]
+      31 [   0] GETTABLE  R11 := R11["id"]
+      32 [   0] SETTABLE  R10["pid"] := R11
+      33 [   0] SETTABLE  R9["to"] := R10
+      34 [   0] SETTABLE  R9["event"] := R6
+      35 [   0] SETTABLE  R7[R8] := R9
+      36 [   0] GETUPVAL  R8 := upval 0
+      37 [   0] GETTABLE  R8 := R8["msg"]
+      38 [   0] LOADK     R9 := "Reflecting damge from "
+      39 [   0] GETTABLE  R10 := R6["to"]
+      40 [   0] GETTABLE  R10 := R10["playerId"]
+      41 [   0] LOADK     R11 := ":"
+      42 [   0] GETTABLE  R12 := R6["to"]
+      43 [   0] GETTABLE  R12 := R12["cardId"]
+      44 [   0] LOADK     R13 := " to Player "
+      45 [   0] GETTABLE  R14 := R6["player"]
+      46 [   0] GETTABLE  R14 := R14["id"]
+      47 [   0] CONCAT    R9 := R9 .. ... .. R14
+      48 [   0] CALL      R8(...) nargs=1 nret=0
+      49 [   0] RETURN    return R0.. (0 values)
+  function main.#14 (params=8, lines 217-223, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'takenDamage', 'strength', 'type', 'attack', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Dealing damage to Player ', ':', 'cardId', ' to Player ', ' with strength: '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +37 -> 40
+       3 [   0] GETTABLE  R8 := R3["takenDamage"]
+       4 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       5 [   0] JMP       jmp +1 -> 7
+       6 [   0] LOADK     R8 := 0
+       7 [   0] GETTABLE  R9 := R4["strength"]
+       8 [   0] ADD       R8 := R8 + R9
+       9 [   0] SETTABLE  R3["takenDamage"] := R8
+      10 [   0] LEN       R8 := #R7
+      11 [   0] ADD       R8 := R8 + 1
+      12 [   0] NEWTABLE  R9 := {} (array 0, hash 5)
+      13 [   0] SETTABLE  R9["type"] := "attack"
+      14 [   0] GETTABLE  R10 := R4["strength"]
+      15 [   0] SETTABLE  R9["strength"] := R10
+      16 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      17 [   0] GETTABLE  R11 := R0["playerId"]
+      18 [   0] SETTABLE  R10["pid"] := R11
+      19 [   0] GETTABLE  R11 := R0["id"]
+      20 [   0] SETTABLE  R10["id"] := R11
+      21 [   0] SETTABLE  R9["from"] := R10
+      22 [   0] NEWTABLE  R10 := {} (array 0, hash 1)
+      23 [   0] GETTABLE  R11 := R3["id"]
+      24 [   0] SETTABLE  R10["pid"] := R11
+      25 [   0] SETTABLE  R9["to"] := R10
+      26 [   0] SETTABLE  R9["event"] := R6
+      27 [   0] SETTABLE  R7[R8] := R9
+      28 [   0] GETUPVAL  R8 := upval 0
+      29 [   0] GETTABLE  R8 := R8["msg"]
+      30 [   0] LOADK     R9 := "Dealing damage to Player "
+      31 [   0] GETTABLE  R10 := R0["playerId"]
+      32 [   0] LOADK     R11 := ":"
+      33 [   0] GETTABLE  R12 := R0["cardId"]
+      34 [   0] LOADK     R13 := " to Player "
+      35 [   0] GETTABLE  R14 := R3["id"]
+      36 [   0] LOADK     R15 := " with strength: "
+      37 [   0] GETTABLE  R16 := R4["strength"]
+      38 [   0] CONCAT    R9 := R9 .. ... .. R16
+      39 [   0] CALL      R8(...) nargs=1 nret=0
+      40 [   0] RETURN    return R0.. (0 values)
+  function main.#15 (params=8, lines 225-231, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'takenDamage', 'strength', 'type', 'attack', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Dealing damage to Player ', ':', 'cardId', ' to Player ', ' with strength: '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +37 -> 40
+       3 [   0] GETTABLE  R8 := R2["takenDamage"]
+       4 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       5 [   0] JMP       jmp +1 -> 7
+       6 [   0] LOADK     R8 := 0
+       7 [   0] GETTABLE  R9 := R4["strength"]
+       8 [   0] ADD       R8 := R8 + R9
+       9 [   0] SETTABLE  R2["takenDamage"] := R8
+      10 [   0] LEN       R8 := #R7
+      11 [   0] ADD       R8 := R8 + 1
+      12 [   0] NEWTABLE  R9 := {} (array 0, hash 5)
+      13 [   0] SETTABLE  R9["type"] := "attack"
+      14 [   0] GETTABLE  R10 := R4["strength"]
+      15 [   0] SETTABLE  R9["strength"] := R10
+      16 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      17 [   0] GETTABLE  R11 := R0["playerId"]
+      18 [   0] SETTABLE  R10["pid"] := R11
+      19 [   0] GETTABLE  R11 := R0["id"]
+      20 [   0] SETTABLE  R10["id"] := R11
+      21 [   0] SETTABLE  R9["from"] := R10
+      22 [   0] NEWTABLE  R10 := {} (array 0, hash 1)
+      23 [   0] GETTABLE  R11 := R2["id"]
+      24 [   0] SETTABLE  R10["pid"] := R11
+      25 [   0] SETTABLE  R9["to"] := R10
+      26 [   0] SETTABLE  R9["event"] := R6
+      27 [   0] SETTABLE  R7[R8] := R9
+      28 [   0] GETUPVAL  R8 := upval 0
+      29 [   0] GETTABLE  R8 := R8["msg"]
+      30 [   0] LOADK     R9 := "Dealing damage to Player "
+      31 [   0] GETTABLE  R10 := R0["playerId"]
+      32 [   0] LOADK     R11 := ":"
+      33 [   0] GETTABLE  R12 := R0["cardId"]
+      34 [   0] LOADK     R13 := " to Player "
+      35 [   0] GETTABLE  R14 := R2["id"]
+      36 [   0] LOADK     R15 := " with strength: "
+      37 [   0] GETTABLE  R16 := R4["strength"]
+      38 [   0] CONCAT    R9 := R9 .. ... .. R16
+      39 [   0] CALL      R8(...) nargs=1 nret=0
+      40 [   0] RETURN    return R0.. (0 values)
+  function main.#16 (params=8, lines 233-252, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'cards', 'invulnerable', 'takenDamage', 'strength', 'type', 'onDamage', 'from', 'to', 'player', 'opponent', 'value', 'attack', 'pid', 'playerId', 'id', 'event', 'msg', 'Dealing Damage from ', ':', 'cardId', ' to ', ' with strength ', 'blocked', ' but is invulnerable'] numbers=[1, 5, 0]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +101 -> 104
+       3 [   0] GETTABLE  R8 := R3["cards"]
+       4 [   0] LOADK     R9 := 1
+       5 [   0] LOADK     R10 := 5
+       6 [   0] LOADK     R11 := 1
+       7 [   0] FORPREP   for R9.. jmp +95
+       8 [   0] GETTABLE  R13 := R8[R12]
+       9 [   0] EQ        if (R13 == None) ~= 1 then skip next
+      10 [   0] JMP       jmp +92 -> 103
+      11 [   0] GETTABLE  R14 := R13["invulnerable"]
+      12 [   0] TEST      if (R14 truthy) ~= 1 then skip next
+      13 [   0] JMP       jmp +53 -> 67
+      14 [   0] GETTABLE  R14 := R13["takenDamage"]
+      15 [   0] TEST      if (R14 truthy) ~= 1 then skip next
+      16 [   0] JMP       jmp +1 -> 18
+      17 [   0] LOADK     R14 := 0
+      18 [   0] GETTABLE  R15 := R4["strength"]
+      19 [   0] ADD       R14 := R14 + R15
+      20 [   0] SETTABLE  R13["takenDamage"] := R14
+      21 [   0] LEN       R14 := #R5
+      22 [   0] ADD       R14 := R14 + 1
+      23 [   0] NEWTABLE  R15 := {} (array 0, hash 6)
+      24 [   0] SETTABLE  R15["type"] := "onDamage"
+      25 [   0] SETTABLE  R15["from"] := R0
+      26 [   0] SETTABLE  R15["to"] := R13
+      27 [   0] SETTABLE  R15["player"] := R2
+      28 [   0] SETTABLE  R15["opponent"] := R3
+      29 [   0] GETTABLE  R16 := R4["strength"]
+      30 [   0] SETTABLE  R15["value"] := R16
+      31 [   0] SETTABLE  R5[R14] := R15
+      32 [   0] LEN       R14 := #R7
+      33 [   0] ADD       R14 := R14 + 1
+      34 [   0] NEWTABLE  R15 := {} (array 0, hash 5)
+      35 [   0] SETTABLE  R15["type"] := "attack"
+      36 [   0] GETTABLE  R16 := R4["strength"]
+      37 [   0] SETTABLE  R15["strength"] := R16
+      38 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+      39 [   0] GETTABLE  R17 := R0["playerId"]
+      40 [   0] SETTABLE  R16["pid"] := R17
+      41 [   0] GETTABLE  R17 := R0["id"]
+      42 [   0] SETTABLE  R16["id"] := R17
+      43 [   0] SETTABLE  R15["from"] := R16
+      44 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+      45 [   0] GETTABLE  R17 := R13["playerId"]
+      46 [   0] SETTABLE  R16["pid"] := R17
+      47 [   0] GETTABLE  R17 := R13["id"]
+      48 [   0] SETTABLE  R16["id"] := R17
+      49 [   0] SETTABLE  R15["to"] := R16
+      50 [   0] SETTABLE  R15["event"] := R6
+      51 [   0] SETTABLE  R7[R14] := R15
+      52 [   0] GETUPVAL  R14 := upval 0
+      53 [   0] GETTABLE  R14 := R14["msg"]
+      54 [   0] LOADK     R15 := "Dealing Damage from "
+      55 [   0] GETTABLE  R16 := R0["playerId"]
+      56 [   0] LOADK     R17 := ":"
+      57 [   0] GETTABLE  R18 := R0["cardId"]
+      58 [   0] LOADK     R19 := " to "
+      59 [   0] GETTABLE  R20 := R13["playerId"]
+      60 [   0] LOADK     R21 := ":"
+      61 [   0] GETTABLE  R22 := R13["cardId"]
+      62 [   0] LOADK     R23 := " with strength "
+      63 [   0] GETTABLE  R24 := R4["strength"]
+      64 [   0] CONCAT    R15 := R15 .. ... .. R24
+      65 [   0] CALL      R14(...) nargs=1 nret=0
+      66 [   0] JMP       jmp +36 -> 103
+      67 [   0] LEN       R14 := #R7
+      68 [   0] ADD       R14 := R14 + 1
+      69 [   0] NEWTABLE  R15 := {} (array 0, hash 6)
+      70 [   0] SETTABLE  R15["type"] := "attack"
+      71 [   0] SETTABLE  R15["blocked"] := True
+      72 [   0] GETTABLE  R16 := R4["strength"]
+      73 [   0] SETTABLE  R15["strength"] := R16
+      74 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+      75 [   0] GETTABLE  R17 := R0["playerId"]
+      76 [   0] SETTABLE  R16["pid"] := R17
+      77 [   0] GETTABLE  R17 := R0["id"]
+      78 [   0] SETTABLE  R16["id"] := R17
+      79 [   0] SETTABLE  R15["from"] := R16
+      80 [   0] NEWTABLE  R16 := {} (array 0, hash 2)
+      81 [   0] GETTABLE  R17 := R13["playerId"]
+      82 [   0] SETTABLE  R16["pid"] := R17
+      83 [   0] GETTABLE  R17 := R13["id"]
+      84 [   0] SETTABLE  R16["id"] := R17
+      85 [   0] SETTABLE  R15["to"] := R16
+      86 [   0] SETTABLE  R15["event"] := R6
+      87 [   0] SETTABLE  R7[R14] := R15
+      88 [   0] GETUPVAL  R14 := upval 0
+      89 [   0] GETTABLE  R14 := R14["msg"]
+      90 [   0] LOADK     R15 := "Dealing Damage from "
+      91 [   0] GETTABLE  R16 := R0["playerId"]
+      92 [   0] LOADK     R17 := ":"
+      93 [   0] GETTABLE  R18 := R0["cardId"]
+      94 [   0] LOADK     R19 := " to "
+      95 [   0] GETTABLE  R20 := R13["playerId"]
+      96 [   0] LOADK     R21 := ":"
+      97 [   0] GETTABLE  R22 := R13["cardId"]
+      98 [   0] LOADK     R23 := " with strength "
+      99 [   0] GETTABLE  R24 := R4["strength"]
+     100 [   0] LOADK     R25 := " but is invulnerable"
+     101 [   0] CONCAT    R15 := R15 .. ... .. R25
+     102 [   0] CALL      R14(...) nargs=1 nret=0
+     103 [   0] FORLOOP   forloop R9 jmp -96
+     104 [   0] RETURN    return R0.. (0 values)
+  function main.#17 (params=8, lines 254-260, upvals=[], locals=[])
+    constants: strings=['noBuffsAllowed', 'takenDamage', 'strength', 'type', 'attack', 'from', 'pid', 'playerId', 'id', 'to', 'event', 'msg', 'Dealing damage to self ', ':', 'cardId', ' with strength: '] numbers=[0, 1]
+       0 [   0] GETTABLE  R8 := R0["noBuffsAllowed"]
+       1 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +37 -> 40
+       3 [   0] GETTABLE  R8 := R0["takenDamage"]
+       4 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+       5 [   0] JMP       jmp +1 -> 7
+       6 [   0] LOADK     R8 := 0
+       7 [   0] GETTABLE  R9 := R4["strength"]
+       8 [   0] ADD       R8 := R8 + R9
+       9 [   0] SETTABLE  R0["takenDamage"] := R8
+      10 [   0] LEN       R8 := #R7
+      11 [   0] ADD       R8 := R8 + 1
+      12 [   0] NEWTABLE  R9 := {} (array 0, hash 5)
+      13 [   0] SETTABLE  R9["type"] := "attack"
+      14 [   0] GETTABLE  R10 := R4["strength"]
+      15 [   0] SETTABLE  R9["strength"] := R10
+      16 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      17 [   0] GETTABLE  R11 := R0["playerId"]
+      18 [   0] SETTABLE  R10["pid"] := R11
+      19 [   0] GETTABLE  R11 := R0["id"]
+      20 [   0] SETTABLE  R10["id"] := R11
+      21 [   0] SETTABLE  R9["from"] := R10
+      22 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      23 [   0] GETTABLE  R11 := R0["playerId"]
+      24 [   0] SETTABLE  R10["pid"] := R11
+      25 [   0] GETTABLE  R11 := R0["id"]
+      26 [   0] SETTABLE  R10["id"] := R11
+      27 [   0] SETTABLE  R9["to"] := R10
+      28 [   0] SETTABLE  R9["event"] := R6
+      29 [   0] SETTABLE  R7[R8] := R9
+      30 [   0] GETUPVAL  R8 := upval 0
+      31 [   0] GETTABLE  R8 := R8["msg"]
+      32 [   0] LOADK     R9 := "Dealing damage to self "
+      33 [   0] GETTABLE  R10 := R0["playerId"]
+      34 [   0] LOADK     R11 := ":"
+      35 [   0] GETTABLE  R12 := R0["cardId"]
+      36 [   0] LOADK     R13 := " with strength: "
+      37 [   0] GETTABLE  R14 := R4["strength"]
+      38 [   0] CONCAT    R9 := R9 .. ... .. R14
+      39 [   0] CALL      R8(...) nargs=1 nret=0
+      40 [   0] RETURN    return R0.. (0 values)
+  function main.#18 (params=4, lines 267-694, upvals=[], locals=[])
+    constants: strings=['origHp', 'id', 'hp', 'cards', 'race', 'simulate'] numbers=[1, 2, 5]
+       0 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+       1 [   0] LOADK     R5 := 1
+       2 [   0] NEWTABLE  R6 := {} (array 2, hash 0)
+       3 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+       4 [   0] SETTABLE  R7["origHp"] := R1
+       5 [   0] SETTABLE  R7["id"] := 1
+       6 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+       7 [   0] SETTABLE  R8["origHp"] := R3
+       8 [   0] SETTABLE  R8["id"] := 2
+       9 [   0] SETLIST   R6[...] := R7.. (n=2, block 1)
+      10 [   0] GETTABLE  R7 := R6[1]
+      11 [   0] GETTABLE  R8 := R6[1]
+      12 [   0] GETTABLE  R8 := R8["origHp"]
+      13 [   0] SETTABLE  R7["hp"] := R8
+      14 [   0] GETTABLE  R7 := R6[2]
+      15 [   0] GETTABLE  R8 := R6[2]
+      16 [   0] GETTABLE  R8 := R8["origHp"]
+      17 [   0] SETTABLE  R7["hp"] := R8
+      18 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+      19 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+      20 [   0] NEWTABLE  R9 := {} (array 0, hash 0)
+      21 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+      22 [   0] CLOSURE   R8 := closure #0
+      23 [   0] CLOSURE   R9 := closure #1
+      24 [   0] MOVE      R0 := R8
+      25 [   0] MOVE      R10 := R9
+      26 [   0] LOADK     R11 := 1
+      27 [   0] MOVE      R12 := R0
+      28 [   0] CALL      R10(...) nargs=2 nret=1
+      29 [   0] SETTABLE  R7[1] := R10
+      30 [   0] MOVE      R10 := R9
+      31 [   0] LOADK     R11 := 2
+      32 [   0] MOVE      R12 := R2
+      33 [   0] CALL      R10(...) nargs=2 nret=1
+      34 [   0] SETTABLE  R7[2] := R10
+      35 [   0] GETTABLE  R10 := R6[1]
+      36 [   0] GETTABLE  R11 := R7[1]
+      37 [   0] SETTABLE  R10["cards"] := R11
+      38 [   0] GETTABLE  R10 := R6[2]
+      39 [   0] GETTABLE  R11 := R7[2]
+      40 [   0] SETTABLE  R10["cards"] := R11
+      41 [   0] LOADBOOL  R10 := True
+      42 [   0] LOADBOOL  R11 := True
+      43 [   0] LOADK     R12 := 1
+      44 [   0] LOADK     R13 := 5
+      45 [   0] LOADK     R14 := 1
+      46 [   0] FORPREP   for R12.. jmp +20
+      47 [   0] GETTABLE  R16 := R7[1]
+      48 [   0] GETTABLE  R16 := R16[R15]
+      49 [   0] EQ        if (R16 == None) ~= 1 then skip next
+      50 [   0] JMP       jmp +6 -> 57
+      51 [   0] GETTABLE  R16 := R7[1]
+      52 [   0] GETTABLE  R16 := R16[R15]
+      53 [   0] GETTABLE  R16 := R16["race"]
+      54 [   0] EQ        if (R16 == None) ~= 0 then skip next
+      55 [   0] JMP       jmp +1 -> 57
+      56 [   0] LOADBOOL  R10 := False
+      57 [   0] GETTABLE  R16 := R7[2]
+      58 [   0] GETTABLE  R16 := R16[R15]
+      59 [   0] EQ        if (R16 == None) ~= 1 then skip next
+      60 [   0] JMP       jmp +6 -> 67
+      61 [   0] GETTABLE  R16 := R7[2]
+      62 [   0] GETTABLE  R16 := R16[R15]
+      63 [   0] GETTABLE  R16 := R16["race"]
+      64 [   0] EQ        if (R16 == None) ~= 0 then skip next
+      65 [   0] JMP       jmp +1 -> 67
+      66 [   0] LOADBOOL  R11 := False
+      67 [   0] FORLOOP   forloop R12 jmp -21
+      68 [   0] CLOSURE   R12 := closure #2
+      69 [   0] TESTSET   if (R10 truthy) == 0 then R13 := R10 else skip next
+      70 [   0] JMP       jmp +1 -> 72
+      71 [   0] MOVE      R13 := R11
+      72 [   0] CLOSURE   R14 := closure #3
+      73 [   0] GETUPVAL  R0 := upval 0
+      74 [   0] CLOSURE   R15 := closure #4
+      75 [   0] GETUPVAL  R0 := upval 0
+      76 [   0] MOVE      R0 := R6
+      77 [   0] MOVE      R0 := R14
+      78 [   0] MOVE      R0 := R7
+      79 [   0] CLOSURE   R16 := closure #5
+      80 [   0] GETUPVAL  R0 := upval 0
+      81 [   0] CLOSURE   R17 := closure #6
+      82 [   0] MOVE      R0 := R7
+      83 [   0] MOVE      R0 := R6
+      84 [   0] CLOSURE   R18 := closure #7
+      85 [   0] GETUPVAL  R0 := upval 0
+      86 [   0] CLOSURE   R19 := closure #8
+      87 [   0] MOVE      R0 := R17
+      88 [   0] GETUPVAL  R0 := upval 0
+      89 [   0] CLOSURE   R20 := closure #9
+      90 [   0] MOVE      R0 := R17
+      91 [   0] CLOSURE   R21 := closure #10
+      92 [   0] MOVE      R0 := R17
+      93 [   0] MOVE      R0 := R18
+      94 [   0] MOVE      R0 := R5
+      95 [   0] MOVE      R0 := R16
+      96 [   0] GETUPVAL  R0 := upval 1
+      97 [   0] CLOSURE   R22 := closure #11
+      98 [   0] CLOSURE   R23 := closure #12
+      99 [   0] MOVE      R0 := R6
+     100 [   0] MOVE      R0 := R7
+     101 [   0] MOVE      R0 := R22
+     102 [   0] MOVE      R0 := R5
+     103 [   0] CLOSURE   R24 := closure #13
+     104 [   0] MOVE      R0 := R7
+     105 [   0] MOVE      R0 := R6
+     106 [   0] CLOSURE   R25 := closure #14
+     107 [   0] MOVE      R0 := R5
+     108 [   0] GETUPVAL  R0 := upval 0
+     109 [   0] MOVE      R0 := R15
+     110 [   0] MOVE      R0 := R23
+     111 [   0] MOVE      R0 := R13
+     112 [   0] MOVE      R0 := R12
+     113 [   0] MOVE      R0 := R6
+     114 [   0] MOVE      R0 := R19
+     115 [   0] GETUPVAL  R0 := upval 2
+     116 [   0] MOVE      R0 := R21
+     117 [   0] MOVE      R0 := R20
+     118 [   0] MOVE      R0 := R24
+     119 [   0] SETTABLE  R4["simulate"] := R25
+     120 [   0] RETURN    return R4.. (1 values)
+     121 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#0 (params=3, lines 277-294, upvals=[], locals=[])
+      constants: strings=['origHp', 'hp', 'origAttack', 'attack', 'takenDamage', 'race', 'playerId', 'cardId', 'buffs', 'ability', 'directions', 'direction', 'name'] numbers=[0, 1]
+         0 [   0] EQ        if (R2 == None) ~= 0 then skip next
+         1 [   0] JMP       jmp +2 -> 4
+         2 [   0] LOADNIL   R3..R3 := nil
+         3 [   0] RETURN    return R3.. (1 values)
+         4 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+         5 [   0] GETTABLE  R4 := R2["hp"]
+         6 [   0] SETTABLE  R3["origHp"] := R4
+         7 [   0] GETTABLE  R4 := R2["attack"]
+         8 [   0] SETTABLE  R3["origAttack"] := R4
+         9 [   0] GETTABLE  R4 := R3["origHp"]
+        10 [   0] SETTABLE  R3["hp"] := R4
+        11 [   0] SETTABLE  R3["takenDamage"] := 0
+        12 [   0] GETTABLE  R4 := R2["race"]
+        13 [   0] SETTABLE  R3["race"] := R4
+        14 [   0] GETTABLE  R4 := R3["origAttack"]
+        15 [   0] SETTABLE  R3["attack"] := R4
+        16 [   0] SETTABLE  R3["playerId"] := R0
+        17 [   0] SETTABLE  R3["cardId"] := R1
+        18 [   0] GETTABLE  R4 := R2["buffs"]
+        19 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        20 [   0] JMP       jmp +1 -> 22
+        21 [   0] GETTABLE  R4 := R2["ability"]
+        22 [   0] SETTABLE  R3["buffs"] := R4
+        23 [   0] LOADK     R4 := 1
+        24 [   0] GETTABLE  R5 := R3["buffs"]
+        25 [   0] LEN       R5 := #R5
+        26 [   0] LOADK     R6 := 1
+        27 [   0] FORPREP   for R4.. jmp +11
+        28 [   0] GETTABLE  R8 := R3["buffs"]
+        29 [   0] GETTABLE  R8 := R8[R7]
+        30 [   0] GETTABLE  R9 := R3["buffs"]
+        31 [   0] GETTABLE  R9 := R9[R7]
+        32 [   0] GETTABLE  R9 := R9["directions"]
+        33 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+        34 [   0] JMP       jmp +3 -> 38
+        35 [   0] GETTABLE  R9 := R3["buffs"]
+        36 [   0] GETTABLE  R9 := R9[R7]
+        37 [   0] GETTABLE  R9 := R9["direction"]
+        38 [   0] SETTABLE  R8["directions"] := R9
+        39 [   0] FORLOOP   forloop R4 jmp -12
+        40 [   0] GETTABLE  R4 := R2["name"]
+        41 [   0] SETTABLE  R3["name"] := R4
+        42 [   0] RETURN    return R3.. (1 values)
+        43 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#1 (params=2, lines 296-305, upvals=[], locals=[])
+      constants: strings=['id'] numbers=[1, 5]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] LOADK     R3 := 1
+         2 [   0] LOADK     R4 := 5
+         3 [   0] LOADK     R5 := 1
+         4 [   0] FORPREP   for R3.. jmp +11
+         5 [   0] GETUPVAL  R7 := upval 0
+         6 [   0] MOVE      R8 := R0
+         7 [   0] MOVE      R9 := R6
+         8 [   0] GETTABLE  R10 := R1[R6]
+         9 [   0] CALL      R7(...) nargs=3 nret=1
+        10 [   0] SETTABLE  R2[R6] := R7
+        11 [   0] GETTABLE  R7 := R2[R6]
+        12 [   0] EQ        if (R7 == None) ~= 1 then skip next
+        13 [   0] JMP       jmp +2 -> 16
+        14 [   0] GETTABLE  R7 := R2[R6]
+        15 [   0] SETTABLE  R7["id"] := R6
+        16 [   0] FORLOOP   forloop R3 jmp -12
+        17 [   0] RETURN    return R2.. (1 values)
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#2 (params=1, lines 323-349, upvals=[], locals=[])
+      constants: strings=['race', 'Neutral', 'pairs'] numbers=[0, 1, 5]
+         0 [   0] LOADK     R1 := 0
+         1 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         2 [   0] LOADK     R3 := 1
+         3 [   0] LOADK     R4 := 5
+         4 [   0] LOADK     R5 := 1
+         5 [   0] FORPREP   for R3.. jmp +17
+         6 [   0] GETTABLE  R7 := R0[R6]
+         7 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +14 -> 23
+         9 [   0] GETTABLE  R7 := R0[R6]
+        10 [   0] GETTABLE  R7 := R7["race"]
+        11 [   0] EQ        if (R7 == "Neutral") ~= 0 then skip next
+        12 [   0] JMP       jmp +2 -> 15
+        13 [   0] ADD       R1 := R1 + 1
+        14 [   0] JMP       jmp +8 -> 23
+        15 [   0] GETTABLE  R7 := R0[R6]
+        16 [   0] GETTABLE  R7 := R7["race"]
+        17 [   0] GETTABLE  R8 := R2[R7]
+        18 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+        19 [   0] JMP       jmp +1 -> 21
+        20 [   0] LOADK     R8 := 0
+        21 [   0] ADD       R8 := R8 + 1
+        22 [   0] SETTABLE  R2[R7] := R8
+        23 [   0] FORLOOP   forloop R3 jmp -18
+        24 [   0] LOADK     R3 := 0
+        25 [   0] LOADNIL   R4..R4 := nil
+        26 [   0] GETGLOBAL R5 := _G["pairs"]
+        27 [   0] MOVE      R6 := R2
+        28 [   0] CALL      R5(...) nargs=1 nret=3
+        29 [   0] JMP       jmp +2 -> 32
+        30 [   0] MOVE      R4 := R8
+        31 [   0] ADD       R3 := R3 + 1
+        32 [   0] TFORLOOP  tforloop R5 nres=2
+        33 [   0] JMP       jmp -4 -> 30
+        34 [   0] LT        if (1 < R3) ~= 1 then skip next
+        35 [   0] JMP       jmp +2 -> 38
+        36 [   0] EQ        if (R3 == 0) ~= 0 then skip next
+        37 [   0] JMP       jmp +2 -> 40
+        38 [   0] LOADBOOL  R5 := False
+        39 [   0] RETURN    return R5.. (1 values)
+        40 [   0] GETTABLE  R5 := R2[R4]
+        41 [   0] LE        if (R5 <= R1) ~= 0 then skip next
+        42 [   0] JMP       jmp +2 -> 45
+        43 [   0] LOADBOOL  R5 := False
+        44 [   0] RETURN    return R5.. (1 values)
+        45 [   0] LOADBOOL  R5 := True
+        46 [   0] RETURN    return R5.. (1 values)
+        47 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#3 (params=2, lines 354-360, upvals=[], locals=[])
+      constants: strings=['msg', ' ', ' HP:', 'hp', ' A:', 'attack', ' D:', 'takenDamage', ' <empty>'] numbers=[]
+         0 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         1 [   0] JMP       jmp +13 -> 15
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] GETTABLE  R2 := R2["msg"]
+         4 [   0] LOADK     R3 := " "
+         5 [   0] MOVE      R4 := R0
+         6 [   0] LOADK     R5 := " HP:"
+         7 [   0] GETTABLE  R6 := R1["hp"]
+         8 [   0] LOADK     R7 := " A:"
+         9 [   0] GETTABLE  R8 := R1["attack"]
+        10 [   0] LOADK     R9 := " D:"
+        11 [   0] GETTABLE  R10 := R1["takenDamage"]
+        12 [   0] CONCAT    R3 := R3 .. ... .. R10
+        13 [   0] CALL      R2(...) nargs=1 nret=0
+        14 [   0] JMP       jmp +7 -> 22
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2["msg"]
+        17 [   0] LOADK     R3 := " "
+        18 [   0] MOVE      R4 := R0
+        19 [   0] LOADK     R5 := " <empty>"
+        20 [   0] CONCAT    R3 := R3 .. ... .. R5
+        21 [   0] CALL      R2(...) nargs=1 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#4 (params=0, lines 362-371, upvals=[], locals=[])
+      constants: strings=['msg', 'Player1 HP:', 'hp', 'takenDamage', 'Player2 HP:'] numbers=[1, 0, 5, 2]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "Player1 HP:"
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] GETTABLE  R2 := R2[1]
+         5 [   0] GETTABLE  R2 := R2["hp"]
+         6 [   0] GETUPVAL  R3 := upval 1
+         7 [   0] GETTABLE  R3 := R3[1]
+         8 [   0] GETTABLE  R3 := R3["takenDamage"]
+         9 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        10 [   0] JMP       jmp +1 -> 12
+        11 [   0] LOADK     R3 := 0
+        12 [   0] SUB       R2 := R2 - R3
+        13 [   0] CONCAT    R1 := R1 .. ... .. R2
+        14 [   0] CALL      R0(...) nargs=1 nret=0
+        15 [   0] LOADK     R0 := 1
+        16 [   0] LOADK     R1 := 5
+        17 [   0] LOADK     R2 := 1
+        18 [   0] FORPREP   for R0.. jmp +6
+        19 [   0] GETUPVAL  R4 := upval 2
+        20 [   0] MOVE      R5 := R3
+        21 [   0] GETUPVAL  R6 := upval 3
+        22 [   0] GETTABLE  R6 := R6[1]
+        23 [   0] GETTABLE  R6 := R6[R3]
+        24 [   0] CALL      R4(...) nargs=2 nret=0
+        25 [   0] FORLOOP   forloop R0 jmp -7
+        26 [   0] GETUPVAL  R0 := upval 0
+        27 [   0] GETTABLE  R0 := R0["msg"]
+        28 [   0] LOADK     R1 := "Player2 HP:"
+        29 [   0] GETUPVAL  R2 := upval 1
+        30 [   0] GETTABLE  R2 := R2[2]
+        31 [   0] GETTABLE  R2 := R2["hp"]
+        32 [   0] GETUPVAL  R3 := upval 1
+        33 [   0] GETTABLE  R3 := R3[2]
+        34 [   0] GETTABLE  R3 := R3["takenDamage"]
+        35 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        36 [   0] JMP       jmp +1 -> 38
+        37 [   0] LOADK     R3 := 0
+        38 [   0] SUB       R2 := R2 - R3
+        39 [   0] CONCAT    R1 := R1 .. ... .. R2
+        40 [   0] CALL      R0(...) nargs=1 nret=0
+        41 [   0] LOADK     R0 := 1
+        42 [   0] LOADK     R1 := 5
+        43 [   0] LOADK     R2 := 1
+        44 [   0] FORPREP   for R0.. jmp +6
+        45 [   0] GETUPVAL  R4 := upval 2
+        46 [   0] MOVE      R5 := R3
+        47 [   0] GETUPVAL  R6 := upval 3
+        48 [   0] GETTABLE  R6 := R6[2]
+        49 [   0] GETTABLE  R6 := R6[R3]
+        50 [   0] CALL      R4(...) nargs=2 nret=0
+        51 [   0] FORLOOP   forloop R0 jmp -7
+        52 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#5 (params=4, lines 374-406, upvals=[], locals=[])
+      constants: strings=['left', 'none', 'right', 'front', 'frontLeft', 'frontRight', 'self', 'err', 'unknown direction'] numbers=[1, 5, 6]
+         0 [   0] EQ        if (R1 == "left") ~= 0 then skip next
+         1 [   0] JMP       jmp +10 -> 12
+         2 [   0] SUB       R4 := R0 - 1
+         3 [   0] LT        if (R4 < 1) ~= 0 then skip next
+         4 [   0] JMP       jmp +3 -> 8
+         5 [   0] LOADK     R4 := "none"
+         6 [   0] RETURN    return R4.. (1 values)
+         7 [   0] JMP       jmp +58 -> 66
+         8 [   0] SUB       R4 := R0 - 1
+         9 [   0] GETTABLE  R4 := R2[R4]
+        10 [   0] RETURN    return R4.. (1 values)
+        11 [   0] JMP       jmp +54 -> 66
+        12 [   0] EQ        if (R1 == "right") ~= 0 then skip next
+        13 [   0] JMP       jmp +10 -> 24
+        14 [   0] ADD       R4 := R0 + 1
+        15 [   0] LT        if (5 < R4) ~= 0 then skip next
+        16 [   0] JMP       jmp +3 -> 20
+        17 [   0] LOADK     R4 := "none"
+        18 [   0] RETURN    return R4.. (1 values)
+        19 [   0] JMP       jmp +46 -> 66
+        20 [   0] ADD       R4 := R0 + 1
+        21 [   0] GETTABLE  R4 := R2[R4]
+        22 [   0] RETURN    return R4.. (1 values)
+        23 [   0] JMP       jmp +42 -> 66
+        24 [   0] EQ        if (R1 == "front") ~= 0 then skip next
+        25 [   0] JMP       jmp +4 -> 30
+        26 [   0] SUB       R4 := 6 - R0
+        27 [   0] GETTABLE  R4 := R3[R4]
+        28 [   0] RETURN    return R4.. (1 values)
+        29 [   0] JMP       jmp +36 -> 66
+        30 [   0] EQ        if (R1 == "frontLeft") ~= 0 then skip next
+        31 [   0] JMP       jmp +11 -> 43
+        32 [   0] SUB       R4 := R0 - 1
+        33 [   0] LT        if (R4 < 1) ~= 0 then skip next
+        34 [   0] JMP       jmp +3 -> 38
+        35 [   0] LOADK     R4 := "none"
+        36 [   0] RETURN    return R4.. (1 values)
+        37 [   0] JMP       jmp +28 -> 66
+        38 [   0] SUB       R4 := R0 - 1
+        39 [   0] SUB       R4 := 6 - R4
+        40 [   0] GETTABLE  R4 := R3[R4]
+        41 [   0] RETURN    return R4.. (1 values)
+        42 [   0] JMP       jmp +23 -> 66
+        43 [   0] EQ        if (R1 == "frontRight") ~= 0 then skip next
+        44 [   0] JMP       jmp +11 -> 56
+        45 [   0] ADD       R4 := R0 + 1
+        46 [   0] LT        if (5 < R4) ~= 0 then skip next
+        47 [   0] JMP       jmp +3 -> 51
+        48 [   0] LOADK     R4 := "none"
+        49 [   0] RETURN    return R4.. (1 values)
+        50 [   0] JMP       jmp +15 -> 66
+        51 [   0] ADD       R4 := R0 + 1
+        52 [   0] SUB       R4 := 6 - R4
+        53 [   0] GETTABLE  R4 := R3[R4]
+        54 [   0] RETURN    return R4.. (1 values)
+        55 [   0] JMP       jmp +10 -> 66
+        56 [   0] EQ        if (R1 == "self") ~= 0 then skip next
+        57 [   0] JMP       jmp +3 -> 61
+        58 [   0] GETTABLE  R4 := R2[R0]
+        59 [   0] RETURN    return R4.. (1 values)
+        60 [   0] JMP       jmp +5 -> 66
+        61 [   0] GETUPVAL  R4 := upval 0
+        62 [   0] GETTABLE  R4 := R4["err"]
+        63 [   0] LOADK     R5 := "unknown direction"
+        64 [   0] MOVE      R6 := R1
+        65 [   0] CALL      R4(...) nargs=2 nret=0
+        66 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#6 (params=1, lines 409-417, upvals=[], locals=[])
+      constants: strings=[] numbers=[2, 1]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] LOADK     R2 := 2
+         3 [   0] EQ        if (R0 == 2) ~= 0 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] LOADK     R2 := 1
+         6 [   0] GETUPVAL  R3 := upval 0
+         7 [   0] GETTABLE  R3 := R3[R2]
+         8 [   0] MOVE      R4 := R1
+         9 [   0] GETUPVAL  R5 := upval 1
+        10 [   0] GETTABLE  R5 := R5[R0]
+        11 [   0] MOVE      R6 := R3
+        12 [   0] GETUPVAL  R7 := upval 1
+        13 [   0] GETTABLE  R7 := R7[R2]
+        14 [   0] RETURN    return R4.. (4 values)
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#7 (params=4, lines 420-462, upvals=[], locals=[])
+      constants: strings=['buffs', 'type', 'round', 'event', 'always', 'round_eq', 'tonumber', 'eventData', 'round_ge', 'opponent_cards', 'to', 'playerId', 'self', 'id', 'err', 'unknown event param: '] numbers=[1]
+         0 [   0] GETTABLE  R4 := R0["buffs"]
+         1 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +81 -> 84
+         3 [   0] LOADK     R4 := 1
+         4 [   0] GETTABLE  R5 := R0["buffs"]
+         5 [   0] LEN       R5 := #R5
+         6 [   0] LOADK     R6 := 1
+         7 [   0] FORPREP   for R4.. jmp +75
+         8 [   0] GETTABLE  R8 := R0["buffs"]
+         9 [   0] GETTABLE  R8 := R8[R7]
+        10 [   0] GETTABLE  R9 := R8["type"]
+        11 [   0] EQ        if (R9 == R1) ~= 0 then skip next
+        12 [   0] JMP       jmp +70 -> 83
+        13 [   0] LOADBOOL  R9 := False
+        14 [   0] EQ        if (R2 == "round") ~= 0 then skip next
+        15 [   0] JMP       jmp +25 -> 41
+        16 [   0] GETTABLE  R10 := R8["event"]
+        17 [   0] EQ        if (R10 == "always") ~= 0 then skip next
+        18 [   0] JMP       jmp +2 -> 21
+        19 [   0] LOADBOOL  R9 := True
+        20 [   0] JMP       jmp +59 -> 80
+        21 [   0] GETTABLE  R10 := R8["event"]
+        22 [   0] EQ        if (R10 == "round_eq") ~= 0 then skip next
+        23 [   0] JMP       jmp +7 -> 31
+        24 [   0] GETGLOBAL R10 := _G["tonumber"]
+        25 [   0] GETTABLE  R11 := R8["eventData"]
+        26 [   0] CALL      R10(...) nargs=1 nret=1
+        27 [   0] EQ        if (R3 == R10) ~= 0 then skip next
+        28 [   0] JMP       jmp +2 -> 31
+        29 [   0] LOADBOOL  R9 := True
+        30 [   0] JMP       jmp +49 -> 80
+        31 [   0] GETTABLE  R10 := R8["event"]
+        32 [   0] EQ        if (R10 == "round_ge") ~= 0 then skip next
+        33 [   0] JMP       jmp +46 -> 80
+        34 [   0] GETGLOBAL R10 := _G["tonumber"]
+        35 [   0] GETTABLE  R11 := R8["eventData"]
+        36 [   0] CALL      R10(...) nargs=1 nret=1
+        37 [   0] LE        if (R10 <= R3) ~= 0 then skip next
+        38 [   0] JMP       jmp +41 -> 80
+        39 [   0] LOADBOOL  R9 := True
+        40 [   0] JMP       jmp +39 -> 80
+        41 [   0] GETTABLE  R10 := R8["event"]
+        42 [   0] EQ        if (R2 == R10) ~= 0 then skip next
+        43 [   0] JMP       jmp +36 -> 80
+        44 [   0] GETTABLE  R10 := R8["eventData"]
+        45 [   0] EQ        if (R10 == None) ~= 1 then skip next
+        46 [   0] JMP       jmp +32 -> 79
+        47 [   0] GETTABLE  R10 := R8["eventData"]
+        48 [   0] EQ        if (R10 == "opponent_cards") ~= 0 then skip next
+        49 [   0] JMP       jmp +7 -> 57
+        50 [   0] GETTABLE  R10 := R3["to"]
+        51 [   0] GETTABLE  R10 := R10["playerId"]
+        52 [   0] GETTABLE  R11 := R0["playerId"]
+        53 [   0] EQ        if (R10 == R11) ~= 1 then skip next
+        54 [   0] JMP       jmp +25 -> 80
+        55 [   0] LOADBOOL  R9 := True
+        56 [   0] JMP       jmp +23 -> 80
+        57 [   0] GETTABLE  R10 := R8["eventData"]
+        58 [   0] EQ        if (R10 == "self") ~= 0 then skip next
+        59 [   0] JMP       jmp +12 -> 72
+        60 [   0] GETTABLE  R10 := R3["to"]
+        61 [   0] GETTABLE  R10 := R10["playerId"]
+        62 [   0] GETTABLE  R11 := R0["playerId"]
+        63 [   0] EQ        if (R10 == R11) ~= 0 then skip next
+        64 [   0] JMP       jmp +15 -> 80
+        65 [   0] GETTABLE  R10 := R3["to"]
+        66 [   0] GETTABLE  R10 := R10["id"]
+        67 [   0] GETTABLE  R11 := R0["id"]
+        68 [   0] EQ        if (R10 == R11) ~= 0 then skip next
+        69 [   0] JMP       jmp +10 -> 80
+        70 [   0] LOADBOOL  R9 := True
+        71 [   0] JMP       jmp +8 -> 80
+        72 [   0] GETUPVAL  R10 := upval 0
+        73 [   0] GETTABLE  R10 := R10["err"]
+        74 [   0] LOADK     R11 := "unknown event param: "
+        75 [   0] MOVE      R12 := R2
+        76 [   0] GETTABLE  R13 := R8["eventData"]
+        77 [   0] CALL      R10(...) nargs=3 nret=0
+        78 [   0] JMP       jmp +1 -> 80
+        79 [   0] LOADBOOL  R9 := True
+        80 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+        81 [   0] JMP       jmp +1 -> 83
+        82 [   0] RETURN    return R8.. (1 values)
+        83 [   0] FORLOOP   forloop R4 jmp -76
+        84 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#8 (params=1, lines 465-483, upvals=[], locals=[])
+      constants: strings=['hp', 'origHp', 'noBuffsAllowed', 'msg', 'Reenabling buffs on ', 'playerId', ':', 'cardId', 'attack', 'origAttack', 'invulnerable', 'Catrd is no more invulnerable '] numbers=[1, 5]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] MOVE      R2 := R0
+         2 [   0] CALL      R1(...) nargs=1 nret=4
+         3 [   0] GETTABLE  R5 := R2["origHp"]
+         4 [   0] SETTABLE  R2["hp"] := R5
+         5 [   0] LOADK     R5 := 1
+         6 [   0] LOADK     R6 := 5
+         7 [   0] LOADK     R7 := 1
+         8 [   0] FORPREP   for R5.. jmp +31
+         9 [   0] GETTABLE  R9 := R1[R8]
+        10 [   0] EQ        if (R9 == None) ~= 1 then skip next
+        11 [   0] JMP       jmp +28 -> 40
+        12 [   0] GETTABLE  R10 := R9["noBuffsAllowed"]
+        13 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +9 -> 24
+        15 [   0] GETUPVAL  R10 := upval 1
+        16 [   0] GETTABLE  R10 := R10["msg"]
+        17 [   0] LOADK     R11 := "Reenabling buffs on "
+        18 [   0] GETTABLE  R12 := R9["playerId"]
+        19 [   0] LOADK     R13 := ":"
+        20 [   0] GETTABLE  R14 := R9["cardId"]
+        21 [   0] CONCAT    R11 := R11 .. ... .. R14
+        22 [   0] CALL      R10(...) nargs=1 nret=0
+        23 [   0] SETTABLE  R9["noBuffsAllowed"] := False
+        24 [   0] GETTABLE  R10 := R9["origAttack"]
+        25 [   0] SETTABLE  R9["attack"] := R10
+        26 [   0] GETTABLE  R10 := R9["origHp"]
+        27 [   0] SETTABLE  R9["hp"] := R10
+        28 [   0] GETTABLE  R10 := R9["invulnerable"]
+        29 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+        30 [   0] JMP       jmp +9 -> 40
+        31 [   0] GETUPVAL  R10 := upval 1
+        32 [   0] GETTABLE  R10 := R10["msg"]
+        33 [   0] LOADK     R11 := "Catrd is no more invulnerable "
+        34 [   0] GETTABLE  R12 := R9["playerId"]
+        35 [   0] LOADK     R13 := ":"
+        36 [   0] GETTABLE  R14 := R9["cardId"]
+        37 [   0] CONCAT    R11 := R11 .. ... .. R14
+        38 [   0] CALL      R10(...) nargs=1 nret=0
+        39 [   0] SETTABLE  R9["invulnerable"] := False
+        40 [   0] FORLOOP   forloop R5 jmp -32
+        41 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#9 (params=2, lines 485-499, upvals=[], locals=[])
+      constants: strings=['died', 'takenDamage'] numbers=[1, 5, 0]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] MOVE      R3 := R0
+         2 [   0] CALL      R2(...) nargs=1 nret=4
+         3 [   0] LOADK     R6 := 1
+         4 [   0] LOADK     R7 := 5
+         5 [   0] LOADK     R8 := 1
+         6 [   0] FORPREP   for R6.. jmp +11
+         7 [   0] GETTABLE  R10 := R2[R9]
+         8 [   0] EQ        if (R10 == None) ~= 1 then skip next
+         9 [   0] JMP       jmp +8 -> 18
+        10 [   0] GETTABLE  R11 := R10["died"]
+        11 [   0] TEST      if (R11 truthy) ~= 0 then skip next
+        12 [   0] JMP       jmp +1 -> 14
+        13 [   0] SETTABLE  R2[R9] := None
+        14 [   0] GETTABLE  R11 := R10["takenDamage"]
+        15 [   0] LT        if (R11 < 0) ~= 0 then skip next
+        16 [   0] JMP       jmp +1 -> 18
+        17 [   0] SETTABLE  R10["takenDamage"] := 0
+        18 [   0] FORLOOP   forloop R6 jmp -12
+        19 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#10 (params=5, lines 502-552, upvals=[], locals=[])
+      constants: strings=['round', 'directions', 'none', 'type', 'player', 'opponent'] numbers=[1, 5, 0]
+         0 [   0] GETUPVAL  R5 := upval 0
+         1 [   0] MOVE      R6 := R0
+         2 [   0] CALL      R5(...) nargs=1 nret=4
+         3 [   0] LOADK     R9 := 1
+         4 [   0] LEN       R10 := #R1
+         5 [   0] LOADK     R11 := 1
+         6 [   0] FORPREP   for R9.. jmp +126
+         7 [   0] GETTABLE  R13 := R1[R12]
+         8 [   0] LOADK     R14 := 1
+         9 [   0] LOADK     R15 := 5
+        10 [   0] LOADK     R16 := 1
+        11 [   0] FORPREP   for R14.. jmp +120
+        12 [   0] GETTABLE  R18 := R5[R17]
+        13 [   0] EQ        if (R18 == None) ~= 1 then skip next
+        14 [   0] JMP       jmp +117 -> 132
+        15 [   0] EQ        if (R2 == None) ~= 0 then skip next
+        16 [   0] JMP       jmp +55 -> 72
+        17 [   0] GETUPVAL  R19 := upval 1
+        18 [   0] MOVE      R20 := R18
+        19 [   0] MOVE      R21 := R13
+        20 [   0] LOADK     R22 := "round"
+        21 [   0] GETUPVAL  R23 := upval 2
+        22 [   0] CALL      R19(...) nargs=4 nret=1
+        23 [   0] EQ        if (R19 == None) ~= 1 then skip next
+        24 [   0] JMP       jmp +107 -> 132
+        25 [   0] GETTABLE  R20 := R19["directions"]
+        26 [   0] LEN       R20 := #R20
+        27 [   0] LT        if (0 < R20) ~= 0 then skip next
+        28 [   0] JMP       jmp +31 -> 60
+        29 [   0] LOADK     R20 := 1
+        30 [   0] GETTABLE  R21 := R19["directions"]
+        31 [   0] LEN       R21 := #R21
+        32 [   0] LOADK     R22 := 1
+        33 [   0] FORPREP   for R20.. jmp +24
+        34 [   0] GETUPVAL  R24 := upval 3
+        35 [   0] MOVE      R25 := R17
+        36 [   0] GETTABLE  R26 := R19["directions"]
+        37 [   0] GETTABLE  R26 := R26[R23]
+        38 [   0] MOVE      R27 := R5
+        39 [   0] MOVE      R28 := R7
+        40 [   0] CALL      R24(...) nargs=4 nret=1
+        41 [   0] EQ        if (R24 == "none") ~= 1 then skip next
+        42 [   0] JMP       jmp +15 -> 58
+        43 [   0] EQ        if (R24 == None) ~= 0 then skip next
+        44 [   0] JMP       jmp +2 -> 47
+        45 [   0] GETTABLE  R25 := R19["directions"]
+        46 [   0] GETTABLE  R24 := R25[R23]
+        47 [   0] GETUPVAL  R25 := upval 4
+        48 [   0] GETTABLE  R25 := R25[R13]
+        49 [   0] MOVE      R26 := R18
+        50 [   0] MOVE      R27 := R24
+        51 [   0] MOVE      R28 := R6
+        52 [   0] MOVE      R29 := R8
+        53 [   0] MOVE      R30 := R19
+        54 [   0] MOVE      R31 := R3
+        55 [   0] LOADNIL   R32..R32 := nil
+        56 [   0] MOVE      R33 := R4
+        57 [   0] CALL      R25(...) nargs=8 nret=0
+        58 [   0] FORLOOP   forloop R20 jmp -25
+        59 [   0] JMP       jmp +72 -> 132
+        60 [   0] GETUPVAL  R20 := upval 4
+        61 [   0] GETTABLE  R20 := R20[R13]
+        62 [   0] MOVE      R21 := R18
+        63 [   0] LOADNIL   R22..R22 := nil
+        64 [   0] MOVE      R23 := R6
+        65 [   0] MOVE      R24 := R8
+        66 [   0] MOVE      R25 := R19
+        67 [   0] MOVE      R26 := R3
+        68 [   0] LOADNIL   R27..R27 := nil
+        69 [   0] MOVE      R28 := R4
+        70 [   0] CALL      R20(...) nargs=8 nret=0
+        71 [   0] JMP       jmp +60 -> 132
+        72 [   0] LOADK     R19 := 1
+        73 [   0] LEN       R20 := #R2
+        74 [   0] LOADK     R21 := 1
+        75 [   0] FORPREP   for R19.. jmp +55
+        76 [   0] GETTABLE  R23 := R2[R22]
+        77 [   0] GETUPVAL  R24 := upval 1
+        78 [   0] MOVE      R25 := R18
+        79 [   0] MOVE      R26 := R13
+        80 [   0] GETTABLE  R27 := R23["type"]
+        81 [   0] MOVE      R28 := R23
+        82 [   0] CALL      R24(...) nargs=4 nret=1
+        83 [   0] EQ        if (R24 == None) ~= 1 then skip next
+        84 [   0] JMP       jmp +46 -> 131
+        85 [   0] GETTABLE  R25 := R24["directions"]
+        86 [   0] LEN       R25 := #R25
+        87 [   0] LT        if (0 < R25) ~= 0 then skip next
+        88 [   0] JMP       jmp +31 -> 120
+        89 [   0] LOADK     R25 := 1
+        90 [   0] GETTABLE  R26 := R24["directions"]
+        91 [   0] LEN       R26 := #R26
+        92 [   0] LOADK     R27 := 1
+        93 [   0] FORPREP   for R25.. jmp +24
+        94 [   0] GETUPVAL  R29 := upval 3
+        95 [   0] MOVE      R30 := R17
+        96 [   0] GETTABLE  R31 := R24["directions"]
+        97 [   0] GETTABLE  R31 := R31[R28]
+        98 [   0] MOVE      R32 := R5
+        99 [   0] MOVE      R33 := R7
+       100 [   0] CALL      R29(...) nargs=4 nret=1
+       101 [   0] EQ        if (R29 == "none") ~= 1 then skip next
+       102 [   0] JMP       jmp +15 -> 118
+       103 [   0] EQ        if (R29 == None) ~= 0 then skip next
+       104 [   0] JMP       jmp +2 -> 107
+       105 [   0] GETTABLE  R30 := R24["directions"]
+       106 [   0] GETTABLE  R29 := R30[R28]
+       107 [   0] GETUPVAL  R30 := upval 4
+       108 [   0] GETTABLE  R30 := R30[R13]
+       109 [   0] MOVE      R31 := R18
+       110 [   0] MOVE      R32 := R29
+       111 [   0] GETTABLE  R33 := R23["player"]
+       112 [   0] GETTABLE  R34 := R23["opponent"]
+       113 [   0] MOVE      R35 := R24
+       114 [   0] MOVE      R36 := R3
+       115 [   0] MOVE      R37 := R23
+       116 [   0] MOVE      R38 := R4
+       117 [   0] CALL      R30(...) nargs=8 nret=0
+       118 [   0] FORLOOP   forloop R25 jmp -25
+       119 [   0] JMP       jmp +11 -> 131
+       120 [   0] GETUPVAL  R25 := upval 4
+       121 [   0] GETTABLE  R25 := R25[R13]
+       122 [   0] MOVE      R26 := R18
+       123 [   0] LOADNIL   R27..R27 := nil
+       124 [   0] MOVE      R28 := R6
+       125 [   0] MOVE      R29 := R8
+       126 [   0] MOVE      R30 := R24
+       127 [   0] MOVE      R31 := R3
+       128 [   0] MOVE      R32 := R23
+       129 [   0] MOVE      R33 := R4
+       130 [   0] CALL      R25(...) nargs=8 nret=0
+       131 [   0] FORLOOP   forloop R19 jmp -56
+       132 [   0] FORLOOP   forloop R14 jmp -121
+       133 [   0] FORLOOP   forloop R9 jmp -127
+       134 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#11 (params=2, lines 554-570, upvals=[], locals=[])
+      constants: strings=['buffs', 'type', 'attack', 'event', 'always', 'round_ge', 'round_eq', 'eventData'] numbers=[1]
+         0 [   0] LOADK     R2 := 1
+         1 [   0] GETTABLE  R3 := R0["buffs"]
+         2 [   0] LEN       R3 := #R3
+         3 [   0] LOADK     R4 := 1
+         4 [   0] FORPREP   for R2.. jmp +28
+         5 [   0] GETTABLE  R6 := R0["buffs"]
+         6 [   0] GETTABLE  R6 := R6[R5]
+         7 [   0] GETTABLE  R7 := R6["type"]
+         8 [   0] EQ        if (R7 == "attack") ~= 0 then skip next
+         9 [   0] JMP       jmp +23 -> 33
+        10 [   0] GETTABLE  R7 := R6["event"]
+        11 [   0] EQ        if (R7 == "always") ~= 0 then skip next
+        12 [   0] JMP       jmp +3 -> 16
+        13 [   0] LOADBOOL  R7 := True
+        14 [   0] RETURN    return R7.. (1 values)
+        15 [   0] JMP       jmp +17 -> 33
+        16 [   0] GETTABLE  R7 := R6["event"]
+        17 [   0] EQ        if (R7 == "round_ge") ~= 0 then skip next
+        18 [   0] JMP       jmp +3 -> 22
+        19 [   0] LOADBOOL  R7 := True
+        20 [   0] RETURN    return R7.. (1 values)
+        21 [   0] JMP       jmp +11 -> 33
+        22 [   0] GETTABLE  R7 := R6["event"]
+        23 [   0] EQ        if (R7 == "round_eq") ~= 0 then skip next
+        24 [   0] JMP       jmp +6 -> 31
+        25 [   0] GETTABLE  R7 := R6["eventData"]
+        26 [   0] LE        if (R1 <= R7) ~= 0 then skip next
+        27 [   0] JMP       jmp +3 -> 31
+        28 [   0] LOADBOOL  R7 := True
+        29 [   0] RETURN    return R7.. (1 values)
+        30 [   0] JMP       jmp +2 -> 33
+        31 [   0] LOADBOOL  R7 := False
+        32 [   0] RETURN    return R7.. (1 values)
+        33 [   0] FORLOOP   forloop R2 jmp -29
+        34 [   0] LOADBOOL  R2 := False
+        35 [   0] RETURN    return R2.. (1 values)
+        36 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#12 (params=0, lines 572-587, upvals=[], locals=[])
+      constants: strings=['hp', 'takenDamage'] numbers=[1, 0, 2, 5]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0[1]
+         2 [   0] GETTABLE  R0 := R0["hp"]
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1[1]
+         5 [   0] GETTABLE  R1 := R1["takenDamage"]
+         6 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         7 [   0] JMP       jmp +1 -> 9
+         8 [   0] LOADK     R1 := 0
+         9 [   0] SUB       R0 := R0 - R1
+        10 [   0] LE        if (R0 <= 0) ~= 1 then skip next
+        11 [   0] JMP       jmp +12 -> 24
+        12 [   0] GETUPVAL  R0 := upval 0
+        13 [   0] GETTABLE  R0 := R0[2]
+        14 [   0] GETTABLE  R0 := R0["hp"]
+        15 [   0] GETUPVAL  R1 := upval 0
+        16 [   0] GETTABLE  R1 := R1[2]
+        17 [   0] GETTABLE  R1 := R1["takenDamage"]
+        18 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        19 [   0] JMP       jmp +1 -> 21
+        20 [   0] LOADK     R1 := 0
+        21 [   0] SUB       R0 := R0 - R1
+        22 [   0] LE        if (R0 <= 0) ~= 0 then skip next
+        23 [   0] JMP       jmp +2 -> 26
+        24 [   0] LOADBOOL  R0 := True
+        25 [   0] RETURN    return R0.. (1 values)
+        26 [   0] LOADK     R0 := 1
+        27 [   0] LOADK     R1 := 5
+        28 [   0] LOADK     R2 := 1
+        29 [   0] FORPREP   for R0.. jmp +15
+        30 [   0] GETUPVAL  R4 := upval 1
+        31 [   0] GETTABLE  R4 := R4[1]
+        32 [   0] GETTABLE  R4 := R4[R3]
+        33 [   0] EQ        if (R4 == None) ~= 1 then skip next
+        34 [   0] JMP       jmp +10 -> 45
+        35 [   0] GETUPVAL  R4 := upval 2
+        36 [   0] GETUPVAL  R5 := upval 1
+        37 [   0] GETTABLE  R5 := R5[1]
+        38 [   0] GETTABLE  R5 := R5[R3]
+        39 [   0] GETUPVAL  R6 := upval 3
+        40 [   0] CALL      R4(...) nargs=2 nret=1
+        41 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        42 [   0] JMP       jmp +2 -> 45
+        43 [   0] LOADBOOL  R4 := False
+        44 [   0] RETURN    return R4.. (1 values)
+        45 [   0] FORLOOP   forloop R0 jmp -16
+        46 [   0] LOADK     R0 := 1
+        47 [   0] LOADK     R1 := 5
+        48 [   0] LOADK     R2 := 1
+        49 [   0] FORPREP   for R0.. jmp +15
+        50 [   0] GETUPVAL  R4 := upval 1
+        51 [   0] GETTABLE  R4 := R4[2]
+        52 [   0] GETTABLE  R4 := R4[R3]
+        53 [   0] EQ        if (R4 == None) ~= 1 then skip next
+        54 [   0] JMP       jmp +10 -> 65
+        55 [   0] GETUPVAL  R4 := upval 2
+        56 [   0] GETUPVAL  R5 := upval 1
+        57 [   0] GETTABLE  R5 := R5[2]
+        58 [   0] GETTABLE  R5 := R5[R3]
+        59 [   0] GETUPVAL  R6 := upval 3
+        60 [   0] CALL      R4(...) nargs=2 nret=1
+        61 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        62 [   0] JMP       jmp +2 -> 65
+        63 [   0] LOADBOOL  R4 := False
+        64 [   0] RETURN    return R4.. (1 values)
+        65 [   0] FORLOOP   forloop R0 jmp -16
+        66 [   0] LOADBOOL  R0 := True
+        67 [   0] RETURN    return R0.. (1 values)
+        68 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#13 (params=0, lines 590-614, upvals=[], locals=[])
+      constants: strings=['p1', 'cards', 'hp', 'p2', 'takenDamage'] numbers=[0, 1, 5, 2]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 2)
+         1 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         3 [   0] SETTABLE  R1["cards"] := R2
+         4 [   0] SETTABLE  R1["hp"] := 0
+         5 [   0] SETTABLE  R0["p1"] := R1
+         6 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+         7 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         8 [   0] SETTABLE  R1["cards"] := R2
+         9 [   0] SETTABLE  R1["hp"] := 0
+        10 [   0] SETTABLE  R0["p2"] := R1
+        11 [   0] GETTABLE  R1 := R0["p1"]
+        12 [   0] GETTABLE  R1 := R1["cards"]
+        13 [   0] LOADK     R2 := 1
+        14 [   0] LOADK     R3 := 5
+        15 [   0] LOADK     R4 := 1
+        16 [   0] FORPREP   for R2.. jmp +18
+        17 [   0] GETUPVAL  R6 := upval 0
+        18 [   0] GETTABLE  R6 := R6[1]
+        19 [   0] GETTABLE  R6 := R6[R5]
+        20 [   0] EQ        if (R6 == None) ~= 0 then skip next
+        21 [   0] JMP       jmp +4 -> 26
+        22 [   0] LEN       R7 := #R1
+        23 [   0] ADD       R7 := R7 + 1
+        24 [   0] SETTABLE  R1[R7] := 0
+        25 [   0] JMP       jmp +9 -> 35
+        26 [   0] LEN       R7 := #R1
+        27 [   0] ADD       R7 := R7 + 1
+        28 [   0] GETTABLE  R8 := R6["hp"]
+        29 [   0] GETTABLE  R9 := R6["takenDamage"]
+        30 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+        31 [   0] JMP       jmp +1 -> 33
+        32 [   0] LOADK     R9 := 0
+        33 [   0] SUB       R8 := R8 - R9
+        34 [   0] SETTABLE  R1[R7] := R8
+        35 [   0] FORLOOP   forloop R2 jmp -19
+        36 [   0] GETTABLE  R2 := R0["p1"]
+        37 [   0] GETUPVAL  R3 := upval 1
+        38 [   0] GETTABLE  R3 := R3[1]
+        39 [   0] GETTABLE  R3 := R3["hp"]
+        40 [   0] GETUPVAL  R4 := upval 1
+        41 [   0] GETTABLE  R4 := R4[1]
+        42 [   0] GETTABLE  R4 := R4["takenDamage"]
+        43 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        44 [   0] JMP       jmp +1 -> 46
+        45 [   0] LOADK     R4 := 0
+        46 [   0] SUB       R3 := R3 - R4
+        47 [   0] SETTABLE  R2["hp"] := R3
+        48 [   0] GETTABLE  R2 := R0["p2"]
+        49 [   0] GETTABLE  R2 := R2["cards"]
+        50 [   0] LOADK     R3 := 1
+        51 [   0] LOADK     R4 := 5
+        52 [   0] LOADK     R5 := 1
+        53 [   0] FORPREP   for R3.. jmp +18
+        54 [   0] GETUPVAL  R7 := upval 0
+        55 [   0] GETTABLE  R7 := R7[2]
+        56 [   0] GETTABLE  R7 := R7[R6]
+        57 [   0] EQ        if (R7 == None) ~= 0 then skip next
+        58 [   0] JMP       jmp +4 -> 63
+        59 [   0] LEN       R8 := #R2
+        60 [   0] ADD       R8 := R8 + 1
+        61 [   0] SETTABLE  R2[R8] := 0
+        62 [   0] JMP       jmp +9 -> 72
+        63 [   0] LEN       R8 := #R2
+        64 [   0] ADD       R8 := R8 + 1
+        65 [   0] GETTABLE  R9 := R7["hp"]
+        66 [   0] GETTABLE  R10 := R7["takenDamage"]
+        67 [   0] TEST      if (R10 truthy) ~= 1 then skip next
+        68 [   0] JMP       jmp +1 -> 70
+        69 [   0] LOADK     R10 := 0
+        70 [   0] SUB       R9 := R9 - R10
+        71 [   0] SETTABLE  R2[R8] := R9
+        72 [   0] FORLOOP   forloop R3 jmp -19
+        73 [   0] GETTABLE  R3 := R0["p2"]
+        74 [   0] GETUPVAL  R4 := upval 1
+        75 [   0] GETTABLE  R4 := R4[2]
+        76 [   0] GETTABLE  R4 := R4["hp"]
+        77 [   0] GETUPVAL  R5 := upval 1
+        78 [   0] GETTABLE  R5 := R5[2]
+        79 [   0] GETTABLE  R5 := R5["takenDamage"]
+        80 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+        81 [   0] JMP       jmp +1 -> 83
+        82 [   0] LOADK     R5 := 0
+        83 [   0] SUB       R4 := R4 - R5
+        84 [   0] SETTABLE  R3["hp"] := R4
+        85 [   0] RETURN    return R0.. (1 values)
+        86 [   0] RETURN    return R0.. (0 values)
+    function main.#18.#14 (params=0, lines 617-690, upvals=[], locals=[])
+      constants: strings=['msg', 'Start Condition:', 'Starting Round ', 'cards', 'hp', 'math', 'round', 'origHp', 'Race Bonus for Player1. HP is now: ', 'type', 'race_bonus', 'strength', 'from', 'pid', 'to', 'Race Bonus for Player2. HP is now: ', 'doing eventloop', 'die', 'takenDamage', 'Player 2 wins!', 'Player 1 wins!', 'Draw!'] numbers=[1, 20, 0, 1.2, 2, 3]
+         0 [   0] LOADK     R0 := 1
+         1 [   0] SETUPVAL  upval 0 := R0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETTABLE  R0 := R0["msg"]
+         4 [   0] LOADK     R1 := "Start Condition:"
+         5 [   0] CALL      R0(...) nargs=1 nret=0
+         6 [   0] GETUPVAL  R0 := upval 2
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+         9 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+        10 [   0] GETUPVAL  R2 := upval 3
+        11 [   0] CALL      R2(...) nargs=0 nret=1
+        12 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        13 [   0] JMP       jmp +218 -> 232
+        14 [   0] GETUPVAL  R2 := upval 0
+        15 [   0] LE        if (R2 <= 20) ~= 0 then skip next
+        16 [   0] JMP       jmp +215 -> 232
+        17 [   0] GETUPVAL  R2 := upval 1
+        18 [   0] GETTABLE  R2 := R2["msg"]
+        19 [   0] LOADK     R3 := "Starting Round "
+        20 [   0] GETUPVAL  R4 := upval 0
+        21 [   0] CONCAT    R3 := R3 .. ... .. R4
+        22 [   0] CALL      R2(...) nargs=1 nret=0
+        23 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+        24 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+        25 [   0] LEN       R4 := #R1
+        26 [   0] EQ        if (R4 == 0) ~= 0 then skip next
+        27 [   0] JMP       jmp +93 -> 121
+        28 [   0] GETUPVAL  R4 := upval 4
+        29 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        30 [   0] JMP       jmp +90 -> 121
+        31 [   0] GETUPVAL  R4 := upval 5
+        32 [   0] GETUPVAL  R5 := upval 6
+        33 [   0] GETTABLE  R5 := R5[1]
+        34 [   0] GETTABLE  R5 := R5["cards"]
+        35 [   0] CALL      R4(...) nargs=1 nret=1
+        36 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        37 [   0] JMP       jmp +38 -> 76
+        38 [   0] GETUPVAL  R4 := upval 6
+        39 [   0] GETTABLE  R4 := R4[1]
+        40 [   0] GETGLOBAL R5 := _G["math"]
+        41 [   0] GETTABLE  R5 := R5["round"]
+        42 [   0] GETUPVAL  R6 := upval 6
+        43 [   0] GETTABLE  R6 := R6[1]
+        44 [   0] GETTABLE  R6 := R6["hp"]
+        45 [   0] MUL       R6 := R6 * 1.2
+        46 [   0] CALL      R5(...) nargs=1 nret=1
+        47 [   0] SETTABLE  R4["hp"] := R5
+        48 [   0] GETUPVAL  R4 := upval 6
+        49 [   0] GETTABLE  R4 := R4[1]
+        50 [   0] GETUPVAL  R5 := upval 6
+        51 [   0] GETTABLE  R5 := R5[1]
+        52 [   0] GETTABLE  R5 := R5["hp"]
+        53 [   0] SETTABLE  R4["origHp"] := R5
+        54 [   0] GETUPVAL  R4 := upval 1
+        55 [   0] GETTABLE  R4 := R4["msg"]
+        56 [   0] LOADK     R5 := "Race Bonus for Player1. HP is now: "
+        57 [   0] GETUPVAL  R6 := upval 6
+        58 [   0] GETTABLE  R6 := R6[1]
+        59 [   0] GETTABLE  R6 := R6["hp"]
+        60 [   0] CALL      R4(...) nargs=2 nret=0
+        61 [   0] LEN       R4 := #R3
+        62 [   0] ADD       R4 := R4 + 1
+        63 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+        64 [   0] SETTABLE  R5["type"] := "race_bonus"
+        65 [   0] GETUPVAL  R6 := upval 6
+        66 [   0] GETTABLE  R6 := R6[1]
+        67 [   0] GETTABLE  R6 := R6["hp"]
+        68 [   0] SETTABLE  R5["strength"] := R6
+        69 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+        70 [   0] SETTABLE  R6["pid"] := 1
+        71 [   0] SETTABLE  R5["from"] := R6
+        72 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+        73 [   0] SETTABLE  R6["pid"] := 1
+        74 [   0] SETTABLE  R5["to"] := R6
+        75 [   0] SETTABLE  R3[R4] := R5
+        76 [   0] GETUPVAL  R4 := upval 5
+        77 [   0] GETUPVAL  R5 := upval 6
+        78 [   0] GETTABLE  R5 := R5[2]
+        79 [   0] GETTABLE  R5 := R5["cards"]
+        80 [   0] CALL      R4(...) nargs=1 nret=1
+        81 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        82 [   0] JMP       jmp +38 -> 121
+        83 [   0] GETUPVAL  R4 := upval 6
+        84 [   0] GETTABLE  R4 := R4[2]
+        85 [   0] GETGLOBAL R5 := _G["math"]
+        86 [   0] GETTABLE  R5 := R5["round"]
+        87 [   0] GETUPVAL  R6 := upval 6
+        88 [   0] GETTABLE  R6 := R6[2]
+        89 [   0] GETTABLE  R6 := R6["hp"]
+        90 [   0] MUL       R6 := R6 * 1.2
+        91 [   0] CALL      R5(...) nargs=1 nret=1
+        92 [   0] SETTABLE  R4["hp"] := R5
+        93 [   0] GETUPVAL  R4 := upval 6
+        94 [   0] GETTABLE  R4 := R4[2]
+        95 [   0] GETUPVAL  R5 := upval 6
+        96 [   0] GETTABLE  R5 := R5[2]
+        97 [   0] GETTABLE  R5 := R5["hp"]
+        98 [   0] SETTABLE  R4["origHp"] := R5
+        99 [   0] GETUPVAL  R4 := upval 1
+       100 [   0] GETTABLE  R4 := R4["msg"]
+       101 [   0] LOADK     R5 := "Race Bonus for Player2. HP is now: "
+       102 [   0] GETUPVAL  R6 := upval 6
+       103 [   0] GETTABLE  R6 := R6[2]
+       104 [   0] GETTABLE  R6 := R6["hp"]
+       105 [   0] CALL      R4(...) nargs=2 nret=0
+       106 [   0] LEN       R4 := #R3
+       107 [   0] ADD       R4 := R4 + 1
+       108 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+       109 [   0] SETTABLE  R5["type"] := "race_bonus"
+       110 [   0] GETUPVAL  R6 := upval 6
+       111 [   0] GETTABLE  R6 := R6[2]
+       112 [   0] GETTABLE  R6 := R6["hp"]
+       113 [   0] SETTABLE  R5["strength"] := R6
+       114 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+       115 [   0] SETTABLE  R6["pid"] := 2
+       116 [   0] SETTABLE  R5["from"] := R6
+       117 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+       118 [   0] SETTABLE  R6["pid"] := 2
+       119 [   0] SETTABLE  R5["to"] := R6
+       120 [   0] SETTABLE  R3[R4] := R5
+       121 [   0] GETUPVAL  R4 := upval 7
+       122 [   0] LOADK     R5 := 1
+       123 [   0] CALL      R4(...) nargs=1 nret=0
+       124 [   0] GETUPVAL  R4 := upval 7
+       125 [   0] LOADK     R5 := 2
+       126 [   0] CALL      R4(...) nargs=1 nret=0
+       127 [   0] LOADK     R4 := 1
+       128 [   0] GETUPVAL  R5 := upval 8
+       129 [   0] LEN       R5 := #R5
+       130 [   0] LOADK     R6 := 1
+       131 [   0] FORPREP   for R4.. jmp +16
+       132 [   0] GETUPVAL  R8 := upval 8
+       133 [   0] GETTABLE  R8 := R8[R7]
+       134 [   0] GETUPVAL  R9 := upval 9
+       135 [   0] LOADK     R10 := 1
+       136 [   0] MOVE      R11 := R8
+       137 [   0] LOADNIL   R12..R12 := nil
+       138 [   0] MOVE      R13 := R2
+       139 [   0] MOVE      R14 := R3
+       140 [   0] CALL      R9(...) nargs=5 nret=0
+       141 [   0] GETUPVAL  R9 := upval 9
+       142 [   0] LOADK     R10 := 2
+       143 [   0] MOVE      R11 := R8
+       144 [   0] LOADNIL   R12..R12 := nil
+       145 [   0] MOVE      R13 := R2
+       146 [   0] MOVE      R14 := R3
+       147 [   0] CALL      R9(...) nargs=5 nret=0
+       148 [   0] FORLOOP   forloop R4 jmp -17
+       149 [   0] LEN       R4 := #R2
+       150 [   0] LT        if (0 < R4) ~= 0 then skip next
+       151 [   0] JMP       jmp +55 -> 207
+       152 [   0] LEN       R4 := #R2
+       153 [   0] LT        if (0 < R4) ~= 0 then skip next
+       154 [   0] JMP       jmp +52 -> 207
+       155 [   0] GETUPVAL  R4 := upval 1
+       156 [   0] GETTABLE  R4 := R4["msg"]
+       157 [   0] LOADK     R5 := "doing eventloop"
+       158 [   0] CALL      R4(...) nargs=1 nret=0
+       159 [   0] LOADK     R4 := 1
+       160 [   0] LEN       R5 := #R2
+       161 [   0] LOADK     R6 := 1
+       162 [   0] FORPREP   for R4.. jmp +0
+       163 [   0] FORLOOP   forloop R4 jmp -1
+       164 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+       165 [   0] LOADK     R5 := 1
+       166 [   0] GETUPVAL  R6 := upval 8
+       167 [   0] LEN       R6 := #R6
+       168 [   0] LOADK     R7 := 1
+       169 [   0] FORPREP   for R5.. jmp +16
+       170 [   0] GETUPVAL  R9 := upval 8
+       171 [   0] GETTABLE  R9 := R9[R8]
+       172 [   0] GETUPVAL  R10 := upval 9
+       173 [   0] LOADK     R11 := 1
+       174 [   0] MOVE      R12 := R9
+       175 [   0] MOVE      R13 := R2
+       176 [   0] MOVE      R14 := R4
+       177 [   0] MOVE      R15 := R3
+       178 [   0] CALL      R10(...) nargs=5 nret=0
+       179 [   0] GETUPVAL  R10 := upval 9
+       180 [   0] LOADK     R11 := 2
+       181 [   0] MOVE      R12 := R9
+       182 [   0] MOVE      R13 := R2
+       183 [   0] MOVE      R14 := R4
+       184 [   0] MOVE      R15 := R3
+       185 [   0] CALL      R10(...) nargs=5 nret=0
+       186 [   0] FORLOOP   forloop R5 jmp -17
+       187 [   0] GETUPVAL  R5 := upval 9
+       188 [   0] LOADK     R6 := 1
+       189 [   0] NEWTABLE  R7 := {} (array 1, hash 0)
+       190 [   0] LOADK     R8 := "die"
+       191 [   0] SETLIST   R7[...] := R8.. (n=1, block 1)
+       192 [   0] LOADNIL   R8..R8 := nil
+       193 [   0] MOVE      R9 := R4
+       194 [   0] MOVE      R10 := R3
+       195 [   0] CALL      R5(...) nargs=5 nret=0
+       196 [   0] GETUPVAL  R5 := upval 9
+       197 [   0] LOADK     R6 := 2
+       198 [   0] NEWTABLE  R7 := {} (array 1, hash 0)
+       199 [   0] LOADK     R8 := "die"
+       200 [   0] SETLIST   R7[...] := R8.. (n=1, block 1)
+       201 [   0] LOADNIL   R8..R8 := nil
+       202 [   0] MOVE      R9 := R4
+       203 [   0] MOVE      R10 := R3
+       204 [   0] CALL      R5(...) nargs=5 nret=0
+       205 [   0] MOVE      R2 := R4
+       206 [   0] JMP       jmp -55 -> 152
+       207 [   0] GETUPVAL  R4 := upval 10
+       208 [   0] LOADK     R5 := 1
+       209 [   0] MOVE      R6 := R3
+       210 [   0] CALL      R4(...) nargs=2 nret=0
+       211 [   0] GETUPVAL  R4 := upval 10
+       212 [   0] LOADK     R5 := 2
+       213 [   0] MOVE      R6 := R3
+       214 [   0] CALL      R4(...) nargs=2 nret=0
+       215 [   0] LEN       R4 := #R1
+       216 [   0] ADD       R4 := R4 + 1
+       217 [   0] SETTABLE  R1[R4] := R3
+       218 [   0] GETUPVAL  R4 := upval 2
+       219 [   0] CALL      R4(...) nargs=0 nret=0
+       220 [   0] GETUPVAL  R4 := upval 11
+       221 [   0] CALL      R4(...) nargs=0 nret=1
+       222 [   0] LEN       R5 := #R0
+       223 [   0] ADD       R5 := R5 + 1
+       224 [   0] SETTABLE  R0[R5] := R4
+       225 [   0] GETUPVAL  R5 := upval 0
+       226 [   0] ADD       R5 := R5 + 1
+       227 [   0] SETUPVAL  upval 0 := R5
+       228 [   0] GETUPVAL  R5 := upval 0
+       229 [   0] LE        if (3 <= R5) ~= 0 then skip next
+       230 [   0] JMP       jmp -221 -> 10
+       231 [   0] JMP       jmp -222 -> 10
+       232 [   0] GETUPVAL  R2 := upval 6
+       233 [   0] GETTABLE  R2 := R2[1]
+       234 [   0] GETTABLE  R2 := R2["hp"]
+       235 [   0] GETUPVAL  R3 := upval 6
+       236 [   0] GETTABLE  R3 := R3[1]
+       237 [   0] GETTABLE  R3 := R3["takenDamage"]
+       238 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       239 [   0] JMP       jmp +1 -> 241
+       240 [   0] LOADK     R3 := 0
+       241 [   0] SUB       R2 := R2 - R3
+       242 [   0] GETUPVAL  R3 := upval 6
+       243 [   0] GETTABLE  R3 := R3[2]
+       244 [   0] GETTABLE  R3 := R3["hp"]
+       245 [   0] GETUPVAL  R4 := upval 6
+       246 [   0] GETTABLE  R4 := R4[2]
+       247 [   0] GETTABLE  R4 := R4["takenDamage"]
+       248 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+       249 [   0] JMP       jmp +1 -> 251
+       250 [   0] LOADK     R4 := 0
+       251 [   0] SUB       R3 := R3 - R4
+       252 [   0] LT        if (R2 < R3) ~= 0 then skip next
+       253 [   0] JMP       jmp +9 -> 263
+       254 [   0] GETUPVAL  R2 := upval 1
+       255 [   0] GETTABLE  R2 := R2["msg"]
+       256 [   0] LOADK     R3 := "Player 2 wins!"
+       257 [   0] CALL      R2(...) nargs=1 nret=0
+       258 [   0] LOADK     R2 := 2
+       259 [   0] MOVE      R3 := R0
+       260 [   0] MOVE      R4 := R1
+       261 [   0] RETURN    return R2.. (3 values)
+       262 [   0] JMP       jmp +39 -> 302
+       263 [   0] GETUPVAL  R2 := upval 6
+       264 [   0] GETTABLE  R2 := R2[1]
+       265 [   0] GETTABLE  R2 := R2["hp"]
+       266 [   0] GETUPVAL  R3 := upval 6
+       267 [   0] GETTABLE  R3 := R3[1]
+       268 [   0] GETTABLE  R3 := R3["takenDamage"]
+       269 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       270 [   0] JMP       jmp +1 -> 272
+       271 [   0] LOADK     R3 := 0
+       272 [   0] SUB       R2 := R2 - R3
+       273 [   0] GETUPVAL  R3 := upval 6
+       274 [   0] GETTABLE  R3 := R3[2]
+       275 [   0] GETTABLE  R3 := R3["hp"]
+       276 [   0] GETUPVAL  R4 := upval 6
+       277 [   0] GETTABLE  R4 := R4[2]
+       278 [   0] GETTABLE  R4 := R4["takenDamage"]
+       279 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+       280 [   0] JMP       jmp +1 -> 282
+       281 [   0] LOADK     R4 := 0
+       282 [   0] SUB       R3 := R3 - R4
+       283 [   0] LT        if (R3 < R2) ~= 0 then skip next
+       284 [   0] JMP       jmp +9 -> 294
+       285 [   0] GETUPVAL  R2 := upval 1
+       286 [   0] GETTABLE  R2 := R2["msg"]
+       287 [   0] LOADK     R3 := "Player 1 wins!"
+       288 [   0] CALL      R2(...) nargs=1 nret=0
+       289 [   0] LOADK     R2 := 1
+       290 [   0] MOVE      R3 := R0
+       291 [   0] MOVE      R4 := R1
+       292 [   0] RETURN    return R2.. (3 values)
+       293 [   0] JMP       jmp +8 -> 302
+       294 [   0] GETUPVAL  R2 := upval 1
+       295 [   0] GETTABLE  R2 := R2["msg"]
+       296 [   0] LOADK     R3 := "Draw!"
+       297 [   0] CALL      R2(...) nargs=1 nret=0
+       298 [   0] LOADK     R2 := 0
+       299 [   0] MOVE      R3 := R0
+       300 [   0] MOVE      R4 := R1
+       301 [   0] RETURN    return R2.. (3 values)
+       302 [   0] RETURN    return R0.. (0 values)

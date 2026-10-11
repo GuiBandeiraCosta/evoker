@@ -1,0 +1,261 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'isFrameworkAvailable', 'init', 'cacheInterstitial', 'registerEventHandler', 'hasCachedInterstitial', 'showInterstitial', 'pcall'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] LOADNIL   R1..R1 := nil
+     6 [   0] NEWTABLE  R2 := {} (array 0, hash 6)
+     7 [   0] CLOSURE   R3 := closure #0
+     8 [   0] SETTABLE  R2["isFrameworkAvailable"] := R3
+     9 [   0] CLOSURE   R3 := closure #1
+    10 [   0] MOVE      R0 := R0
+    11 [   0] SETTABLE  R2["init"] := R3
+    12 [   0] CLOSURE   R3 := closure #2
+    13 [   0] MOVE      R0 := R1
+    14 [   0] SETTABLE  R2["cacheInterstitial"] := R3
+    15 [   0] CLOSURE   R3 := closure #3
+    16 [   0] MOVE      R0 := R1
+    17 [   0] SETTABLE  R2["registerEventHandler"] := R3
+    18 [   0] CLOSURE   R3 := closure #4
+    19 [   0] SETTABLE  R2["hasCachedInterstitial"] := R3
+    20 [   0] CLOSURE   R3 := closure #5
+    21 [   0] MOVE      R0 := R1
+    22 [   0] SETTABLE  R2["showInterstitial"] := R3
+    23 [   0] LOADNIL   R3..R3 := nil
+    24 [   0] CLOSURE   R4 := closure #6
+    25 [   0] MOVE      R0 := R3
+    26 [   0] GETGLOBAL R5 := _G["pcall"]
+    27 [   0] MOVE      R6 := R4
+    28 [   0] CALL      R5(...) nargs=1 nret=0
+    29 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+    30 [   0] JMP       jmp +2 -> 33
+    31 [   0] RETURN    return R3.. (1 values)
+    32 [   0] JMP       jmp +1 -> 34
+    33 [   0] RETURN    return R2.. (1 values)
+    34 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 9-11, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] LOADBOOL  R0 := True
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=2, lines 13-15, upvals=[], locals=[])
+    constants: strings=['msg', 'Initialising Chartboost stub with appId:', ' and appSignature:'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETTABLE  R2 := R2["msg"]
+       2 [   0] LOADK     R3 := "Initialising Chartboost stub with appId:"
+       3 [   0] MOVE      R4 := R0
+       4 [   0] LOADK     R5 := " and appSignature:"
+       5 [   0] MOVE      R6 := R1
+       6 [   0] CALL      R2(...) nargs=4 nret=0
+       7 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 17-26, upvals=[], locals=[])
+    constants: strings=['shouldRequestInterstitial', 'timer', 'performWithDelay'] numbers=[500, 1]
+       0 [   0] CLOSURE   R1 := closure #0
+       1 [   0] GETUPVAL  R0 := upval 0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] GETUPVAL  R2 := upval 0
+       4 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       5 [   0] JMP       jmp +13 -> 19
+       6 [   0] GETUPVAL  R2 := upval 0
+       7 [   0] GETTABLE  R2 := R2["shouldRequestInterstitial"]
+       8 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +9 -> 19
+      10 [   0] GETGLOBAL R2 := _G["timer"]
+      11 [   0] GETTABLE  R2 := R2["performWithDelay"]
+      12 [   0] LOADK     R3 := 500
+      13 [   0] CLOSURE   R4 := closure #1
+      14 [   0] GETUPVAL  R0 := upval 0
+      15 [   0] MOVE      R0 := R0
+      16 [   0] MOVE      R0 := R1
+      17 [   0] LOADK     R5 := 1
+      18 [   0] CALL      R2(...) nargs=3 nret=0
+      19 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#0 (params=0, lines 18-22, upvals=[], locals=[])
+      constants: strings=['didCacheInterstitial', 'timer', 'performWithDelay'] numbers=[1000, 1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +12 -> 15
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] GETTABLE  R0 := R0["didCacheInterstitial"]
+         5 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +8 -> 15
+         7 [   0] GETGLOBAL R0 := _G["timer"]
+         8 [   0] GETTABLE  R0 := R0["performWithDelay"]
+         9 [   0] LOADK     R1 := 1000
+        10 [   0] CLOSURE   R2 := closure #0
+        11 [   0] GETUPVAL  R0 := upval 0
+        12 [   0] GETUPVAL  R0 := upval 1
+        13 [   0] LOADK     R3 := 1
+        14 [   0] CALL      R0(...) nargs=3 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+      function main.#2.#0.#0 (params=0, lines 20-20, upvals=[], locals=[])
+        constants: strings=['didCacheInterstitial'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["didCacheInterstitial"]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#1 (params=0, lines 24-24, upvals=[], locals=[])
+      constants: strings=['shouldRequestInterstitial'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["shouldRequestInterstitial"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] CALL      R0(...) nargs=1 nret=1
+         4 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +2 -> 8
+         6 [   0] GETUPVAL  R0 := upval 2
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=1, lines 28-30, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] SETUPVAL  upval 0 := R0
+       1 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=1, lines 32-34, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] LOADBOOL  R1 := True
+       1 [   0] RETURN    return R1.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=1, lines 36-66, upvals=[], locals=[])
+    constants: strings=['shouldRequestInterstitial', 'timer', 'performWithDelay'] numbers=[200, 1]
+       0 [   0] CLOSURE   R1 := closure #0
+       1 [   0] GETUPVAL  R0 := upval 0
+       2 [   0] CLOSURE   R2 := closure #1
+       3 [   0] MOVE      R0 := R1
+       4 [   0] CLOSURE   R3 := closure #2
+       5 [   0] GETUPVAL  R0 := upval 0
+       6 [   0] MOVE      R0 := R0
+       7 [   0] MOVE      R0 := R2
+       8 [   0] GETUPVAL  R4 := upval 0
+       9 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      10 [   0] JMP       jmp +14 -> 25
+      11 [   0] GETUPVAL  R4 := upval 0
+      12 [   0] GETTABLE  R4 := R4["shouldRequestInterstitial"]
+      13 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      14 [   0] JMP       jmp +10 -> 25
+      15 [   0] GETGLOBAL R4 := _G["timer"]
+      16 [   0] GETTABLE  R4 := R4["performWithDelay"]
+      17 [   0] LOADK     R5 := 200
+      18 [   0] CLOSURE   R6 := closure #3
+      19 [   0] GETUPVAL  R0 := upval 0
+      20 [   0] MOVE      R0 := R0
+      21 [   0] MOVE      R0 := R3
+      22 [   0] LOADK     R7 := 1
+      23 [   0] CALL      R4(...) nargs=3 nret=0
+      24 [   0] JMP       jmp +2 -> 27
+      25 [   0] MOVE      R4 := R3
+      26 [   0] CALL      R4(...) nargs=0 nret=0
+      27 [   0] RETURN    return R0.. (0 values)
+    function main.#5.#0 (params=1, lines 38-48, upvals=[], locals=[])
+      constants: strings=['index', 'didClickInterstitial', 'didCloseInterstitial'] numbers=[1]
+         0 [   0] GETTABLE  R1 := R0["index"]
+         1 [   0] EQ        if (R1 == 1) ~= 0 then skip next
+         2 [   0] JMP       jmp +11 -> 14
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +18 -> 24
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] GETTABLE  R1 := R1["didClickInterstitial"]
+         8 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +14 -> 24
+        10 [   0] GETUPVAL  R1 := upval 0
+        11 [   0] GETTABLE  R1 := R1["didClickInterstitial"]
+        12 [   0] CALL      R1(...) nargs=0 nret=0
+        13 [   0] JMP       jmp +10 -> 24
+        14 [   0] GETUPVAL  R1 := upval 0
+        15 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        16 [   0] JMP       jmp +7 -> 24
+        17 [   0] GETUPVAL  R1 := upval 0
+        18 [   0] GETTABLE  R1 := R1["didCloseInterstitial"]
+        19 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        20 [   0] JMP       jmp +3 -> 24
+        21 [   0] GETUPVAL  R1 := upval 0
+        22 [   0] GETTABLE  R1 := R1["didCloseInterstitial"]
+        23 [   0] CALL      R1(...) nargs=0 nret=0
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#5.#1 (params=0, lines 50-52, upvals=[], locals=[])
+      constants: strings=['native', 'showAlert', 'Chartboost', 'Your add here!', 'Click', 'Dismiss'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["native"]
+         1 [   0] GETTABLE  R0 := R0["showAlert"]
+         2 [   0] LOADK     R1 := "Chartboost"
+         3 [   0] LOADK     R2 := "Your add here!"
+         4 [   0] NEWTABLE  R3 := {} (array 2, hash 0)
+         5 [   0] LOADK     R4 := "Click"
+         6 [   0] LOADK     R5 := "Dismiss"
+         7 [   0] SETLIST   R3[...] := R4.. (n=2, block 1)
+         8 [   0] GETUPVAL  R4 := upval 0
+         9 [   0] CALL      R0(...) nargs=4 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#5.#2 (params=0, lines 54-60, upvals=[], locals=[])
+      constants: strings=['shouldDisplayInterstitial', 'timer', 'performWithDelay'] numbers=[200, 1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +14 -> 17
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] GETTABLE  R0 := R0["shouldDisplayInterstitial"]
+         5 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +10 -> 17
+         7 [   0] GETGLOBAL R0 := _G["timer"]
+         8 [   0] GETTABLE  R0 := R0["performWithDelay"]
+         9 [   0] LOADK     R1 := 200
+        10 [   0] CLOSURE   R2 := closure #0
+        11 [   0] GETUPVAL  R0 := upval 0
+        12 [   0] GETUPVAL  R0 := upval 1
+        13 [   0] GETUPVAL  R0 := upval 2
+        14 [   0] LOADK     R3 := 1
+        15 [   0] CALL      R0(...) nargs=3 nret=0
+        16 [   0] JMP       jmp +2 -> 19
+        17 [   0] GETUPVAL  R0 := upval 2
+        18 [   0] CALL      R0(...) nargs=0 nret=0
+        19 [   0] RETURN    return R0.. (0 values)
+      function main.#5.#2.#0 (params=0, lines 56-56, upvals=[], locals=[])
+        constants: strings=['shouldDisplayInterstitial'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["shouldDisplayInterstitial"]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] CALL      R0(...) nargs=1 nret=1
+           4 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+           5 [   0] JMP       jmp +2 -> 8
+           6 [   0] GETUPVAL  R0 := upval 2
+           7 [   0] CALL      R0(...) nargs=0 nret=0
+           8 [   0] RETURN    return R0.. (0 values)
+    function main.#5.#3 (params=0, lines 62-62, upvals=[], locals=[])
+      constants: strings=['shouldRequestInterstitial'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["shouldRequestInterstitial"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] CALL      R0(...) nargs=1 nret=1
+         4 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +2 -> 8
+         6 [   0] GETUPVAL  R0 := upval 2
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=0, lines 74-87, upvals=[], locals=[])
+    constants: strings=['require', 'fgextension.chartboost', 'isFrameworkAvailable'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["require"]
+       1 [   0] LOADK     R1 := "fgextension.chartboost"
+       2 [   0] CALL      R0(...) nargs=1 nret=1
+       3 [   0] SETUPVAL  upval 0 := R0
+       4 [   0] GETUPVAL  R0 := upval 0
+       5 [   0] GETTABLE  R0 := R0["isFrameworkAvailable"]
+       6 [   0] GETUPVAL  R1 := upval 0
+       7 [   0] CLOSURE   R2 := closure #0
+       8 [   0] MOVE      R0 := R0
+       9 [   0] SETTABLE  R1["isFrameworkAvailable"] := R2
+      10 [   0] RETURN    return R0.. (0 values)
+    function main.#6.#0 (params=0, lines 80-86, upvals=[], locals=[])
+      constants: strings=['system', 'getInfo', 'model', 'HTC Desire'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["system"]
+         1 [   0] GETTABLE  R0 := R0["getInfo"]
+         2 [   0] LOADK     R1 := "model"
+         3 [   0] CALL      R0(...) nargs=1 nret=1
+         4 [   0] EQ        if (R0 == "HTC Desire") ~= 0 then skip next
+         5 [   0] JMP       jmp +3 -> 9
+         6 [   0] LOADBOOL  R0 := False
+         7 [   0] RETURN    return R0.. (1 values)
+         8 [   0] JMP       jmp +3 -> 12
+         9 [   0] GETUPVAL  R0 := upval 0
+        10 [   0] TAILCALL  return R0(...) nargs=0
+        11 [   0] RETURN    return R0.. (-1 values)
+        12 [   0] RETURN    return R0.. (0 values)

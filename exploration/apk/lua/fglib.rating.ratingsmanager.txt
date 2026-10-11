@@ -1,0 +1,381 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'utils.util', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "utils.util"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] MOVE      R0 := R0
+     8 [   0] CLOSURE   R3 := closure #1
+     9 [   0] MOVE      R0 := R2
+    10 [   0] LOADNIL   R4..R4 := nil
+    11 [   0] CLOSURE   R5 := closure #2
+    12 [   0] MOVE      R0 := R4
+    13 [   0] MOVE      R0 := R3
+    14 [   0] SETTABLE  R1["getInstance"] := R5
+    15 [   0] RETURN    return R1.. (1 values)
+    16 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 6-126, upvals=[], locals=[])
+    constants: strings=['tracker', 'shownat', 'ratingslink', 'package_id', 'app_id', 'isIOS7OrHigher', 'apple_ratingslink', 'itms-apps://itunes.apple.com/app/id', 'itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=', 'google_ratingslink', 'market://details?id=', 'windows_ratingslink', 'http://windowsphone.com/s?appId=', 'minimumappstarts', 'delay', 'useFgPopup', 'init', 'setTracker', 'onRatingHandler', 'askForRating', 'askForLike'] numbers=[0, 86400]
+       0 [   0] SETTABLE  R0["tracker"] := None
+       1 [   0] SETTABLE  R0["shownat"] := None
+       2 [   0] SETTABLE  R0["ratingslink"] := None
+       3 [   0] SETTABLE  R0["package_id"] := None
+       4 [   0] SETTABLE  R0["app_id"] := None
+       5 [   0] GETUPVAL  R1 := upval 0
+       6 [   0] GETTABLE  R1 := R1["isIOS7OrHigher"]
+       7 [   0] CALL      R1(...) nargs=0 nret=1
+       8 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +2 -> 12
+      10 [   0] SETTABLE  R0["apple_ratingslink"] := "itms-apps://itunes.apple.com/app/id"
+      11 [   0] JMP       jmp +1 -> 13
+      12 [   0] SETTABLE  R0["apple_ratingslink"] := "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContents"
+      13 [   0] SETTABLE  R0["google_ratingslink"] := "market://details?id="
+      14 [   0] SETTABLE  R0["windows_ratingslink"] := "http://windowsphone.com/s?appId="
+      15 [   0] SETTABLE  R0["minimumappstarts"] := 0
+      16 [   0] SETTABLE  R0["delay"] := 86400
+      17 [   0] SETTABLE  R0["useFgPopup"] := False
+      18 [   0] CLOSURE   R1 := closure #0
+      19 [   0] MOVE      R0 := R0
+      20 [   0] GETUPVAL  R0 := upval 0
+      21 [   0] SETTABLE  R0["init"] := R1
+      22 [   0] CLOSURE   R1 := closure #1
+      23 [   0] MOVE      R0 := R0
+      24 [   0] SETTABLE  R0["setTracker"] := R1
+      25 [   0] CLOSURE   R1 := closure #2
+      26 [   0] MOVE      R0 := R0
+      27 [   0] SETTABLE  R0["onRatingHandler"] := R1
+      28 [   0] CLOSURE   R1 := closure #3
+      29 [   0] MOVE      R0 := R0
+      30 [   0] SETTABLE  R0["askForRating"] := R1
+      31 [   0] CLOSURE   R1 := closure #4
+      32 [   0] SETTABLE  R0["askForLike"] := R1
+      33 [   0] RETURN    return R0.. (1 values)
+      34 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=4, lines 26-44, upvals=[], locals=[])
+      constants: strings=['fglib', 'settings', 'SettingsManager', 'getInstance', 'getValue', 'ratings.numstarts', 'setValue', 'package_id', 'app_id', 'delay', 'isAndroid', 'ratingslink', 'google_ratingslink', 'tostring', 'isWindows', 'windows_ratingslink', 'system', 'getInfo', 'windowsAppId', 'apple_ratingslink', 'useFgPopup'] numbers=[0, 1]
+         0 [   0] GETGLOBAL R4 := _G["fglib"]
+         1 [   0] GETTABLE  R4 := R4["settings"]
+         2 [   0] GETTABLE  R4 := R4["SettingsManager"]
+         3 [   0] GETTABLE  R4 := R4["getInstance"]
+         4 [   0] CALL      R4(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R5 := R4["getValue"]
+         6 [   0] LOADK     R6 := "ratings.numstarts"
+         7 [   0] LOADK     R7 := 0
+         8 [   0] CALL      R5(...) nargs=2 nret=1
+         9 [   0] GETTABLE  R6 := R4["setValue"]
+        10 [   0] LOADK     R7 := "ratings.numstarts"
+        11 [   0] ADD       R8 := R5 + 1
+        12 [   0] CALL      R6(...) nargs=2 nret=0
+        13 [   0] GETUPVAL  R6 := upval 0
+        14 [   0] SETTABLE  R6["package_id"] := R1
+        15 [   0] GETUPVAL  R6 := upval 0
+        16 [   0] SETTABLE  R6["app_id"] := R0
+        17 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        18 [   0] JMP       jmp +2 -> 21
+        19 [   0] GETUPVAL  R6 := upval 0
+        20 [   0] SETTABLE  R6["delay"] := R3
+        21 [   0] GETUPVAL  R6 := upval 1
+        22 [   0] GETTABLE  R6 := R6["isAndroid"]
+        23 [   0] CALL      R6(...) nargs=0 nret=1
+        24 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        25 [   0] JMP       jmp +10 -> 36
+        26 [   0] GETUPVAL  R6 := upval 0
+        27 [   0] GETUPVAL  R7 := upval 0
+        28 [   0] GETTABLE  R7 := R7["google_ratingslink"]
+        29 [   0] GETGLOBAL R8 := _G["tostring"]
+        30 [   0] GETUPVAL  R9 := upval 0
+        31 [   0] GETTABLE  R9 := R9["package_id"]
+        32 [   0] CALL      R8(...) nargs=1 nret=1
+        33 [   0] CONCAT    R7 := R7 .. ... .. R8
+        34 [   0] SETTABLE  R6["ratingslink"] := R7
+        35 [   0] JMP       jmp +24 -> 60
+        36 [   0] GETUPVAL  R6 := upval 1
+        37 [   0] GETTABLE  R6 := R6["isWindows"]
+        38 [   0] CALL      R6(...) nargs=0 nret=1
+        39 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        40 [   0] JMP       jmp +10 -> 51
+        41 [   0] GETUPVAL  R6 := upval 0
+        42 [   0] GETUPVAL  R7 := upval 0
+        43 [   0] GETTABLE  R7 := R7["windows_ratingslink"]
+        44 [   0] GETGLOBAL R8 := _G["system"]
+        45 [   0] GETTABLE  R8 := R8["getInfo"]
+        46 [   0] LOADK     R9 := "windowsAppId"
+        47 [   0] CALL      R8(...) nargs=1 nret=1
+        48 [   0] CONCAT    R7 := R7 .. ... .. R8
+        49 [   0] SETTABLE  R6["ratingslink"] := R7
+        50 [   0] JMP       jmp +9 -> 60
+        51 [   0] GETUPVAL  R6 := upval 0
+        52 [   0] GETUPVAL  R7 := upval 0
+        53 [   0] GETTABLE  R7 := R7["apple_ratingslink"]
+        54 [   0] GETGLOBAL R8 := _G["tostring"]
+        55 [   0] GETUPVAL  R9 := upval 0
+        56 [   0] GETTABLE  R9 := R9["app_id"]
+        57 [   0] CALL      R8(...) nargs=1 nret=1
+        58 [   0] CONCAT    R7 := R7 .. ... .. R8
+        59 [   0] SETTABLE  R6["ratingslink"] := R7
+        60 [   0] GETUPVAL  R6 := upval 0
+        61 [   0] SETTABLE  R6["useFgPopup"] := R2
+        62 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 46-48, upvals=[], locals=[])
+      constants: strings=['tracker'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["tracker"] := R0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 50-89, upvals=[], locals=[])
+      constants: strings=['fglib', 'settings', 'SettingsManager', 'getInstance', 'index', 'system', 'openURL', 'ratingslink', 'setValue', 'ratings.hasrated', 'tracker', 'logUserRating', 'accepted', 'shownat', 'ratings.askagain', 'os', 'time', 'delay', 'cantopen', 'denied', 'delayed', 'cb', 'type', 'function'] numbers=[1, 2, -1]
+         0 [   0] GETGLOBAL R1 := _G["fglib"]
+         1 [   0] GETTABLE  R1 := R1["settings"]
+         2 [   0] GETTABLE  R1 := R1["SettingsManager"]
+         3 [   0] GETTABLE  R1 := R1["getInstance"]
+         4 [   0] CALL      R1(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R2 := R0["index"]
+         6 [   0] EQ        if (R2 == 1) ~= 0 then skip next
+         7 [   0] JMP       jmp +44 -> 52
+         8 [   0] GETGLOBAL R2 := _G["system"]
+         9 [   0] GETTABLE  R2 := R2["openURL"]
+        10 [   0] GETUPVAL  R3 := upval 0
+        11 [   0] GETTABLE  R3 := R3["ratingslink"]
+        12 [   0] CALL      R2(...) nargs=1 nret=1
+        13 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +16 -> 31
+        15 [   0] GETTABLE  R2 := R1["setValue"]
+        16 [   0] LOADK     R3 := "ratings.hasrated"
+        17 [   0] LOADK     R4 := 1
+        18 [   0] CALL      R2(...) nargs=2 nret=0
+        19 [   0] GETUPVAL  R2 := upval 0
+        20 [   0] GETTABLE  R2 := R2["tracker"]
+        21 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        22 [   0] JMP       jmp +77 -> 100
+        23 [   0] GETUPVAL  R2 := upval 0
+        24 [   0] GETTABLE  R2 := R2["tracker"]
+        25 [   0] GETTABLE  R2 := R2["logUserRating"]
+        26 [   0] LOADK     R3 := "accepted"
+        27 [   0] GETUPVAL  R4 := upval 0
+        28 [   0] GETTABLE  R4 := R4["shownat"]
+        29 [   0] CALL      R2(...) nargs=2 nret=0
+        30 [   0] JMP       jmp +69 -> 100
+        31 [   0] GETTABLE  R2 := R1["setValue"]
+        32 [   0] LOADK     R3 := "ratings.askagain"
+        33 [   0] GETGLOBAL R4 := _G["os"]
+        34 [   0] GETTABLE  R4 := R4["time"]
+        35 [   0] CALL      R4(...) nargs=0 nret=1
+        36 [   0] GETUPVAL  R5 := upval 0
+        37 [   0] GETTABLE  R5 := R5["delay"]
+        38 [   0] ADD       R4 := R4 + R5
+        39 [   0] CALL      R2(...) nargs=2 nret=0
+        40 [   0] GETUPVAL  R2 := upval 0
+        41 [   0] GETTABLE  R2 := R2["tracker"]
+        42 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        43 [   0] JMP       jmp +56 -> 100
+        44 [   0] GETUPVAL  R2 := upval 0
+        45 [   0] GETTABLE  R2 := R2["tracker"]
+        46 [   0] GETTABLE  R2 := R2["logUserRating"]
+        47 [   0] LOADK     R3 := "cantopen"
+        48 [   0] GETUPVAL  R4 := upval 0
+        49 [   0] GETTABLE  R4 := R4["shownat"]
+        50 [   0] CALL      R2(...) nargs=2 nret=0
+        51 [   0] JMP       jmp +48 -> 100
+        52 [   0] GETTABLE  R2 := R0["index"]
+        53 [   0] EQ        if (R2 == 2) ~= 0 then skip next
+        54 [   0] JMP       jmp +25 -> 80
+        55 [   0] GETTABLE  R2 := R1["setValue"]
+        56 [   0] LOADK     R3 := "ratings.hasrated"
+        57 [   0] LOADK     R4 := -1
+        58 [   0] CALL      R2(...) nargs=2 nret=0
+        59 [   0] GETTABLE  R2 := R1["setValue"]
+        60 [   0] LOADK     R3 := "ratings.askagain"
+        61 [   0] GETGLOBAL R4 := _G["os"]
+        62 [   0] GETTABLE  R4 := R4["time"]
+        63 [   0] CALL      R4(...) nargs=0 nret=1
+        64 [   0] GETUPVAL  R5 := upval 0
+        65 [   0] GETTABLE  R5 := R5["delay"]
+        66 [   0] ADD       R4 := R4 + R5
+        67 [   0] CALL      R2(...) nargs=2 nret=0
+        68 [   0] GETUPVAL  R2 := upval 0
+        69 [   0] GETTABLE  R2 := R2["tracker"]
+        70 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        71 [   0] JMP       jmp +28 -> 100
+        72 [   0] GETUPVAL  R2 := upval 0
+        73 [   0] GETTABLE  R2 := R2["tracker"]
+        74 [   0] GETTABLE  R2 := R2["logUserRating"]
+        75 [   0] LOADK     R3 := "denied"
+        76 [   0] GETUPVAL  R4 := upval 0
+        77 [   0] GETTABLE  R4 := R4["shownat"]
+        78 [   0] CALL      R2(...) nargs=2 nret=0
+        79 [   0] JMP       jmp +20 -> 100
+        80 [   0] GETTABLE  R2 := R1["setValue"]
+        81 [   0] LOADK     R3 := "ratings.askagain"
+        82 [   0] GETGLOBAL R4 := _G["os"]
+        83 [   0] GETTABLE  R4 := R4["time"]
+        84 [   0] CALL      R4(...) nargs=0 nret=1
+        85 [   0] GETUPVAL  R5 := upval 0
+        86 [   0] GETTABLE  R5 := R5["delay"]
+        87 [   0] ADD       R4 := R4 + R5
+        88 [   0] CALL      R2(...) nargs=2 nret=0
+        89 [   0] GETUPVAL  R2 := upval 0
+        90 [   0] GETTABLE  R2 := R2["tracker"]
+        91 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        92 [   0] JMP       jmp +7 -> 100
+        93 [   0] GETUPVAL  R2 := upval 0
+        94 [   0] GETTABLE  R2 := R2["tracker"]
+        95 [   0] GETTABLE  R2 := R2["logUserRating"]
+        96 [   0] LOADK     R3 := "delayed"
+        97 [   0] GETUPVAL  R4 := upval 0
+        98 [   0] GETTABLE  R4 := R4["shownat"]
+        99 [   0] CALL      R2(...) nargs=2 nret=0
+       100 [   0] GETUPVAL  R2 := upval 0
+       101 [   0] GETTABLE  R2 := R2["cb"]
+       102 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       103 [   0] JMP       jmp +9 -> 113
+       104 [   0] GETGLOBAL R2 := _G["type"]
+       105 [   0] GETUPVAL  R3 := upval 0
+       106 [   0] GETTABLE  R3 := R3["cb"]
+       107 [   0] CALL      R2(...) nargs=1 nret=1
+       108 [   0] EQ        if (R2 == "function") ~= 0 then skip next
+       109 [   0] JMP       jmp +3 -> 113
+       110 [   0] GETUPVAL  R2 := upval 0
+       111 [   0] GETTABLE  R2 := R2["cb"]
+       112 [   0] CALL      R2(...) nargs=0 nret=0
+       113 [   0] GETUPVAL  R2 := upval 0
+       114 [   0] SETTABLE  R2["cb"] := None
+       115 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=3, lines 91-118, upvals=[], locals=[])
+      constants: strings=['ratingQuestionTitle', '_T', 'RATING_QUESTION_TITLE', 'ratingQuestionText', 'RATING_QUESTION_TEXT', 'buttonOkText', 'BUTTON_OK', 'buttonNoThanksText', 'BUTTON_NO_THANKS', 'buttonMaybeLaterText', 'BUTTON_MAYBE_LATER', 'shownat', 'cb', 'fglib', 'settings', 'SettingsManager', 'getInstance', 'tonumber', 'getValue', 'ratings.hasrated', 'ratings.askagain', 'os', 'time', 'ratings.numstarts', 'minimumappstarts', 'tracker', 'logUserRating', 'shown', 'useFgPopup', 'display', 'showAlert', 'onRatingHandler', 'native'] numbers=[0]
+         0 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +2 -> 4
+         2 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+         3 [   0] MOVE      R1 := R3
+         4 [   0] GETTABLE  R3 := R1["ratingQuestionTitle"]
+         5 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+         6 [   0] JMP       jmp +3 -> 10
+         7 [   0] GETGLOBAL R3 := _G["_T"]
+         8 [   0] LOADK     R4 := "RATING_QUESTION_TITLE"
+         9 [   0] CALL      R3(...) nargs=1 nret=1
+        10 [   0] GETTABLE  R4 := R1["ratingQuestionText"]
+        11 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        12 [   0] JMP       jmp +3 -> 16
+        13 [   0] GETGLOBAL R4 := _G["_T"]
+        14 [   0] LOADK     R5 := "RATING_QUESTION_TEXT"
+        15 [   0] CALL      R4(...) nargs=1 nret=1
+        16 [   0] GETTABLE  R5 := R1["buttonOkText"]
+        17 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+        18 [   0] JMP       jmp +3 -> 22
+        19 [   0] GETGLOBAL R5 := _G["_T"]
+        20 [   0] LOADK     R6 := "BUTTON_OK"
+        21 [   0] CALL      R5(...) nargs=1 nret=1
+        22 [   0] GETTABLE  R6 := R1["buttonNoThanksText"]
+        23 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+        24 [   0] JMP       jmp +3 -> 28
+        25 [   0] GETGLOBAL R6 := _G["_T"]
+        26 [   0] LOADK     R7 := "BUTTON_NO_THANKS"
+        27 [   0] CALL      R6(...) nargs=1 nret=1
+        28 [   0] GETTABLE  R7 := R1["buttonMaybeLaterText"]
+        29 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+        30 [   0] JMP       jmp +3 -> 34
+        31 [   0] GETGLOBAL R7 := _G["_T"]
+        32 [   0] LOADK     R8 := "BUTTON_MAYBE_LATER"
+        33 [   0] CALL      R7(...) nargs=1 nret=1
+        34 [   0] GETUPVAL  R8 := upval 0
+        35 [   0] SETTABLE  R8["shownat"] := R0
+        36 [   0] GETUPVAL  R8 := upval 0
+        37 [   0] SETTABLE  R8["cb"] := R2
+        38 [   0] GETGLOBAL R8 := _G["fglib"]
+        39 [   0] GETTABLE  R8 := R8["settings"]
+        40 [   0] GETTABLE  R8 := R8["SettingsManager"]
+        41 [   0] GETTABLE  R8 := R8["getInstance"]
+        42 [   0] CALL      R8(...) nargs=0 nret=1
+        43 [   0] GETGLOBAL R9 := _G["tonumber"]
+        44 [   0] GETTABLE  R10 := R8["getValue"]
+        45 [   0] LOADK     R11 := "ratings.hasrated"
+        46 [   0] LOADK     R12 := 0
+        47 [   0] CALL      R10(...) nargs=2 nret=-1
+        48 [   0] CALL      R9(...) nargs=-1 nret=1
+        49 [   0] GETGLOBAL R10 := _G["tonumber"]
+        50 [   0] GETTABLE  R11 := R8["getValue"]
+        51 [   0] LOADK     R12 := "ratings.askagain"
+        52 [   0] LOADK     R13 := 0
+        53 [   0] CALL      R11(...) nargs=2 nret=-1
+        54 [   0] CALL      R10(...) nargs=-1 nret=1
+        55 [   0] EQ        if (R9 == 0) ~= 0 then skip next
+        56 [   0] JMP       jmp +56 -> 113
+        57 [   0] GETGLOBAL R11 := _G["os"]
+        58 [   0] GETTABLE  R11 := R11["time"]
+        59 [   0] CALL      R11(...) nargs=0 nret=1
+        60 [   0] LT        if (R10 < R11) ~= 0 then skip next
+        61 [   0] JMP       jmp +51 -> 113
+        62 [   0] GETGLOBAL R11 := _G["tonumber"]
+        63 [   0] GETTABLE  R12 := R8["getValue"]
+        64 [   0] LOADK     R13 := "ratings.numstarts"
+        65 [   0] LOADK     R14 := 0
+        66 [   0] CALL      R12(...) nargs=2 nret=-1
+        67 [   0] CALL      R11(...) nargs=-1 nret=1
+        68 [   0] GETUPVAL  R12 := upval 0
+        69 [   0] GETTABLE  R12 := R12["minimumappstarts"]
+        70 [   0] LT        if (R12 < R11) ~= 0 then skip next
+        71 [   0] JMP       jmp +41 -> 113
+        72 [   0] GETUPVAL  R11 := upval 0
+        73 [   0] GETTABLE  R11 := R11["tracker"]
+        74 [   0] TEST      if (R11 truthy) ~= 0 then skip next
+        75 [   0] JMP       jmp +7 -> 83
+        76 [   0] GETUPVAL  R11 := upval 0
+        77 [   0] GETTABLE  R11 := R11["tracker"]
+        78 [   0] GETTABLE  R11 := R11["logUserRating"]
+        79 [   0] LOADK     R12 := "shown"
+        80 [   0] GETUPVAL  R13 := upval 0
+        81 [   0] GETTABLE  R13 := R13["shownat"]
+        82 [   0] CALL      R11(...) nargs=2 nret=0
+        83 [   0] GETUPVAL  R11 := upval 0
+        84 [   0] GETTABLE  R11 := R11["useFgPopup"]
+        85 [   0] TEST      if (R11 truthy) ~= 0 then skip next
+        86 [   0] JMP       jmp +14 -> 101
+        87 [   0] GETGLOBAL R11 := _G["fglib"]
+        88 [   0] GETTABLE  R11 := R11["display"]
+        89 [   0] GETTABLE  R11 := R11["showAlert"]
+        90 [   0] MOVE      R12 := R3
+        91 [   0] MOVE      R13 := R4
+        92 [   0] NEWTABLE  R14 := {} (array 3, hash 0)
+        93 [   0] MOVE      R15 := R5
+        94 [   0] MOVE      R16 := R6
+        95 [   0] MOVE      R17 := R7
+        96 [   0] SETLIST   R14[...] := R15.. (n=3, block 1)
+        97 [   0] GETUPVAL  R15 := upval 0
+        98 [   0] GETTABLE  R15 := R15["onRatingHandler"]
+        99 [   0] CALL      R11(...) nargs=4 nret=0
+       100 [   0] JMP       jmp +12 -> 113
+       101 [   0] GETGLOBAL R11 := _G["native"]
+       102 [   0] GETTABLE  R11 := R11["showAlert"]
+       103 [   0] MOVE      R12 := R3
+       104 [   0] MOVE      R13 := R4
+       105 [   0] NEWTABLE  R14 := {} (array 3, hash 0)
+       106 [   0] MOVE      R15 := R5
+       107 [   0] MOVE      R16 := R6
+       108 [   0] MOVE      R17 := R7
+       109 [   0] SETLIST   R14[...] := R15.. (n=3, block 1)
+       110 [   0] GETUPVAL  R15 := upval 0
+       111 [   0] GETTABLE  R15 := R15["onRatingHandler"]
+       112 [   0] CALL      R11(...) nargs=4 nret=0
+       113 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 120-122, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 128-132, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       2 [   0] TAILCALL  return R0(...) nargs=1
+       3 [   0] RETURN    return R0.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 135-140, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

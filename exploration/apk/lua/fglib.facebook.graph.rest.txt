@@ -1,0 +1,182 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'utils.url', 'utils.util', 'json', 'https://graph.facebook.com/v2.0/', 'GET', 'POST', 'DELETE', 'buildRequestUrl', 'request'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "utils.url"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "utils.util"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R3 := _G["require"]
+    16 [   0] LOADK     R4 := "json"
+    17 [   0] CALL      R3(...) nargs=1 nret=1
+    18 [   0] LOADK     R4 := "https://graph.facebook.com/v2.0/"
+    19 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+    20 [   0] CLOSURE   R6 := closure #0
+    21 [   0] SETTABLE  R5["GET"] := R6
+    22 [   0] CLOSURE   R6 := closure #1
+    23 [   0] SETTABLE  R5["POST"] := R6
+    24 [   0] CLOSURE   R6 := closure #2
+    25 [   0] SETTABLE  R5["DELETE"] := R6
+    26 [   0] CLOSURE   R6 := closure #3
+    27 [   0] MOVE      R0 := R4
+    28 [   0] MOVE      R0 := R1
+    29 [   0] CLOSURE   R7 := closure #4
+    30 [   0] MOVE      R0 := R5
+    31 [   0] MOVE      R0 := R6
+    32 [   0] MOVE      R0 := R3
+    33 [   0] MOVE      R0 := R0
+    34 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+    35 [   0] SETTABLE  R8["buildRequestUrl"] := R6
+    36 [   0] SETTABLE  R8["request"] := R7
+    37 [   0] RETURN    return R8.. (1 values)
+    38 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=3, lines 30-32, upvals=[], locals=[])
+    constants: strings=['network', 'request', 'GET'] numbers=[]
+       0 [   0] GETGLOBAL R3 := _G["network"]
+       1 [   0] GETTABLE  R3 := R3["request"]
+       2 [   0] MOVE      R4 := R0
+       3 [   0] LOADK     R5 := "GET"
+       4 [   0] MOVE      R6 := R1
+       5 [   0] MOVE      R7 := R2
+       6 [   0] TAILCALL  return R3(...) nargs=4
+       7 [   0] RETURN    return R3.. (-1 values)
+       8 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=3, lines 33-35, upvals=[], locals=[])
+    constants: strings=['network', 'request', 'POST'] numbers=[]
+       0 [   0] GETGLOBAL R3 := _G["network"]
+       1 [   0] GETTABLE  R3 := R3["request"]
+       2 [   0] MOVE      R4 := R0
+       3 [   0] LOADK     R5 := "POST"
+       4 [   0] MOVE      R6 := R1
+       5 [   0] MOVE      R7 := R2
+       6 [   0] TAILCALL  return R3(...) nargs=4
+       7 [   0] RETURN    return R3.. (-1 values)
+       8 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=3, lines 36-38, upvals=[], locals=[])
+    constants: strings=['network', 'request', 'DELETE'] numbers=[]
+       0 [   0] GETGLOBAL R3 := _G["network"]
+       1 [   0] GETTABLE  R3 := R3["request"]
+       2 [   0] MOVE      R4 := R0
+       3 [   0] LOADK     R5 := "DELETE"
+       4 [   0] MOVE      R6 := R1
+       5 [   0] MOVE      R7 := R2
+       6 [   0] TAILCALL  return R3(...) nargs=4
+       7 [   0] RETURN    return R3.. (-1 values)
+       8 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=3, lines 44-48, upvals=[], locals=[])
+    constants: strings=['access_token', '?', 'buildQuery'] numbers=[]
+       0 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       1 [   0] JMP       jmp +2 -> 4
+       2 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       3 [   0] MOVE      R2 := R3
+       4 [   0] SETTABLE  R2["access_token"] := R0
+       5 [   0] GETUPVAL  R3 := upval 0
+       6 [   0] MOVE      R4 := R1
+       7 [   0] LOADK     R5 := "?"
+       8 [   0] GETUPVAL  R6 := upval 1
+       9 [   0] GETTABLE  R6 := R6["buildQuery"]
+      10 [   0] MOVE      R7 := R2
+      11 [   0] CALL      R6(...) nargs=1 nret=1
+      12 [   0] CONCAT    R3 := R3 .. ... .. R6
+      13 [   0] RETURN    return R3.. (1 values)
+      14 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=7, lines 53-80, upvals=[], locals=[])
+    constants: strings=['getRequest', 'warn', 'Unknown request method:'] numbers=[]
+       0 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       1 [   0] JMP       jmp +4 -> 6
+       2 [   0] GETUPVAL  R7 := upval 0
+       3 [   0] GETTABLE  R7 := R7[R3]
+       4 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+       5 [   0] JMP       jmp +1 -> 7
+       6 [   0] GETGLOBAL R7 := _G["getRequest"]
+       7 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+       8 [   0] JMP       jmp +13 -> 22
+       9 [   0] MOVE      R8 := R7
+      10 [   0] GETUPVAL  R9 := upval 1
+      11 [   0] MOVE      R10 := R1
+      12 [   0] MOVE      R11 := R2
+      13 [   0] CALL      R9(...) nargs=2 nret=1
+      14 [   0] CLOSURE   R10 := closure #0
+      15 [   0] GETUPVAL  R0 := upval 2
+      16 [   0] MOVE      R0 := R0
+      17 [   0] MOVE      R0 := R5
+      18 [   0] MOVE      R0 := R4
+      19 [   0] MOVE      R11 := R6
+      20 [   0] CALL      R8(...) nargs=3 nret=0
+      21 [   0] JMP       jmp +5 -> 27
+      22 [   0] GETUPVAL  R8 := upval 3
+      23 [   0] GETTABLE  R8 := R8["warn"]
+      24 [   0] LOADK     R9 := "Unknown request method:"
+      25 [   0] MOVE      R10 := R3
+      26 [   0] CALL      R8(...) nargs=2 nret=0
+      27 [   0] RETURN    return R0.. (0 values)
+    function main.#4.#0 (params=1, lines 57-76, upvals=[], locals=[])
+      constants: strings=['phase', 'ended', 'isError', 'status', 'decode', 'response', 'error', 'errorCode', 'code', 'errorMessage', 'message', 'type', 'function', 'data'] numbers=[200]
+         0 [   0] GETTABLE  R1 := R0["phase"]
+         1 [   0] EQ        if (R1 == "ended") ~= 0 then skip next
+         2 [   0] JMP       jmp +55 -> 58
+         3 [   0] GETTABLE  R1 := R0["isError"]
+         4 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         5 [   0] JMP       jmp +3 -> 9
+         6 [   0] GETTABLE  R1 := R0["status"]
+         7 [   0] EQ        if (R1 == 200) ~= 1 then skip next
+         8 [   0] JMP       jmp +23 -> 32
+         9 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+        10 [   0] SETTABLE  R1["isError"] := True
+        11 [   0] GETTABLE  R2 := R0["status"]
+        12 [   0] SETTABLE  R1["status"] := R2
+        13 [   0] GETUPVAL  R2 := upval 0
+        14 [   0] GETTABLE  R2 := R2["decode"]
+        15 [   0] GETTABLE  R3 := R0["response"]
+        16 [   0] CALL      R2(...) nargs=1 nret=1
+        17 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        18 [   0] JMP       jmp +9 -> 28
+        19 [   0] GETTABLE  R3 := R2["error"]
+        20 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        21 [   0] JMP       jmp +6 -> 28
+        22 [   0] GETTABLE  R3 := R2["error"]
+        23 [   0] GETTABLE  R3 := R3["code"]
+        24 [   0] SETTABLE  R1["errorCode"] := R3
+        25 [   0] GETTABLE  R3 := R2["error"]
+        26 [   0] GETTABLE  R3 := R3["message"]
+        27 [   0] SETTABLE  R1["errorMessage"] := R3
+        28 [   0] GETUPVAL  R3 := upval 1
+        29 [   0] MOVE      R4 := R1
+        30 [   0] CALL      R3(...) nargs=1 nret=0
+        31 [   0] JMP       jmp +26 -> 58
+        32 [   0] GETUPVAL  R1 := upval 0
+        33 [   0] GETTABLE  R1 := R1["decode"]
+        34 [   0] GETTABLE  R2 := R0["response"]
+        35 [   0] CALL      R1(...) nargs=1 nret=1
+        36 [   0] GETGLOBAL R2 := _G["type"]
+        37 [   0] GETUPVAL  R3 := upval 2
+        38 [   0] CALL      R2(...) nargs=1 nret=1
+        39 [   0] EQ        if (R2 == "function") ~= 0 then skip next
+        40 [   0] JMP       jmp +4 -> 45
+        41 [   0] GETUPVAL  R2 := upval 2
+        42 [   0] MOVE      R3 := R1
+        43 [   0] CALL      R2(...) nargs=1 nret=1
+        44 [   0] MOVE      R1 := R2
+        45 [   0] GETUPVAL  R2 := upval 1
+        46 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+        47 [   0] GETUPVAL  R4 := upval 3
+        48 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        49 [   0] JMP       jmp +5 -> 55
+        50 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        51 [   0] JMP       jmp +3 -> 55
+        52 [   0] GETTABLE  R4 := R1["data"]
+        53 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        54 [   0] JMP       jmp +1 -> 56
+        55 [   0] MOVE      R4 := R1
+        56 [   0] SETTABLE  R3["data"] := R4
+        57 [   0] CALL      R2(...) nargs=1 nret=0
+        58 [   0] RETURN    return R0.. (0 values)

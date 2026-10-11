@@ -1,0 +1,59 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'common.particle.color', 'createParticle'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "common.particle.color"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] CLOSURE   R1 := closure #0
+     6 [   0] MOVE      R0 := R0
+     7 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     8 [   0] SETTABLE  R2["createParticle"] := R1
+     9 [   0] RETURN    return R2.. (1 values)
+    10 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 3-38, upvals=[], locals=[])
+    constants: strings=['spriteSheet', 'display', 'newSprite', 'spriteSheetData', 'newImage', 'imageSheet', 'frame', 'type', 'topmost', 'xScale', 'yScale', 'colorArgb', 'createColor', 'colorArgbDelta', 'startX', 'startY', 'velocityX', 'velocityY', 'radialAcceleration', 'tangentialAcceleration', 'emitRadius', 'emitRadiusDelta', 'emitRotation', 'emitRotationDelta', 'rotationDelta', 'scaleDelta', 'currentTime', 'totalTime', 'size'] numbers=[0.01, 0, 32]
+       0 [   0] GETTABLE  R2 := R0["spriteSheet"]
+       1 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       2 [   0] JMP       jmp +7 -> 10
+       3 [   0] GETGLOBAL R2 := _G["display"]
+       4 [   0] GETTABLE  R2 := R2["newSprite"]
+       5 [   0] GETTABLE  R3 := R0["spriteSheet"]
+       6 [   0] GETTABLE  R4 := R0["spriteSheetData"]
+       7 [   0] CALL      R2(...) nargs=2 nret=1
+       8 [   0] MOVE      R1 := R2
+       9 [   0] JMP       jmp +6 -> 16
+      10 [   0] GETGLOBAL R2 := _G["display"]
+      11 [   0] GETTABLE  R2 := R2["newImage"]
+      12 [   0] GETTABLE  R3 := R0["imageSheet"]
+      13 [   0] GETTABLE  R4 := R0["frame"]
+      14 [   0] CALL      R2(...) nargs=2 nret=1
+      15 [   0] MOVE      R1 := R2
+      16 [   0] SETTABLE  R1["type"] := "topmost"
+      17 [   0] SETTABLE  R1["xScale"] := 0.01
+      18 [   0] SETTABLE  R1["yScale"] := 0.01
+      19 [   0] GETUPVAL  R2 := upval 0
+      20 [   0] GETTABLE  R2 := R2["createColor"]
+      21 [   0] CALL      R2(...) nargs=0 nret=1
+      22 [   0] SETTABLE  R1["colorArgb"] := R2
+      23 [   0] GETUPVAL  R2 := upval 0
+      24 [   0] GETTABLE  R2 := R2["createColor"]
+      25 [   0] CALL      R2(...) nargs=0 nret=1
+      26 [   0] SETTABLE  R1["colorArgbDelta"] := R2
+      27 [   0] SETTABLE  R1["startX"] := 0
+      28 [   0] SETTABLE  R1["startY"] := 0
+      29 [   0] SETTABLE  R1["velocityX"] := 0
+      30 [   0] SETTABLE  R1["velocityY"] := 0
+      31 [   0] SETTABLE  R1["radialAcceleration"] := 0
+      32 [   0] SETTABLE  R1["tangentialAcceleration"] := 0
+      33 [   0] SETTABLE  R1["emitRadius"] := 0
+      34 [   0] SETTABLE  R1["emitRadiusDelta"] := 0
+      35 [   0] SETTABLE  R1["emitRotation"] := 0
+      36 [   0] SETTABLE  R1["emitRotationDelta"] := 0
+      37 [   0] SETTABLE  R1["rotationDelta"] := 0
+      38 [   0] SETTABLE  R1["scaleDelta"] := 0
+      39 [   0] SETTABLE  R1["currentTime"] := 0
+      40 [   0] SETTABLE  R1["totalTime"] := 0
+      41 [   0] SETTABLE  R1["size"] := 32
+      42 [   0] RETURN    return R1.. (1 values)
+      43 [   0] RETURN    return R0.. (0 values)

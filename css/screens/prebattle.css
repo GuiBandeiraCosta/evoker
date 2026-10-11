@@ -1,0 +1,166 @@
+/* Evoker Web - pre-battle (deck placement) screen, dressed with the original client's sprites
+   (assets/orig/ui: arena backdrop, attackbutton01 + attackbuttonornament01 on a seperator_big band, cardslot01 /
+   cardslotlocked recesses, 3-slice Mana-needed bar). No HP bars (DECISIONS D5). Layout after
+   scene_bossprepare_layout / scene_pvp_prepare_layout and reference/screenshots/Evoker-attack-user.jpg */
+
+.prebattle-body { display: flex; flex-direction: column; align-items: stretch; gap: 0; overflow-y: auto; }
+.prebattle-body > * { position: relative; z-index: 1; flex: none; }
+
+/* Backdrop: the arena painting for PvP, sky / horizon strip / ground for quests, dimmed so the panels read */
+.prebattle-bg { position: absolute; inset: 0; z-index: 0 !important; overflow: hidden; }
+.prebattle-bg.valley { background: linear-gradient(#354353 0%, #396648 30%, #244a22 38%, #193917 46%, #0d2410 100%); }
+.prebattle-bg.sunset { background: url('/assets/orig/ui/arena.png') center -104px / 800px 1280px no-repeat #3a1a0c; }
+.prebattle-bg.swamp { background: linear-gradient(#584a3a 0%, #436130 30%, #35501f 38%, #2a3e14 46%, #11200a 100%); }
+.prebattle-bg.lava { background: linear-gradient(#3d2315 0%, #5a2a12 34%, #c1922e 43%, #7a3a12 56%, #2a1208 100%); }
+.prebattle-bg::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 300px; height: 280px;
+  background: center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+}
+.prebattle-bg.valley::before { background-image: url('/assets/bg/horizon-valley.jpg'); }
+.prebattle-bg.sunset::before { display: none; }
+.prebattle-bg.swamp::before { background-image: url('/assets/bg/horizon-swamp.jpg'); }
+.prebattle-bg.lava::before { background-image: url('/assets/orig/ui/fight_cardbackground01.png'); opacity: .85; }
+.prebattle-bg::after { content: ''; position: absolute; inset: 0; background: rgba(10, 8, 6, .42); }
+.prebattle-bg.sunset::after { background: linear-gradient(180deg, rgba(10, 8, 6, .55), rgba(10, 8, 6, .35) 40%, rgba(10, 8, 6, .5)); }
+
+/* Names */
+.prebattle-name {
+  text-align: center;
+  font-size: 38px; font-weight: 500; color: var(--text);
+  text-shadow: 0 0 10px rgba(0, 0, 0, .9), 0 2px 3px rgba(0, 0, 0, .9);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  padding: 0 24px;
+}
+.prebattle-name.opp { height: 60px; line-height: 60px; margin-top: 2px; }
+.prebattle-name.me { height: 56px; line-height: 56px; margin-top: 4px; }
+
+/* PvE: no names, the landscape shows above the enemy row (scene_bossprepare) */
+.prebattle-gap.top { height: 92px; }
+.prebattle-body:not(.pvp) .attack-bar { margin: 26px 0 24px; }
+
+/* Rows: cardslot01 recess per slot, cardslotlocked for locked slots */
+.prebattle-row { gap: 12px; padding: 10px 8px; margin: 0 12px; justify-content: center; }
+.prebattle-row.opp .deck-slot { pointer-events: auto; }
+.prebattle-row .deck-slot {
+  background: url('/assets/orig/ui/cardslot01.png') center / 100% 100% no-repeat;
+  border-color: transparent; box-shadow: none;
+}
+.prebattle-row .deck-slot > .card { position: absolute; left: -2px; top: -2px; }
+.prebattle-row .deck-slot.locked { background-image: url('/assets/orig/ui/cardslotlocked.png'); }
+.prebattle-row .deck-slot.locked::after { display: none; }
+.prebattle-row .deck-slot.drop-target { box-shadow: inset 0 0 0 3px var(--c-mana), 0 0 16px var(--c-mana); }
+.prebattle-row .deck-slot.drop-invalid { box-shadow: inset 0 0 0 3px var(--c-attack), 0 0 16px var(--c-attack); }
+
+/* The Attack! bar: seperator_big band, attackbuttonornament01 flames, attackbutton01 steel button */
+.prebattle-screen .attack-bar {
+  height: 160px; margin: 6px 0 0;
+  background: none; border: 0; box-shadow: none; overflow: visible;
+}
+.prebattle-screen .attack-bar::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 50%; width: auto; height: 54px;
+  transform: translateY(-50%);
+  background: url('/assets/orig/ui/seperator_big.png') center / 100% 100% no-repeat;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .6));
+}
+/* the flames: the component's own .attack-ornament sprite when it has one, else drawn here */
+.prebattle-screen .attack-bar .attack-ornament,
+.prebattle-screen .attack-bar:not(:has(.attack-ornament))::after {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 600px; height: 221px; margin: 0;
+  transform: translate(-50%, -50%);
+  background: url('/assets/orig/ui/attackbuttonornament01.png') center / 100% 100% no-repeat;
+  pointer-events: none;
+  animation: attackFlame 2.6s ease-in-out infinite;
+}
+@keyframes attackFlame { 0%, 100% { opacity: .92; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.03); } }
+.prebattle-screen .attack-bar .btn {
+  position: relative; z-index: 1;
+  width: 248px; height: 122px; min-width: 0; min-height: 0; padding: 0 0 2px; margin: 0;
+  background: url('/assets/orig/ui/attackbutton01.png') center / 100% 100% no-repeat;
+  border: 0; border-radius: 0; box-shadow: none;
+  font-size: 40px; font-weight: 600; color: var(--steel-text);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+}
+.prebattle-screen .attack-bar .btn::after { display: none; }
+.prebattle-screen .attack-bar .btn:hover { filter: brightness(1.08); }
+.prebattle-screen .attack-bar .btn:active { transform: translateY(2px); filter: brightness(.95); }
+.prebattle-screen .attack-bar .btn:disabled { filter: grayscale(.7) brightness(.7); transform: none; }
+
+/* Mana needed (hud_manaicon01 + 3-slice trough + blue line), PvP only */
+.prebattle-screen .mana-needed { margin: 2px 40px 0; padding: 6px 0; gap: 0; align-items: center; }
+.prebattle-screen .mana-needed > img { width: 52px; height: 52px; margin-right: -22px; z-index: 1; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .9)); }
+.prebattle-screen .mana-needed .bar {
+  height: 32px; border-radius: 0; box-shadow: none;
+  border: 0 solid transparent; border-left-width: 18px; border-right-width: 20px;
+  background:
+    url('/assets/orig/ui/hud_progressbar_3sliceleft.png') left top / 18px 100% no-repeat,
+    url('/assets/orig/ui/hud_progressbar_3sliceright.png') right top / 20px 100% no-repeat,
+    url('/assets/orig/ui/hud_progressbar_3slice02.png') 18px 0 / calc(100% - 38px) 100% no-repeat;
+  background-origin: border-box; background-clip: border-box;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .7));
+}
+/* the label is drawn over the pinocle marker (as in the original frame), with a dark outline to stay readable */
+.prebattle-screen .mana-needed .bar-label {
+  font-size: 22px; font-weight: 600; top: -1px; z-index: 3;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0, 0, 0, .95);
+}
+.prebattle-screen .mana-needed .bar-fill { top: auto; bottom: 5px; height: 6px; background: url('/assets/orig/ui/hud_progressbarblue02.png') 0 0 / 100% 100% no-repeat; box-shadow: 0 0 6px rgba(36, 216, 255, .8); }
+/* the marker sits inside the trough (prebattle.js), at the deck's cost on the same scale as the blue line; the
+   component sets its own inline `left` for a different geometry, hence !important */
+.prebattle-screen .mana-needed .bar .marker { top: -16px; z-index: 2; left: calc(-10px + (100% + 22px) * var(--pct, 0)) !important; }
+/* Collection drawer */
+.prebattle-drawer {
+  margin: 10px 12px 12px;
+  padding: 6px 0 10px;
+  background: rgba(14, 15, 16, .78);
+  border: 3px solid var(--stone-edge); border-radius: var(--radius-m);
+  box-shadow: 0 0 0 1px var(--stone-edge-dark), inset 0 1px 0 var(--bevel-hi), inset 0 0 18px rgba(0, 0, 0, .5);
+  min-height: 236px;
+}
+.prebattle-drawer-title {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 2px 16px 6px;
+  font-size: 24px; font-weight: 600; color: var(--gold);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+}
+.prebattle-drawer-title .hint { font-size: 18px; font-weight: 500; color: var(--muted); }
+.prebattle-drawer-cards {
+  display: flex; gap: 12px; padding: 4px 14px 8px;
+  overflow-x: auto; overflow-y: hidden;
+  scrollbar-width: thin;
+  min-height: 182px;
+}
+.prebattle-drawer-cards .card { flex: none; }
+.prebattle-drawer-empty { padding: 50px 16px; text-align: center; font-size: 22px; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .prebattle-screen .attack-bar::after { animation: none; }
+}
+
+/* ---------- Boss fights: the intro's card flies into its enemy slot, then the Attack! bar opens ---------- */
+.prebattle-introcard {
+  position: absolute; z-index: 40 !important; pointer-events: none; transform-origin: 50% 50%;
+  border: 6px solid #a9adb1; border-radius: 6px; background: #000; overflow: hidden;
+  box-shadow: 0 0 0 3px #2b2e31, 0 0 26px rgba(120, 190, 255, .7);
+}
+.prebattle-introcard > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.prebattle-introtrail {
+  position: absolute; z-index: 39 !important; height: 90px; margin-top: -45px; transform-origin: 0 50%; pointer-events: none;
+  background: url('/assets/orig/ui/lightining.png') center / 100% 100% no-repeat; mix-blend-mode: screen;
+  filter: hue-rotate(10deg) brightness(1.2);
+  animation: introTrail 500ms linear both;
+}
+@keyframes introTrail { 0% { opacity: 0; } 20% { opacity: 1; } 100% { opacity: 0; } }
+.prebattle-row .deck-slot.intro-pending > * { visibility: hidden; }
+.prebattle-row .deck-slot.intro-landed > .card { animation: introLand 450ms ease-out both; }
+@keyframes introLand { from { filter: brightness(2.2); } to { filter: none; } }
+/* hidden but still clickable (a tap during the 0.6 s intro simply attacks) */
+.prebattle-screen .attack-bar.intro-hidden { opacity: 0; }
+.prebattle-screen .attack-bar.intro-in { animation: attackBarOpen 400ms cubic-bezier(.16, 1, .3, 1) both; }
+.prebattle-screen .attack-bar.intro-in .btn { animation: attackBtnPop 300ms cubic-bezier(.34, 1.56, .64, 1) 250ms both; }
+@keyframes attackBarOpen { from { transform: scaleX(.02); opacity: .4; } to { transform: none; opacity: 1; } }
+@keyframes attackBtnPop { from { transform: scale(.1); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .prebattle-introtrail, .prebattle-row .deck-slot.intro-landed > .card, .prebattle-screen .attack-bar.intro-in, .prebattle-screen .attack-bar.intro-in .btn { animation-duration: 1ms; }
+}

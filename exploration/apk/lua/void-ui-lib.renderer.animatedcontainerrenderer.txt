@@ -1,0 +1,168 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=[] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] MOVE      R1 := R0
+     2 [   0] TAILCALL  return R1(...) nargs=0
+     3 [   0] RETURN    return R1.. (-1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 1-52, upvals=[], locals=[])
+    constants: strings=['init', 'update', 'toFront', 'switchAnimation', 'stopAnimation'] numbers=[]
+       0 [   0] CLOSURE   R0 := closure #0
+       1 [   0] CLOSURE   R1 := closure #1
+       2 [   0] CLOSURE   R2 := closure #2
+       3 [   0] CLOSURE   R3 := closure #3
+       4 [   0] MOVE      R0 := R2
+       5 [   0] CLOSURE   R4 := closure #4
+       6 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+       7 [   0] SETTABLE  R5["init"] := R3
+       8 [   0] SETTABLE  R5["update"] := R2
+       9 [   0] SETTABLE  R5["toFront"] := R4
+      10 [   0] SETTABLE  R5["switchAnimation"] := R0
+      11 [   0] SETTABLE  R5["stopAnimation"] := R1
+      12 [   0] RETURN    return R5.. (1 values)
+      13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=3, lines 2-6, upvals=[], locals=[])
+      constants: strings=['renderer', 'anim', 'switchAnimation'] numbers=[]
+         0 [   0] GETTABLE  R3 := R0["renderer"]
+         1 [   0] GETTABLE  R3 := R3["anim"]
+         2 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +6 -> 10
+         4 [   0] GETTABLE  R3 := R0["renderer"]
+         5 [   0] GETTABLE  R3 := R3["anim"]
+         6 [   0] GETTABLE  R3 := R3["switchAnimation"]
+         7 [   0] MOVE      R4 := R1
+         8 [   0] MOVE      R5 := R2
+         9 [   0] CALL      R3(...) nargs=2 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 8-12, upvals=[], locals=[])
+      constants: strings=['renderer', 'anim', 'stopAnimation'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["renderer"]
+         1 [   0] GETTABLE  R1 := R1["anim"]
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +4 -> 8
+         4 [   0] GETTABLE  R1 := R0["renderer"]
+         5 [   0] GETTABLE  R1 := R1["anim"]
+         6 [   0] GETTABLE  R1 := R1["stopAnimation"]
+         7 [   0] CALL      R1(...) nargs=0 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=2, lines 14-28, upvals=[], locals=[])
+      constants: strings=['anim', 'frameAnim', 'renderer', 'destroy', 'assets', 'getAnimation', 'getFrameAnimation', 'insert', 'getDisplayGroup', 'w', 'getSprite', 'contentWidth', 'h', 'contentHeight', 'x', 'y', 'layoutData', 'layoutManager', 'getDataFor', 'initOptions', 'layout', 'parent'] numbers=[0]
+         0 [   0] GETTABLE  R2 := R1["anim"]
+         1 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETTABLE  R2 := R1["frameAnim"]
+         4 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +68 -> 74
+         6 [   0] GETTABLE  R2 := R0["renderer"]
+         7 [   0] GETTABLE  R2 := R2["anim"]
+         8 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +4 -> 14
+        10 [   0] GETTABLE  R2 := R0["renderer"]
+        11 [   0] GETTABLE  R2 := R2["anim"]
+        12 [   0] GETTABLE  R2 := R2["destroy"]
+        13 [   0] CALL      R2(...) nargs=0 nret=0
+        14 [   0] GETTABLE  R2 := R0["renderer"]
+        15 [   0] GETTABLE  R3 := R1["anim"]
+        16 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        17 [   0] JMP       jmp +6 -> 24
+        18 [   0] GETGLOBAL R3 := _G["assets"]
+        19 [   0] GETTABLE  R3 := R3["getAnimation"]
+        20 [   0] GETTABLE  R4 := R1["anim"]
+        21 [   0] CALL      R3(...) nargs=1 nret=1
+        22 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        23 [   0] JMP       jmp +4 -> 28
+        24 [   0] GETGLOBAL R3 := _G["assets"]
+        25 [   0] GETTABLE  R3 := R3["getFrameAnimation"]
+        26 [   0] GETTABLE  R4 := R1["frameAnim"]
+        27 [   0] CALL      R3(...) nargs=1 nret=1
+        28 [   0] SETTABLE  R2["anim"] := R3
+        29 [   0] SELF      R3 := R0; R2 := R0["insert"]
+        30 [   0] GETTABLE  R4 := R0["renderer"]
+        31 [   0] GETTABLE  R4 := R4["anim"]
+        32 [   0] GETTABLE  R4 := R4["getDisplayGroup"]
+        33 [   0] CALL      R4(...) nargs=0 nret=-1
+        34 [   0] CALL      R2(...) nargs=-1 nret=0
+        35 [   0] GETTABLE  R2 := R0["renderer"]
+        36 [   0] GETTABLE  R3 := R0["renderer"]
+        37 [   0] GETTABLE  R3 := R3["anim"]
+        38 [   0] GETTABLE  R3 := R3["getSprite"]
+        39 [   0] CALL      R3(...) nargs=0 nret=1
+        40 [   0] GETTABLE  R3 := R3["contentWidth"]
+        41 [   0] SETTABLE  R2["w"] := R3
+        42 [   0] GETTABLE  R2 := R0["renderer"]
+        43 [   0] GETTABLE  R3 := R0["renderer"]
+        44 [   0] GETTABLE  R3 := R3["anim"]
+        45 [   0] GETTABLE  R3 := R3["getSprite"]
+        46 [   0] CALL      R3(...) nargs=0 nret=1
+        47 [   0] GETTABLE  R3 := R3["contentHeight"]
+        48 [   0] SETTABLE  R2["h"] := R3
+        49 [   0] GETTABLE  R2 := R0["renderer"]
+        50 [   0] GETTABLE  R2 := R2["anim"]
+        51 [   0] GETTABLE  R2 := R2["getDisplayGroup"]
+        52 [   0] CALL      R2(...) nargs=0 nret=1
+        53 [   0] SETTABLE  R2["x"] := 0
+        54 [   0] GETTABLE  R2 := R0["renderer"]
+        55 [   0] GETTABLE  R2 := R2["anim"]
+        56 [   0] GETTABLE  R2 := R2["getDisplayGroup"]
+        57 [   0] CALL      R2(...) nargs=0 nret=1
+        58 [   0] SETTABLE  R2["y"] := 0
+        59 [   0] GETGLOBAL R2 := _G["layoutManager"]
+        60 [   0] GETTABLE  R2 := R2["getDataFor"]
+        61 [   0] GETTABLE  R3 := R0["initOptions"]
+        62 [   0] GETTABLE  R3 := R3["layout"]
+        63 [   0] GETTABLE  R4 := R0["initOptions"]
+        64 [   0] GETTABLE  R4 := R4["parent"]
+        65 [   0] MOVE      R5 := R0
+        66 [   0] CALL      R2(...) nargs=3 nret=1
+        67 [   0] SETTABLE  R0["layoutData"] := R2
+        68 [   0] GETTABLE  R2 := R0["layoutData"]
+        69 [   0] GETTABLE  R2 := R2["x"]
+        70 [   0] SETTABLE  R0["x"] := R2
+        71 [   0] GETTABLE  R2 := R0["layoutData"]
+        72 [   0] GETTABLE  R2 := R2["y"]
+        73 [   0] SETTABLE  R0["y"] := R2
+        74 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 30-39, upvals=[], locals=[])
+      constants: strings=['renderer', 'initOptions', 'getWidth', 'getHeight'] numbers=[]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] SETTABLE  R0["renderer"] := R2
+         2 [   0] SETTABLE  R0["initOptions"] := R1
+         3 [   0] CLOSURE   R2 := closure #0
+         4 [   0] MOVE      R0 := R0
+         5 [   0] SETTABLE  R0["getWidth"] := R2
+         6 [   0] CLOSURE   R2 := closure #1
+         7 [   0] MOVE      R0 := R0
+         8 [   0] SETTABLE  R0["getHeight"] := R2
+         9 [   0] GETUPVAL  R2 := upval 0
+        10 [   0] MOVE      R3 := R0
+        11 [   0] MOVE      R4 := R1
+        12 [   0] CALL      R2(...) nargs=2 nret=0
+        13 [   0] RETURN    return R0.. (1 values)
+        14 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#3.#0 (params=0, lines 34-34, upvals=[], locals=[])
+        constants: strings=['renderer', 'w'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["renderer"]
+           2 [   0] GETTABLE  R0 := R0["w"]
+           3 [   0] RETURN    return R0.. (1 values)
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#3.#1 (params=0, lines 35-35, upvals=[], locals=[])
+        constants: strings=['renderer', 'h'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["renderer"]
+           2 [   0] GETTABLE  R0 := R0["h"]
+           3 [   0] RETURN    return R0.. (1 values)
+           4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 41-43, upvals=[], locals=[])
+      constants: strings=['renderer', 'anim', 'getDisplayGroup', 'toFront'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["renderer"]
+         1 [   0] GETTABLE  R1 := R1["anim"]
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +6 -> 10
+         4 [   0] GETTABLE  R1 := R0["renderer"]
+         5 [   0] GETTABLE  R1 := R1["anim"]
+         6 [   0] GETTABLE  R1 := R1["getDisplayGroup"]
+         7 [   0] CALL      R1(...) nargs=0 nret=1
+         8 [   0] SELF      R2 := R1; R1 := R1["toFront"]
+         9 [   0] CALL      R1(...) nargs=1 nret=0
+        10 [   0] RETURN    return R0.. (0 values)

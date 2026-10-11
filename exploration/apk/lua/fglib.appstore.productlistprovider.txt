@@ -1,0 +1,160 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'eventdispatcher', 'logging.logger', 'new'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "eventdispatcher"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "logging.logger"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] LOADK     R2 := 3
+    11 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+    12 [   0] CLOSURE   R4 := closure #0
+    13 [   0] MOVE      R0 := R1
+    14 [   0] MOVE      R0 := R2
+    15 [   0] CLOSURE   R5 := closure #1
+    16 [   0] MOVE      R0 := R4
+    17 [   0] MOVE      R0 := R0
+    18 [   0] SETTABLE  R3["new"] := R5
+    19 [   0] RETURN    return R3.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 9-69, upvals=[], locals=[])
+    constants: strings=['getStoreInterface', 'setInterface', 'loadProductsCallback', 'setProductMetaData', 'isConsumable', 'getProductMetaData', 'getProductIds', 'fetch'] numbers=[]
+       0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       1 [   0] CLOSURE   R3 := closure #0
+       2 [   0] MOVE      R0 := R1
+       3 [   0] SETTABLE  R0["getStoreInterface"] := R3
+       4 [   0] CLOSURE   R3 := closure #1
+       5 [   0] MOVE      R0 := R1
+       6 [   0] SETTABLE  R0["setInterface"] := R3
+       7 [   0] CLOSURE   R3 := closure #2
+       8 [   0] GETUPVAL  R0 := upval 0
+       9 [   0] GETUPVAL  R0 := upval 1
+      10 [   0] MOVE      R0 := R0
+      11 [   0] SETTABLE  R0["loadProductsCallback"] := R3
+      12 [   0] CLOSURE   R3 := closure #3
+      13 [   0] MOVE      R0 := R2
+      14 [   0] SETTABLE  R0["setProductMetaData"] := R3
+      15 [   0] CLOSURE   R3 := closure #4
+      16 [   0] MOVE      R0 := R2
+      17 [   0] SETTABLE  R0["isConsumable"] := R3
+      18 [   0] CLOSURE   R3 := closure #5
+      19 [   0] MOVE      R0 := R2
+      20 [   0] SETTABLE  R0["getProductMetaData"] := R3
+      21 [   0] CLOSURE   R3 := closure #6
+      22 [   0] MOVE      R0 := R2
+      23 [   0] SETTABLE  R0["getProductIds"] := R3
+      24 [   0] CLOSURE   R3 := closure #7
+      25 [   0] GETUPVAL  R0 := upval 0
+      26 [   0] GETUPVAL  R0 := upval 1
+      27 [   0] SETTABLE  R0["fetch"] := R3
+      28 [   0] RETURN    return R0.. (1 values)
+      29 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 15-17, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 19-21, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 23-28, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_APPSTORE', 'ProductListProvider:loadProductsCallback ', 'name', 'products', 'emit', 'productList'] numbers=[3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logmsg"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R4 := 3
+         6 [   0] LOADK     R5 := "ProductListProvider:loadProductsCallback "
+         7 [   0] GETTABLE  R6 := R0["name"]
+         8 [   0] GETTABLE  R7 := R0["products"]
+         9 [   0] LEN       R7 := #R7
+        10 [   0] CALL      R1(...) nargs=6 nret=0
+        11 [   0] GETUPVAL  R1 := upval 2
+        12 [   0] GETTABLE  R1 := R1["emit"]
+        13 [   0] LOADK     R2 := "productList"
+        14 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+        15 [   0] GETTABLE  R4 := R0["products"]
+        16 [   0] SETTABLE  R3["products"] := R4
+        17 [   0] CALL      R1(...) nargs=2 nret=0
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=3, lines 30-36, upvals=[], locals=[])
+      constants: strings=['isConsumable', 'metadata'] numbers=[]
+         0 [   0] EQ        if (R1 == None) ~= 0 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R1 := True
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+         5 [   0] TESTSET   if (R1 truthy) == 1 then R5 := R1 else skip next
+         6 [   0] JMP       jmp +1 -> 8
+         7 [   0] LOADBOOL  R5 := False
+         8 [   0] SETTABLE  R4["isConsumable"] := R5
+         9 [   0] SETTABLE  R4["metadata"] := R2
+        10 [   0] SETTABLE  R3[R0] := R4
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 38-40, upvals=[], locals=[])
+      constants: strings=['isConsumable'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETTABLE  R1 := R1[R0]
+         6 [   0] GETTABLE  R1 := R1["isConsumable"]
+         7 [   0] RETURN    return R1.. (1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 42-49, upvals=[], locals=[])
+      constants: strings=['metadata'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +7 -> 11
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETTABLE  R1 := R1[R0]
+         6 [   0] GETTABLE  R1 := R1["metadata"]
+         7 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         8 [   0] JMP       jmp +1 -> 10
+         9 [   0] LOADNIL   R1..R1 := nil
+        10 [   0] RETURN    return R1.. (1 values)
+        11 [   0] LOADNIL   R1..R1 := nil
+        12 [   0] RETURN    return R1.. (1 values)
+        13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 51-57, upvals=[], locals=[])
+      constants: strings=['pairs'] numbers=[1]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+         1 [   0] GETGLOBAL R1 := _G["pairs"]
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] CALL      R1(...) nargs=1 nret=3
+         4 [   0] JMP       jmp +3 -> 8
+         5 [   0] LEN       R6 := #R0
+         6 [   0] ADD       R6 := R6 + 1
+         7 [   0] SETTABLE  R0[R6] := R4
+         8 [   0] TFORLOOP  tforloop R1 nres=2
+         9 [   0] JMP       jmp -5 -> 5
+        10 [   0] RETURN    return R0.. (1 values)
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 59-64, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_APPSTORE', 'ProductListProvider:fetch'] numbers=[3]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "ProductListProvider:fetch"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 71-75, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new"]
+       3 [   0] CALL      R1(...) nargs=0 nret=-1
+       4 [   0] TAILCALL  return R0(...) nargs=-1
+       5 [   0] RETURN    return R0.. (-1 values)
+       6 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,848 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'appversion', 'fgrequire', 'logging.logger', 'getLogger', 'GAME', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "appversion"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["fgrequire"]
+     4 [   0] LOADK     R2 := "logging.logger"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETTABLE  R1 := R1["getLogger"]
+     7 [   0] LOADK     R2 := "GAME"
+     8 [   0] CALL      R1(...) nargs=1 nret=1
+     9 [   0] CLOSURE   R2 := closure #0
+    10 [   0] MOVE      R0 := R0
+    11 [   0] MOVE      R0 := R1
+    12 [   0] CLOSURE   R3 := closure #1
+    13 [   0] CLOSURE   R4 := closure #2
+    14 [   0] MOVE      R0 := R0
+    15 [   0] MOVE      R0 := R3
+    16 [   0] CLOSURE   R5 := closure #3
+    17 [   0] MOVE      R0 := R1
+    18 [   0] MOVE      R0 := R0
+    19 [   0] CLOSURE   R6 := closure #4
+    20 [   0] MOVE      R0 := R1
+    21 [   0] CLOSURE   R7 := closure #5
+    22 [   0] MOVE      R0 := R1
+    23 [   0] CLOSURE   R8 := closure #6
+    24 [   0] MOVE      R0 := R1
+    25 [   0] CLOSURE   R9 := closure #7
+    26 [   0] MOVE      R0 := R1
+    27 [   0] CLOSURE   R10 := closure #8
+    28 [   0] MOVE      R0 := R1
+    29 [   0] CLOSURE   R11 := closure #9
+    30 [   0] MOVE      R0 := R1
+    31 [   0] CLOSURE   R12 := closure #10
+    32 [   0] MOVE      R0 := R0
+    33 [   0] CLOSURE   R13 := closure #11
+    34 [   0] CLOSURE   R14 := closure #12
+    35 [   0] CLOSURE   R15 := closure #13
+    36 [   0] MOVE      R0 := R14
+    37 [   0] MOVE      R0 := R2
+    38 [   0] MOVE      R0 := R4
+    39 [   0] MOVE      R0 := R13
+    40 [   0] MOVE      R0 := R11
+    41 [   0] MOVE      R0 := R5
+    42 [   0] MOVE      R0 := R6
+    43 [   0] MOVE      R0 := R7
+    44 [   0] MOVE      R0 := R9
+    45 [   0] MOVE      R0 := R8
+    46 [   0] MOVE      R0 := R12
+    47 [   0] MOVE      R0 := R10
+    48 [   0] NEWTABLE  R16 := {} (array 0, hash 1)
+    49 [   0] SETTABLE  R16["create"] := R15
+    50 [   0] RETURN    return R16.. (1 values)
+    51 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 11-40, upvals=[], locals=[])
+    constants: strings=['require', 'appsettings', '_DEBUG', 'release', '_LIVE_TRACKING', 'APP_NAME', 'trackingName', 'APP_VERSION', 'versionName', 'APP_ITUNES_VERSION', 'version', 'native', 'showAlert', 'Tracking', 'Live Tracking disabled on Debug Builds!', 'OK', 'system', 'getInfo', 'environment', 'simulator', 'Live Tracking disabled on Simulator!', 'Please note that this Release Build uses Staging for Tracking!', 'fgrequire', 'logging.logger', 'setLogLevelToInfo', 'disableAspect', 'UNKNOWN', 'info', 'Initializing Evoker ', ' with configuration ', 'DEBUG', 'LIVE'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["require"]
+       1 [   0] LOADK     R1 := "appsettings"
+       2 [   0] CALL      R0(...) nargs=1 nret=0
+       3 [   0] GETGLOBAL R0 := _G["require"]
+       4 [   0] LOADK     R1 := "release"
+       5 [   0] CALL      R0(...) nargs=1 nret=1
+       6 [   0] NOT       R0 := not R0
+       7 [   0] SETGLOBAL _G["_DEBUG"] := R0
+       8 [   0] GETGLOBAL R0 := _G["require"]
+       9 [   0] LOADK     R1 := "release"
+      10 [   0] CALL      R0(...) nargs=1 nret=1
+      11 [   0] SETGLOBAL _G["_LIVE_TRACKING"] := R0
+      12 [   0] GETUPVAL  R0 := upval 0
+      13 [   0] GETTABLE  R0 := R0["trackingName"]
+      14 [   0] SETGLOBAL _G["APP_NAME"] := R0
+      15 [   0] GETUPVAL  R0 := upval 0
+      16 [   0] GETTABLE  R0 := R0["versionName"]
+      17 [   0] SETGLOBAL _G["APP_VERSION"] := R0
+      18 [   0] GETUPVAL  R0 := upval 0
+      19 [   0] GETTABLE  R0 := R0["version"]
+      20 [   0] SETGLOBAL _G["APP_ITUNES_VERSION"] := R0
+      21 [   0] GETGLOBAL R0 := _G["_DEBUG"]
+      22 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      23 [   0] JMP       jmp +13 -> 37
+      24 [   0] GETGLOBAL R0 := _G["_LIVE_TRACKING"]
+      25 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      26 [   0] JMP       jmp +10 -> 37
+      27 [   0] LOADBOOL  R0 := False
+      28 [   0] SETGLOBAL _G["_LIVE_TRACKING"] := R0
+      29 [   0] GETGLOBAL R0 := _G["native"]
+      30 [   0] GETTABLE  R0 := R0["showAlert"]
+      31 [   0] LOADK     R1 := "Tracking"
+      32 [   0] LOADK     R2 := "Live Tracking disabled on Debug Builds!"
+      33 [   0] NEWTABLE  R3 := {} (array 1, hash 0)
+      34 [   0] LOADK     R4 := "OK"
+      35 [   0] SETLIST   R3[...] := R4.. (n=1, block 1)
+      36 [   0] CALL      R0(...) nargs=3 nret=0
+      37 [   0] GETGLOBAL R0 := _G["_LIVE_TRACKING"]
+      38 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      39 [   0] JMP       jmp +16 -> 56
+      40 [   0] GETGLOBAL R0 := _G["system"]
+      41 [   0] GETTABLE  R0 := R0["getInfo"]
+      42 [   0] LOADK     R1 := "environment"
+      43 [   0] CALL      R0(...) nargs=1 nret=1
+      44 [   0] EQ        if (R0 == "simulator") ~= 0 then skip next
+      45 [   0] JMP       jmp +10 -> 56
+      46 [   0] LOADBOOL  R0 := False
+      47 [   0] SETGLOBAL _G["_LIVE_TRACKING"] := R0
+      48 [   0] GETGLOBAL R0 := _G["native"]
+      49 [   0] GETTABLE  R0 := R0["showAlert"]
+      50 [   0] LOADK     R1 := "Tracking"
+      51 [   0] LOADK     R2 := "Live Tracking disabled on Simulator!"
+      52 [   0] NEWTABLE  R3 := {} (array 1, hash 0)
+      53 [   0] LOADK     R4 := "OK"
+      54 [   0] SETLIST   R3[...] := R4.. (n=1, block 1)
+      55 [   0] CALL      R0(...) nargs=3 nret=0
+      56 [   0] GETGLOBAL R0 := _G["_DEBUG"]
+      57 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+      58 [   0] JMP       jmp +11 -> 70
+      59 [   0] GETGLOBAL R0 := _G["_LIVE_TRACKING"]
+      60 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+      61 [   0] JMP       jmp +8 -> 70
+      62 [   0] GETGLOBAL R0 := _G["native"]
+      63 [   0] GETTABLE  R0 := R0["showAlert"]
+      64 [   0] LOADK     R1 := "Tracking"
+      65 [   0] LOADK     R2 := "Please note that this Release Build uses Staging for Tracking!"
+      66 [   0] NEWTABLE  R3 := {} (array 1, hash 0)
+      67 [   0] LOADK     R4 := "OK"
+      68 [   0] SETLIST   R3[...] := R4.. (n=1, block 1)
+      69 [   0] CALL      R0(...) nargs=3 nret=0
+      70 [   0] GETGLOBAL R0 := _G["fgrequire"]
+      71 [   0] LOADK     R1 := "logging.logger"
+      72 [   0] CALL      R0(...) nargs=1 nret=1
+      73 [   0] GETGLOBAL R1 := _G["_DEBUG"]
+      74 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+      75 [   0] JMP       jmp +5 -> 81
+      76 [   0] GETTABLE  R1 := R0["setLogLevelToInfo"]
+      77 [   0] CALL      R1(...) nargs=0 nret=0
+      78 [   0] GETTABLE  R1 := R0["disableAspect"]
+      79 [   0] LOADK     R2 := "UNKNOWN"
+      80 [   0] CALL      R1(...) nargs=1 nret=0
+      81 [   0] GETUPVAL  R1 := upval 1
+      82 [   0] GETTABLE  R1 := R1["info"]
+      83 [   0] LOADK     R2 := "Initializing Evoker "
+      84 [   0] GETGLOBAL R3 := _G["APP_ITUNES_VERSION"]
+      85 [   0] LOADK     R4 := " with configuration "
+      86 [   0] GETGLOBAL R5 := _G["_DEBUG"]
+      87 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      88 [   0] JMP       jmp +3 -> 92
+      89 [   0] LOADK     R5 := "DEBUG"
+      90 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      91 [   0] JMP       jmp +1 -> 93
+      92 [   0] LOADK     R5 := "LIVE"
+      93 [   0] CONCAT    R2 := R2 .. ... .. R5
+      94 [   0] CALL      R1(...) nargs=1 nret=0
+      95 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 42-59, upvals=[], locals=[])
+    constants: strings=['fgrequire', 'logging.logger', 'getLogger', 'UNKNOWN', 'setLogger', 'addLogger', 'enableErrorTracking', 'msg', 'info', 'err', 'error', 'assert', 'verify', 'enableLoggingForAspects', 'disableLoggingForAspects', 'addAspect', 'setMaxRecursionDepth', 'enableColors', 'logmsg'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["fgrequire"]
+       1 [   0] LOADK     R1 := "logging.logger"
+       2 [   0] CALL      R0(...) nargs=1 nret=1
+       3 [   0] GETTABLE  R0 := R0["getLogger"]
+       4 [   0] LOADK     R1 := "UNKNOWN"
+       5 [   0] CALL      R0(...) nargs=1 nret=1
+       6 [   0] CLOSURE   R1 := closure #0
+       7 [   0] SETTABLE  R0["setLogger"] := R1
+       8 [   0] CLOSURE   R1 := closure #1
+       9 [   0] SETTABLE  R0["addLogger"] := R1
+      10 [   0] CLOSURE   R1 := closure #2
+      11 [   0] SETTABLE  R0["enableErrorTracking"] := R1
+      12 [   0] GETTABLE  R1 := R0["info"]
+      13 [   0] SETTABLE  R0["msg"] := R1
+      14 [   0] GETTABLE  R1 := R0["error"]
+      15 [   0] SETTABLE  R0["err"] := R1
+      16 [   0] CLOSURE   R1 := closure #3
+      17 [   0] SETTABLE  R0["assert"] := R1
+      18 [   0] CLOSURE   R1 := closure #4
+      19 [   0] SETTABLE  R0["verify"] := R1
+      20 [   0] CLOSURE   R1 := closure #5
+      21 [   0] SETTABLE  R0["enableLoggingForAspects"] := R1
+      22 [   0] CLOSURE   R1 := closure #6
+      23 [   0] SETTABLE  R0["disableLoggingForAspects"] := R1
+      24 [   0] CLOSURE   R1 := closure #7
+      25 [   0] SETTABLE  R0["addAspect"] := R1
+      26 [   0] CLOSURE   R1 := closure #8
+      27 [   0] SETTABLE  R0["setMaxRecursionDepth"] := R1
+      28 [   0] CLOSURE   R1 := closure #9
+      29 [   0] SETTABLE  R0["enableColors"] := R1
+      30 [   0] CLOSURE   R1 := closure #10
+      31 [   0] SETTABLE  R0["logmsg"] := R1
+      32 [   0] RETURN    return R0.. (1 values)
+      33 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=0, lines 45-45, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#1 (params=0, lines 46-46, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#2 (params=0, lines 47-47, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#3 (params=0, lines 50-50, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#4 (params=0, lines 51-51, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#5 (params=0, lines 52-52, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#6 (params=0, lines 53-53, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#7 (params=0, lines 54-54, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#8 (params=0, lines 55-55, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#9 (params=0, lines 56-56, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#10 (params=0, lines 57-57, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 61-76, upvals=[], locals=[])
+    constants: strings=['FGLIB_PATH', 'fglib.', 'gfxComp', 'require', 'compat.coronav1_compat', 'fglib', 'ASSET_PATH', 'fglib/assets/', '_DEBUG', 'system', 'getInfo', 'platformName', 'Windows Phone', 'widget', 'setTheme', 'widget_theme_android_holo_dark', 'setAppData', 'APP_NAME', 'APP_ITUNES_VERSION', 'bundleId', 'gameid', 'versionCode', 'googleInAppBillingPubKey', 'enableModules', 'utils', 'display', 'appstore', 'loca', 'settings', 'audio', 'gamenetwork', 'cloud', 'tracking', 'rating', 'invites', 'native', 'gameservices', 'log'] numbers=[]
+       0 [   0] LOADK     R0 := "fglib."
+       1 [   0] SETGLOBAL _G["FGLIB_PATH"] := R0
+       2 [   0] GETGLOBAL R0 := _G["require"]
+       3 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+       4 [   0] LOADK     R2 := "compat.coronav1_compat"
+       5 [   0] CONCAT    R1 := R1 .. ... .. R2
+       6 [   0] CALL      R0(...) nargs=1 nret=1
+       7 [   0] SETGLOBAL _G["gfxComp"] := R0
+       8 [   0] GETGLOBAL R0 := _G["require"]
+       9 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+      10 [   0] LOADK     R2 := "fglib"
+      11 [   0] CONCAT    R1 := R1 .. ... .. R2
+      12 [   0] CALL      R0(...) nargs=1 nret=1
+      13 [   0] SETGLOBAL _G["fglib"] := R0
+      14 [   0] GETGLOBAL R0 := _G["fglib"]
+      15 [   0] SETTABLE  R0["ASSET_PATH"] := "fglib/assets/"
+      16 [   0] GETGLOBAL R0 := _G["_DEBUG"]
+      17 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      18 [   0] JMP       jmp +12 -> 31
+      19 [   0] GETGLOBAL R0 := _G["system"]
+      20 [   0] GETTABLE  R0 := R0["getInfo"]
+      21 [   0] LOADK     R1 := "platformName"
+      22 [   0] CALL      R0(...) nargs=1 nret=1
+      23 [   0] EQ        if (R0 == "Windows Phone") ~= 1 then skip next
+      24 [   0] JMP       jmp +6 -> 31
+      25 [   0] GETGLOBAL R0 := _G["require"]
+      26 [   0] LOADK     R1 := "widget"
+      27 [   0] CALL      R0(...) nargs=1 nret=1
+      28 [   0] GETTABLE  R1 := R0["setTheme"]
+      29 [   0] LOADK     R2 := "widget_theme_android_holo_dark"
+      30 [   0] CALL      R1(...) nargs=1 nret=0
+      31 [   0] GETGLOBAL R0 := _G["fglib"]
+      32 [   0] GETTABLE  R0 := R0["setAppData"]
+      33 [   0] GETGLOBAL R1 := _G["APP_NAME"]
+      34 [   0] GETGLOBAL R2 := _G["APP_ITUNES_VERSION"]
+      35 [   0] GETUPVAL  R3 := upval 0
+      36 [   0] GETTABLE  R3 := R3["bundleId"]
+      37 [   0] GETUPVAL  R4 := upval 0
+      38 [   0] GETTABLE  R4 := R4["gameid"]
+      39 [   0] GETUPVAL  R5 := upval 0
+      40 [   0] GETTABLE  R5 := R5["versionCode"]
+      41 [   0] GETUPVAL  R6 := upval 0
+      42 [   0] GETTABLE  R6 := R6["googleInAppBillingPubKey"]
+      43 [   0] CALL      R0(...) nargs=6 nret=0
+      44 [   0] GETGLOBAL R0 := _G["fglib"]
+      45 [   0] GETTABLE  R0 := R0["enableModules"]
+      46 [   0] NEWTABLE  R1 := {} (array 13, hash 0)
+      47 [   0] LOADK     R2 := "utils"
+      48 [   0] LOADK     R3 := "display"
+      49 [   0] LOADK     R4 := "appstore"
+      50 [   0] LOADK     R5 := "loca"
+      51 [   0] LOADK     R6 := "settings"
+      52 [   0] LOADK     R7 := "audio"
+      53 [   0] LOADK     R8 := "gamenetwork"
+      54 [   0] LOADK     R9 := "cloud"
+      55 [   0] LOADK     R10 := "tracking"
+      56 [   0] LOADK     R11 := "rating"
+      57 [   0] LOADK     R12 := "invites"
+      58 [   0] LOADK     R13 := "native"
+      59 [   0] LOADK     R14 := "gameservices"
+      60 [   0] SETLIST   R1[...] := R2.. (n=13, block 1)
+      61 [   0] CALL      R0(...) nargs=1 nret=0
+      62 [   0] GETUPVAL  R0 := upval 1
+      63 [   0] CALL      R0(...) nargs=0 nret=1
+      64 [   0] SETGLOBAL _G["log"] := R0
+      65 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=0, lines 78-84, upvals=[], locals=[])
+    constants: strings=['info', 'Initializing Facebook MAI for appid ', 'facebookAppID', ' ...', 'require', 'FGLIB_PATH', 'facebook.graph.facebook', 'getInstance', 'native.facebookmai', 'init'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["info"]
+       2 [   0] LOADK     R1 := "Initializing Facebook MAI for appid "
+       3 [   0] GETUPVAL  R2 := upval 1
+       4 [   0] GETTABLE  R2 := R2["facebookAppID"]
+       5 [   0] LOADK     R3 := " ..."
+       6 [   0] CALL      R0(...) nargs=3 nret=0
+       7 [   0] GETGLOBAL R0 := _G["require"]
+       8 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+       9 [   0] LOADK     R2 := "facebook.graph.facebook"
+      10 [   0] CONCAT    R1 := R1 .. ... .. R2
+      11 [   0] CALL      R0(...) nargs=1 nret=1
+      12 [   0] GETTABLE  R1 := R0["getInstance"]
+      13 [   0] GETUPVAL  R2 := upval 1
+      14 [   0] GETTABLE  R2 := R2["facebookAppID"]
+      15 [   0] CALL      R1(...) nargs=1 nret=0
+      16 [   0] GETGLOBAL R1 := _G["require"]
+      17 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+      18 [   0] LOADK     R3 := "native.facebookmai"
+      19 [   0] CONCAT    R2 := R2 .. ... .. R3
+      20 [   0] CALL      R1(...) nargs=1 nret=1
+      21 [   0] GETTABLE  R2 := R1["init"]
+      22 [   0] GETUPVAL  R3 := upval 1
+      23 [   0] GETTABLE  R3 := R3["facebookAppID"]
+      24 [   0] CALL      R2(...) nargs=1 nret=0
+      25 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=0, lines 86-117, upvals=[], locals=[])
+    constants: strings=['info', 'Initializing UI-Lib ...', 'UI_LIB_PATH', 'void-ui-lib.', 'require', 'warcards', 'fglib', 'display', 'autohd', 'setImageData', 'imagedata_warcards', 'ui.layouts.wc_fonts', 'ui.layouts.wc_styles', 'imagedata', 'ui.layouts.ev_fonts', 'ui.layouts.ev_styles', 'useImageAutoHD', 'useTextAutoHD', 'layoutManager', 'layouts.layoutmanager', 'fgimage', 'ui.layouts.layouts', 'assets', 'common.assets', 'easingx', 'common.easingx', 'styles', 'common.styles', 'widgets', 'widgets.widgets', 'ui', 'widgets.ui', 'game.hudmanager', 'getInstance'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["info"]
+       2 [   0] LOADK     R1 := "Initializing UI-Lib ..."
+       3 [   0] CALL      R0(...) nargs=1 nret=0
+       4 [   0] LOADK     R0 := "void-ui-lib."
+       5 [   0] SETGLOBAL _G["UI_LIB_PATH"] := R0
+       6 [   0] GETGLOBAL R0 := _G["require"]
+       7 [   0] LOADK     R1 := "warcards"
+       8 [   0] CALL      R0(...) nargs=1 nret=1
+       9 [   0] EQ        if (R0 == True) ~= 0 then skip next
+      10 [   0] JMP       jmp +15 -> 26
+      11 [   0] GETGLOBAL R1 := _G["fglib"]
+      12 [   0] GETTABLE  R1 := R1["display"]
+      13 [   0] GETTABLE  R1 := R1["autohd"]
+      14 [   0] GETTABLE  R1 := R1["setImageData"]
+      15 [   0] GETGLOBAL R2 := _G["require"]
+      16 [   0] LOADK     R3 := "imagedata_warcards"
+      17 [   0] CALL      R2(...) nargs=1 nret=-1
+      18 [   0] CALL      R1(...) nargs=-1 nret=0
+      19 [   0] GETGLOBAL R1 := _G["require"]
+      20 [   0] LOADK     R2 := "ui.layouts.wc_fonts"
+      21 [   0] CALL      R1(...) nargs=1 nret=0
+      22 [   0] GETGLOBAL R1 := _G["require"]
+      23 [   0] LOADK     R2 := "ui.layouts.wc_styles"
+      24 [   0] CALL      R1(...) nargs=1 nret=0
+      25 [   0] JMP       jmp +14 -> 40
+      26 [   0] GETGLOBAL R1 := _G["fglib"]
+      27 [   0] GETTABLE  R1 := R1["display"]
+      28 [   0] GETTABLE  R1 := R1["autohd"]
+      29 [   0] GETTABLE  R1 := R1["setImageData"]
+      30 [   0] GETGLOBAL R2 := _G["require"]
+      31 [   0] LOADK     R3 := "imagedata"
+      32 [   0] CALL      R2(...) nargs=1 nret=-1
+      33 [   0] CALL      R1(...) nargs=-1 nret=0
+      34 [   0] GETGLOBAL R1 := _G["require"]
+      35 [   0] LOADK     R2 := "ui.layouts.ev_fonts"
+      36 [   0] CALL      R1(...) nargs=1 nret=0
+      37 [   0] GETGLOBAL R1 := _G["require"]
+      38 [   0] LOADK     R2 := "ui.layouts.ev_styles"
+      39 [   0] CALL      R1(...) nargs=1 nret=0
+      40 [   0] GETGLOBAL R1 := _G["fglib"]
+      41 [   0] GETTABLE  R1 := R1["display"]
+      42 [   0] GETTABLE  R1 := R1["autohd"]
+      43 [   0] GETTABLE  R1 := R1["useImageAutoHD"]
+      44 [   0] LOADBOOL  R2 := True
+      45 [   0] CALL      R1(...) nargs=1 nret=0
+      46 [   0] GETGLOBAL R1 := _G["fglib"]
+      47 [   0] GETTABLE  R1 := R1["display"]
+      48 [   0] GETTABLE  R1 := R1["autohd"]
+      49 [   0] GETTABLE  R1 := R1["useTextAutoHD"]
+      50 [   0] LOADBOOL  R2 := True
+      51 [   0] CALL      R1(...) nargs=1 nret=0
+      52 [   0] GETGLOBAL R1 := _G["require"]
+      53 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+      54 [   0] LOADK     R3 := "layouts.layoutmanager"
+      55 [   0] CONCAT    R2 := R2 .. ... .. R3
+      56 [   0] CALL      R1(...) nargs=1 nret=1
+      57 [   0] SETGLOBAL _G["layoutManager"] := R1
+      58 [   0] GETGLOBAL R1 := _G["require"]
+      59 [   0] LOADK     R2 := "fgimage"
+      60 [   0] CALL      R1(...) nargs=1 nret=0
+      61 [   0] GETGLOBAL R1 := _G["require"]
+      62 [   0] LOADK     R2 := "ui.layouts.layouts"
+      63 [   0] CALL      R1(...) nargs=1 nret=0
+      64 [   0] GETGLOBAL R1 := _G["require"]
+      65 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+      66 [   0] LOADK     R3 := "common.assets"
+      67 [   0] CONCAT    R2 := R2 .. ... .. R3
+      68 [   0] CALL      R1(...) nargs=1 nret=1
+      69 [   0] SETGLOBAL _G["assets"] := R1
+      70 [   0] GETGLOBAL R1 := _G["require"]
+      71 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+      72 [   0] LOADK     R3 := "common.easingx"
+      73 [   0] CONCAT    R2 := R2 .. ... .. R3
+      74 [   0] CALL      R1(...) nargs=1 nret=1
+      75 [   0] SETGLOBAL _G["easingx"] := R1
+      76 [   0] GETGLOBAL R1 := _G["require"]
+      77 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+      78 [   0] LOADK     R3 := "common.styles"
+      79 [   0] CONCAT    R2 := R2 .. ... .. R3
+      80 [   0] CALL      R1(...) nargs=1 nret=1
+      81 [   0] SETGLOBAL _G["styles"] := R1
+      82 [   0] GETGLOBAL R1 := _G["require"]
+      83 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+      84 [   0] LOADK     R3 := "widgets.widgets"
+      85 [   0] CONCAT    R2 := R2 .. ... .. R3
+      86 [   0] CALL      R1(...) nargs=1 nret=1
+      87 [   0] SETGLOBAL _G["widgets"] := R1
+      88 [   0] GETGLOBAL R1 := _G["require"]
+      89 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+      90 [   0] LOADK     R3 := "widgets.ui"
+      91 [   0] CONCAT    R2 := R2 .. ... .. R3
+      92 [   0] CALL      R1(...) nargs=1 nret=1
+      93 [   0] SETGLOBAL _G["ui"] := R1
+      94 [   0] GETGLOBAL R1 := _G["require"]
+      95 [   0] LOADK     R2 := "game.hudmanager"
+      96 [   0] CALL      R1(...) nargs=1 nret=1
+      97 [   0] GETTABLE  R1 := R1["getInstance"]
+      98 [   0] CALL      R1(...) nargs=0 nret=1
+      99 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=0, lines 119-141, upvals=[], locals=[])
+    constants: strings=['info', 'Initializing Audio ...', 'audioEngine', 'fglib', 'audio', 'AudioEngine', 'require', 'warcards', 'init', 'audioassets_warcards', 'audioassets', 'system', 'getInfo', 'environment', 'simulator', 'loadAssets', 'default', 'util.clientsettings', 'getInstance', 'setMusicVolume', 'getMusicVolume', 'setAtmoVolume', 'setEffectVolume', 'getFxVolume'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["info"]
+       2 [   0] LOADK     R1 := "Initializing Audio ..."
+       3 [   0] CALL      R0(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R0 := _G["fglib"]
+       5 [   0] GETTABLE  R0 := R0["audio"]
+       6 [   0] GETTABLE  R0 := R0["AudioEngine"]
+       7 [   0] SETGLOBAL _G["audioEngine"] := R0
+       8 [   0] GETGLOBAL R0 := _G["require"]
+       9 [   0] LOADK     R1 := "warcards"
+      10 [   0] CALL      R0(...) nargs=1 nret=1
+      11 [   0] EQ        if (R0 == True) ~= 0 then skip next
+      12 [   0] JMP       jmp +8 -> 21
+      13 [   0] GETGLOBAL R1 := _G["audioEngine"]
+      14 [   0] GETTABLE  R1 := R1["init"]
+      15 [   0] GETGLOBAL R2 := _G["require"]
+      16 [   0] LOADK     R3 := "audioassets_warcards"
+      17 [   0] CALL      R2(...) nargs=1 nret=1
+      18 [   0] LOADBOOL  R3 := True
+      19 [   0] CALL      R1(...) nargs=2 nret=0
+      20 [   0] JMP       jmp +7 -> 28
+      21 [   0] GETGLOBAL R1 := _G["audioEngine"]
+      22 [   0] GETTABLE  R1 := R1["init"]
+      23 [   0] GETGLOBAL R2 := _G["require"]
+      24 [   0] LOADK     R3 := "audioassets"
+      25 [   0] CALL      R2(...) nargs=1 nret=1
+      26 [   0] LOADBOOL  R3 := True
+      27 [   0] CALL      R1(...) nargs=2 nret=0
+      28 [   0] GETGLOBAL R1 := _G["system"]
+      29 [   0] GETTABLE  R1 := R1["getInfo"]
+      30 [   0] LOADK     R2 := "environment"
+      31 [   0] CALL      R1(...) nargs=1 nret=1
+      32 [   0] EQ        if (R1 == "simulator") ~= 1 then skip next
+      33 [   0] JMP       jmp +4 -> 38
+      34 [   0] GETGLOBAL R1 := _G["audioEngine"]
+      35 [   0] GETTABLE  R1 := R1["loadAssets"]
+      36 [   0] LOADK     R2 := "default"
+      37 [   0] CALL      R1(...) nargs=1 nret=0
+      38 [   0] GETGLOBAL R1 := _G["require"]
+      39 [   0] LOADK     R2 := "util.clientsettings"
+      40 [   0] CALL      R1(...) nargs=1 nret=1
+      41 [   0] GETTABLE  R1 := R1["getInstance"]
+      42 [   0] CALL      R1(...) nargs=0 nret=1
+      43 [   0] GETGLOBAL R2 := _G["audioEngine"]
+      44 [   0] GETTABLE  R2 := R2["setMusicVolume"]
+      45 [   0] GETTABLE  R3 := R1["getMusicVolume"]
+      46 [   0] CALL      R3(...) nargs=0 nret=-1
+      47 [   0] CALL      R2(...) nargs=-1 nret=0
+      48 [   0] GETGLOBAL R2 := _G["audioEngine"]
+      49 [   0] GETTABLE  R2 := R2["setAtmoVolume"]
+      50 [   0] GETTABLE  R3 := R1["getMusicVolume"]
+      51 [   0] CALL      R3(...) nargs=0 nret=-1
+      52 [   0] CALL      R2(...) nargs=-1 nret=0
+      53 [   0] GETGLOBAL R2 := _G["audioEngine"]
+      54 [   0] GETTABLE  R2 := R2["setEffectVolume"]
+      55 [   0] GETTABLE  R3 := R1["getFxVolume"]
+      56 [   0] CALL      R3(...) nargs=0 nret=-1
+      57 [   0] CALL      R2(...) nargs=-1 nret=0
+      58 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=0, lines 143-154, upvals=[], locals=[])
+    constants: strings=['info', 'Configuring Loca ...', 'require', 'warcards', 'fglib', 'loca', 'LocaManager', 'setLocaPath', 'assets_warcards.loca.', 'assets.loca.', 'initLocale'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["info"]
+       2 [   0] LOADK     R1 := "Configuring Loca ..."
+       3 [   0] CALL      R0(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R0 := _G["require"]
+       5 [   0] LOADK     R1 := "warcards"
+       6 [   0] CALL      R0(...) nargs=1 nret=1
+       7 [   0] GETGLOBAL R1 := _G["fglib"]
+       8 [   0] GETTABLE  R1 := R1["loca"]
+       9 [   0] GETTABLE  R1 := R1["LocaManager"]
+      10 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      11 [   0] JMP       jmp +4 -> 16
+      12 [   0] GETTABLE  R2 := R1["setLocaPath"]
+      13 [   0] LOADK     R3 := "assets_warcards.loca."
+      14 [   0] CALL      R2(...) nargs=1 nret=0
+      15 [   0] JMP       jmp +3 -> 19
+      16 [   0] GETTABLE  R2 := R1["setLocaPath"]
+      17 [   0] LOADK     R3 := "assets.loca."
+      18 [   0] CALL      R2(...) nargs=1 nret=0
+      19 [   0] GETTABLE  R2 := R1["initLocale"]
+      20 [   0] CALL      R2(...) nargs=0 nret=0
+      21 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=0, lines 156-174, upvals=[], locals=[])
+    constants: strings=['info', 'Configuring Settings-Manager ...', 'fglib', 'settings', 'SettingsManager', 'getInstance', 'loadSettings', 'server.userid', 'string', 'server.password', 'server.username', 'server.cloudaccountid', 'server.debug.userid', 'server.debug.password', 'server.debug.username', 'server.debug.cloudaccountid', 'getValue', 'game.startGame', 'setValue', 'ratings.numstarts'] numbers=[0, 1]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["info"]
+       2 [   0] LOADK     R1 := "Configuring Settings-Manager ..."
+       3 [   0] CALL      R0(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R0 := _G["fglib"]
+       5 [   0] GETTABLE  R0 := R0["settings"]
+       6 [   0] GETTABLE  R0 := R0["SettingsManager"]
+       7 [   0] GETTABLE  R0 := R0["getInstance"]
+       8 [   0] CALL      R0(...) nargs=0 nret=1
+       9 [   0] GETTABLE  R1 := R0["loadSettings"]
+      10 [   0] NEWTABLE  R2 := {} (array 0, hash 8)
+      11 [   0] SETTABLE  R2["server.userid"] := "string"
+      12 [   0] SETTABLE  R2["server.password"] := "string"
+      13 [   0] SETTABLE  R2["server.username"] := "string"
+      14 [   0] SETTABLE  R2["server.cloudaccountid"] := "string"
+      15 [   0] SETTABLE  R2["server.debug.userid"] := "string"
+      16 [   0] SETTABLE  R2["server.debug.password"] := "string"
+      17 [   0] SETTABLE  R2["server.debug.username"] := "string"
+      18 [   0] SETTABLE  R2["server.debug.cloudaccountid"] := "string"
+      19 [   0] CALL      R1(...) nargs=1 nret=0
+      20 [   0] GETTABLE  R1 := R0["getValue"]
+      21 [   0] LOADK     R2 := "game.startGame"
+      22 [   0] LOADK     R3 := 0
+      23 [   0] CALL      R1(...) nargs=2 nret=1
+      24 [   0] ADD       R1 := R1 + 1
+      25 [   0] GETTABLE  R2 := R0["setValue"]
+      26 [   0] LOADK     R3 := "game.startGame"
+      27 [   0] MOVE      R4 := R1
+      28 [   0] CALL      R2(...) nargs=2 nret=0
+      29 [   0] GETTABLE  R2 := R0["setValue"]
+      30 [   0] LOADK     R3 := "ratings.numstarts"
+      31 [   0] MOVE      R4 := R1
+      32 [   0] CALL      R2(...) nargs=2 nret=0
+      33 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=0, lines 176-190, upvals=[], locals=[])
+    constants: strings=['info', 'Configuring Memory Handling ...', 'Runtime', 'addEventListener', 'memoryWarning'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["info"]
+       2 [   0] LOADK     R1 := "Configuring Memory Handling ..."
+       3 [   0] CALL      R0(...) nargs=1 nret=0
+       4 [   0] CLOSURE   R0 := closure #0
+       5 [   0] GETUPVAL  R0 := upval 0
+       6 [   0] CLOSURE   R1 := closure #1
+       7 [   0] GETUPVAL  R0 := upval 0
+       8 [   0] MOVE      R0 := R0
+       9 [   0] GETGLOBAL R2 := _G["Runtime"]
+      10 [   0] SELF      R3 := R2; R2 := R2["addEventListener"]
+      11 [   0] LOADK     R4 := "memoryWarning"
+      12 [   0] MOVE      R5 := R1
+      13 [   0] CALL      R2(...) nargs=3 nret=0
+      14 [   0] RETURN    return R0.. (0 values)
+    function main.#8.#0 (params=0, lines 178-182, upvals=[], locals=[])
+      constants: strings=['debug', 'before cleanup, texMem=', 'system', 'getInfo', 'textureMemoryUsed', 'collectgarbage', 'after cleanup, texMem='] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["debug"]
+         2 [   0] LOADK     R1 := "before cleanup, texMem="
+         3 [   0] GETGLOBAL R2 := _G["system"]
+         4 [   0] GETTABLE  R2 := R2["getInfo"]
+         5 [   0] LOADK     R3 := "textureMemoryUsed"
+         6 [   0] CALL      R2(...) nargs=1 nret=-1
+         7 [   0] CALL      R0(...) nargs=-1 nret=0
+         8 [   0] GETGLOBAL R0 := _G["collectgarbage"]
+         9 [   0] CALL      R0(...) nargs=0 nret=0
+        10 [   0] GETUPVAL  R0 := upval 0
+        11 [   0] GETTABLE  R0 := R0["debug"]
+        12 [   0] LOADK     R1 := "after cleanup, texMem="
+        13 [   0] GETGLOBAL R2 := _G["system"]
+        14 [   0] GETTABLE  R2 := R2["getInfo"]
+        15 [   0] LOADK     R3 := "textureMemoryUsed"
+        16 [   0] CALL      R2(...) nargs=1 nret=-1
+        17 [   0] CALL      R0(...) nargs=-1 nret=0
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#8.#1 (params=1, lines 184-187, upvals=[], locals=[])
+      constants: strings=['warn', 'Received moemory warning'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["warn"]
+         2 [   0] LOADK     R2 := "Received moemory warning"
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] CALL      R1(...) nargs=0 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+  function main.#9 (params=0, lines 192-207, upvals=[], locals=[])
+    constants: strings=['info', 'Reseting scheduled Notifictaions ...', 'native', 'setProperty', 'applicationIconBadgeNumber', 'fglib', 'utils', 'Util', 'isWindows', 'NOTIFICATION_ENABLED', 'isIPhone', 'require', 'plugin.notifications', 'cancelNotification', 'system'] numbers=[0]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["info"]
+       2 [   0] LOADK     R1 := "Reseting scheduled Notifictaions ..."
+       3 [   0] CALL      R0(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R0 := _G["native"]
+       5 [   0] GETTABLE  R0 := R0["setProperty"]
+       6 [   0] LOADK     R1 := "applicationIconBadgeNumber"
+       7 [   0] LOADK     R2 := 0
+       8 [   0] CALL      R0(...) nargs=2 nret=0
+       9 [   0] GETGLOBAL R0 := _G["fglib"]
+      10 [   0] GETTABLE  R0 := R0["utils"]
+      11 [   0] GETTABLE  R0 := R0["Util"]
+      12 [   0] GETTABLE  R0 := R0["isWindows"]
+      13 [   0] CALL      R0(...) nargs=0 nret=1
+      14 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      15 [   0] JMP       jmp +5 -> 21
+      16 [   0] GETGLOBAL R0 := _G["native"]
+      17 [   0] GETTABLE  R0 := R0["setProperty"]
+      18 [   0] LOADK     R1 := "NOTIFICATION_ENABLED"
+      19 [   0] LOADBOOL  R2 := True
+      20 [   0] CALL      R0(...) nargs=2 nret=0
+      21 [   0] GETGLOBAL R0 := _G["fglib"]
+      22 [   0] GETTABLE  R0 := R0["utils"]
+      23 [   0] GETTABLE  R0 := R0["Util"]
+      24 [   0] GETTABLE  R0 := R0["isIPhone"]
+      25 [   0] CALL      R0(...) nargs=0 nret=1
+      26 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      27 [   0] JMP       jmp +6 -> 34
+      28 [   0] GETGLOBAL R0 := _G["require"]
+      29 [   0] LOADK     R1 := "plugin.notifications"
+      30 [   0] CALL      R0(...) nargs=1 nret=1
+      31 [   0] GETTABLE  R1 := R0["cancelNotification"]
+      32 [   0] CALL      R1(...) nargs=0 nret=0
+      33 [   0] JMP       jmp +3 -> 37
+      34 [   0] GETGLOBAL R0 := _G["system"]
+      35 [   0] GETTABLE  R0 := R0["cancelNotification"]
+      36 [   0] CALL      R0(...) nargs=0 nret=0
+      37 [   0] RETURN    return R0.. (0 values)
+  function main.#10 (params=0, lines 209-236, upvals=[], locals=[])
+    constants: strings=['require', 'ui.components.comp_no_connection', 'getInstance', 'game.hudmanager', 'addToTopGroup', 'util.connectionping', 'server_url', 'ping/', 'new', 'pingHost', 'log', 'msg', 'subscribe to connectivity checker'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["require"]
+       1 [   0] LOADK     R1 := "ui.components.comp_no_connection"
+       2 [   0] CALL      R0(...) nargs=1 nret=1
+       3 [   0] GETTABLE  R0 := R0["getInstance"]
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] GETGLOBAL R1 := _G["require"]
+       6 [   0] LOADK     R2 := "game.hudmanager"
+       7 [   0] CALL      R1(...) nargs=1 nret=1
+       8 [   0] GETTABLE  R1 := R1["getInstance"]
+       9 [   0] CALL      R1(...) nargs=0 nret=1
+      10 [   0] GETTABLE  R2 := R1["addToTopGroup"]
+      11 [   0] MOVE      R3 := R0
+      12 [   0] CALL      R2(...) nargs=1 nret=0
+      13 [   0] GETGLOBAL R2 := _G["require"]
+      14 [   0] LOADK     R3 := "util.connectionping"
+      15 [   0] CALL      R2(...) nargs=1 nret=1
+      16 [   0] GETUPVAL  R3 := upval 0
+      17 [   0] GETTABLE  R3 := R3["server_url"]
+      18 [   0] LOADK     R4 := "ping/"
+      19 [   0] CONCAT    R3 := R3 .. ... .. R4
+      20 [   0] CLOSURE   R4 := closure #0
+      21 [   0] MOVE      R0 := R0
+      22 [   0] GETTABLE  R5 := R2["new"]
+      23 [   0] MOVE      R6 := R4
+      24 [   0] CALL      R5(...) nargs=1 nret=1
+      25 [   0] GETTABLE  R6 := R5["pingHost"]
+      26 [   0] MOVE      R7 := R3
+      27 [   0] CALL      R6(...) nargs=1 nret=0
+      28 [   0] GETGLOBAL R6 := _G["log"]
+      29 [   0] GETTABLE  R6 := R6["msg"]
+      30 [   0] LOADK     R7 := "subscribe to connectivity checker"
+      31 [   0] CALL      R6(...) nargs=1 nret=0
+      32 [   0] RETURN    return R0.. (0 values)
+    function main.#10.#0 (params=1, lines 218-231, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'Connectivity Handler::', 'hide', 'show', 'toFront', 'require', 'server.http', 'setErrorAtAppStart'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["log"]
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "Connectivity Handler::"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] EQ        if (R0 == True) ~= 0 then skip next
+         6 [   0] JMP       jmp +4 -> 11
+         7 [   0] GETUPVAL  R1 := upval 0
+         8 [   0] GETTABLE  R1 := R1["hide"]
+         9 [   0] CALL      R1(...) nargs=0 nret=0
+        10 [   0] JMP       jmp +11 -> 22
+        11 [   0] GETUPVAL  R1 := upval 0
+        12 [   0] GETTABLE  R1 := R1["show"]
+        13 [   0] CALL      R1(...) nargs=0 nret=0
+        14 [   0] GETUPVAL  R1 := upval 0
+        15 [   0] SELF      R2 := R1; R1 := R1["toFront"]
+        16 [   0] CALL      R1(...) nargs=1 nret=0
+        17 [   0] GETGLOBAL R1 := _G["require"]
+        18 [   0] LOADK     R2 := "server.http"
+        19 [   0] CALL      R1(...) nargs=1 nret=1
+        20 [   0] GETTABLE  R2 := R1["setErrorAtAppStart"]
+        21 [   0] CALL      R2(...) nargs=0 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+  function main.#11 (params=0, lines 238-243, upvals=[], locals=[])
+    constants: strings=['fglib', 'utils', 'Util', 'isIPhone', 'require', 'plugin.notifications', 'registerForPushNotifications'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["fglib"]
+       1 [   0] GETTABLE  R0 := R0["utils"]
+       2 [   0] GETTABLE  R0 := R0["Util"]
+       3 [   0] GETTABLE  R0 := R0["isIPhone"]
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       6 [   0] JMP       jmp +5 -> 12
+       7 [   0] GETGLOBAL R0 := _G["require"]
+       8 [   0] LOADK     R1 := "plugin.notifications"
+       9 [   0] CALL      R0(...) nargs=1 nret=1
+      10 [   0] GETTABLE  R1 := R0["registerForPushNotifications"]
+      11 [   0] CALL      R1(...) nargs=0 nret=0
+      12 [   0] RETURN    return R0.. (0 values)
+  function main.#12 (params=0, lines 245-263, upvals=[], locals=[])
+    constants: strings=['display', 'newImage', 'Default-Portrait@2x.png', 'x', 'contentWidth', 'y', 'contentHeight', 'screenOriginX', 'screenOriginY', 'math', 'max', 'xScale', 'yScale'] numbers=[2, -2]
+       0 [   0] GETGLOBAL R0 := _G["display"]
+       1 [   0] GETTABLE  R0 := R0["newImage"]
+       2 [   0] LOADK     R1 := "Default-Portrait@2x.png"
+       3 [   0] CALL      R0(...) nargs=1 nret=1
+       4 [   0] GETGLOBAL R1 := _G["display"]
+       5 [   0] GETTABLE  R1 := R1["contentWidth"]
+       6 [   0] DIV       R1 := R1 / 2
+       7 [   0] SETTABLE  R0["x"] := R1
+       8 [   0] GETGLOBAL R1 := _G["display"]
+       9 [   0] GETTABLE  R1 := R1["contentHeight"]
+      10 [   0] DIV       R1 := R1 / 2
+      11 [   0] SETTABLE  R0["y"] := R1
+      12 [   0] GETGLOBAL R1 := _G["display"]
+      13 [   0] GETTABLE  R1 := R1["contentWidth"]
+      14 [   0] GETGLOBAL R2 := _G["display"]
+      15 [   0] GETTABLE  R2 := R2["screenOriginX"]
+      16 [   0] MUL       R2 := -2 * R2
+      17 [   0] ADD       R1 := R1 + R2
+      18 [   0] GETGLOBAL R2 := _G["display"]
+      19 [   0] GETTABLE  R2 := R2["contentHeight"]
+      20 [   0] GETGLOBAL R3 := _G["display"]
+      21 [   0] GETTABLE  R3 := R3["screenOriginY"]
+      22 [   0] MUL       R3 := -2 * R3
+      23 [   0] ADD       R2 := R2 + R3
+      24 [   0] GETTABLE  R3 := R0["contentWidth"]
+      25 [   0] DIV       R3 := R1 / R3
+      26 [   0] GETTABLE  R4 := R0["contentHeight"]
+      27 [   0] DIV       R4 := R2 / R4
+      28 [   0] GETGLOBAL R5 := _G["math"]
+      29 [   0] GETTABLE  R5 := R5["max"]
+      30 [   0] MOVE      R6 := R3
+      31 [   0] MOVE      R7 := R4
+      32 [   0] CALL      R5(...) nargs=2 nret=1
+      33 [   0] SETTABLE  R0["xScale"] := R5
+      34 [   0] SETTABLE  R0["yScale"] := R5
+      35 [   0] RETURN    return R0.. (1 values)
+      36 [   0] RETURN    return R0.. (0 values)
+  function main.#13 (params=0, lines 266-308, upvals=[], locals=[])
+    constants: strings=['getName', 'enter', 'leave'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] LOADNIL   R1..R1 := nil
+       2 [   0] LOADBOOL  R2 := False
+       3 [   0] CLOSURE   R3 := closure #0
+       4 [   0] SETTABLE  R0["getName"] := R3
+       5 [   0] CLOSURE   R3 := closure #1
+       6 [   0] MOVE      R0 := R1
+       7 [   0] GETUPVAL  R0 := upval 0
+       8 [   0] GETUPVAL  R0 := upval 1
+       9 [   0] GETUPVAL  R0 := upval 2
+      10 [   0] GETUPVAL  R0 := upval 3
+      11 [   0] GETUPVAL  R0 := upval 4
+      12 [   0] GETUPVAL  R0 := upval 5
+      13 [   0] GETUPVAL  R0 := upval 6
+      14 [   0] GETUPVAL  R0 := upval 7
+      15 [   0] GETUPVAL  R0 := upval 8
+      16 [   0] GETUPVAL  R0 := upval 9
+      17 [   0] GETUPVAL  R0 := upval 10
+      18 [   0] MOVE      R0 := R2
+      19 [   0] GETUPVAL  R0 := upval 11
+      20 [   0] SETTABLE  R0["enter"] := R3
+      21 [   0] CLOSURE   R3 := closure #2
+      22 [   0] MOVE      R0 := R1
+      23 [   0] SETTABLE  R0["leave"] := R3
+      24 [   0] RETURN    return R0.. (1 values)
+      25 [   0] RETURN    return R0.. (0 values)
+    function main.#13.#0 (params=0, lines 271-273, upvals=[], locals=[])
+      constants: strings=['STATIC_INIT'] numbers=[]
+         0 [   0] LOADK     R0 := "STATIC_INIT"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#13.#1 (params=1, lines 275-299, upvals=[], locals=[])
+      constants: strings=['timer', 'performWithDelay'] numbers=[500]
+         0 [   0] GETUPVAL  R1 := upval 1
+         1 [   0] CALL      R1(...) nargs=0 nret=1
+         2 [   0] SETUPVAL  upval 0 := R1
+         3 [   0] GETGLOBAL R1 := _G["timer"]
+         4 [   0] GETTABLE  R1 := R1["performWithDelay"]
+         5 [   0] LOADK     R2 := 500
+         6 [   0] CLOSURE   R3 := closure #0
+         7 [   0] GETUPVAL  R0 := upval 2
+         8 [   0] GETUPVAL  R0 := upval 3
+         9 [   0] GETUPVAL  R0 := upval 4
+        10 [   0] GETUPVAL  R0 := upval 5
+        11 [   0] GETUPVAL  R0 := upval 6
+        12 [   0] GETUPVAL  R0 := upval 7
+        13 [   0] GETUPVAL  R0 := upval 8
+        14 [   0] GETUPVAL  R0 := upval 9
+        15 [   0] GETUPVAL  R0 := upval 10
+        16 [   0] GETUPVAL  R0 := upval 11
+        17 [   0] GETUPVAL  R0 := upval 12
+        18 [   0] GETUPVAL  R0 := upval 13
+        19 [   0] MOVE      R0 := R0
+        20 [   0] CALL      R1(...) nargs=2 nret=0
+        21 [   0] RETURN    return R0.. (0 values)
+      function main.#13.#1.#0 (params=0, lines 278-298, upvals=[], locals=[])
+        constants: strings=['require', 'audio', 'setSessionProperty', 'MixMode', 'AmbientMixMode', 'triggerTo', 'BOOTUP'] numbers=[]
+           0 [   0] GETGLOBAL R0 := _G["require"]
+           1 [   0] LOADK     R1 := "audio"
+           2 [   0] CALL      R0(...) nargs=1 nret=1
+           3 [   0] GETTABLE  R1 := R0["setSessionProperty"]
+           4 [   0] GETTABLE  R2 := R0["MixMode"]
+           5 [   0] GETTABLE  R3 := R0["AmbientMixMode"]
+           6 [   0] CALL      R1(...) nargs=2 nret=0
+           7 [   0] GETUPVAL  R1 := upval 0
+           8 [   0] CALL      R1(...) nargs=0 nret=0
+           9 [   0] GETUPVAL  R1 := upval 1
+          10 [   0] CALL      R1(...) nargs=0 nret=0
+          11 [   0] GETUPVAL  R1 := upval 2
+          12 [   0] CALL      R1(...) nargs=0 nret=0
+          13 [   0] GETUPVAL  R1 := upval 3
+          14 [   0] CALL      R1(...) nargs=0 nret=0
+          15 [   0] GETUPVAL  R1 := upval 4
+          16 [   0] CALL      R1(...) nargs=0 nret=0
+          17 [   0] GETUPVAL  R1 := upval 5
+          18 [   0] CALL      R1(...) nargs=0 nret=0
+          19 [   0] GETUPVAL  R1 := upval 6
+          20 [   0] CALL      R1(...) nargs=0 nret=0
+          21 [   0] GETUPVAL  R1 := upval 7
+          22 [   0] CALL      R1(...) nargs=0 nret=0
+          23 [   0] GETUPVAL  R1 := upval 8
+          24 [   0] CALL      R1(...) nargs=0 nret=0
+          25 [   0] GETUPVAL  R1 := upval 9
+          26 [   0] CALL      R1(...) nargs=0 nret=0
+          27 [   0] GETUPVAL  R1 := upval 10
+          28 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+          29 [   0] JMP       jmp +4 -> 34
+          30 [   0] GETUPVAL  R1 := upval 11
+          31 [   0] CALL      R1(...) nargs=0 nret=0
+          32 [   0] LOADBOOL  R1 := True
+          33 [   0] SETUPVAL  upval 10 := R1
+          34 [   0] GETUPVAL  R1 := upval 12
+          35 [   0] GETTABLE  R1 := R1["triggerTo"]
+          36 [   0] LOADK     R2 := "BOOTUP"
+          37 [   0] CALL      R1(...) nargs=1 nret=0
+          38 [   0] RETURN    return R0.. (0 values)
+    function main.#13.#2 (params=0, lines 301-305, upvals=[], locals=[])
+      constants: strings=['removeSelf'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] SELF      R1 := R0; R0 := R0["removeSelf"]
+         5 [   0] CALL      R0(...) nargs=1 nret=0
+         6 [   0] RETURN    return R0.. (0 values)

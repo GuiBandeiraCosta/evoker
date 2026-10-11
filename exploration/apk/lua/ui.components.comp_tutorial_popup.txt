@@ -1,0 +1,292 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'components.comp_slicedbox', 'ui.renderer.textfieldlabelrenderernoshadow', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "components.comp_slicedbox"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "ui.renderer.textfieldlabelrenderernoshadow"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] GETGLOBAL R2 := _G["require"]
+     9 [   0] LOADK     R3 := "util.util"
+    10 [   0] CALL      R2(...) nargs=1 nret=1
+    11 [   0] CLOSURE   R3 := closure #0
+    12 [   0] MOVE      R0 := R1
+    13 [   0] MOVE      R0 := R2
+    14 [   0] MOVE      R0 := R0
+    15 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+    16 [   0] SETTABLE  R4["create"] := R3
+    17 [   0] RETURN    return R4.. (1 values)
+    18 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 13-156, upvals=[], locals=[])
+    constants: strings=['alpha', 'character', 'tutorialPopup.character_good', 'assets/gfx/hud/popupframe/popup_fill.png', 'characterType', 'good', 'bad', 'tutorialPopup.character_bad', 'ui', 'createContainer', 'layout', 'default.center', 'parent', 'renderer', 'require', 'UI_LIB_PATH', 'renderer.rectrenderer', 'color', 'r', 'g', 'b', 'a', 'createLabel', 'width', 'height', 'x', 'y', 'alignment', 'center', 'style', 'tutorialBold', 'txt', '', 'isVisible', 'util.typeanimatedtext', 'getLines', 'text', 'safeRemoveObject', 'fglib', 'utils', 'Util', 'deepcopy', 'background', 'border', 'horiTop', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe02.png', 'horiBottom', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe07.png', 'vertiLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe04.png', 'vertiRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe05.png', 'corner', 'topLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe01.png', 'topRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe03.png', 'bottomLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe06.png', 'bottomRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe08.png', 'create', 'img', 'contentHeight', 'addEventListener', 'touch', 'animateText', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[146, 0, 27, 30, 10, 0.5, -1, 5, 1, 2]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] LOADK     R2 := 146
+       2 [   0] GETTABLE  R3 := R0["alpha"]
+       3 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] GETTABLE  R2 := R0["alpha"]
+       6 [   0] GETTABLE  R3 := R0["character"]
+       7 [   0] LOADK     R4 := "tutorialPopup.character_good"
+       8 [   0] LOADK     R5 := "assets/gfx/hud/popupframe/popup_fill.png"
+       9 [   0] GETTABLE  R6 := R0["characterType"]
+      10 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      11 [   0] JMP       jmp +11 -> 23
+      12 [   0] GETTABLE  R6 := R0["characterType"]
+      13 [   0] EQ        if (R6 == "good") ~= 0 then skip next
+      14 [   0] JMP       jmp +3 -> 18
+      15 [   0] LOADK     R5 := "assets/gfx/hud/popupframe/popup_fill.png"
+      16 [   0] LOADK     R4 := "tutorialPopup.character_good"
+      17 [   0] JMP       jmp +5 -> 23
+      18 [   0] GETTABLE  R6 := R0["characterType"]
+      19 [   0] EQ        if (R6 == "bad") ~= 0 then skip next
+      20 [   0] JMP       jmp +2 -> 23
+      21 [   0] LOADK     R5 := "assets/gfx/hud/popupframe/popup_fill.png"
+      22 [   0] LOADK     R4 := "tutorialPopup.character_bad"
+      23 [   0] GETGLOBAL R6 := _G["ui"]
+      24 [   0] GETTABLE  R6 := R6["createContainer"]
+      25 [   0] NEWTABLE  R7 := {} (array 0, hash 4)
+      26 [   0] SETTABLE  R7["layout"] := "default.center"
+      27 [   0] GETTABLE  R8 := R0["parent"]
+      28 [   0] SETTABLE  R7["parent"] := R8
+      29 [   0] GETGLOBAL R8 := _G["require"]
+      30 [   0] GETGLOBAL R9 := _G["UI_LIB_PATH"]
+      31 [   0] LOADK     R10 := "renderer.rectrenderer"
+      32 [   0] CONCAT    R9 := R9 .. ... .. R10
+      33 [   0] CALL      R8(...) nargs=1 nret=1
+      34 [   0] SETTABLE  R7["renderer"] := R8
+      35 [   0] NEWTABLE  R8 := {} (array 0, hash 4)
+      36 [   0] SETTABLE  R8["r"] := 0
+      37 [   0] SETTABLE  R8["g"] := 0
+      38 [   0] SETTABLE  R8["b"] := 0
+      39 [   0] SETTABLE  R8["a"] := R2
+      40 [   0] SETTABLE  R7["color"] := R8
+      41 [   0] CALL      R6(...) nargs=1 nret=1
+      42 [   0] MOVE      R1 := R6
+      43 [   0] GETGLOBAL R6 := _G["ui"]
+      44 [   0] GETTABLE  R6 := R6["createLabel"]
+      45 [   0] NEWTABLE  R7 := {} (array 0, hash 5)
+      46 [   0] SETTABLE  R7["parent"] := R1
+      47 [   0] GETUPVAL  R8 := upval 0
+      48 [   0] SETTABLE  R7["renderer"] := R8
+      49 [   0] NEWTABLE  R8 := {} (array 0, hash 5)
+      50 [   0] GETTABLE  R9 := R0["layout"]
+      51 [   0] GETTABLE  R9 := R9["width"]
+      52 [   0] SETTABLE  R8["width"] := R9
+      53 [   0] GETTABLE  R9 := R0["layout"]
+      54 [   0] GETTABLE  R9 := R9["height"]
+      55 [   0] SETTABLE  R8["height"] := R9
+      56 [   0] SETTABLE  R8["x"] := 0
+      57 [   0] SETTABLE  R8["y"] := 0
+      58 [   0] SETTABLE  R8["alignment"] := "center"
+      59 [   0] SETTABLE  R7["layout"] := R8
+      60 [   0] SETTABLE  R7["style"] := "tutorialBold"
+      61 [   0] SETTABLE  R7["txt"] := ""
+      62 [   0] CALL      R6(...) nargs=1 nret=1
+      63 [   0] SETTABLE  R6["isVisible"] := False
+      64 [   0] GETGLOBAL R7 := _G["require"]
+      65 [   0] LOADK     R8 := "util.typeanimatedtext"
+      66 [   0] CALL      R7(...) nargs=1 nret=1
+      67 [   0] GETTABLE  R8 := R7["getLines"]
+      68 [   0] MOVE      R9 := R6
+      69 [   0] GETTABLE  R10 := R0["text"]
+      70 [   0] CALL      R8(...) nargs=2 nret=1
+      71 [   0] GETUPVAL  R9 := upval 1
+      72 [   0] GETTABLE  R9 := R9["safeRemoveObject"]
+      73 [   0] MOVE      R10 := R6
+      74 [   0] CALL      R9(...) nargs=1 nret=0
+      75 [   0] GETTABLE  R9 := R0["layout"]
+      76 [   0] MUL       R10 := R8 * 27
+      77 [   0] SETTABLE  R9["height"] := R10
+      78 [   0] NEWTABLE  R9 := {} (array 0, hash 0)
+      79 [   0] GETGLOBAL R10 := _G["fglib"]
+      80 [   0] GETTABLE  R10 := R10["utils"]
+      81 [   0] GETTABLE  R10 := R10["Util"]
+      82 [   0] GETTABLE  R10 := R10["deepcopy"]
+      83 [   0] GETTABLE  R11 := R0["layout"]
+      84 [   0] LOADBOOL  R12 := True
+      85 [   0] MOVE      R13 := R9
+      86 [   0] CALL      R10(...) nargs=3 nret=0
+      87 [   0] GETTABLE  R10 := R9["width"]
+      88 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+      89 [   0] JMP       jmp +3 -> 93
+      90 [   0] GETTABLE  R10 := R9["width"]
+      91 [   0] ADD       R10 := R10 + 30
+      92 [   0] SETTABLE  R9["width"] := R10
+      93 [   0] GETTABLE  R10 := R9["height"]
+      94 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+      95 [   0] JMP       jmp +3 -> 99
+      96 [   0] GETTABLE  R10 := R9["height"]
+      97 [   0] ADD       R10 := R10 + 10
+      98 [   0] SETTABLE  R9["height"] := R10
+      99 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+     100 [   0] SETTABLE  R10["parent"] := R1
+     101 [   0] SETTABLE  R10["layout"] := R9
+     102 [   0] SETTABLE  R10["background"] := R5
+     103 [   0] NEWTABLE  R11 := {} (array 0, hash 4)
+     104 [   0] SETTABLE  R11["horiTop"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe02.png"
+     105 [   0] SETTABLE  R11["horiBottom"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe07.png"
+     106 [   0] SETTABLE  R11["vertiLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe04.png"
+     107 [   0] SETTABLE  R11["vertiRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe05.png"
+     108 [   0] SETTABLE  R10["border"] := R11
+     109 [   0] NEWTABLE  R11 := {} (array 0, hash 4)
+     110 [   0] SETTABLE  R11["topLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe01.png"
+     111 [   0] SETTABLE  R11["topRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe03.png"
+     112 [   0] SETTABLE  R11["bottomLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe06.png"
+     113 [   0] SETTABLE  R11["bottomRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe08.png"
+     114 [   0] SETTABLE  R10["corner"] := R11
+     115 [   0] GETUPVAL  R11 := upval 2
+     116 [   0] GETTABLE  R11 := R11["create"]
+     117 [   0] MOVE      R12 := R10
+     118 [   0] CALL      R11(...) nargs=1 nret=1
+     119 [   0] GETGLOBAL R12 := _G["ui"]
+     120 [   0] GETTABLE  R12 := R12["createContainer"]
+     121 [   0] NEWTABLE  R13 := {} (array 0, hash 3)
+     122 [   0] SETTABLE  R13["layout"] := R4
+     123 [   0] SETTABLE  R13["parent"] := R11
+     124 [   0] SETTABLE  R13["img"] := R3
+     125 [   0] CALL      R12(...) nargs=1 nret=1
+     126 [   0] GETTABLE  R13 := R12["contentHeight"]
+     127 [   0] MUL       R13 := R13 * 0.5
+     128 [   0] MUL       R13 := R13 * -1
+     129 [   0] SUB       R13 := R13 - 5
+     130 [   0] SETTABLE  R12["y"] := R13
+     131 [   0] GETGLOBAL R13 := _G["ui"]
+     132 [   0] GETTABLE  R13 := R13["createLabel"]
+     133 [   0] NEWTABLE  R14 := {} (array 0, hash 5)
+     134 [   0] SETTABLE  R14["parent"] := R11
+     135 [   0] GETUPVAL  R15 := upval 0
+     136 [   0] SETTABLE  R14["renderer"] := R15
+     137 [   0] NEWTABLE  R15 := {} (array 0, hash 5)
+     138 [   0] GETTABLE  R16 := R0["layout"]
+     139 [   0] GETTABLE  R16 := R16["width"]
+     140 [   0] SETTABLE  R15["width"] := R16
+     141 [   0] GETTABLE  R16 := R0["layout"]
+     142 [   0] GETTABLE  R16 := R16["height"]
+     143 [   0] SETTABLE  R15["height"] := R16
+     144 [   0] SETTABLE  R15["x"] := 0
+     145 [   0] SUB       R16 := R8 - 1
+     146 [   0] MUL       R16 := R16 * 2
+     147 [   0] ADD       R16 := R16 + 5
+     148 [   0] SETTABLE  R15["y"] := R16
+     149 [   0] SETTABLE  R15["alignment"] := "center"
+     150 [   0] SETTABLE  R14["layout"] := R15
+     151 [   0] SETTABLE  R14["style"] := "tutorialBold"
+     152 [   0] SETTABLE  R14["txt"] := ""
+     153 [   0] CALL      R13(...) nargs=1 nret=1
+     154 [   0] LOADBOOL  R14 := False
+     155 [   0] LOADNIL   R15..R16 := nil
+     156 [   0] CLOSURE   R16 := closure #0
+     157 [   0] MOVE      R0 := R14
+     158 [   0] MOVE      R0 := R15
+     159 [   0] MOVE      R0 := R1
+     160 [   0] MOVE      R0 := R16
+     161 [   0] SELF      R18 := R1; R17 := R1["addEventListener"]
+     162 [   0] LOADK     R19 := "touch"
+     163 [   0] MOVE      R20 := R16
+     164 [   0] CALL      R17(...) nargs=3 nret=0
+     165 [   0] GETGLOBAL R17 := _G["require"]
+     166 [   0] LOADK     R18 := "util.typeanimatedtext"
+     167 [   0] CALL      R17(...) nargs=1 nret=1
+     168 [   0] GETTABLE  R17 := R17["animateText"]
+     169 [   0] MOVE      R18 := R13
+     170 [   0] GETTABLE  R19 := R0["text"]
+     171 [   0] CLOSURE   R20 := closure #1
+     172 [   0] MOVE      R0 := R14
+     173 [   0] MOVE      R0 := R1
+     174 [   0] MOVE      R0 := R16
+     175 [   0] CALL      R17(...) nargs=3 nret=1
+     176 [   0] MOVE      R15 := R17
+     177 [   0] CLOSURE   R17 := closure #2
+     178 [   0] MOVE      R0 := R15
+     179 [   0] MOVE      R0 := R1
+     180 [   0] MOVE      R0 := R16
+     181 [   0] MOVE      R18 := R17
+     182 [   0] CALL      R18(...) nargs=0 nret=0
+     183 [   0] CLOSURE   R18 := closure #3
+     184 [   0] SETTABLE  R1["enter"] := R18
+     185 [   0] CLOSURE   R18 := closure #4
+     186 [   0] MOVE      R0 := R1
+     187 [   0] MOVE      R0 := R16
+     188 [   0] SETTABLE  R1["exit"] := R18
+     189 [   0] CLOSURE   R18 := closure #5
+     190 [   0] MOVE      R0 := R1
+     191 [   0] SETTABLE  R1["destroy"] := R18
+     192 [   0] GETUPVAL  R18 := upval 1
+     193 [   0] GETTABLE  R18 := R18["inherit"]
+     194 [   0] MOVE      R19 := R1
+     195 [   0] LOADK     R20 := "_flaregames_remove"
+     196 [   0] CLOSURE   R21 := closure #6
+     197 [   0] MOVE      R0 := R1
+     198 [   0] CALL      R18(...) nargs=3 nret=0
+     199 [   0] RETURN    return R1.. (1 values)
+     200 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 115-124, upvals=[], locals=[])
+      constants: strings=['phase', 'ended', 'type', 'function', 'removeEventListener', 'touch'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["phase"]
+         1 [   0] EQ        if (R1 == "ended") ~= 0 then skip next
+         2 [   0] JMP       jmp +17 -> 20
+         3 [   0] LOADBOOL  R1 := True
+         4 [   0] SETUPVAL  upval 0 := R1
+         5 [   0] GETUPVAL  R1 := upval 1
+         6 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         7 [   0] JMP       jmp +7 -> 15
+         8 [   0] GETGLOBAL R1 := _G["type"]
+         9 [   0] GETUPVAL  R2 := upval 1
+        10 [   0] CALL      R1(...) nargs=1 nret=1
+        11 [   0] EQ        if (R1 == "function") ~= 0 then skip next
+        12 [   0] JMP       jmp +2 -> 15
+        13 [   0] GETUPVAL  R1 := upval 1
+        14 [   0] CALL      R1(...) nargs=0 nret=0
+        15 [   0] GETUPVAL  R1 := upval 2
+        16 [   0] SELF      R2 := R1; R1 := R1["removeEventListener"]
+        17 [   0] LOADK     R3 := "touch"
+        18 [   0] GETUPVAL  R4 := upval 3
+        19 [   0] CALL      R1(...) nargs=3 nret=0
+        20 [   0] LOADBOOL  R1 := True
+        21 [   0] RETURN    return R1.. (1 values)
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 127-130, upvals=[], locals=[])
+      constants: strings=['removeEventListener', 'touch'] numbers=[]
+         0 [   0] LOADBOOL  R0 := True
+         1 [   0] SETUPVAL  upval 0 := R0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+         4 [   0] LOADK     R2 := "touch"
+         5 [   0] GETUPVAL  R3 := upval 2
+         6 [   0] CALL      R0(...) nargs=3 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 133-136, upvals=[], locals=[])
+      constants: strings=['removeEventListener', 'touch'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+         4 [   0] LOADK     R2 := "touch"
+         5 [   0] GETUPVAL  R3 := upval 2
+         6 [   0] CALL      R0(...) nargs=3 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 140-141, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 143-145, upvals=[], locals=[])
+      constants: strings=['removeEventListener', 'touch'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+         2 [   0] LOADK     R2 := "touch"
+         3 [   0] GETUPVAL  R3 := upval 1
+         4 [   0] CALL      R0(...) nargs=3 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 147-149, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 151-153, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

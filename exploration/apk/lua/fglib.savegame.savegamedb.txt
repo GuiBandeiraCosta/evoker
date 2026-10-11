@@ -1,0 +1,889 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'eventdispatcher', 'logging.logger', 'utils.util', 'fglib', 'crypto', 'json', 'sqlite3', 'new'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "eventdispatcher"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "logging.logger"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "utils.util"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R3 := _G["require"]
+    16 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    17 [   0] LOADK     R5 := "fglib"
+    18 [   0] CONCAT    R4 := R4 .. ... .. R5
+    19 [   0] CALL      R3(...) nargs=1 nret=1
+    20 [   0] GETGLOBAL R4 := _G["require"]
+    21 [   0] LOADK     R5 := "crypto"
+    22 [   0] CALL      R4(...) nargs=1 nret=1
+    23 [   0] GETGLOBAL R5 := _G["require"]
+    24 [   0] LOADK     R6 := "json"
+    25 [   0] CALL      R5(...) nargs=1 nret=1
+    26 [   0] GETGLOBAL R6 := _G["require"]
+    27 [   0] LOADK     R7 := "sqlite3"
+    28 [   0] CALL      R6(...) nargs=1 nret=0
+    29 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+    30 [   0] CLOSURE   R7 := closure #0
+    31 [   0] MOVE      R0 := R5
+    32 [   0] MOVE      R0 := R3
+    33 [   0] MOVE      R0 := R1
+    34 [   0] MOVE      R0 := R2
+    35 [   0] MOVE      R0 := R4
+    36 [   0] CLOSURE   R8 := closure #1
+    37 [   0] MOVE      R0 := R7
+    38 [   0] MOVE      R0 := R0
+    39 [   0] SETTABLE  R6["new"] := R8
+    40 [   0] RETURN    return R6.. (1 values)
+    41 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=3, lines 21-372, upvals=[], locals=[])
+    constants: strings=['va', 'ti', 'hashID', 'timeID', '', 'system', 'pathForFile', 'savegame.db', 'DocumentsDirectory', 'CREATE TABLE IF NOT EXISTS savegame (savegamekey VARCHAR(255) PRIMARY KEY, value);', 'load', 'validate', 'generateHash', 'logSaveGameManipulation', 'setValue', 'getValue', 'getKeys', 'deleteValue', 'clear', 'hasSaveGame', 'writeValueToDB', 'saveQueuedData', 'getValueTypeChecked', 'getHashForSavetable'] numbers=[]
+       0 [   0] LOADK     R3 := "va"
+       1 [   0] LOADK     R4 := "ti"
+       2 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+       3 [   0] SETTABLE  R5["hashID"] := R3
+       4 [   0] SETTABLE  R5["timeID"] := R4
+       5 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+       6 [   0] NEWTABLE  R7 := {} (array 0, hash 0)
+       7 [   0] TESTSET   if (R2 truthy) == 1 then R8 := R2 else skip next
+       8 [   0] JMP       jmp +1 -> 10
+       9 [   0] LOADK     R8 := ""
+      10 [   0] GETGLOBAL R9 := _G["system"]
+      11 [   0] GETTABLE  R9 := R9["pathForFile"]
+      12 [   0] TESTSET   if (R1 truthy) == 1 then R10 := R1 else skip next
+      13 [   0] JMP       jmp +1 -> 15
+      14 [   0] LOADK     R10 := "savegame.db"
+      15 [   0] GETGLOBAL R11 := _G["system"]
+      16 [   0] GETTABLE  R11 := R11["DocumentsDirectory"]
+      17 [   0] CALL      R9(...) nargs=2 nret=1
+      18 [   0] LOADK     R10 := "CREATE TABLE IF NOT EXISTS savegame (savegamekey VARCHAR(255) PRIMARY "
+      19 [   0] CLOSURE   R11 := closure #0
+      20 [   0] MOVE      R0 := R0
+      21 [   0] CLOSURE   R12 := closure #1
+      22 [   0] MOVE      R0 := R0
+      23 [   0] CLOSURE   R13 := closure #2
+      24 [   0] MOVE      R0 := R0
+      25 [   0] MOVE      R0 := R12
+      26 [   0] CLOSURE   R14 := closure #3
+      27 [   0] MOVE      R0 := R0
+      28 [   0] MOVE      R0 := R9
+      29 [   0] MOVE      R0 := R11
+      30 [   0] MOVE      R0 := R10
+      31 [   0] MOVE      R0 := R6
+      32 [   0] GETUPVAL  R0 := upval 0
+      33 [   0] SETTABLE  R0["load"] := R14
+      34 [   0] CLOSURE   R14 := closure #4
+      35 [   0] MOVE      R0 := R6
+      36 [   0] MOVE      R0 := R3
+      37 [   0] MOVE      R0 := R0
+      38 [   0] MOVE      R0 := R8
+      39 [   0] MOVE      R0 := R4
+      40 [   0] MOVE      R0 := R9
+      41 [   0] MOVE      R0 := R11
+      42 [   0] SETTABLE  R0["validate"] := R14
+      43 [   0] CLOSURE   R14 := closure #5
+      44 [   0] MOVE      R0 := R0
+      45 [   0] MOVE      R0 := R6
+      46 [   0] MOVE      R0 := R8
+      47 [   0] MOVE      R0 := R3
+      48 [   0] SETTABLE  R0["generateHash"] := R14
+      49 [   0] CLOSURE   R14 := closure #6
+      50 [   0] GETUPVAL  R0 := upval 1
+      51 [   0] SETTABLE  R0["logSaveGameManipulation"] := R14
+      52 [   0] CLOSURE   R14 := closure #7
+      53 [   0] GETUPVAL  R0 := upval 2
+      54 [   0] MOVE      R0 := R5
+      55 [   0] MOVE      R0 := R0
+      56 [   0] MOVE      R0 := R6
+      57 [   0] MOVE      R0 := R7
+      58 [   0] SETTABLE  R0["setValue"] := R14
+      59 [   0] CLOSURE   R14 := closure #8
+      60 [   0] MOVE      R0 := R6
+      61 [   0] SETTABLE  R0["getValue"] := R14
+      62 [   0] CLOSURE   R14 := closure #9
+      63 [   0] MOVE      R0 := R6
+      64 [   0] MOVE      R0 := R5
+      65 [   0] SETTABLE  R0["getKeys"] := R14
+      66 [   0] CLOSURE   R14 := closure #10
+      67 [   0] MOVE      R0 := R6
+      68 [   0] MOVE      R0 := R7
+      69 [   0] MOVE      R0 := R0
+      70 [   0] MOVE      R0 := R9
+      71 [   0] MOVE      R0 := R13
+      72 [   0] MOVE      R0 := R3
+      73 [   0] SETTABLE  R0["deleteValue"] := R14
+      74 [   0] CLOSURE   R14 := closure #11
+      75 [   0] MOVE      R0 := R0
+      76 [   0] MOVE      R0 := R9
+      77 [   0] MOVE      R0 := R6
+      78 [   0] MOVE      R0 := R7
+      79 [   0] MOVE      R0 := R11
+      80 [   0] SETTABLE  R0["clear"] := R14
+      81 [   0] CLOSURE   R14 := closure #12
+      82 [   0] MOVE      R0 := R6
+      83 [   0] GETUPVAL  R0 := upval 3
+      84 [   0] MOVE      R0 := R4
+      85 [   0] MOVE      R0 := R3
+      86 [   0] SETTABLE  R0["hasSaveGame"] := R14
+      87 [   0] CLOSURE   R14 := closure #13
+      88 [   0] MOVE      R0 := R0
+      89 [   0] MOVE      R0 := R9
+      90 [   0] MOVE      R0 := R13
+      91 [   0] MOVE      R0 := R3
+      92 [   0] MOVE      R0 := R6
+      93 [   0] SETTABLE  R0["writeValueToDB"] := R14
+      94 [   0] CLOSURE   R14 := closure #14
+      95 [   0] MOVE      R0 := R7
+      96 [   0] MOVE      R0 := R0
+      97 [   0] MOVE      R0 := R9
+      98 [   0] MOVE      R0 := R6
+      99 [   0] MOVE      R0 := R3
+     100 [   0] MOVE      R0 := R13
+     101 [   0] SETTABLE  R0["saveQueuedData"] := R14
+     102 [   0] CLOSURE   R14 := closure #15
+     103 [   0] GETUPVAL  R0 := upval 0
+     104 [   0] SETTABLE  R0["getValueTypeChecked"] := R14
+     105 [   0] CLOSURE   R14 := closure #16
+     106 [   0] MOVE      R0 := R4
+     107 [   0] MOVE      R0 := R3
+     108 [   0] GETUPVAL  R0 := upval 0
+     109 [   0] GETUPVAL  R0 := upval 4
+     110 [   0] SETTABLE  R0["getHashForSavetable"] := R14
+     111 [   0] GETTABLE  R14 := R0["load"]
+     112 [   0] CALL      R14(...) nargs=0 nret=0
+     113 [   0] RETURN    return R0.. (1 values)
+     114 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 37-42, upvals=[], locals=[])
+      constants: strings=['db', 'exec', 'Log', 'err', 'SQL Error: ', 'errmsg'] numbers=[0]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["db"]
+         2 [   0] SELF      R2 := R1; R1 := R1["exec"]
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=1
+         5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +12 -> 19
+         7 [   0] EQ        if (R1 == 0) ~= 1 then skip next
+         8 [   0] JMP       jmp +10 -> 19
+         9 [   0] GETGLOBAL R2 := _G["Log"]
+        10 [   0] GETTABLE  R2 := R2["err"]
+        11 [   0] LOADK     R3 := "SQL Error: "
+        12 [   0] MOVE      R4 := R1
+        13 [   0] GETUPVAL  R5 := upval 0
+        14 [   0] GETTABLE  R5 := R5["db"]
+        15 [   0] SELF      R6 := R5; R5 := R5["errmsg"]
+        16 [   0] CALL      R5(...) nargs=1 nret=1
+        17 [   0] MOVE      R6 := R0
+        18 [   0] CALL      R2(...) nargs=4 nret=0
+        19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 45-48, upvals=[], locals=[])
+      constants: strings=['db', 'exec', 'ROLLBACK', 'Log', 'err', 'SQL: ', 'errmsg'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["db"]
+         2 [   0] SELF      R3 := R2; R2 := R2["exec"]
+         3 [   0] LOADK     R4 := "ROLLBACK"
+         4 [   0] CALL      R2(...) nargs=2 nret=0
+         5 [   0] GETGLOBAL R2 := _G["Log"]
+         6 [   0] GETTABLE  R2 := R2["err"]
+         7 [   0] LOADK     R3 := "SQL: "
+         8 [   0] MOVE      R4 := R0
+         9 [   0] GETUPVAL  R5 := upval 0
+        10 [   0] GETTABLE  R5 := R5["db"]
+        11 [   0] SELF      R6 := R5; R5 := R5["errmsg"]
+        12 [   0] CALL      R5(...) nargs=1 nret=1
+        13 [   0] VARARG    R6.. := ... (-1)
+        14 [   0] CALL      R2(...) nargs=-1 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 54-79, upvals=[], locals=[])
+      constants: strings=['db', 'exec', 'BEGIN TRANSACTION', 'select', '#', 'prepare', 'query', 'Invalid query', 'paramSets', 'bind_names', 'step', 'sqlite3', 'DONE', 'finalize', 'reset', 'OK', 'COMMIT'] numbers=[1]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["db"]
+         2 [   0] SELF      R2 := R1; R1 := R1["exec"]
+         3 [   0] LOADK     R3 := "BEGIN TRANSACTION"
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] LOADK     R1 := 1
+         6 [   0] GETGLOBAL R2 := _G["select"]
+         7 [   0] LOADK     R3 := "#"
+         8 [   0] VARARG    R4.. := ... (-1)
+         9 [   0] CALL      R2(...) nargs=-1 nret=1
+        10 [   0] LOADK     R3 := 1
+        11 [   0] FORPREP   for R1.. jmp +54
+        12 [   0] GETGLOBAL R5 := _G["select"]
+        13 [   0] MOVE      R6 := R4
+        14 [   0] VARARG    R7.. := ... (-1)
+        15 [   0] CALL      R5(...) nargs=-1 nret=1
+        16 [   0] GETUPVAL  R6 := upval 0
+        17 [   0] GETTABLE  R6 := R6["db"]
+        18 [   0] SELF      R7 := R6; R6 := R6["prepare"]
+        19 [   0] GETTABLE  R8 := R5["query"]
+        20 [   0] CALL      R6(...) nargs=2 nret=1
+        21 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+        22 [   0] JMP       jmp +5 -> 28
+        23 [   0] GETUPVAL  R7 := upval 1
+        24 [   0] LOADK     R8 := "Invalid query"
+        25 [   0] GETTABLE  R9 := R5["query"]
+        26 [   0] TAILCALL  return R7(...) nargs=2
+        27 [   0] RETURN    return R7.. (-1 values)
+        28 [   0] LOADK     R7 := 1
+        29 [   0] GETTABLE  R8 := R5["paramSets"]
+        30 [   0] LEN       R8 := #R8
+        31 [   0] LOADK     R9 := 1
+        32 [   0] FORPREP   for R7.. jmp +21
+        33 [   0] SELF      R12 := R6; R11 := R6["bind_names"]
+        34 [   0] GETTABLE  R13 := R5["paramSets"]
+        35 [   0] GETTABLE  R13 := R13[R10]
+        36 [   0] CALL      R11(...) nargs=2 nret=0
+        37 [   0] SELF      R12 := R6; R11 := R6["step"]
+        38 [   0] CALL      R11(...) nargs=1 nret=1
+        39 [   0] GETGLOBAL R12 := _G["sqlite3"]
+        40 [   0] GETTABLE  R12 := R12["DONE"]
+        41 [   0] EQ        if (R11 == R12) ~= 1 then skip next
+        42 [   0] JMP       jmp +9 -> 52
+        43 [   0] SELF      R13 := R6; R12 := R6["finalize"]
+        44 [   0] CALL      R12(...) nargs=1 nret=0
+        45 [   0] GETUPVAL  R12 := upval 1
+        46 [   0] MOVE      R13 := R11
+        47 [   0] GETTABLE  R14 := R5["query"]
+        48 [   0] GETTABLE  R15 := R5["paramSets"]
+        49 [   0] GETTABLE  R15 := R15[R10]
+        50 [   0] TAILCALL  return R12(...) nargs=3
+        51 [   0] RETURN    return R12.. (-1 values)
+        52 [   0] SELF      R13 := R6; R12 := R6["reset"]
+        53 [   0] CALL      R12(...) nargs=1 nret=0
+        54 [   0] FORLOOP   forloop R7 jmp -22
+        55 [   0] SELF      R8 := R6; R7 := R6["finalize"]
+        56 [   0] CALL      R7(...) nargs=1 nret=1
+        57 [   0] GETGLOBAL R8 := _G["sqlite3"]
+        58 [   0] GETTABLE  R8 := R8["OK"]
+        59 [   0] EQ        if (R7 == R8) ~= 1 then skip next
+        60 [   0] JMP       jmp +5 -> 66
+        61 [   0] GETUPVAL  R8 := upval 1
+        62 [   0] MOVE      R9 := R7
+        63 [   0] MOVE      R10 := R5
+        64 [   0] TAILCALL  return R8(...) nargs=2
+        65 [   0] RETURN    return R8.. (-1 values)
+        66 [   0] FORLOOP   forloop R1 jmp -55
+        67 [   0] GETUPVAL  R1 := upval 0
+        68 [   0] GETTABLE  R1 := R1["db"]
+        69 [   0] SELF      R2 := R1; R1 := R1["exec"]
+        70 [   0] LOADK     R3 := "COMMIT"
+        71 [   0] CALL      R1(...) nargs=2 nret=0
+        72 [   0] LOADBOOL  R1 := True
+        73 [   0] RETURN    return R1.. (1 values)
+        74 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 82-111, upvals=[], locals=[])
+      constants: strings=['db', 'sqlite3', 'open', 'ti', 'tostring', 'os', 'time', 'nrows', 'SELECT * FROM savegame ', 'tonumber', 'value', 'savegamekey', 'true', 'false', 'string', 'sub', '{', '[', 'decode', 'close', 'validate', 'emit', 'savegameLoaded'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETGLOBAL R1 := _G["sqlite3"]
+         2 [   0] GETTABLE  R1 := R1["open"]
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] CALL      R1(...) nargs=1 nret=1
+         5 [   0] SETTABLE  R0["db"] := R1
+         6 [   0] GETUPVAL  R0 := upval 2
+         7 [   0] GETUPVAL  R1 := upval 3
+         8 [   0] CALL      R0(...) nargs=1 nret=0
+         9 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+        10 [   0] GETGLOBAL R1 := _G["tostring"]
+        11 [   0] GETGLOBAL R2 := _G["os"]
+        12 [   0] GETTABLE  R2 := R2["time"]
+        13 [   0] CALL      R2(...) nargs=0 nret=-1
+        14 [   0] CALL      R1(...) nargs=-1 nret=1
+        15 [   0] SETTABLE  R0["ti"] := R1
+        16 [   0] SETUPVAL  upval 4 := R0
+        17 [   0] GETUPVAL  R0 := upval 0
+        18 [   0] GETTABLE  R0 := R0["db"]
+        19 [   0] SELF      R1 := R0; R0 := R0["nrows"]
+        20 [   0] LOADK     R2 := "SELECT * FROM savegame "
+        21 [   0] CALL      R0(...) nargs=2 nret=3
+        22 [   0] JMP       jmp +51 -> 74
+        23 [   0] GETGLOBAL R4 := _G["tonumber"]
+        24 [   0] GETTABLE  R5 := R3["value"]
+        25 [   0] CALL      R4(...) nargs=1 nret=1
+        26 [   0] EQ        if (R4 == None) ~= 1 then skip next
+        27 [   0] JMP       jmp +7 -> 35
+        28 [   0] GETUPVAL  R4 := upval 4
+        29 [   0] GETTABLE  R5 := R3["savegamekey"]
+        30 [   0] GETGLOBAL R6 := _G["tonumber"]
+        31 [   0] GETTABLE  R7 := R3["value"]
+        32 [   0] CALL      R6(...) nargs=1 nret=1
+        33 [   0] SETTABLE  R4[R5] := R6
+        34 [   0] JMP       jmp +39 -> 74
+        35 [   0] GETTABLE  R4 := R3["value"]
+        36 [   0] EQ        if (R4 == "true") ~= 1 then skip next
+        37 [   0] JMP       jmp +3 -> 41
+        38 [   0] GETTABLE  R4 := R3["value"]
+        39 [   0] EQ        if (R4 == "false") ~= 0 then skip next
+        40 [   0] JMP       jmp +9 -> 50
+        41 [   0] GETUPVAL  R4 := upval 4
+        42 [   0] GETTABLE  R5 := R3["savegamekey"]
+        43 [   0] GETTABLE  R6 := R3["value"]
+        44 [   0] EQ        if (R6 == "true") ~= 1 then skip next
+        45 [   0] JMP       jmp +1 -> 47
+        46 [   0] LOADBOOL  R6 := False (skip)
+        47 [   0] LOADBOOL  R6 := True
+        48 [   0] SETTABLE  R4[R5] := R6
+        49 [   0] JMP       jmp +24 -> 74
+        50 [   0] GETGLOBAL R4 := _G["string"]
+        51 [   0] GETTABLE  R4 := R4["sub"]
+        52 [   0] GETGLOBAL R5 := _G["tostring"]
+        53 [   0] GETTABLE  R6 := R3["value"]
+        54 [   0] CALL      R5(...) nargs=1 nret=1
+        55 [   0] LOADK     R6 := 1
+        56 [   0] LOADK     R7 := 1
+        57 [   0] CALL      R4(...) nargs=3 nret=1
+        58 [   0] EQ        if (R4 == "{") ~= 1 then skip next
+        59 [   0] JMP       jmp +2 -> 62
+        60 [   0] EQ        if (R4 == "[") ~= 0 then skip next
+        61 [   0] JMP       jmp +8 -> 70
+        62 [   0] GETUPVAL  R5 := upval 4
+        63 [   0] GETTABLE  R6 := R3["savegamekey"]
+        64 [   0] GETUPVAL  R7 := upval 5
+        65 [   0] GETTABLE  R7 := R7["decode"]
+        66 [   0] GETTABLE  R8 := R3["value"]
+        67 [   0] CALL      R7(...) nargs=1 nret=1
+        68 [   0] SETTABLE  R5[R6] := R7
+        69 [   0] JMP       jmp +4 -> 74
+        70 [   0] GETUPVAL  R5 := upval 4
+        71 [   0] GETTABLE  R6 := R3["savegamekey"]
+        72 [   0] GETTABLE  R7 := R3["value"]
+        73 [   0] SETTABLE  R5[R6] := R7
+        74 [   0] TFORLOOP  tforloop R0 nres=1
+        75 [   0] JMP       jmp -53 -> 23
+        76 [   0] GETUPVAL  R0 := upval 0
+        77 [   0] GETTABLE  R0 := R0["db"]
+        78 [   0] SELF      R1 := R0; R0 := R0["close"]
+        79 [   0] CALL      R0(...) nargs=1 nret=0
+        80 [   0] GETUPVAL  R0 := upval 0
+        81 [   0] GETTABLE  R0 := R0["validate"]
+        82 [   0] CALL      R0(...) nargs=0 nret=0
+        83 [   0] GETUPVAL  R0 := upval 0
+        84 [   0] GETTABLE  R0 := R0["emit"]
+        85 [   0] LOADK     R1 := "savegameLoaded"
+        86 [   0] CALL      R0(...) nargs=1 nret=0
+        87 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 114-138, upvals=[], locals=[])
+      constants: strings=['getHashForSavetable', 'tostring', " REPLACE INTO savegame VALUES('", "','", "') ", 'db', 'sqlite3', 'open', 'close', 'logSaveGameManipulation'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] GETTABLE  R0 := R0[R1]
+         3 [   0] EQ        if (R0 == None) ~= 0 then skip next
+         4 [   0] JMP       jmp +33 -> 38
+         5 [   0] GETUPVAL  R0 := upval 0
+         6 [   0] GETUPVAL  R1 := upval 1
+         7 [   0] GETUPVAL  R2 := upval 2
+         8 [   0] GETTABLE  R2 := R2["getHashForSavetable"]
+         9 [   0] GETUPVAL  R3 := upval 0
+        10 [   0] GETGLOBAL R4 := _G["tostring"]
+        11 [   0] GETUPVAL  R5 := upval 3
+        12 [   0] CALL      R4(...) nargs=1 nret=-1
+        13 [   0] CALL      R2(...) nargs=-1 nret=1
+        14 [   0] SETTABLE  R0[R1] := R2
+        15 [   0] LOADK     R0 := " REPLACE INTO savegame VALUES('"
+        16 [   0] GETUPVAL  R1 := upval 4
+        17 [   0] LOADK     R2 := "','"
+        18 [   0] GETUPVAL  R3 := upval 0
+        19 [   0] GETUPVAL  R4 := upval 4
+        20 [   0] GETTABLE  R3 := R3[R4]
+        21 [   0] LOADK     R4 := "') "
+        22 [   0] CONCAT    R0 := R0 .. ... .. R4
+        23 [   0] GETUPVAL  R1 := upval 2
+        24 [   0] GETGLOBAL R2 := _G["sqlite3"]
+        25 [   0] GETTABLE  R2 := R2["open"]
+        26 [   0] GETUPVAL  R3 := upval 5
+        27 [   0] CALL      R2(...) nargs=1 nret=1
+        28 [   0] SETTABLE  R1["db"] := R2
+        29 [   0] GETUPVAL  R1 := upval 6
+        30 [   0] MOVE      R2 := R0
+        31 [   0] CALL      R1(...) nargs=1 nret=0
+        32 [   0] GETUPVAL  R1 := upval 2
+        33 [   0] GETTABLE  R1 := R1["db"]
+        34 [   0] SELF      R2 := R1; R1 := R1["close"]
+        35 [   0] CALL      R1(...) nargs=1 nret=0
+        36 [   0] LOADBOOL  R1 := True
+        37 [   0] RETURN    return R1.. (1 values)
+        38 [   0] GETUPVAL  R0 := upval 2
+        39 [   0] GETTABLE  R0 := R0["getHashForSavetable"]
+        40 [   0] GETUPVAL  R1 := upval 0
+        41 [   0] GETGLOBAL R2 := _G["tostring"]
+        42 [   0] GETUPVAL  R3 := upval 3
+        43 [   0] CALL      R2(...) nargs=1 nret=-1
+        44 [   0] CALL      R0(...) nargs=-1 nret=1
+        45 [   0] GETUPVAL  R1 := upval 0
+        46 [   0] GETUPVAL  R2 := upval 1
+        47 [   0] GETTABLE  R1 := R1[R2]
+        48 [   0] EQ        if (R1 == R0) ~= 0 then skip next
+        49 [   0] JMP       jmp +3 -> 53
+        50 [   0] LOADBOOL  R1 := True
+        51 [   0] RETURN    return R1.. (1 values)
+        52 [   0] JMP       jmp +5 -> 58
+        53 [   0] GETUPVAL  R1 := upval 2
+        54 [   0] GETTABLE  R1 := R1["logSaveGameManipulation"]
+        55 [   0] CALL      R1(...) nargs=0 nret=0
+        56 [   0] LOADBOOL  R1 := False
+        57 [   0] RETURN    return R1.. (1 values)
+        58 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 141-144, upvals=[], locals=[])
+      constants: strings=['getHashForSavetable', 'tostring'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["getHashForSavetable"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETGLOBAL R2 := _G["tostring"]
+         4 [   0] GETUPVAL  R3 := upval 2
+         5 [   0] CALL      R2(...) nargs=1 nret=-1
+         6 [   0] CALL      R0(...) nargs=-1 nret=1
+         7 [   0] GETUPVAL  R1 := upval 1
+         8 [   0] GETUPVAL  R2 := upval 3
+         9 [   0] SETTABLE  R1[R2] := R0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 147-159, upvals=[], locals=[])
+      constants: strings=['settings', 'SettingsManager', 'getInstance', 'getValue', 'game.savegamemanipulation', 'setValue', 'print', 'someone manipulated the savegame! Count: ', 'tostring', 'tracking', 'Tracker', 'hasTrackingInterface', 'logUserSettings', 'gamesavegamemanipulation', 'logGameEvent', 'savegamemanipulation'] numbers=[0, 1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["settings"]
+         2 [   0] GETTABLE  R0 := R0["SettingsManager"]
+         3 [   0] GETTABLE  R0 := R0["getInstance"]
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R0 := R0["getValue"]
+         6 [   0] LOADK     R1 := "game.savegamemanipulation"
+         7 [   0] LOADK     R2 := 0
+         8 [   0] CALL      R0(...) nargs=2 nret=1
+         9 [   0] ADD       R0 := R0 + 1
+        10 [   0] GETUPVAL  R1 := upval 0
+        11 [   0] GETTABLE  R1 := R1["settings"]
+        12 [   0] GETTABLE  R1 := R1["SettingsManager"]
+        13 [   0] GETTABLE  R1 := R1["getInstance"]
+        14 [   0] CALL      R1(...) nargs=0 nret=1
+        15 [   0] GETTABLE  R1 := R1["setValue"]
+        16 [   0] LOADK     R2 := "game.savegamemanipulation"
+        17 [   0] MOVE      R3 := R0
+        18 [   0] CALL      R1(...) nargs=2 nret=0
+        19 [   0] GETGLOBAL R1 := _G["print"]
+        20 [   0] LOADK     R2 := "someone manipulated the savegame! Count: "
+        21 [   0] GETGLOBAL R3 := _G["tostring"]
+        22 [   0] MOVE      R4 := R0
+        23 [   0] CALL      R3(...) nargs=1 nret=1
+        24 [   0] CONCAT    R2 := R2 .. ... .. R3
+        25 [   0] CALL      R1(...) nargs=1 nret=0
+        26 [   0] GETUPVAL  R1 := upval 0
+        27 [   0] GETTABLE  R1 := R1["tracking"]
+        28 [   0] GETTABLE  R1 := R1["Tracker"]
+        29 [   0] GETTABLE  R1 := R1["getInstance"]
+        30 [   0] CALL      R1(...) nargs=0 nret=1
+        31 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        32 [   0] JMP       jmp +11 -> 44
+        33 [   0] GETTABLE  R2 := R1["hasTrackingInterface"]
+        34 [   0] CALL      R2(...) nargs=0 nret=1
+        35 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        36 [   0] JMP       jmp +7 -> 44
+        37 [   0] GETTABLE  R2 := R1["logUserSettings"]
+        38 [   0] LOADK     R3 := "gamesavegamemanipulation"
+        39 [   0] CALL      R2(...) nargs=1 nret=0
+        40 [   0] GETTABLE  R2 := R1["logGameEvent"]
+        41 [   0] LOADK     R3 := "savegamemanipulation"
+        42 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+        43 [   0] CALL      R2(...) nargs=2 nret=0
+        44 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=4, lines 165-202, upvals=[], locals=[])
+      constants: strings=['assert', 'pairs', 'err', 'the key ', ' is reserved by the savegame', 'deleteValue', 'tonumber', 'writeValueToDB'] numbers=[]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["assert"]
+         2 [   0] EQ        if (R0 == None) ~= 0 then skip next
+         3 [   0] JMP       jmp +1 -> 5
+         4 [   0] LOADBOOL  R5 := False (skip)
+         5 [   0] LOADBOOL  R5 := True
+         6 [   0] LOADBOOL  R6 := True
+         7 [   0] CALL      R4(...) nargs=2 nret=0
+         8 [   0] GETGLOBAL R4 := _G["pairs"]
+         9 [   0] GETUPVAL  R5 := upval 1
+        10 [   0] CALL      R4(...) nargs=1 nret=3
+        11 [   0] JMP       jmp +13 -> 25
+        12 [   0] EQ        if (R0 == R8) ~= 0 then skip next
+        13 [   0] JMP       jmp +11 -> 25
+        14 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +2 -> 18
+        16 [   0] RETURN    return R0.. (0 values)
+        17 [   0] JMP       jmp +7 -> 25
+        18 [   0] GETUPVAL  R9 := upval 0
+        19 [   0] GETTABLE  R9 := R9["err"]
+        20 [   0] LOADK     R10 := "the key "
+        21 [   0] MOVE      R11 := R0
+        22 [   0] LOADK     R12 := " is reserved by the savegame"
+        23 [   0] CONCAT    R10 := R10 .. ... .. R12
+        24 [   0] CALL      R9(...) nargs=1 nret=0
+        25 [   0] TFORLOOP  tforloop R4 nres=2
+        26 [   0] JMP       jmp -15 -> 12
+        27 [   0] EQ        if (R1 == None) ~= 0 then skip next
+        28 [   0] JMP       jmp +6 -> 35
+        29 [   0] GETUPVAL  R4 := upval 2
+        30 [   0] GETTABLE  R4 := R4["deleteValue"]
+        31 [   0] MOVE      R5 := R0
+        32 [   0] CALL      R4(...) nargs=1 nret=0
+        33 [   0] RETURN    return R0.. (0 values)
+        34 [   0] JMP       jmp +9 -> 44
+        35 [   0] GETGLOBAL R4 := _G["tonumber"]
+        36 [   0] MOVE      R5 := R1
+        37 [   0] CALL      R4(...) nargs=1 nret=1
+        38 [   0] EQ        if (R4 == None) ~= 1 then skip next
+        39 [   0] JMP       jmp +4 -> 44
+        40 [   0] GETGLOBAL R4 := _G["tonumber"]
+        41 [   0] MOVE      R5 := R1
+        42 [   0] CALL      R4(...) nargs=1 nret=1
+        43 [   0] MOVE      R1 := R4
+        44 [   0] GETUPVAL  R4 := upval 3
+        45 [   0] SETTABLE  R4[R0] := R1
+        46 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        47 [   0] JMP       jmp +4 -> 52
+        48 [   0] GETUPVAL  R4 := upval 4
+        49 [   0] SETTABLE  R4[R0] := R1
+        50 [   0] RETURN    return R0.. (0 values)
+        51 [   0] JMP       jmp +6 -> 58
+        52 [   0] GETUPVAL  R4 := upval 4
+        53 [   0] GETTABLE  R4 := R4[R0]
+        54 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        55 [   0] JMP       jmp +2 -> 58
+        56 [   0] GETUPVAL  R4 := upval 4
+        57 [   0] SETTABLE  R4[R0] := None
+        58 [   0] GETUPVAL  R4 := upval 2
+        59 [   0] GETTABLE  R4 := R4["writeValueToDB"]
+        60 [   0] MOVE      R5 := R0
+        61 [   0] MOVE      R6 := R1
+        62 [   0] CALL      R4(...) nargs=2 nret=0
+        63 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 205-212, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2[R0]
+         2 [   0] EQ        if (R2 == None) ~= 1 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] GETTABLE  R2 := R2[R0]
+         6 [   0] RETURN    return R2.. (1 values)
+         7 [   0] RETURN    return R1.. (1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 215-234, upvals=[], locals=[])
+      constants: strings=['pairs', 'table', 'insert'] numbers=[]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+         1 [   0] LOADBOOL  R1 := False
+         2 [   0] GETGLOBAL R2 := _G["pairs"]
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] CALL      R2(...) nargs=1 nret=3
+         5 [   0] JMP       jmp +16 -> 22
+         6 [   0] GETGLOBAL R7 := _G["pairs"]
+         7 [   0] GETUPVAL  R8 := upval 1
+         8 [   0] CALL      R7(...) nargs=1 nret=3
+         9 [   0] JMP       jmp +3 -> 13
+        10 [   0] EQ        if (R5 == R11) ~= 0 then skip next
+        11 [   0] JMP       jmp +1 -> 13
+        12 [   0] LOADBOOL  R1 := True
+        13 [   0] TFORLOOP  tforloop R7 nres=2
+        14 [   0] JMP       jmp -5 -> 10
+        15 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        16 [   0] JMP       jmp +5 -> 22
+        17 [   0] GETGLOBAL R7 := _G["table"]
+        18 [   0] GETTABLE  R7 := R7["insert"]
+        19 [   0] MOVE      R8 := R0
+        20 [   0] MOVE      R9 := R5
+        21 [   0] CALL      R7(...) nargs=2 nret=0
+        22 [   0] TFORLOOP  tforloop R2 nres=2
+        23 [   0] JMP       jmp -18 -> 6
+        24 [   0] RETURN    return R0.. (1 values)
+        25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=1, lines 237-252, upvals=[], locals=[])
+      constants: strings=['generateHash', 'db', 'sqlite3', 'open', 'query', 'DELETE FROM savegame WHERE savegamekey LIKE ?', 'paramSets', 'REPLACE INTO savegame VALUES(?,?)', 'close'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         3 [   0] JMP       jmp +38 -> 42
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] SETTABLE  R1[R0] := None
+         6 [   0] GETUPVAL  R1 := upval 1
+         7 [   0] SETTABLE  R1[R0] := None
+         8 [   0] GETUPVAL  R1 := upval 2
+         9 [   0] GETTABLE  R1 := R1["generateHash"]
+        10 [   0] CALL      R1(...) nargs=0 nret=0
+        11 [   0] GETUPVAL  R1 := upval 2
+        12 [   0] GETGLOBAL R2 := _G["sqlite3"]
+        13 [   0] GETTABLE  R2 := R2["open"]
+        14 [   0] GETUPVAL  R3 := upval 3
+        15 [   0] CALL      R2(...) nargs=1 nret=1
+        16 [   0] SETTABLE  R1["db"] := R2
+        17 [   0] GETUPVAL  R1 := upval 4
+        18 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+        19 [   0] SETTABLE  R2["query"] := "DELETE FROM savegame WHERE savegamekey LIKE ?"
+        20 [   0] NEWTABLE  R3 := {} (array 1, hash 0)
+        21 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+        22 [   0] MOVE      R5 := R0
+        23 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+        24 [   0] SETLIST   R3[...] := R4.. (n=1, block 1)
+        25 [   0] SETTABLE  R2["paramSets"] := R3
+        26 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+        27 [   0] SETTABLE  R3["query"] := "REPLACE INTO savegame VALUES(?,?)"
+        28 [   0] NEWTABLE  R4 := {} (array 1, hash 0)
+        29 [   0] NEWTABLE  R5 := {} (array 2, hash 0)
+        30 [   0] GETUPVAL  R6 := upval 5
+        31 [   0] GETUPVAL  R7 := upval 0
+        32 [   0] GETUPVAL  R8 := upval 5
+        33 [   0] GETTABLE  R7 := R7[R8]
+        34 [   0] SETLIST   R5[...] := R6.. (n=2, block 1)
+        35 [   0] SETLIST   R4[...] := R5.. (n=1, block 1)
+        36 [   0] SETTABLE  R3["paramSets"] := R4
+        37 [   0] CALL      R1(...) nargs=2 nret=0
+        38 [   0] GETUPVAL  R1 := upval 2
+        39 [   0] GETTABLE  R1 := R1["db"]
+        40 [   0] SELF      R2 := R1; R1 := R1["close"]
+        41 [   0] CALL      R1(...) nargs=1 nret=0
+        42 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=0, lines 255-267, upvals=[], locals=[])
+      constants: strings=['db', 'sqlite3', 'open', 'pairs', "DELETE FROM savegame WHERE savegamekey LIKE '", "'", 'close', 'validate'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETGLOBAL R1 := _G["sqlite3"]
+         2 [   0] GETTABLE  R1 := R1["open"]
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] CALL      R1(...) nargs=1 nret=1
+         5 [   0] SETTABLE  R0["db"] := R1
+         6 [   0] GETGLOBAL R0 := _G["pairs"]
+         7 [   0] GETUPVAL  R1 := upval 2
+         8 [   0] CALL      R0(...) nargs=1 nret=3
+         9 [   0] JMP       jmp +10 -> 20
+        10 [   0] GETUPVAL  R5 := upval 2
+        11 [   0] SETTABLE  R5[R3] := None
+        12 [   0] GETUPVAL  R5 := upval 3
+        13 [   0] SETTABLE  R5[R3] := None
+        14 [   0] GETUPVAL  R5 := upval 4
+        15 [   0] LOADK     R6 := "DELETE FROM savegame WHERE savegamekey LIKE '"
+        16 [   0] MOVE      R7 := R3
+        17 [   0] LOADK     R8 := "'"
+        18 [   0] CONCAT    R6 := R6 .. ... .. R8
+        19 [   0] CALL      R5(...) nargs=1 nret=0
+        20 [   0] TFORLOOP  tforloop R0 nres=2
+        21 [   0] JMP       jmp -12 -> 10
+        22 [   0] GETUPVAL  R0 := upval 0
+        23 [   0] GETTABLE  R0 := R0["db"]
+        24 [   0] SELF      R1 := R0; R0 := R0["close"]
+        25 [   0] CALL      R0(...) nargs=1 nret=0
+        26 [   0] GETUPVAL  R0 := upval 0
+        27 [   0] GETTABLE  R0 := R0["validate"]
+        28 [   0] CALL      R0(...) nargs=0 nret=0
+        29 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=0, lines 277-284, upvals=[], locals=[])
+      constants: strings=['shallowEqual', 'ti', 'va'] numbers=[0]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         2 [   0] JMP       jmp +19 -> 22
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] LEN       R0 := #R0
+         5 [   0] EQ        if (R0 == 0) ~= 0 then skip next
+         6 [   0] JMP       jmp +17 -> 24
+         7 [   0] GETUPVAL  R0 := upval 1
+         8 [   0] GETTABLE  R0 := R0["shallowEqual"]
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+        11 [   0] GETUPVAL  R3 := upval 0
+        12 [   0] GETUPVAL  R4 := upval 2
+        13 [   0] GETTABLE  R3 := R3[R4]
+        14 [   0] SETTABLE  R2["ti"] := R3
+        15 [   0] GETUPVAL  R3 := upval 0
+        16 [   0] GETUPVAL  R4 := upval 3
+        17 [   0] GETTABLE  R3 := R3[R4]
+        18 [   0] SETTABLE  R2["va"] := R3
+        19 [   0] CALL      R0(...) nargs=2 nret=1
+        20 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        21 [   0] JMP       jmp +2 -> 24
+        22 [   0] LOADBOOL  R0 := False
+        23 [   0] RETURN    return R0.. (1 values)
+        24 [   0] LOADBOOL  R0 := True
+        25 [   0] RETURN    return R0.. (1 values)
+        26 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=2, lines 292-307, upvals=[], locals=[])
+      constants: strings=['getValueTypeChecked', 'generateHash', 'db', 'sqlite3', 'open', 'query', 'REPLACE INTO savegame VALUES(?,?)', 'paramSets', 'close'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["getValueTypeChecked"]
+         2 [   0] MOVE      R3 := R1
+         3 [   0] CALL      R2(...) nargs=1 nret=1
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] GETTABLE  R3 := R3["generateHash"]
+         6 [   0] CALL      R3(...) nargs=0 nret=0
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETGLOBAL R4 := _G["sqlite3"]
+         9 [   0] GETTABLE  R4 := R4["open"]
+        10 [   0] GETUPVAL  R5 := upval 1
+        11 [   0] CALL      R4(...) nargs=1 nret=1
+        12 [   0] SETTABLE  R3["db"] := R4
+        13 [   0] GETUPVAL  R3 := upval 2
+        14 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+        15 [   0] SETTABLE  R4["query"] := "REPLACE INTO savegame VALUES(?,?)"
+        16 [   0] NEWTABLE  R5 := {} (array 2, hash 0)
+        17 [   0] NEWTABLE  R6 := {} (array 2, hash 0)
+        18 [   0] MOVE      R7 := R0
+        19 [   0] MOVE      R8 := R2
+        20 [   0] SETLIST   R6[...] := R7.. (n=2, block 1)
+        21 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+        22 [   0] GETUPVAL  R8 := upval 3
+        23 [   0] GETUPVAL  R9 := upval 4
+        24 [   0] GETUPVAL  R10 := upval 3
+        25 [   0] GETTABLE  R9 := R9[R10]
+        26 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+        27 [   0] SETLIST   R5[...] := R6.. (n=2, block 1)
+        28 [   0] SETTABLE  R4["paramSets"] := R5
+        29 [   0] CALL      R3(...) nargs=1 nret=0
+        30 [   0] GETUPVAL  R3 := upval 0
+        31 [   0] GETTABLE  R3 := R3["db"]
+        32 [   0] SELF      R4 := R3; R3 := R3["close"]
+        33 [   0] CALL      R3(...) nargs=1 nret=0
+        34 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=0, lines 310-331, upvals=[], locals=[])
+      constants: strings=['next', 'db', 'sqlite3', 'open', 'pairs', 'getValueTypeChecked', 'generateHash', 'query', 'REPLACE INTO savegame VALUES(?,?)', 'paramSets', 'close'] numbers=[1]
+         0 [   0] GETGLOBAL R0 := _G["next"]
+         1 [   0] GETUPVAL  R1 := upval 0
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] RETURN    return R0.. (0 values)
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] GETGLOBAL R1 := _G["sqlite3"]
+         8 [   0] GETTABLE  R1 := R1["open"]
+         9 [   0] GETUPVAL  R2 := upval 2
+        10 [   0] CALL      R1(...) nargs=1 nret=1
+        11 [   0] SETTABLE  R0["db"] := R1
+        12 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+        13 [   0] GETGLOBAL R1 := _G["pairs"]
+        14 [   0] GETUPVAL  R2 := upval 0
+        15 [   0] CALL      R1(...) nargs=1 nret=3
+        16 [   0] JMP       jmp +12 -> 29
+        17 [   0] GETUPVAL  R6 := upval 3
+        18 [   0] SETTABLE  R6[R4] := R5
+        19 [   0] LEN       R6 := #R0
+        20 [   0] ADD       R6 := R6 + 1
+        21 [   0] NEWTABLE  R7 := {} (array 1, hash 0)
+        22 [   0] MOVE      R8 := R4
+        23 [   0] GETUPVAL  R9 := upval 1
+        24 [   0] GETTABLE  R9 := R9["getValueTypeChecked"]
+        25 [   0] MOVE      R10 := R5
+        26 [   0] CALL      R9(...) nargs=1 nret=-1
+        27 [   0] SETLIST   R7[...] := R8.. (n=0, block 1)
+        28 [   0] SETTABLE  R0[R6] := R7
+        29 [   0] TFORLOOP  tforloop R1 nres=2
+        30 [   0] JMP       jmp -14 -> 17
+        31 [   0] GETUPVAL  R1 := upval 1
+        32 [   0] GETTABLE  R1 := R1["generateHash"]
+        33 [   0] CALL      R1(...) nargs=0 nret=0
+        34 [   0] LEN       R1 := #R0
+        35 [   0] ADD       R1 := R1 + 1
+        36 [   0] NEWTABLE  R2 := {} (array 2, hash 0)
+        37 [   0] GETUPVAL  R3 := upval 4
+        38 [   0] GETUPVAL  R4 := upval 3
+        39 [   0] GETUPVAL  R5 := upval 4
+        40 [   0] GETTABLE  R4 := R4[R5]
+        41 [   0] SETLIST   R2[...] := R3.. (n=2, block 1)
+        42 [   0] SETTABLE  R0[R1] := R2
+        43 [   0] GETUPVAL  R1 := upval 5
+        44 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+        45 [   0] SETTABLE  R2["query"] := "REPLACE INTO savegame VALUES(?,?)"
+        46 [   0] SETTABLE  R2["paramSets"] := R0
+        47 [   0] CALL      R1(...) nargs=1 nret=0
+        48 [   0] GETUPVAL  R1 := upval 1
+        49 [   0] GETTABLE  R1 := R1["db"]
+        50 [   0] SELF      R2 := R1; R1 := R1["close"]
+        51 [   0] CALL      R1(...) nargs=1 nret=0
+        52 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+        53 [   0] SETUPVAL  upval 0 := R1
+        54 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=1, lines 334-345, upvals=[], locals=[])
+      constants: strings=['type', 'table', 'encode', 'boolean', 'tostring'] numbers=[]
+         0 [   0] MOVE      R1 := R0
+         1 [   0] GETGLOBAL R2 := _G["type"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CALL      R2(...) nargs=1 nret=1
+         4 [   0] EQ        if (R2 == "table") ~= 0 then skip next
+         5 [   0] JMP       jmp +6 -> 12
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] GETTABLE  R2 := R2["encode"]
+         8 [   0] MOVE      R3 := R0
+         9 [   0] CALL      R2(...) nargs=1 nret=1
+        10 [   0] MOVE      R1 := R2
+        11 [   0] JMP       jmp +9 -> 21
+        12 [   0] GETGLOBAL R2 := _G["type"]
+        13 [   0] MOVE      R3 := R0
+        14 [   0] CALL      R2(...) nargs=1 nret=1
+        15 [   0] EQ        if (R2 == "boolean") ~= 0 then skip next
+        16 [   0] JMP       jmp +4 -> 21
+        17 [   0] GETGLOBAL R2 := _G["tostring"]
+        18 [   0] MOVE      R3 := R0
+        19 [   0] CALL      R2(...) nargs=1 nret=1
+        20 [   0] MOVE      R1 := R2
+        21 [   0] RETURN    return R1.. (1 values)
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#16 (params=2, lines 348-365, upvals=[], locals=[])
+      constants: strings=['os', 'time', 'encode', 'gsub', '[%[%]%{%}]', '', 'string', 'byte', 'tostring', 'hmac', 'sha512'] numbers=[0, 1]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R0[R2]
+         2 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETGLOBAL R2 := _G["os"]
+         5 [   0] GETTABLE  R2 := R2["time"]
+         6 [   0] CALL      R2(...) nargs=0 nret=1
+         7 [   0] GETUPVAL  R3 := upval 1
+         8 [   0] GETTABLE  R3 := R0[R3]
+         9 [   0] GETUPVAL  R4 := upval 0
+        10 [   0] SETTABLE  R0[R4] := None
+        11 [   0] GETUPVAL  R4 := upval 1
+        12 [   0] SETTABLE  R0[R4] := None
+        13 [   0] GETUPVAL  R4 := upval 2
+        14 [   0] GETTABLE  R4 := R4["encode"]
+        15 [   0] MOVE      R5 := R0
+        16 [   0] CALL      R4(...) nargs=1 nret=1
+        17 [   0] SELF      R5 := R4; R4 := R4["gsub"]
+        18 [   0] LOADK     R6 := "[%[%]%{%}]"
+        19 [   0] LOADK     R7 := ""
+        20 [   0] CALL      R4(...) nargs=3 nret=1
+        21 [   0] LOADK     R5 := 0
+        22 [   0] LOADK     R6 := 1
+        23 [   0] LEN       R7 := #R4
+        24 [   0] LOADK     R8 := 1
+        25 [   0] FORPREP   for R6.. jmp +6
+        26 [   0] GETGLOBAL R10 := _G["string"]
+        27 [   0] GETTABLE  R10 := R10["byte"]
+        28 [   0] MOVE      R11 := R4
+        29 [   0] MOVE      R12 := R9
+        30 [   0] CALL      R10(...) nargs=2 nret=1
+        31 [   0] ADD       R5 := R5 + R10
+        32 [   0] FORLOOP   forloop R6 jmp -7
+        33 [   0] GETUPVAL  R6 := upval 0
+        34 [   0] SETTABLE  R0[R6] := R2
+        35 [   0] GETUPVAL  R6 := upval 1
+        36 [   0] SETTABLE  R0[R6] := R3
+        37 [   0] GETGLOBAL R6 := _G["tostring"]
+        38 [   0] GETUPVAL  R7 := upval 3
+        39 [   0] GETTABLE  R7 := R7["hmac"]
+        40 [   0] GETUPVAL  R8 := upval 3
+        41 [   0] GETTABLE  R8 := R8["sha512"]
+        42 [   0] GETGLOBAL R9 := _G["tostring"]
+        43 [   0] MOVE      R10 := R5
+        44 [   0] CALL      R9(...) nargs=1 nret=1
+        45 [   0] GETGLOBAL R10 := _G["tostring"]
+        46 [   0] MOVE      R11 := R1
+        47 [   0] CALL      R10(...) nargs=1 nret=1
+        48 [   0] GETGLOBAL R11 := _G["tostring"]
+        49 [   0] MOVE      R12 := R2
+        50 [   0] CALL      R11(...) nargs=1 nret=1
+        51 [   0] CONCAT    R10 := R10 .. ... .. R11
+        52 [   0] CALL      R7(...) nargs=3 nret=-1
+        53 [   0] TAILCALL  return R6(...) nargs=-1
+        54 [   0] RETURN    return R6.. (-1 values)
+        55 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=2, lines 375-378, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETUPVAL  R3 := upval 1
+       2 [   0] GETTABLE  R3 := R3["new"]
+       3 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+       4 [   0] CALL      R3(...) nargs=1 nret=1
+       5 [   0] MOVE      R4 := R0
+       6 [   0] MOVE      R5 := R1
+       7 [   0] TAILCALL  return R2(...) nargs=3
+       8 [   0] RETURN    return R2.. (-1 values)
+       9 [   0] RETURN    return R0.. (0 values)

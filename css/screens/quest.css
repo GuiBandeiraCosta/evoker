@@ -1,0 +1,209 @@
+/* Quest screen: purple progress bar, the original village landscape with parallax layers, the minion cut-outs
+   (each wave fades in from dark silhouettes), the tap (orange X-slash, PERFECT, white tap number), the wave-end
+   coin shower, the card drop on the scene (glint, white flash, glowing card, flight into the minideck), reward
+   bursts, the minideck. Timings: src/ui/screens/quest.js TAP_FX / GOLD_SHOWER / CARD_DROP. */
+.quest-body { display: flex; flex-direction: column; overflow: hidden; background: #0d0f10; }
+.quest-progress {
+  flex: none; padding: 10px 24px 8px;
+  background: linear-gradient(180deg, #1f2224, #141617), var(--hex-texture);
+  border-bottom: 4px solid var(--stone-edge);
+  box-shadow: inset 0 -1px 0 var(--bevel-lo), 0 2px 6px rgba(0, 0, 0, .6);
+}
+.quest-progress .hp-bar-wrap { padding: 0; }
+.quest-progress .bar.tall { height: 36px; border-radius: 18px; }
+.quest-progress .bar.tall .bar-fill { height: 8px; bottom: 4px; left: 6px; border-radius: 4px; }
+.quest-progress .bar.tall .bar-label { font-size: 26px; font-weight: 500; }
+
+/* ---------- landscape: village_normal_bg / village_burned_bg (630x868) + eb2 (tree rock) + eb1 (village) ---------- */
+.quest-landscape {
+  position: relative; flex: 1 1 auto; overflow: hidden;
+  background: #3b4a55;
+  border-top: 3px solid var(--stone-edge-dark);
+  border-bottom: 3px solid var(--stone-edge-dark);
+}
+.ql-layer { position: absolute; pointer-events: none; background-repeat: no-repeat; }
+.ql-bg { inset: 0; background-image: url('/assets/orig/ui/village_normal_bg.png'); background-size: cover; background-position: center top; }
+.quest-landscape.burned .ql-bg { background-image: url('/assets/orig/ui/village_burned_bg.png'); }
+/* the two foreground pieces (617x581 and 630x666) drawn at 1.15x, slowly drifting against the sky */
+.ql-eb2 {
+  left: -230px; bottom: -8px; width: 724px; height: 766px;
+  background-image: url('/assets/orig/ui/village_normal_eb2.png'); background-size: 100% 100%;
+  /* the sprite's bottom strip is opaque beach / water (a box over the backdrop): cut the water corner off
+     and fade the rock's foot into the shore */
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 52% 78%, 52% 100%, 0 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 68%, rgba(0, 0, 0, .5) 78%, transparent 86%);
+  mask-image: linear-gradient(180deg, #000 68%, rgba(0, 0, 0, .5) 78%, transparent 86%);
+  animation: qlDriftL 14s ease-in-out infinite alternate;
+}
+.ql-eb1 {
+  right: -150px; bottom: -4px; width: 710px; height: 668px;
+  background-image: url('/assets/orig/ui/village_normal_eb1.png'); background-size: 100% 100%;
+  /* the sprite's bottom strip is opaque water of another shade: keep the village, fade the water out */
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 84%);
+  -webkit-mask-image: linear-gradient(180deg, #000 74%, transparent 84%);
+  mask-image: linear-gradient(180deg, #000 74%, transparent 84%);
+  animation: qlDriftR 18s ease-in-out infinite alternate;
+}
+.quest-landscape.burned .ql-eb1, .quest-landscape.burned .ql-eb2 { filter: brightness(.28) saturate(.5) sepia(.4); }
+@keyframes qlDriftL { from { transform: translateX(0); } to { transform: translateX(14px); } }
+@keyframes qlDriftR { from { transform: translateX(0); } to { transform: translateX(-14px); } }
+.ql-birds {
+  position: absolute; left: 120px; top: 120px; width: 150px; height: auto; pointer-events: none;
+  animation: qlBirds 26s linear infinite;
+}
+@keyframes qlBirds { 0% { transform: translate(-220px, 30px) scale(.8); opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { transform: translate(560px, -60px) scale(1.05); opacity: 0; } }
+.quest-landscape .quest-swamp-tint {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(60, 20, 80, .3), rgba(20, 0, 40, .15) 60%, rgba(30, 0, 50, .45));
+}
+.quest-title {
+  position: absolute; left: 14px; top: 12px; z-index: 30;
+  font-size: 22px; font-weight: 600; color: var(--gold);
+  background: rgba(10, 11, 12, .8);
+}
+
+/* ---------- minions ---------- */
+.quest-arena { position: absolute; inset: 0; z-index: 5; }
+.quest-minion {
+  position: absolute; margin: 0; padding: 0;
+  background: none; border: 0; box-shadow: none; border-radius: 0;
+  cursor: pointer;
+  transition: transform 700ms cubic-bezier(.2, .8, .3, 1), opacity 300ms;
+  -webkit-tap-highlight-color: transparent;
+}
+.quest-minion.enter { pointer-events: none; }
+.quest-minion.enter .quest-minion-img { animation: minionWaveIn var(--wave-in, 900ms) ease-out both; }
+@keyframes minionWaveIn { 0% { opacity: 0; filter: brightness(0); } 35% { opacity: 1; filter: brightness(0); } 100% { opacity: 1; filter: brightness(1) drop-shadow(0 6px 6px rgba(0, 0, 0, .55)); } }
+.quest-minion-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; object-position: bottom; pointer-events: none;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .55));
+  transform-origin: 50% 100%;
+  animation: minionIdle 2.4s ease-in-out infinite alternate;
+}
+@keyframes minionIdle { from { transform: translateY(0) scaleY(1); } to { transform: translateY(-3px) scaleY(1.015); } }
+.quest-minion:hover .quest-minion-img { filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .55)) brightness(1.15); }
+.quest-minion-shadow {
+  position: absolute; left: 12%; right: 12%; bottom: -6px; height: 22px; border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+.quest-minion.slain { pointer-events: none; }
+.quest-minion.slain .quest-minion-img { animation: none; filter: brightness(0); opacity: .85; }
+.quest-minion.slain .quest-minion-shadow { opacity: 0; }
+/* a card drop empties the scene (1.7.0 video 0:28.6: only the glint over the landscape); the minions come back after it */
+.quest-arena.dropping .quest-minion { opacity: 0; pointer-events: none; }
+
+/* the tap's X-slash: two hud_explosion03 streaks crossing over the hud_explosion01 sparks */
+.quest-slash { position: absolute; z-index: 45; width: 0; height: 0; pointer-events: none; }
+.quest-slash img { position: absolute; left: -150px; top: -150px; width: 300px; height: 300px; animation: slashIn var(--dur, 450ms) ease-out both; }
+.quest-slash .qs-a { --r: -38deg; }
+.quest-slash .qs-b { --r: 52deg; animation-delay: 40ms; }
+.quest-slash .qs-spark { --r: 0deg; left: -130px; top: -130px; width: 260px; height: 260px; filter: saturate(1.3); }
+@keyframes slashIn {
+  0% { opacity: 0; transform: rotate(var(--r)) scale(.4, .6); }
+  15% { opacity: 1; transform: rotate(var(--r)) scale(1.05, 1); }
+  60% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(var(--r)) scale(1.15, .8); }
+}
+/* ---------- reward burst (reward_glow_yellow + reward_* sprite) ---------- */
+.quest-burst {
+  position: absolute; left: 50%; top: 46%; z-index: 50;
+  width: 460px; height: 460px; transform: translate(-50%, -50%);
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+  animation: burstIn 1.6s var(--ease) both;
+}
+@keyframes burstIn { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.4); } 15% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); } 25% { transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -40%) scale(1.1); } }
+.quest-burst-glow { position: absolute; inset: -20px; width: calc(100% + 40px); height: calc(100% + 40px); animation: raysSpin 9s linear infinite; }
+@keyframes raysSpin { to { transform: rotate(360deg); } }
+.quest-burst-sprite { position: relative; width: 300px; height: 300px; filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .6)); }
+.quest-burst-text {
+  position: absolute; left: 0; right: 0; bottom: 30px;
+  text-align: center; font-size: 42px; font-weight: 700; color: #fff4c0;
+  text-shadow: 0 0 12px rgba(255, 170, 20, .9), 0 3px 4px rgba(0, 0, 0, .9);
+}
+
+/* ---------- card drop on the scene (CARD_DROP) ---------- */
+.quest-drop { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.qd-glint {
+  position: absolute; width: 150px; height: 150px; margin: -75px 0 0 -75px;
+  animation: qdGlint var(--dur, 600ms) ease-in-out both;
+}
+@keyframes qdGlint { 0% { opacity: 0; transform: scale(.3) rotate(0); } 30% { opacity: 1; transform: scale(1.1) rotate(25deg); } 55% { opacity: .55; transform: scale(.8) rotate(40deg); } 80% { opacity: 1; transform: scale(1.25) rotate(60deg); } 100% { opacity: 0; transform: scale(1.6) rotate(80deg); } }
+.qd-card {
+  position: absolute; width: 230px; height: 324px; margin: -162px 0 0 -115px;
+  --frame: var(--r-common);
+  animation: qdCardIn var(--flash, 250ms) cubic-bezier(.16, 1, .3, 1) both;
+}
+.qd-card.rarity-standard { --frame: var(--r-standard); }
+.qd-card.rarity-uncommon { --frame: var(--r-uncommon); }
+.qd-card.rarity-rare { --frame: var(--r-rare); }
+.qd-card.rarity-heroic { --frame: var(--r-heroic); }
+.qd-card.rarity-legendary { --frame: var(--r-legendary); }
+.qd-card.rarity-ultimate { --frame: var(--r-ultimate); }
+.qd-rays { position: absolute; inset: -60px -52px; background: url('/assets/orig/ui/newcardglow.png') center / 100% 100% no-repeat; opacity: .9; animation: qdRays 1.2s ease-in-out infinite alternate; }
+.qd-face {
+  position: absolute; inset: 0; overflow: hidden; border-radius: 6px; background: #000;
+  box-shadow: 0 0 0 7px var(--frame), 0 0 0 9px rgba(0, 0, 0, .6), 0 0 34px 10px rgba(255, 246, 210, .85);
+}
+.qd-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.qd-white {
+  position: absolute; inset: -14px; background: url('/assets/orig/ui/glowingcard.png') center / 100% 100% no-repeat;
+  animation: qdWhite var(--reveal, 250ms) linear var(--flash, 250ms) both;
+}
+@keyframes qdCardIn { from { transform: scale(.15); opacity: .4; } to { transform: none; opacity: 1; } }
+@keyframes qdWhite { from { opacity: 1; } to { opacity: 0; } }
+@keyframes qdRays { from { transform: scale(.96); opacity: .7; } to { transform: scale(1.05); opacity: 1; } }
+.qd-card.fly { transform: translate(var(--dx, 0px), var(--dy, 400px)) scale(.36); opacity: .6; transition: transform var(--fly, 250ms) cubic-bezier(.55, 0, .8, .5), opacity var(--fly, 250ms) linear; }
+.qd-card.fly .qd-rays { opacity: 0; transition: opacity 120ms linear; }
+
+/* ---------- bottom band ---------- */
+.quest-tray {
+  position: relative; flex: none; height: 150px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  padding: 10px 12px 14px;
+}
+.quest-tray-boss { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.quest-tray-text { font-size: 26px; font-weight: 600; color: var(--gold); text-shadow: 0 2px 2px rgba(0, 0, 0, .9); }
+.quest-boss-btn { min-width: 320px; }
+
+/* ---------- tap feedback: gold PERFECT over the slash, the tap's gold as a white number at the top right ---------- */
+.quest-perfect {
+  position: absolute; z-index: 52; transform: translateX(-50%);
+  font-family: var(--font-ui); font-size: 46px; font-weight: 800; letter-spacing: .02em;
+  color: #ffc553;
+  text-shadow: 0 0 14px rgba(255, 150, 20, .85), 0 3px 3px rgba(0, 0, 0, .9);
+  pointer-events: none;
+  animation: perfectPop var(--dur, 900ms) ease-out both;
+}
+@keyframes perfectPop {
+  0% { opacity: 0; transform: translateX(-50%) scale(.5); }
+  12% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+  22% { transform: translateX(-50%) scale(1); }
+  78% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -16px) scale(1); }
+}
+.quest-tapnum {
+  position: absolute; top: 18px; z-index: 53;
+  font-size: 30px; font-weight: 700; color: #fff; text-shadow: 0 2px 3px rgba(0, 0, 0, .9);
+  pointer-events: none;
+  animation: tapNum var(--dur, 900ms) ease-out both;
+}
+.quest-tapnum.burst { color: #fff4c0; font-size: 36px; }
+@keyframes tapNum { 0% { opacity: 0; transform: translateY(16px); } 20% { opacity: 1; transform: none; } 75% { opacity: 1; } 100% { opacity: 0; transform: translateY(-22px); } }
+.quest-coinfx { z-index: 51; pointer-events: none; }
+.quest-coinfx.shower { left: 50% !important; top: 45% !important; }
+
+/* ---------- minideck (comp_minideck): the deck's five slots ---------- */
+.quest-minideck { display: flex; gap: 14px; justify-content: center; }
+.qmd-slot {
+  position: relative; width: 104px; height: 104px; flex: none;
+  background: #0c0d0e url('/assets/orig/ui/cardslot_simple.png') center / 100% 100% no-repeat;
+  border: 3px solid #2e3236; border-radius: 6px;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, .9);
+  overflow: hidden;
+}
+.qmd-slot.locked { background-image: url('/assets/orig/ui/cardslotlocked.png'); opacity: .7; }
+.qmd-slot.filled { border-color: #6b5a3a; }
+.qmd-art { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }

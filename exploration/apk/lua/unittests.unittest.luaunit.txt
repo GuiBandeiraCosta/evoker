@@ -1,0 +1,756 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['argv', 'arg', 'USE_EXPECTED_ACTUAL_IN_ASSERT_EQUALS', 'assertError', 'assertEquals', 'assert_equals', 'assert_error', 'wrapFunctions', '__genOrderedIndex', 'orderedNext', 'orderedPairs', 'UnitResult', 'failureCount', 'testCount', 'errorList', 'currentClassName', '', 'currentTestName', 'testHasFailure', 'verbosity', 'displayClassName', 'displayTestName', 'displayFailure', 'displaySuccess', 'displayOneFailedTest', 'displayFailedTests', 'displayFinalResult', 'startClass', 'startTest', 'addFailure', 'endTest', 'LuaUnit', 'result', 'strsplit', 'isFunction', 'strip_luaunit_stack', 'runTestMethod', 'runTestMethodName', 'runTestClassByName', 'run'] numbers=[0, 1]
+     0 [   0] GETGLOBAL R0 := _G["arg"]
+     1 [   0] SETGLOBAL _G["argv"] := R0
+     2 [   0] LOADBOOL  R0 := True
+     3 [   0] SETGLOBAL _G["USE_EXPECTED_ACTUAL_IN_ASSERT_EQUALS"] := R0
+     4 [   0] CLOSURE   R0 := closure #0
+     5 [   0] SETGLOBAL _G["assertError"] := R0
+     6 [   0] CLOSURE   R0 := closure #1
+     7 [   0] SETGLOBAL _G["assertEquals"] := R0
+     8 [   0] GETGLOBAL R0 := _G["assertEquals"]
+     9 [   0] SETGLOBAL _G["assert_equals"] := R0
+    10 [   0] GETGLOBAL R0 := _G["assertError"]
+    11 [   0] SETGLOBAL _G["assert_error"] := R0
+    12 [   0] CLOSURE   R0 := closure #2
+    13 [   0] SETGLOBAL _G["wrapFunctions"] := R0
+    14 [   0] CLOSURE   R0 := closure #3
+    15 [   0] SETGLOBAL _G["__genOrderedIndex"] := R0
+    16 [   0] CLOSURE   R0 := closure #4
+    17 [   0] SETGLOBAL _G["orderedNext"] := R0
+    18 [   0] CLOSURE   R0 := closure #5
+    19 [   0] SETGLOBAL _G["orderedPairs"] := R0
+    20 [   0] NEWTABLE  R0 := {} (array 0, hash 7)
+    21 [   0] SETTABLE  R0["failureCount"] := 0
+    22 [   0] SETTABLE  R0["testCount"] := 0
+    23 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+    24 [   0] SETTABLE  R0["errorList"] := R1
+    25 [   0] SETTABLE  R0["currentClassName"] := ""
+    26 [   0] SETTABLE  R0["currentTestName"] := ""
+    27 [   0] SETTABLE  R0["testHasFailure"] := False
+    28 [   0] SETTABLE  R0["verbosity"] := 1
+    29 [   0] SETGLOBAL _G["UnitResult"] := R0
+    30 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    31 [   0] CLOSURE   R1 := closure #6
+    32 [   0] SETTABLE  R0["displayClassName"] := R1
+    33 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    34 [   0] CLOSURE   R1 := closure #7
+    35 [   0] SETTABLE  R0["displayTestName"] := R1
+    36 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    37 [   0] CLOSURE   R1 := closure #8
+    38 [   0] SETTABLE  R0["displayFailure"] := R1
+    39 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    40 [   0] CLOSURE   R1 := closure #9
+    41 [   0] SETTABLE  R0["displaySuccess"] := R1
+    42 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    43 [   0] CLOSURE   R1 := closure #10
+    44 [   0] SETTABLE  R0["displayOneFailedTest"] := R1
+    45 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    46 [   0] CLOSURE   R1 := closure #11
+    47 [   0] SETTABLE  R0["displayFailedTests"] := R1
+    48 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    49 [   0] CLOSURE   R1 := closure #12
+    50 [   0] SETTABLE  R0["displayFinalResult"] := R1
+    51 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    52 [   0] CLOSURE   R1 := closure #13
+    53 [   0] SETTABLE  R0["startClass"] := R1
+    54 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    55 [   0] CLOSURE   R1 := closure #14
+    56 [   0] SETTABLE  R0["startTest"] := R1
+    57 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    58 [   0] CLOSURE   R1 := closure #15
+    59 [   0] SETTABLE  R0["addFailure"] := R1
+    60 [   0] GETGLOBAL R0 := _G["UnitResult"]
+    61 [   0] CLOSURE   R1 := closure #16
+    62 [   0] SETTABLE  R0["endTest"] := R1
+    63 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+    64 [   0] GETGLOBAL R1 := _G["UnitResult"]
+    65 [   0] SETTABLE  R0["result"] := R1
+    66 [   0] SETGLOBAL _G["LuaUnit"] := R0
+    67 [   0] GETGLOBAL R0 := _G["LuaUnit"]
+    68 [   0] CLOSURE   R1 := closure #17
+    69 [   0] SETTABLE  R0["strsplit"] := R1
+    70 [   0] GETGLOBAL R0 := _G["LuaUnit"]
+    71 [   0] CLOSURE   R1 := closure #18
+    72 [   0] SETTABLE  R0["isFunction"] := R1
+    73 [   0] GETGLOBAL R0 := _G["LuaUnit"]
+    74 [   0] CLOSURE   R1 := closure #19
+    75 [   0] SETTABLE  R0["strip_luaunit_stack"] := R1
+    76 [   0] GETGLOBAL R0 := _G["LuaUnit"]
+    77 [   0] CLOSURE   R1 := closure #20
+    78 [   0] SETTABLE  R0["runTestMethod"] := R1
+    79 [   0] GETGLOBAL R0 := _G["LuaUnit"]
+    80 [   0] CLOSURE   R1 := closure #21
+    81 [   0] SETTABLE  R0["runTestMethodName"] := R1
+    82 [   0] GETGLOBAL R0 := _G["LuaUnit"]
+    83 [   0] CLOSURE   R1 := closure #22
+    84 [   0] SETTABLE  R0["runTestClassByName"] := R1
+    85 [   0] GETGLOBAL R0 := _G["LuaUnit"]
+    86 [   0] CLOSURE   R1 := closure #23
+    87 [   0] SETTABLE  R0["run"] := R1
+    88 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 45-51, upvals=[], locals=[])
+    constants: strings=['pcall', 'error', 'No error generated'] numbers=[2]
+       0 [   0] GETGLOBAL R2 := _G["pcall"]
+       1 [   0] MOVE      R3 := R0
+       2 [   0] VARARG    R4.. := ... (-1)
+       3 [   0] CALL      R2(...) nargs=-1 nret=1
+       4 [   0] NOT       R2 := not R2
+       5 [   0] LOADNIL   R3..R3 := nil
+       6 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       7 [   0] JMP       jmp +1 -> 9
+       8 [   0] RETURN    return R0.. (0 values)
+       9 [   0] GETGLOBAL R4 := _G["error"]
+      10 [   0] LOADK     R5 := "No error generated"
+      11 [   0] LOADK     R6 := 2
+      12 [   0] CALL      R4(...) nargs=2 nret=0
+      13 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=2, lines 53-74, upvals=[], locals=[])
+    constants: strings=['USE_EXPECTED_ACTUAL_IN_ASSERT_EQUALS', 'type', 'string', '\nexpected: ', '\n', 'actual  : ', 'expected: ', ', actual: ', 'print', 'error'] numbers=[2]
+       0 [   0] EQ        if (R0 == R1) ~= 1 then skip next
+       1 [   0] JMP       jmp +41 -> 43
+       2 [   0] CLOSURE   R2 := closure #0
+       3 [   0] GETGLOBAL R3 := _G["USE_EXPECTED_ACTUAL_IN_ASSERT_EQUALS"]
+       4 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       5 [   0] JMP       jmp +3 -> 9
+       6 [   0] MOVE      R3 := R0
+       7 [   0] MOVE      R0 := R1
+       8 [   0] MOVE      R1 := R3
+       9 [   0] LOADNIL   R3..R3 := nil
+      10 [   0] GETGLOBAL R4 := _G["type"]
+      11 [   0] MOVE      R5 := R1
+      12 [   0] CALL      R4(...) nargs=1 nret=1
+      13 [   0] EQ        if (R4 == "string") ~= 0 then skip next
+      14 [   0] JMP       jmp +12 -> 27
+      15 [   0] LOADK     R4 := "\nexpected: "
+      16 [   0] MOVE      R5 := R2
+      17 [   0] MOVE      R6 := R1
+      18 [   0] CALL      R5(...) nargs=1 nret=1
+      19 [   0] LOADK     R6 := "\n"
+      20 [   0] LOADK     R7 := "actual  : "
+      21 [   0] MOVE      R8 := R2
+      22 [   0] MOVE      R9 := R0
+      23 [   0] CALL      R8(...) nargs=1 nret=1
+      24 [   0] LOADK     R9 := "\n"
+      25 [   0] CONCAT    R3 := R4 .. ... .. R9
+      26 [   0] JMP       jmp +9 -> 36
+      27 [   0] LOADK     R4 := "expected: "
+      28 [   0] MOVE      R5 := R2
+      29 [   0] MOVE      R6 := R1
+      30 [   0] CALL      R5(...) nargs=1 nret=1
+      31 [   0] LOADK     R6 := ", actual: "
+      32 [   0] MOVE      R7 := R2
+      33 [   0] MOVE      R8 := R0
+      34 [   0] CALL      R7(...) nargs=1 nret=1
+      35 [   0] CONCAT    R3 := R4 .. ... .. R7
+      36 [   0] GETGLOBAL R4 := _G["print"]
+      37 [   0] MOVE      R5 := R3
+      38 [   0] CALL      R4(...) nargs=1 nret=0
+      39 [   0] GETGLOBAL R4 := _G["error"]
+      40 [   0] MOVE      R5 := R3
+      41 [   0] LOADK     R6 := 2
+      42 [   0] CALL      R4(...) nargs=2 nret=0
+      43 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=1, lines 56-59, upvals=[], locals=[])
+      constants: strings=['type', 'string', "'", 'tostring'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["type"]
+         1 [   0] MOVE      R2 := R0
+         2 [   0] CALL      R1(...) nargs=1 nret=1
+         3 [   0] EQ        if (R1 == "string") ~= 0 then skip next
+         4 [   0] JMP       jmp +5 -> 10
+         5 [   0] LOADK     R1 := "'"
+         6 [   0] MOVE      R2 := R0
+         7 [   0] LOADK     R3 := "'"
+         8 [   0] CONCAT    R1 := R1 .. ... .. R3
+         9 [   0] RETURN    return R1.. (1 values)
+        10 [   0] GETGLOBAL R1 := _G["tostring"]
+        11 [   0] MOVE      R2 := R0
+        12 [   0] TAILCALL  return R1(...) nargs=1
+        13 [   0] RETURN    return R1.. (-1 values)
+        14 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 79-91, upvals=[], locals=[])
+    constants: strings=['table', 'foreachi'] numbers=[]
+       0 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       1 [   0] MOVE      R1 := R3
+       2 [   0] CLOSURE   R3 := closure #0
+       3 [   0] MOVE      R0 := R2
+       4 [   0] MOVE      R0 := R1
+       5 [   0] GETGLOBAL R4 := _G["table"]
+       6 [   0] GETTABLE  R4 := R4["foreachi"]
+       7 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+       8 [   0] VARARG    R6.. := ... (-1)
+       9 [   0] SETLIST   R5[...] := R6.. (n=0, block 1)
+      10 [   0] MOVE      R6 := R3
+      11 [   0] CALL      R4(...) nargs=2 nret=0
+      12 [   0] RETURN    return R1.. (1 values)
+      13 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#0 (params=2, lines 85-88, upvals=[], locals=[])
+      constants: strings=['_G'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["_G"]
+         1 [   0] GETTABLE  R2 := R2[R1]
+         2 [   0] SETUPVAL  upval 0 := R2
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] SETTABLE  R2[R1] := R3
+         6 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=1, lines 93-100, upvals=[], locals=[])
+    constants: strings=['pairs', 'table', 'insert', 'sort'] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] GETGLOBAL R2 := _G["pairs"]
+       2 [   0] MOVE      R3 := R0
+       3 [   0] CALL      R2(...) nargs=1 nret=3
+       4 [   0] JMP       jmp +5 -> 10
+       5 [   0] GETGLOBAL R7 := _G["table"]
+       6 [   0] GETTABLE  R7 := R7["insert"]
+       7 [   0] MOVE      R8 := R1
+       8 [   0] MOVE      R9 := R5
+       9 [   0] CALL      R7(...) nargs=2 nret=0
+      10 [   0] TFORLOOP  tforloop R2 nres=2
+      11 [   0] JMP       jmp -7 -> 5
+      12 [   0] GETGLOBAL R2 := _G["table"]
+      13 [   0] GETTABLE  R2 := R2["sort"]
+      14 [   0] MOVE      R3 := R1
+      15 [   0] CALL      R2(...) nargs=1 nret=0
+      16 [   0] RETURN    return R1.. (1 values)
+      17 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=2, lines 102-129, upvals=[], locals=[])
+    constants: strings=['__orderedIndex', '__genOrderedIndex', 'key'] numbers=[1]
+       0 [   0] EQ        if (R1 == None) ~= 0 then skip next
+       1 [   0] JMP       jmp +11 -> 13
+       2 [   0] GETGLOBAL R2 := _G["__genOrderedIndex"]
+       3 [   0] MOVE      R3 := R0
+       4 [   0] CALL      R2(...) nargs=1 nret=1
+       5 [   0] SETTABLE  R0["__orderedIndex"] := R2
+       6 [   0] GETTABLE  R2 := R0["__orderedIndex"]
+       7 [   0] GETTABLE  R2 := R2[1]
+       8 [   0] SETGLOBAL _G["key"] := R2
+       9 [   0] GETGLOBAL R2 := _G["key"]
+      10 [   0] GETGLOBAL R3 := _G["key"]
+      11 [   0] GETTABLE  R3 := R0[R3]
+      12 [   0] RETURN    return R2.. (2 values)
+      13 [   0] LOADNIL   R2..R2 := nil
+      14 [   0] SETGLOBAL _G["key"] := R2
+      15 [   0] LOADK     R2 := 1
+      16 [   0] GETTABLE  R3 := R0["__orderedIndex"]
+      17 [   0] LEN       R3 := #R3
+      18 [   0] LOADK     R4 := 1
+      19 [   0] FORPREP   for R2.. jmp +8
+      20 [   0] GETTABLE  R6 := R0["__orderedIndex"]
+      21 [   0] GETTABLE  R6 := R6[R5]
+      22 [   0] EQ        if (R6 == R1) ~= 0 then skip next
+      23 [   0] JMP       jmp +4 -> 28
+      24 [   0] GETTABLE  R6 := R0["__orderedIndex"]
+      25 [   0] ADD       R7 := R5 + 1
+      26 [   0] GETTABLE  R6 := R6[R7]
+      27 [   0] SETGLOBAL _G["key"] := R6
+      28 [   0] FORLOOP   forloop R2 jmp -9
+      29 [   0] GETGLOBAL R2 := _G["key"]
+      30 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      31 [   0] JMP       jmp +4 -> 36
+      32 [   0] GETGLOBAL R2 := _G["key"]
+      33 [   0] GETGLOBAL R3 := _G["key"]
+      34 [   0] GETTABLE  R3 := R0[R3]
+      35 [   0] RETURN    return R2.. (2 values)
+      36 [   0] SETTABLE  R0["__orderedIndex"] := None
+      37 [   0] RETURN    return R0.. (0 values)
+      38 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=1, lines 131-135, upvals=[], locals=[])
+    constants: strings=['orderedNext'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["orderedNext"]
+       1 [   0] MOVE      R2 := R0
+       2 [   0] LOADNIL   R3..R3 := nil
+       3 [   0] RETURN    return R1.. (3 values)
+       4 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=1, lines 147-149, upvals=[], locals=[])
+    constants: strings=['print', '>>>>>>>>> ', 'currentClassName'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["print"]
+       1 [   0] LOADK     R2 := ">>>>>>>>> "
+       2 [   0] GETTABLE  R3 := R0["currentClassName"]
+       3 [   0] CONCAT    R2 := R2 .. ... .. R3
+       4 [   0] CALL      R1(...) nargs=1 nret=0
+       5 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=1, lines 151-155, upvals=[], locals=[])
+    constants: strings=['verbosity', 'print', '>>> ', 'currentTestName'] numbers=[0]
+       0 [   0] GETTABLE  R1 := R0["verbosity"]
+       1 [   0] LT        if (0 < R1) ~= 0 then skip next
+       2 [   0] JMP       jmp +5 -> 8
+       3 [   0] GETGLOBAL R1 := _G["print"]
+       4 [   0] LOADK     R2 := ">>> "
+       5 [   0] GETTABLE  R3 := R0["currentTestName"]
+       6 [   0] CONCAT    R2 := R2 .. ... .. R3
+       7 [   0] CALL      R1(...) nargs=1 nret=0
+       8 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=2, lines 157-164, upvals=[], locals=[])
+    constants: strings=['verbosity', 'io', 'stdout', 'write', 'F', 'print', 'Failed'] numbers=[0]
+       0 [   0] GETTABLE  R2 := R0["verbosity"]
+       1 [   0] EQ        if (R2 == 0) ~= 0 then skip next
+       2 [   0] JMP       jmp +6 -> 9
+       3 [   0] GETGLOBAL R2 := _G["io"]
+       4 [   0] GETTABLE  R2 := R2["stdout"]
+       5 [   0] SELF      R3 := R2; R2 := R2["write"]
+       6 [   0] LOADK     R4 := "F"
+       7 [   0] CALL      R2(...) nargs=2 nret=0
+       8 [   0] JMP       jmp +6 -> 15
+       9 [   0] GETGLOBAL R2 := _G["print"]
+      10 [   0] MOVE      R3 := R1
+      11 [   0] CALL      R2(...) nargs=1 nret=0
+      12 [   0] GETGLOBAL R2 := _G["print"]
+      13 [   0] LOADK     R3 := "Failed"
+      14 [   0] CALL      R2(...) nargs=1 nret=0
+      15 [   0] RETURN    return R0.. (0 values)
+  function main.#9 (params=1, lines 166-172, upvals=[], locals=[])
+    constants: strings=['verbosity', 'io', 'stdout', 'write', '.'] numbers=[0]
+       0 [   0] GETTABLE  R1 := R0["verbosity"]
+       1 [   0] LT        if (0 < R1) ~= 0 then skip next
+       2 [   0] JMP       jmp +1 -> 4
+       3 [   0] JMP       jmp +5 -> 9
+       4 [   0] GETGLOBAL R1 := _G["io"]
+       5 [   0] GETTABLE  R1 := R1["stdout"]
+       6 [   0] SELF      R2 := R1; R1 := R1["write"]
+       7 [   0] LOADK     R3 := "."
+       8 [   0] CALL      R1(...) nargs=2 nret=0
+       9 [   0] RETURN    return R0.. (0 values)
+  function main.#10 (params=2, lines 174-178, upvals=[], locals=[])
+    constants: strings=['testName', 'errorMsg', 'unpack', 'print', '>>> ', ' failed'] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["unpack"]
+       1 [   0] MOVE      R3 := R1
+       2 [   0] CALL      R2(...) nargs=1 nret=2
+       3 [   0] SETGLOBAL _G["errorMsg"] := R3
+       4 [   0] SETGLOBAL _G["testName"] := R2
+       5 [   0] GETGLOBAL R2 := _G["print"]
+       6 [   0] LOADK     R3 := ">>> "
+       7 [   0] GETGLOBAL R4 := _G["testName"]
+       8 [   0] LOADK     R5 := " failed"
+       9 [   0] CONCAT    R3 := R3 .. ... .. R5
+      10 [   0] CALL      R2(...) nargs=1 nret=0
+      11 [   0] GETGLOBAL R2 := _G["print"]
+      12 [   0] GETGLOBAL R3 := _G["errorMsg"]
+      13 [   0] CALL      R2(...) nargs=1 nret=0
+      14 [   0] RETURN    return R0.. (0 values)
+  function main.#11 (params=1, lines 180-186, upvals=[], locals=[])
+    constants: strings=['errorList', 'print', 'Failed tests:', '-------------', 'table', 'foreachi', 'displayOneFailedTest'] numbers=[0]
+       0 [   0] GETTABLE  R1 := R0["errorList"]
+       1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       2 [   0] JMP       jmp +5 -> 8
+       3 [   0] GETTABLE  R1 := R0["errorList"]
+       4 [   0] LEN       R1 := #R1
+       5 [   0] EQ        if (R1 == 0) ~= 0 then skip next
+       6 [   0] JMP       jmp +1 -> 8
+       7 [   0] RETURN    return R0.. (0 values)
+       8 [   0] GETGLOBAL R1 := _G["print"]
+       9 [   0] LOADK     R2 := "Failed tests:"
+      10 [   0] CALL      R1(...) nargs=1 nret=0
+      11 [   0] GETGLOBAL R1 := _G["print"]
+      12 [   0] LOADK     R2 := "-------------"
+      13 [   0] CALL      R1(...) nargs=1 nret=0
+      14 [   0] GETGLOBAL R1 := _G["table"]
+      15 [   0] GETTABLE  R1 := R1["foreachi"]
+      16 [   0] GETTABLE  R2 := R0["errorList"]
+      17 [   0] GETTABLE  R3 := R0["displayOneFailedTest"]
+      18 [   0] CALL      R1(...) nargs=2 nret=0
+      19 [   0] GETGLOBAL R1 := _G["print"]
+      20 [   0] CALL      R1(...) nargs=0 nret=0
+      21 [   0] RETURN    return R0.. (0 values)
+  function main.#12 (params=1, lines 188-201, upvals=[], locals=[])
+    constants: strings=['print', '=========================================================', 'displayFailedTests', 'testCount', 'failureCount', 'string', 'format', 'Success : %d%% - %d / %d', 'math', 'ceil'] numbers=[0, 100]
+       0 [   0] GETGLOBAL R1 := _G["print"]
+       1 [   0] LOADK     R2 := "========================================================="
+       2 [   0] CALL      R1(...) nargs=1 nret=0
+       3 [   0] SELF      R2 := R0; R1 := R0["displayFailedTests"]
+       4 [   0] CALL      R1(...) nargs=1 nret=0
+       5 [   0] LOADNIL   R1..R2 := nil
+       6 [   0] GETTABLE  R3 := R0["testCount"]
+       7 [   0] EQ        if (R3 == 0) ~= 0 then skip next
+       8 [   0] JMP       jmp +2 -> 11
+       9 [   0] LOADK     R1 := 0
+      10 [   0] JMP       jmp +4 -> 15
+      11 [   0] GETTABLE  R3 := R0["failureCount"]
+      12 [   0] MUL       R3 := 100 * R3
+      13 [   0] GETTABLE  R4 := R0["testCount"]
+      14 [   0] DIV       R1 := R3 / R4
+      15 [   0] GETTABLE  R3 := R0["testCount"]
+      16 [   0] GETTABLE  R4 := R0["failureCount"]
+      17 [   0] SUB       R2 := R3 - R4
+      18 [   0] GETGLOBAL R3 := _G["print"]
+      19 [   0] GETGLOBAL R4 := _G["string"]
+      20 [   0] GETTABLE  R4 := R4["format"]
+      21 [   0] LOADK     R5 := "Success : %d%% - %d / %d"
+      22 [   0] GETGLOBAL R6 := _G["math"]
+      23 [   0] GETTABLE  R6 := R6["ceil"]
+      24 [   0] MOVE      R7 := R1
+      25 [   0] CALL      R6(...) nargs=1 nret=1
+      26 [   0] SUB       R6 := 100 - R6
+      27 [   0] MOVE      R7 := R2
+      28 [   0] GETTABLE  R8 := R0["testCount"]
+      29 [   0] CALL      R4(...) nargs=4 nret=-1
+      30 [   0] CALL      R3(...) nargs=-1 nret=0
+      31 [   0] GETTABLE  R3 := R0["failureCount"]
+      32 [   0] RETURN    return R3.. (1 values)
+      33 [   0] RETURN    return R0.. (0 values)
+  function main.#13 (params=2, lines 203-206, upvals=[], locals=[])
+    constants: strings=['currentClassName', 'displayClassName'] numbers=[]
+       0 [   0] SETTABLE  R0["currentClassName"] := R1
+       1 [   0] SELF      R3 := R0; R2 := R0["displayClassName"]
+       2 [   0] CALL      R2(...) nargs=1 nret=0
+       3 [   0] RETURN    return R0.. (0 values)
+  function main.#14 (params=2, lines 208-213, upvals=[], locals=[])
+    constants: strings=['currentTestName', 'displayTestName', 'testCount', 'testHasFailure'] numbers=[1]
+       0 [   0] SETTABLE  R0["currentTestName"] := R1
+       1 [   0] SELF      R3 := R0; R2 := R0["displayTestName"]
+       2 [   0] CALL      R2(...) nargs=1 nret=0
+       3 [   0] GETTABLE  R2 := R0["testCount"]
+       4 [   0] ADD       R2 := R2 + 1
+       5 [   0] SETTABLE  R0["testCount"] := R2
+       6 [   0] SETTABLE  R0["testHasFailure"] := False
+       7 [   0] RETURN    return R0.. (0 values)
+  function main.#15 (params=2, lines 215-220, upvals=[], locals=[])
+    constants: strings=['failureCount', 'testHasFailure', 'table', 'insert', 'errorList', 'currentTestName', 'displayFailure'] numbers=[1]
+       0 [   0] GETTABLE  R2 := R0["failureCount"]
+       1 [   0] ADD       R2 := R2 + 1
+       2 [   0] SETTABLE  R0["failureCount"] := R2
+       3 [   0] SETTABLE  R0["testHasFailure"] := True
+       4 [   0] GETGLOBAL R2 := _G["table"]
+       5 [   0] GETTABLE  R2 := R2["insert"]
+       6 [   0] GETTABLE  R3 := R0["errorList"]
+       7 [   0] NEWTABLE  R4 := {} (array 2, hash 0)
+       8 [   0] GETTABLE  R5 := R0["currentTestName"]
+       9 [   0] MOVE      R6 := R1
+      10 [   0] SETLIST   R4[...] := R5.. (n=2, block 1)
+      11 [   0] CALL      R2(...) nargs=2 nret=0
+      12 [   0] SELF      R3 := R0; R2 := R0["displayFailure"]
+      13 [   0] MOVE      R4 := R1
+      14 [   0] CALL      R2(...) nargs=2 nret=0
+      15 [   0] RETURN    return R0.. (0 values)
+  function main.#16 (params=1, lines 222-226, upvals=[], locals=[])
+    constants: strings=['testHasFailure', 'displaySuccess'] numbers=[]
+       0 [   0] GETTABLE  R1 := R0["testHasFailure"]
+       1 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +2 -> 5
+       3 [   0] SELF      R2 := R0; R1 := R0["displaySuccess"]
+       4 [   0] CALL      R1(...) nargs=1 nret=0
+       5 [   0] RETURN    return R0.. (0 values)
+  function main.#17 (params=2, lines 237-254, upvals=[], locals=[])
+    constants: strings=['string', 'find', '', 'error', 'delimiter matches empty string!', 'table', 'insert', 'sub'] numbers=[1]
+       0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       1 [   0] LOADK     R3 := 1
+       2 [   0] GETGLOBAL R4 := _G["string"]
+       3 [   0] GETTABLE  R4 := R4["find"]
+       4 [   0] LOADK     R5 := ""
+       5 [   0] MOVE      R6 := R0
+       6 [   0] LOADK     R7 := 1
+       7 [   0] CALL      R4(...) nargs=3 nret=1
+       8 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +3 -> 13
+      10 [   0] GETGLOBAL R4 := _G["error"]
+      11 [   0] LOADK     R5 := "delimiter matches empty string!"
+      12 [   0] CALL      R4(...) nargs=1 nret=0
+      13 [   0] GETGLOBAL R4 := _G["string"]
+      14 [   0] GETTABLE  R4 := R4["find"]
+      15 [   0] MOVE      R5 := R1
+      16 [   0] MOVE      R6 := R0
+      17 [   0] MOVE      R7 := R3
+      18 [   0] CALL      R4(...) nargs=3 nret=2
+      19 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      20 [   0] JMP       jmp +12 -> 33
+      21 [   0] GETGLOBAL R6 := _G["table"]
+      22 [   0] GETTABLE  R6 := R6["insert"]
+      23 [   0] MOVE      R7 := R2
+      24 [   0] GETGLOBAL R8 := _G["string"]
+      25 [   0] GETTABLE  R8 := R8["sub"]
+      26 [   0] MOVE      R9 := R1
+      27 [   0] MOVE      R10 := R3
+      28 [   0] SUB       R11 := R4 - 1
+      29 [   0] CALL      R8(...) nargs=3 nret=-1
+      30 [   0] CALL      R6(...) nargs=-1 nret=0
+      31 [   0] ADD       R3 := R5 + 1
+      32 [   0] JMP       jmp -20 -> 13
+      33 [   0] GETGLOBAL R6 := _G["table"]
+      34 [   0] GETTABLE  R6 := R6["insert"]
+      35 [   0] MOVE      R7 := R2
+      36 [   0] GETGLOBAL R8 := _G["string"]
+      37 [   0] GETTABLE  R8 := R8["sub"]
+      38 [   0] MOVE      R9 := R1
+      39 [   0] MOVE      R10 := R3
+      40 [   0] CALL      R8(...) nargs=2 nret=-1
+      41 [   0] CALL      R6(...) nargs=-1 nret=0
+      42 [   0] JMP       jmp +1 -> 44
+      43 [   0] JMP       jmp -31 -> 13
+      44 [   0] RETURN    return R2.. (1 values)
+      45 [   0] RETURN    return R0.. (0 values)
+  function main.#18 (params=1, lines 256-258, upvals=[], locals=[])
+    constants: strings=['function', 'type'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["type"]
+       1 [   0] MOVE      R2 := R0
+       2 [   0] CALL      R1(...) nargs=1 nret=1
+       3 [   0] EQ        if ("function" == R1) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] LOADBOOL  R1 := False (skip)
+       6 [   0] LOADBOOL  R1 := True
+       7 [   0] RETURN    return R1.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)
+  function main.#19 (params=1, lines 260-275, upvals=[], locals=[])
+    constants: strings=['stack_list', 'LuaUnit', 'strsplit', '\n', 'strip_end', 'string', 'find', "[C]: in function `xpcall'", 'table', 'setn', 'concat'] numbers=[1, -1, 0, 2]
+       0 [   0] GETGLOBAL R1 := _G["LuaUnit"]
+       1 [   0] GETTABLE  R1 := R1["strsplit"]
+       2 [   0] LOADK     R2 := "\n"
+       3 [   0] MOVE      R3 := R0
+       4 [   0] CALL      R1(...) nargs=2 nret=1
+       5 [   0] SETGLOBAL _G["stack_list"] := R1
+       6 [   0] LOADNIL   R1..R1 := nil
+       7 [   0] SETGLOBAL _G["strip_end"] := R1
+       8 [   0] GETGLOBAL R1 := _G["stack_list"]
+       9 [   0] LEN       R1 := #R1
+      10 [   0] LOADK     R2 := 1
+      11 [   0] LOADK     R3 := -1
+      12 [   0] FORPREP   for R1.. jmp +12
+      13 [   0] GETGLOBAL R5 := _G["string"]
+      14 [   0] GETTABLE  R5 := R5["find"]
+      15 [   0] GETGLOBAL R6 := _G["stack_list"]
+      16 [   0] GETTABLE  R6 := R6[R4]
+      17 [   0] LOADK     R7 := "[C]: in function `xpcall'"
+      18 [   0] LOADK     R8 := 0
+      19 [   0] LOADBOOL  R9 := True
+      20 [   0] CALL      R5(...) nargs=4 nret=1
+      21 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      22 [   0] JMP       jmp +2 -> 25
+      23 [   0] SUB       R5 := R4 - 2
+      24 [   0] SETGLOBAL _G["strip_end"] := R5
+      25 [   0] FORLOOP   forloop R1 jmp -13
+      26 [   0] GETGLOBAL R1 := _G["strip_end"]
+      27 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      28 [   0] JMP       jmp +5 -> 34
+      29 [   0] GETGLOBAL R1 := _G["table"]
+      30 [   0] GETTABLE  R1 := R1["setn"]
+      31 [   0] GETGLOBAL R2 := _G["stack_list"]
+      32 [   0] GETGLOBAL R3 := _G["strip_end"]
+      33 [   0] CALL      R1(...) nargs=2 nret=0
+      34 [   0] GETGLOBAL R1 := _G["table"]
+      35 [   0] GETTABLE  R1 := R1["concat"]
+      36 [   0] GETGLOBAL R2 := _G["stack_list"]
+      37 [   0] LOADK     R3 := "\n"
+      38 [   0] CALL      R1(...) nargs=2 nret=1
+      39 [   0] MOVE      R0 := R1
+      40 [   0] RETURN    return R0.. (1 values)
+      41 [   0] RETURN    return R0.. (0 values)
+  function main.#20 (params=4, lines 277-304, upvals=[], locals=[])
+    constants: strings=['LuaUnit', 'result', 'startTest', 'isFunction', 'setUp', 'xpcall', 'strip_luaunit_stack', 'addFailure', 'tearDown', 'endTest'] numbers=[]
+       0 [   0] GETGLOBAL R6 := _G["LuaUnit"]
+       1 [   0] GETTABLE  R6 := R6["result"]
+       2 [   0] SELF      R7 := R6; R6 := R6["startTest"]
+       3 [   0] MOVE      R8 := R1
+       4 [   0] CALL      R6(...) nargs=2 nret=0
+       5 [   0] GETTABLE  R6 := R0["isFunction"]
+       6 [   0] GETTABLE  R7 := R2["setUp"]
+       7 [   0] CALL      R6(...) nargs=1 nret=1
+       8 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +2 -> 12
+      10 [   0] SELF      R7 := R2; R6 := R2["setUp"]
+      11 [   0] CALL      R6(...) nargs=1 nret=0
+      12 [   0] CLOSURE   R6 := closure #0
+      13 [   0] GETGLOBAL R7 := _G["xpcall"]
+      14 [   0] MOVE      R8 := R3
+      15 [   0] MOVE      R9 := R6
+      16 [   0] CALL      R7(...) nargs=2 nret=2
+      17 [   0] MOVE      R5 := R8
+      18 [   0] MOVE      R4 := R7
+      19 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+      20 [   0] JMP       jmp +9 -> 30
+      21 [   0] GETTABLE  R7 := R0["strip_luaunit_stack"]
+      22 [   0] MOVE      R8 := R5
+      23 [   0] CALL      R7(...) nargs=1 nret=1
+      24 [   0] MOVE      R5 := R7
+      25 [   0] GETGLOBAL R7 := _G["LuaUnit"]
+      26 [   0] GETTABLE  R7 := R7["result"]
+      27 [   0] SELF      R8 := R7; R7 := R7["addFailure"]
+      28 [   0] MOVE      R9 := R5
+      29 [   0] CALL      R7(...) nargs=2 nret=0
+      30 [   0] GETTABLE  R7 := R0["isFunction"]
+      31 [   0] GETTABLE  R8 := R2["tearDown"]
+      32 [   0] CALL      R7(...) nargs=1 nret=1
+      33 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+      34 [   0] JMP       jmp +2 -> 37
+      35 [   0] SELF      R8 := R2; R7 := R2["tearDown"]
+      36 [   0] CALL      R7(...) nargs=1 nret=0
+      37 [   0] GETTABLE  R7 := R0["result"]
+      38 [   0] SELF      R8 := R7; R7 := R7["endTest"]
+      39 [   0] CALL      R7(...) nargs=1 nret=0
+      40 [   0] RETURN    return R0.. (0 values)
+    function main.#20.#0 (params=1, lines 287-289, upvals=[], locals=[])
+      constants: strings=['\n', 'debug', 'traceback'] numbers=[]
+         0 [   0] MOVE      R1 := R0
+         1 [   0] LOADK     R2 := "\n"
+         2 [   0] GETGLOBAL R3 := _G["debug"]
+         3 [   0] GETTABLE  R3 := R3["traceback"]
+         4 [   0] CALL      R3(...) nargs=0 nret=1
+         5 [   0] CONCAT    R1 := R1 .. ... .. R3
+         6 [   0] RETURN    return R1.. (1 values)
+         7 [   0] RETURN    return R0.. (0 values)
+  function main.#21 (params=3, lines 306-310, upvals=[], locals=[])
+    constants: strings=['loadstring', '()', 'LuaUnit', 'runTestMethod'] numbers=[]
+       0 [   0] GETGLOBAL R3 := _G["loadstring"]
+       1 [   0] MOVE      R4 := R1
+       2 [   0] LOADK     R5 := "()"
+       3 [   0] CONCAT    R4 := R4 .. ... .. R5
+       4 [   0] CALL      R3(...) nargs=1 nret=1
+       5 [   0] GETGLOBAL R4 := _G["LuaUnit"]
+       6 [   0] SELF      R5 := R4; R4 := R4["runTestMethod"]
+       7 [   0] MOVE      R6 := R1
+       8 [   0] MOVE      R7 := R2
+       9 [   0] MOVE      R8 := R3
+      10 [   0] CALL      R4(...) nargs=4 nret=0
+      11 [   0] RETURN    return R0.. (0 values)
+  function main.#22 (params=2, lines 312-342, upvals=[], locals=[])
+    constants: strings=['string', 'find', ':', 'sub', '_G', 'error', 'No such class: ', 'LuaUnit', 'result', 'startClass', 'No such method: ', 'runTestMethodName', 'orderedPairs', 'isFunction', 'test', 'print'] numbers=[1, 4]
+       0 [   0] GETGLOBAL R5 := _G["string"]
+       1 [   0] GETTABLE  R5 := R5["find"]
+       2 [   0] MOVE      R6 := R1
+       3 [   0] LOADK     R7 := ":"
+       4 [   0] CALL      R5(...) nargs=2 nret=1
+       5 [   0] MOVE      R2 := R5
+       6 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       7 [   0] JMP       jmp +13 -> 21
+       8 [   0] GETGLOBAL R5 := _G["string"]
+       9 [   0] GETTABLE  R5 := R5["sub"]
+      10 [   0] MOVE      R6 := R1
+      11 [   0] ADD       R7 := R2 + 1
+      12 [   0] CALL      R5(...) nargs=2 nret=1
+      13 [   0] MOVE      R3 := R5
+      14 [   0] GETGLOBAL R5 := _G["string"]
+      15 [   0] GETTABLE  R5 := R5["sub"]
+      16 [   0] MOVE      R6 := R1
+      17 [   0] LOADK     R7 := 1
+      18 [   0] SUB       R8 := R2 - 1
+      19 [   0] CALL      R5(...) nargs=3 nret=1
+      20 [   0] MOVE      R1 := R5
+      21 [   0] GETGLOBAL R5 := _G["_G"]
+      22 [   0] GETTABLE  R4 := R5[R1]
+      23 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+      24 [   0] JMP       jmp +5 -> 30
+      25 [   0] GETGLOBAL R5 := _G["error"]
+      26 [   0] LOADK     R6 := "No such class: "
+      27 [   0] MOVE      R7 := R1
+      28 [   0] CONCAT    R6 := R6 .. ... .. R7
+      29 [   0] CALL      R5(...) nargs=1 nret=0
+      30 [   0] GETGLOBAL R5 := _G["LuaUnit"]
+      31 [   0] GETTABLE  R5 := R5["result"]
+      32 [   0] SELF      R6 := R5; R5 := R5["startClass"]
+      33 [   0] MOVE      R7 := R1
+      34 [   0] CALL      R5(...) nargs=2 nret=0
+      35 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      36 [   0] JMP       jmp +17 -> 54
+      37 [   0] GETTABLE  R5 := R4[R3]
+      38 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      39 [   0] JMP       jmp +5 -> 45
+      40 [   0] GETGLOBAL R5 := _G["error"]
+      41 [   0] LOADK     R6 := "No such method: "
+      42 [   0] MOVE      R7 := R3
+      43 [   0] CONCAT    R6 := R6 .. ... .. R7
+      44 [   0] CALL      R5(...) nargs=1 nret=0
+      45 [   0] GETGLOBAL R5 := _G["LuaUnit"]
+      46 [   0] SELF      R6 := R5; R5 := R5["runTestMethodName"]
+      47 [   0] MOVE      R7 := R1
+      48 [   0] LOADK     R8 := ":"
+      49 [   0] MOVE      R9 := R3
+      50 [   0] CONCAT    R7 := R7 .. ... .. R9
+      51 [   0] MOVE      R8 := R4
+      52 [   0] CALL      R5(...) nargs=3 nret=0
+      53 [   0] JMP       jmp +28 -> 82
+      54 [   0] GETGLOBAL R5 := _G["orderedPairs"]
+      55 [   0] MOVE      R6 := R4
+      56 [   0] CALL      R5(...) nargs=1 nret=3
+      57 [   0] JMP       jmp +22 -> 80
+      58 [   0] GETGLOBAL R10 := _G["LuaUnit"]
+      59 [   0] GETTABLE  R10 := R10["isFunction"]
+      60 [   0] MOVE      R11 := R9
+      61 [   0] CALL      R10(...) nargs=1 nret=1
+      62 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+      63 [   0] JMP       jmp +16 -> 80
+      64 [   0] GETGLOBAL R10 := _G["string"]
+      65 [   0] GETTABLE  R10 := R10["sub"]
+      66 [   0] MOVE      R11 := R8
+      67 [   0] LOADK     R12 := 1
+      68 [   0] LOADK     R13 := 4
+      69 [   0] CALL      R10(...) nargs=3 nret=1
+      70 [   0] EQ        if (R10 == "test") ~= 0 then skip next
+      71 [   0] JMP       jmp +8 -> 80
+      72 [   0] GETGLOBAL R10 := _G["LuaUnit"]
+      73 [   0] SELF      R11 := R10; R10 := R10["runTestMethodName"]
+      74 [   0] MOVE      R12 := R1
+      75 [   0] LOADK     R13 := ":"
+      76 [   0] MOVE      R14 := R8
+      77 [   0] CONCAT    R12 := R12 .. ... .. R14
+      78 [   0] MOVE      R13 := R4
+      79 [   0] CALL      R10(...) nargs=3 nret=0
+      80 [   0] TFORLOOP  tforloop R5 nres=2
+      81 [   0] JMP       jmp -24 -> 58
+      82 [   0] GETGLOBAL R5 := _G["print"]
+      83 [   0] CALL      R5(...) nargs=0 nret=0
+      84 [   0] RETURN    return R0.. (0 values)
+  function main.#23 (params=1, lines 344-374, upvals=[], locals=[])
+    constants: strings=['args', 'table', 'foreachi', 'LuaUnit', 'runTestClassByName', 'argv', 'testClassList', 'pairs', '_G', 'string', 'sub', 'Test', 'insert', 'orderedPairs', 'result', 'displayFinalResult'] numbers=[0, 1, 4]
+       0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       1 [   0] VARARG    R3.. := ... (-1)
+       2 [   0] SETLIST   R2[...] := R3.. (n=0, block 1)
+       3 [   0] SETGLOBAL _G["args"] := R2
+       4 [   0] GETGLOBAL R2 := _G["args"]
+       5 [   0] LEN       R2 := #R2
+       6 [   0] LT        if (0 < R2) ~= 0 then skip next
+       7 [   0] JMP       jmp +7 -> 15
+       8 [   0] GETGLOBAL R2 := _G["table"]
+       9 [   0] GETTABLE  R2 := R2["foreachi"]
+      10 [   0] GETGLOBAL R3 := _G["args"]
+      11 [   0] GETGLOBAL R4 := _G["LuaUnit"]
+      12 [   0] GETTABLE  R4 := R4["runTestClassByName"]
+      13 [   0] CALL      R2(...) nargs=2 nret=0
+      14 [   0] JMP       jmp +45 -> 60
+      15 [   0] GETGLOBAL R2 := _G["argv"]
+      16 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      17 [   0] JMP       jmp +11 -> 29
+      18 [   0] GETGLOBAL R2 := _G["argv"]
+      19 [   0] LEN       R2 := #R2
+      20 [   0] LT        if (0 < R2) ~= 0 then skip next
+      21 [   0] JMP       jmp +7 -> 29
+      22 [   0] GETGLOBAL R2 := _G["table"]
+      23 [   0] GETTABLE  R2 := R2["foreachi"]
+      24 [   0] GETGLOBAL R3 := _G["argv"]
+      25 [   0] GETGLOBAL R4 := _G["LuaUnit"]
+      26 [   0] GETTABLE  R4 := R4["runTestClassByName"]
+      27 [   0] CALL      R2(...) nargs=2 nret=0
+      28 [   0] JMP       jmp +31 -> 60
+      29 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+      30 [   0] SETGLOBAL _G["testClassList"] := R2
+      31 [   0] GETGLOBAL R2 := _G["pairs"]
+      32 [   0] GETGLOBAL R3 := _G["_G"]
+      33 [   0] CALL      R2(...) nargs=1 nret=3
+      34 [   0] JMP       jmp +13 -> 48
+      35 [   0] GETGLOBAL R7 := _G["string"]
+      36 [   0] GETTABLE  R7 := R7["sub"]
+      37 [   0] MOVE      R8 := R5
+      38 [   0] LOADK     R9 := 1
+      39 [   0] LOADK     R10 := 4
+      40 [   0] CALL      R7(...) nargs=3 nret=1
+      41 [   0] EQ        if (R7 == "Test") ~= 0 then skip next
+      42 [   0] JMP       jmp +5 -> 48
+      43 [   0] GETGLOBAL R7 := _G["table"]
+      44 [   0] GETTABLE  R7 := R7["insert"]
+      45 [   0] GETGLOBAL R8 := _G["testClassList"]
+      46 [   0] MOVE      R9 := R5
+      47 [   0] CALL      R7(...) nargs=2 nret=0
+      48 [   0] TFORLOOP  tforloop R2 nres=2
+      49 [   0] JMP       jmp -15 -> 35
+      50 [   0] GETGLOBAL R2 := _G["orderedPairs"]
+      51 [   0] GETGLOBAL R3 := _G["testClassList"]
+      52 [   0] CALL      R2(...) nargs=1 nret=3
+      53 [   0] JMP       jmp +4 -> 58
+      54 [   0] GETGLOBAL R7 := _G["LuaUnit"]
+      55 [   0] SELF      R8 := R7; R7 := R7["runTestClassByName"]
+      56 [   0] MOVE      R9 := R6
+      57 [   0] CALL      R7(...) nargs=2 nret=0
+      58 [   0] TFORLOOP  tforloop R2 nres=2
+      59 [   0] JMP       jmp -6 -> 54
+      60 [   0] GETGLOBAL R2 := _G["LuaUnit"]
+      61 [   0] GETTABLE  R2 := R2["result"]
+      62 [   0] SELF      R3 := R2; R2 := R2["displayFinalResult"]
+      63 [   0] TAILCALL  return R2(...) nargs=1
+      64 [   0] RETURN    return R2.. (-1 values)
+      65 [   0] RETURN    return R0.. (0 values)

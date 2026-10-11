@@ -1,0 +1,119 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['log', 'fglib', 'logging', 'Logger', 'TestSimpleTest', 'setUp', 'test1'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["fglib"]
+     1 [   0] GETTABLE  R0 := R0["logging"]
+     2 [   0] GETTABLE  R0 := R0["Logger"]
+     3 [   0] SETGLOBAL _G["log"] := R0
+     4 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     5 [   0] SETGLOBAL _G["TestSimpleTest"] := R0
+     6 [   0] GETGLOBAL R0 := _G["TestSimpleTest"]
+     7 [   0] CLOSURE   R1 := closure #0
+     8 [   0] SETTABLE  R0["setUp"] := R1
+     9 [   0] GETGLOBAL R0 := _G["TestSimpleTest"]
+    10 [   0] CLOSURE   R1 := closure #1
+    11 [   0] SETTABLE  R0["test1"] := R1
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 13-15, upvals=[], locals=[])
+    constants: strings=['log', 'msg', 'mysetup'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["log"]
+       1 [   0] GETTABLE  R1 := R1["msg"]
+       2 [   0] LOADK     R2 := "mysetup"
+       3 [   0] CALL      R1(...) nargs=1 nret=0
+       4 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 17-30, upvals=[], locals=[])
+    constants: strings=['assert', 'math', 'round'] numbers=[1.2, 1, 1.8, 2, 1.5, -1.2, -1, -1.8, -2]
+       0 [   0] GETGLOBAL R1 := _G["assert"]
+       1 [   0] GETGLOBAL R2 := _G["math"]
+       2 [   0] GETTABLE  R2 := R2["round"]
+       3 [   0] CALL      R1(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R1 := _G["assert"]
+       5 [   0] GETGLOBAL R2 := _G["math"]
+       6 [   0] GETTABLE  R2 := R2["round"]
+       7 [   0] LOADK     R3 := 1.2
+       8 [   0] CALL      R2(...) nargs=1 nret=1
+       9 [   0] EQ        if (R2 == 1) ~= 1 then skip next
+      10 [   0] JMP       jmp +1 -> 12
+      11 [   0] LOADBOOL  R2 := False (skip)
+      12 [   0] LOADBOOL  R2 := True
+      13 [   0] CALL      R1(...) nargs=1 nret=0
+      14 [   0] GETGLOBAL R1 := _G["assert"]
+      15 [   0] GETGLOBAL R2 := _G["math"]
+      16 [   0] GETTABLE  R2 := R2["round"]
+      17 [   0] LOADK     R3 := 1.8
+      18 [   0] CALL      R2(...) nargs=1 nret=1
+      19 [   0] EQ        if (R2 == 2) ~= 1 then skip next
+      20 [   0] JMP       jmp +1 -> 22
+      21 [   0] LOADBOOL  R2 := False (skip)
+      22 [   0] LOADBOOL  R2 := True
+      23 [   0] CALL      R1(...) nargs=1 nret=0
+      24 [   0] GETGLOBAL R1 := _G["assert"]
+      25 [   0] GETGLOBAL R2 := _G["math"]
+      26 [   0] GETTABLE  R2 := R2["round"]
+      27 [   0] LOADK     R3 := 1
+      28 [   0] CALL      R2(...) nargs=1 nret=1
+      29 [   0] EQ        if (R2 == 1) ~= 1 then skip next
+      30 [   0] JMP       jmp +1 -> 32
+      31 [   0] LOADBOOL  R2 := False (skip)
+      32 [   0] LOADBOOL  R2 := True
+      33 [   0] CALL      R1(...) nargs=1 nret=0
+      34 [   0] GETGLOBAL R1 := _G["assert"]
+      35 [   0] GETGLOBAL R2 := _G["math"]
+      36 [   0] GETTABLE  R2 := R2["round"]
+      37 [   0] LOADK     R3 := 2
+      38 [   0] CALL      R2(...) nargs=1 nret=1
+      39 [   0] EQ        if (R2 == 2) ~= 1 then skip next
+      40 [   0] JMP       jmp +1 -> 42
+      41 [   0] LOADBOOL  R2 := False (skip)
+      42 [   0] LOADBOOL  R2 := True
+      43 [   0] CALL      R1(...) nargs=1 nret=0
+      44 [   0] GETGLOBAL R1 := _G["assert"]
+      45 [   0] GETGLOBAL R2 := _G["math"]
+      46 [   0] GETTABLE  R2 := R2["round"]
+      47 [   0] LOADK     R3 := 1.5
+      48 [   0] CALL      R2(...) nargs=1 nret=1
+      49 [   0] EQ        if (R2 == 2) ~= 1 then skip next
+      50 [   0] JMP       jmp +1 -> 52
+      51 [   0] LOADBOOL  R2 := False (skip)
+      52 [   0] LOADBOOL  R2 := True
+      53 [   0] CALL      R1(...) nargs=1 nret=0
+      54 [   0] GETGLOBAL R1 := _G["assert"]
+      55 [   0] GETGLOBAL R2 := _G["math"]
+      56 [   0] GETTABLE  R2 := R2["round"]
+      57 [   0] LOADK     R3 := -1.2
+      58 [   0] CALL      R2(...) nargs=1 nret=1
+      59 [   0] EQ        if (R2 == -1) ~= 1 then skip next
+      60 [   0] JMP       jmp +1 -> 62
+      61 [   0] LOADBOOL  R2 := False (skip)
+      62 [   0] LOADBOOL  R2 := True
+      63 [   0] CALL      R1(...) nargs=1 nret=0
+      64 [   0] GETGLOBAL R1 := _G["assert"]
+      65 [   0] GETGLOBAL R2 := _G["math"]
+      66 [   0] GETTABLE  R2 := R2["round"]
+      67 [   0] LOADK     R3 := -1.8
+      68 [   0] CALL      R2(...) nargs=1 nret=1
+      69 [   0] EQ        if (R2 == -2) ~= 1 then skip next
+      70 [   0] JMP       jmp +1 -> 72
+      71 [   0] LOADBOOL  R2 := False (skip)
+      72 [   0] LOADBOOL  R2 := True
+      73 [   0] CALL      R1(...) nargs=1 nret=0
+      74 [   0] GETGLOBAL R1 := _G["assert"]
+      75 [   0] GETGLOBAL R2 := _G["math"]
+      76 [   0] GETTABLE  R2 := R2["round"]
+      77 [   0] LOADK     R3 := -1
+      78 [   0] CALL      R2(...) nargs=1 nret=1
+      79 [   0] EQ        if (R2 == -1) ~= 1 then skip next
+      80 [   0] JMP       jmp +1 -> 82
+      81 [   0] LOADBOOL  R2 := False (skip)
+      82 [   0] LOADBOOL  R2 := True
+      83 [   0] CALL      R1(...) nargs=1 nret=0
+      84 [   0] GETGLOBAL R1 := _G["assert"]
+      85 [   0] GETGLOBAL R2 := _G["math"]
+      86 [   0] GETTABLE  R2 := R2["round"]
+      87 [   0] LOADK     R3 := -2
+      88 [   0] CALL      R2(...) nargs=1 nret=1
+      89 [   0] EQ        if (R2 == -2) ~= 1 then skip next
+      90 [   0] JMP       jmp +1 -> 92
+      91 [   0] LOADBOOL  R2 := False (skip)
+      92 [   0] LOADBOOL  R2 := True
+      93 [   0] CALL      R1(...) nargs=1 nret=0
+      94 [   0] RETURN    return R0.. (0 values)

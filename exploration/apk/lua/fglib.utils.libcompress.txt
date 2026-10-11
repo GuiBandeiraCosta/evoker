@@ -1,0 +1,2771 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'utils.bit', 'LibCompress', 'table', 'insert', 'remove', 'concat', 'string', 'char', 'byte', 'len', 'sub', 'unpack', 'pairs', 'math', 'modf', 'bit', 'band', 'bor', 'bxor', 'bnot', 'blshift', 'brshift', 'CompressLZW', 'DecompressLZW', 'Huffman_compressed', 'Huffman_large_compressed', 'CompressHuffman', 'setmetatable', '__index', 'Huffman_uncompressed', 'Huffman_large_uncompressed', 'DecompressHuffman', 'DecompressUncompressed', 'Compress', 'Decompress', '\x00', '%z', '(', '%(', ')', '%)', '.', '%.', '%', '%%', '+', '%+', '-', '%-', '*', '%*', '?', '%?', '[', '%[', ']', '%]', '^', '%^', '$', '%$', 'GetEncodeTable', 'GetAddonEncodeTable', 'GetChatEncodeTable', 'encode7bit', 'Encode7bit', 'decode8bit', 'Decode7bit', 'fcs16init', 'fcs16update', 'fcs16final', 'fcs32init', 'fcs32update', 'fcs32final'] numbers=[6, -1, 0, 2, 3, 1, 65535, 4489, 8978, 12955, 17956, 22445, 25910, 29887, 35912, 40385, 44890, 48851, 51820, 56293, 59774, 63735, 4225, 264, 13203, 8730, 22181, 18220, 30135, 25662, 40137, 36160, 49115, 44626, 56045, 52068, 63999, 59510, 8450, 12427, 528, 5017, 26406, 30383, 17460, 21949, 44362, 48323, 36440, 40913, 60270, 64231, 51324, 55797, 12675, 8202, 4753, 792, 30631, 26158, 21685, 17724, 48587, 44098, 40665, 36688, 64495, 60006, 55549, 51572, 16900, 21389, 24854, 28831, 1056, 5545, 10034, 14011, 52812, 57285, 60766, 64727, 34920, 39393, 43898, 47859, 21125, 17164, 29079, 24606, 5281, 1320, 14259, 9786, 57037, 53060, 64991, 60502, 39145, 35168]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "utils.bit"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=0
+     5 [   0] LOADK     R0 := "LibCompress"
+     6 [   0] LOADK     R1 := 6
+     7 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+     8 [   0] SETGLOBAL _G["LibCompress"] := R2
+     9 [   0] GETGLOBAL R2 := _G["LibCompress"]
+    10 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+    11 [   0] JMP       jmp +1 -> 13
+    12 [   0] RETURN    return R0.. (0 values)
+    13 [   0] GETGLOBAL R2 := _G["table"]
+    14 [   0] GETTABLE  R2 := R2["insert"]
+    15 [   0] GETGLOBAL R3 := _G["table"]
+    16 [   0] GETTABLE  R3 := R3["remove"]
+    17 [   0] GETGLOBAL R4 := _G["table"]
+    18 [   0] GETTABLE  R4 := R4["concat"]
+    19 [   0] GETGLOBAL R5 := _G["string"]
+    20 [   0] GETTABLE  R5 := R5["char"]
+    21 [   0] GETGLOBAL R6 := _G["string"]
+    22 [   0] GETTABLE  R6 := R6["byte"]
+    23 [   0] GETGLOBAL R7 := _G["string"]
+    24 [   0] GETTABLE  R7 := R7["len"]
+    25 [   0] GETGLOBAL R8 := _G["string"]
+    26 [   0] GETTABLE  R8 := R8["sub"]
+    27 [   0] GETGLOBAL R9 := _G["unpack"]
+    28 [   0] GETGLOBAL R10 := _G["pairs"]
+    29 [   0] GETGLOBAL R11 := _G["math"]
+    30 [   0] GETTABLE  R11 := R11["modf"]
+    31 [   0] GETGLOBAL R12 := _G["bit"]
+    32 [   0] GETTABLE  R12 := R12["band"]
+    33 [   0] GETGLOBAL R13 := _G["bit"]
+    34 [   0] GETTABLE  R13 := R13["bor"]
+    35 [   0] GETGLOBAL R14 := _G["bit"]
+    36 [   0] GETTABLE  R14 := R14["bxor"]
+    37 [   0] GETGLOBAL R15 := _G["bit"]
+    38 [   0] GETTABLE  R15 := R15["bnot"]
+    39 [   0] GETGLOBAL R16 := _G["bit"]
+    40 [   0] GETTABLE  R16 := R16["blshift"]
+    41 [   0] GETGLOBAL R17 := _G["bit"]
+    42 [   0] GETTABLE  R17 := R17["brshift"]
+    43 [   0] NEWTABLE  R18 := {} (array 0, hash 0)
+    44 [   0] NEWTABLE  R19 := {} (array 0, hash 0)
+    45 [   0] LOADK     R20 := -1
+    46 [   0] CLOSURE   R21 := closure #0
+    47 [   0] MOVE      R0 := R10
+    48 [   0] MOVE      R0 := R19
+    49 [   0] MOVE      R0 := R18
+    50 [   0] CLOSURE   R22 := closure #1
+    51 [   0] MOVE      R0 := R20
+    52 [   0] MOVE      R0 := R21
+    53 [   0] CLOSURE   R23 := closure #2
+    54 [   0] MOVE      R0 := R20
+    55 [   0] MOVE      R0 := R19
+    56 [   0] NEWTABLE  R24 := {} (array 0, hash 0)
+    57 [   0] CLOSURE   R25 := closure #3
+    58 [   0] MOVE      R0 := R24
+    59 [   0] MOVE      R0 := R11
+    60 [   0] MOVE      R0 := R5
+    61 [   0] MOVE      R0 := R9
+    62 [   0] CLOSURE   R26 := closure #4
+    63 [   0] MOVE      R0 := R6
+    64 [   0] NEWTABLE  R27 := {} (array 0, hash 0)
+    65 [   0] GETGLOBAL R28 := _G["LibCompress"]
+    66 [   0] CLOSURE   R29 := closure #5
+    67 [   0] MOVE      R0 := R10
+    68 [   0] MOVE      R0 := R27
+    69 [   0] MOVE      R0 := R5
+    70 [   0] MOVE      R0 := R25
+    71 [   0] MOVE      R0 := R4
+    72 [   0] SETTABLE  R28["CompressLZW"] := R29
+    73 [   0] GETGLOBAL R28 := _G["LibCompress"]
+    74 [   0] CLOSURE   R29 := closure #6
+    75 [   0] MOVE      R0 := R10
+    76 [   0] MOVE      R0 := R27
+    77 [   0] MOVE      R0 := R5
+    78 [   0] MOVE      R0 := R26
+    79 [   0] MOVE      R0 := R4
+    80 [   0] SETTABLE  R28["DecompressLZW"] := R29
+    81 [   0] CLOSURE   R28 := closure #7
+    82 [   0] MOVE      R0 := R28
+    83 [   0] MOVE      R0 := R13
+    84 [   0] MOVE      R0 := R16
+    85 [   0] CLOSURE   R29 := closure #8
+    86 [   0] MOVE      R0 := R12
+    87 [   0] MOVE      R0 := R16
+    88 [   0] NEWTABLE  R30 := {} (array 0, hash 0)
+    89 [   0] SETTABLE  R18["Huffman_compressed"] := R30
+    90 [   0] NEWTABLE  R30 := {} (array 0, hash 0)
+    91 [   0] SETTABLE  R18["Huffman_large_compressed"] := R30
+    92 [   0] LOADK     R30 := 0
+    93 [   0] LOADNIL   R31..R32 := nil
+    94 [   0] CLOSURE   R33 := closure #9
+    95 [   0] MOVE      R0 := R31
+    96 [   0] MOVE      R0 := R16
+    97 [   0] MOVE      R0 := R32
+    98 [   0] MOVE      R0 := R30
+    99 [   0] MOVE      R0 := R5
+   100 [   0] MOVE      R0 := R12
+   101 [   0] MOVE      R0 := R17
+   102 [   0] GETGLOBAL R34 := _G["LibCompress"]
+   103 [   0] CLOSURE   R35 := closure #10
+   104 [   0] MOVE      R0 := R7
+   105 [   0] MOVE      R0 := R6
+   106 [   0] MOVE      R0 := R10
+   107 [   0] MOVE      R0 := R5
+   108 [   0] MOVE      R0 := R2
+   109 [   0] MOVE      R0 := R3
+   110 [   0] MOVE      R0 := R28
+   111 [   0] MOVE      R0 := R31
+   112 [   0] MOVE      R0 := R32
+   113 [   0] MOVE      R0 := R18
+   114 [   0] MOVE      R0 := R12
+   115 [   0] MOVE      R0 := R17
+   116 [   0] MOVE      R0 := R30
+   117 [   0] MOVE      R0 := R33
+   118 [   0] MOVE      R0 := R29
+   119 [   0] MOVE      R0 := R4
+   120 [   0] MOVE      R0 := R23
+   121 [   0] SETTABLE  R34["CompressHuffman"] := R35
+   122 [   0] NEWTABLE  R34 := {} (array 0, hash 0)
+   123 [   0] GETGLOBAL R35 := _G["setmetatable"]
+   124 [   0] MOVE      R36 := R34
+   125 [   0] NEWTABLE  R37 := {} (array 0, hash 1)
+   126 [   0] CLOSURE   R38 := closure #11
+   127 [   0] MOVE      R0 := R16
+   128 [   0] SETTABLE  R37["__index"] := R38
+   129 [   0] CALL      R35(...) nargs=2 nret=0
+   130 [   0] NEWTABLE  R35 := {} (array 0, hash 0)
+   131 [   0] GETGLOBAL R36 := _G["setmetatable"]
+   132 [   0] MOVE      R37 := R35
+   133 [   0] NEWTABLE  R38 := {} (array 0, hash 1)
+   134 [   0] CLOSURE   R39 := closure #12
+   135 [   0] MOVE      R0 := R16
+   136 [   0] SETTABLE  R38["__index"] := R39
+   137 [   0] CALL      R36(...) nargs=2 nret=0
+   138 [   0] CLOSURE   R36 := closure #13
+   139 [   0] MOVE      R0 := R12
+   140 [   0] MOVE      R0 := R34
+   141 [   0] MOVE      R0 := R35
+   142 [   0] MOVE      R0 := R17
+   143 [   0] CLOSURE   R37 := closure #14
+   144 [   0] MOVE      R0 := R12
+   145 [   0] MOVE      R0 := R34
+   146 [   0] MOVE      R0 := R13
+   147 [   0] NEWTABLE  R38 := {} (array 0, hash 0)
+   148 [   0] SETTABLE  R18["Huffman_uncompressed"] := R38
+   149 [   0] NEWTABLE  R38 := {} (array 0, hash 0)
+   150 [   0] SETTABLE  R18["Huffman_large_uncompressed"] := R38
+   151 [   0] GETGLOBAL R38 := _G["LibCompress"]
+   152 [   0] CLOSURE   R39 := closure #15
+   153 [   0] MOVE      R0 := R6
+   154 [   0] MOVE      R0 := R8
+   155 [   0] MOVE      R0 := R13
+   156 [   0] MOVE      R0 := R16
+   157 [   0] MOVE      R0 := R12
+   158 [   0] MOVE      R0 := R17
+   159 [   0] MOVE      R0 := R36
+   160 [   0] MOVE      R0 := R37
+   161 [   0] MOVE      R0 := R5
+   162 [   0] MOVE      R0 := R18
+   163 [   0] MOVE      R0 := R35
+   164 [   0] MOVE      R0 := R4
+   165 [   0] MOVE      R0 := R23
+   166 [   0] SETTABLE  R38["DecompressHuffman"] := R39
+   167 [   0] GETGLOBAL R38 := _G["LibCompress"]
+   168 [   0] CLOSURE   R39 := closure #16
+   169 [   0] SETTABLE  R38["DecompressUncompressed"] := R39
+   170 [   0] NEWTABLE  R38 := {} (array 0, hash 2)
+   171 [   0] GETGLOBAL R39 := _G["LibCompress"]
+   172 [   0] GETTABLE  R39 := R39["CompressLZW"]
+   173 [   0] SETTABLE  R38[2] := R39
+   174 [   0] GETGLOBAL R39 := _G["LibCompress"]
+   175 [   0] GETTABLE  R39 := R39["CompressHuffman"]
+   176 [   0] SETTABLE  R38[3] := R39
+   177 [   0] NEWTABLE  R39 := {} (array 0, hash 3)
+   178 [   0] GETGLOBAL R40 := _G["LibCompress"]
+   179 [   0] GETTABLE  R40 := R40["DecompressUncompressed"]
+   180 [   0] SETTABLE  R39[1] := R40
+   181 [   0] GETGLOBAL R40 := _G["LibCompress"]
+   182 [   0] GETTABLE  R40 := R40["DecompressLZW"]
+   183 [   0] SETTABLE  R39[2] := R40
+   184 [   0] GETGLOBAL R40 := _G["LibCompress"]
+   185 [   0] GETTABLE  R40 := R40["DecompressHuffman"]
+   186 [   0] SETTABLE  R39[3] := R40
+   187 [   0] GETGLOBAL R40 := _G["LibCompress"]
+   188 [   0] CLOSURE   R41 := closure #17
+   189 [   0] MOVE      R0 := R38
+   190 [   0] SETTABLE  R40["Compress"] := R41
+   191 [   0] GETGLOBAL R40 := _G["LibCompress"]
+   192 [   0] CLOSURE   R41 := closure #18
+   193 [   0] MOVE      R0 := R39
+   194 [   0] SETTABLE  R40["Decompress"] := R41
+   195 [   0] NEWTABLE  R40 := {} (array 0, hash 13)
+   196 [   0] SETTABLE  R40[" "] := "%z"
+   197 [   0] SETTABLE  R40["("] := "%("
+   198 [   0] SETTABLE  R40[")"] := "%)"
+   199 [   0] SETTABLE  R40["."] := "%."
+   200 [   0] SETTABLE  R40["%"] := "%%"
+   201 [   0] SETTABLE  R40["+"] := "%+"
+   202 [   0] SETTABLE  R40["-"] := "%-"
+   203 [   0] SETTABLE  R40["*"] := "%*"
+   204 [   0] SETTABLE  R40["?"] := "%?"
+   205 [   0] SETTABLE  R40["["] := "%["
+   206 [   0] SETTABLE  R40["]"] := "%]"
+   207 [   0] SETTABLE  R40["^"] := "%^"
+   208 [   0] SETTABLE  R40["$"] := "%$"
+   209 [   0] CLOSURE   R41 := closure #19
+   210 [   0] MOVE      R0 := R40
+   211 [   0] GETGLOBAL R42 := _G["LibCompress"]
+   212 [   0] CLOSURE   R43 := closure #20
+   213 [   0] MOVE      R0 := R41
+   214 [   0] SETTABLE  R42["GetEncodeTable"] := R43
+   215 [   0] GETGLOBAL R42 := _G["LibCompress"]
+   216 [   0] CLOSURE   R43 := closure #21
+   217 [   0] SETTABLE  R42["GetAddonEncodeTable"] := R43
+   218 [   0] GETGLOBAL R42 := _G["LibCompress"]
+   219 [   0] CLOSURE   R43 := closure #22
+   220 [   0] SETTABLE  R42["GetChatEncodeTable"] := R43
+   221 [   0] NEWTABLE  R42 := {} (array 0, hash 0)
+   222 [   0] SETTABLE  R18["encode7bit"] := R42
+   223 [   0] GETGLOBAL R42 := _G["LibCompress"]
+   224 [   0] CLOSURE   R43 := closure #23
+   225 [   0] MOVE      R0 := R18
+   226 [   0] MOVE      R0 := R16
+   227 [   0] MOVE      R0 := R5
+   228 [   0] MOVE      R0 := R12
+   229 [   0] MOVE      R0 := R17
+   230 [   0] MOVE      R0 := R23
+   231 [   0] SETTABLE  R42["Encode7bit"] := R43
+   232 [   0] NEWTABLE  R42 := {} (array 0, hash 0)
+   233 [   0] SETTABLE  R18["decode8bit"] := R42
+   234 [   0] GETGLOBAL R42 := _G["LibCompress"]
+   235 [   0] CLOSURE   R43 := closure #24
+   236 [   0] MOVE      R0 := R18
+   237 [   0] MOVE      R0 := R5
+   238 [   0] MOVE      R0 := R17
+   239 [   0] MOVE      R0 := R6
+   240 [   0] MOVE      R0 := R16
+   241 [   0] MOVE      R0 := R23
+   242 [   0] SETTABLE  R42["Decode7bit"] := R43
+   243 [   0] LOADK     R42 := 65535
+   244 [   0] NEWTABLE  R43 := {} (array 48, hash 1)
+   245 [   0] SETTABLE  R43[0] := 0
+   246 [   0] LOADK     R44 := 4489
+   247 [   0] LOADK     R45 := 8978
+   248 [   0] LOADK     R46 := 12955
+   249 [   0] LOADK     R47 := 17956
+   250 [   0] LOADK     R48 := 22445
+   251 [   0] LOADK     R49 := 25910
+   252 [   0] LOADK     R50 := 29887
+   253 [   0] LOADK     R51 := 35912
+   254 [   0] LOADK     R52 := 40385
+   255 [   0] LOADK     R53 := 44890
+   256 [   0] LOADK     R54 := 48851
+   257 [   0] LOADK     R55 := 51820
+   258 [   0] LOADK     R56 := 56293
+   259 [   0] LOADK     R57 := 59774
+   260 [   0] LOADK     R58 := 63735
+   261 [   0] LOADK     R59 := 4225
+   262 [   0] LOADK     R60 := 264
+   263 [   0] LOADK     R61 := 13203
+   264 [   0] LOADK     R62 := 8730
+   265 [   0] LOADK     R63 := 22181
+   266 [   0] LOADK     R64 := 18220
+   267 [   0] LOADK     R65 := 30135
+   268 [   0] LOADK     R66 := 25662
+   269 [   0] LOADK     R67 := 40137
+   270 [   0] LOADK     R68 := 36160
+   271 [   0] LOADK     R69 := 49115
+   272 [   0] LOADK     R70 := 44626
+   273 [   0] LOADK     R71 := 56045
+   274 [   0] LOADK     R72 := 52068
+   275 [   0] LOADK     R73 := 63999
+   276 [   0] LOADK     R74 := 59510
+   277 [   0] LOADK     R75 := 8450
+   278 [   0] LOADK     R76 := 12427
+   279 [   0] LOADK     R77 := 528
+   280 [   0] LOADK     R78 := 5017
+   281 [   0] LOADK     R79 := 26406
+   282 [   0] LOADK     R80 := 30383
+   283 [   0] LOADK     R81 := 17460
+   284 [   0] LOADK     R82 := 21949
+   285 [   0] LOADK     R83 := 44362
+   286 [   0] LOADK     R84 := 48323
+   287 [   0] LOADK     R85 := 36440
+   288 [   0] LOADK     R86 := 40913
+   289 [   0] LOADK     R87 := 60270
+   290 [   0] LOADK     R88 := 64231
+   291 [   0] LOADK     R89 := 51324
+   292 [   0] LOADK     R90 := 55797
+   293 [   0] LOADK     R91 := 12675
+   294 [   0] LOADK     R92 := 8202
+   295 [   0] LOADK     R93 := 4753
+   296 [   0] SETLIST   R43[...] := R44.. (n=50, block 1)
+   297 [   0] LOADK     R44 := 792
+   298 [   0] LOADK     R45 := 30631
+   299 [   0] LOADK     R46 := 26158
+   300 [   0] LOADK     R47 := 21685
+   301 [   0] LOADK     R48 := 17724
+   302 [   0] LOADK     R49 := 48587
+   303 [   0] LOADK     R50 := 44098
+   304 [   0] LOADK     R51 := 40665
+   305 [   0] LOADK     R52 := 36688
+   306 [   0] LOADK     R53 := 64495
+   307 [   0] LOADK     R54 := 60006
+   308 [   0] LOADK     R55 := 55549
+   309 [   0] LOADK     R56 := 51572
+   310 [   0] LOADK     R57 := 16900
+   311 [   0] LOADK     R58 := 21389
+   312 [   0] LOADK     R59 := 24854
+   313 [   0] LOADK     R60 := 28831
+   314 [   0] LOADK     R61 := 1056
+   315 [   0] LOADK     R62 := 5545
+   316 [   0] LOADK     R63 := 10034
+   317 [   0] LOADK     R64 := 14011
+   318 [   0] LOADK     R65 := 52812
+   319 [   0] LOADK     R66 := 57285
+   320 [   0] LOADK     R67 := 60766
+   321 [   0] LOADK     R68 := 64727
+   322 [   0] LOADK     R69 := 34920
+   323 [   0] LOADK     R70 := 39393
+   324 [   0] LOADK     R71 := 43898
+   325 [   0] LOADK     R72 := 47859
+   326 [   0] LOADK     R73 := 21125
+   327 [   0] LOADK     R74 := 17164
+   328 [   0] LOADK     R75 := 29079
+   329 [   0] LOADK     R76 := 24606
+   330 [   0] LOADK     R77 := 5281
+   331 [   0] LOADK     R78 := 1320
+   332 [   0] LOADK     R79 := 14259
+   333 [   0] LOADK     R80 := 9786
+   334 [   0] LOADK     R81 := 57037
+   335 [   0] LOADK     R82 := 53060
+   336 [   0] LOADK     R83 := 64991
+   337 [   0] LOADK     R84 := 60502
+   338 [   0] LOADK     R85 := 39145
+   339 [   0] LOADK     R86 := 35168
+   340 [   0] LOADK     R87 := 48123
+   341 [   0] LOADK     R88 := 43634
+   342 [   0] LOADK     R89 := 25350
+   343 [   0] LOADK     R90 := 29327
+   344 [   0] LOADK     R91 := 16404
+   345 [   0] LOADK     R92 := 20893
+   346 [   0] LOADK     R93 := 9506
+   347 [   0] SETLIST   R43[...] := R44.. (n=50, block 2)
+   348 [   0] LOADK     R44 := 13483
+   349 [   0] LOADK     R45 := 1584
+   350 [   0] LOADK     R46 := 6073
+   351 [   0] LOADK     R47 := 61262
+   352 [   0] LOADK     R48 := 65223
+   353 [   0] LOADK     R49 := 52316
+   354 [   0] LOADK     R50 := 56789
+   355 [   0] LOADK     R51 := 43370
+   356 [   0] LOADK     R52 := 47331
+   357 [   0] LOADK     R53 := 35448
+   358 [   0] LOADK     R54 := 39921
+   359 [   0] LOADK     R55 := 29575
+   360 [   0] LOADK     R56 := 25102
+   361 [   0] LOADK     R57 := 20629
+   362 [   0] LOADK     R58 := 16668
+   363 [   0] LOADK     R59 := 13731
+   364 [   0] LOADK     R60 := 9258
+   365 [   0] LOADK     R61 := 5809
+   366 [   0] LOADK     R62 := 1848
+   367 [   0] LOADK     R63 := 65487
+   368 [   0] LOADK     R64 := 60998
+   369 [   0] LOADK     R65 := 56541
+   370 [   0] LOADK     R66 := 52564
+   371 [   0] LOADK     R67 := 47595
+   372 [   0] LOADK     R68 := 43106
+   373 [   0] LOADK     R69 := 39673
+   374 [   0] LOADK     R70 := 35696
+   375 [   0] LOADK     R71 := 33800
+   376 [   0] LOADK     R72 := 38273
+   377 [   0] LOADK     R73 := 42778
+   378 [   0] LOADK     R74 := 46739
+   379 [   0] LOADK     R75 := 49708
+   380 [   0] LOADK     R76 := 54181
+   381 [   0] LOADK     R77 := 57662
+   382 [   0] LOADK     R78 := 61623
+   383 [   0] LOADK     R79 := 2112
+   384 [   0] LOADK     R80 := 6601
+   385 [   0] LOADK     R81 := 11090
+   386 [   0] LOADK     R82 := 15067
+   387 [   0] LOADK     R83 := 20068
+   388 [   0] LOADK     R84 := 24557
+   389 [   0] LOADK     R85 := 28022
+   390 [   0] LOADK     R86 := 31999
+   391 [   0] LOADK     R87 := 38025
+   392 [   0] LOADK     R88 := 34048
+   393 [   0] LOADK     R89 := 47003
+   394 [   0] LOADK     R90 := 42514
+   395 [   0] LOADK     R91 := 53933
+   396 [   0] LOADK     R92 := 49956
+   397 [   0] LOADK     R93 := 61887
+   398 [   0] SETLIST   R43[...] := R44.. (n=50, block 3)
+   399 [   0] LOADK     R44 := 57398
+   400 [   0] LOADK     R45 := 6337
+   401 [   0] LOADK     R46 := 2376
+   402 [   0] LOADK     R47 := 15315
+   403 [   0] LOADK     R48 := 10842
+   404 [   0] LOADK     R49 := 24293
+   405 [   0] LOADK     R50 := 20332
+   406 [   0] LOADK     R51 := 32247
+   407 [   0] LOADK     R52 := 27774
+   408 [   0] LOADK     R53 := 42250
+   409 [   0] LOADK     R54 := 46211
+   410 [   0] LOADK     R55 := 34328
+   411 [   0] LOADK     R56 := 38801
+   412 [   0] LOADK     R57 := 58158
+   413 [   0] LOADK     R58 := 62119
+   414 [   0] LOADK     R59 := 49212
+   415 [   0] LOADK     R60 := 53685
+   416 [   0] LOADK     R61 := 10562
+   417 [   0] LOADK     R62 := 14539
+   418 [   0] LOADK     R63 := 2640
+   419 [   0] LOADK     R64 := 7129
+   420 [   0] LOADK     R65 := 28518
+   421 [   0] LOADK     R66 := 32495
+   422 [   0] LOADK     R67 := 19572
+   423 [   0] LOADK     R68 := 24061
+   424 [   0] LOADK     R69 := 46475
+   425 [   0] LOADK     R70 := 41986
+   426 [   0] LOADK     R71 := 38553
+   427 [   0] LOADK     R72 := 34576
+   428 [   0] LOADK     R73 := 62383
+   429 [   0] LOADK     R74 := 57894
+   430 [   0] LOADK     R75 := 53437
+   431 [   0] LOADK     R76 := 49460
+   432 [   0] LOADK     R77 := 14787
+   433 [   0] LOADK     R78 := 10314
+   434 [   0] LOADK     R79 := 6865
+   435 [   0] LOADK     R80 := 2904
+   436 [   0] LOADK     R81 := 32743
+   437 [   0] LOADK     R82 := 28270
+   438 [   0] LOADK     R83 := 23797
+   439 [   0] LOADK     R84 := 19836
+   440 [   0] LOADK     R85 := 50700
+   441 [   0] LOADK     R86 := 55173
+   442 [   0] LOADK     R87 := 58654
+   443 [   0] LOADK     R88 := 62615
+   444 [   0] LOADK     R89 := 32808
+   445 [   0] LOADK     R90 := 37281
+   446 [   0] LOADK     R91 := 41786
+   447 [   0] LOADK     R92 := 45747
+   448 [   0] LOADK     R93 := 19012
+   449 [   0] SETLIST   R43[...] := R44.. (n=50, block 4)
+   450 [   0] LOADK     R44 := 23501
+   451 [   0] LOADK     R45 := 26966
+   452 [   0] LOADK     R46 := 30943
+   453 [   0] LOADK     R47 := 3168
+   454 [   0] LOADK     R48 := 7657
+   455 [   0] LOADK     R49 := 12146
+   456 [   0] LOADK     R50 := 16123
+   457 [   0] LOADK     R51 := 54925
+   458 [   0] LOADK     R52 := 50948
+   459 [   0] LOADK     R53 := 62879
+   460 [   0] LOADK     R54 := 58390
+   461 [   0] LOADK     R55 := 37033
+   462 [   0] LOADK     R56 := 33056
+   463 [   0] LOADK     R57 := 46011
+   464 [   0] LOADK     R58 := 41522
+   465 [   0] LOADK     R59 := 23237
+   466 [   0] LOADK     R60 := 19276
+   467 [   0] LOADK     R61 := 31191
+   468 [   0] LOADK     R62 := 26718
+   469 [   0] LOADK     R63 := 7393
+   470 [   0] LOADK     R64 := 3432
+   471 [   0] LOADK     R65 := 16371
+   472 [   0] LOADK     R66 := 11898
+   473 [   0] LOADK     R67 := 59150
+   474 [   0] LOADK     R68 := 63111
+   475 [   0] LOADK     R69 := 50204
+   476 [   0] LOADK     R70 := 54677
+   477 [   0] LOADK     R71 := 41258
+   478 [   0] LOADK     R72 := 45219
+   479 [   0] LOADK     R73 := 33336
+   480 [   0] LOADK     R74 := 37809
+   481 [   0] LOADK     R75 := 27462
+   482 [   0] LOADK     R76 := 31439
+   483 [   0] LOADK     R77 := 18516
+   484 [   0] LOADK     R78 := 23005
+   485 [   0] LOADK     R79 := 11618
+   486 [   0] LOADK     R80 := 15595
+   487 [   0] LOADK     R81 := 3696
+   488 [   0] LOADK     R82 := 8185
+   489 [   0] LOADK     R83 := 63375
+   490 [   0] LOADK     R84 := 58886
+   491 [   0] LOADK     R85 := 54429
+   492 [   0] LOADK     R86 := 50452
+   493 [   0] LOADK     R87 := 45483
+   494 [   0] LOADK     R88 := 40994
+   495 [   0] LOADK     R89 := 37561
+   496 [   0] LOADK     R90 := 33584
+   497 [   0] LOADK     R91 := 31687
+   498 [   0] LOADK     R92 := 27214
+   499 [   0] LOADK     R93 := 22741
+   500 [   0] SETLIST   R43[...] := R44.. (n=50, block 5)
+   501 [   0] LOADK     R44 := 18780
+   502 [   0] LOADK     R45 := 15843
+   503 [   0] LOADK     R46 := 11370
+   504 [   0] LOADK     R47 := 7921
+   505 [   0] LOADK     R48 := 3960
+   506 [   0] SETLIST   R43[...] := R44.. (n=5, block 6)
+   507 [   0] GETGLOBAL R44 := _G["LibCompress"]
+   508 [   0] LOADK     R45 := "fcs16init"
+   509 [   0] CLOSURE   R46 := closure #25
+   510 [   0] MOVE      R0 := R42
+   511 [   0] SETTABLE  R44[R45] := R46
+   512 [   0] GETGLOBAL R44 := _G["LibCompress"]
+   513 [   0] LOADK     R45 := "fcs16update"
+   514 [   0] CLOSURE   R46 := closure #26
+   515 [   0] MOVE      R0 := R7
+   516 [   0] MOVE      R0 := R14
+   517 [   0] MOVE      R0 := R17
+   518 [   0] MOVE      R0 := R43
+   519 [   0] MOVE      R0 := R12
+   520 [   0] MOVE      R0 := R6
+   521 [   0] SETTABLE  R44[R45] := R46
+   522 [   0] GETGLOBAL R44 := _G["LibCompress"]
+   523 [   0] LOADK     R45 := "fcs16final"
+   524 [   0] CLOSURE   R46 := closure #27
+   525 [   0] MOVE      R0 := R14
+   526 [   0] SETTABLE  R44[R45] := R46
+   527 [   0] LOADK     R44 := -1
+   528 [   0] NEWTABLE  R45 := {} (array 48, hash 1)
+   529 [   0] LOADK     R46 := 0
+   530 [   0] LOADK     R47 := 0
+   531 [   0] SETTABLE  R45[R46] := R47
+   532 [   0] LOADK     R46 := 1996959894
+   533 [   0] LOADK     R47 := -301047508
+   534 [   0] LOADK     R48 := -1727442502
+   535 [   0] LOADK     R49 := 124634137
+   536 [   0] LOADK     R50 := 1886057615
+   537 [   0] LOADK     R51 := -379345611
+   538 [   0] LOADK     R52 := -1637575261
+   539 [   0] LOADK     R53 := 249268274
+   540 [   0] LOADK     R54 := 2044508324
+   541 [   0] LOADK     R55 := -522852066
+   542 [   0] LOADK     R56 := -1747789432
+   543 [   0] LOADK     R57 := 162941995
+   544 [   0] LOADK     R58 := 2125561021
+   545 [   0] LOADK     R59 := -407360249
+   546 [   0] LOADK     R60 := -1866523247
+   547 [   0] LOADK     R61 := 498536548
+   548 [   0] LOADK     R62 := 1789927666
+   549 [   0] LOADK     R63 := -205950648
+   550 [   0] LOADK     R64 := -2067906082
+   551 [   0] LOADK     R65 := 450548861
+   552 [   0] LOADK     R66 := 1843258603
+   553 [   0] LOADK     R67 := -187386543
+   554 [   0] LOADK     R68 := -2083289657
+   555 [   0] LOADK     R69 := 325883990
+   556 [   0] LOADK     R70 := 1684777152
+   557 [   0] LOADK     R71 := -43845254
+   558 [   0] LOADK     R72 := -1973040660
+   559 [   0] LOADK     R73 := 335633487
+   560 [   0] LOADK     R74 := 1661365465
+   561 [   0] LOADK     R75 := -99664541
+   562 [   0] LOADK     R76 := -1928851979
+   563 [   0] LOADK     R77 := 997073096
+   564 [   0] LOADK     R78 := 1281953886
+   565 [   0] LOADK     R79 := -715111964
+   566 [   0] LOADK     R80 := -1570279054
+   567 [   0] LOADK     R81 := 1006888145
+   568 [   0] LOADK     R82 := 1258607687
+   569 [   0] LOADK     R83 := -770865667
+   570 [   0] LOADK     R84 := -1526024853
+   571 [   0] LOADK     R85 := 901097722
+   572 [   0] LOADK     R86 := 1119000684
+   573 [   0] LOADK     R87 := -608450090
+   574 [   0] LOADK     R88 := -1396901568
+   575 [   0] LOADK     R89 := 853044451
+   576 [   0] LOADK     R90 := 1172266101
+   577 [   0] LOADK     R91 := -589951537
+   578 [   0] LOADK     R92 := -1412350631
+   579 [   0] LOADK     R93 := 651767980
+   580 [   0] LOADK     R94 := 1373503546
+   581 [   0] LOADK     R95 := -925412992
+   582 [   0] SETLIST   R45[...] := R46.. (n=50, block 1)
+   583 [   0] LOADK     R46 := -1076862698
+   584 [   0] LOADK     R47 := 565507253
+   585 [   0] LOADK     R48 := 1454621731
+   586 [   0] LOADK     R49 := -809855591
+   587 [   0] LOADK     R50 := -1195530993
+   588 [   0] LOADK     R51 := 671266974
+   589 [   0] LOADK     R52 := 1594198024
+   590 [   0] LOADK     R53 := -972236366
+   591 [   0] LOADK     R54 := -1324619484
+   592 [   0] LOADK     R55 := 795835527
+   593 [   0] LOADK     R56 := 1483230225
+   594 [   0] LOADK     R57 := -1050600021
+   595 [   0] LOADK     R58 := -1234817731
+   596 [   0] LOADK     R59 := 1994146192
+   597 [   0] LOADK     R60 := 31158534
+   598 [   0] LOADK     R61 := -1731059524
+   599 [   0] LOADK     R62 := -271249366
+   600 [   0] LOADK     R63 := 1907459465
+   601 [   0] LOADK     R64 := 112637215
+   602 [   0] LOADK     R65 := -1614814043
+   603 [   0] LOADK     R66 := -390540237
+   604 [   0] LOADK     R67 := 2013776290
+   605 [   0] LOADK     R68 := 251722036
+   606 [   0] LOADK     R69 := -1777751922
+   607 [   0] LOADK     R70 := -519137256
+   608 [   0] LOADK     R71 := 2137656763
+   609 [   0] LOADK     R72 := 141376813
+   610 [   0] LOADK     R73 := -1855689577
+   611 [   0] LOADK     R74 := -429695999
+   612 [   0] LOADK     R75 := 1802195444
+   613 [   0] LOADK     R76 := 476864866
+   614 [   0] LOADK     R77 := -2056965928
+   615 [   0] LOADK     R78 := -228458418
+   616 [   0] LOADK     R79 := 1812370925
+   617 [   0] LOADK     R80 := 453092731
+   618 [   0] LOADK     R81 := -2113342271
+   619 [   0] LOADK     R82 := -183516073
+   620 [   0] LOADK     R83 := 1706088902
+   621 [   0] LOADK     R84 := 314042704
+   622 [   0] LOADK     R85 := -1950435094
+   623 [   0] LOADK     R86 := -54949764
+   624 [   0] LOADK     R87 := 1658658271
+   625 [   0] LOADK     R88 := 366619977
+   626 [   0] LOADK     R89 := -1932296973
+   627 [   0] LOADK     R90 := -69972891
+   628 [   0] LOADK     R91 := 1303535960
+   629 [   0] LOADK     R92 := 984961486
+   630 [   0] LOADK     R93 := -1547960204
+   631 [   0] LOADK     R94 := -725929758
+   632 [   0] LOADK     R95 := 1256170817
+   633 [   0] SETLIST   R45[...] := R46.. (n=50, block 2)
+   634 [   0] LOADK     R46 := 1037604311
+   635 [   0] LOADK     R47 := -1529756563
+   636 [   0] LOADK     R48 := -740887301
+   637 [   0] LOADK     R49 := 1131014506
+   638 [   0] LOADK     R50 := 879679996
+   639 [   0] LOADK     R51 := -1385723834
+   640 [   0] LOADK     R52 := -631195440
+   641 [   0] LOADK     R53 := 1141124467
+   642 [   0] LOADK     R54 := 855842277
+   643 [   0] LOADK     R55 := -1442165665
+   644 [   0] LOADK     R56 := -586318647
+   645 [   0] LOADK     R57 := 1342533948
+   646 [   0] LOADK     R58 := 654459306
+   647 [   0] LOADK     R59 := -1106571248
+   648 [   0] LOADK     R60 := -921952122
+   649 [   0] LOADK     R61 := 1466479909
+   650 [   0] LOADK     R62 := 544179635
+   651 [   0] LOADK     R63 := -1184443383
+   652 [   0] LOADK     R64 := -832445281
+   653 [   0] LOADK     R65 := 1591671054
+   654 [   0] LOADK     R66 := 702138776
+   655 [   0] LOADK     R67 := -1328506846
+   656 [   0] LOADK     R68 := -942167884
+   657 [   0] LOADK     R69 := 1504918807
+   658 [   0] LOADK     R70 := 783551873
+   659 [   0] LOADK     R71 := -1212326853
+   660 [   0] LOADK     R72 := -1061524307
+   661 [   0] LOADK     R73 := -306674912
+   662 [   0] LOADK     R74 := -1698712650
+   663 [   0] LOADK     R75 := 62317068
+   664 [   0] LOADK     R76 := 1957810842
+   665 [   0] LOADK     R77 := -355121351
+   666 [   0] LOADK     R78 := -1647151185
+   667 [   0] LOADK     R79 := 81470997
+   668 [   0] LOADK     R80 := 1943803523
+   669 [   0] LOADK     R81 := -480048366
+   670 [   0] LOADK     R82 := -1805370492
+   671 [   0] LOADK     R83 := 225274430
+   672 [   0] LOADK     R84 := 2053790376
+   673 [   0] LOADK     R85 := -468791541
+   674 [   0] LOADK     R86 := -1828061283
+   675 [   0] LOADK     R87 := 167816743
+   676 [   0] LOADK     R88 := 2097651377
+   677 [   0] LOADK     R89 := -267414716
+   678 [   0] LOADK     R90 := -2029476910
+   679 [   0] LOADK     R91 := 503444072
+   680 [   0] LOADK     R92 := 1762050814
+   681 [   0] LOADK     R93 := -144550051
+   682 [   0] LOADK     R94 := -2140837941
+   683 [   0] LOADK     R95 := 426522225
+   684 [   0] SETLIST   R45[...] := R46.. (n=50, block 3)
+   685 [   0] LOADK     R46 := 1852507879
+   686 [   0] LOADK     R47 := -19653770
+   687 [   0] LOADK     R48 := -1982649376
+   688 [   0] LOADK     R49 := 282753626
+   689 [   0] LOADK     R50 := 1742555852
+   690 [   0] LOADK     R51 := -105259153
+   691 [   0] LOADK     R52 := -1900089351
+   692 [   0] LOADK     R53 := 397917763
+   693 [   0] LOADK     R54 := 1622183637
+   694 [   0] LOADK     R55 := -690576408
+   695 [   0] LOADK     R56 := -1580100738
+   696 [   0] LOADK     R57 := 953729732
+   697 [   0] LOADK     R58 := 1340076626
+   698 [   0] LOADK     R59 := -776247311
+   699 [   0] LOADK     R60 := -1497606297
+   700 [   0] LOADK     R61 := 1068828381
+   701 [   0] LOADK     R62 := 1219638859
+   702 [   0] LOADK     R63 := -670225446
+   703 [   0] LOADK     R64 := -1358292148
+   704 [   0] LOADK     R65 := 906185462
+   705 [   0] LOADK     R66 := 1090812512
+   706 [   0] LOADK     R67 := -547295293
+   707 [   0] LOADK     R68 := -1469587627
+   708 [   0] LOADK     R69 := 829329135
+   709 [   0] LOADK     R70 := 1181335161
+   710 [   0] LOADK     R71 := -882789492
+   711 [   0] LOADK     R72 := -1134132454
+   712 [   0] LOADK     R73 := 628085408
+   713 [   0] LOADK     R74 := 1382605366
+   714 [   0] LOADK     R75 := -871598187
+   715 [   0] LOADK     R76 := -1156888829
+   716 [   0] LOADK     R77 := 570562233
+   717 [   0] LOADK     R78 := 1426400815
+   718 [   0] LOADK     R79 := -977650754
+   719 [   0] LOADK     R80 := -1296233688
+   720 [   0] LOADK     R81 := 733239954
+   721 [   0] LOADK     R82 := 1555261956
+   722 [   0] LOADK     R83 := -1026031705
+   723 [   0] LOADK     R84 := -1244606671
+   724 [   0] LOADK     R85 := 752459403
+   725 [   0] LOADK     R86 := 1541320221
+   726 [   0] LOADK     R87 := -1687895376
+   727 [   0] LOADK     R88 := -328994266
+   728 [   0] LOADK     R89 := 1969922972
+   729 [   0] LOADK     R90 := 40735498
+   730 [   0] LOADK     R91 := -1677130071
+   731 [   0] LOADK     R92 := -351390145
+   732 [   0] LOADK     R93 := 1913087877
+   733 [   0] LOADK     R94 := 83908371
+   734 [   0] LOADK     R95 := -1782625662
+   735 [   0] SETLIST   R45[...] := R46.. (n=50, block 4)
+   736 [   0] LOADK     R46 := -491226604
+   737 [   0] LOADK     R47 := 2075208622
+   738 [   0] LOADK     R48 := 213261112
+   739 [   0] LOADK     R49 := -1831694693
+   740 [   0] LOADK     R50 := -438977011
+   741 [   0] LOADK     R51 := 2094854071
+   742 [   0] LOADK     R52 := 198958881
+   743 [   0] LOADK     R53 := -2032938284
+   744 [   0] LOADK     R54 := -237706686
+   745 [   0] LOADK     R55 := 1759359992
+   746 [   0] LOADK     R56 := 534414190
+   747 [   0] LOADK     R57 := -2118248755
+   748 [   0] LOADK     R58 := -155638181
+   749 [   0] LOADK     R59 := 1873836001
+   750 [   0] LOADK     R60 := 414664567
+   751 [   0] LOADK     R61 := -2012718362
+   752 [   0] LOADK     R62 := -15766928
+   753 [   0] LOADK     R63 := 1711684554
+   754 [   0] LOADK     R64 := 285281116
+   755 [   0] LOADK     R65 := -1889165569
+   756 [   0] LOADK     R66 := -127750551
+   757 [   0] LOADK     R67 := 1634467795
+   758 [   0] LOADK     R68 := 376229701
+   759 [   0] LOADK     R69 := -1609899400
+   760 [   0] LOADK     R70 := -686959890
+   761 [   0] LOADK     R71 := 1308918612
+   762 [   0] LOADK     R72 := 956543938
+   763 [   0] LOADK     R73 := -1486412191
+   764 [   0] LOADK     R74 := -799009033
+   765 [   0] LOADK     R75 := 1231636301
+   766 [   0] LOADK     R76 := 1047427035
+   767 [   0] LOADK     R77 := -1362007478
+   768 [   0] LOADK     R78 := -640263460
+   769 [   0] LOADK     R79 := 1088359270
+   770 [   0] LOADK     R80 := 936918000
+   771 [   0] LOADK     R81 := -1447252397
+   772 [   0] LOADK     R82 := -558129467
+   773 [   0] LOADK     R83 := 1202900863
+   774 [   0] LOADK     R84 := 817233897
+   775 [   0] LOADK     R85 := -1111625188
+   776 [   0] LOADK     R86 := -893730166
+   777 [   0] LOADK     R87 := 1404277552
+   778 [   0] LOADK     R88 := 615818150
+   779 [   0] LOADK     R89 := -1160759803
+   780 [   0] LOADK     R90 := -841546093
+   781 [   0] LOADK     R91 := 1423857449
+   782 [   0] LOADK     R92 := 601450431
+   783 [   0] LOADK     R93 := -1285129682
+   784 [   0] LOADK     R94 := -1000256840
+   785 [   0] LOADK     R95 := 1567103746
+   786 [   0] SETLIST   R45[...] := R46.. (n=50, block 5)
+   787 [   0] LOADK     R46 := 711928724
+   788 [   0] LOADK     R47 := -1274298825
+   789 [   0] LOADK     R48 := -1022587231
+   790 [   0] LOADK     R49 := 1510334235
+   791 [   0] LOADK     R50 := 755167117
+   792 [   0] SETLIST   R45[...] := R46.. (n=5, block 6)
+   793 [   0] GETGLOBAL R46 := _G["LibCompress"]
+   794 [   0] LOADK     R47 := "fcs32init"
+   795 [   0] CLOSURE   R48 := closure #28
+   796 [   0] MOVE      R0 := R44
+   797 [   0] SETTABLE  R46[R47] := R48
+   798 [   0] GETGLOBAL R46 := _G["LibCompress"]
+   799 [   0] LOADK     R47 := "fcs32update"
+   800 [   0] CLOSURE   R48 := closure #29
+   801 [   0] MOVE      R0 := R7
+   802 [   0] MOVE      R0 := R14
+   803 [   0] MOVE      R0 := R17
+   804 [   0] MOVE      R0 := R45
+   805 [   0] MOVE      R0 := R12
+   806 [   0] MOVE      R0 := R6
+   807 [   0] SETTABLE  R46[R47] := R48
+   808 [   0] GETGLOBAL R46 := _G["LibCompress"]
+   809 [   0] LOADK     R47 := "fcs32final"
+   810 [   0] CLOSURE   R48 := closure #30
+   811 [   0] MOVE      R0 := R15
+   812 [   0] SETTABLE  R46[R47] := R48
+   813 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 51-56, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] CALL      R0(...) nargs=1 nret=3
+       3 [   0] JMP       jmp +5 -> 9
+       4 [   0] GETUPVAL  R5 := upval 2
+       5 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+       6 [   0] SETTABLE  R5[R3] := R6
+       7 [   0] GETUPVAL  R5 := upval 1
+       8 [   0] SETTABLE  R5[R3] := None
+       9 [   0] TFORLOOP  tforloop R0 nres=2
+      10 [   0] JMP       jmp -7 -> 4
+      11 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=2, lines 61-67, upvals=[], locals=[])
+    constants: strings=['Hide'] numbers=[0]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] SUB       R2 := R2 - R1
+       2 [   0] SETUPVAL  upval 0 := R2
+       3 [   0] GETUPVAL  R2 := upval 0
+       4 [   0] LT        if (R2 < 0) ~= 0 then skip next
+       5 [   0] JMP       jmp +4 -> 10
+       6 [   0] SELF      R3 := R0; R2 := R0["Hide"]
+       7 [   0] CALL      R2(...) nargs=1 nret=0
+       8 [   0] GETUPVAL  R2 := upval 1
+       9 [   0] CALL      R2(...) nargs=0 nret=0
+      10 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 71-76, upvals=[], locals=[])
+    constants: strings=['select', '#'] numbers=[15, 1]
+       0 [   0] LOADK     R1 := 15
+       1 [   0] SETUPVAL  upval 0 := R1
+       2 [   0] LOADK     R1 := 1
+       3 [   0] GETGLOBAL R2 := _G["select"]
+       4 [   0] LOADK     R3 := "#"
+       5 [   0] VARARG    R4.. := ... (-1)
+       6 [   0] CALL      R2(...) nargs=-1 nret=1
+       7 [   0] LOADK     R3 := 1
+       8 [   0] FORPREP   for R1.. jmp +6
+       9 [   0] GETUPVAL  R5 := upval 1
+      10 [   0] GETGLOBAL R6 := _G["select"]
+      11 [   0] MOVE      R7 := R4
+      12 [   0] VARARG    R8.. := ... (-1)
+      13 [   0] CALL      R6(...) nargs=-1 nret=1
+      14 [   0] SETTABLE  R5[R6] := True
+      15 [   0] FORLOOP   forloop R1 jmp -7
+      16 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=1, lines 93-110, upvals=[], locals=[])
+    constants: strings=[] numbers=[1, 255, 0, 250, 256]
+       0 [   0] LOADK     R1 := 1
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] LEN       R2 := #R2
+       3 [   0] LOADK     R3 := 1
+       4 [   0] FORPREP   for R1.. jmp +2
+       5 [   0] GETUPVAL  R5 := upval 0
+       6 [   0] SETTABLE  R5[R4] := None
+       7 [   0] FORLOOP   forloop R1 jmp -3
+       8 [   0] LOADNIL   R1..R1 := nil
+       9 [   0] GETUPVAL  R2 := upval 1
+      10 [   0] DIV       R3 := R0 / 255
+      11 [   0] CALL      R2(...) nargs=1 nret=2
+      12 [   0] MOVE      R1 := R3
+      13 [   0] MOVE      R0 := R2
+      14 [   0] MUL       R1 := R1 * 255
+      15 [   0] GETUPVAL  R2 := upval 0
+      16 [   0] GETUPVAL  R3 := upval 0
+      17 [   0] LEN       R3 := #R3
+      18 [   0] ADD       R3 := R3 + 1
+      19 [   0] SETTABLE  R2[R3] := R1
+      20 [   0] LT        if (0 < R0) ~= 0 then skip next
+      21 [   0] JMP       jmp +12 -> 34
+      22 [   0] GETUPVAL  R2 := upval 1
+      23 [   0] DIV       R3 := R0 / 255
+      24 [   0] CALL      R2(...) nargs=1 nret=2
+      25 [   0] MOVE      R1 := R3
+      26 [   0] MOVE      R0 := R2
+      27 [   0] MUL       R1 := R1 * 255
+      28 [   0] GETUPVAL  R2 := upval 0
+      29 [   0] GETUPVAL  R3 := upval 0
+      30 [   0] LEN       R3 := #R3
+      31 [   0] ADD       R3 := R3 + 1
+      32 [   0] SETTABLE  R2[R3] := R1
+      33 [   0] JMP       jmp -14 -> 20
+      34 [   0] GETUPVAL  R2 := upval 0
+      35 [   0] LEN       R2 := #R2
+      36 [   0] EQ        if (R2 == 1) ~= 0 then skip next
+      37 [   0] JMP       jmp +14 -> 52
+      38 [   0] GETUPVAL  R2 := upval 0
+      39 [   0] GETTABLE  R2 := R2[1]
+      40 [   0] LT        if (0 < R2) ~= 0 then skip next
+      41 [   0] JMP       jmp +10 -> 52
+      42 [   0] GETUPVAL  R2 := upval 0
+      43 [   0] GETTABLE  R2 := R2[1]
+      44 [   0] LT        if (R2 < 250) ~= 0 then skip next
+      45 [   0] JMP       jmp +6 -> 52
+      46 [   0] GETUPVAL  R2 := upval 2
+      47 [   0] GETUPVAL  R3 := upval 0
+      48 [   0] GETTABLE  R3 := R3[1]
+      49 [   0] TAILCALL  return R2(...) nargs=1
+      50 [   0] RETURN    return R2.. (-1 values)
+      51 [   0] JMP       jmp +20 -> 72
+      52 [   0] LOADK     R2 := 1
+      53 [   0] GETUPVAL  R3 := upval 0
+      54 [   0] LEN       R3 := #R3
+      55 [   0] LOADK     R4 := 1
+      56 [   0] FORPREP   for R2.. jmp +5
+      57 [   0] GETUPVAL  R6 := upval 0
+      58 [   0] GETUPVAL  R7 := upval 0
+      59 [   0] GETTABLE  R7 := R7[R5]
+      60 [   0] ADD       R7 := R7 + 1
+      61 [   0] SETTABLE  R6[R5] := R7
+      62 [   0] FORLOOP   forloop R2 jmp -6
+      63 [   0] GETUPVAL  R2 := upval 2
+      64 [   0] GETUPVAL  R3 := upval 0
+      65 [   0] LEN       R3 := #R3
+      66 [   0] SUB       R3 := 256 - R3
+      67 [   0] GETUPVAL  R4 := upval 3
+      68 [   0] GETUPVAL  R5 := upval 0
+      69 [   0] CALL      R4(...) nargs=1 nret=-1
+      70 [   0] TAILCALL  return R2(...) nargs=-1
+      71 [   0] RETURN    return R2.. (-1 values)
+      72 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=2, lines 117-130, upvals=[], locals=[])
+    constants: strings=[] numbers=[1, 249, 0, 256, -1, 255]
+       0 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       1 [   0] JMP       jmp +1 -> 3
+       2 [   0] LOADK     R1 := 1
+       3 [   0] GETUPVAL  R2 := upval 0
+       4 [   0] MOVE      R3 := R0
+       5 [   0] MOVE      R4 := R1
+       6 [   0] MOVE      R5 := R1
+       7 [   0] CALL      R2(...) nargs=3 nret=1
+       8 [   0] LT        if (249 < R2) ~= 0 then skip next
+       9 [   0] JMP       jmp +19 -> 29
+      10 [   0] LOADK     R3 := 0
+      11 [   0] SUB       R2 := 256 - R2
+      12 [   0] ADD       R4 := R1 + R2
+      13 [   0] ADD       R5 := R1 + 1
+      14 [   0] LOADK     R6 := -1
+      15 [   0] FORPREP   for R4.. jmp +8
+      16 [   0] MUL       R8 := R3 * 255
+      17 [   0] GETUPVAL  R9 := upval 0
+      18 [   0] MOVE      R10 := R0
+      19 [   0] MOVE      R11 := R7
+      20 [   0] MOVE      R12 := R7
+      21 [   0] CALL      R9(...) nargs=3 nret=1
+      22 [   0] ADD       R8 := R8 + R9
+      23 [   0] SUB       R3 := R8 - 1
+      24 [   0] FORLOOP   forloop R4 jmp -9
+      25 [   0] MOVE      R4 := R3
+      26 [   0] ADD       R5 := R2 + 1
+      27 [   0] RETURN    return R4.. (2 values)
+      28 [   0] JMP       jmp +3 -> 32
+      29 [   0] MOVE      R3 := R2
+      30 [   0] LOADK     R4 := 1
+      31 [   0] RETURN    return R3.. (2 values)
+      32 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=2, lines 140-179, upvals=[], locals=[])
+    constants: strings=['type', 'string', '\x02', '', 'sub', 'Can only compress strings'] numbers=[256, 1, 0, 255]
+       0 [   0] GETGLOBAL R2 := _G["type"]
+       1 [   0] MOVE      R3 := R1
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] EQ        if (R2 == "string") ~= 0 then skip next
+       4 [   0] JMP       jmp +82 -> 87
+       5 [   0] LOADK     R2 := 256
+       6 [   0] GETUPVAL  R3 := upval 0
+       7 [   0] GETUPVAL  R4 := upval 1
+       8 [   0] CALL      R3(...) nargs=1 nret=3
+       9 [   0] JMP       jmp +2 -> 12
+      10 [   0] GETUPVAL  R7 := upval 1
+      11 [   0] SETTABLE  R7[R6] := None
+      12 [   0] TFORLOOP  tforloop R3 nres=1
+      13 [   0] JMP       jmp -4 -> 10
+      14 [   0] NEWTABLE  R3 := {} (array 1, hash 0)
+      15 [   0] LOADK     R4 := ""
+      16 [   0] SETLIST   R3[...] := R4.. (n=1, block 1)
+      17 [   0] LOADK     R4 := ""
+      18 [   0] LOADK     R5 := 1
+      19 [   0] LOADK     R6 := 0
+      20 [   0] LOADK     R7 := 255
+      21 [   0] LOADK     R8 := 1
+      22 [   0] FORPREP   for R6.. jmp +5
+      23 [   0] GETUPVAL  R10 := upval 1
+      24 [   0] GETUPVAL  R11 := upval 2
+      25 [   0] MOVE      R12 := R9
+      26 [   0] CALL      R11(...) nargs=1 nret=1
+      27 [   0] SETTABLE  R10[R11] := R9
+      28 [   0] FORLOOP   forloop R6 jmp -6
+      29 [   0] LOADK     R6 := 1
+      30 [   0] LEN       R7 := #R1
+      31 [   0] LOADK     R8 := 1
+      32 [   0] FORPREP   for R6.. jmp +26
+      33 [   0] SELF      R11 := R1; R10 := R1["sub"]
+      34 [   0] MOVE      R12 := R9
+      35 [   0] MOVE      R13 := R9
+      36 [   0] CALL      R10(...) nargs=3 nret=1
+      37 [   0] MOVE      R11 := R4
+      38 [   0] MOVE      R12 := R10
+      39 [   0] CONCAT    R11 := R11 .. ... .. R12
+      40 [   0] GETUPVAL  R12 := upval 1
+      41 [   0] GETTABLE  R12 := R12[R11]
+      42 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+      43 [   0] JMP       jmp +2 -> 46
+      44 [   0] MOVE      R4 := R11
+      45 [   0] JMP       jmp +13 -> 59
+      46 [   0] GETUPVAL  R12 := upval 1
+      47 [   0] SETTABLE  R12[R11] := R2
+      48 [   0] ADD       R2 := R2 + 1
+      49 [   0] GETUPVAL  R12 := upval 3
+      50 [   0] GETUPVAL  R13 := upval 1
+      51 [   0] GETTABLE  R13 := R13[R4]
+      52 [   0] CALL      R12(...) nargs=1 nret=1
+      53 [   0] LEN       R13 := #R12
+      54 [   0] ADD       R5 := R5 + R13
+      55 [   0] LEN       R13 := #R3
+      56 [   0] ADD       R13 := R13 + 1
+      57 [   0] SETTABLE  R3[R13] := R12
+      58 [   0] MOVE      R4 := R10
+      59 [   0] FORLOOP   forloop R6 jmp -27
+      60 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      61 [   0] JMP       jmp +9 -> 71
+      62 [   0] GETUPVAL  R6 := upval 3
+      63 [   0] GETUPVAL  R7 := upval 1
+      64 [   0] GETTABLE  R7 := R7[R4]
+      65 [   0] CALL      R6(...) nargs=1 nret=1
+      66 [   0] LEN       R7 := #R6
+      67 [   0] ADD       R5 := R5 + R7
+      68 [   0] LEN       R7 := #R3
+      69 [   0] ADD       R7 := R7 + 1
+      70 [   0] SETTABLE  R3[R7] := R6
+      71 [   0] LEN       R6 := #R1
+      72 [   0] ADD       R6 := R6 + 1
+      73 [   0] LT        if (R5 < R6) ~= 0 then skip next
+      74 [   0] JMP       jmp +5 -> 80
+      75 [   0] GETUPVAL  R6 := upval 4
+      76 [   0] MOVE      R7 := R3
+      77 [   0] TAILCALL  return R6(...) nargs=1
+      78 [   0] RETURN    return R6.. (-1 values)
+      79 [   0] JMP       jmp +10 -> 90
+      80 [   0] GETUPVAL  R6 := upval 2
+      81 [   0] LOADK     R7 := 1
+      82 [   0] CALL      R6(...) nargs=1 nret=1
+      83 [   0] MOVE      R7 := R1
+      84 [   0] CONCAT    R6 := R6 .. ... .. R7
+      85 [   0] RETURN    return R6.. (1 values)
+      86 [   0] JMP       jmp +3 -> 90
+      87 [   0] LOADNIL   R2..R2 := nil
+      88 [   0] LOADK     R3 := "Can only compress strings"
+      89 [   0] RETURN    return R2.. (2 values)
+      90 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=2, lines 186-220, upvals=[], locals=[])
+    constants: strings=['type', 'string', 'sub', '\x02', 'Can only decompress LZW compressed data (', 'tostring', ')', 'Can only uncompress strings'] numbers=[1, 2, 256, 0, 255]
+       0 [   0] GETGLOBAL R2 := _G["type"]
+       1 [   0] MOVE      R3 := R1
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] EQ        if (R2 == "string") ~= 0 then skip next
+       4 [   0] JMP       jmp +97 -> 102
+       5 [   0] SELF      R3 := R1; R2 := R1["sub"]
+       6 [   0] LOADK     R4 := 1
+       7 [   0] LOADK     R5 := 1
+       8 [   0] CALL      R2(...) nargs=3 nret=1
+       9 [   0] EQ        if (R2 == "") ~= 1 then skip next
+      10 [   0] JMP       jmp +11 -> 22
+      11 [   0] LOADNIL   R2..R2 := nil
+      12 [   0] LOADK     R3 := "Can only decompress LZW compressed data ("
+      13 [   0] GETGLOBAL R4 := _G["tostring"]
+      14 [   0] SELF      R6 := R1; R5 := R1["sub"]
+      15 [   0] LOADK     R7 := 1
+      16 [   0] LOADK     R8 := 1
+      17 [   0] CALL      R5(...) nargs=3 nret=-1
+      18 [   0] CALL      R4(...) nargs=-1 nret=1
+      19 [   0] LOADK     R5 := ")"
+      20 [   0] CONCAT    R3 := R3 .. ... .. R5
+      21 [   0] RETURN    return R2.. (2 values)
+      22 [   0] SELF      R3 := R1; R2 := R1["sub"]
+      23 [   0] LOADK     R4 := 2
+      24 [   0] CALL      R2(...) nargs=2 nret=1
+      25 [   0] MOVE      R1 := R2
+      26 [   0] LOADK     R2 := 256
+      27 [   0] GETUPVAL  R3 := upval 0
+      28 [   0] GETUPVAL  R4 := upval 1
+      29 [   0] CALL      R3(...) nargs=1 nret=3
+      30 [   0] JMP       jmp +2 -> 33
+      31 [   0] GETUPVAL  R7 := upval 1
+      32 [   0] SETTABLE  R7[R6] := None
+      33 [   0] TFORLOOP  tforloop R3 nres=1
+      34 [   0] JMP       jmp -4 -> 31
+      35 [   0] LOADK     R3 := 0
+      36 [   0] LOADK     R4 := 255
+      37 [   0] LOADK     R5 := 1
+      38 [   0] FORPREP   for R3.. jmp +5
+      39 [   0] GETUPVAL  R7 := upval 1
+      40 [   0] GETUPVAL  R8 := upval 2
+      41 [   0] MOVE      R9 := R6
+      42 [   0] CALL      R8(...) nargs=1 nret=1
+      43 [   0] SETTABLE  R7[R6] := R8
+      44 [   0] FORLOOP   forloop R3 jmp -6
+      45 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+      46 [   0] LOADK     R4 := 1
+      47 [   0] LOADNIL   R5..R6 := nil
+      48 [   0] GETUPVAL  R7 := upval 3
+      49 [   0] MOVE      R8 := R1
+      50 [   0] MOVE      R9 := R4
+      51 [   0] CALL      R7(...) nargs=2 nret=2
+      52 [   0] MOVE      R5 := R8
+      53 [   0] MOVE      R6 := R7
+      54 [   0] ADD       R4 := R4 + R5
+      55 [   0] LEN       R7 := #R3
+      56 [   0] ADD       R7 := R7 + 1
+      57 [   0] GETUPVAL  R8 := upval 1
+      58 [   0] GETTABLE  R8 := R8[R6]
+      59 [   0] SETTABLE  R3[R7] := R8
+      60 [   0] GETUPVAL  R7 := upval 1
+      61 [   0] GETTABLE  R7 := R7[R6]
+      62 [   0] LOADNIL   R8..R8 := nil
+      63 [   0] LEN       R9 := #R1
+      64 [   0] LE        if (R4 <= R9) ~= 0 then skip next
+      65 [   0] JMP       jmp +31 -> 97
+      66 [   0] GETUPVAL  R9 := upval 3
+      67 [   0] MOVE      R10 := R1
+      68 [   0] MOVE      R11 := R4
+      69 [   0] CALL      R9(...) nargs=2 nret=2
+      70 [   0] MOVE      R5 := R10
+      71 [   0] MOVE      R6 := R9
+      72 [   0] ADD       R4 := R4 + R5
+      73 [   0] GETUPVAL  R9 := upval 1
+      74 [   0] GETTABLE  R9 := R9[R6]
+      75 [   0] TESTSET   if (R9 truthy) == 1 then R8 := R9 else skip next
+      76 [   0] JMP       jmp +6 -> 83
+      77 [   0] MOVE      R9 := R7
+      78 [   0] SELF      R11 := R7; R10 := R7["sub"]
+      79 [   0] LOADK     R12 := 1
+      80 [   0] LOADK     R13 := 1
+      81 [   0] CALL      R10(...) nargs=3 nret=1
+      82 [   0] CONCAT    R8 := R9 .. ... .. R10
+      83 [   0] LEN       R9 := #R3
+      84 [   0] ADD       R9 := R9 + 1
+      85 [   0] SETTABLE  R3[R9] := R8
+      86 [   0] GETUPVAL  R9 := upval 1
+      87 [   0] MOVE      R10 := R7
+      88 [   0] SELF      R12 := R8; R11 := R8["sub"]
+      89 [   0] LOADK     R13 := 1
+      90 [   0] LOADK     R14 := 1
+      91 [   0] CALL      R11(...) nargs=3 nret=1
+      92 [   0] CONCAT    R10 := R10 .. ... .. R11
+      93 [   0] SETTABLE  R9[R2] := R10
+      94 [   0] ADD       R2 := R2 + 1
+      95 [   0] MOVE      R7 := R8
+      96 [   0] JMP       jmp -34 -> 63
+      97 [   0] GETUPVAL  R9 := upval 4
+      98 [   0] MOVE      R10 := R3
+      99 [   0] TAILCALL  return R9(...) nargs=1
+     100 [   0] RETURN    return R9.. (-1 values)
+     101 [   0] JMP       jmp +3 -> 105
+     102 [   0] LOADNIL   R2..R2 := nil
+     103 [   0] LOADK     R3 := "Can only uncompress strings"
+     104 [   0] RETURN    return R2.. (2 values)
+     105 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=3, lines 230-241, upvals=[], locals=[])
+    constants: strings=['bcode', 'blength', 'c1', 'c2'] numbers=[1]
+       0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       1 [   0] JMP       jmp +24 -> 26
+       2 [   0] SETTABLE  R0["bcode"] := R1
+       3 [   0] SETTABLE  R0["blength"] := R2
+       4 [   0] GETTABLE  R3 := R0["c1"]
+       5 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       6 [   0] JMP       jmp +11 -> 18
+       7 [   0] GETUPVAL  R3 := upval 0
+       8 [   0] GETTABLE  R4 := R0["c1"]
+       9 [   0] GETUPVAL  R5 := upval 1
+      10 [   0] MOVE      R6 := R1
+      11 [   0] GETUPVAL  R7 := upval 2
+      12 [   0] LOADK     R8 := 1
+      13 [   0] MOVE      R9 := R2
+      14 [   0] CALL      R7(...) nargs=2 nret=-1
+      15 [   0] CALL      R5(...) nargs=-1 nret=1
+      16 [   0] ADD       R6 := R2 + 1
+      17 [   0] CALL      R3(...) nargs=3 nret=0
+      18 [   0] GETTABLE  R3 := R0["c2"]
+      19 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      20 [   0] JMP       jmp +5 -> 26
+      21 [   0] GETUPVAL  R3 := upval 0
+      22 [   0] GETTABLE  R4 := R0["c2"]
+      23 [   0] MOVE      R5 := R1
+      24 [   0] ADD       R6 := R2 + 1
+      25 [   0] CALL      R3(...) nargs=3 nret=0
+      26 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=2, lines 246-256, upvals=[], locals=[])
+    constants: strings=[] numbers=[0, 1, -1]
+       0 [   0] LOADK     R2 := 0
+       1 [   0] LOADNIL   R3..R3 := nil
+       2 [   0] LOADK     R4 := 0
+       3 [   0] SUB       R5 := R1 - 1
+       4 [   0] LOADK     R6 := 0
+       5 [   0] LOADK     R7 := -1
+       6 [   0] FORPREP   for R5.. jmp +19
+       7 [   0] GETUPVAL  R9 := upval 0
+       8 [   0] MOVE      R10 := R0
+       9 [   0] GETUPVAL  R11 := upval 1
+      10 [   0] LOADK     R12 := 1
+      11 [   0] MOVE      R13 := R8
+      12 [   0] CALL      R11(...) nargs=2 nret=-1
+      13 [   0] CALL      R9(...) nargs=-1 nret=1
+      14 [   0] EQ        if (R9 == 0) ~= 0 then skip next
+      15 [   0] JMP       jmp +3 -> 19
+      16 [   0] LOADK     R9 := 0
+      17 [   0] TESTSET   if (R9 truthy) == 1 then R3 := R9 else skip next
+      18 [   0] JMP       jmp +1 -> 20
+      19 [   0] LOADK     R3 := 1
+      20 [   0] GETUPVAL  R9 := upval 1
+      21 [   0] MOVE      R10 := R2
+      22 [   0] ADD       R11 := 1 + R3
+      23 [   0] CALL      R9(...) nargs=2 nret=1
+      24 [   0] ADD       R2 := R9 + R3
+      25 [   0] ADD       R4 := R4 + R3
+      26 [   0] FORLOOP   forloop R5 jmp -20
+      27 [   0] MOVE      R5 := R2
+      28 [   0] ADD       R6 := R1 + R4
+      29 [   0] RETURN    return R5.. (2 values)
+      30 [   0] RETURN    return R0.. (0 values)
+  function main.#9 (params=3, lines 269-281, upvals=[], locals=[])
+    constants: strings=[] numbers=[32, 8, 1, 255]
+       0 [   0] GETUPVAL  R3 := upval 0
+       1 [   0] GETUPVAL  R4 := upval 1
+       2 [   0] MOVE      R5 := R1
+       3 [   0] GETUPVAL  R6 := upval 2
+       4 [   0] CALL      R4(...) nargs=2 nret=1
+       5 [   0] ADD       R3 := R3 + R4
+       6 [   0] SETUPVAL  upval 0 := R3
+       7 [   0] GETUPVAL  R3 := upval 2
+       8 [   0] ADD       R3 := R2 + R3
+       9 [   0] SETUPVAL  upval 2 := R3
+      10 [   0] GETUPVAL  R3 := upval 2
+      11 [   0] LT        if (32 < R3) ~= 0 then skip next
+      12 [   0] JMP       jmp +2 -> 15
+      13 [   0] LOADBOOL  R3 := True
+      14 [   0] RETURN    return R3.. (1 values)
+      15 [   0] GETUPVAL  R3 := upval 2
+      16 [   0] LE        if (8 <= R3) ~= 0 then skip next
+      17 [   0] JMP       jmp +20 -> 38
+      18 [   0] GETUPVAL  R3 := upval 3
+      19 [   0] ADD       R3 := R3 + 1
+      20 [   0] SETUPVAL  upval 3 := R3
+      21 [   0] GETUPVAL  R3 := upval 3
+      22 [   0] GETUPVAL  R4 := upval 4
+      23 [   0] GETUPVAL  R5 := upval 5
+      24 [   0] GETUPVAL  R6 := upval 0
+      25 [   0] LOADK     R7 := 255
+      26 [   0] CALL      R5(...) nargs=2 nret=-1
+      27 [   0] CALL      R4(...) nargs=-1 nret=1
+      28 [   0] SETTABLE  R0[R3] := R4
+      29 [   0] GETUPVAL  R3 := upval 6
+      30 [   0] GETUPVAL  R4 := upval 0
+      31 [   0] LOADK     R5 := 8
+      32 [   0] CALL      R3(...) nargs=2 nret=1
+      33 [   0] SETUPVAL  upval 0 := R3
+      34 [   0] GETUPVAL  R3 := upval 2
+      35 [   0] SUB       R3 := R3 - 8
+      36 [   0] SETUPVAL  upval 2 := R3
+      37 [   0] JMP       jmp -23 -> 15
+      38 [   0] RETURN    return R0.. (0 values)
+  function main.#10 (params=2, lines 286-460, upvals=[], locals=[])
+    constants: strings=['type', 'string', 'Can only compress strings', '\x01', 'symbol', 'weight', 'table', 'sort', 'next', 'c1', 'c2', 'bcode', 'blength', 'Huffman_compressed', '\x03', 'Huffman_large_compressed', ''] numbers=[0, 1, 2, 255, 3, 4, 8, 5, 16, 200, 199]
+       0 [   0] GETGLOBAL R2 := _G["type"]
+       1 [   0] MOVE      R3 := R1
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] NOT       R2 := not R2
+       4 [   0] EQ        if (R2 == "string") ~= 0 then skip next
+       5 [   0] JMP       jmp +3 -> 9
+       6 [   0] LOADNIL   R2..R2 := nil
+       7 [   0] LOADK     R3 := "Can only compress strings"
+       8 [   0] RETURN    return R2.. (2 values)
+       9 [   0] LEN       R2 := #R1
+      10 [   0] EQ        if (R2 == 0) ~= 0 then skip next
+      11 [   0] JMP       jmp +2 -> 14
+      12 [   0] LOADK     R2 := ""
+      13 [   0] RETURN    return R2.. (1 values)
+      14 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+      15 [   0] LOADK     R3 := 0
+      16 [   0] GETUPVAL  R4 := upval 0
+      17 [   0] MOVE      R5 := R1
+      18 [   0] CALL      R4(...) nargs=1 nret=1
+      19 [   0] LOADNIL   R5..R5 := nil
+      20 [   0] LOADK     R6 := 1
+      21 [   0] MOVE      R7 := R4
+      22 [   0] LOADK     R8 := 1
+      23 [   0] FORPREP   for R6.. jmp +11
+      24 [   0] GETUPVAL  R10 := upval 1
+      25 [   0] MOVE      R11 := R1
+      26 [   0] MOVE      R12 := R9
+      27 [   0] CALL      R10(...) nargs=2 nret=1
+      28 [   0] MOVE      R5 := R10
+      29 [   0] GETTABLE  R10 := R2[R5]
+      30 [   0] TEST      if (R10 truthy) ~= 1 then skip next
+      31 [   0] JMP       jmp +1 -> 33
+      32 [   0] LOADK     R10 := 0
+      33 [   0] ADD       R10 := R10 + 1
+      34 [   0] SETTABLE  R2[R5] := R10
+      35 [   0] FORLOOP   forloop R6 jmp -12
+      36 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+      37 [   0] LOADNIL   R7..R7 := nil
+      38 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+      39 [   0] GETUPVAL  R9 := upval 2
+      40 [   0] MOVE      R10 := R2
+      41 [   0] CALL      R9(...) nargs=1 nret=3
+      42 [   0] JMP       jmp +12 -> 55
+      43 [   0] NEWTABLE  R14 := {} (array 0, hash 2)
+      44 [   0] GETUPVAL  R15 := upval 3
+      45 [   0] MOVE      R16 := R12
+      46 [   0] CALL      R15(...) nargs=1 nret=1
+      47 [   0] SETTABLE  R14["symbol"] := R15
+      48 [   0] SETTABLE  R14["weight"] := R13
+      49 [   0] MOVE      R7 := R14
+      50 [   0] SETTABLE  R8[R12] := R7
+      51 [   0] GETUPVAL  R14 := upval 4
+      52 [   0] MOVE      R15 := R6
+      53 [   0] MOVE      R16 := R7
+      54 [   0] CALL      R14(...) nargs=2 nret=0
+      55 [   0] TFORLOOP  tforloop R9 nres=2
+      56 [   0] JMP       jmp -14 -> 43
+      57 [   0] GETGLOBAL R9 := _G["table"]
+      58 [   0] GETTABLE  R9 := R9["sort"]
+      59 [   0] MOVE      R10 := R6
+      60 [   0] CLOSURE   R11 := closure #0
+      61 [   0] CALL      R9(...) nargs=2 nret=0
+      62 [   0] LEN       R9 := #R6
+      63 [   0] NEWTABLE  R10 := {} (array 0, hash 0)
+      64 [   0] LOADNIL   R11..R17 := nil
+      65 [   0] LEN       R18 := #R6
+      66 [   0] LEN       R19 := #R10
+      67 [   0] ADD       R18 := R18 + R19
+      68 [   0] LT        if (1 < R18) ~= 0 then skip next
+      69 [   0] JMP       jmp +123 -> 193
+      70 [   0] GETGLOBAL R18 := _G["next"]
+      71 [   0] MOVE      R19 := R10
+      72 [   0] CALL      R18(...) nargs=1 nret=1
+      73 [   0] TEST      if (R18 truthy) ~= 1 then skip next
+      74 [   0] JMP       jmp +10 -> 85
+      75 [   0] GETGLOBAL R18 := _G["next"]
+      76 [   0] MOVE      R19 := R6
+      77 [   0] CALL      R18(...) nargs=1 nret=2
+      78 [   0] MOVE      R15 := R19
+      79 [   0] MOVE      R13 := R18
+      80 [   0] GETUPVAL  R18 := upval 5
+      81 [   0] MOVE      R19 := R6
+      82 [   0] MOVE      R20 := R13
+      83 [   0] CALL      R18(...) nargs=2 nret=0
+      84 [   0] JMP       jmp +40 -> 125
+      85 [   0] GETGLOBAL R18 := _G["next"]
+      86 [   0] MOVE      R19 := R6
+      87 [   0] CALL      R18(...) nargs=1 nret=1
+      88 [   0] TEST      if (R18 truthy) ~= 1 then skip next
+      89 [   0] JMP       jmp +10 -> 100
+      90 [   0] GETGLOBAL R18 := _G["next"]
+      91 [   0] MOVE      R19 := R10
+      92 [   0] CALL      R18(...) nargs=1 nret=2
+      93 [   0] MOVE      R15 := R19
+      94 [   0] MOVE      R14 := R18
+      95 [   0] GETUPVAL  R18 := upval 5
+      96 [   0] MOVE      R19 := R10
+      97 [   0] MOVE      R20 := R14
+      98 [   0] CALL      R18(...) nargs=2 nret=0
+      99 [   0] JMP       jmp +25 -> 125
+     100 [   0] GETGLOBAL R18 := _G["next"]
+     101 [   0] MOVE      R19 := R6
+     102 [   0] CALL      R18(...) nargs=1 nret=2
+     103 [   0] MOVE      R11 := R19
+     104 [   0] MOVE      R13 := R18
+     105 [   0] GETGLOBAL R18 := _G["next"]
+     106 [   0] MOVE      R19 := R10
+     107 [   0] CALL      R18(...) nargs=1 nret=2
+     108 [   0] MOVE      R12 := R19
+     109 [   0] MOVE      R14 := R18
+     110 [   0] GETTABLE  R18 := R11["weight"]
+     111 [   0] GETTABLE  R19 := R12["weight"]
+     112 [   0] LE        if (R18 <= R19) ~= 0 then skip next
+     113 [   0] JMP       jmp +6 -> 120
+     114 [   0] MOVE      R15 := R11
+     115 [   0] GETUPVAL  R18 := upval 5
+     116 [   0] MOVE      R19 := R6
+     117 [   0] MOVE      R20 := R13
+     118 [   0] CALL      R18(...) nargs=2 nret=0
+     119 [   0] JMP       jmp +5 -> 125
+     120 [   0] MOVE      R15 := R12
+     121 [   0] GETUPVAL  R18 := upval 5
+     122 [   0] MOVE      R19 := R10
+     123 [   0] MOVE      R20 := R14
+     124 [   0] CALL      R18(...) nargs=2 nret=0
+     125 [   0] GETGLOBAL R18 := _G["next"]
+     126 [   0] MOVE      R19 := R10
+     127 [   0] CALL      R18(...) nargs=1 nret=1
+     128 [   0] TEST      if (R18 truthy) ~= 1 then skip next
+     129 [   0] JMP       jmp +10 -> 140
+     130 [   0] GETGLOBAL R18 := _G["next"]
+     131 [   0] MOVE      R19 := R6
+     132 [   0] CALL      R18(...) nargs=1 nret=2
+     133 [   0] MOVE      R16 := R19
+     134 [   0] MOVE      R13 := R18
+     135 [   0] GETUPVAL  R18 := upval 5
+     136 [   0] MOVE      R19 := R6
+     137 [   0] MOVE      R20 := R13
+     138 [   0] CALL      R18(...) nargs=2 nret=0
+     139 [   0] JMP       jmp +40 -> 180
+     140 [   0] GETGLOBAL R18 := _G["next"]
+     141 [   0] MOVE      R19 := R6
+     142 [   0] CALL      R18(...) nargs=1 nret=1
+     143 [   0] TEST      if (R18 truthy) ~= 1 then skip next
+     144 [   0] JMP       jmp +10 -> 155
+     145 [   0] GETGLOBAL R18 := _G["next"]
+     146 [   0] MOVE      R19 := R10
+     147 [   0] CALL      R18(...) nargs=1 nret=2
+     148 [   0] MOVE      R16 := R19
+     149 [   0] MOVE      R14 := R18
+     150 [   0] GETUPVAL  R18 := upval 5
+     151 [   0] MOVE      R19 := R10
+     152 [   0] MOVE      R20 := R14
+     153 [   0] CALL      R18(...) nargs=2 nret=0
+     154 [   0] JMP       jmp +25 -> 180
+     155 [   0] GETGLOBAL R18 := _G["next"]
+     156 [   0] MOVE      R19 := R6
+     157 [   0] CALL      R18(...) nargs=1 nret=2
+     158 [   0] MOVE      R11 := R19
+     159 [   0] MOVE      R13 := R18
+     160 [   0] GETGLOBAL R18 := _G["next"]
+     161 [   0] MOVE      R19 := R10
+     162 [   0] CALL      R18(...) nargs=1 nret=2
+     163 [   0] MOVE      R12 := R19
+     164 [   0] MOVE      R14 := R18
+     165 [   0] GETTABLE  R18 := R11["weight"]
+     166 [   0] GETTABLE  R19 := R12["weight"]
+     167 [   0] LE        if (R18 <= R19) ~= 0 then skip next
+     168 [   0] JMP       jmp +6 -> 175
+     169 [   0] MOVE      R16 := R11
+     170 [   0] GETUPVAL  R18 := upval 5
+     171 [   0] MOVE      R19 := R6
+     172 [   0] MOVE      R20 := R13
+     173 [   0] CALL      R18(...) nargs=2 nret=0
+     174 [   0] JMP       jmp +5 -> 180
+     175 [   0] MOVE      R16 := R12
+     176 [   0] GETUPVAL  R18 := upval 5
+     177 [   0] MOVE      R19 := R10
+     178 [   0] MOVE      R20 := R14
+     179 [   0] CALL      R18(...) nargs=2 nret=0
+     180 [   0] NEWTABLE  R18 := {} (array 0, hash 3)
+     181 [   0] SETTABLE  R18["c1"] := R15
+     182 [   0] SETTABLE  R18["c2"] := R16
+     183 [   0] GETTABLE  R19 := R15["weight"]
+     184 [   0] GETTABLE  R20 := R16["weight"]
+     185 [   0] ADD       R19 := R19 + R20
+     186 [   0] SETTABLE  R18["weight"] := R19
+     187 [   0] MOVE      R17 := R18
+     188 [   0] GETUPVAL  R18 := upval 4
+     189 [   0] MOVE      R19 := R10
+     190 [   0] MOVE      R20 := R17
+     191 [   0] CALL      R18(...) nargs=2 nret=0
+     192 [   0] JMP       jmp -128 -> 65
+     193 [   0] LEN       R18 := #R6
+     194 [   0] LT        if (0 < R18) ~= 0 then skip next
+     195 [   0] JMP       jmp +13 -> 209
+     196 [   0] GETGLOBAL R18 := _G["next"]
+     197 [   0] MOVE      R19 := R6
+     198 [   0] CALL      R18(...) nargs=1 nret=2
+     199 [   0] MOVE      R11 := R19
+     200 [   0] MOVE      R13 := R18
+     201 [   0] GETUPVAL  R18 := upval 4
+     202 [   0] MOVE      R19 := R10
+     203 [   0] MOVE      R20 := R11
+     204 [   0] CALL      R18(...) nargs=2 nret=0
+     205 [   0] GETUPVAL  R18 := upval 5
+     206 [   0] MOVE      R19 := R6
+     207 [   0] MOVE      R20 := R13
+     208 [   0] CALL      R18(...) nargs=2 nret=0
+     209 [   0] GETTABLE  R10 := R10[1]
+     210 [   0] GETUPVAL  R18 := upval 6
+     211 [   0] MOVE      R19 := R10
+     212 [   0] LOADK     R20 := 0
+     213 [   0] LOADK     R21 := 0
+     214 [   0] CALL      R18(...) nargs=3 nret=0
+     215 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+     216 [   0] JMP       jmp +2 -> 219
+     217 [   0] SETTABLE  R10["bcode"] := 0
+     218 [   0] SETTABLE  R10["blength"] := 1
+     219 [   0] LOADK     R18 := 0
+     220 [   0] SETUPVAL  upval 7 := R18
+     221 [   0] LOADK     R18 := 0
+     222 [   0] SETUPVAL  upval 8 := R18
+     223 [   0] GETUPVAL  R18 := upval 9
+     224 [   0] GETTABLE  R18 := R18["Huffman_compressed"]
+     225 [   0] SETTABLE  R18[1] := ""
+     226 [   0] GETUPVAL  R19 := upval 0
+     227 [   0] MOVE      R20 := R1
+     228 [   0] CALL      R19(...) nargs=1 nret=1
+     229 [   0] GETUPVAL  R20 := upval 3
+     230 [   0] GETUPVAL  R21 := upval 10
+     231 [   0] SUB       R22 := R9 - 1
+     232 [   0] LOADK     R23 := 255
+     233 [   0] CALL      R21(...) nargs=2 nret=-1
+     234 [   0] CALL      R20(...) nargs=-1 nret=1
+     235 [   0] SETTABLE  R18[2] := R20
+     236 [   0] GETUPVAL  R20 := upval 3
+     237 [   0] GETUPVAL  R21 := upval 10
+     238 [   0] MOVE      R22 := R19
+     239 [   0] LOADK     R23 := 255
+     240 [   0] CALL      R21(...) nargs=2 nret=-1
+     241 [   0] CALL      R20(...) nargs=-1 nret=1
+     242 [   0] SETTABLE  R18[3] := R20
+     243 [   0] GETUPVAL  R20 := upval 3
+     244 [   0] GETUPVAL  R21 := upval 10
+     245 [   0] GETUPVAL  R22 := upval 11
+     246 [   0] MOVE      R23 := R19
+     247 [   0] LOADK     R24 := 8
+     248 [   0] CALL      R22(...) nargs=2 nret=1
+     249 [   0] LOADK     R23 := 255
+     250 [   0] CALL      R21(...) nargs=2 nret=-1
+     251 [   0] CALL      R20(...) nargs=-1 nret=1
+     252 [   0] SETTABLE  R18[4] := R20
+     253 [   0] GETUPVAL  R20 := upval 3
+     254 [   0] GETUPVAL  R21 := upval 10
+     255 [   0] GETUPVAL  R22 := upval 11
+     256 [   0] MOVE      R23 := R19
+     257 [   0] LOADK     R24 := 16
+     258 [   0] CALL      R22(...) nargs=2 nret=1
+     259 [   0] LOADK     R23 := 255
+     260 [   0] CALL      R21(...) nargs=2 nret=-1
+     261 [   0] CALL      R20(...) nargs=-1 nret=1
+     262 [   0] SETTABLE  R18[5] := R20
+     263 [   0] LOADK     R20 := 5
+     264 [   0] SETUPVAL  upval 12 := R20
+     265 [   0] GETUPVAL  R20 := upval 2
+     266 [   0] MOVE      R21 := R8
+     267 [   0] CALL      R20(...) nargs=1 nret=3
+     268 [   0] JMP       jmp +25 -> 294
+     269 [   0] GETUPVAL  R25 := upval 13
+     270 [   0] MOVE      R26 := R18
+     271 [   0] MOVE      R27 := R23
+     272 [   0] LOADK     R28 := 8
+     273 [   0] CALL      R25(...) nargs=3 nret=0
+     274 [   0] GETUPVAL  R25 := upval 13
+     275 [   0] MOVE      R26 := R18
+     276 [   0] GETUPVAL  R27 := upval 14
+     277 [   0] GETTABLE  R28 := R24["bcode"]
+     278 [   0] GETTABLE  R29 := R24["blength"]
+     279 [   0] CALL      R27(...) nargs=2 nret=-1
+     280 [   0] CALL      R25(...) nargs=-1 nret=1
+     281 [   0] TEST      if (R25 truthy) ~= 0 then skip next
+     282 [   0] JMP       jmp +6 -> 289
+     283 [   0] GETUPVAL  R25 := upval 3
+     284 [   0] LOADK     R26 := 0
+     285 [   0] CALL      R25(...) nargs=1 nret=1
+     286 [   0] MOVE      R26 := R1
+     287 [   0] CONCAT    R25 := R25 .. ... .. R26
+     288 [   0] RETURN    return R25.. (1 values)
+     289 [   0] GETUPVAL  R25 := upval 13
+     290 [   0] MOVE      R26 := R18
+     291 [   0] LOADK     R27 := 3
+     292 [   0] LOADK     R28 := 2
+     293 [   0] CALL      R25(...) nargs=3 nret=0
+     294 [   0] TFORLOOP  tforloop R20 nres=2
+     295 [   0] JMP       jmp -27 -> 269
+     296 [   0] GETUPVAL  R20 := upval 9
+     297 [   0] GETTABLE  R20 := R20["Huffman_large_compressed"]
+     298 [   0] LOADK     R21 := 0
+     299 [   0] LOADNIL   R22..R22 := nil
+     300 [   0] LOADK     R23 := 1
+     301 [   0] MOVE      R24 := R19
+     302 [   0] LOADK     R25 := 200
+     303 [   0] FORPREP   for R23.. jmp +33
+     304 [   0] ADD       R27 := R26 + 199
+     305 [   0] LT        if (R19 < R27) ~= 0 then skip next
+     306 [   0] JMP       jmp +2 -> 309
+     307 [   0] TESTSET   if (R19 truthy) == 1 then R22 := R19 else skip next
+     308 [   0] JMP       jmp +1 -> 310
+     309 [   0] ADD       R22 := R26 + 199
+     310 [   0] MOVE      R27 := R26
+     311 [   0] MOVE      R28 := R22
+     312 [   0] LOADK     R29 := 1
+     313 [   0] FORPREP   for R27.. jmp +12
+     314 [   0] GETUPVAL  R31 := upval 1
+     315 [   0] MOVE      R32 := R1
+     316 [   0] MOVE      R33 := R30
+     317 [   0] CALL      R31(...) nargs=2 nret=1
+     318 [   0] MOVE      R5 := R31
+     319 [   0] GETUPVAL  R31 := upval 13
+     320 [   0] MOVE      R32 := R18
+     321 [   0] GETTABLE  R33 := R8[R5]
+     322 [   0] GETTABLE  R33 := R33["bcode"]
+     323 [   0] GETTABLE  R34 := R8[R5]
+     324 [   0] GETTABLE  R34 := R34["blength"]
+     325 [   0] CALL      R31(...) nargs=3 nret=0
+     326 [   0] FORLOOP   forloop R27 jmp -13
+     327 [   0] ADD       R21 := R21 + 1
+     328 [   0] GETUPVAL  R27 := upval 15
+     329 [   0] MOVE      R28 := R18
+     330 [   0] LOADK     R29 := ""
+     331 [   0] LOADK     R30 := 1
+     332 [   0] GETUPVAL  R31 := upval 12
+     333 [   0] CALL      R27(...) nargs=4 nret=1
+     334 [   0] SETTABLE  R20[R21] := R27
+     335 [   0] LOADK     R27 := 0
+     336 [   0] SETUPVAL  upval 12 := R27
+     337 [   0] FORLOOP   forloop R23 jmp -34
+     338 [   0] GETUPVAL  R23 := upval 8
+     339 [   0] LT        if (0 < R23) ~= 0 then skip next
+     340 [   0] JMP       jmp +5 -> 346
+     341 [   0] ADD       R21 := R21 + 1
+     342 [   0] GETUPVAL  R23 := upval 3
+     343 [   0] GETUPVAL  R24 := upval 7
+     344 [   0] CALL      R23(...) nargs=1 nret=1
+     345 [   0] SETTABLE  R20[R21] := R23
+     346 [   0] GETUPVAL  R23 := upval 15
+     347 [   0] MOVE      R24 := R20
+     348 [   0] LOADK     R25 := ""
+     349 [   0] LOADK     R26 := 1
+     350 [   0] MOVE      R27 := R21
+     351 [   0] CALL      R23(...) nargs=4 nret=1
+     352 [   0] LEN       R24 := #R1
+     353 [   0] ADD       R24 := R24 + 1
+     354 [   0] LEN       R25 := #R23
+     355 [   0] LE        if (R24 <= R25) ~= 0 then skip next
+     356 [   0] JMP       jmp +4 -> 361
+     357 [   0] LOADK     R24 := ""
+     358 [   0] MOVE      R25 := R1
+     359 [   0] CONCAT    R24 := R24 .. ... .. R25
+     360 [   0] RETURN    return R24.. (1 values)
+     361 [   0] GETUPVAL  R24 := upval 16
+     362 [   0] LOADK     R25 := "Huffman_compressed"
+     363 [   0] LOADK     R26 := "Huffman_large_compressed"
+     364 [   0] CALL      R24(...) nargs=2 nret=0
+     365 [   0] RETURN    return R23.. (1 values)
+     366 [   0] RETURN    return R0.. (0 values)
+    function main.#10.#0 (params=2, lines 315-315, upvals=[], locals=[])
+      constants: strings=['weight'] numbers=[]
+         0 [   0] GETTABLE  R2 := R0["weight"]
+         1 [   0] GETTABLE  R3 := R1["weight"]
+         2 [   0] LT        if (R2 < R3) ~= 0 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] LOADBOOL  R2 := True
+         5 [   0] RETURN    return R2.. (1 values)
+         6 [   0] JMP       jmp +9 -> 16
+         7 [   0] GETTABLE  R2 := R0["weight"]
+         8 [   0] GETTABLE  R3 := R1["weight"]
+         9 [   0] LT        if (R3 < R2) ~= 0 then skip next
+        10 [   0] JMP       jmp +3 -> 14
+        11 [   0] LOADBOOL  R2 := False
+        12 [   0] RETURN    return R2.. (1 values)
+        13 [   0] JMP       jmp +2 -> 16
+        14 [   0] LOADNIL   R2..R2 := nil
+        15 [   0] RETURN    return R2.. (1 values)
+        16 [   0] RETURN    return R0.. (0 values)
+  function main.#11 (params=2, lines 465-469, upvals=[], locals=[])
+    constants: strings=['rawset'] numbers=[1]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] LOADK     R3 := 1
+       2 [   0] MOVE      R4 := R1
+       3 [   0] CALL      R2(...) nargs=2 nret=1
+       4 [   0] GETGLOBAL R3 := _G["rawset"]
+       5 [   0] MOVE      R4 := R0
+       6 [   0] MOVE      R5 := R1
+       7 [   0] MOVE      R6 := R2
+       8 [   0] CALL      R3(...) nargs=3 nret=0
+       9 [   0] RETURN    return R2.. (1 values)
+      10 [   0] RETURN    return R0.. (0 values)
+  function main.#12 (params=2, lines 475-479, upvals=[], locals=[])
+    constants: strings=['rawset'] numbers=[1]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] LOADK     R3 := 1
+       2 [   0] MOVE      R4 := R1
+       3 [   0] CALL      R2(...) nargs=2 nret=1
+       4 [   0] SUB       R2 := R2 - 1
+       5 [   0] GETGLOBAL R3 := _G["rawset"]
+       6 [   0] MOVE      R4 := R0
+       7 [   0] MOVE      R5 := R1
+       8 [   0] MOVE      R6 := R2
+       9 [   0] CALL      R3(...) nargs=3 nret=0
+      10 [   0] RETURN    return R2.. (1 values)
+      11 [   0] RETURN    return R0.. (0 values)
+  function main.#13 (params=2, lines 485-500, upvals=[], locals=[])
+    constants: strings=[] numbers=[2, 0, 1]
+       0 [   0] LE        if (2 <= R1) ~= 0 then skip next
+       1 [   0] JMP       jmp +32 -> 34
+       2 [   0] LOADNIL   R2..R2 := nil
+       3 [   0] LOADK     R3 := 0
+       4 [   0] LOADK     R4 := 0
+       5 [   0] SUB       R5 := R1 - 1
+       6 [   0] LOADK     R6 := 1
+       7 [   0] FORPREP   for R4.. jmp +25
+       8 [   0] GETUPVAL  R8 := upval 0
+       9 [   0] MOVE      R9 := R0
+      10 [   0] GETUPVAL  R10 := upval 1
+      11 [   0] GETTABLE  R10 := R10[R7]
+      12 [   0] CALL      R8(...) nargs=2 nret=1
+      13 [   0] MOVE      R2 := R8
+      14 [   0] EQ        if (R3 == 0) ~= 1 then skip next
+      15 [   0] JMP       jmp +16 -> 32
+      16 [   0] EQ        if (R2 == 0) ~= 1 then skip next
+      17 [   0] JMP       jmp +14 -> 32
+      18 [   0] GETUPVAL  R8 := upval 0
+      19 [   0] MOVE      R9 := R0
+      20 [   0] GETUPVAL  R10 := upval 2
+      21 [   0] SUB       R11 := R7 - 1
+      22 [   0] GETTABLE  R10 := R10[R11]
+      23 [   0] CALL      R8(...) nargs=2 nret=1
+      24 [   0] SUB       R9 := R7 - 1
+      25 [   0] GETUPVAL  R10 := upval 3
+      26 [   0] MOVE      R11 := R0
+      27 [   0] ADD       R12 := R7 + 1
+      28 [   0] CALL      R10(...) nargs=2 nret=1
+      29 [   0] SUB       R11 := R1 - R7
+      30 [   0] SUB       R11 := R11 - 1
+      31 [   0] RETURN    return R8.. (4 values)
+      32 [   0] MOVE      R3 := R2
+      33 [   0] FORLOOP   forloop R4 jmp -26
+      34 [   0] LOADNIL   R2..R2 := nil
+      35 [   0] RETURN    return R2.. (1 values)
+      36 [   0] RETURN    return R0.. (0 values)
+  function main.#14 (params=2, lines 505-520, upvals=[], locals=[])
+    constants: strings=[] numbers=[0, 1]
+       0 [   0] LOADK     R2 := 0
+       1 [   0] LOADNIL   R3..R3 := nil
+       2 [   0] LOADK     R4 := 0
+       3 [   0] LOADK     R5 := 0
+       4 [   0] LT        if (R5 < R1) ~= 0 then skip next
+       5 [   0] JMP       jmp +18 -> 24
+       6 [   0] GETUPVAL  R6 := upval 0
+       7 [   0] MOVE      R7 := R0
+       8 [   0] GETUPVAL  R8 := upval 1
+       9 [   0] GETTABLE  R8 := R8[R5]
+      10 [   0] CALL      R6(...) nargs=2 nret=1
+      11 [   0] MOVE      R3 := R6
+      12 [   0] EQ        if (R3 == 0) ~= 1 then skip next
+      13 [   0] JMP       jmp +7 -> 21
+      14 [   0] GETUPVAL  R6 := upval 2
+      15 [   0] MOVE      R7 := R2
+      16 [   0] GETUPVAL  R8 := upval 1
+      17 [   0] GETTABLE  R8 := R8[R4]
+      18 [   0] CALL      R6(...) nargs=2 nret=1
+      19 [   0] MOVE      R2 := R6
+      20 [   0] ADD       R5 := R5 + 1
+      21 [   0] ADD       R5 := R5 + 1
+      22 [   0] ADD       R4 := R4 + 1
+      23 [   0] JMP       jmp -20 -> 4
+      24 [   0] MOVE      R6 := R2
+      25 [   0] MOVE      R7 := R4
+      26 [   0] RETURN    return R6.. (2 values)
+      27 [   0] RETURN    return R0.. (0 values)
+  function main.#15 (params=2, lines 527-662, upvals=[], locals=[])
+    constants: strings=['type', 'uncompressed', 'string', 'Can only uncompress strings', 'sub', 'Can only decompress Huffman compressed data (', 'tostring', ')', '', 'setmetatable', '__index', 'Cannot decode map', 'Huffman_uncompressed', 'Huffman_large_uncompressed', 'Decompression error at ', '/'] numbers=[1, 2, 3, 4, 5, 65536, 256, 0, 6, 1000, 8, 255, 200]
+       0 [   0] GETGLOBAL R2 := _G["type"]
+       1 [   0] GETGLOBAL R3 := _G["uncompressed"]
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] NOT       R2 := not R2
+       4 [   0] EQ        if (R2 == "string") ~= 0 then skip next
+       5 [   0] JMP       jmp +3 -> 9
+       6 [   0] LOADNIL   R2..R2 := nil
+       7 [   0] LOADK     R3 := "Can only uncompress strings"
+       8 [   0] RETURN    return R2.. (2 values)
+       9 [   0] LEN       R2 := #R1
+      10 [   0] GETUPVAL  R3 := upval 0
+      11 [   0] MOVE      R4 := R1
+      12 [   0] CALL      R3(...) nargs=1 nret=1
+      13 [   0] EQ        if (R3 == 1) ~= 0 then skip next
+      14 [   0] JMP       jmp +4 -> 19
+      15 [   0] SELF      R5 := R1; R4 := R1["sub"]
+      16 [   0] LOADK     R6 := 2
+      17 [   0] TAILCALL  return R4(...) nargs=2
+      18 [   0] RETURN    return R4.. (-1 values)
+      19 [   0] EQ        if (R3 == 3) ~= 1 then skip next
+      20 [   0] JMP       jmp +8 -> 29
+      21 [   0] LOADNIL   R4..R4 := nil
+      22 [   0] LOADK     R5 := "Can only decompress Huffman compressed data ("
+      23 [   0] GETGLOBAL R6 := _G["tostring"]
+      24 [   0] MOVE      R7 := R3
+      25 [   0] CALL      R6(...) nargs=1 nret=1
+      26 [   0] LOADK     R7 := ")"
+      27 [   0] CONCAT    R5 := R5 .. ... .. R7
+      28 [   0] RETURN    return R4.. (2 values)
+      29 [   0] GETUPVAL  R4 := upval 0
+      30 [   0] GETUPVAL  R5 := upval 1
+      31 [   0] MOVE      R6 := R1
+      32 [   0] LOADK     R7 := 2
+      33 [   0] LOADK     R8 := 2
+      34 [   0] CALL      R5(...) nargs=3 nret=-1
+      35 [   0] CALL      R4(...) nargs=-1 nret=1
+      36 [   0] ADD       R4 := R4 + 1
+      37 [   0] GETUPVAL  R5 := upval 0
+      38 [   0] GETUPVAL  R6 := upval 1
+      39 [   0] MOVE      R7 := R1
+      40 [   0] LOADK     R8 := 3
+      41 [   0] LOADK     R9 := 3
+      42 [   0] CALL      R6(...) nargs=3 nret=-1
+      43 [   0] CALL      R5(...) nargs=-1 nret=1
+      44 [   0] GETUPVAL  R6 := upval 0
+      45 [   0] GETUPVAL  R7 := upval 1
+      46 [   0] MOVE      R8 := R1
+      47 [   0] LOADK     R9 := 4
+      48 [   0] LOADK     R10 := 4
+      49 [   0] CALL      R7(...) nargs=3 nret=-1
+      50 [   0] CALL      R6(...) nargs=-1 nret=1
+      51 [   0] GETUPVAL  R7 := upval 0
+      52 [   0] GETUPVAL  R8 := upval 1
+      53 [   0] MOVE      R9 := R1
+      54 [   0] LOADK     R10 := 5
+      55 [   0] LOADK     R11 := 5
+      56 [   0] CALL      R8(...) nargs=3 nret=-1
+      57 [   0] CALL      R7(...) nargs=-1 nret=1
+      58 [   0] MUL       R8 := R7 * 65536
+      59 [   0] MUL       R9 := R6 * 256
+      60 [   0] ADD       R8 := R8 + R9
+      61 [   0] ADD       R8 := R8 + R5
+      62 [   0] EQ        if (R8 == 0) ~= 0 then skip next
+      63 [   0] JMP       jmp +2 -> 66
+      64 [   0] LOADK     R9 := ""
+      65 [   0] RETURN    return R9.. (1 values)
+      66 [   0] LOADK     R9 := 0
+      67 [   0] LOADK     R10 := 0
+      68 [   0] NEWTABLE  R11 := {} (array 0, hash 0)
+      69 [   0] GETGLOBAL R12 := _G["setmetatable"]
+      70 [   0] MOVE      R13 := R11
+      71 [   0] NEWTABLE  R14 := {} (array 0, hash 1)
+      72 [   0] CLOSURE   R15 := closure #0
+      73 [   0] SETTABLE  R14["__index"] := R15
+      74 [   0] CALL      R12(...) nargs=2 nret=0
+      75 [   0] LOADK     R12 := 6
+      76 [   0] LOADNIL   R13..R14 := nil
+      77 [   0] LOADK     R15 := 1000
+      78 [   0] LOADK     R16 := 0
+      79 [   0] LOADNIL   R17..R21 := nil
+      80 [   0] LOADK     R22 := 0
+      81 [   0] LOADK     R23 := 0
+      82 [   0] LT        if (R22 < R4) ~= 0 then skip next
+      83 [   0] JMP       jmp +70 -> 154
+      84 [   0] LT        if (R2 < R12) ~= 0 then skip next
+      85 [   0] JMP       jmp +3 -> 89
+      86 [   0] LOADNIL   R24..R24 := nil
+      87 [   0] LOADK     R25 := "Cannot decode map"
+      88 [   0] RETURN    return R24.. (2 values)
+      89 [   0] GETUPVAL  R24 := upval 0
+      90 [   0] MOVE      R25 := R1
+      91 [   0] MOVE      R26 := R12
+      92 [   0] CALL      R24(...) nargs=2 nret=1
+      93 [   0] MOVE      R13 := R24
+      94 [   0] GETUPVAL  R24 := upval 2
+      95 [   0] MOVE      R25 := R9
+      96 [   0] GETUPVAL  R26 := upval 3
+      97 [   0] MOVE      R27 := R13
+      98 [   0] MOVE      R28 := R10
+      99 [   0] CALL      R26(...) nargs=2 nret=-1
+     100 [   0] CALL      R24(...) nargs=-1 nret=1
+     101 [   0] MOVE      R9 := R24
+     102 [   0] ADD       R10 := R10 + 8
+     103 [   0] EQ        if (R23 == 0) ~= 0 then skip next
+     104 [   0] JMP       jmp +13 -> 118
+     105 [   0] GETUPVAL  R24 := upval 4
+     106 [   0] MOVE      R25 := R9
+     107 [   0] LOADK     R26 := 255
+     108 [   0] CALL      R24(...) nargs=2 nret=1
+     109 [   0] MOVE      R17 := R24
+     110 [   0] GETUPVAL  R24 := upval 5
+     111 [   0] MOVE      R25 := R9
+     112 [   0] LOADK     R26 := 8
+     113 [   0] CALL      R24(...) nargs=2 nret=1
+     114 [   0] MOVE      R9 := R24
+     115 [   0] SUB       R10 := R10 - 8
+     116 [   0] LOADK     R23 := 1
+     117 [   0] JMP       jmp +34 -> 152
+     118 [   0] GETUPVAL  R24 := upval 6
+     119 [   0] MOVE      R25 := R9
+     120 [   0] MOVE      R26 := R10
+     121 [   0] CALL      R24(...) nargs=2 nret=4
+     122 [   0] MOVE      R21 := R27
+     123 [   0] MOVE      R20 := R26
+     124 [   0] MOVE      R19 := R25
+     125 [   0] MOVE      R18 := R24
+     126 [   0] TEST      if (R18 truthy) ~= 0 then skip next
+     127 [   0] JMP       jmp +24 -> 152
+     128 [   0] MOVE      R24 := R20
+     129 [   0] MOVE      R10 := R21
+     130 [   0] MOVE      R9 := R24
+     131 [   0] GETUPVAL  R24 := upval 7
+     132 [   0] MOVE      R25 := R18
+     133 [   0] MOVE      R26 := R19
+     134 [   0] CALL      R24(...) nargs=2 nret=2
+     135 [   0] MOVE      R14 := R25
+     136 [   0] MOVE      R13 := R24
+     137 [   0] GETTABLE  R24 := R11[R14]
+     138 [   0] GETUPVAL  R25 := upval 8
+     139 [   0] MOVE      R26 := R17
+     140 [   0] CALL      R25(...) nargs=1 nret=1
+     141 [   0] SETTABLE  R24[R13] := R25
+     142 [   0] LT        if (R14 < R15) ~= 0 then skip next
+     143 [   0] JMP       jmp +2 -> 146
+     144 [   0] TESTSET   if (R14 truthy) == 1 then R15 := R14 else skip next
+     145 [   0] JMP       jmp +0 -> 146
+     146 [   0] LT        if (R16 < R14) ~= 0 then skip next
+     147 [   0] JMP       jmp +2 -> 150
+     148 [   0] TESTSET   if (R14 truthy) == 1 then R16 := R14 else skip next
+     149 [   0] JMP       jmp +0 -> 150
+     150 [   0] ADD       R22 := R22 + 1
+     151 [   0] LOADK     R23 := 0
+     152 [   0] ADD       R12 := R12 + 1
+     153 [   0] JMP       jmp -72 -> 82
+     154 [   0] NEWTABLE  R24 := {} (array 0, hash 0)
+     155 [   0] GETGLOBAL R25 := _G["setmetatable"]
+     156 [   0] MOVE      R26 := R11
+     157 [   0] NEWTABLE  R27 := {} (array 0, hash 1)
+     158 [   0] CLOSURE   R28 := closure #1
+     159 [   0] MOVE      R0 := R24
+     160 [   0] SETTABLE  R27["__index"] := R28
+     161 [   0] CALL      R25(...) nargs=2 nret=0
+     162 [   0] GETUPVAL  R25 := upval 9
+     163 [   0] GETTABLE  R25 := R25["Huffman_uncompressed"]
+     164 [   0] GETUPVAL  R26 := upval 9
+     165 [   0] GETTABLE  R26 := R26["Huffman_large_uncompressed"]
+     166 [   0] LOADK     R27 := 0
+     167 [   0] LOADK     R28 := 0
+     168 [   0] LOADNIL   R29..R29 := nil
+     169 [   0] MOVE      R30 := R15
+     170 [   0] LOADNIL   R31..R31 := nil
+     171 [   0] LOADK     R32 := 0
+     172 [   0] ADD       R2 := R2 + 1
+     173 [   0] LOADK     R33 := 200
+     174 [   0] LT        if (R8 < R33) ~= 0 then skip next
+     175 [   0] JMP       jmp +2 -> 178
+     176 [   0] TESTSET   if (R8 truthy) == 1 then R33 := R8 else skip next
+     177 [   0] JMP       jmp +0 -> 178
+     178 [   0] LE        if (R30 <= R10) ~= 0 then skip next
+     179 [   0] JMP       jmp +55 -> 235
+     180 [   0] GETUPVAL  R34 := upval 4
+     181 [   0] MOVE      R35 := R9
+     182 [   0] GETUPVAL  R36 := upval 10
+     183 [   0] GETTABLE  R36 := R36[R30]
+     184 [   0] CALL      R34(...) nargs=2 nret=1
+     185 [   0] MOVE      R29 := R34
+     186 [   0] GETTABLE  R34 := R11[R30]
+     187 [   0] GETTABLE  R31 := R34[R29]
+     188 [   0] TEST      if (R31 truthy) ~= 0 then skip next
+     189 [   0] JMP       jmp +30 -> 220
+     190 [   0] ADD       R27 := R27 + 1
+     191 [   0] SETTABLE  R25[R27] := R31
+     192 [   0] ADD       R32 := R32 + 1
+     193 [   0] LE        if (R33 <= R32) ~= 0 then skip next
+     194 [   0] JMP       jmp +17 -> 212
+     195 [   0] LE        if (R8 <= R32) ~= 0 then skip next
+     196 [   0] JMP       jmp +1 -> 198
+     197 [   0] JMP       jmp +55 -> 253
+     198 [   0] ADD       R28 := R28 + 1
+     199 [   0] GETUPVAL  R34 := upval 11
+     200 [   0] MOVE      R35 := R25
+     201 [   0] LOADK     R36 := ""
+     202 [   0] LOADK     R37 := 1
+     203 [   0] MOVE      R38 := R27
+     204 [   0] CALL      R34(...) nargs=4 nret=1
+     205 [   0] SETTABLE  R26[R28] := R34
+     206 [   0] LOADK     R27 := 0
+     207 [   0] ADD       R33 := R33 + 200
+     208 [   0] LT        if (R8 < R33) ~= 0 then skip next
+     209 [   0] JMP       jmp +2 -> 212
+     210 [   0] TESTSET   if (R8 truthy) == 1 then R33 := R8 else skip next
+     211 [   0] JMP       jmp +0 -> 212
+     212 [   0] GETUPVAL  R34 := upval 5
+     213 [   0] MOVE      R35 := R9
+     214 [   0] MOVE      R36 := R30
+     215 [   0] CALL      R34(...) nargs=2 nret=1
+     216 [   0] MOVE      R9 := R34
+     217 [   0] SUB       R10 := R10 - R30
+     218 [   0] MOVE      R30 := R15
+     219 [   0] JMP       jmp -42 -> 178
+     220 [   0] ADD       R30 := R30 + 1
+     221 [   0] LT        if (R16 < R30) ~= 0 then skip next
+     222 [   0] JMP       jmp -45 -> 178
+     223 [   0] LOADNIL   R34..R34 := nil
+     224 [   0] LOADK     R35 := "Decompression error at "
+     225 [   0] GETGLOBAL R36 := _G["tostring"]
+     226 [   0] MOVE      R37 := R12
+     227 [   0] CALL      R36(...) nargs=1 nret=1
+     228 [   0] LOADK     R37 := "/"
+     229 [   0] GETGLOBAL R38 := _G["tostring"]
+     230 [   0] LEN       R39 := #R1
+     231 [   0] CALL      R38(...) nargs=1 nret=1
+     232 [   0] CONCAT    R35 := R35 .. ... .. R38
+     233 [   0] RETURN    return R34.. (2 values)
+     234 [   0] JMP       jmp -57 -> 178
+     235 [   0] GETUPVAL  R34 := upval 0
+     236 [   0] MOVE      R35 := R1
+     237 [   0] MOVE      R36 := R12
+     238 [   0] CALL      R34(...) nargs=2 nret=1
+     239 [   0] MOVE      R13 := R34
+     240 [   0] GETUPVAL  R34 := upval 3
+     241 [   0] TESTSET   if (R13 truthy) == 1 then R35 := R13 else skip next
+     242 [   0] JMP       jmp +1 -> 244
+     243 [   0] LOADK     R35 := 0
+     244 [   0] MOVE      R36 := R10
+     245 [   0] CALL      R34(...) nargs=2 nret=1
+     246 [   0] ADD       R9 := R9 + R34
+     247 [   0] ADD       R10 := R10 + 8
+     248 [   0] LT        if (R2 < R12) ~= 0 then skip next
+     249 [   0] JMP       jmp +1 -> 251
+     250 [   0] JMP       jmp +2 -> 253
+     251 [   0] ADD       R12 := R12 + 1
+     252 [   0] JMP       jmp -75 -> 178
+     253 [   0] GETUPVAL  R34 := upval 12
+     254 [   0] LOADK     R35 := "Huffman_uncompressed"
+     255 [   0] LOADK     R36 := "Huffman_large_uncompressed"
+     256 [   0] CALL      R34(...) nargs=2 nret=0
+     257 [   0] GETUPVAL  R34 := upval 11
+     258 [   0] MOVE      R35 := R26
+     259 [   0] LOADK     R36 := ""
+     260 [   0] LOADK     R37 := 1
+     261 [   0] MOVE      R38 := R28
+     262 [   0] CALL      R34(...) nargs=4 nret=1
+     263 [   0] GETUPVAL  R35 := upval 11
+     264 [   0] MOVE      R36 := R25
+     265 [   0] LOADK     R37 := ""
+     266 [   0] LOADK     R38 := 1
+     267 [   0] MOVE      R39 := R27
+     268 [   0] CALL      R35(...) nargs=4 nret=1
+     269 [   0] CONCAT    R34 := R34 .. ... .. R35
+     270 [   0] RETURN    return R34.. (1 values)
+     271 [   0] RETURN    return R0.. (0 values)
+    function main.#15.#0 (params=2, lines 557-561, upvals=[], locals=[])
+      constants: strings=['rawset'] numbers=[]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] GETGLOBAL R3 := _G["rawset"]
+         2 [   0] MOVE      R4 := R0
+         3 [   0] MOVE      R5 := R1
+         4 [   0] MOVE      R6 := R2
+         5 [   0] CALL      R3(...) nargs=3 nret=0
+         6 [   0] RETURN    return R2.. (1 values)
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#15.#1 (params=2, lines 605-607, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] RETURN    return R2.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+  function main.#16 (params=2, lines 669-677, upvals=[], locals=[])
+    constants: strings=['type', 'string', 'Can only handle strings', 'byte', 'Can only handle uncompressed data', 'sub'] numbers=[1, 2]
+       0 [   0] GETGLOBAL R2 := _G["type"]
+       1 [   0] MOVE      R3 := R1
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] EQ        if (R2 == "string") ~= 1 then skip next
+       4 [   0] JMP       jmp +3 -> 8
+       5 [   0] LOADNIL   R2..R2 := nil
+       6 [   0] LOADK     R3 := "Can only handle strings"
+       7 [   0] RETURN    return R2.. (2 values)
+       8 [   0] GETGLOBAL R2 := _G["string"]
+       9 [   0] GETTABLE  R2 := R2["byte"]
+      10 [   0] MOVE      R3 := R1
+      11 [   0] CALL      R2(...) nargs=1 nret=1
+      12 [   0] EQ        if (R2 == 1) ~= 1 then skip next
+      13 [   0] JMP       jmp +3 -> 17
+      14 [   0] LOADNIL   R2..R2 := nil
+      15 [   0] LOADK     R3 := "Can only handle uncompressed data"
+      16 [   0] RETURN    return R2.. (2 values)
+      17 [   0] SELF      R3 := R1; R2 := R1["sub"]
+      18 [   0] LOADK     R4 := 2
+      19 [   0] TAILCALL  return R2(...) nargs=2
+      20 [   0] RETURN    return R2.. (-1 values)
+      21 [   0] RETURN    return R0.. (0 values)
+  function main.#17 (params=2, lines 693-706, upvals=[], locals=[])
+    constants: strings=['next'] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["next"]
+       1 [   0] GETUPVAL  R3 := upval 0
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] GETUPVAL  R3 := upval 0
+       4 [   0] GETTABLE  R3 := R3[R2]
+       5 [   0] MOVE      R4 := R0
+       6 [   0] MOVE      R5 := R1
+       7 [   0] CALL      R3(...) nargs=2 nret=1
+       8 [   0] LOADNIL   R4..R4 := nil
+       9 [   0] GETGLOBAL R5 := _G["next"]
+      10 [   0] GETUPVAL  R6 := upval 0
+      11 [   0] MOVE      R7 := R2
+      12 [   0] CALL      R5(...) nargs=2 nret=1
+      13 [   0] MOVE      R2 := R5
+      14 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      15 [   0] JMP       jmp +17 -> 33
+      16 [   0] GETUPVAL  R5 := upval 0
+      17 [   0] GETTABLE  R5 := R5[R2]
+      18 [   0] MOVE      R6 := R0
+      19 [   0] MOVE      R7 := R1
+      20 [   0] CALL      R5(...) nargs=2 nret=1
+      21 [   0] MOVE      R4 := R5
+      22 [   0] LEN       R5 := #R4
+      23 [   0] LEN       R6 := #R3
+      24 [   0] LT        if (R5 < R6) ~= 0 then skip next
+      25 [   0] JMP       jmp +1 -> 27
+      26 [   0] MOVE      R3 := R4
+      27 [   0] GETGLOBAL R5 := _G["next"]
+      28 [   0] GETUPVAL  R6 := upval 0
+      29 [   0] MOVE      R7 := R2
+      30 [   0] CALL      R5(...) nargs=2 nret=1
+      31 [   0] MOVE      R2 := R5
+      32 [   0] JMP       jmp -19 -> 14
+      33 [   0] RETURN    return R3.. (1 values)
+      34 [   0] RETURN    return R0.. (0 values)
+  function main.#18 (params=2, lines 710-717, upvals=[], locals=[])
+    constants: strings=['string', 'byte', 'Unknown compression method (', 'tostring', ')'] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["string"]
+       1 [   0] GETTABLE  R2 := R2["byte"]
+       2 [   0] MOVE      R3 := R1
+       3 [   0] CALL      R2(...) nargs=1 nret=1
+       4 [   0] GETUPVAL  R3 := upval 0
+       5 [   0] GETTABLE  R3 := R3[R2]
+       6 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       7 [   0] JMP       jmp +7 -> 15
+       8 [   0] GETUPVAL  R3 := upval 0
+       9 [   0] GETTABLE  R3 := R3[R2]
+      10 [   0] MOVE      R4 := R0
+      11 [   0] MOVE      R5 := R1
+      12 [   0] TAILCALL  return R3(...) nargs=2
+      13 [   0] RETURN    return R3.. (-1 values)
+      14 [   0] JMP       jmp +8 -> 23
+      15 [   0] LOADNIL   R3..R3 := nil
+      16 [   0] LOADK     R4 := "Unknown compression method ("
+      17 [   0] GETGLOBAL R5 := _G["tostring"]
+      18 [   0] MOVE      R6 := R2
+      19 [   0] CALL      R5(...) nargs=1 nret=1
+      20 [   0] LOADK     R6 := ")"
+      21 [   0] CONCAT    R4 := R4 .. ... .. R6
+      22 [   0] RETURN    return R3.. (2 values)
+      23 [   0] RETURN    return R0.. (0 values)
+  function main.#19 (params=1, lines 774-776, upvals=[], locals=[])
+    constants: strings=['gsub', '([%z%(%)%.%%%+%-%*%?%[%]%^%$])'] numbers=[]
+       0 [   0] SELF      R2 := R0; R1 := R0["gsub"]
+       1 [   0] LOADK     R3 := "([%z%(%)%.%%%+%-%*%?%[%]%^%$])"
+       2 [   0] GETUPVAL  R4 := upval 0
+       3 [   0] TAILCALL  return R1(...) nargs=3
+       4 [   0] RETURN    return R1.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)
+  function main.#20 (params=4, lines 782-899, upvals=[], locals=[])
+    constants: strings=['', 'No escape characters supplied', 'Number of reserved characters must be at least as many as the number of mapped chars', 'No characters to encode', 'encodeBytes', 'strlen', 'string', 'sub', 'table', 'insert', 'decode_search', 'tostring', '([', 'concat', '])', 'decode_translate', 'tinsert', 'str = str:gsub(self.decode_search', ', self.decode_translate', ');', 'escapeChar', 'char', 'Out of escape characters', 'gsub', 'str = (.*);', 'return %1;', 'return function(self, str) ', ' end', 'encode_func', 'assert', 'loadstring', 'return function(self, str) return str:gsub(self.encode_search, self.encode_translate); end', 'decode_func', 'encode_search', 'encode_translate', 'Encode', 'Decode', 'decode_func_string'] numbers=[1, 0, 256, 255]
+       0 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       1 [   0] JMP       jmp +1 -> 3
+       2 [   0] LOADK     R1 := ""
+       3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] LOADK     R2 := ""
+       6 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       7 [   0] JMP       jmp +1 -> 9
+       8 [   0] LOADK     R3 := ""
+       9 [   0] EQ        if (R2 == "") ~= 0 then skip next
+      10 [   0] JMP       jmp +3 -> 14
+      11 [   0] LOADNIL   R4..R4 := nil
+      12 [   0] LOADK     R5 := "No escape characters supplied"
+      13 [   0] RETURN    return R4.. (2 values)
+      14 [   0] LEN       R4 := #R1
+      15 [   0] LEN       R5 := #R3
+      16 [   0] LT        if (R4 < R5) ~= 0 then skip next
+      17 [   0] JMP       jmp +3 -> 21
+      18 [   0] LOADNIL   R4..R4 := nil
+      19 [   0] LOADK     R5 := "Number of reserved characters must be at least as many as the number o"
+      20 [   0] RETURN    return R4.. (2 values)
+      21 [   0] EQ        if (R1 == "") ~= 0 then skip next
+      22 [   0] JMP       jmp +3 -> 26
+      23 [   0] LOADNIL   R4..R4 := nil
+      24 [   0] LOADK     R5 := "No characters to encode"
+      25 [   0] RETURN    return R4.. (2 values)
+      26 [   0] MOVE      R4 := R1
+      27 [   0] MOVE      R5 := R2
+      28 [   0] MOVE      R6 := R3
+      29 [   0] CONCAT    R4 := R4 .. ... .. R6
+      30 [   0] SETGLOBAL _G["encodeBytes"] := R4
+      31 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+      32 [   0] LOADK     R5 := 1
+      33 [   0] GETGLOBAL R6 := _G["strlen"]
+      34 [   0] GETGLOBAL R7 := _G["encodeBytes"]
+      35 [   0] CALL      R6(...) nargs=1 nret=1
+      36 [   0] LOADK     R7 := 1
+      37 [   0] FORPREP   for R5.. jmp +7
+      38 [   0] GETGLOBAL R9 := _G["string"]
+      39 [   0] GETTABLE  R9 := R9["sub"]
+      40 [   0] GETGLOBAL R10 := _G["encodeBytes"]
+      41 [   0] MOVE      R11 := R8
+      42 [   0] MOVE      R12 := R8
+      43 [   0] CALL      R9(...) nargs=3 nret=1
+      44 [   0] SETTABLE  R4[R9] := True
+      45 [   0] FORLOOP   forloop R5 jmp -8
+      46 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      47 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+      48 [   0] NEWTABLE  R7 := {} (array 0, hash 0)
+      49 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+      50 [   0] NEWTABLE  R9 := {} (array 0, hash 0)
+      51 [   0] NEWTABLE  R10 := {} (array 0, hash 0)
+      52 [   0] LOADNIL   R11..R15 := nil
+      53 [   0] LOADK     R16 := 0
+      54 [   0] LEN       R17 := #R3
+      55 [   0] LT        if (0 < R17) ~= 0 then skip next
+      56 [   0] JMP       jmp +65 -> 122
+      57 [   0] LOADK     R17 := 1
+      58 [   0] LEN       R18 := #R3
+      59 [   0] LOADK     R19 := 1
+      60 [   0] FORPREP   for R17.. jmp +26
+      61 [   0] GETGLOBAL R21 := _G["string"]
+      62 [   0] GETTABLE  R21 := R21["sub"]
+      63 [   0] MOVE      R22 := R1
+      64 [   0] MOVE      R23 := R20
+      65 [   0] MOVE      R24 := R20
+      66 [   0] CALL      R21(...) nargs=3 nret=1
+      67 [   0] MOVE      R15 := R21
+      68 [   0] GETGLOBAL R21 := _G["string"]
+      69 [   0] GETTABLE  R21 := R21["sub"]
+      70 [   0] MOVE      R22 := R3
+      71 [   0] MOVE      R23 := R20
+      72 [   0] MOVE      R24 := R20
+      73 [   0] CALL      R21(...) nargs=3 nret=1
+      74 [   0] MOVE      R14 := R21
+      75 [   0] SETTABLE  R8[R15] := R14
+      76 [   0] GETGLOBAL R21 := _G["table"]
+      77 [   0] GETTABLE  R21 := R21["insert"]
+      78 [   0] MOVE      R22 := R7
+      79 [   0] MOVE      R23 := R15
+      80 [   0] CALL      R21(...) nargs=2 nret=0
+      81 [   0] SETTABLE  R10[R14] := R15
+      82 [   0] GETGLOBAL R21 := _G["table"]
+      83 [   0] GETTABLE  R21 := R21["insert"]
+      84 [   0] MOVE      R22 := R9
+      85 [   0] MOVE      R23 := R14
+      86 [   0] CALL      R21(...) nargs=2 nret=0
+      87 [   0] FORLOOP   forloop R17 jmp -27
+      88 [   0] LOADK     R17 := "decode_search"
+      89 [   0] GETGLOBAL R18 := _G["tostring"]
+      90 [   0] MOVE      R19 := R16
+      91 [   0] CALL      R18(...) nargs=1 nret=1
+      92 [   0] CONCAT    R17 := R17 .. ... .. R18
+      93 [   0] LOADK     R18 := "(["
+      94 [   0] GETUPVAL  R19 := upval 0
+      95 [   0] GETGLOBAL R20 := _G["table"]
+      96 [   0] GETTABLE  R20 := R20["concat"]
+      97 [   0] MOVE      R21 := R9
+      98 [   0] CALL      R20(...) nargs=1 nret=-1
+      99 [   0] CALL      R19(...) nargs=-1 nret=1
+     100 [   0] LOADK     R20 := "])"
+     101 [   0] CONCAT    R18 := R18 .. ... .. R20
+     102 [   0] SETTABLE  R5[R17] := R18
+     103 [   0] LOADK     R17 := "decode_translate"
+     104 [   0] GETGLOBAL R18 := _G["tostring"]
+     105 [   0] MOVE      R19 := R16
+     106 [   0] CALL      R18(...) nargs=1 nret=1
+     107 [   0] CONCAT    R17 := R17 .. ... .. R18
+     108 [   0] SETTABLE  R5[R17] := R10
+     109 [   0] GETGLOBAL R17 := _G["tinsert"]
+     110 [   0] MOVE      R18 := R6
+     111 [   0] LOADK     R19 := "str = str:gsub(self.decode_search"
+     112 [   0] GETGLOBAL R20 := _G["tostring"]
+     113 [   0] MOVE      R21 := R16
+     114 [   0] CALL      R20(...) nargs=1 nret=1
+     115 [   0] LOADK     R21 := ", self.decode_translate"
+     116 [   0] GETGLOBAL R22 := _G["tostring"]
+     117 [   0] MOVE      R23 := R16
+     118 [   0] CALL      R22(...) nargs=1 nret=1
+     119 [   0] LOADK     R23 := ");"
+     120 [   0] CONCAT    R19 := R19 .. ... .. R23
+     121 [   0] CALL      R17(...) nargs=2 nret=0
+     122 [   0] ADD       R16 := R16 + 1
+     123 [   0] GETGLOBAL R17 := _G["string"]
+     124 [   0] GETTABLE  R17 := R17["sub"]
+     125 [   0] MOVE      R18 := R2
+     126 [   0] MOVE      R19 := R16
+     127 [   0] MOVE      R20 := R16
+     128 [   0] CALL      R17(...) nargs=3 nret=1
+     129 [   0] SETGLOBAL _G["escapeChar"] := R17
+     130 [   0] LOADK     R12 := 0
+     131 [   0] NEWTABLE  R17 := {} (array 0, hash 0)
+     132 [   0] MOVE      R9 := R17
+     133 [   0] NEWTABLE  R17 := {} (array 0, hash 0)
+     134 [   0] MOVE      R10 := R17
+     135 [   0] LOADK     R17 := 1
+     136 [   0] GETGLOBAL R18 := _G["strlen"]
+     137 [   0] GETGLOBAL R19 := _G["encodeBytes"]
+     138 [   0] CALL      R18(...) nargs=1 nret=1
+     139 [   0] LOADK     R19 := 1
+     140 [   0] FORPREP   for R17.. jmp +105
+     141 [   0] GETGLOBAL R21 := _G["string"]
+     142 [   0] GETTABLE  R21 := R21["sub"]
+     143 [   0] GETGLOBAL R22 := _G["encodeBytes"]
+     144 [   0] MOVE      R23 := R20
+     145 [   0] MOVE      R24 := R20
+     146 [   0] CALL      R21(...) nargs=3 nret=1
+     147 [   0] MOVE      R11 := R21
+     148 [   0] GETTABLE  R21 := R8[R11]
+     149 [   0] TEST      if (R21 truthy) ~= 1 then skip next
+     150 [   0] JMP       jmp +95 -> 246
+     151 [   0] LT        if (R12 < 256) ~= 0 then skip next
+     152 [   0] JMP       jmp +67 -> 220
+     153 [   0] GETGLOBAL R21 := _G["string"]
+     154 [   0] GETTABLE  R21 := R21["char"]
+     155 [   0] MOVE      R22 := R12
+     156 [   0] CALL      R21(...) nargs=1 nret=1
+     157 [   0] GETTABLE  R21 := R4[R21]
+     158 [   0] TEST      if (R21 truthy) ~= 0 then skip next
+     159 [   0] JMP       jmp +60 -> 220
+     160 [   0] ADD       R12 := R12 + 1
+     161 [   0] LT        if (255 < R12) ~= 0 then skip next
+     162 [   0] JMP       jmp -12 -> 151
+     163 [   0] GETGLOBAL R21 := _G["escapeChar"]
+     164 [   0] EQ        if (R21 == "") ~= 0 then skip next
+     165 [   0] JMP       jmp +3 -> 169
+     166 [   0] LOADNIL   R21..R21 := nil
+     167 [   0] LOADK     R22 := "Out of escape characters"
+     168 [   0] RETURN    return R21.. (2 values)
+     169 [   0] LOADK     R21 := "decode_search"
+     170 [   0] GETGLOBAL R22 := _G["tostring"]
+     171 [   0] MOVE      R23 := R16
+     172 [   0] CALL      R22(...) nargs=1 nret=1
+     173 [   0] CONCAT    R21 := R21 .. ... .. R22
+     174 [   0] GETUPVAL  R22 := upval 0
+     175 [   0] GETGLOBAL R23 := _G["escapeChar"]
+     176 [   0] CALL      R22(...) nargs=1 nret=1
+     177 [   0] LOADK     R23 := "(["
+     178 [   0] GETUPVAL  R24 := upval 0
+     179 [   0] GETGLOBAL R25 := _G["table"]
+     180 [   0] GETTABLE  R25 := R25["concat"]
+     181 [   0] MOVE      R26 := R9
+     182 [   0] CALL      R25(...) nargs=1 nret=-1
+     183 [   0] CALL      R24(...) nargs=-1 nret=1
+     184 [   0] LOADK     R25 := "])"
+     185 [   0] CONCAT    R22 := R22 .. ... .. R25
+     186 [   0] SETTABLE  R5[R21] := R22
+     187 [   0] LOADK     R21 := "decode_translate"
+     188 [   0] GETGLOBAL R22 := _G["tostring"]
+     189 [   0] MOVE      R23 := R16
+     190 [   0] CALL      R22(...) nargs=1 nret=1
+     191 [   0] CONCAT    R21 := R21 .. ... .. R22
+     192 [   0] SETTABLE  R5[R21] := R10
+     193 [   0] GETGLOBAL R21 := _G["tinsert"]
+     194 [   0] MOVE      R22 := R6
+     195 [   0] LOADK     R23 := "str = str:gsub(self.decode_search"
+     196 [   0] GETGLOBAL R24 := _G["tostring"]
+     197 [   0] MOVE      R25 := R16
+     198 [   0] CALL      R24(...) nargs=1 nret=1
+     199 [   0] LOADK     R25 := ", self.decode_translate"
+     200 [   0] GETGLOBAL R26 := _G["tostring"]
+     201 [   0] MOVE      R27 := R16
+     202 [   0] CALL      R26(...) nargs=1 nret=1
+     203 [   0] LOADK     R27 := ");"
+     204 [   0] CONCAT    R23 := R23 .. ... .. R27
+     205 [   0] CALL      R21(...) nargs=2 nret=0
+     206 [   0] ADD       R16 := R16 + 1
+     207 [   0] GETGLOBAL R21 := _G["string"]
+     208 [   0] GETTABLE  R21 := R21["sub"]
+     209 [   0] MOVE      R22 := R2
+     210 [   0] MOVE      R23 := R16
+     211 [   0] MOVE      R24 := R16
+     212 [   0] CALL      R21(...) nargs=3 nret=1
+     213 [   0] SETGLOBAL _G["escapeChar"] := R21
+     214 [   0] LOADK     R12 := 0
+     215 [   0] NEWTABLE  R21 := {} (array 0, hash 0)
+     216 [   0] MOVE      R9 := R21
+     217 [   0] NEWTABLE  R21 := {} (array 0, hash 0)
+     218 [   0] MOVE      R10 := R21
+     219 [   0] JMP       jmp -69 -> 151
+     220 [   0] GETGLOBAL R21 := _G["escapeChar"]
+     221 [   0] GETGLOBAL R22 := _G["string"]
+     222 [   0] GETTABLE  R22 := R22["char"]
+     223 [   0] MOVE      R23 := R12
+     224 [   0] CALL      R22(...) nargs=1 nret=1
+     225 [   0] CONCAT    R21 := R21 .. ... .. R22
+     226 [   0] SETTABLE  R8[R11] := R21
+     227 [   0] GETGLOBAL R21 := _G["table"]
+     228 [   0] GETTABLE  R21 := R21["insert"]
+     229 [   0] MOVE      R22 := R7
+     230 [   0] MOVE      R23 := R11
+     231 [   0] CALL      R21(...) nargs=2 nret=0
+     232 [   0] GETGLOBAL R21 := _G["string"]
+     233 [   0] GETTABLE  R21 := R21["char"]
+     234 [   0] MOVE      R22 := R12
+     235 [   0] CALL      R21(...) nargs=1 nret=1
+     236 [   0] SETTABLE  R10[R21] := R11
+     237 [   0] GETGLOBAL R21 := _G["table"]
+     238 [   0] GETTABLE  R21 := R21["insert"]
+     239 [   0] MOVE      R22 := R9
+     240 [   0] GETGLOBAL R23 := _G["string"]
+     241 [   0] GETTABLE  R23 := R23["char"]
+     242 [   0] MOVE      R24 := R12
+     243 [   0] CALL      R23(...) nargs=1 nret=-1
+     244 [   0] CALL      R21(...) nargs=-1 nret=0
+     245 [   0] ADD       R12 := R12 + 1
+     246 [   0] FORLOOP   forloop R17 jmp -106
+     247 [   0] LT        if (0 < R12) ~= 0 then skip next
+     248 [   0] JMP       jmp +37 -> 286
+     249 [   0] LOADK     R17 := "decode_search"
+     250 [   0] GETGLOBAL R18 := _G["tostring"]
+     251 [   0] MOVE      R19 := R16
+     252 [   0] CALL      R18(...) nargs=1 nret=1
+     253 [   0] CONCAT    R17 := R17 .. ... .. R18
+     254 [   0] GETUPVAL  R18 := upval 0
+     255 [   0] GETGLOBAL R19 := _G["escapeChar"]
+     256 [   0] CALL      R18(...) nargs=1 nret=1
+     257 [   0] LOADK     R19 := "(["
+     258 [   0] GETUPVAL  R20 := upval 0
+     259 [   0] GETGLOBAL R21 := _G["table"]
+     260 [   0] GETTABLE  R21 := R21["concat"]
+     261 [   0] MOVE      R22 := R9
+     262 [   0] CALL      R21(...) nargs=1 nret=-1
+     263 [   0] CALL      R20(...) nargs=-1 nret=1
+     264 [   0] LOADK     R21 := "])"
+     265 [   0] CONCAT    R18 := R18 .. ... .. R21
+     266 [   0] SETTABLE  R5[R17] := R18
+     267 [   0] LOADK     R17 := "decode_translate"
+     268 [   0] GETGLOBAL R18 := _G["tostring"]
+     269 [   0] MOVE      R19 := R16
+     270 [   0] CALL      R18(...) nargs=1 nret=1
+     271 [   0] CONCAT    R17 := R17 .. ... .. R18
+     272 [   0] SETTABLE  R5[R17] := R10
+     273 [   0] GETGLOBAL R17 := _G["tinsert"]
+     274 [   0] MOVE      R18 := R6
+     275 [   0] LOADK     R19 := "str = str:gsub(self.decode_search"
+     276 [   0] GETGLOBAL R20 := _G["tostring"]
+     277 [   0] MOVE      R21 := R16
+     278 [   0] CALL      R20(...) nargs=1 nret=1
+     279 [   0] LOADK     R21 := ", self.decode_translate"
+     280 [   0] GETGLOBAL R22 := _G["tostring"]
+     281 [   0] MOVE      R23 := R16
+     282 [   0] CALL      R22(...) nargs=1 nret=1
+     283 [   0] LOADK     R23 := ");"
+     284 [   0] CONCAT    R19 := R19 .. ... .. R23
+     285 [   0] CALL      R17(...) nargs=2 nret=0
+     286 [   0] LEN       R17 := #R6
+     287 [   0] LEN       R18 := #R6
+     288 [   0] GETTABLE  R18 := R6[R18]
+     289 [   0] SELF      R19 := R18; R18 := R18["gsub"]
+     290 [   0] LOADK     R20 := "str = (.*);"
+     291 [   0] LOADK     R21 := "return %1;"
+     292 [   0] CALL      R18(...) nargs=3 nret=1
+     293 [   0] SETTABLE  R6[R17] := R18
+     294 [   0] LOADK     R17 := "return function(self, str) "
+     295 [   0] GETGLOBAL R18 := _G["table"]
+     296 [   0] GETTABLE  R18 := R18["concat"]
+     297 [   0] MOVE      R19 := R6
+     298 [   0] CALL      R18(...) nargs=1 nret=1
+     299 [   0] LOADK     R19 := " end"
+     300 [   0] CONCAT    R6 := R17 .. ... .. R19
+     301 [   0] LOADK     R17 := "(["
+     302 [   0] GETUPVAL  R18 := upval 0
+     303 [   0] GETGLOBAL R19 := _G["table"]
+     304 [   0] GETTABLE  R19 := R19["concat"]
+     305 [   0] MOVE      R20 := R7
+     306 [   0] CALL      R19(...) nargs=1 nret=-1
+     307 [   0] CALL      R18(...) nargs=-1 nret=1
+     308 [   0] LOADK     R19 := "])"
+     309 [   0] CONCAT    R7 := R17 .. ... .. R19
+     310 [   0] GETUPVAL  R17 := upval 0
+     311 [   0] MOVE      R18 := R2
+     312 [   0] CALL      R17(...) nargs=1 nret=1
+     313 [   0] LOADK     R18 := "(["
+     314 [   0] GETUPVAL  R19 := upval 0
+     315 [   0] GETGLOBAL R20 := _G["table"]
+     316 [   0] GETTABLE  R20 := R20["concat"]
+     317 [   0] MOVE      R21 := R9
+     318 [   0] CALL      R20(...) nargs=1 nret=-1
+     319 [   0] CALL      R19(...) nargs=-1 nret=1
+     320 [   0] LOADK     R20 := "])"
+     321 [   0] CONCAT    R9 := R17 .. ... .. R20
+     322 [   0] GETGLOBAL R17 := _G["assert"]
+     323 [   0] GETGLOBAL R18 := _G["loadstring"]
+     324 [   0] LOADK     R19 := "return function(self, str) return str:gsub(self.encode_search, self.en"
+     325 [   0] CALL      R18(...) nargs=1 nret=-1
+     326 [   0] CALL      R17(...) nargs=-1 nret=1
+     327 [   0] CALL      R17(...) nargs=0 nret=1
+     328 [   0] SETGLOBAL _G["encode_func"] := R17
+     329 [   0] GETGLOBAL R17 := _G["assert"]
+     330 [   0] GETGLOBAL R18 := _G["loadstring"]
+     331 [   0] MOVE      R19 := R6
+     332 [   0] CALL      R18(...) nargs=1 nret=-1
+     333 [   0] CALL      R17(...) nargs=-1 nret=1
+     334 [   0] CALL      R17(...) nargs=0 nret=1
+     335 [   0] SETGLOBAL _G["decode_func"] := R17
+     336 [   0] SETTABLE  R5["encode_search"] := R7
+     337 [   0] SETTABLE  R5["encode_translate"] := R8
+     338 [   0] GETGLOBAL R17 := _G["encode_func"]
+     339 [   0] SETTABLE  R5["Encode"] := R17
+     340 [   0] SETTABLE  R5["decode_search"] := R9
+     341 [   0] SETTABLE  R5["decode_translate"] := R10
+     342 [   0] GETGLOBAL R17 := _G["decode_func"]
+     343 [   0] SETTABLE  R5["Decode"] := R17
+     344 [   0] SETTABLE  R5["decode_func_string"] := R6
+     345 [   0] RETURN    return R5.. (1 values)
+     346 [   0] RETURN    return R0.. (0 values)
+  function main.#21 (params=4, lines 906-916, upvals=[], locals=[])
+    constants: strings=['', '\x01', 'GetEncodeTable', '\x00'] numbers=[]
+       0 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       1 [   0] JMP       jmp +1 -> 3
+       2 [   0] LOADK     R1 := ""
+       3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] LOADK     R2 := ""
+       6 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       7 [   0] JMP       jmp +1 -> 9
+       8 [   0] LOADK     R3 := ""
+       9 [   0] EQ        if (R2 == "") ~= 0 then skip next
+      10 [   0] JMP       jmp +1 -> 12
+      11 [   0] LOADK     R2 := ""
+      12 [   0] SELF      R5 := R0; R4 := R0["GetEncodeTable"]
+      13 [   0] TESTSET   if (R1 truthy) == 1 then R6 := R1 else skip next
+      14 [   0] JMP       jmp +1 -> 16
+      15 [   0] LOADK     R6 := ""
+      16 [   0] LOADK     R7 := " "
+      17 [   0] CONCAT    R6 := R6 .. ... .. R7
+      18 [   0] MOVE      R7 := R2
+      19 [   0] MOVE      R8 := R3
+      20 [   0] TAILCALL  return R4(...) nargs=4
+      21 [   0] RETURN    return R4.. (-1 values)
+      22 [   0] RETURN    return R0.. (0 values)
+  function main.#22 (params=4, lines 923-953, upvals=[], locals=[])
+    constants: strings=['', 'table', 'insert', 'string', 'char', 'sS\x00\n\r|%', 'concat', '\x1d\x1f', '\x0f\x14', 'GetEncodeTable'] numbers=[128, 255, 1]
+       0 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       1 [   0] JMP       jmp +1 -> 3
+       2 [   0] LOADK     R1 := ""
+       3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] LOADK     R2 := ""
+       6 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       7 [   0] JMP       jmp +1 -> 9
+       8 [   0] LOADK     R3 := ""
+       9 [   0] LOADNIL   R4..R4 := nil
+      10 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      11 [   0] LOADK     R6 := 128
+      12 [   0] LOADK     R7 := 255
+      13 [   0] LOADK     R8 := 1
+      14 [   0] FORPREP   for R6.. jmp +8
+      15 [   0] GETGLOBAL R10 := _G["table"]
+      16 [   0] GETTABLE  R10 := R10["insert"]
+      17 [   0] MOVE      R11 := R5
+      18 [   0] GETGLOBAL R12 := _G["string"]
+      19 [   0] GETTABLE  R12 := R12["char"]
+      20 [   0] MOVE      R13 := R9
+      21 [   0] CALL      R12(...) nargs=1 nret=-1
+      22 [   0] CALL      R10(...) nargs=-1 nret=0
+      23 [   0] FORLOOP   forloop R6 jmp -9
+      24 [   0] LOADK     R6 := "sS \n|%"
+      25 [   0] GETGLOBAL R7 := _G["table"]
+      26 [   0] GETTABLE  R7 := R7["concat"]
+      27 [   0] MOVE      R8 := R5
+      28 [   0] CALL      R7(...) nargs=1 nret=1
+      29 [   0] TESTSET   if (R1 truthy) == 1 then R8 := R1 else skip next
+      30 [   0] JMP       jmp +1 -> 32
+      31 [   0] LOADK     R8 := ""
+      32 [   0] CONCAT    R1 := R6 .. ... .. R8
+      33 [   0] EQ        if (R2 == "") ~= 0 then skip next
+      34 [   0] JMP       jmp +1 -> 36
+      35 [   0] LOADK     R2 := ""
+      36 [   0] EQ        if (R3 == "") ~= 0 then skip next
+      37 [   0] JMP       jmp +1 -> 39
+      38 [   0] LOADK     R3 := ""
+      39 [   0] SELF      R7 := R0; R6 := R0["GetEncodeTable"]
+      40 [   0] MOVE      R8 := R1
+      41 [   0] MOVE      R9 := R2
+      42 [   0] MOVE      R10 := R3
+      43 [   0] TAILCALL  return R6(...) nargs=4
+      44 [   0] RETURN    return R6.. (-1 values)
+      45 [   0] RETURN    return R0.. (0 values)
+  function main.#23 (params=2, lines 966-989, upvals=[], locals=[])
+    constants: strings=['encode7bit', 'code', 'string', 'byte', 'table', 'concat', ''] numbers=[0, 1, 8, 7, 127]
+       0 [   0] LOADK     R2 := 0
+       1 [   0] LOADK     R3 := 0
+       2 [   0] GETUPVAL  R4 := upval 0
+       3 [   0] GETTABLE  R4 := R4["encode7bit"]
+       4 [   0] LOADK     R5 := 0
+       5 [   0] LEN       R6 := #R1
+       6 [   0] LOADK     R7 := 1
+       7 [   0] MOVE      R8 := R6
+       8 [   0] LOADK     R9 := 1
+       9 [   0] FORPREP   for R7.. jmp +29
+      10 [   0] GETGLOBAL R11 := _G["string"]
+      11 [   0] GETTABLE  R11 := R11["byte"]
+      12 [   0] MOVE      R12 := R1
+      13 [   0] MOVE      R13 := R10
+      14 [   0] CALL      R11(...) nargs=2 nret=1
+      15 [   0] SETGLOBAL _G["code"] := R11
+      16 [   0] GETUPVAL  R11 := upval 1
+      17 [   0] GETGLOBAL R12 := _G["code"]
+      18 [   0] MOVE      R13 := R3
+      19 [   0] CALL      R11(...) nargs=2 nret=1
+      20 [   0] ADD       R2 := R2 + R11
+      21 [   0] ADD       R3 := 8 + R3
+      22 [   0] LE        if (7 <= R3) ~= 0 then skip next
+      23 [   0] JMP       jmp +15 -> 39
+      24 [   0] ADD       R5 := R5 + 1
+      25 [   0] GETUPVAL  R11 := upval 2
+      26 [   0] GETUPVAL  R12 := upval 3
+      27 [   0] MOVE      R13 := R2
+      28 [   0] LOADK     R14 := 127
+      29 [   0] CALL      R12(...) nargs=2 nret=-1
+      30 [   0] CALL      R11(...) nargs=-1 nret=1
+      31 [   0] SETTABLE  R4[R5] := R11
+      32 [   0] GETUPVAL  R11 := upval 4
+      33 [   0] MOVE      R12 := R2
+      34 [   0] LOADK     R13 := 7
+      35 [   0] CALL      R11(...) nargs=2 nret=1
+      36 [   0] MOVE      R2 := R11
+      37 [   0] SUB       R3 := R3 - 7
+      38 [   0] JMP       jmp -17 -> 22
+      39 [   0] FORLOOP   forloop R7 jmp -30
+      40 [   0] LT        if (0 < R3) ~= 0 then skip next
+      41 [   0] JMP       jmp +5 -> 47
+      42 [   0] ADD       R5 := R5 + 1
+      43 [   0] GETUPVAL  R7 := upval 2
+      44 [   0] MOVE      R8 := R2
+      45 [   0] CALL      R7(...) nargs=1 nret=1
+      46 [   0] SETTABLE  R4[R5] := R7
+      47 [   0] GETUPVAL  R7 := upval 5
+      48 [   0] LOADK     R8 := "encode7bit"
+      49 [   0] CALL      R7(...) nargs=1 nret=0
+      50 [   0] GETGLOBAL R7 := _G["table"]
+      51 [   0] GETTABLE  R7 := R7["concat"]
+      52 [   0] MOVE      R8 := R4
+      53 [   0] LOADK     R9 := ""
+      54 [   0] LOADK     R10 := 1
+      55 [   0] MOVE      R11 := R5
+      56 [   0] TAILCALL  return R7(...) nargs=4
+      57 [   0] RETURN    return R7.. (-1 values)
+      58 [   0] RETURN    return R0.. (0 values)
+  function main.#24 (params=2, lines 995-1020, upvals=[], locals=[])
+    constants: strings=['decode8bit', 'bit', 'band', 'table', 'concat', ''] numbers=[0, 1, 8, 255, 7]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETTABLE  R2 := R2["decode8bit"]
+       2 [   0] LOADK     R3 := 0
+       3 [   0] LOADNIL   R4..R4 := nil
+       4 [   0] LOADK     R5 := 1
+       5 [   0] LOADK     R6 := 0
+       6 [   0] LOADK     R7 := 0
+       7 [   0] LEN       R8 := #R1
+       8 [   0] LE        if (8 <= R6) ~= 0 then skip next
+       9 [   0] JMP       jmp +15 -> 25
+      10 [   0] ADD       R3 := R3 + 1
+      11 [   0] GETUPVAL  R9 := upval 1
+      12 [   0] GETGLOBAL R10 := _G["bit"]
+      13 [   0] GETTABLE  R10 := R10["band"]
+      14 [   0] MOVE      R11 := R7
+      15 [   0] LOADK     R12 := 255
+      16 [   0] CALL      R10(...) nargs=2 nret=-1
+      17 [   0] CALL      R9(...) nargs=-1 nret=1
+      18 [   0] SETTABLE  R2[R3] := R9
+      19 [   0] GETUPVAL  R9 := upval 2
+      20 [   0] MOVE      R10 := R7
+      21 [   0] LOADK     R11 := 8
+      22 [   0] CALL      R9(...) nargs=2 nret=1
+      23 [   0] MOVE      R7 := R9
+      24 [   0] SUB       R6 := R6 - 8
+      25 [   0] GETUPVAL  R9 := upval 3
+      26 [   0] MOVE      R10 := R1
+      27 [   0] MOVE      R11 := R5
+      28 [   0] CALL      R9(...) nargs=2 nret=1
+      29 [   0] MOVE      R4 := R9
+      30 [   0] GETUPVAL  R9 := upval 4
+      31 [   0] TESTSET   if (R4 truthy) == 1 then R10 := R4 else skip next
+      32 [   0] JMP       jmp +1 -> 34
+      33 [   0] LOADK     R10 := 0
+      34 [   0] MOVE      R11 := R6
+      35 [   0] CALL      R9(...) nargs=2 nret=1
+      36 [   0] ADD       R7 := R7 + R9
+      37 [   0] ADD       R6 := R6 + 7
+      38 [   0] LT        if (R8 < R5) ~= 0 then skip next
+      39 [   0] JMP       jmp +1 -> 41
+      40 [   0] JMP       jmp +2 -> 43
+      41 [   0] ADD       R5 := R5 + 1
+      42 [   0] JMP       jmp -35 -> 8
+      43 [   0] GETUPVAL  R9 := upval 5
+      44 [   0] LOADK     R10 := "decode8bit"
+      45 [   0] CALL      R9(...) nargs=1 nret=0
+      46 [   0] GETGLOBAL R9 := _G["table"]
+      47 [   0] GETTABLE  R9 := R9["concat"]
+      48 [   0] MOVE      R10 := R2
+      49 [   0] LOADK     R11 := ""
+      50 [   0] LOADK     R12 := 1
+      51 [   0] MOVE      R13 := R3
+      52 [   0] TAILCALL  return R9(...) nargs=4
+      53 [   0] RETURN    return R9.. (-1 values)
+      54 [   0] RETURN    return R0.. (0 values)
+  function main.#25 (params=1, lines 1090-1092, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] RETURN    return R1.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#26 (params=3, lines 1097-1104, upvals=[], locals=[])
+    constants: strings=[] numbers=[1, 8, 255]
+       0 [   0] GETUPVAL  R4 := upval 0
+       1 [   0] MOVE      R5 := R2
+       2 [   0] CALL      R4(...) nargs=1 nret=1
+       3 [   0] LOADK     R5 := 1
+       4 [   0] MOVE      R6 := R4
+       5 [   0] LOADK     R7 := 1
+       6 [   0] FORPREP   for R5.. jmp +19
+       7 [   0] GETUPVAL  R9 := upval 1
+       8 [   0] GETUPVAL  R10 := upval 2
+       9 [   0] MOVE      R11 := R1
+      10 [   0] LOADK     R12 := 8
+      11 [   0] CALL      R10(...) nargs=2 nret=1
+      12 [   0] GETUPVAL  R11 := upval 3
+      13 [   0] GETUPVAL  R12 := upval 4
+      14 [   0] GETUPVAL  R13 := upval 1
+      15 [   0] MOVE      R14 := R1
+      16 [   0] GETUPVAL  R15 := upval 5
+      17 [   0] MOVE      R16 := R2
+      18 [   0] MOVE      R17 := R8
+      19 [   0] CALL      R15(...) nargs=2 nret=-1
+      20 [   0] CALL      R13(...) nargs=-1 nret=1
+      21 [   0] LOADK     R14 := 255
+      22 [   0] CALL      R12(...) nargs=2 nret=1
+      23 [   0] GETTABLE  R11 := R11[R12]
+      24 [   0] CALL      R9(...) nargs=2 nret=1
+      25 [   0] MOVE      R1 := R9
+      26 [   0] FORLOOP   forloop R5 jmp -20
+      27 [   0] RETURN    return R1.. (1 values)
+      28 [   0] RETURN    return R0.. (0 values)
+  function main.#27 (params=2, lines 1108-1110, upvals=[], locals=[])
+    constants: strings=[] numbers=[65535]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] MOVE      R3 := R1
+       2 [   0] LOADK     R4 := 65535
+       3 [   0] TAILCALL  return R2(...) nargs=2
+       4 [   0] RETURN    return R2.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)
+  function main.#28 (params=1, lines 1165-1167, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] RETURN    return R1.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#29 (params=3, lines 1172-1179, upvals=[], locals=[])
+    constants: strings=[] numbers=[1, 8, 255]
+       0 [   0] GETUPVAL  R4 := upval 0
+       1 [   0] MOVE      R5 := R2
+       2 [   0] CALL      R4(...) nargs=1 nret=1
+       3 [   0] LOADK     R5 := 1
+       4 [   0] MOVE      R6 := R4
+       5 [   0] LOADK     R7 := 1
+       6 [   0] FORPREP   for R5.. jmp +19
+       7 [   0] GETUPVAL  R9 := upval 1
+       8 [   0] GETUPVAL  R10 := upval 2
+       9 [   0] MOVE      R11 := R1
+      10 [   0] LOADK     R12 := 8
+      11 [   0] CALL      R10(...) nargs=2 nret=1
+      12 [   0] GETUPVAL  R11 := upval 3
+      13 [   0] GETUPVAL  R12 := upval 4
+      14 [   0] GETUPVAL  R13 := upval 1
+      15 [   0] MOVE      R14 := R1
+      16 [   0] GETUPVAL  R15 := upval 5
+      17 [   0] MOVE      R16 := R2
+      18 [   0] MOVE      R17 := R8
+      19 [   0] CALL      R15(...) nargs=2 nret=-1
+      20 [   0] CALL      R13(...) nargs=-1 nret=1
+      21 [   0] LOADK     R14 := 255
+      22 [   0] CALL      R12(...) nargs=2 nret=1
+      23 [   0] GETTABLE  R11 := R11[R12]
+      24 [   0] CALL      R9(...) nargs=2 nret=1
+      25 [   0] MOVE      R1 := R9
+      26 [   0] FORLOOP   forloop R5 jmp -20
+      27 [   0] RETURN    return R1.. (1 values)
+      28 [   0] RETURN    return R0.. (0 values)
+  function main.#30 (params=2, lines 1183-1185, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] MOVE      R3 := R1
+       2 [   0] TAILCALL  return R2(...) nargs=1
+       3 [   0] RETURN    return R2.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,290 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'utils.util', 'ui.listview', 'logging.logger', 'displaygroupcontainer', 'new'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "utils.util"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+     8 [   0] LOADK     R4 := "ui.listview"
+     9 [   0] CONCAT    R3 := R3 .. ... .. R4
+    10 [   0] CALL      R2(...) nargs=1 nret=1
+    11 [   0] GETGLOBAL R3 := _G["require"]
+    12 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    13 [   0] LOADK     R5 := "logging.logger"
+    14 [   0] CONCAT    R4 := R4 .. ... .. R5
+    15 [   0] CALL      R3(...) nargs=1 nret=1
+    16 [   0] GETGLOBAL R4 := _G["require"]
+    17 [   0] GETGLOBAL R5 := _G["FGLIB_PATH"]
+    18 [   0] LOADK     R6 := "displaygroupcontainer"
+    19 [   0] CONCAT    R5 := R5 .. ... .. R6
+    20 [   0] CALL      R4(...) nargs=1 nret=1
+    21 [   0] CLOSURE   R5 := closure #0
+    22 [   0] MOVE      R0 := R2
+    23 [   0] CLOSURE   R6 := closure #1
+    24 [   0] MOVE      R0 := R5
+    25 [   0] MOVE      R0 := R4
+    26 [   0] SETTABLE  R0["new"] := R6
+    27 [   0] RETURN    return R0.. (1 values)
+    28 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 15-123, upvals=[], locals=[])
+    constants: strings=['CreateListView', 'init', 'push_back', 'height', 'graphics', 'newMask', 'assets/consolemask.png', 'display', 'newGroup', 'setMask', 'setReferencePoint', 'CenterReferencePoint', 'maskX', 'maskY', 'contentHeight', 'newImage', 'assets/handle.jpg', 'x', 'contentWidth', 'y', 'assets/nav_icon_mail.png', 'newRect', 'screenOriginY', 'setFillColor', 'insert', 'getGrp', 'displaygroup', 'handleTouchHandler', 'minimize', 'maximize', 'handleMailHandler', 'log', 'addEventListener', 'tap', 'togglesize'] numbers=[2000, 0, 500, 0.25, 2, -16, 200]
+       0 [   0] LOADK     R1 := 2000
+       1 [   0] LOADK     R2 := 0
+       2 [   0] GETUPVAL  R3 := upval 0
+       3 [   0] GETTABLE  R3 := R3["CreateListView"]
+       4 [   0] CALL      R3(...) nargs=0 nret=1
+       5 [   0] GETTABLE  R4 := R3["init"]
+       6 [   0] CALL      R4(...) nargs=0 nret=0
+       7 [   0] GETTABLE  R4 := R3["push_back"]
+       8 [   0] LOADNIL   R5..R5 := nil
+       9 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      10 [   0] SETTABLE  R6["height"] := 500
+      11 [   0] CALL      R4(...) nargs=2 nret=0
+      12 [   0] GETGLOBAL R4 := _G["graphics"]
+      13 [   0] GETTABLE  R4 := R4["newMask"]
+      14 [   0] LOADK     R5 := "assets/consolemask.png"
+      15 [   0] CALL      R4(...) nargs=1 nret=1
+      16 [   0] GETGLOBAL R5 := _G["display"]
+      17 [   0] GETTABLE  R5 := R5["newGroup"]
+      18 [   0] CALL      R5(...) nargs=0 nret=1
+      19 [   0] SELF      R7 := R5; R6 := R5["setMask"]
+      20 [   0] MOVE      R8 := R4
+      21 [   0] CALL      R6(...) nargs=2 nret=0
+      22 [   0] SELF      R7 := R5; R6 := R5["setReferencePoint"]
+      23 [   0] GETGLOBAL R8 := _G["display"]
+      24 [   0] GETTABLE  R8 := R8["CenterReferencePoint"]
+      25 [   0] CALL      R6(...) nargs=2 nret=0
+      26 [   0] SETTABLE  R5["maskX"] := 0
+      27 [   0] GETGLOBAL R6 := _G["display"]
+      28 [   0] GETTABLE  R6 := R6["contentHeight"]
+      29 [   0] SUB       R6 := R6 - 500
+      30 [   0] GETGLOBAL R7 := _G["display"]
+      31 [   0] GETTABLE  R7 := R7["contentHeight"]
+      32 [   0] MUL       R7 := R7 * 0.25
+      33 [   0] ADD       R6 := R6 + R7
+      34 [   0] SETTABLE  R5["maskY"] := R6
+      35 [   0] GETGLOBAL R6 := _G["display"]
+      36 [   0] GETTABLE  R6 := R6["newImage"]
+      37 [   0] LOADK     R7 := "assets/handle.jpg"
+      38 [   0] CALL      R6(...) nargs=1 nret=1
+      39 [   0] GETGLOBAL R7 := _G["display"]
+      40 [   0] GETTABLE  R7 := R7["contentWidth"]
+      41 [   0] DIV       R7 := R7 / 2
+      42 [   0] SETTABLE  R6["x"] := R7
+      43 [   0] SETTABLE  R6["y"] := -16
+      44 [   0] GETGLOBAL R7 := _G["display"]
+      45 [   0] GETTABLE  R7 := R7["newImage"]
+      46 [   0] LOADK     R8 := "assets/nav_icon_mail.png"
+      47 [   0] CALL      R7(...) nargs=1 nret=1
+      48 [   0] GETGLOBAL R8 := _G["display"]
+      49 [   0] GETTABLE  R8 := R8["newRect"]
+      50 [   0] LOADK     R9 := 0
+      51 [   0] LOADK     R10 := 0
+      52 [   0] GETGLOBAL R11 := _G["display"]
+      53 [   0] GETTABLE  R11 := R11["contentWidth"]
+      54 [   0] GETGLOBAL R12 := _G["display"]
+      55 [   0] GETTABLE  R12 := R12["contentHeight"]
+      56 [   0] GETGLOBAL R13 := _G["display"]
+      57 [   0] GETTABLE  R13 := R13["screenOriginY"]
+      58 [   0] MUL       R13 := 2 * R13
+      59 [   0] SUB       R12 := R12 - R13
+      60 [   0] CALL      R8(...) nargs=4 nret=1
+      61 [   0] SELF      R10 := R8; R9 := R8["setFillColor"]
+      62 [   0] LOADK     R11 := 0
+      63 [   0] LOADK     R12 := 0
+      64 [   0] LOADK     R13 := 0
+      65 [   0] LOADK     R14 := 200
+      66 [   0] CALL      R9(...) nargs=5 nret=0
+      67 [   0] SELF      R10 := R5; R9 := R5["insert"]
+      68 [   0] MOVE      R11 := R8
+      69 [   0] CALL      R9(...) nargs=2 nret=0
+      70 [   0] SELF      R10 := R5; R9 := R5["insert"]
+      71 [   0] GETTABLE  R11 := R3["getGrp"]
+      72 [   0] CALL      R11(...) nargs=0 nret=-1
+      73 [   0] CALL      R9(...) nargs=-1 nret=0
+      74 [   0] GETTABLE  R9 := R0["displaygroup"]
+      75 [   0] SELF      R10 := R9; R9 := R9["insert"]
+      76 [   0] MOVE      R11 := R5
+      77 [   0] CALL      R9(...) nargs=2 nret=0
+      78 [   0] GETTABLE  R9 := R0["displaygroup"]
+      79 [   0] SELF      R10 := R9; R9 := R9["insert"]
+      80 [   0] MOVE      R11 := R6
+      81 [   0] CALL      R9(...) nargs=2 nret=0
+      82 [   0] GETTABLE  R9 := R0["displaygroup"]
+      83 [   0] SELF      R10 := R9; R9 := R9["insert"]
+      84 [   0] MOVE      R11 := R7
+      85 [   0] CALL      R9(...) nargs=2 nret=0
+      86 [   0] NEWTABLE  R9 := {} (array 0, hash 0)
+      87 [   0] CLOSURE   R10 := closure #0
+      88 [   0] MOVE      R0 := R0
+      89 [   0] SETTABLE  R0["handleTouchHandler"] := R10
+      90 [   0] CLOSURE   R10 := closure #1
+      91 [   0] MOVE      R0 := R0
+      92 [   0] MOVE      R0 := R3
+      93 [   0] MOVE      R0 := R8
+      94 [   0] MOVE      R0 := R6
+      95 [   0] SETTABLE  R0["minimize"] := R10
+      96 [   0] CLOSURE   R10 := closure #2
+      97 [   0] MOVE      R0 := R0
+      98 [   0] MOVE      R0 := R3
+      99 [   0] MOVE      R0 := R8
+     100 [   0] MOVE      R0 := R6
+     101 [   0] SETTABLE  R0["maximize"] := R10
+     102 [   0] CLOSURE   R10 := closure #3
+     103 [   0] SETTABLE  R0["handleMailHandler"] := R10
+     104 [   0] CLOSURE   R10 := closure #4
+     105 [   0] MOVE      R0 := R9
+     106 [   0] MOVE      R0 := R1
+     107 [   0] MOVE      R0 := R2
+     108 [   0] MOVE      R0 := R3
+     109 [   0] SETTABLE  R0["log"] := R10
+     110 [   0] SELF      R11 := R6; R10 := R6["addEventListener"]
+     111 [   0] LOADK     R12 := "tap"
+     112 [   0] GETTABLE  R13 := R0["handleTouchHandler"]
+     113 [   0] CALL      R10(...) nargs=3 nret=0
+     114 [   0] SELF      R11 := R7; R10 := R7["addEventListener"]
+     115 [   0] LOADK     R12 := "tap"
+     116 [   0] GETTABLE  R13 := R0["handleMailHandler"]
+     117 [   0] CALL      R10(...) nargs=3 nret=0
+     118 [   0] GETTABLE  R10 := R0["minimize"]
+     119 [   0] SETTABLE  R0["togglesize"] := R10
+     120 [   0] GETTABLE  R10 := R0["togglesize"]
+     121 [   0] CALL      R10(...) nargs=0 nret=0
+     122 [   0] RETURN    return R0.. (1 values)
+     123 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 65-68, upvals=[], locals=[])
+      constants: strings=['togglesize'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["togglesize"]
+         2 [   0] CALL      R1(...) nargs=0 nret=0
+         3 [   0] LOADBOOL  R1 := True
+         4 [   0] RETURN    return R1.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 70-76, upvals=[], locals=[])
+      constants: strings=['togglesize', 'maximize', 'getGrp', 'isVisible', 'y', 'display', 'contentHeight', 'height'] numbers=[30]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 0
+         2 [   0] GETTABLE  R1 := R1["maximize"]
+         3 [   0] SETTABLE  R0["togglesize"] := R1
+         4 [   0] GETUPVAL  R0 := upval 1
+         5 [   0] GETTABLE  R0 := R0["getGrp"]
+         6 [   0] CALL      R0(...) nargs=0 nret=1
+         7 [   0] SETTABLE  R0["isVisible"] := False
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] SETTABLE  R0["isVisible"] := False
+        10 [   0] GETUPVAL  R0 := upval 3
+        11 [   0] GETGLOBAL R1 := _G["display"]
+        12 [   0] GETTABLE  R1 := R1["contentHeight"]
+        13 [   0] GETUPVAL  R2 := upval 3
+        14 [   0] GETTABLE  R2 := R2["height"]
+        15 [   0] SUB       R1 := R1 - R2
+        16 [   0] ADD       R1 := R1 + 30
+        17 [   0] SETTABLE  R0["y"] := R1
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 78-85, upvals=[], locals=[])
+      constants: strings=['togglesize', 'minimize', 'getGrp', 'isVisible', 'y'] numbers=[12]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 0
+         2 [   0] GETTABLE  R1 := R1["minimize"]
+         3 [   0] SETTABLE  R0["togglesize"] := R1
+         4 [   0] GETUPVAL  R0 := upval 1
+         5 [   0] GETTABLE  R0 := R0["getGrp"]
+         6 [   0] CALL      R0(...) nargs=0 nret=1
+         7 [   0] SETTABLE  R0["isVisible"] := True
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] SETTABLE  R0["isVisible"] := True
+        10 [   0] GETUPVAL  R0 := upval 3
+        11 [   0] SETTABLE  R0["y"] := 12
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 87-97, upvals=[], locals=[])
+      constants: strings=['subject', 'DebugLog', 'body', 'debugTextElement', 'text', 'native', 'showPopup', 'mail'] numbers=[]
+         0 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+         1 [   0] SETTABLE  R1["subject"] := "DebugLog"
+         2 [   0] GETGLOBAL R2 := _G["debugTextElement"]
+         3 [   0] GETTABLE  R2 := R2["text"]
+         4 [   0] SETTABLE  R1["body"] := R2
+         5 [   0] GETGLOBAL R2 := _G["native"]
+         6 [   0] GETTABLE  R2 := R2["showPopup"]
+         7 [   0] LOADK     R3 := "mail"
+         8 [   0] MOVE      R4 := R1
+         9 [   0] CALL      R2(...) nargs=2 nret=0
+        10 [   0] LOADBOOL  R2 := True
+        11 [   0] RETURN    return R2.. (1 values)
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 99-114, upvals=[], locals=[])
+      constants: strings=['display', 'newText', 'native', 'systemFont', 'setTextColor', 'table', 'remove', 'height', 'push_back', 'moveToElem'] numbers=[1, 0, 20, 255, 10]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] LEN       R2 := #R2
+         3 [   0] ADD       R2 := R2 + 1
+         4 [   0] GETGLOBAL R3 := _G["display"]
+         5 [   0] GETTABLE  R3 := R3["newText"]
+         6 [   0] MOVE      R4 := R0
+         7 [   0] LOADK     R5 := 0
+         8 [   0] LOADK     R6 := 0
+         9 [   0] GETGLOBAL R7 := _G["native"]
+        10 [   0] GETTABLE  R7 := R7["systemFont"]
+        11 [   0] LOADK     R8 := 20
+        12 [   0] CALL      R3(...) nargs=5 nret=1
+        13 [   0] SETTABLE  R1[R2] := R3
+        14 [   0] GETUPVAL  R1 := upval 0
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] LEN       R2 := #R2
+        17 [   0] GETTABLE  R1 := R1[R2]
+        18 [   0] SELF      R2 := R1; R1 := R1["setTextColor"]
+        19 [   0] LOADK     R3 := 0
+        20 [   0] LOADK     R4 := 255
+        21 [   0] LOADK     R5 := 0
+        22 [   0] CALL      R1(...) nargs=4 nret=0
+        23 [   0] GETUPVAL  R1 := upval 0
+        24 [   0] LEN       R1 := #R1
+        25 [   0] GETUPVAL  R2 := upval 1
+        26 [   0] LT        if (R2 < R1) ~= 0 then skip next
+        27 [   0] JMP       jmp +6 -> 34
+        28 [   0] GETGLOBAL R1 := _G["table"]
+        29 [   0] GETTABLE  R1 := R1["remove"]
+        30 [   0] GETUPVAL  R2 := upval 0
+        31 [   0] LOADK     R3 := 1
+        32 [   0] CALL      R1(...) nargs=2 nret=0
+        33 [   0] JMP       jmp -11 -> 23
+        34 [   0] GETUPVAL  R1 := upval 2
+        35 [   0] GETUPVAL  R2 := upval 0
+        36 [   0] GETUPVAL  R3 := upval 0
+        37 [   0] LEN       R3 := #R3
+        38 [   0] GETTABLE  R2 := R2[R3]
+        39 [   0] GETTABLE  R2 := R2["height"]
+        40 [   0] ADD       R1 := R1 + R2
+        41 [   0] ADD       R1 := R1 + 10
+        42 [   0] SETUPVAL  upval 2 := R1
+        43 [   0] GETUPVAL  R1 := upval 3
+        44 [   0] GETTABLE  R1 := R1["push_back"]
+        45 [   0] GETUPVAL  R2 := upval 0
+        46 [   0] GETUPVAL  R3 := upval 0
+        47 [   0] LEN       R3 := #R3
+        48 [   0] GETTABLE  R2 := R2[R3]
+        49 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+        50 [   0] GETUPVAL  R4 := upval 0
+        51 [   0] GETUPVAL  R5 := upval 0
+        52 [   0] LEN       R5 := #R5
+        53 [   0] GETTABLE  R4 := R4[R5]
+        54 [   0] GETTABLE  R4 := R4["height"]
+        55 [   0] SETTABLE  R3["height"] := R4
+        56 [   0] CALL      R1(...) nargs=2 nret=0
+        57 [   0] GETUPVAL  R1 := upval 3
+        58 [   0] GETTABLE  R1 := R1["moveToElem"]
+        59 [   0] GETUPVAL  R2 := upval 0
+        60 [   0] LEN       R2 := #R2
+        61 [   0] CALL      R1(...) nargs=1 nret=0
+        62 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 125-127, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new"]
+       3 [   0] CALL      R1(...) nargs=0 nret=-1
+       4 [   0] TAILCALL  return R0(...) nargs=-1
+       5 [   0] RETURN    return R0.. (-1 values)
+       6 [   0] RETURN    return R0.. (0 values)

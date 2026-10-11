@@ -1,0 +1,143 @@
+/* Evoker Web - design tokens. Every colour, font and size used by the UI lives here.
+   Colours are the original client's palette (exploration/apk/data/colors.json, ev_styles; see docs/design/apk-assets.md).
+   Fonts come from css/fonts.css: Proxima Nova Light (300) / Semibold (600) for all UI text, CG Times Bold for
+   the big ornamental titles. Only those weights exist, so use 300 for light copy and 600 for everything else. */
+:root {
+  /* Stage */
+  --stage-w: 720;
+  --stage-h: 1280;
+  --stage-scale: 1;
+
+  /* Fonts */
+  --font-ui: 'Proxima Nova', 'Montserrat', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-num: 'Proxima Nova', 'Montserrat', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-title: 'CG Times', 'Times New Roman', Georgia, serif;
+  --fw-light: 300;
+  --fw-bold: 600;
+
+  /* Original sprites (assets/orig/ui) and the stitched border-image frames (exploration/tools/make-frames.py) */
+  --ui: '/assets/orig/ui/';
+  --sprite-scale: 1.125; /* sprites were drawn for a 640-wide @2x phone; 720 / 640 */
+
+  /* Slate / stone (the hex-stone textures of topbar_bg / hud_bottombg01) */
+  --bg: #1b1d1f;
+  --panel: #1a1b1d;
+  --panel-light: #2a2d31;
+  --panel-dark: #141617;
+  --panel-inset: #0d0e10;
+  --stone-edge: #3d4246;
+  --stone-edge-dark: #0a0b0c;
+  --bevel-hi: rgba(255, 255, 255, .14);
+  --bevel-lo: rgba(0, 0, 0, .6);
+
+  /* Steel-blue buttons (button_default_fill) */
+  --steel-hi: #4f7f9b;
+  --steel-lo: #2b4a60;
+  --steel-edge: rgba(190, 225, 245, .55);
+  --steel-text: #ffffff;
+  --green-hi: #5fbf4a;
+  --green-lo: #2d7a24;
+  --red-hi: #c84a3c;
+  --red-lo: #7a2219;
+
+  /* Text (ev_styles: white, headlinegrey, beige, playerGold, brightOrange, common grey) */
+  --text: #ffffff;
+  --headline: #e6e6e6;
+  --muted: #c8c7c7;
+  --gold: #d2a154;
+  --orange: #ff8014;
+  --tan: #f4d59f;
+  --tutorial-gold: #fffd72;
+  --boss-name: #faaa32;
+  --enhance-yellow: #ffc553;
+  --evolve-blue: #73beed;
+  --sell-green: #71d703;
+  --darkblue: #1f2f3c;
+  --green: #378f0b;
+  --yellow: #fed00f;
+
+  /* Resource / stat colours (ev_styles: xp, stamina, mana, health, playerGold, rating) */
+  --c-xp-bar: #ffd556;
+  --c-stamina: #ff832f;
+  --c-mana: #24d8ff;
+  --c-hp: #39b432;
+  --c-rating: #c1d353;
+  --c-attack: #ff3b30;
+  --c-star: #ffd556;
+  --c-quest: #a64ddb;
+  --c-xp: #a64ddb;        /* legacy name used by the quest progress bar (violet, hud_progressbarviolet) */
+  --c-gem: #73beed;
+  --c-gold: #ffcf35;
+  --c-ability: #ff8014;
+
+  /* Rarity text colours (ev_styles) */
+  --r-common: #c8c7c7;
+  --r-standard: #f3f3f3;
+  --r-uncommon: #91dc52;
+  --r-rare: #7ab0f2;
+  --r-heroic: #c059bf;
+  --r-legendary: #fdfab1;
+  --r-ultimate: #ff0000;
+  /* Darker rarity frames of the small card thumbs (arena, booster faces, the feed's card fan) */
+  --rt-uncommon: #4f9a2a;
+  --rt-rare: #2e6fd0;
+  --rt-heroic: #8c2ea8;
+  --rt-legendary: #e2a326;
+  --rt-ultimate: #c81414;
+
+  /* League tiers (ev_styles: bronze, silver, gold; platinum is ours) */
+  --tier-bronze: #d47a42;
+  --tier-silver: #e3e3e3;
+  --tier-gold: #ffcf35;
+  --tier-platinum: #9fe3f5;
+
+  /* Tribes */
+  --t-dwarf: #45c23f;
+  --t-elf: #3b8bff;
+  --t-orc: #ff3b30;
+  --t-neutral: #ff9f1c;
+
+  /* Status */
+  --status-daze: #ff3b30;
+  --status-stun: #ff5a3c;
+  --status-suspend: #24d8ff;
+  --status-sphere: rgba(190, 230, 255, .75);
+
+  /* Shape */
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 12px;
+  --frame: 3px;
+
+  /* Spacing (stage px) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+
+  /* Layout heights: topbar_bg strip with the 94 px resource bars, hud_bottombg01 strip with 109 px buttons */
+  --hud-h: 118px;
+  --nav-h: 136px;
+
+  /* Z-index */
+  --z-screen: 1;
+  --z-hud: 10;
+  --z-nav: 10;
+  --z-drag: 50;
+  --z-dialog: 100;
+  --z-popup: 110;
+  --z-toast: 120;
+
+  /* Motion */
+  --t-fast: 120ms;
+  --t-med: 220ms;
+  --t-slow: 400ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* Textures: the original stone strips, plus the CSS hexagon fallback pattern for large areas */
+  --stone-texture: url('/assets/orig/ui/topbar_bg.png');
+  --hex-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='48' viewBox='0 0 28 48'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.055' stroke-width='1'%3E%3Cpath d='M14 1 L27 8.5 L27 23.5 L14 31 L1 23.5 L1 8.5 Z'/%3E%3Cpath d='M14 31 L27 38.5 L27 53.5 M14 31 L1 38.5 L1 53.5'/%3E%3Cpath d='M27 -7 L14 1 L1 -7'/%3E%3C/g%3E%3C/svg%3E");
+  --hex-texture-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='48' viewBox='0 0 28 48'%3E%3Cg fill='none' stroke='%23000000' stroke-opacity='0.35' stroke-width='1'%3E%3Cpath d='M14 1 L27 8.5 L27 23.5 L14 31 L1 23.5 L1 8.5 Z'/%3E%3Cpath d='M14 31 L27 38.5 L27 53.5 M14 31 L1 38.5 L1 53.5'/%3E%3Cpath d='M27 -7 L14 1 L1 -7'/%3E%3C/g%3E%3C/svg%3E");
+}

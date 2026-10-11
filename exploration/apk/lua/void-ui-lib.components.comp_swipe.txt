@@ -1,0 +1,453 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'common.easingx', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "common.easingx"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] CLOSURE   R1 := closure #0
+     6 [   0] MOVE      R0 := R0
+     7 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     8 [   0] SETTABLE  R2["create"] := R1
+     9 [   0] RETURN    return R2.. (1 values)
+    10 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=6, lines 3-180, upvals=[], locals=[])
+    constants: strings=['globalX', 'globalY', 'minX', 'minY', 'maxX', 'maxY', 'gesture', 'none', 'self', 'isDragged', 'lastY', 'lastVelY', 'lastX', 'lastVelX', 'isClicked', 'clickRadius', 'clickPosX', 'clickPosY', 'locked', 'touchEvent', 'frameEvent', 'getPosition', 'doRedraw', 'getGesture', 'setPosition', 'setPositionSmooth', 'getMainGrp', 'lock', 'unlock', 'getVelocity'] numbers=[0, 20]
+       0 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+       1 [   0] SETTABLE  R6["globalX"] := R0
+       2 [   0] SETTABLE  R6["globalY"] := R1
+       3 [   0] SETTABLE  R6["minX"] := R2
+       4 [   0] SETTABLE  R6["minY"] := R3
+       5 [   0] SETTABLE  R6["maxX"] := R4
+       6 [   0] SETTABLE  R6["maxY"] := R5
+       7 [   0] SETTABLE  R6["gesture"] := "none"
+       8 [   0] SETTABLE  R6["self"] := None
+       9 [   0] SETTABLE  R6["isDragged"] := False
+      10 [   0] SETTABLE  R6["lastY"] := 0
+      11 [   0] SETTABLE  R6["lastVelY"] := 0
+      12 [   0] SETTABLE  R6["lastX"] := 0
+      13 [   0] SETTABLE  R6["lastVelX"] := 0
+      14 [   0] SETTABLE  R6["isClicked"] := False
+      15 [   0] SETTABLE  R6["clickRadius"] := 20
+      16 [   0] SETTABLE  R6["clickPosX"] := 0
+      17 [   0] SETTABLE  R6["clickPosY"] := 0
+      18 [   0] SETTABLE  R6["locked"] := False
+      19 [   0] CLOSURE   R7 := closure #0
+      20 [   0] MOVE      R0 := R6
+      21 [   0] CLOSURE   R8 := closure #1
+      22 [   0] MOVE      R0 := R6
+      23 [   0] NEWTABLE  R9 := {} (array 0, hash 11)
+      24 [   0] CLOSURE   R10 := closure #2
+      25 [   0] MOVE      R0 := R6
+      26 [   0] MOVE      R0 := R7
+      27 [   0] MOVE      R0 := R8
+      28 [   0] SETTABLE  R9["touchEvent"] := R10
+      29 [   0] CLOSURE   R10 := closure #3
+      30 [   0] MOVE      R0 := R6
+      31 [   0] SETTABLE  R9["frameEvent"] := R10
+      32 [   0] CLOSURE   R10 := closure #4
+      33 [   0] MOVE      R0 := R6
+      34 [   0] SETTABLE  R9["getPosition"] := R10
+      35 [   0] CLOSURE   R10 := closure #5
+      36 [   0] SETTABLE  R9["doRedraw"] := R10
+      37 [   0] CLOSURE   R10 := closure #6
+      38 [   0] MOVE      R0 := R6
+      39 [   0] SETTABLE  R9["getGesture"] := R10
+      40 [   0] CLOSURE   R10 := closure #7
+      41 [   0] MOVE      R0 := R6
+      42 [   0] SETTABLE  R9["setPosition"] := R10
+      43 [   0] CLOSURE   R10 := closure #8
+      44 [   0] MOVE      R0 := R6
+      45 [   0] GETUPVAL  R0 := upval 0
+      46 [   0] SETTABLE  R9["setPositionSmooth"] := R10
+      47 [   0] CLOSURE   R10 := closure #9
+      48 [   0] MOVE      R0 := R6
+      49 [   0] SETTABLE  R9["getMainGrp"] := R10
+      50 [   0] CLOSURE   R10 := closure #10
+      51 [   0] MOVE      R0 := R6
+      52 [   0] SETTABLE  R9["lock"] := R10
+      53 [   0] CLOSURE   R10 := closure #11
+      54 [   0] MOVE      R0 := R6
+      55 [   0] SETTABLE  R9["unlock"] := R10
+      56 [   0] CLOSURE   R10 := closure #12
+      57 [   0] MOVE      R0 := R6
+      58 [   0] SETTABLE  R9["getVelocity"] := R10
+      59 [   0] SETTABLE  R6["self"] := R9
+      60 [   0] GETTABLE  R9 := R6["self"]
+      61 [   0] RETURN    return R9.. (1 values)
+      62 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 29-68, upvals=[], locals=[])
+      constants: strings=['isDragged', 'lastX', 'lastVelX', 'lastY', 'lastVelY', 'globalX', 'globalY', 'maxX', 'minX', 'maxY', 'minY'] numbers=[0, 1.25]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["isDragged"]
+         2 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         3 [   0] JMP       jmp +11 -> 15
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] SETTABLE  R2["isDragged"] := True
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] SETTABLE  R2["lastX"] := R0
+         8 [   0] GETUPVAL  R2 := upval 0
+         9 [   0] SETTABLE  R2["lastVelX"] := 0
+        10 [   0] GETUPVAL  R2 := upval 0
+        11 [   0] SETTABLE  R2["lastY"] := R1
+        12 [   0] GETUPVAL  R2 := upval 0
+        13 [   0] SETTABLE  R2["lastVelY"] := 0
+        14 [   0] JMP       jmp +82 -> 97
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2["lastX"]
+        17 [   0] SUB       R2 := R0 - R2
+        18 [   0] GETUPVAL  R3 := upval 0
+        19 [   0] GETTABLE  R3 := R3["lastY"]
+        20 [   0] SUB       R3 := R1 - R3
+        21 [   0] GETUPVAL  R4 := upval 0
+        22 [   0] GETUPVAL  R5 := upval 0
+        23 [   0] GETTABLE  R5 := R5["globalX"]
+        24 [   0] ADD       R5 := R5 + R2
+        25 [   0] SETTABLE  R4["globalX"] := R5
+        26 [   0] GETUPVAL  R4 := upval 0
+        27 [   0] GETUPVAL  R5 := upval 0
+        28 [   0] GETTABLE  R5 := R5["globalY"]
+        29 [   0] ADD       R5 := R5 + R3
+        30 [   0] SETTABLE  R4["globalY"] := R5
+        31 [   0] LT        if (0 < R2) ~= 0 then skip next
+        32 [   0] JMP       jmp +13 -> 46
+        33 [   0] GETUPVAL  R4 := upval 0
+        34 [   0] GETTABLE  R4 := R4["globalX"]
+        35 [   0] GETUPVAL  R5 := upval 0
+        36 [   0] GETTABLE  R5 := R5["maxX"]
+        37 [   0] LT        if (R5 < R4) ~= 0 then skip next
+        38 [   0] JMP       jmp +21 -> 60
+        39 [   0] GETUPVAL  R4 := upval 0
+        40 [   0] GETUPVAL  R5 := upval 0
+        41 [   0] GETTABLE  R5 := R5["globalX"]
+        42 [   0] DIV       R6 := R2 / 1.25
+        43 [   0] SUB       R5 := R5 - R6
+        44 [   0] SETTABLE  R4["globalX"] := R5
+        45 [   0] JMP       jmp +14 -> 60
+        46 [   0] LT        if (R2 < 0) ~= 0 then skip next
+        47 [   0] JMP       jmp +12 -> 60
+        48 [   0] GETUPVAL  R4 := upval 0
+        49 [   0] GETTABLE  R4 := R4["globalX"]
+        50 [   0] GETUPVAL  R5 := upval 0
+        51 [   0] GETTABLE  R5 := R5["minX"]
+        52 [   0] LT        if (R4 < R5) ~= 0 then skip next
+        53 [   0] JMP       jmp +6 -> 60
+        54 [   0] GETUPVAL  R4 := upval 0
+        55 [   0] GETUPVAL  R5 := upval 0
+        56 [   0] GETTABLE  R5 := R5["globalX"]
+        57 [   0] DIV       R6 := R2 / 1.25
+        58 [   0] SUB       R5 := R5 - R6
+        59 [   0] SETTABLE  R4["globalX"] := R5
+        60 [   0] LT        if (0 < R3) ~= 0 then skip next
+        61 [   0] JMP       jmp +13 -> 75
+        62 [   0] GETUPVAL  R4 := upval 0
+        63 [   0] GETTABLE  R4 := R4["globalY"]
+        64 [   0] GETUPVAL  R5 := upval 0
+        65 [   0] GETTABLE  R5 := R5["maxY"]
+        66 [   0] LT        if (R5 < R4) ~= 0 then skip next
+        67 [   0] JMP       jmp +21 -> 89
+        68 [   0] GETUPVAL  R4 := upval 0
+        69 [   0] GETUPVAL  R5 := upval 0
+        70 [   0] GETTABLE  R5 := R5["globalY"]
+        71 [   0] DIV       R6 := R3 / 1.25
+        72 [   0] SUB       R5 := R5 - R6
+        73 [   0] SETTABLE  R4["globalY"] := R5
+        74 [   0] JMP       jmp +14 -> 89
+        75 [   0] LT        if (R3 < 0) ~= 0 then skip next
+        76 [   0] JMP       jmp +12 -> 89
+        77 [   0] GETUPVAL  R4 := upval 0
+        78 [   0] GETTABLE  R4 := R4["globalY"]
+        79 [   0] GETUPVAL  R5 := upval 0
+        80 [   0] GETTABLE  R5 := R5["minY"]
+        81 [   0] LT        if (R4 < R5) ~= 0 then skip next
+        82 [   0] JMP       jmp +6 -> 89
+        83 [   0] GETUPVAL  R4 := upval 0
+        84 [   0] GETUPVAL  R5 := upval 0
+        85 [   0] GETTABLE  R5 := R5["globalY"]
+        86 [   0] DIV       R6 := R3 / 1.25
+        87 [   0] SUB       R5 := R5 - R6
+        88 [   0] SETTABLE  R4["globalY"] := R5
+        89 [   0] GETUPVAL  R4 := upval 0
+        90 [   0] SETTABLE  R4["lastVelX"] := R2
+        91 [   0] GETUPVAL  R4 := upval 0
+        92 [   0] SETTABLE  R4["lastVelY"] := R3
+        93 [   0] GETUPVAL  R4 := upval 0
+        94 [   0] SETTABLE  R4["lastX"] := R0
+        95 [   0] GETUPVAL  R4 := upval 0
+        96 [   0] SETTABLE  R4["lastY"] := R1
+        97 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 70-72, upvals=[], locals=[])
+      constants: strings=['isDragged'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["isDragged"] := False
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 76-111, upvals=[], locals=[])
+      constants: strings=['locked', 'phase', 'began', 'x', 'y', 'moved', 'isDragged', 'ended', 'gesture', 'none', 'isClicked', 'clickPosX', 'clickPosY', 'firstTouch', 'math', 'pow', 'sqrt', 'clickRadius', 'touched'] numbers=[2]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["locked"]
+         2 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         3 [   0] JMP       jmp +90 -> 94
+         4 [   0] GETTABLE  R1 := R0["phase"]
+         5 [   0] EQ        if (R1 == "began") ~= 0 then skip next
+         6 [   0] JMP       jmp +7 -> 14
+         7 [   0] GETUPVAL  R1 := upval 1
+         8 [   0] GETTABLE  R2 := R0["x"]
+         9 [   0] UNM       R2 := -R2
+        10 [   0] GETTABLE  R3 := R0["y"]
+        11 [   0] UNM       R3 := -R3
+        12 [   0] CALL      R1(...) nargs=2 nret=0
+        13 [   0] JMP       jmp +19 -> 33
+        14 [   0] GETTABLE  R1 := R0["phase"]
+        15 [   0] EQ        if (R1 == "moved") ~= 0 then skip next
+        16 [   0] JMP       jmp +11 -> 28
+        17 [   0] GETUPVAL  R1 := upval 0
+        18 [   0] GETTABLE  R1 := R1["isDragged"]
+        19 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        20 [   0] JMP       jmp +12 -> 33
+        21 [   0] GETUPVAL  R1 := upval 1
+        22 [   0] GETTABLE  R2 := R0["x"]
+        23 [   0] UNM       R2 := -R2
+        24 [   0] GETTABLE  R3 := R0["y"]
+        25 [   0] UNM       R3 := -R3
+        26 [   0] CALL      R1(...) nargs=2 nret=0
+        27 [   0] JMP       jmp +5 -> 33
+        28 [   0] GETTABLE  R1 := R0["phase"]
+        29 [   0] EQ        if (R1 == "ended") ~= 0 then skip next
+        30 [   0] JMP       jmp +2 -> 33
+        31 [   0] GETUPVAL  R1 := upval 2
+        32 [   0] CALL      R1(...) nargs=0 nret=0
+        33 [   0] GETUPVAL  R1 := upval 0
+        34 [   0] SETTABLE  R1["gesture"] := "none"
+        35 [   0] GETTABLE  R1 := R0["phase"]
+        36 [   0] EQ        if (R1 == "began") ~= 0 then skip next
+        37 [   0] JMP       jmp +11 -> 49
+        38 [   0] GETUPVAL  R1 := upval 0
+        39 [   0] SETTABLE  R1["isClicked"] := True
+        40 [   0] GETUPVAL  R1 := upval 0
+        41 [   0] GETTABLE  R2 := R0["x"]
+        42 [   0] SETTABLE  R1["clickPosX"] := R2
+        43 [   0] GETUPVAL  R1 := upval 0
+        44 [   0] GETTABLE  R2 := R0["y"]
+        45 [   0] SETTABLE  R1["clickPosY"] := R2
+        46 [   0] GETUPVAL  R1 := upval 0
+        47 [   0] SETTABLE  R1["gesture"] := "firstTouch"
+        48 [   0] JMP       jmp +45 -> 94
+        49 [   0] GETTABLE  R1 := R0["phase"]
+        50 [   0] EQ        if (R1 == "moved") ~= 0 then skip next
+        51 [   0] JMP       jmp +31 -> 83
+        52 [   0] GETUPVAL  R1 := upval 0
+        53 [   0] GETTABLE  R1 := R1["isClicked"]
+        54 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        55 [   0] JMP       jmp +38 -> 94
+        56 [   0] GETGLOBAL R1 := _G["math"]
+        57 [   0] GETTABLE  R1 := R1["pow"]
+        58 [   0] GETTABLE  R2 := R0["x"]
+        59 [   0] GETUPVAL  R3 := upval 0
+        60 [   0] GETTABLE  R3 := R3["clickPosX"]
+        61 [   0] SUB       R2 := R2 - R3
+        62 [   0] LOADK     R3 := 2
+        63 [   0] CALL      R1(...) nargs=2 nret=1
+        64 [   0] GETGLOBAL R2 := _G["math"]
+        65 [   0] GETTABLE  R2 := R2["pow"]
+        66 [   0] GETTABLE  R3 := R0["y"]
+        67 [   0] GETUPVAL  R4 := upval 0
+        68 [   0] GETTABLE  R4 := R4["clickPosY"]
+        69 [   0] SUB       R3 := R3 - R4
+        70 [   0] LOADK     R4 := 2
+        71 [   0] CALL      R2(...) nargs=2 nret=1
+        72 [   0] GETGLOBAL R3 := _G["math"]
+        73 [   0] GETTABLE  R3 := R3["sqrt"]
+        74 [   0] ADD       R4 := R1 + R2
+        75 [   0] CALL      R3(...) nargs=1 nret=1
+        76 [   0] GETUPVAL  R4 := upval 0
+        77 [   0] GETTABLE  R4 := R4["clickRadius"]
+        78 [   0] LT        if (R4 < R3) ~= 0 then skip next
+        79 [   0] JMP       jmp +14 -> 94
+        80 [   0] GETUPVAL  R4 := upval 0
+        81 [   0] SETTABLE  R4["isClicked"] := False
+        82 [   0] JMP       jmp +11 -> 94
+        83 [   0] GETTABLE  R1 := R0["phase"]
+        84 [   0] EQ        if (R1 == "ended") ~= 0 then skip next
+        85 [   0] JMP       jmp +8 -> 94
+        86 [   0] GETUPVAL  R1 := upval 0
+        87 [   0] GETTABLE  R1 := R1["isClicked"]
+        88 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        89 [   0] JMP       jmp +4 -> 94
+        90 [   0] GETUPVAL  R1 := upval 0
+        91 [   0] SETTABLE  R1["gesture"] := "touched"
+        92 [   0] GETUPVAL  R1 := upval 0
+        93 [   0] SETTABLE  R1["isClicked"] := False
+        94 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 113-134, upvals=[], locals=[])
+      constants: strings=['isDragged', 'globalX', 'lastVelX', 'globalY', 'lastVelY', 'maxX', 'minX', 'maxY', 'minY'] numbers=[5, 0.9]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["isDragged"]
+         2 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         3 [   0] JMP       jmp +84 -> 88
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETUPVAL  R2 := upval 0
+         6 [   0] GETTABLE  R2 := R2["globalX"]
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETTABLE  R3 := R3["lastVelX"]
+         9 [   0] ADD       R2 := R2 + R3
+        10 [   0] SETTABLE  R1["globalX"] := R2
+        11 [   0] GETUPVAL  R1 := upval 0
+        12 [   0] GETUPVAL  R2 := upval 0
+        13 [   0] GETTABLE  R2 := R2["globalY"]
+        14 [   0] GETUPVAL  R3 := upval 0
+        15 [   0] GETTABLE  R3 := R3["lastVelY"]
+        16 [   0] ADD       R2 := R2 + R3
+        17 [   0] SETTABLE  R1["globalY"] := R2
+        18 [   0] GETUPVAL  R1 := upval 0
+        19 [   0] GETTABLE  R1 := R1["globalX"]
+        20 [   0] GETUPVAL  R2 := upval 0
+        21 [   0] GETTABLE  R2 := R2["maxX"]
+        22 [   0] LT        if (R2 < R1) ~= 0 then skip next
+        23 [   0] JMP       jmp +12 -> 36
+        24 [   0] GETUPVAL  R1 := upval 0
+        25 [   0] GETUPVAL  R2 := upval 0
+        26 [   0] GETTABLE  R2 := R2["globalX"]
+        27 [   0] GETUPVAL  R3 := upval 0
+        28 [   0] GETTABLE  R3 := R3["globalX"]
+        29 [   0] GETUPVAL  R4 := upval 0
+        30 [   0] GETTABLE  R4 := R4["maxX"]
+        31 [   0] SUB       R3 := R3 - R4
+        32 [   0] DIV       R3 := R3 / 5
+        33 [   0] SUB       R2 := R2 - R3
+        34 [   0] SETTABLE  R1["globalX"] := R2
+        35 [   0] JMP       jmp +17 -> 53
+        36 [   0] GETUPVAL  R1 := upval 0
+        37 [   0] GETTABLE  R1 := R1["globalX"]
+        38 [   0] GETUPVAL  R2 := upval 0
+        39 [   0] GETTABLE  R2 := R2["minX"]
+        40 [   0] LT        if (R1 < R2) ~= 0 then skip next
+        41 [   0] JMP       jmp +11 -> 53
+        42 [   0] GETUPVAL  R1 := upval 0
+        43 [   0] GETUPVAL  R2 := upval 0
+        44 [   0] GETTABLE  R2 := R2["globalX"]
+        45 [   0] GETUPVAL  R3 := upval 0
+        46 [   0] GETTABLE  R3 := R3["globalX"]
+        47 [   0] GETUPVAL  R4 := upval 0
+        48 [   0] GETTABLE  R4 := R4["minX"]
+        49 [   0] SUB       R3 := R3 - R4
+        50 [   0] DIV       R3 := R3 / 5
+        51 [   0] SUB       R2 := R2 - R3
+        52 [   0] SETTABLE  R1["globalX"] := R2
+        53 [   0] GETUPVAL  R1 := upval 0
+        54 [   0] GETTABLE  R1 := R1["globalY"]
+        55 [   0] GETUPVAL  R2 := upval 0
+        56 [   0] GETTABLE  R2 := R2["maxY"]
+        57 [   0] LT        if (R2 < R1) ~= 0 then skip next
+        58 [   0] JMP       jmp +12 -> 71
+        59 [   0] GETUPVAL  R1 := upval 0
+        60 [   0] GETUPVAL  R2 := upval 0
+        61 [   0] GETTABLE  R2 := R2["globalY"]
+        62 [   0] GETUPVAL  R3 := upval 0
+        63 [   0] GETTABLE  R3 := R3["globalY"]
+        64 [   0] GETUPVAL  R4 := upval 0
+        65 [   0] GETTABLE  R4 := R4["maxY"]
+        66 [   0] SUB       R3 := R3 - R4
+        67 [   0] DIV       R3 := R3 / 5
+        68 [   0] SUB       R2 := R2 - R3
+        69 [   0] SETTABLE  R1["globalY"] := R2
+        70 [   0] JMP       jmp +17 -> 88
+        71 [   0] GETUPVAL  R1 := upval 0
+        72 [   0] GETTABLE  R1 := R1["globalY"]
+        73 [   0] GETUPVAL  R2 := upval 0
+        74 [   0] GETTABLE  R2 := R2["minY"]
+        75 [   0] LT        if (R1 < R2) ~= 0 then skip next
+        76 [   0] JMP       jmp +11 -> 88
+        77 [   0] GETUPVAL  R1 := upval 0
+        78 [   0] GETUPVAL  R2 := upval 0
+        79 [   0] GETTABLE  R2 := R2["globalY"]
+        80 [   0] GETUPVAL  R3 := upval 0
+        81 [   0] GETTABLE  R3 := R3["globalY"]
+        82 [   0] GETUPVAL  R4 := upval 0
+        83 [   0] GETTABLE  R4 := R4["minY"]
+        84 [   0] SUB       R3 := R3 - R4
+        85 [   0] DIV       R3 := R3 / 5
+        86 [   0] SUB       R2 := R2 - R3
+        87 [   0] SETTABLE  R1["globalY"] := R2
+        88 [   0] GETUPVAL  R1 := upval 0
+        89 [   0] GETUPVAL  R2 := upval 0
+        90 [   0] GETTABLE  R2 := R2["lastVelX"]
+        91 [   0] MUL       R2 := R2 * 0.9
+        92 [   0] SETTABLE  R1["lastVelX"] := R2
+        93 [   0] GETUPVAL  R1 := upval 0
+        94 [   0] GETUPVAL  R2 := upval 0
+        95 [   0] GETTABLE  R2 := R2["lastVelY"]
+        96 [   0] MUL       R2 := R2 * 0.9
+        97 [   0] SETTABLE  R1["lastVelY"] := R2
+        98 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 136-138, upvals=[], locals=[])
+      constants: strings=['globalX', 'globalY'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["globalX"]
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] GETTABLE  R1 := R1["globalY"]
+         4 [   0] RETURN    return R0.. (2 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 140-142, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] LOADBOOL  R0 := True
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 144-146, upvals=[], locals=[])
+      constants: strings=['gesture'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["gesture"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 148-152, upvals=[], locals=[])
+      constants: strings=['globalX', 'globalY', 'lastVelX', 'lastVelY'] numbers=[0]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETUPVAL  R3 := upval 0
+         2 [   0] MOVE      R4 := R0
+         3 [   0] SETTABLE  R3["globalY"] := R1
+         4 [   0] SETTABLE  R2["globalX"] := R4
+         5 [   0] GETUPVAL  R2 := upval 0
+         6 [   0] SETTABLE  R2["lastVelX"] := 0
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] SETTABLE  R2["lastVelY"] := 0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 154-159, upvals=[], locals=[])
+      constants: strings=['transition', 'to', 'time', 'globalX', 'globalY', 'easeInOut', 'lastVelX', 'lastVelY'] numbers=[500, 0]
+         0 [   0] GETGLOBAL R2 := _G["transition"]
+         1 [   0] GETTABLE  R2 := R2["to"]
+         2 [   0] GETUPVAL  R3 := upval 0
+         3 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+         4 [   0] SETTABLE  R4["time"] := 500
+         5 [   0] SETTABLE  R4["globalX"] := R0
+         6 [   0] SETTABLE  R4["globalY"] := R1
+         7 [   0] GETUPVAL  R5 := upval 1
+         8 [   0] GETTABLE  R5 := R5["easeInOut"]
+         9 [   0] SETTABLE  R4["transition"] := R5
+        10 [   0] CALL      R2(...) nargs=2 nret=0
+        11 [   0] GETUPVAL  R2 := upval 0
+        12 [   0] SETTABLE  R2["lastVelX"] := 0
+        13 [   0] GETUPVAL  R2 := upval 0
+        14 [   0] SETTABLE  R2["lastVelY"] := 0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 161-163, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 165-167, upvals=[], locals=[])
+      constants: strings=['locked'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["locked"] := True
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=0, lines 169-171, upvals=[], locals=[])
+      constants: strings=['locked'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["locked"] := False
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=0, lines 173-175, upvals=[], locals=[])
+      constants: strings=['lastVelX', 'lastVelY'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["lastVelX"]
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] GETTABLE  R1 := R1["lastVelY"]
+         4 [   0] RETURN    return R0.. (2 values)
+         5 [   0] RETURN    return R0.. (0 values)

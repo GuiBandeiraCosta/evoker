@@ -1,0 +1,51 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'isFrameworkAvailable', 'getFilePath', 'pcall'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] SETTABLE  R1["isFrameworkAvailable"] := R2
+     8 [   0] CLOSURE   R2 := closure #1
+     9 [   0] MOVE      R0 := R0
+    10 [   0] SETTABLE  R1["getFilePath"] := R2
+    11 [   0] LOADNIL   R2..R2 := nil
+    12 [   0] CLOSURE   R3 := closure #2
+    13 [   0] MOVE      R0 := R2
+    14 [   0] GETGLOBAL R4 := _G["pcall"]
+    15 [   0] MOVE      R5 := R3
+    16 [   0] CALL      R4(...) nargs=1 nret=0
+    17 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+    18 [   0] JMP       jmp +2 -> 21
+    19 [   0] RETURN    return R2.. (1 values)
+    20 [   0] JMP       jmp +1 -> 22
+    21 [   0] RETURN    return R1.. (1 values)
+    22 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 6-8, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] LOADBOOL  R0 := True
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=2, lines 10-13, upvals=[], locals=[])
+    constants: strings=['msg', 'Returning system.DocumentsDirectory - androidfilepathNE is just a dummy!', 'system', 'pathForFile', 'DocumentsDirectory'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETTABLE  R2 := R2["msg"]
+       2 [   0] LOADK     R3 := "Returning system.DocumentsDirectory - androidfilepathNE is just a dumm"
+       3 [   0] CALL      R2(...) nargs=1 nret=0
+       4 [   0] GETGLOBAL R2 := _G["system"]
+       5 [   0] GETTABLE  R2 := R2["pathForFile"]
+       6 [   0] MOVE      R3 := R1
+       7 [   0] GETGLOBAL R4 := _G["system"]
+       8 [   0] GETTABLE  R4 := R4["DocumentsDirectory"]
+       9 [   0] TAILCALL  return R2(...) nargs=2
+      10 [   0] RETURN    return R2.. (-1 values)
+      11 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 19-21, upvals=[], locals=[])
+    constants: strings=['require', 'fgextension.filepath'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["require"]
+       1 [   0] LOADK     R1 := "fgextension.filepath"
+       2 [   0] CALL      R0(...) nargs=1 nret=1
+       3 [   0] SETUPVAL  upval 0 := R0
+       4 [   0] RETURN    return R0.. (0 values)

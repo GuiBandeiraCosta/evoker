@@ -1,0 +1,48 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['new_inherit', 'new'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] CLOSURE   R1 := closure #0
+     2 [   0] SETTABLE  R0["new_inherit"] := R1
+     3 [   0] CLOSURE   R1 := closure #1
+     4 [   0] MOVE      R0 := R0
+     5 [   0] SETTABLE  R0["new"] := R1
+     6 [   0] RETURN    return R0.. (1 values)
+     7 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 9-25, upvals=[], locals=[])
+    constants: strings=['subscribeTo', 'unsubscribeFrom'] numbers=[]
+       0 [   0] CLOSURE   R1 := closure #0
+       1 [   0] MOVE      R0 := R0
+       2 [   0] SETTABLE  R0["subscribeTo"] := R1
+       3 [   0] CLOSURE   R1 := closure #1
+       4 [   0] MOVE      R0 := R0
+       5 [   0] SETTABLE  R0["unsubscribeFrom"] := R1
+       6 [   0] RETURN    return R0.. (1 values)
+       7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 11-13, upvals=[], locals=[])
+      constants: strings=['addEventListener'] numbers=[]
+         0 [   0] GETTABLE  R2 := R0["addEventListener"]
+         1 [   0] MOVE      R3 := R1
+         2 [   0] GETUPVAL  R4 := upval 0
+         3 [   0] CALL      R2(...) nargs=2 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 15-22, upvals=[], locals=[])
+      constants: strings=['removeEventListener', 'removeAllEventListeners'] numbers=[]
+         0 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         1 [   0] JMP       jmp +5 -> 7
+         2 [   0] GETTABLE  R2 := R0["removeEventListener"]
+         3 [   0] MOVE      R3 := R1
+         4 [   0] GETUPVAL  R4 := upval 0
+         5 [   0] CALL      R2(...) nargs=2 nret=0
+         6 [   0] JMP       jmp +3 -> 10
+         7 [   0] GETTABLE  R2 := R0["removeAllEventListeners"]
+         8 [   0] GETUPVAL  R3 := upval 0
+         9 [   0] CALL      R2(...) nargs=1 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 27-29, upvals=[], locals=[])
+    constants: strings=['new_inherit'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["new_inherit"]
+       2 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       3 [   0] TAILCALL  return R0(...) nargs=1
+       4 [   0] RETURN    return R0.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)

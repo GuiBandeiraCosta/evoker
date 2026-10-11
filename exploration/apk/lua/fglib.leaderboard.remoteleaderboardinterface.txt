@@ -1,0 +1,320 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'json', 'eventdispatcher', 'crypto', 'url', 'socket.url', 'http://leaderboard.trackingflaregames.net/leaderboard/', 'uzhe546', 'getInstance'] numbers=[3]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "logging.logger"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] LOADK     R2 := 3
+     7 [   0] GETGLOBAL R3 := _G["require"]
+     8 [   0] LOADK     R4 := "json"
+     9 [   0] CALL      R3(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R4 := _G["require"]
+    11 [   0] GETGLOBAL R5 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R6 := "eventdispatcher"
+    13 [   0] CONCAT    R5 := R5 .. ... .. R6
+    14 [   0] CALL      R4(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R5 := _G["require"]
+    16 [   0] LOADK     R6 := "crypto"
+    17 [   0] CALL      R5(...) nargs=1 nret=0
+    18 [   0] GETGLOBAL R5 := _G["require"]
+    19 [   0] LOADK     R6 := "socket.url"
+    20 [   0] CALL      R5(...) nargs=1 nret=1
+    21 [   0] SETGLOBAL _G["url"] := R5
+    22 [   0] LOADK     R5 := "http://leaderboard.trackingflaregames.net/leaderboard/"
+    23 [   0] LOADK     R6 := "uzhe546"
+    24 [   0] CLOSURE   R7 := closure #0
+    25 [   0] MOVE      R0 := R5
+    26 [   0] MOVE      R0 := R1
+    27 [   0] MOVE      R0 := R2
+    28 [   0] MOVE      R0 := R3
+    29 [   0] MOVE      R0 := R6
+    30 [   0] CLOSURE   R8 := closure #1
+    31 [   0] MOVE      R0 := R7
+    32 [   0] MOVE      R0 := R4
+    33 [   0] LOADNIL   R9..R9 := nil
+    34 [   0] CLOSURE   R10 := closure #2
+    35 [   0] MOVE      R0 := R9
+    36 [   0] MOVE      R0 := R8
+    37 [   0] SETTABLE  R0["getInstance"] := R10
+    38 [   0] RETURN    return R0.. (1 values)
+    39 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 12-82, upvals=[], locals=[])
+    constants: strings=['leaderboard_url', 'setScore', 'getScore', 'setFriends', 'registerDevice', 'setPlayerName', 'setCustomData', 'setLeaderboardUrl', 'getLeaderboardUrl', 'networkRequestHandler', 'request'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] SETTABLE  R0["leaderboard_url"] := R1
+       2 [   0] CLOSURE   R1 := closure #0
+       3 [   0] MOVE      R0 := R0
+       4 [   0] SETTABLE  R0["setScore"] := R1
+       5 [   0] CLOSURE   R1 := closure #1
+       6 [   0] MOVE      R0 := R0
+       7 [   0] SETTABLE  R0["getScore"] := R1
+       8 [   0] CLOSURE   R1 := closure #2
+       9 [   0] MOVE      R0 := R0
+      10 [   0] SETTABLE  R0["setFriends"] := R1
+      11 [   0] CLOSURE   R1 := closure #3
+      12 [   0] MOVE      R0 := R0
+      13 [   0] SETTABLE  R0["registerDevice"] := R1
+      14 [   0] CLOSURE   R1 := closure #4
+      15 [   0] MOVE      R0 := R0
+      16 [   0] SETTABLE  R0["setPlayerName"] := R1
+      17 [   0] CLOSURE   R1 := closure #5
+      18 [   0] MOVE      R0 := R0
+      19 [   0] SETTABLE  R0["setCustomData"] := R1
+      20 [   0] CLOSURE   R1 := closure #6
+      21 [   0] MOVE      R0 := R0
+      22 [   0] SETTABLE  R0["setLeaderboardUrl"] := R1
+      23 [   0] CLOSURE   R1 := closure #7
+      24 [   0] MOVE      R0 := R0
+      25 [   0] SETTABLE  R0["getLeaderboardUrl"] := R1
+      26 [   0] CLOSURE   R1 := closure #8
+      27 [   0] GETUPVAL  R0 := upval 1
+      28 [   0] GETUPVAL  R0 := upval 2
+      29 [   0] MOVE      R0 := R0
+      30 [   0] GETUPVAL  R0 := upval 3
+      31 [   0] SETTABLE  R0["networkRequestHandler"] := R1
+      32 [   0] CLOSURE   R1 := closure #9
+      33 [   0] GETUPVAL  R0 := upval 1
+      34 [   0] GETUPVAL  R0 := upval 2
+      35 [   0] GETUPVAL  R0 := upval 4
+      36 [   0] MOVE      R0 := R0
+      37 [   0] SETTABLE  R0["request"] := R1
+      38 [   0] RETURN    return R0.. (1 values)
+      39 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=6, lines 16-20, upvals=[], locals=[])
+      constants: strings=['', 'request', 'points', 'cid', 'stars', 'week', 'oid'] numbers=[0]
+         0 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADK     R4 := 0
+         3 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] LOADK     R3 := ""
+         6 [   0] GETUPVAL  R6 := upval 0
+         7 [   0] GETTABLE  R6 := R6["request"]
+         8 [   0] LOADK     R7 := "points"
+         9 [   0] NEWTABLE  R8 := {} (array 0, hash 5)
+        10 [   0] SETTABLE  R8["cid"] := R0
+        11 [   0] SETTABLE  R8["points"] := R1
+        12 [   0] SETTABLE  R8["stars"] := R2
+        13 [   0] SETTABLE  R8["week"] := R4
+        14 [   0] SETTABLE  R8["oid"] := R3
+        15 [   0] MOVE      R9 := R0
+        16 [   0] MOVE      R10 := R1
+        17 [   0] MOVE      R11 := R2
+        18 [   0] MOVE      R12 := R4
+        19 [   0] MOVE      R13 := R3
+        20 [   0] CONCAT    R9 := R9 .. ... .. R13
+        21 [   0] CALL      R6(...) nargs=3 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=3, lines 22-24, upvals=[], locals=[])
+      constants: strings=['request', 'scores', 'cid', 'uid', ''] numbers=[]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] GETTABLE  R3 := R3["request"]
+         2 [   0] LOADK     R4 := "scores"
+         3 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+         4 [   0] SETTABLE  R5["cid"] := R0
+         5 [   0] SETTABLE  R5["uid"] := R1
+         6 [   0] MOVE      R6 := R0
+         7 [   0] TESTSET   if (R1 truthy) == 1 then R7 := R1 else skip next
+         8 [   0] JMP       jmp +1 -> 10
+         9 [   0] LOADK     R7 := ""
+        10 [   0] CONCAT    R6 := R6 .. ... .. R7
+        11 [   0] CALL      R3(...) nargs=3 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=2, lines 26-28, upvals=[], locals=[])
+      constants: strings=['request', 'setfriends', 'cid', 'friends'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["request"]
+         2 [   0] LOADK     R3 := "setfriends"
+         3 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+         4 [   0] SETTABLE  R4["cid"] := R0
+         5 [   0] SETTABLE  R4["friends"] := R1
+         6 [   0] MOVE      R5 := R0
+         7 [   0] MOVE      R6 := R1
+         8 [   0] CONCAT    R5 := R5 .. ... .. R6
+         9 [   0] CALL      R2(...) nargs=3 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=4, lines 30-32, upvals=[], locals=[])
+      constants: strings=['request', 'registerdevice', 'cid', 'token', 'locale', 'tsoffset'] numbers=[]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["request"]
+         2 [   0] LOADK     R5 := "registerdevice"
+         3 [   0] NEWTABLE  R6 := {} (array 0, hash 4)
+         4 [   0] SETTABLE  R6["cid"] := R0
+         5 [   0] SETTABLE  R6["token"] := R1
+         6 [   0] SETTABLE  R6["locale"] := R2
+         7 [   0] SETTABLE  R6["tsoffset"] := R3
+         8 [   0] MOVE      R7 := R0
+         9 [   0] MOVE      R8 := R1
+        10 [   0] MOVE      R9 := R2
+        11 [   0] MOVE      R10 := R3
+        12 [   0] CONCAT    R7 := R7 .. ... .. R10
+        13 [   0] CALL      R4(...) nargs=3 nret=0
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=2, lines 34-36, upvals=[], locals=[])
+      constants: strings=['request', 'setdata', 'cid', 'name'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["request"]
+         2 [   0] LOADK     R3 := "setdata"
+         3 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+         4 [   0] SETTABLE  R4["cid"] := R0
+         5 [   0] SETTABLE  R4["name"] := R1
+         6 [   0] MOVE      R5 := R0
+         7 [   0] MOVE      R6 := R1
+         8 [   0] CONCAT    R5 := R5 .. ... .. R6
+         9 [   0] CALL      R2(...) nargs=3 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=2, lines 38-40, upvals=[], locals=[])
+      constants: strings=['request', 'setdata', 'cid', 'custom'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["request"]
+         2 [   0] LOADK     R3 := "setdata"
+         3 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+         4 [   0] SETTABLE  R4["cid"] := R0
+         5 [   0] SETTABLE  R4["custom"] := R1
+         6 [   0] MOVE      R5 := R0
+         7 [   0] MOVE      R6 := R1
+         8 [   0] CONCAT    R5 := R5 .. ... .. R6
+         9 [   0] CALL      R2(...) nargs=3 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=1, lines 42-44, upvals=[], locals=[])
+      constants: strings=['leaderboard_url'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["leaderboard_url"] := R0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 46-48, upvals=[], locals=[])
+      constants: strings=['leaderboard_url'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["leaderboard_url"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=1, lines 50-58, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_LEADERBOARD', 'RemoteLeaderboardInterface:networkRequestHandler', 'isError', 'status', 'emit', 'leaderboardResponse', 'decode', 'response', 'ASPECT_APPSTORE', 'Error occured'] numbers=[3, 200]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logmsg"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["ASPECT_LEADERBOARD"]
+         5 [   0] LOADK     R4 := 3
+         6 [   0] LOADK     R5 := "RemoteLeaderboardInterface:networkRequestHandler"
+         7 [   0] MOVE      R6 := R0
+         8 [   0] CALL      R1(...) nargs=5 nret=0
+         9 [   0] GETTABLE  R1 := R0["isError"]
+        10 [   0] EQ        if (R1 == False) ~= 0 then skip next
+        11 [   0] JMP       jmp +12 -> 24
+        12 [   0] GETTABLE  R1 := R0["status"]
+        13 [   0] EQ        if (R1 == 200) ~= 0 then skip next
+        14 [   0] JMP       jmp +9 -> 24
+        15 [   0] GETUPVAL  R1 := upval 2
+        16 [   0] GETTABLE  R1 := R1["emit"]
+        17 [   0] LOADK     R2 := "leaderboardResponse"
+        18 [   0] GETUPVAL  R3 := upval 3
+        19 [   0] GETTABLE  R3 := R3["decode"]
+        20 [   0] GETTABLE  R4 := R0["response"]
+        21 [   0] CALL      R3(...) nargs=1 nret=-1
+        22 [   0] CALL      R1(...) nargs=-1 nret=0
+        23 [   0] JMP       jmp +9 -> 33
+        24 [   0] GETUPVAL  R1 := upval 0
+        25 [   0] GETTABLE  R1 := R1["logmsg"]
+        26 [   0] GETUPVAL  R2 := upval 1
+        27 [   0] GETUPVAL  R3 := upval 0
+        28 [   0] GETTABLE  R3 := R3["ASPECT_APPSTORE"]
+        29 [   0] LOADK     R4 := 3
+        30 [   0] LOADK     R5 := "RemoteLeaderboardInterface:networkRequestHandler"
+        31 [   0] LOADK     R6 := "Error occured"
+        32 [   0] CALL      R1(...) nargs=5 nret=0
+        33 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=3, lines 60-77, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_LEADERBOARD', 'RemoteLeaderboardInterface:request', 'appid', 'fglib', 'getAppData', 'v', 'leaderboard', 'MODULE_VERSION', 'body', '', 'pairs', '=', 'url', 'escape', '&', 'hash=', 'crypto', 'digest', 'md5', 'network', 'request', 'leaderboard_url', 'POST', 'networkRequestHandler'] numbers=[3]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] GETTABLE  R3 := R3["logmsg"]
+         2 [   0] GETUPVAL  R4 := upval 1
+         3 [   0] GETUPVAL  R5 := upval 0
+         4 [   0] GETTABLE  R5 := R5["ASPECT_LEADERBOARD"]
+         5 [   0] LOADK     R6 := 3
+         6 [   0] LOADK     R7 := "RemoteLeaderboardInterface:request"
+         7 [   0] MOVE      R8 := R0
+         8 [   0] MOVE      R9 := R1
+         9 [   0] CALL      R3(...) nargs=6 nret=0
+        10 [   0] GETGLOBAL R3 := _G["fglib"]
+        11 [   0] GETTABLE  R3 := R3["getAppData"]
+        12 [   0] CALL      R3(...) nargs=0 nret=1
+        13 [   0] SETTABLE  R1["appid"] := R3
+        14 [   0] GETGLOBAL R3 := _G["fglib"]
+        15 [   0] GETTABLE  R3 := R3["leaderboard"]
+        16 [   0] GETTABLE  R3 := R3["MODULE_VERSION"]
+        17 [   0] SETTABLE  R1["v"] := R3
+        18 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+        19 [   0] SETTABLE  R3["body"] := ""
+        20 [   0] GETGLOBAL R4 := _G["pairs"]
+        21 [   0] MOVE      R5 := R1
+        22 [   0] CALL      R4(...) nargs=1 nret=3
+        23 [   0] JMP       jmp +10 -> 34
+        24 [   0] GETTABLE  R9 := R3["body"]
+        25 [   0] MOVE      R10 := R7
+        26 [   0] LOADK     R11 := "="
+        27 [   0] GETGLOBAL R12 := _G["url"]
+        28 [   0] GETTABLE  R12 := R12["escape"]
+        29 [   0] MOVE      R13 := R8
+        30 [   0] CALL      R12(...) nargs=1 nret=1
+        31 [   0] LOADK     R13 := "&"
+        32 [   0] CONCAT    R9 := R9 .. ... .. R13
+        33 [   0] SETTABLE  R3["body"] := R9
+        34 [   0] TFORLOOP  tforloop R4 nres=2
+        35 [   0] JMP       jmp -12 -> 24
+        36 [   0] GETTABLE  R4 := R3["body"]
+        37 [   0] LOADK     R5 := "hash="
+        38 [   0] GETGLOBAL R6 := _G["crypto"]
+        39 [   0] GETTABLE  R6 := R6["digest"]
+        40 [   0] GETGLOBAL R7 := _G["crypto"]
+        41 [   0] GETTABLE  R7 := R7["md5"]
+        42 [   0] MOVE      R8 := R2
+        43 [   0] GETTABLE  R9 := R1["appid"]
+        44 [   0] GETTABLE  R10 := R1["v"]
+        45 [   0] GETUPVAL  R11 := upval 2
+        46 [   0] CONCAT    R8 := R8 .. ... .. R11
+        47 [   0] CALL      R6(...) nargs=2 nret=1
+        48 [   0] CONCAT    R4 := R4 .. ... .. R6
+        49 [   0] SETTABLE  R3["body"] := R4
+        50 [   0] GETUPVAL  R4 := upval 0
+        51 [   0] GETTABLE  R4 := R4["logmsg"]
+        52 [   0] GETUPVAL  R5 := upval 1
+        53 [   0] GETUPVAL  R6 := upval 0
+        54 [   0] GETTABLE  R6 := R6["ASPECT_LEADERBOARD"]
+        55 [   0] LOADK     R7 := 3
+        56 [   0] LOADK     R8 := "RemoteLeaderboardInterface:request"
+        57 [   0] MOVE      R9 := R3
+        58 [   0] CALL      R4(...) nargs=5 nret=0
+        59 [   0] GETGLOBAL R4 := _G["network"]
+        60 [   0] GETTABLE  R4 := R4["request"]
+        61 [   0] GETUPVAL  R5 := upval 3
+        62 [   0] GETTABLE  R5 := R5["leaderboard_url"]
+        63 [   0] MOVE      R6 := R0
+        64 [   0] CONCAT    R5 := R5 .. ... .. R6
+        65 [   0] LOADK     R6 := "POST"
+        66 [   0] GETUPVAL  R7 := upval 3
+        67 [   0] GETTABLE  R7 := R7["networkRequestHandler"]
+        68 [   0] MOVE      R8 := R3
+        69 [   0] CALL      R4(...) nargs=4 nret=0
+        70 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 84-88, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new"]
+       3 [   0] CALL      R1(...) nargs=0 nret=-1
+       4 [   0] TAILCALL  return R0(...) nargs=-1
+       5 [   0] RETURN    return R0.. (-1 values)
+       6 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 91-96, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

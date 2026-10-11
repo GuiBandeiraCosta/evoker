@@ -1,0 +1,250 @@
+/* First-session tutorial (src/ui/tutorial): the overlay layer with the view_tutorialv3_text box, the pointing hand
+   (comp_click_tutorial) and the drag arrow (fx_tutorial_arrow); the opening (intro animations, scripted fight);
+   the Arena name popup (comp_name_popup). */
+
+/* ---------- overlay layer: above the screens and the drag ghost, below dialogs / popups / toasts ---------- */
+.tut-layer {
+  position: absolute; inset: 0; z-index: 60;
+  pointer-events: none; overflow: hidden;
+}
+.tut-layer.blocked > * { visibility: hidden; }
+
+/* ---------- text box (290 x 95 client units; text 200 wide at x 35; the speaker at the left) ---------- */
+.tut-text {
+  position: absolute; left: 34px; width: 652px;
+  pointer-events: auto; cursor: pointer;
+  animation: tutTextIn 450ms cubic-bezier(.87, 0, .13, 1) both;
+}
+.tut-text.closing { animation: tutTextOut 350ms ease-in both; pointer-events: none; }
+@keyframes tutTextIn { from { opacity: 0; transform: scale(.8); } to { opacity: 1; transform: scale(1); } }
+@keyframes tutTextOut { from { opacity: 1; } to { opacity: 0; } }
+/* view_tutorialv3_text_layout: bottomPosition = the box 5 units above the screen's bottom edge, over the nav bar
+   (most steps of the 1.7.0 video); bottomMenuPosition = 70 units up, above the nav (steps that point at a nav button) */
+.tut-text.pos-bottom_menu { bottom: 158px; }
+.tut-text.pos-bottom { bottom: 11px; }
+.tut-text.pos-top { top: 150px; }
+.tut-text.pos-center { top: 533px; }
+.tut-text-frame {
+  position: relative;
+  min-height: 214px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 26px 34px 26px 214px;
+  border: 16px solid transparent;
+  border-image: url('/assets/orig/ui/frames/hud_nineframe_alpha.png') 16 fill / 16px stretch;
+  background: rgba(8, 9, 10, .86) padding-box;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .7);
+}
+.tut-text-msg {
+  font-family: var(--font-ui); font-weight: 700; font-size: 31px; line-height: 1.28;
+  color: var(--tutorial-gold, #fffd72); text-align: center;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .9);
+  min-height: 1.28em;
+}
+/* the ranger stands at the left of the box and reaches above it */
+.tut-text-portrait {
+  position: absolute; left: -18px; bottom: 0;
+  width: 222px; height: 400px; object-fit: cover; object-position: top center;
+  -webkit-mask-image: linear-gradient(90deg, #000 72%, transparent 100%), linear-gradient(180deg, transparent 0, #000 9%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, #000 72%, transparent 100%), linear-gradient(180deg, transparent 0, #000 9%);
+  mask-composite: intersect;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, .8));
+  pointer-events: none;
+}
+/* the Worm Shaman: his hooded portrait in a frame inside the box */
+.tut-text.side-bad .tut-text-portrait {
+  left: 22px; bottom: 32px; width: 150px; height: 150px; object-fit: cover;
+  -webkit-mask-image: none; mask-image: none;
+  border: 4px solid #4a2a22; border-radius: 6px;
+  box-shadow: 0 0 0 2px #0b0a0a, 0 0 18px rgba(200, 40, 20, .55);
+}
+.tut-text.side-bad .tut-text-frame { padding-left: 200px; }
+/* the box without a speaker (fusion screen, second step) */
+.tut-text.side-none .tut-text-frame { padding-left: 34px; }
+
+/* ---------- pointing hand: the fingertip on the target, the ring pulsing under it ---------- */
+.tut-hand { position: absolute; width: 0; height: 0; transition: left 250ms ease-out, top 250ms ease-out; }
+.tut-hand-ring {
+  position: absolute; left: -64px; top: -64px; width: 128px; height: 128px;
+  opacity: .7; animation: tutRing 1000ms ease-out infinite;
+}
+@keyframes tutRing { 0% { transform: scale(.5); opacity: .8; } 100% { transform: scale(1.1); opacity: 0; } }
+.tut-hand-img {
+  position: absolute; left: -14px; top: -10px; width: 120px; height: auto;
+  transform-origin: 14px 10px;
+  animation: tutTap 1000ms ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .6));
+}
+@keyframes tutTap { 0%, 100% { transform: translate(22px, 26px) scale(1); } 45% { transform: translate(0, 0) scale(.92); } 60% { transform: translate(0, 0) scale(.92); } }
+/* near the bottom of the screen (nav buttons) the hand points down from above */
+.tut-hand.flip .tut-hand-img { animation-name: tutTapFlip; }
+@keyframes tutTapFlip { 0%, 100% { transform: rotate(180deg) translate(22px, 26px) scale(1); } 45%, 60% { transform: rotate(180deg) translate(0, 0) scale(.92); } }
+.tut-hand.static { z-index: 5; }
+
+/* ---------- button sparkle (view_button_sparkle: glow_07 … glow_01 in 433 ms, added light, every 1.5 s) ----------
+   The frames are alpha versions of the black-backed client sprites (assets/ui/tutorial): no blend mode, since
+   .tut-layer is an isolated stacking context and `screen` would leave the black opaque over the button. */
+.tut-sparkle { position: absolute; pointer-events: none; }
+.tut-sparkle-frame {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0;
+  animation: tutGlowFrame var(--period, 1500ms) linear infinite;
+}
+@keyframes tutGlowFrame { 0% { opacity: 0; } 4.4% { opacity: 1; } 8.8% { opacity: 0; } 100% { opacity: 0; } }
+/* between the flashes the button keeps a soft glow (the highlighted button reads as lit in the video) */
+.tut-sparkle-frame:last-child { animation-name: tutGlowBase; }
+@keyframes tutGlowBase { 0% { opacity: .4; } 4.4% { opacity: 1; } 12% { opacity: .4; } 100% { opacity: .4; } }
+
+/* ---------- drag arrow: line stretched from the card to the slot, head at the slot, the hand travelling ---------- */
+.tut-arrow {
+  position: absolute; width: 30px; margin-left: -15px;
+  transform-origin: 50% 0;
+  display: flex; flex-direction: column; align-items: center;
+  animation: tutArrowGrow 600ms ease-out both, tutArrowPulse 1400ms ease-in-out 600ms infinite;
+}
+/* the container is rotated so that its "down" axis points at the target; line then head */
+.tut-arrow-line { flex: 1 1 auto; width: 30px; background: url('/assets/orig/ui/tutorial_arrowline01.png') center / 100% 100% repeat-y; }
+.tut-arrow-head { flex: none; width: 70px; height: 70px; margin-top: -35px; transform: rotate(180deg); }
+@keyframes tutArrowGrow { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes tutArrowPulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+.tut-drag-hand {
+  position: absolute; left: var(--ax); top: var(--ay); width: 120px; margin: -10px 0 0 -14px;
+  animation: tutDragHand 2000ms ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .6));
+}
+@keyframes tutDragHand {
+  0% { left: var(--ax); top: var(--ay); opacity: 0; }
+  12% { left: var(--ax); top: var(--ay); opacity: 1; }
+  75% { left: var(--bx); top: var(--by); opacity: 1; }
+  100% { left: var(--bx); top: var(--by); opacity: 0; }
+}
+
+/* ---------- the opening (over the title screen) ---------- */
+.tut-opening {
+  position: absolute; inset: 0; z-index: 20;
+  background: #000; overflow: hidden;
+  animation: screenFadeIn var(--t-slow, 400ms) ease both;
+  cursor: default;
+}
+.tut-opening.closing { animation: screenFadeOut var(--t-slow, 400ms) ease both; pointer-events: none; }
+.tut-opening.flash::after {
+  content: ''; position: absolute; inset: 0; background: #fff;
+  animation: tutFlash 500ms ease-out both; pointer-events: none;
+}
+@keyframes tutFlash { 0% { opacity: 0; } 30% { opacity: 1; } 100% { opacity: 1; } }
+.tut-opening-stage { position: absolute; inset: 0; }
+.tut-anim-box { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+.tut-anim-box .anim-root { position: absolute; width: 0; height: 0; }
+.tut-anim-box .anim-item { position: absolute; left: 0; top: 0; background: center / 100% 100% no-repeat; will-change: transform, opacity; }
+.tut-anim-box .anim-item.add { mix-blend-mode: screen; }
+.tut-lore {
+  position: absolute; left: 48px; right: 48px; bottom: 150px; z-index: 100;
+  min-height: 2.6em; margin: 0;
+  text-align: center;
+  font-family: var(--font-title, 'CG Times', 'Times New Roman', serif);
+  font-size: 40px; font-weight: 700; line-height: 1.3;
+  color: var(--tan, #f4d59f);
+  text-shadow: 0 0 18px #000, 0 3px 6px rgba(0, 0, 0, .95);
+  transition: opacity 400ms;
+  pointer-events: none;
+}
+.tut-lore.fade { opacity: 0; }
+.tut-skip {
+  position: absolute; right: 22px; bottom: 22px; z-index: 30;
+  min-height: 56px; padding: 0 18px;
+  background: none; border: 0; box-shadow: none;
+  font-family: var(--font-ui); font-size: 26px; color: #fff;
+  text-shadow: 0 2px 4px #000;
+  cursor: pointer;
+}
+.tut-skip:focus-visible { outline: 2px solid var(--gold); }
+.tut-opening[data-phase="fight"] .tut-skip { bottom: 168px; }
+
+/* ---------- the scripted fight (ctrl_intro_fight_layout: boss deck top, player deck bottom) ---------- */
+.tut-fight { position: absolute; inset: 0; overflow: hidden; }
+.tf-bg {
+  position: absolute; inset: 0;
+  background: url('/assets/orig/ui/village_burned_bg.png') center / cover no-repeat;
+  filter: brightness(.75);
+}
+.tf-band {
+  position: absolute; left: 0; right: 0; height: 96px; z-index: 2;
+  display: flex; align-items: center; gap: 18px; padding: 0 22px;
+  background: linear-gradient(180deg, #2a2d30, #15171a); border: 3px solid #3c4145; border-left: 0; border-right: 0;
+  opacity: 0; transition: opacity 600ms, transform 1000ms cubic-bezier(.16, 1, .3, 1);
+}
+.tf-band.enemy { top: 0; transform: translateY(-100%); }
+.tf-band.player { bottom: 0; justify-content: flex-end; transform: translateY(100%); }
+.tut-fight.tf-running .tf-band { opacity: 1; transform: none; }
+.tf-portrait { width: 80px; height: 80px; border: 3px solid #5a5f63; border-radius: 4px; object-fit: cover; background: #000; }
+.tf-name { font-size: 32px; font-weight: 600; color: #f1f1f1; flex: 1 1 auto; }
+.tf-band.player .tf-name { text-align: right; }
+.tf-round { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: .04em; }
+.tf-round.pop { animation: tfRound 600ms cubic-bezier(.16, 1, .3, 1); }
+@keyframes tfRound { from { transform: scale(1.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.tf-hpwrap { position: absolute; left: 30px; right: 30px; z-index: 2; opacity: 0; transition: opacity 600ms; }
+.tf-hpwrap.enemy { top: 110px; }
+.tf-hpwrap.player { bottom: 110px; }
+.tut-fight.tf-running .tf-hpwrap { opacity: 1; }
+.tf-hpwrap.tf-hit .bar { animation: tfBarHit 400ms; }
+@keyframes tfBarHit { 0%, 100% { filter: none; } 30% { filter: brightness(1.6) sepia(1) hue-rotate(-40deg) saturate(4); } }
+.tf-row {
+  position: absolute; left: 14px; right: 14px; z-index: 1;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; justify-items: center;
+  transition: top 1000ms cubic-bezier(.16, 1, .3, 1);
+}
+.tf-row.tf-enemy { top: 240px; }
+.tf-row.tf-player { top: 760px; }
+.tut-fight.tf-running .tf-row.tf-enemy { top: 300px; }
+.tut-fight.tf-running .tf-row.tf-player { top: 700px; }
+.tf-slot { position: relative; width: 120px; min-height: 180px; }
+.tf-slot.tf-attacking { animation: tfAttack 400ms ease-out; }
+.tf-row.tf-enemy .tf-slot.tf-attacking { animation-name: tfAttackDown; }
+@keyframes tfAttack { 50% { transform: translateY(-26px) scale(1.06); } }
+@keyframes tfAttackDown { 50% { transform: translateY(26px) scale(1.06); } }
+.tf-slot.tf-hit .card { animation: tfCardHit 600ms; }
+@keyframes tfCardHit { 0%, 100% { filter: none; } 25% { filter: brightness(2.2) saturate(.4); } }
+.tf-slot.tf-shake { transform: translateX(6px); }
+.tf-slot.tf-dying { animation: tfDie 1400ms forwards; }
+@keyframes tfDie { to { filter: grayscale(1) brightness(.4); } }
+.tf-slot.tf-dead { opacity: 0; transition: opacity 300ms; }
+.tut-fight .attack-bar { position: absolute; left: 0; right: 0; top: 560px; z-index: 3; transition: opacity 300ms; }
+.tut-fight .attack-bar.tf-gone { opacity: 0; pointer-events: none; }
+.tut-fight .attack-bar .attack-btn { animation: tfSparkle 1600ms ease-in-out infinite; }
+@keyframes tfSparkle { 0%, 100% { filter: none; } 50% { filter: brightness(1.35) drop-shadow(0 0 14px rgba(255, 220, 120, .9)); } }
+.tut-fight .tut-hand { pointer-events: none; }
+/* the boss preview first (bossfight_preview): only the background, then the board fades and slides in */
+.tut-fight .tf-row, .tut-fight .attack-bar { transition: top 1000ms cubic-bezier(.16, 1, .3, 1), opacity 450ms ease-out; }
+.tut-fight.tf-preview .tf-row, .tut-fight.tf-preview .attack-bar { opacity: 0; pointer-events: none; }
+.tut-fight.tf-preview .tf-row.tf-enemy { top: 120px; }
+.tut-fight.tf-preview .tf-row.tf-player { top: 900px; }
+.tf-preview-box { z-index: 5; }
+.tf-preview-card { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 6px; box-shadow: 0 0 0 6px #2b2b2e, 0 0 40px rgba(0, 0, 0, .8); }
+.tf-fx { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.tf-missile {
+  position: absolute; width: 70px; height: 70px; margin: -35px 0 0 -35px;
+  mix-blend-mode: screen; transition: transform 480ms ease-in;
+}
+.tf-damage {
+  position: absolute; transform: translateX(-50%);
+  font-size: 44px; font-weight: 800; color: #ff3b2f;
+  text-shadow: 0 0 10px rgba(255, 40, 20, .9), 0 2px 3px #000;
+  animation: tfDamage 900ms ease-out forwards;
+}
+@keyframes tfDamage { 0% { opacity: 0; transform: translate(-50%, 10px) scale(.7); } 20% { opacity: 1; transform: translate(-50%, 0) scale(1.1); } 100% { opacity: 0; transform: translate(-50%, -40px) scale(1); } }
+.tut-fight.tf-lost .tf-hpwrap.player .bar { filter: sepia(1) hue-rotate(-40deg) saturate(3); }
+
+/* ---------- name popup (comp_name_popup: the guard at the left, the heralds text, the input, OK) ---------- */
+.tut-name-popup {
+  display: grid; grid-template-columns: 170px 1fr; grid-template-rows: auto auto; gap: 18px 22px;
+  align-items: center; min-width: 520px;
+}
+.tut-name-guard { grid-row: 1 / span 2; width: 162px; height: auto; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .8)); }
+.tut-name-text { margin: 0; font-size: 26px; font-weight: 700; line-height: 1.3; color: #f1f1f1; }
+.tut-name-input { width: 100%; font-size: 28px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tut-hand-img, .tut-hand-ring, .tut-drag-hand, .tut-arrow, .tut-fight .attack-bar .attack-btn { animation: none; }
+  .tut-sparkle-frame { animation: none; opacity: 0; }
+  .tut-sparkle-frame:last-child { opacity: .6; }
+}

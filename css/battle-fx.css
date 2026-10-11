@@ -1,0 +1,255 @@
+/* Evoker Web - battle playback effects built from the original client's sprites (assets/orig/ui).
+   Only transform/opacity animate so playback stays at 60 fps. */
+
+/* ---------- Effects layer ---------- */
+.fx-layer { position: absolute; inset: 0; pointer-events: none; z-index: 20; overflow: hidden; }
+
+/* ---------- "ROUND n" in the title bar ---------- */
+.round-label { font-size: 34px; font-weight: 600; letter-spacing: .02em; text-shadow: 0 2px 2px rgba(0, 0, 0, .8); }
+
+/* ---------- Sprite primitive ----------
+   .fx-sprite is positioned by the player (--x/--y = centre, --w/--h size, --rot), the inner .fx-img paints the
+   sprite (--img) and runs the animation chosen by the modifier class. Sprites the client blended additively
+   (painted on black) get .add: the picture masks itself by luminance so black disappears. .tint paints a flat
+   colour (--tint) through the sprite's shape. */
+.fx-sprite {
+  position: absolute; left: var(--x, 0px); top: var(--y, 0px);
+  width: var(--w, 120px); height: var(--h, 120px);
+  transform: translate(-50%, -50%) rotate(var(--rot, 0deg));
+  pointer-events: none;
+  opacity: var(--alpha, 1);
+}
+.fx-sprite > .fx-img, .fx-cardfx > .fx-img {
+  position: absolute; inset: 0; margin: auto;
+  width: 100%; height: 100%;
+  background: var(--img) center / 100% 100% no-repeat;
+  animation-duration: var(--dur, 600ms);
+  animation-delay: var(--delay, 0ms);
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+.fx-sprite.add > .fx-img, .fx-cardfx.add > .fx-img, .fx-sprite.tint > .fx-img, .fx-cardfx.tint > .fx-img {
+  -webkit-mask-image: var(--img); mask-image: var(--img);
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center; mask-position: center;
+}
+.fx-sprite.add > .fx-img, .fx-cardfx.add > .fx-img { mask-mode: luminance; }
+.fx-sprite.tint > .fx-img, .fx-cardfx.tint > .fx-img { background: var(--tint, #fff); }
+.fx-sprite.tint:not(.add) > .fx-img, .fx-cardfx.tint:not(.add) > .fx-img { mask-mode: alpha; }
+
+/* one-shot animations */
+.fx-sprite.burst > .fx-img { animation-name: fxBurst; }
+.fx-sprite.pop > .fx-img { animation-name: fxPop; }
+.fx-sprite.flash > .fx-img { animation-name: fxFlash; }
+.fx-sprite.rise > .fx-img { animation-name: fxRise; }
+.fx-sprite.ring > .fx-img { animation-name: fxRing; }
+.fx-sprite.hold > .fx-img { animation-name: fxHold; }
+.fx-sprite.drop > .fx-img { animation-name: fxDrop; animation-timing-function: cubic-bezier(.3, 1.4, .5, 1); }
+.fx-sprite.spin > .fx-img { animation-name: fxSpin; animation-timing-function: linear; animation-iteration-count: infinite; }
+@keyframes fxBurst { 0% { transform: scale(.3); opacity: 0; } 30% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes fxPop { 0% { transform: scale(.2); opacity: 0; } 35% { transform: scale(1.15); opacity: 1; } 70% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.05); opacity: 0; } }
+@keyframes fxFlash { 0% { transform: scale(.6); opacity: 0; } 20% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.25); opacity: 0; } }
+@keyframes fxRise { 0% { transform: translateY(24px) scale(.7); opacity: 0; } 25% { opacity: 1; } 100% { transform: translateY(-90px) scale(1.1); opacity: 0; } }
+@keyframes fxRing { 0% { transform: scale(.2); opacity: 1; } 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes fxHold { 0% { opacity: 0; transform: scale(.9); } 15% { opacity: 1; transform: scale(1); } 85% { opacity: 1; } 100% { opacity: 0; transform: scale(1.05); } }
+@keyframes fxDrop { 0% { transform: translateY(-560px) scale(1.4); opacity: 0; } 60% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(0) scale(1); opacity: 1; } }
+@keyframes fxSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* the attack beam: anchored at the attacker (top centre), grows towards the target (beam.png's bright head) */
+.fx-sprite.beam { transform-origin: 50% 0; transform: translate(-50%, 0) rotate(var(--rot, 0deg)); }
+.fx-sprite.beam > .fx-img { transform-origin: 50% 0; animation-name: fxBeam; animation-timing-function: cubic-bezier(.2, .8, .3, 1); }
+@keyframes fxBeam { 0% { transform: scaleY(0); opacity: 1; } 55% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+
+/* ---------- Overlays living inside a card (statuses, burning) ---------- */
+.fx-cardfx { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+.fx-cardfx > .fx-img { width: var(--w, 100%); height: var(--h, 100%); opacity: var(--alpha, 1); animation-name: fxCardIn; }
+.fx-cardfx.spin > .fx-img { animation: fxCardIn var(--dur, 500ms) ease-out both, fxSpin 5s linear infinite; }
+.fx-cardfx.spin-rev > .fx-img { animation: fxCardIn var(--dur, 500ms) ease-out both, fxSpinRev 3.5s linear infinite; }
+.fx-cardfx.pulse > .fx-img { animation: fxCardIn var(--dur, 500ms) ease-out both, fxPulse 1.6s ease-in-out infinite; }
+.fx-cardfx.burn > .fx-img { animation-name: fxBurnIn; animation-timing-function: ease-in; }
+@keyframes fxCardIn { from { opacity: 0; transform: scale(.6); } to { opacity: var(--alpha, 1); transform: scale(1); } }
+@keyframes fxSpinRev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+@keyframes fxPulse { 0%, 100% { opacity: calc(var(--alpha, 1) * .7); transform: scale(.96); } 50% { opacity: var(--alpha, 1); transform: scale(1.03); } }
+@keyframes fxBurnIn { from { opacity: 0; } to { opacity: var(--alpha, 1); } }
+
+/* ---------- Card reactions ---------- */
+.card.shake { animation: cardShake .35s ease-in-out both; }
+@keyframes cardShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-2deg); }
+  40% { transform: translateX(6px) rotate(2deg); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.card.flash-red::after {
+  content: ''; position: absolute; inset: 0; z-index: 4;
+  background: rgba(255, 50, 30, .55);
+  animation: flashOut .4s ease-out both; pointer-events: none;
+}
+@keyframes flashOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* glows (box-shadow only, no layout) */
+.card.glow-buff { box-shadow: 0 0 0 1px #0a0b0c, 0 0 0 3px var(--c-star), 0 0 22px var(--c-star); }
+.card.glow-debuff { box-shadow: 0 0 0 1px #0a0b0c, 0 0 0 3px var(--c-xp), 0 0 22px var(--c-xp); }
+.card.glow-heal { box-shadow: 0 0 0 1px #0a0b0c, 0 0 0 3px var(--c-hp), 0 0 22px var(--c-hp); }
+.card.glow-attack { box-shadow: 0 0 0 1px #0a0b0c, 0 0 0 3px #fff, 0 0 22px rgba(255, 230, 150, .9); }
+.card.glow-sphere { box-shadow: 0 0 0 1px #0a0b0c, 0 0 0 3px #ffe27a, 0 0 22px rgba(255, 214, 90, .95); }
+
+/* ---------- Invulnerable: golden glow + sparkles around the card (battle-player invulnAura) ----------
+   .back sits behind the card in its .card-wrap (glowingcard halo, newcardglow rays), .front over it (parks
+   sparkles twinkling, invulnerable_effec_02 streaks rising along the edges, the glowingcard wash over the
+   whole card); the art gets a golden tint too (.fx-cardfx.fx-invuln). */
+.card.invuln { box-shadow: 0 0 0 2px #fff3b0, 0 0 14px 4px rgba(255, 222, 110, .95); filter: brightness(1.04) saturate(1.06); }
+.fx-aura { position: absolute; pointer-events: none; animation: fxAuraIn var(--dur, 450ms) ease-out both; }
+.fx-aura.back { z-index: 0; }
+.fx-aura.front { z-index: 3; }
+.fx-aura-halo, .fx-aura-rays, .fx-aura-wash, .fx-aura-sparkles, .fx-aura-streaks { position: absolute; background-repeat: no-repeat; background-size: 100% 100%; }
+.fx-aura-halo { inset: -16px -15px; background-image: url('/assets/orig/ui/glowingcard.png'); animation: fxAuraPulse 1.4s ease-in-out infinite; }
+/* the wash is a light golden sheen on the art only: the card's stats strip (top or bottom band) stays clear */
+.fx-aura-wash { inset: 2px; background-image: url('/assets/orig/ui/glowingcard.png'); mix-blend-mode: screen; filter: sepia(1) saturate(4) hue-rotate(-8deg) brightness(.95); opacity: .2; animation: fxWash 1.4s ease-in-out infinite; }
+.fx-aura.front.side-top .fx-aura-wash { top: 46px; }
+.fx-aura.front.side-bottom .fx-aura-wash { bottom: 46px; }
+@keyframes fxWash { 0%, 100% { opacity: .14; } 50% { opacity: .26; } }
+.fx-aura-rays { inset: -56px -48px; background-image: url('/assets/orig/ui/newcardglow.png'); opacity: 1; animation: fxAuraRays 2.2s ease-in-out infinite; }
+.fx-aura-sparkles { inset: -26px -22px; background-image: url('/assets/orig/ui/parks.png'); opacity: 0; filter: drop-shadow(0 0 3px #fff6c8) brightness(1.4); animation: fxTwinkle 1.6s ease-in-out infinite; }
+.fx-aura-sparkles.s2 { transform: rotate(180deg) scale(.86); animation-delay: -.8s; }
+.fx-aura-streaks {
+  top: -6px; bottom: -6px; width: 44px;
+  background: #fff3c0;
+  -webkit-mask: url('/assets/orig/ui/invulnerable_effec_02.png') center / 100% 100% no-repeat; mask: url('/assets/orig/ui/invulnerable_effec_02.png') center / 100% 100% no-repeat;
+  mask-mode: luminance;
+  animation: fxStreaks 1.3s linear infinite;
+}
+.fx-aura-streaks.l { left: -24px; }
+.fx-aura-streaks.r { right: -24px; animation-delay: -.65s; }
+@keyframes fxAuraIn { from { opacity: 0; transform: scale(1.25); } to { opacity: 1; transform: none; } }
+@keyframes fxAuraPulse { 0%, 100% { opacity: .85; transform: scale(1); } 50% { opacity: 1; transform: scale(1.04); } }
+@keyframes fxAuraRays { 0%, 100% { opacity: .7; transform: scale(.97); } 50% { opacity: 1; transform: scale(1.04); } }
+@keyframes fxTwinkle { 0%, 100% { opacity: 0; } 30% { opacity: 1; } 60% { opacity: .35; } }
+@keyframes fxStreaks { from { transform: translateY(18px) rotate(180deg); opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } to { transform: translateY(-34px) rotate(180deg); opacity: 0; } }
+
+/* ---------- Floating numbers (the client's "attack_card" text): red, bold, on the target; pop in, hold, grow 2x and fade ---------- */
+.fx-float {
+  position: absolute; left: var(--x, 0px); top: var(--y, 0px); z-index: 3;
+  transform: translate(-50%, -50%);
+  font-size: 48px; font-weight: 700; letter-spacing: -.01em;
+  text-shadow: 0 0 2px #000, 0 0 12px currentColor, 0 2px 3px #000;
+  animation: floatUp .7s linear both;
+  white-space: nowrap;
+}
+.fx-float.damage { color: #ff1f1a; }
+.fx-float.heal { color: #4be03c; }
+.fx-float.buff { color: var(--c-star); }
+/* a lowered attack / max HP (Medusa, Dark Mage...): no damage, a smaller violet number */
+.fx-float.debuff { color: #dcb2ff; font-size: 38px; text-shadow: 0 0 3px #000, 0 0 3px #000, 0 2px 3px #000, 0 0 12px rgba(166, 77, 219, .95); }
+.fx-float.player.debuff { font-size: 38px; }
+/* attack changes carry the sword icon (hud_fighticon02) in front of the number */
+.fx-float.atk::before {
+  content: ''; display: inline-block; width: .8em; height: .8em; margin-right: .08em; vertical-align: -.06em;
+  background: url('/assets/orig/ui/hud_fighticon02.png') center / contain no-repeat;
+  filter: drop-shadow(0 1px 1px #000);
+}
+.fx-float.player { font-size: 52px; }
+.fx-float.blocked { color: #cfe9ff; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+@keyframes floatUp {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+  28% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  57% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(2); }
+}
+
+/* ---------- The attack bullet (beam.png small, head leading) ---------- */
+.fx-sprite.bullet {
+  transform: translate(-50%, -50%) rotate(var(--rot, 0deg));
+  animation: fxBullet var(--dur, 450ms) cubic-bezier(.45, .05, .8, .6) var(--delay, 0ms) both;
+}
+.fx-sprite.bullet > .fx-img { animation: none; }
+@keyframes fxBullet {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--rot, 0deg)) scale(.7); }
+  12% { opacity: 1; }
+  100% { opacity: 1; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px))) rotate(var(--rot, 0deg)) scale(1); }
+}
+
+/* ---------- A hit on a player: a red glowing strip across the whole HP bar ---------- */
+.fx-hpstrip {
+  position: absolute; left: var(--x, 0px); top: var(--y, 0px); width: var(--w, 600px); height: 96px;
+  transform: translate(-50%, -50%);
+  border-radius: 48px;
+  background: radial-gradient(ellipse at center, rgba(255, 60, 50, .85) 0%, rgba(255, 30, 30, .55) 45%, rgba(255, 0, 0, 0) 72%);
+  box-shadow: 0 0 0 3px rgba(255, 90, 80, .55), inset 0 0 18px rgba(255, 140, 120, .7);
+  animation: hpStrip var(--dur, 700ms) ease-out both;
+}
+@keyframes hpStrip { 0% { opacity: 0; transform: translate(-50%, -50%) scaleY(.5); } 15% { opacity: 1; transform: translate(-50%, -50%) scaleY(1); } 60% { opacity: .9; } 100% { opacity: 0; transform: translate(-50%, -50%) scaleY(1.05); } }
+
+/* ---------- Tribe bonus: "TRIBE BONUS" crossfading over the HP number, glowing tribe icon in the frame ---------- */
+.fx-bonus-text {
+  position: absolute; left: var(--x, 0px); top: var(--y, 0px); z-index: 3;
+  transform: translate(-50%, -50%);
+  font-size: 30px; font-weight: 600; letter-spacing: .06em; color: #fff; white-space: nowrap;
+  text-shadow: 0 0 8px rgba(255, 230, 120, .9), 0 2px 2px #000;
+  animation: bonusText var(--dur, 1300ms) ease-in-out both;
+}
+@keyframes bonusText { 0% { opacity: 0; } 20% { opacity: .95; } 45% { opacity: .35; } 70% { opacity: .9; } 100% { opacity: 0; } }
+.hp-bar-wrap.bonus .bar-label { animation: bonusNumber 1.3s ease-in-out both; }
+@keyframes bonusNumber { 0% { opacity: 1; } 20% { opacity: .25; } 45% { opacity: 1; } 70% { opacity: .35; } 100% { opacity: 1; } }
+.fx-tribe-icon {
+  position: absolute; left: var(--x, 0px); top: var(--y, 0px); width: 72px; height: 72px; z-index: 2;
+  transform: translate(-50%, -50%);
+  background: var(--img) center / contain no-repeat;
+  filter: drop-shadow(0 0 6px #fff1a0) drop-shadow(0 0 14px #ffd64a) brightness(1.25);
+  animation: fxHold var(--dur, 1500ms) ease-out both;
+}
+
+/* ---------- "ROUND n" roll ---------- */
+.round-label:not(.shown) { visibility: hidden; }
+.round-roll { position: relative; display: inline-block; overflow: hidden; height: 1.25em; line-height: 1.25em; vertical-align: middle; }
+.round-roll > span { display: block; animation-duration: inherit; animation-timing-function: ease-out; animation-fill-mode: both; }
+.round-roll .round-old { position: absolute; right: 0; top: 0; animation-name: roundOut; }
+.round-roll .round-new { animation-name: roundIn; }
+@keyframes roundOut { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-100%); opacity: 0; } }
+@keyframes roundIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* ---------- Death: two darkened halves of the card fly apart ---------- */
+.card.shattered { visibility: hidden; }
+.fx-shard { position: absolute; z-index: 1; pointer-events: none; animation: var(--dur, 900ms) cubic-bezier(.3, .1, .6, 1) both; }
+.fx-shard > .card { position: absolute; left: 0; top: 0; margin: 0; filter: brightness(.28) saturate(.4) sepia(.3); }
+.fx-shard.a { clip-path: polygon(0 0, 100% 0, 100% 38%, 0 62%); animation-name: shardA; }
+.fx-shard.b { clip-path: polygon(0 62%, 100% 38%, 100% 100%, 0 100%); animation-name: shardB; }
+@keyframes shardA { 0% { transform: none; opacity: 1; } 25% { transform: translate(-4px, -6px) rotate(-3deg); opacity: 1; } 100% { transform: translate(-46px, -70px) rotate(-16deg); opacity: 0; } }
+@keyframes shardB { 0% { transform: none; opacity: 1; } 25% { transform: translate(4px, 6px) rotate(3deg); opacity: 1; } 100% { transform: translate(46px, 70px) rotate(14deg); opacity: 0; } }
+
+
+/* ---------- Status icons (the card component's overlay; the sprites sit beneath in .fx-cardfx) ---------- */
+.card-status.daze img { animation: statusPop .4s var(--ease) both; }
+.card-status.stun img, .card-status.suspend img { animation: statusSpin 2.4s linear infinite, statusPop .4s var(--ease) both; }
+.card-status.sphere img { width: 100%; height: 100%; opacity: .7; animation: spherePulse 1.6s ease-in-out infinite; }
+@keyframes statusPop { from { transform: scale(.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes statusSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes spherePulse { 0%, 100% { transform: scale(.96); opacity: .6; } 50% { transform: scale(1.02); opacity: .85; } }
+
+/* ---------- Death (the burnedcard overlay fades in, then the card dissolves) ---------- */
+.card.dissolve { animation: dissolve .9s ease-in both; pointer-events: none; }
+@keyframes dissolve {
+  0% { opacity: 1; transform: scale(1); }
+  45% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(.88) translateY(-16px); }
+}
+.card-wrap.dying .card-hpbar { opacity: 0; transition: opacity .6s ease; }
+
+/* ---------- Revive ---------- */
+.card.revive { animation: reviveGlow 1.2s ease-out both; }
+@keyframes reviveGlow {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); filter: brightness(2); }
+  50% { box-shadow: 0 0 0 6px rgba(255, 255, 220, .9), 0 0 40px rgba(255, 255, 200, .9); }
+  100% { box-shadow: 0 0 0 1px #0a0b0c; filter: brightness(1); }
+}
+
+/* ---------- .flip (the tutorial hand and the quest-map tiles carry it) ---------- */
+.flip { transform-style: preserve-3d; transition: transform .6s var(--ease); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-sprite > .fx-img, .fx-cardfx > .fx-img, .fx-float, .card.dissolve, .card.revive, .fx-shard, .fx-hpstrip { animation-duration: 1ms; }
+  .fx-aura-halo, .fx-aura-rays, .fx-aura-wash, .fx-aura-sparkles, .fx-aura-streaks { animation: none; opacity: .9; }
+}

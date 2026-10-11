@@ -1,0 +1,635 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'displaygroupcontainer', 'eventlistener', 'eventdispatcher', 'logging.logger', 'assetmanager', 'display.popup', 'ui.ui', 'new_inherit', 'new'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "displaygroupcontainer"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "eventlistener"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "eventdispatcher"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R3 := _G["require"]
+    16 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    17 [   0] LOADK     R5 := "logging.logger"
+    18 [   0] CONCAT    R4 := R4 .. ... .. R5
+    19 [   0] CALL      R3(...) nargs=1 nret=1
+    20 [   0] LOADK     R4 := 3
+    21 [   0] GETGLOBAL R5 := _G["require"]
+    22 [   0] GETGLOBAL R6 := _G["FGLIB_PATH"]
+    23 [   0] LOADK     R7 := "assetmanager"
+    24 [   0] CONCAT    R6 := R6 .. ... .. R7
+    25 [   0] CALL      R5(...) nargs=1 nret=1
+    26 [   0] GETGLOBAL R6 := _G["require"]
+    27 [   0] GETGLOBAL R7 := _G["FGLIB_PATH"]
+    28 [   0] LOADK     R8 := "display.popup"
+    29 [   0] CONCAT    R7 := R7 .. ... .. R8
+    30 [   0] CALL      R6(...) nargs=1 nret=1
+    31 [   0] GETGLOBAL R7 := _G["require"]
+    32 [   0] GETGLOBAL R8 := _G["FGLIB_PATH"]
+    33 [   0] LOADK     R9 := "ui.ui"
+    34 [   0] CONCAT    R8 := R8 .. ... .. R9
+    35 [   0] CALL      R7(...) nargs=1 nret=1
+    36 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+    37 [   0] CLOSURE   R9 := closure #0
+    38 [   0] CLOSURE   R10 := closure #1
+    39 [   0] MOVE      R0 := R3
+    40 [   0] MOVE      R0 := R4
+    41 [   0] MOVE      R0 := R9
+    42 [   0] MOVE      R0 := R5
+    43 [   0] MOVE      R0 := R7
+    44 [   0] SETTABLE  R8["new_inherit"] := R10
+    45 [   0] CLOSURE   R10 := closure #2
+    46 [   0] MOVE      R0 := R8
+    47 [   0] MOVE      R0 := R0
+    48 [   0] MOVE      R0 := R1
+    49 [   0] MOVE      R0 := R2
+    50 [   0] SETTABLE  R8["new"] := R10
+    51 [   0] RETURN    return R8.. (1 values)
+    52 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 13-15, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] LOADBOOL  R0 := True
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 17-204, upvals=[], locals=[])
+    constants: strings=['assetsinitialized', 'screentitle', 'currentpopup', 'exitbutton', 'bgimage', 'theme', 'backbutton_released', 'common/menu_backbutton.png', 'backbutton_pressed', 'common/menu_backbutton_active.png', 'x', 'y', 'display', 'contentHeight', 'title', 'Exit', 'setTheme', 'backgroundTouchHandler', 'areAssetsInitialized', 'setScreenTitle', 'initAssets', 'onOrientationHandler', 'getCurrentPopup', 'popupButtonHandler', 'showPopup', 'hidePopup', 'show', 'hide', 'cleanup', 'destroy', 'emitExit', 'orientation'] numbers=[75, 50]
+       0 [   0] SETTABLE  R0["assetsinitialized"] := False
+       1 [   0] SETTABLE  R0["screentitle"] := None
+       2 [   0] SETTABLE  R0["currentpopup"] := None
+       3 [   0] SETTABLE  R0["exitbutton"] := None
+       4 [   0] SETTABLE  R0["bgimage"] := None
+       5 [   0] NEWTABLE  R1 := {} (array 0, hash 3)
+       6 [   0] SETTABLE  R1["backbutton_released"] := "common/menu_backbutton.png"
+       7 [   0] SETTABLE  R1["backbutton_pressed"] := "common/menu_backbutton_active.png"
+       8 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+       9 [   0] SETTABLE  R2["x"] := 75
+      10 [   0] GETGLOBAL R3 := _G["display"]
+      11 [   0] GETTABLE  R3 := R3["contentHeight"]
+      12 [   0] SUB       R3 := R3 - 50
+      13 [   0] SETTABLE  R2["y"] := R3
+      14 [   0] SETTABLE  R2["title"] := "Exit"
+      15 [   0] SETTABLE  R1["exitbutton"] := R2
+      16 [   0] SETTABLE  R0["theme"] := R1
+      17 [   0] CLOSURE   R1 := closure #0
+      18 [   0] MOVE      R0 := R0
+      19 [   0] SETTABLE  R0["setTheme"] := R1
+      20 [   0] CLOSURE   R1 := closure #1
+      21 [   0] SETTABLE  R0["backgroundTouchHandler"] := R1
+      22 [   0] CLOSURE   R1 := closure #2
+      23 [   0] MOVE      R0 := R0
+      24 [   0] SETTABLE  R0["areAssetsInitialized"] := R1
+      25 [   0] CLOSURE   R1 := closure #3
+      26 [   0] MOVE      R0 := R0
+      27 [   0] SETTABLE  R0["setScreenTitle"] := R1
+      28 [   0] CLOSURE   R1 := closure #4
+      29 [   0] GETUPVAL  R0 := upval 0
+      30 [   0] GETUPVAL  R0 := upval 1
+      31 [   0] MOVE      R0 := R0
+      32 [   0] GETUPVAL  R0 := upval 2
+      33 [   0] GETUPVAL  R0 := upval 3
+      34 [   0] GETUPVAL  R0 := upval 4
+      35 [   0] SETTABLE  R0["initAssets"] := R1
+      36 [   0] CLOSURE   R1 := closure #5
+      37 [   0] MOVE      R0 := R0
+      38 [   0] SETTABLE  R0["onOrientationHandler"] := R1
+      39 [   0] CLOSURE   R1 := closure #6
+      40 [   0] MOVE      R0 := R0
+      41 [   0] SETTABLE  R0["getCurrentPopup"] := R1
+      42 [   0] CLOSURE   R1 := closure #7
+      43 [   0] GETUPVAL  R0 := upval 0
+      44 [   0] GETUPVAL  R0 := upval 1
+      45 [   0] SETTABLE  R0["popupButtonHandler"] := R1
+      46 [   0] CLOSURE   R1 := closure #8
+      47 [   0] MOVE      R0 := R0
+      48 [   0] SETTABLE  R0["showPopup"] := R1
+      49 [   0] CLOSURE   R1 := closure #9
+      50 [   0] MOVE      R0 := R0
+      51 [   0] SETTABLE  R0["hidePopup"] := R1
+      52 [   0] CLOSURE   R1 := closure #10
+      53 [   0] MOVE      R0 := R0
+      54 [   0] SETTABLE  R0["show"] := R1
+      55 [   0] CLOSURE   R1 := closure #11
+      56 [   0] MOVE      R0 := R0
+      57 [   0] SETTABLE  R0["hide"] := R1
+      58 [   0] CLOSURE   R1 := closure #12
+      59 [   0] GETUPVAL  R0 := upval 0
+      60 [   0] GETUPVAL  R0 := upval 1
+      61 [   0] MOVE      R0 := R0
+      62 [   0] SETTABLE  R0["cleanup"] := R1
+      63 [   0] CLOSURE   R1 := closure #13
+      64 [   0] GETUPVAL  R0 := upval 0
+      65 [   0] GETUPVAL  R0 := upval 1
+      66 [   0] MOVE      R0 := R0
+      67 [   0] SETTABLE  R0["destroy"] := R1
+      68 [   0] CLOSURE   R1 := closure #14
+      69 [   0] GETUPVAL  R0 := upval 0
+      70 [   0] GETUPVAL  R0 := upval 1
+      71 [   0] MOVE      R0 := R0
+      72 [   0] SETTABLE  R0["emitExit"] := R1
+      73 [   0] CLOSURE   R1 := closure #15
+      74 [   0] GETUPVAL  R0 := upval 0
+      75 [   0] GETUPVAL  R0 := upval 1
+      76 [   0] SETTABLE  R0["orientation"] := R1
+      77 [   0] RETURN    return R0.. (1 values)
+      78 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=1, lines 34-41, upvals=[], locals=[])
+      constants: strings=['pairs', 'theme'] numbers=[]
+         0 [   0] EQ        if (R0 == None) ~= 0 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] RETURN    return R0.. (0 values)
+         3 [   0] GETGLOBAL R1 := _G["pairs"]
+         4 [   0] MOVE      R2 := R0
+         5 [   0] CALL      R1(...) nargs=1 nret=3
+         6 [   0] JMP       jmp +3 -> 10
+         7 [   0] GETUPVAL  R6 := upval 0
+         8 [   0] GETTABLE  R6 := R6["theme"]
+         9 [   0] SETTABLE  R6[R4] := R5
+        10 [   0] TFORLOOP  tforloop R1 nres=2
+        11 [   0] JMP       jmp -5 -> 7
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#1 (params=1, lines 43-45, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] LOADBOOL  R1 := True
+         1 [   0] RETURN    return R1.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#2 (params=0, lines 47-49, upvals=[], locals=[])
+      constants: strings=['assetsInitialized'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["assetsInitialized"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#3 (params=1, lines 51-56, upvals=[], locals=[])
+      constants: strings=['screentitle', 'text', 'setReferencePoint', 'display', 'TopLeftReferencePoint', 'x', 'y'] numbers=[12]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["screentitle"]
+         2 [   0] SETTABLE  R1["text"] := R0
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["screentitle"]
+         5 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+         6 [   0] GETGLOBAL R3 := _G["display"]
+         7 [   0] GETTABLE  R3 := R3["TopLeftReferencePoint"]
+         8 [   0] CALL      R1(...) nargs=2 nret=0
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] GETTABLE  R1 := R1["screentitle"]
+        11 [   0] SETTABLE  R1["x"] := 12
+        12 [   0] GETUPVAL  R1 := upval 0
+        13 [   0] GETTABLE  R1 := R1["screentitle"]
+        14 [   0] SETTABLE  R1["y"] := 12
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#4 (params=1, lines 58-100, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_DISPLAY', 'DefaultView:initAssets', 'display', 'contentScaleX', 'assetsInitialized', 'modalbackground', 'newRect', 'contentWidth', 'contentHeight', 'setFillColor', 'addEventListener', 'touch', 'tap', 'displaygroup', 'insert', 'theme', 'bgasset', 'bgimage', 'getInstance', 'newImage', 'backgroundTouchHandler', 'screentitle', 'newText', 'native', 'systemFont', 'setReferencePoint', 'TopLeftReferencePoint', 'setTextColor', 'exitbutton', 'newButton', 'default', 'getCurrentThemePath', 'backbutton_released', 'over', 'backbutton_pressed', 'onRelease', 'emitExit', 'text', 'Exit', 'textColor', 'font', 'size', 'emboss', 'setText', 'title', 'onOrientationHandler', 'DefaultView:initAssets DONE'] numbers=[3, -2, 5, 0, 70, 12, 24, 255, 15]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logmsg"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["ASPECT_DISPLAY"]
+         5 [   0] LOADK     R4 := 3
+         6 [   0] LOADK     R5 := "DefaultView:initAssets"
+         7 [   0] GETGLOBAL R6 := _G["display"]
+         8 [   0] GETTABLE  R6 := R6["contentScaleX"]
+         9 [   0] CALL      R1(...) nargs=5 nret=0
+        10 [   0] GETUPVAL  R1 := upval 2
+        11 [   0] GETTABLE  R1 := R1["assetsInitialized"]
+        12 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        13 [   0] JMP       jmp +179 -> 193
+        14 [   0] GETUPVAL  R1 := upval 2
+        15 [   0] GETGLOBAL R2 := _G["display"]
+        16 [   0] GETTABLE  R2 := R2["newRect"]
+        17 [   0] GETGLOBAL R3 := _G["display"]
+        18 [   0] GETTABLE  R3 := R3["contentWidth"]
+        19 [   0] MUL       R3 := -2 * R3
+        20 [   0] GETGLOBAL R4 := _G["display"]
+        21 [   0] GETTABLE  R4 := R4["contentHeight"]
+        22 [   0] MUL       R4 := -2 * R4
+        23 [   0] GETGLOBAL R5 := _G["display"]
+        24 [   0] GETTABLE  R5 := R5["contentWidth"]
+        25 [   0] MUL       R5 := 5 * R5
+        26 [   0] GETGLOBAL R6 := _G["display"]
+        27 [   0] GETTABLE  R6 := R6["contentHeight"]
+        28 [   0] MUL       R6 := 5 * R6
+        29 [   0] CALL      R2(...) nargs=4 nret=1
+        30 [   0] SETTABLE  R1["modalbackground"] := R2
+        31 [   0] GETUPVAL  R1 := upval 2
+        32 [   0] GETTABLE  R1 := R1["modalbackground"]
+        33 [   0] SELF      R2 := R1; R1 := R1["setFillColor"]
+        34 [   0] LOADK     R3 := 0
+        35 [   0] LOADK     R4 := 0
+        36 [   0] LOADK     R5 := 0
+        37 [   0] LOADK     R6 := 70
+        38 [   0] CALL      R1(...) nargs=5 nret=0
+        39 [   0] GETUPVAL  R1 := upval 2
+        40 [   0] GETTABLE  R1 := R1["modalbackground"]
+        41 [   0] SELF      R2 := R1; R1 := R1["addEventListener"]
+        42 [   0] LOADK     R3 := "touch"
+        43 [   0] GETUPVAL  R4 := upval 3
+        44 [   0] CALL      R1(...) nargs=3 nret=0
+        45 [   0] GETUPVAL  R1 := upval 2
+        46 [   0] GETTABLE  R1 := R1["modalbackground"]
+        47 [   0] SELF      R2 := R1; R1 := R1["addEventListener"]
+        48 [   0] LOADK     R3 := "tap"
+        49 [   0] GETUPVAL  R4 := upval 3
+        50 [   0] CALL      R1(...) nargs=3 nret=0
+        51 [   0] GETUPVAL  R1 := upval 2
+        52 [   0] GETTABLE  R1 := R1["displaygroup"]
+        53 [   0] SELF      R2 := R1; R1 := R1["insert"]
+        54 [   0] GETUPVAL  R3 := upval 2
+        55 [   0] GETTABLE  R3 := R3["modalbackground"]
+        56 [   0] CALL      R1(...) nargs=2 nret=0
+        57 [   0] GETUPVAL  R1 := upval 2
+        58 [   0] GETTABLE  R1 := R1["theme"]
+        59 [   0] GETTABLE  R1 := R1["bgasset"]
+        60 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        61 [   0] JMP       jmp +31 -> 93
+        62 [   0] GETUPVAL  R1 := upval 2
+        63 [   0] GETUPVAL  R2 := upval 4
+        64 [   0] GETTABLE  R2 := R2["getInstance"]
+        65 [   0] CALL      R2(...) nargs=0 nret=1
+        66 [   0] GETTABLE  R2 := R2["newImage"]
+        67 [   0] GETUPVAL  R3 := upval 2
+        68 [   0] GETTABLE  R3 := R3["theme"]
+        69 [   0] GETTABLE  R3 := R3["bgasset"]
+        70 [   0] LOADBOOL  R4 := True
+        71 [   0] CALL      R2(...) nargs=2 nret=1
+        72 [   0] SETTABLE  R1["bgimage"] := R2
+        73 [   0] GETUPVAL  R1 := upval 2
+        74 [   0] GETTABLE  R1 := R1["displaygroup"]
+        75 [   0] SELF      R2 := R1; R1 := R1["insert"]
+        76 [   0] GETUPVAL  R3 := upval 2
+        77 [   0] GETTABLE  R3 := R3["bgimage"]
+        78 [   0] CALL      R1(...) nargs=2 nret=0
+        79 [   0] GETUPVAL  R1 := upval 2
+        80 [   0] GETTABLE  R1 := R1["bgimage"]
+        81 [   0] SELF      R2 := R1; R1 := R1["addEventListener"]
+        82 [   0] LOADK     R3 := "touch"
+        83 [   0] GETUPVAL  R4 := upval 2
+        84 [   0] GETTABLE  R4 := R4["backgroundTouchHandler"]
+        85 [   0] CALL      R1(...) nargs=3 nret=0
+        86 [   0] GETUPVAL  R1 := upval 2
+        87 [   0] GETTABLE  R1 := R1["bgimage"]
+        88 [   0] SELF      R2 := R1; R1 := R1["addEventListener"]
+        89 [   0] LOADK     R3 := "tap"
+        90 [   0] GETUPVAL  R4 := upval 2
+        91 [   0] GETTABLE  R4 := R4["backgroundTouchHandler"]
+        92 [   0] CALL      R1(...) nargs=3 nret=0
+        93 [   0] GETUPVAL  R1 := upval 2
+        94 [   0] GETGLOBAL R2 := _G["display"]
+        95 [   0] GETTABLE  R2 := R2["newText"]
+        96 [   0] MOVE      R3 := R0
+        97 [   0] LOADK     R4 := 12
+        98 [   0] LOADK     R5 := 12
+        99 [   0] GETGLOBAL R6 := _G["native"]
+       100 [   0] GETTABLE  R6 := R6["systemFont"]
+       101 [   0] LOADK     R7 := 24
+       102 [   0] CALL      R2(...) nargs=5 nret=1
+       103 [   0] SETTABLE  R1["screentitle"] := R2
+       104 [   0] GETUPVAL  R1 := upval 2
+       105 [   0] GETTABLE  R1 := R1["screentitle"]
+       106 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+       107 [   0] GETGLOBAL R3 := _G["display"]
+       108 [   0] GETTABLE  R3 := R3["TopLeftReferencePoint"]
+       109 [   0] CALL      R1(...) nargs=2 nret=0
+       110 [   0] GETUPVAL  R1 := upval 2
+       111 [   0] GETTABLE  R1 := R1["screentitle"]
+       112 [   0] SELF      R2 := R1; R1 := R1["setTextColor"]
+       113 [   0] LOADK     R3 := 255
+       114 [   0] LOADK     R4 := 255
+       115 [   0] LOADK     R5 := 255
+       116 [   0] CALL      R1(...) nargs=4 nret=0
+       117 [   0] GETUPVAL  R1 := upval 2
+       118 [   0] GETTABLE  R1 := R1["displaygroup"]
+       119 [   0] SELF      R2 := R1; R1 := R1["insert"]
+       120 [   0] GETUPVAL  R3 := upval 2
+       121 [   0] GETTABLE  R3 := R3["screentitle"]
+       122 [   0] CALL      R1(...) nargs=2 nret=0
+       123 [   0] GETUPVAL  R1 := upval 2
+       124 [   0] GETUPVAL  R2 := upval 5
+       125 [   0] GETTABLE  R2 := R2["newButton"]
+       126 [   0] NEWTABLE  R3 := {} (array 0, hash 8)
+       127 [   0] GETUPVAL  R4 := upval 4
+       128 [   0] GETTABLE  R4 := R4["getInstance"]
+       129 [   0] CALL      R4(...) nargs=0 nret=1
+       130 [   0] GETTABLE  R4 := R4["getCurrentThemePath"]
+       131 [   0] CALL      R4(...) nargs=0 nret=1
+       132 [   0] GETUPVAL  R5 := upval 2
+       133 [   0] GETTABLE  R5 := R5["theme"]
+       134 [   0] GETTABLE  R5 := R5["backbutton_released"]
+       135 [   0] CONCAT    R4 := R4 .. ... .. R5
+       136 [   0] SETTABLE  R3["default"] := R4
+       137 [   0] GETUPVAL  R4 := upval 4
+       138 [   0] GETTABLE  R4 := R4["getInstance"]
+       139 [   0] CALL      R4(...) nargs=0 nret=1
+       140 [   0] GETTABLE  R4 := R4["getCurrentThemePath"]
+       141 [   0] CALL      R4(...) nargs=0 nret=1
+       142 [   0] GETUPVAL  R5 := upval 2
+       143 [   0] GETTABLE  R5 := R5["theme"]
+       144 [   0] GETTABLE  R5 := R5["backbutton_pressed"]
+       145 [   0] CONCAT    R4 := R4 .. ... .. R5
+       146 [   0] SETTABLE  R3["over"] := R4
+       147 [   0] GETUPVAL  R4 := upval 2
+       148 [   0] GETTABLE  R4 := R4["emitExit"]
+       149 [   0] SETTABLE  R3["onRelease"] := R4
+       150 [   0] SETTABLE  R3["text"] := "Exit"
+       151 [   0] NEWTABLE  R4 := {} (array 4, hash 0)
+       152 [   0] LOADK     R5 := 255
+       153 [   0] LOADK     R6 := 255
+       154 [   0] LOADK     R7 := 255
+       155 [   0] LOADK     R8 := 255
+       156 [   0] SETLIST   R4[...] := R5.. (n=4, block 1)
+       157 [   0] SETTABLE  R3["textColor"] := R4
+       158 [   0] GETGLOBAL R4 := _G["native"]
+       159 [   0] GETTABLE  R4 := R4["systemFont"]
+       160 [   0] SETTABLE  R3["font"] := R4
+       161 [   0] SETTABLE  R3["size"] := 15
+       162 [   0] SETTABLE  R3["emboss"] := False
+       163 [   0] CALL      R2(...) nargs=1 nret=1
+       164 [   0] SETTABLE  R1["exitbutton"] := R2
+       165 [   0] GETUPVAL  R1 := upval 2
+       166 [   0] GETTABLE  R1 := R1["exitbutton"]
+       167 [   0] SELF      R2 := R1; R1 := R1["setText"]
+       168 [   0] GETUPVAL  R3 := upval 2
+       169 [   0] GETTABLE  R3 := R3["theme"]
+       170 [   0] GETTABLE  R3 := R3["exitbutton"]
+       171 [   0] GETTABLE  R3 := R3["title"]
+       172 [   0] CALL      R1(...) nargs=2 nret=0
+       173 [   0] GETUPVAL  R1 := upval 2
+       174 [   0] GETTABLE  R1 := R1["displaygroup"]
+       175 [   0] SELF      R2 := R1; R1 := R1["insert"]
+       176 [   0] GETUPVAL  R3 := upval 2
+       177 [   0] GETTABLE  R3 := R3["exitbutton"]
+       178 [   0] CALL      R1(...) nargs=2 nret=0
+       179 [   0] GETUPVAL  R1 := upval 2
+       180 [   0] GETTABLE  R1 := R1["onOrientationHandler"]
+       181 [   0] CALL      R1(...) nargs=0 nret=0
+       182 [   0] GETUPVAL  R1 := upval 2
+       183 [   0] SETTABLE  R1["assetsInitialized"] := True
+       184 [   0] GETUPVAL  R1 := upval 0
+       185 [   0] GETTABLE  R1 := R1["logmsg"]
+       186 [   0] GETUPVAL  R2 := upval 1
+       187 [   0] GETUPVAL  R3 := upval 0
+       188 [   0] GETTABLE  R3 := R3["ASPECT_DISPLAY"]
+       189 [   0] LOADK     R4 := 3
+       190 [   0] LOADK     R5 := "DefaultView:initAssets DONE"
+       191 [   0] GETUPVAL  R6 := upval 2
+       192 [   0] CALL      R1(...) nargs=5 nret=0
+       193 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#5 (params=1, lines 102-120, upvals=[], locals=[])
+      constants: strings=['screentitle', 'x', 'y', 'exitbutton', 'theme', 'bgasset', 'bgimage', 'setReferencePoint', 'display', 'TopRightReferencePoint', 'yScale', 'contentHeight', 'height', 'xScale', 'contentWidth'] numbers=[12, 0]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["screentitle"]
+         2 [   0] SETTABLE  R1["x"] := 12
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["screentitle"]
+         5 [   0] SETTABLE  R1["y"] := 12
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] GETTABLE  R1 := R1["exitbutton"]
+         8 [   0] GETUPVAL  R2 := upval 0
+         9 [   0] GETTABLE  R2 := R2["theme"]
+        10 [   0] GETTABLE  R2 := R2["exitbutton"]
+        11 [   0] GETTABLE  R2 := R2["x"]
+        12 [   0] SETTABLE  R1["x"] := R2
+        13 [   0] GETUPVAL  R1 := upval 0
+        14 [   0] GETTABLE  R1 := R1["exitbutton"]
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2["theme"]
+        17 [   0] GETTABLE  R2 := R2["exitbutton"]
+        18 [   0] GETTABLE  R2 := R2["y"]
+        19 [   0] SETTABLE  R1["y"] := R2
+        20 [   0] GETUPVAL  R1 := upval 0
+        21 [   0] GETTABLE  R1 := R1["theme"]
+        22 [   0] GETTABLE  R1 := R1["bgasset"]
+        23 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        24 [   0] JMP       jmp +29 -> 54
+        25 [   0] GETUPVAL  R1 := upval 0
+        26 [   0] GETTABLE  R1 := R1["bgimage"]
+        27 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+        28 [   0] GETGLOBAL R3 := _G["display"]
+        29 [   0] GETTABLE  R3 := R3["TopRightReferencePoint"]
+        30 [   0] CALL      R1(...) nargs=2 nret=0
+        31 [   0] GETUPVAL  R1 := upval 0
+        32 [   0] GETTABLE  R1 := R1["bgimage"]
+        33 [   0] GETGLOBAL R2 := _G["display"]
+        34 [   0] GETTABLE  R2 := R2["contentHeight"]
+        35 [   0] GETUPVAL  R3 := upval 0
+        36 [   0] GETTABLE  R3 := R3["bgimage"]
+        37 [   0] GETTABLE  R3 := R3["height"]
+        38 [   0] DIV       R2 := R2 / R3
+        39 [   0] SETTABLE  R1["yScale"] := R2
+        40 [   0] GETUPVAL  R1 := upval 0
+        41 [   0] GETTABLE  R1 := R1["bgimage"]
+        42 [   0] GETUPVAL  R2 := upval 0
+        43 [   0] GETTABLE  R2 := R2["bgimage"]
+        44 [   0] GETTABLE  R2 := R2["yScale"]
+        45 [   0] SETTABLE  R1["xScale"] := R2
+        46 [   0] GETUPVAL  R1 := upval 0
+        47 [   0] GETTABLE  R1 := R1["bgimage"]
+        48 [   0] GETGLOBAL R2 := _G["display"]
+        49 [   0] GETTABLE  R2 := R2["contentWidth"]
+        50 [   0] SETTABLE  R1["x"] := R2
+        51 [   0] GETUPVAL  R1 := upval 0
+        52 [   0] GETTABLE  R1 := R1["bgimage"]
+        53 [   0] SETTABLE  R1["y"] := 0
+        54 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#6 (params=0, lines 122-124, upvals=[], locals=[])
+      constants: strings=['currentpopup'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["currentpopup"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#7 (params=1, lines 126-129, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_DISPLAY', 'DefaultView:popupButtonHandler', 'id'] numbers=[3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logmsg"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["ASPECT_DISPLAY"]
+         5 [   0] LOADK     R4 := 3
+         6 [   0] LOADK     R5 := "DefaultView:popupButtonHandler"
+         7 [   0] GETTABLE  R6 := R0["id"]
+         8 [   0] CALL      R1(...) nargs=5 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#8 (params=5, lines 131-135, upvals=[], locals=[])
+      constants: strings=['hidePopup', 'currentpopup', 'fglib', 'display', 'showAlert', 'popupButtonHandler'] numbers=[]
+         0 [   0] GETUPVAL  R5 := upval 0
+         1 [   0] GETTABLE  R5 := R5["hidePopup"]
+         2 [   0] CALL      R5(...) nargs=0 nret=0
+         3 [   0] GETUPVAL  R5 := upval 0
+         4 [   0] GETGLOBAL R6 := _G["fglib"]
+         5 [   0] GETTABLE  R6 := R6["display"]
+         6 [   0] GETTABLE  R6 := R6["showAlert"]
+         7 [   0] MOVE      R7 := R0
+         8 [   0] MOVE      R8 := R1
+         9 [   0] MOVE      R9 := R2
+        10 [   0] TESTSET   if (R4 truthy) == 1 then R10 := R4 else skip next
+        11 [   0] JMP       jmp +2 -> 14
+        12 [   0] GETUPVAL  R10 := upval 0
+        13 [   0] GETTABLE  R10 := R10["popupButtonHandler"]
+        14 [   0] MOVE      R11 := R3
+        15 [   0] CALL      R6(...) nargs=5 nret=1
+        16 [   0] SETTABLE  R5["currentpopup"] := R6
+        17 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#9 (params=0, lines 137-142, upvals=[], locals=[])
+      constants: strings=['currentpopup', 'removeAndHide'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["currentpopup"]
+         2 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +6 -> 10
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETTABLE  R0 := R0["currentpopup"]
+         6 [   0] GETTABLE  R0 := R0["removeAndHide"]
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] GETUPVAL  R0 := upval 0
+         9 [   0] SETTABLE  R0["currentpopup"] := None
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#10 (params=0, lines 145-151, upvals=[], locals=[])
+      constants: strings=['initAssets', 'displaygroup', 'isVisible', 'toFront', 'x', 'Runtime', 'addEventListener', 'orientation'] numbers=[0]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["initAssets"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] GETTABLE  R0 := R0["displaygroup"]
+         5 [   0] SETTABLE  R0["isVisible"] := True
+         6 [   0] GETUPVAL  R0 := upval 0
+         7 [   0] GETTABLE  R0 := R0["displaygroup"]
+         8 [   0] SELF      R1 := R0; R0 := R0["toFront"]
+         9 [   0] CALL      R0(...) nargs=1 nret=0
+        10 [   0] GETUPVAL  R0 := upval 0
+        11 [   0] GETTABLE  R0 := R0["displaygroup"]
+        12 [   0] SETTABLE  R0["x"] := 0
+        13 [   0] GETGLOBAL R0 := _G["Runtime"]
+        14 [   0] SELF      R1 := R0; R0 := R0["addEventListener"]
+        15 [   0] LOADK     R2 := "orientation"
+        16 [   0] GETUPVAL  R3 := upval 0
+        17 [   0] CALL      R0(...) nargs=3 nret=0
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#11 (params=0, lines 153-158, upvals=[], locals=[])
+      constants: strings=['displaygroup', 'x', 'isVisible', 'Runtime', 'removeEventListener', 'orientation'] numbers=[-5000]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["displaygroup"]
+         2 [   0] SETTABLE  R0["x"] := -5000
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] GETTABLE  R0 := R0["displaygroup"]
+         5 [   0] SETTABLE  R0["isVisible"] := False
+         6 [   0] GETGLOBAL R0 := _G["Runtime"]
+         7 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+         8 [   0] LOADK     R2 := "orientation"
+         9 [   0] GETUPVAL  R3 := upval 0
+        10 [   0] CALL      R0(...) nargs=3 nret=0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#12 (params=0, lines 160-173, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_DISPLAY', 'DefaultView:cleanup', 'hide', 'displaygroup', 'numChildren', 'removeSelf', 'assetsInitialized', 'screentitle', 'currentpopup', 'native', 'setActivityIndicator'] numbers=[3, 0, 1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_DISPLAY"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "DefaultView:cleanup"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] GETTABLE  R0 := R0["hide"]
+        10 [   0] CALL      R0(...) nargs=0 nret=0
+        11 [   0] GETUPVAL  R0 := upval 2
+        12 [   0] GETTABLE  R0 := R0["displaygroup"]
+        13 [   0] GETTABLE  R0 := R0["numChildren"]
+        14 [   0] LT        if (0 < R0) ~= 0 then skip next
+        15 [   0] JMP       jmp +6 -> 22
+        16 [   0] GETUPVAL  R0 := upval 2
+        17 [   0] GETTABLE  R0 := R0["displaygroup"]
+        18 [   0] GETTABLE  R0 := R0[1]
+        19 [   0] SELF      R1 := R0; R0 := R0["removeSelf"]
+        20 [   0] CALL      R0(...) nargs=1 nret=0
+        21 [   0] JMP       jmp -11 -> 11
+        22 [   0] GETUPVAL  R0 := upval 2
+        23 [   0] SETTABLE  R0["assetsInitialized"] := False
+        24 [   0] GETUPVAL  R0 := upval 2
+        25 [   0] SETTABLE  R0["screentitle"] := None
+        26 [   0] GETUPVAL  R0 := upval 2
+        27 [   0] SETTABLE  R0["currentpopup"] := None
+        28 [   0] GETGLOBAL R0 := _G["native"]
+        29 [   0] GETTABLE  R0 := R0["setActivityIndicator"]
+        30 [   0] LOADBOOL  R1 := False
+        31 [   0] CALL      R0(...) nargs=1 nret=0
+        32 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#13 (params=0, lines 175-180, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_DISPLAY', 'DefaultView:destroy', 'cleanup', 'displaygroup', 'removeSelf'] numbers=[3]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_DISPLAY"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "DefaultView:destroy"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] GETTABLE  R0 := R0["cleanup"]
+        10 [   0] CALL      R0(...) nargs=0 nret=0
+        11 [   0] GETUPVAL  R0 := upval 2
+        12 [   0] GETTABLE  R0 := R0["displaygroup"]
+        13 [   0] SELF      R1 := R0; R0 := R0["removeSelf"]
+        14 [   0] CALL      R0(...) nargs=1 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#14 (params=0, lines 182-191, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_DISPLAY', 'DefaultView:emitExit', 'emit', 'closeView', 'timer', 'performWithDelay', 'cleanup'] numbers=[3, 10]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_DISPLAY"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "DefaultView:emitExit"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] GETTABLE  R0 := R0["emit"]
+        10 [   0] LOADK     R1 := "closeView"
+        11 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+        12 [   0] CALL      R0(...) nargs=2 nret=0
+        13 [   0] GETGLOBAL R0 := _G["timer"]
+        14 [   0] GETTABLE  R0 := R0["performWithDelay"]
+        15 [   0] LOADK     R1 := 10
+        16 [   0] GETUPVAL  R2 := upval 2
+        17 [   0] GETTABLE  R2 := R2["cleanup"]
+        18 [   0] CALL      R0(...) nargs=2 nret=0
+        19 [   0] LOADBOOL  R0 := True
+        20 [   0] RETURN    return R0.. (1 values)
+        21 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#15 (params=2, lines 193-198, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_INIT', 'orientation', 'screentitle', 'onOrientationHandler', 'type'] numbers=[3]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETUPVAL  R3 := upval 1
+         3 [   0] GETUPVAL  R4 := upval 0
+         4 [   0] GETTABLE  R4 := R4["ASPECT_INIT"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "orientation"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] GETTABLE  R2 := R0["screentitle"]
+        10 [   0] EQ        if (R2 == None) ~= 1 then skip next
+        11 [   0] JMP       jmp +3 -> 15
+        12 [   0] GETTABLE  R2 := R0["onOrientationHandler"]
+        13 [   0] GETTABLE  R3 := R1["type"]
+        14 [   0] CALL      R2(...) nargs=1 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 206-210, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["new_inherit"]
+       2 [   0] GETUPVAL  R1 := upval 1
+       3 [   0] GETTABLE  R1 := R1["new_inherit"]
+       4 [   0] GETUPVAL  R2 := upval 2
+       5 [   0] GETTABLE  R2 := R2["new_inherit"]
+       6 [   0] GETUPVAL  R3 := upval 3
+       7 [   0] GETTABLE  R3 := R3["new"]
+       8 [   0] CALL      R3(...) nargs=0 nret=-1
+       9 [   0] CALL      R2(...) nargs=-1 nret=-1
+      10 [   0] CALL      R1(...) nargs=-1 nret=-1
+      11 [   0] TAILCALL  return R0(...) nargs=-1
+      12 [   0] RETURN    return R0.. (-1 values)
+      13 [   0] RETURN    return R0.. (0 values)

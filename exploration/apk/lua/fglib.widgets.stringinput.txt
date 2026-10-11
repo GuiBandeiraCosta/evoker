@@ -1,0 +1,182 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'displaygroupcontainer', 'eventdispatcher', 'new'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "displaygroupcontainer"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "eventdispatcher"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+    11 [   0] CLOSURE   R3 := closure #0
+    12 [   0] CLOSURE   R4 := closure #1
+    13 [   0] MOVE      R0 := R3
+    14 [   0] MOVE      R0 := R0
+    15 [   0] MOVE      R0 := R1
+    16 [   0] SETTABLE  R2["new"] := R4
+    17 [   0] RETURN    return R2.. (1 values)
+    18 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=6, lines 7-67, upvals=[], locals=[])
+    constants: strings=['initAssets', 'setValue', 'setLabel', 'textChangedHandler', 'show', 'hide', 'cleanup'] numbers=[]
+       0 [   0] MOVE      R9 := R2
+       1 [   0] MOVE      R10 := R1
+       2 [   0] CLOSURE   R11 := closure #0
+       3 [   0] MOVE      R0 := R6
+       4 [   0] MOVE      R0 := R10
+       5 [   0] MOVE      R0 := R4
+       6 [   0] MOVE      R0 := R5
+       7 [   0] MOVE      R0 := R7
+       8 [   0] MOVE      R0 := R0
+       9 [   0] MOVE      R0 := R3
+      10 [   0] SETTABLE  R0["initAssets"] := R11
+      11 [   0] CLOSURE   R11 := closure #1
+      12 [   0] MOVE      R0 := R7
+      13 [   0] SETTABLE  R0["setValue"] := R11
+      14 [   0] CLOSURE   R11 := closure #2
+      15 [   0] MOVE      R0 := R6
+      16 [   0] SETTABLE  R0["setLabel"] := R11
+      17 [   0] CLOSURE   R11 := closure #3
+      18 [   0] MOVE      R0 := R8
+      19 [   0] MOVE      R0 := R7
+      20 [   0] MOVE      R0 := R0
+      21 [   0] MOVE      R0 := R9
+      22 [   0] SETTABLE  R0["textChangedHandler"] := R11
+      23 [   0] CLOSURE   R11 := closure #4
+      24 [   0] MOVE      R0 := R6
+      25 [   0] MOVE      R0 := R7
+      26 [   0] SETTABLE  R0["show"] := R11
+      27 [   0] CLOSURE   R11 := closure #5
+      28 [   0] MOVE      R0 := R6
+      29 [   0] MOVE      R0 := R7
+      30 [   0] SETTABLE  R0["hide"] := R11
+      31 [   0] CLOSURE   R11 := closure #6
+      32 [   0] SETTABLE  R0["cleanup"] := R11
+      33 [   0] GETTABLE  R11 := R0["initAssets"]
+      34 [   0] CALL      R11(...) nargs=0 nret=0
+      35 [   0] RETURN    return R0.. (1 values)
+      36 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 15-26, upvals=[], locals=[])
+      constants: strings=['display', 'newText', 'native', 'systemFont', 'setTextColor', 'newTextField', 'textChangedHandler', 'inputType', 'string', 'text', 'displaygroup', 'insert'] numbers=[16, 0, 24, 240]
+         0 [   0] GETGLOBAL R0 := _G["display"]
+         1 [   0] GETTABLE  R0 := R0["newText"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 2
+         4 [   0] GETUPVAL  R3 := upval 3
+         5 [   0] GETGLOBAL R4 := _G["native"]
+         6 [   0] GETTABLE  R4 := R4["systemFont"]
+         7 [   0] LOADK     R5 := 16
+         8 [   0] CALL      R0(...) nargs=5 nret=1
+         9 [   0] SETUPVAL  upval 0 := R0
+        10 [   0] GETUPVAL  R0 := upval 0
+        11 [   0] SELF      R1 := R0; R0 := R0["setTextColor"]
+        12 [   0] LOADK     R2 := 0
+        13 [   0] LOADK     R3 := 0
+        14 [   0] LOADK     R4 := 0
+        15 [   0] CALL      R0(...) nargs=4 nret=0
+        16 [   0] GETGLOBAL R0 := _G["native"]
+        17 [   0] GETTABLE  R0 := R0["newTextField"]
+        18 [   0] GETUPVAL  R1 := upval 2
+        19 [   0] GETUPVAL  R2 := upval 3
+        20 [   0] ADD       R2 := R2 + 24
+        21 [   0] LOADK     R3 := 240
+        22 [   0] LOADK     R4 := 24
+        23 [   0] GETUPVAL  R5 := upval 5
+        24 [   0] GETTABLE  R5 := R5["textChangedHandler"]
+        25 [   0] CALL      R0(...) nargs=5 nret=1
+        26 [   0] SETUPVAL  upval 4 := R0
+        27 [   0] GETUPVAL  R0 := upval 4
+        28 [   0] SETTABLE  R0["inputType"] := "string"
+        29 [   0] GETUPVAL  R0 := upval 4
+        30 [   0] GETUPVAL  R1 := upval 6
+        31 [   0] SETTABLE  R0["text"] := R1
+        32 [   0] GETUPVAL  R0 := upval 5
+        33 [   0] GETTABLE  R0 := R0["displaygroup"]
+        34 [   0] SELF      R1 := R0; R0 := R0["insert"]
+        35 [   0] GETUPVAL  R2 := upval 0
+        36 [   0] CALL      R0(...) nargs=2 nret=0
+        37 [   0] GETUPVAL  R0 := upval 5
+        38 [   0] GETTABLE  R0 := R0["displaygroup"]
+        39 [   0] SELF      R1 := R0; R0 := R0["insert"]
+        40 [   0] GETUPVAL  R2 := upval 4
+        41 [   0] CALL      R0(...) nargs=2 nret=0
+        42 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 28-30, upvals=[], locals=[])
+      constants: strings=['text'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["text"] := R0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 32-34, upvals=[], locals=[])
+      constants: strings=['text'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["text"] := R0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 36-46, upvals=[], locals=[])
+      constants: strings=['began', 'phase', 'text', 'ended', 'emit', 'valueChanged', 'key', 'formervalue', 'value', 'submitted', 'native', 'setKeyboardFocus'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["phase"]
+         1 [   0] EQ        if ("began" == R1) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETUPVAL  R1 := upval 1
+         4 [   0] GETTABLE  R1 := R1["text"]
+         5 [   0] SETUPVAL  upval 0 := R1
+         6 [   0] JMP       jmp +23 -> 30
+         7 [   0] GETTABLE  R1 := R0["phase"]
+         8 [   0] EQ        if ("ended" == R1) ~= 0 then skip next
+         9 [   0] JMP       jmp +13 -> 23
+        10 [   0] GETUPVAL  R1 := upval 2
+        11 [   0] GETTABLE  R1 := R1["emit"]
+        12 [   0] LOADK     R2 := "valueChanged"
+        13 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+        14 [   0] GETUPVAL  R4 := upval 3
+        15 [   0] SETTABLE  R3["key"] := R4
+        16 [   0] GETUPVAL  R4 := upval 0
+        17 [   0] SETTABLE  R3["formervalue"] := R4
+        18 [   0] GETUPVAL  R4 := upval 1
+        19 [   0] GETTABLE  R4 := R4["text"]
+        20 [   0] SETTABLE  R3["value"] := R4
+        21 [   0] CALL      R1(...) nargs=2 nret=0
+        22 [   0] JMP       jmp +7 -> 30
+        23 [   0] GETTABLE  R1 := R0["phase"]
+        24 [   0] EQ        if ("submitted" == R1) ~= 0 then skip next
+        25 [   0] JMP       jmp +4 -> 30
+        26 [   0] GETGLOBAL R1 := _G["native"]
+        27 [   0] GETTABLE  R1 := R1["setKeyboardFocus"]
+        28 [   0] LOADNIL   R2..R2 := nil
+        29 [   0] CALL      R1(...) nargs=1 nret=0
+        30 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 48-51, upvals=[], locals=[])
+      constants: strings=['isVisible'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["isVisible"] := True
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] SETTABLE  R0["isVisible"] := True
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 53-56, upvals=[], locals=[])
+      constants: strings=['isVisible'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["isVisible"] := False
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] SETTABLE  R0["isVisible"] := False
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 58-60, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=5, lines 69-73, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new'] numbers=[]
+       0 [   0] GETUPVAL  R5 := upval 0
+       1 [   0] GETUPVAL  R6 := upval 1
+       2 [   0] GETTABLE  R6 := R6["new_inherit"]
+       3 [   0] GETUPVAL  R7 := upval 2
+       4 [   0] GETTABLE  R7 := R7["new"]
+       5 [   0] CALL      R7(...) nargs=0 nret=-1
+       6 [   0] CALL      R6(...) nargs=-1 nret=1
+       7 [   0] MOVE      R7 := R0
+       8 [   0] MOVE      R8 := R1
+       9 [   0] MOVE      R9 := R2
+      10 [   0] MOVE      R10 := R3
+      11 [   0] MOVE      R11 := R4
+      12 [   0] TAILCALL  return R5(...) nargs=6
+      13 [   0] RETURN    return R5.. (-1 values)
+      14 [   0] RETURN    return R0.. (0 values)

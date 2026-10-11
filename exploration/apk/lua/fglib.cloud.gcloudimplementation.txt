@@ -1,0 +1,293 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'native.gcloud', 'logging.logger', 'json', 'onGoogleCloudSigninCallback', 'onGoogleCloudStateDataCallback', 'onGoogleCloudRefusedCallback', 'new'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "native.gcloud"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+     8 [   0] LOADK     R4 := "logging.logger"
+     9 [   0] CONCAT    R3 := R3 .. ... .. R4
+    10 [   0] CALL      R2(...) nargs=1 nret=1
+    11 [   0] GETGLOBAL R3 := _G["require"]
+    12 [   0] LOADK     R4 := "json"
+    13 [   0] CALL      R3(...) nargs=1 nret=1
+    14 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+    15 [   0] CLOSURE   R5 := closure #0
+    16 [   0] MOVE      R0 := R2
+    17 [   0] MOVE      R0 := R1
+    18 [   0] MOVE      R0 := R3
+    19 [   0] MOVE      R0 := R4
+    20 [   0] CLOSURE   R6 := closure #1
+    21 [   0] MOVE      R0 := R2
+    22 [   0] SETGLOBAL _G["onGoogleCloudSigninCallback"] := R6
+    23 [   0] CLOSURE   R6 := closure #2
+    24 [   0] MOVE      R0 := R2
+    25 [   0] MOVE      R0 := R4
+    26 [   0] MOVE      R0 := R3
+    27 [   0] SETGLOBAL _G["onGoogleCloudStateDataCallback"] := R6
+    28 [   0] CLOSURE   R6 := closure #3
+    29 [   0] SETGLOBAL _G["onGoogleCloudRefusedCallback"] := R6
+    30 [   0] CLOSURE   R6 := closure #4
+    31 [   0] MOVE      R0 := R5
+    32 [   0] SETTABLE  R0["new"] := R6
+    33 [   0] RETURN    return R0.. (1 values)
+    34 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 7-76, upvals=[], locals=[])
+    constants: strings=['mainKey', 'setMainKey', 'init', 'load', 'synchronize', 'save', 'getValue', 'setValue', 'removeValue', 'cloudAvailable', 'signOut', 'signOutAfterExternalSignOut'] numbers=[0]
+       0 [   0] SETTABLE  R0["mainKey"] := 0
+       1 [   0] CLOSURE   R1 := closure #0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] SETTABLE  R0["setMainKey"] := R1
+       4 [   0] CLOSURE   R1 := closure #1
+       5 [   0] GETUPVAL  R0 := upval 0
+       6 [   0] MOVE      R0 := R0
+       7 [   0] GETUPVAL  R0 := upval 1
+       8 [   0] SETTABLE  R0["init"] := R1
+       9 [   0] CLOSURE   R1 := closure #2
+      10 [   0] GETUPVAL  R0 := upval 0
+      11 [   0] GETUPVAL  R0 := upval 1
+      12 [   0] MOVE      R0 := R0
+      13 [   0] SETTABLE  R0["load"] := R1
+      14 [   0] CLOSURE   R1 := closure #3
+      15 [   0] SETTABLE  R0["synchronize"] := R1
+      16 [   0] CLOSURE   R1 := closure #4
+      17 [   0] GETUPVAL  R0 := upval 0
+      18 [   0] GETUPVAL  R0 := upval 1
+      19 [   0] MOVE      R0 := R0
+      20 [   0] GETUPVAL  R0 := upval 2
+      21 [   0] GETUPVAL  R0 := upval 3
+      22 [   0] SETTABLE  R0["save"] := R1
+      23 [   0] CLOSURE   R1 := closure #5
+      24 [   0] GETUPVAL  R0 := upval 0
+      25 [   0] GETUPVAL  R0 := upval 3
+      26 [   0] SETTABLE  R0["getValue"] := R1
+      27 [   0] CLOSURE   R1 := closure #6
+      28 [   0] GETUPVAL  R0 := upval 3
+      29 [   0] SETTABLE  R0["setValue"] := R1
+      30 [   0] CLOSURE   R1 := closure #7
+      31 [   0] GETUPVAL  R0 := upval 3
+      32 [   0] SETTABLE  R0["removeValue"] := R1
+      33 [   0] CLOSURE   R1 := closure #8
+      34 [   0] SETTABLE  R0["cloudAvailable"] := R1
+      35 [   0] CLOSURE   R1 := closure #9
+      36 [   0] GETUPVAL  R0 := upval 1
+      37 [   0] GETUPVAL  R0 := upval 0
+      38 [   0] GETUPVAL  R0 := upval 3
+      39 [   0] SETTABLE  R0["signOut"] := R1
+      40 [   0] CLOSURE   R1 := closure #10
+      41 [   0] GETUPVAL  R0 := upval 1
+      42 [   0] SETTABLE  R0["signOutAfterExternalSignOut"] := R1
+      43 [   0] RETURN    return R0.. (1 values)
+      44 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 11-17, upvals=[], locals=[])
+      constants: strings=['type', 'number', 'error', 'The main key for the google cloud must be an integer > -1', 'mainKey'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["type"]
+         1 [   0] MOVE      R2 := R0
+         2 [   0] CALL      R1(...) nargs=1 nret=1
+         3 [   0] EQ        if (R1 == "number") ~= 1 then skip next
+         4 [   0] JMP       jmp +3 -> 8
+         5 [   0] GETGLOBAL R1 := _G["error"]
+         6 [   0] LOADK     R2 := "The main key for the google cloud must be an integer > -1"
+         7 [   0] CALL      R1(...) nargs=1 nret=0
+         8 [   0] GETUPVAL  R1 := upval 0
+         9 [   0] SETTABLE  R1["mainKey"] := R0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 19-28, upvals=[], locals=[])
+      constants: strings=['Runtime', 'addEventListener', 'gcloud', 'init', 'signIn'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["Runtime"]
+         1 [   0] SELF      R1 := R0; R0 := R0["addEventListener"]
+         2 [   0] LOADK     R2 := "gcloud"
+         3 [   0] CLOSURE   R3 := closure #0
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETUPVAL  R0 := upval 1
+         6 [   0] CALL      R0(...) nargs=3 nret=0
+         7 [   0] GETUPVAL  R0 := upval 2
+         8 [   0] GETTABLE  R0 := R0["init"]
+         9 [   0] CALL      R0(...) nargs=0 nret=0
+        10 [   0] GETUPVAL  R0 := upval 2
+        11 [   0] GETTABLE  R0 := R0["signIn"]
+        12 [   0] CALL      R0(...) nargs=0 nret=0
+        13 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 21-24, upvals=[], locals=[])
+        constants: strings=['logmsg', 'logLevel', 'ASPECT_GAMENETWORK', "GCloudImplementation: addEventListener 'gcloud'", 'load'] numbers=[3]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["logmsg"]
+           2 [   0] GETGLOBAL R1 := _G["logLevel"]
+           3 [   0] GETUPVAL  R2 := upval 0
+           4 [   0] GETTABLE  R2 := R2["ASPECT_GAMENETWORK"]
+           5 [   0] LOADK     R3 := 3
+           6 [   0] LOADK     R4 := "GCloudImplementation: addEventListener 'gcloud'"
+           7 [   0] CALL      R0(...) nargs=4 nret=0
+           8 [   0] GETUPVAL  R0 := upval 1
+           9 [   0] GETTABLE  R0 := R0["load"]
+          10 [   0] CALL      R0(...) nargs=0 nret=0
+          11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 30-35, upvals=[], locals=[])
+      constants: strings=['logmsg', 'logLevel', 'ASPECT_GAMENETWORK', 'GCloudImplementation: load', 'isFrameworkAvailable', 'getValue', 'mainKey'] numbers=[3]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETGLOBAL R1 := _G["logLevel"]
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_GAMENETWORK"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "GCloudImplementation: load"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] GETUPVAL  R0 := upval 1
+         9 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        10 [   0] JMP       jmp +10 -> 21
+        11 [   0] GETUPVAL  R0 := upval 1
+        12 [   0] GETTABLE  R0 := R0["isFrameworkAvailable"]
+        13 [   0] CALL      R0(...) nargs=0 nret=1
+        14 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +5 -> 21
+        16 [   0] GETUPVAL  R0 := upval 1
+        17 [   0] GETTABLE  R0 := R0["getValue"]
+        18 [   0] GETUPVAL  R1 := upval 2
+        19 [   0] GETTABLE  R1 := R1["mainKey"]
+        20 [   0] CALL      R0(...) nargs=1 nret=0
+        21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 37-38, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 40-43, upvals=[], locals=[])
+      constants: strings=['logmsg', 'logLevel', 'ASPECT_GAMENETWORK', 'GCloudImplementation:save', 'setValue', 'mainKey', 'encode'] numbers=[3]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETGLOBAL R1 := _G["logLevel"]
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_GAMENETWORK"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "GCloudImplementation:save"
+         7 [   0] CALL      R0(...) nargs=4 nret=0
+         8 [   0] GETUPVAL  R0 := upval 1
+         9 [   0] GETTABLE  R0 := R0["setValue"]
+        10 [   0] GETUPVAL  R1 := upval 2
+        11 [   0] GETTABLE  R1 := R1["mainKey"]
+        12 [   0] GETUPVAL  R2 := upval 3
+        13 [   0] GETTABLE  R2 := R2["encode"]
+        14 [   0] GETUPVAL  R3 := upval 4
+        15 [   0] CALL      R2(...) nargs=1 nret=-1
+        16 [   0] CALL      R0(...) nargs=-1 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 45-48, upvals=[], locals=[])
+      constants: strings=['logmsg', 'logLevel', 'ASPECT_GAMENETWORK', 'GCloudImplementation:getValue '] numbers=[3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logmsg"]
+         2 [   0] GETGLOBAL R2 := _G["logLevel"]
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["ASPECT_GAMENETWORK"]
+         5 [   0] LOADK     R4 := 3
+         6 [   0] LOADK     R5 := "GCloudImplementation:getValue "
+         7 [   0] MOVE      R6 := R0
+         8 [   0] GETUPVAL  R7 := upval 1
+         9 [   0] CALL      R1(...) nargs=6 nret=0
+        10 [   0] GETUPVAL  R1 := upval 1
+        11 [   0] GETTABLE  R1 := R1[R0]
+        12 [   0] RETURN    return R1.. (1 values)
+        13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 50-52, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] SETTABLE  R2[R0] := R1
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=1, lines 54-57, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1[R0] := None
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 59-61, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] LOADBOOL  R0 := True
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=1, lines 63-69, upvals=[], locals=[])
+      constants: strings=['signOut', 'logmsg', 'logLevel', 'ASPECT_GAMENETWORK', 'GCloudImplementation: clear cache'] numbers=[3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["signOut"]
+         2 [   0] CALL      R1(...) nargs=0 nret=0
+         3 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +10 -> 15
+         5 [   0] GETUPVAL  R1 := upval 1
+         6 [   0] GETTABLE  R1 := R1["logmsg"]
+         7 [   0] GETGLOBAL R2 := _G["logLevel"]
+         8 [   0] GETUPVAL  R3 := upval 1
+         9 [   0] GETTABLE  R3 := R3["ASPECT_GAMENETWORK"]
+        10 [   0] LOADK     R4 := 3
+        11 [   0] LOADK     R5 := "GCloudImplementation: clear cache"
+        12 [   0] CALL      R1(...) nargs=4 nret=0
+        13 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+        14 [   0] SETUPVAL  upval 2 := R1
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 71-73, upvals=[], locals=[])
+      constants: strings=['signOutAfterExternalSignOut'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["signOutAfterExternalSignOut"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 78-83, upvals=[], locals=[])
+    constants: strings=['logmsg', 'logLevel', 'ASPECT_GAMENETWORK', 'GCloudImplementation: onGoogleCloudSigninCallback', 'name', 'gcloud', 'phase', 'ended', 'target', 'Runtime', 'dispatchEvent'] numbers=[3]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["logmsg"]
+       2 [   0] GETGLOBAL R1 := _G["logLevel"]
+       3 [   0] GETUPVAL  R2 := upval 0
+       4 [   0] GETTABLE  R2 := R2["ASPECT_GAMENETWORK"]
+       5 [   0] LOADK     R3 := 3
+       6 [   0] LOADK     R4 := "GCloudImplementation: onGoogleCloudSigninCallback"
+       7 [   0] CALL      R0(...) nargs=4 nret=0
+       8 [   0] NEWTABLE  R0 := {} (array 0, hash 3)
+       9 [   0] SETTABLE  R0["name"] := "gcloud"
+      10 [   0] SETTABLE  R0["phase"] := "ended"
+      11 [   0] SETTABLE  R0["target"] := None
+      12 [   0] GETGLOBAL R1 := _G["Runtime"]
+      13 [   0] SELF      R2 := R1; R1 := R1["dispatchEvent"]
+      14 [   0] MOVE      R3 := R0
+      15 [   0] CALL      R1(...) nargs=2 nret=0
+      16 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=3, lines 85-92, upvals=[], locals=[])
+    constants: strings=['logmsg', 'logLevel', 'ASPECT_GAMENETWORK', 'GCloudImplementation: onGoogleCloudStateDataCallback', 'decode', 'name', 'cloudupdate', 'phase', 'ended', 'target', 'Runtime', 'dispatchEvent'] numbers=[3]
+       0 [   0] GETUPVAL  R3 := upval 0
+       1 [   0] GETTABLE  R3 := R3["logmsg"]
+       2 [   0] GETGLOBAL R4 := _G["logLevel"]
+       3 [   0] GETUPVAL  R5 := upval 0
+       4 [   0] GETTABLE  R5 := R5["ASPECT_GAMENETWORK"]
+       5 [   0] LOADK     R6 := 3
+       6 [   0] LOADK     R7 := "GCloudImplementation: onGoogleCloudStateDataCallback"
+       7 [   0] CALL      R3(...) nargs=4 nret=0
+       8 [   0] GETUPVAL  R3 := upval 2
+       9 [   0] GETTABLE  R3 := R3["decode"]
+      10 [   0] MOVE      R4 := R2
+      11 [   0] CALL      R3(...) nargs=1 nret=1
+      12 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      13 [   0] JMP       jmp +1 -> 15
+      14 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+      15 [   0] SETUPVAL  upval 1 := R3
+      16 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+      17 [   0] SETTABLE  R3["name"] := "cloudupdate"
+      18 [   0] SETTABLE  R3["phase"] := "ended"
+      19 [   0] SETTABLE  R3["target"] := None
+      20 [   0] GETGLOBAL R4 := _G["Runtime"]
+      21 [   0] SELF      R5 := R4; R4 := R4["dispatchEvent"]
+      22 [   0] MOVE      R6 := R3
+      23 [   0] CALL      R4(...) nargs=2 nret=0
+      24 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=0, lines 94-98, upvals=[], locals=[])
+    constants: strings=['name', 'cloudrefused', 'phase', 'ended', 'target', 'Runtime', 'dispatchEvent'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 3)
+       1 [   0] SETTABLE  R0["name"] := "cloudrefused"
+       2 [   0] SETTABLE  R0["phase"] := "ended"
+       3 [   0] SETTABLE  R0["target"] := None
+       4 [   0] GETGLOBAL R1 := _G["Runtime"]
+       5 [   0] SELF      R2 := R1; R1 := R1["dispatchEvent"]
+       6 [   0] MOVE      R3 := R0
+       7 [   0] CALL      R1(...) nargs=2 nret=0
+       8 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=0, lines 101-104, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       2 [   0] TAILCALL  return R0(...) nargs=1
+       3 [   0] RETURN    return R0.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)

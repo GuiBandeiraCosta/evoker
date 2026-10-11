@@ -1,0 +1,304 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['create'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["create"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 4-98, upvals=[], locals=[])
+    constants: strings=['isEnabled', 'prevTime', 'lastFps', 'lastFpsCounter', 'minLastFps', 'avgFps', 'lastUpdate', 'maxSavedFps', 'interval', 'enable', 'disable', 'toFront', 'frameListener', 'container', 'ui', 'createContainer', 'layout', 'performance', '.container', 'renderer', 'require', 'UI_LIB_PATH', 'renderer.rectrenderer', 'parent', 'color', 'r', 'g', 'b', 'a', 'memory', 'createLabel', 'txt', 'bla', '.memory', 'txtColor', 'styles', 'colors', 'black', 'fontSize', 'framerate', 'foo', '.framerate', 'setUpdateInterval', 'hide'] numbers=[0, 1, 100, 220, 255, 10]
+       0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+       1 [   0] JMP       jmp +2 -> 4
+       2 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       3 [   0] MOVE      R0 := R1
+       4 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       5 [   0] SETTABLE  R1["isEnabled"] := False
+       6 [   0] SETTABLE  R1["prevTime"] := 0
+       7 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       8 [   0] SETTABLE  R1["lastFps"] := R2
+       9 [   0] SETTABLE  R1["lastFpsCounter"] := 1
+      10 [   0] SETTABLE  R1["minLastFps"] := 0
+      11 [   0] SETTABLE  R1["avgFps"] := 0
+      12 [   0] SETTABLE  R1["lastUpdate"] := 0
+      13 [   0] SETTABLE  R1["prevTime"] := 0
+      14 [   0] SETTABLE  R1["maxSavedFps"] := 100
+      15 [   0] SETTABLE  R1["interval"] := 100
+      16 [   0] CLOSURE   R2 := closure #0
+      17 [   0] MOVE      R0 := R1
+      18 [   0] SETTABLE  R1["enable"] := R2
+      19 [   0] CLOSURE   R2 := closure #1
+      20 [   0] MOVE      R0 := R1
+      21 [   0] SETTABLE  R1["disable"] := R2
+      22 [   0] CLOSURE   R2 := closure #2
+      23 [   0] MOVE      R0 := R1
+      24 [   0] SETTABLE  R1["toFront"] := R2
+      25 [   0] CLOSURE   R2 := closure #3
+      26 [   0] CLOSURE   R3 := closure #4
+      27 [   0] MOVE      R0 := R1
+      28 [   0] MOVE      R0 := R2
+      29 [   0] SETTABLE  R1["frameListener"] := R3
+      30 [   0] GETGLOBAL R3 := _G["ui"]
+      31 [   0] GETTABLE  R3 := R3["createContainer"]
+      32 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+      33 [   0] GETTABLE  R5 := R0["layout"]
+      34 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      35 [   0] JMP       jmp +1 -> 37
+      36 [   0] LOADK     R5 := "performance"
+      37 [   0] LOADK     R6 := ".container"
+      38 [   0] CONCAT    R5 := R5 .. ... .. R6
+      39 [   0] SETTABLE  R4["layout"] := R5
+      40 [   0] GETGLOBAL R5 := _G["require"]
+      41 [   0] GETGLOBAL R6 := _G["UI_LIB_PATH"]
+      42 [   0] LOADK     R7 := "renderer.rectrenderer"
+      43 [   0] CONCAT    R6 := R6 .. ... .. R7
+      44 [   0] CALL      R5(...) nargs=1 nret=1
+      45 [   0] SETTABLE  R4["renderer"] := R5
+      46 [   0] GETTABLE  R5 := R0["parent"]
+      47 [   0] SETTABLE  R4["parent"] := R5
+      48 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+      49 [   0] SETTABLE  R5["r"] := 220
+      50 [   0] SETTABLE  R5["g"] := 220
+      51 [   0] SETTABLE  R5["b"] := 255
+      52 [   0] SETTABLE  R5["a"] := 255
+      53 [   0] SETTABLE  R4["color"] := R5
+      54 [   0] CALL      R3(...) nargs=1 nret=1
+      55 [   0] SETTABLE  R1["container"] := R3
+      56 [   0] GETGLOBAL R3 := _G["ui"]
+      57 [   0] GETTABLE  R3 := R3["createLabel"]
+      58 [   0] NEWTABLE  R4 := {} (array 0, hash 5)
+      59 [   0] GETTABLE  R5 := R1["container"]
+      60 [   0] SETTABLE  R4["parent"] := R5
+      61 [   0] SETTABLE  R4["txt"] := "bla"
+      62 [   0] GETTABLE  R5 := R0["layout"]
+      63 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      64 [   0] JMP       jmp +1 -> 66
+      65 [   0] LOADK     R5 := "performance"
+      66 [   0] LOADK     R6 := ".memory"
+      67 [   0] CONCAT    R5 := R5 .. ... .. R6
+      68 [   0] SETTABLE  R4["layout"] := R5
+      69 [   0] GETGLOBAL R5 := _G["styles"]
+      70 [   0] GETTABLE  R5 := R5["colors"]
+      71 [   0] GETTABLE  R5 := R5["black"]
+      72 [   0] SETTABLE  R4["txtColor"] := R5
+      73 [   0] SETTABLE  R4["fontSize"] := 10
+      74 [   0] CALL      R3(...) nargs=1 nret=1
+      75 [   0] SETTABLE  R1["memory"] := R3
+      76 [   0] GETGLOBAL R3 := _G["ui"]
+      77 [   0] GETTABLE  R3 := R3["createLabel"]
+      78 [   0] NEWTABLE  R4 := {} (array 0, hash 5)
+      79 [   0] GETTABLE  R5 := R1["container"]
+      80 [   0] SETTABLE  R4["parent"] := R5
+      81 [   0] SETTABLE  R4["txt"] := "foo"
+      82 [   0] GETTABLE  R5 := R0["layout"]
+      83 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      84 [   0] JMP       jmp +1 -> 86
+      85 [   0] LOADK     R5 := "performance"
+      86 [   0] LOADK     R6 := ".framerate"
+      87 [   0] CONCAT    R5 := R5 .. ... .. R6
+      88 [   0] SETTABLE  R4["layout"] := R5
+      89 [   0] GETGLOBAL R5 := _G["styles"]
+      90 [   0] GETTABLE  R5 := R5["colors"]
+      91 [   0] GETTABLE  R5 := R5["black"]
+      92 [   0] SETTABLE  R4["txtColor"] := R5
+      93 [   0] SETTABLE  R4["fontSize"] := 10
+      94 [   0] CALL      R3(...) nargs=1 nret=1
+      95 [   0] SETTABLE  R1["framerate"] := R3
+      96 [   0] CLOSURE   R3 := closure #5
+      97 [   0] MOVE      R0 := R1
+      98 [   0] SETTABLE  R1["setUpdateInterval"] := R3
+      99 [   0] GETTABLE  R3 := R1["container"]
+     100 [   0] GETTABLE  R3 := R3["hide"]
+     101 [   0] CALL      R3(...) nargs=0 nret=0
+     102 [   0] RETURN    return R1.. (1 values)
+     103 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 20-24, upvals=[], locals=[])
+      constants: strings=['container', 'show', 'isEnabled', 'Runtime', 'addEventListener', 'enterFrame', 'frameListener'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["container"]
+         2 [   0] GETTABLE  R0 := R0["show"]
+         3 [   0] CALL      R0(...) nargs=0 nret=0
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] SETTABLE  R0["isEnabled"] := True
+         6 [   0] GETGLOBAL R0 := _G["Runtime"]
+         7 [   0] SELF      R1 := R0; R0 := R0["addEventListener"]
+         8 [   0] LOADK     R2 := "enterFrame"
+         9 [   0] GETUPVAL  R3 := upval 0
+        10 [   0] GETTABLE  R3 := R3["frameListener"]
+        11 [   0] CALL      R0(...) nargs=3 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 25-29, upvals=[], locals=[])
+      constants: strings=['container', 'hide', 'isEnabled', 'Runtime', 'removeEventListener', 'enterFrame', 'frameListener'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["container"]
+         2 [   0] GETTABLE  R0 := R0["hide"]
+         3 [   0] CALL      R0(...) nargs=0 nret=0
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] SETTABLE  R0["isEnabled"] := False
+         6 [   0] GETGLOBAL R0 := _G["Runtime"]
+         7 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+         8 [   0] LOADK     R2 := "enterFrame"
+         9 [   0] GETUPVAL  R3 := upval 0
+        10 [   0] GETTABLE  R3 := R3["frameListener"]
+        11 [   0] CALL      R0(...) nargs=3 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 31-33, upvals=[], locals=[])
+      constants: strings=['container', 'toFront'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["container"]
+         2 [   0] SELF      R1 := R0; R0 := R0["toFront"]
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 35-45, upvals=[], locals=[])
+      constants: strings=['math', 'round'] numbers=[10000, 0, 1, 10]
+         0 [   0] LOADK     R1 := 10000
+         1 [   0] LOADK     R2 := 0
+         2 [   0] LOADK     R3 := 1
+         3 [   0] LEN       R4 := #R0
+         4 [   0] LOADK     R5 := 1
+         5 [   0] FORPREP   for R3.. jmp +6
+         6 [   0] GETTABLE  R7 := R0[R6]
+         7 [   0] LT        if (R7 < R1) ~= 0 then skip next
+         8 [   0] JMP       jmp +2 -> 11
+         9 [   0] TESTSET   if (R7 truthy) == 1 then R1 := R7 else skip next
+        10 [   0] JMP       jmp +0 -> 11
+        11 [   0] ADD       R2 := R2 + R7
+        12 [   0] FORLOOP   forloop R3 jmp -7
+        13 [   0] GETGLOBAL R3 := _G["math"]
+        14 [   0] GETTABLE  R3 := R3["round"]
+        15 [   0] MUL       R4 := R2 * 10
+        16 [   0] LEN       R5 := #R0
+        17 [   0] DIV       R4 := R4 / R5
+        18 [   0] CALL      R3(...) nargs=1 nret=1
+        19 [   0] DIV       R3 := R3 / 10
+        20 [   0] MOVE      R4 := R1
+        21 [   0] MOVE      R5 := R3
+        22 [   0] RETURN    return R4.. (2 values)
+        23 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 47-66, upvals=[], locals=[])
+      constants: strings=['system', 'getTimer', 'prevTime', 'math', 'floor', 'lastFps', 'lastFpsCounter', 'maxSavedFps', 'lastUpdate', 'interval', 'minLastFps', 'avgFps', 'round', 'tostring', '.0', 'framerate', 'renderer', 'txt', 'setText', 'FPS: ', 'min', '(avg: ', ', min: ', ') ', 'display', 'spriteCount', ' Sprites', 'memory', 'Mem: ', 'collectgarbage', 'count', ' kb lua (', 'getInfo', 'textureMemoryUsed', ' mb tex)'] numbers=[1000, 1, 0, 99, 0.001, 1024]
+         0 [   0] GETGLOBAL R1 := _G["system"]
+         1 [   0] GETTABLE  R1 := R1["getTimer"]
+         2 [   0] CALL      R1(...) nargs=0 nret=1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["prevTime"]
+         5 [   0] SUB       R2 := R1 - R2
+         6 [   0] GETUPVAL  R3 := upval 0
+         7 [   0] SETTABLE  R3["prevTime"] := R1
+         8 [   0] GETGLOBAL R3 := _G["math"]
+         9 [   0] GETTABLE  R3 := R3["floor"]
+        10 [   0] DIV       R4 := 1000 / R2
+        11 [   0] CALL      R3(...) nargs=1 nret=1
+        12 [   0] GETUPVAL  R4 := upval 0
+        13 [   0] GETTABLE  R4 := R4["lastFps"]
+        14 [   0] GETUPVAL  R5 := upval 0
+        15 [   0] GETTABLE  R5 := R5["lastFpsCounter"]
+        16 [   0] SETTABLE  R4[R5] := R3
+        17 [   0] GETUPVAL  R4 := upval 0
+        18 [   0] GETUPVAL  R5 := upval 0
+        19 [   0] GETTABLE  R5 := R5["lastFpsCounter"]
+        20 [   0] ADD       R5 := R5 + 1
+        21 [   0] SETTABLE  R4["lastFpsCounter"] := R5
+        22 [   0] GETUPVAL  R4 := upval 0
+        23 [   0] GETTABLE  R4 := R4["lastFpsCounter"]
+        24 [   0] GETUPVAL  R5 := upval 0
+        25 [   0] GETTABLE  R5 := R5["maxSavedFps"]
+        26 [   0] LT        if (R5 < R4) ~= 0 then skip next
+        27 [   0] JMP       jmp +2 -> 30
+        28 [   0] GETUPVAL  R4 := upval 0
+        29 [   0] SETTABLE  R4["lastFpsCounter"] := 1
+        30 [   0] GETUPVAL  R4 := upval 0
+        31 [   0] GETTABLE  R4 := R4["lastUpdate"]
+        32 [   0] LE        if (R4 <= 0) ~= 0 then skip next
+        33 [   0] JMP       jmp +81 -> 115
+        34 [   0] GETUPVAL  R4 := upval 0
+        35 [   0] GETUPVAL  R5 := upval 0
+        36 [   0] GETTABLE  R5 := R5["interval"]
+        37 [   0] SETTABLE  R4["lastUpdate"] := R5
+        38 [   0] GETUPVAL  R4 := upval 0
+        39 [   0] GETUPVAL  R5 := upval 0
+        40 [   0] GETUPVAL  R6 := upval 1
+        41 [   0] GETUPVAL  R7 := upval 0
+        42 [   0] GETTABLE  R7 := R7["lastFps"]
+        43 [   0] CALL      R6(...) nargs=1 nret=2
+        44 [   0] SETTABLE  R5["avgFps"] := R7
+        45 [   0] SETTABLE  R4["minLastFps"] := R6
+        46 [   0] GETGLOBAL R4 := _G["math"]
+        47 [   0] GETTABLE  R4 := R4["round"]
+        48 [   0] GETUPVAL  R5 := upval 0
+        49 [   0] GETTABLE  R5 := R5["avgFps"]
+        50 [   0] CALL      R4(...) nargs=1 nret=1
+        51 [   0] GETUPVAL  R5 := upval 0
+        52 [   0] GETTABLE  R5 := R5["avgFps"]
+        53 [   0] EQ        if (R4 == R5) ~= 1 then skip next
+        54 [   0] JMP       jmp +6 -> 61
+        55 [   0] GETGLOBAL R4 := _G["tostring"]
+        56 [   0] GETUPVAL  R5 := upval 0
+        57 [   0] GETTABLE  R5 := R5["avgFps"]
+        58 [   0] CALL      R4(...) nargs=1 nret=1
+        59 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        60 [   0] JMP       jmp +6 -> 67
+        61 [   0] GETGLOBAL R4 := _G["tostring"]
+        62 [   0] GETUPVAL  R5 := upval 0
+        63 [   0] GETTABLE  R5 := R5["avgFps"]
+        64 [   0] CALL      R4(...) nargs=1 nret=1
+        65 [   0] LOADK     R5 := ".0"
+        66 [   0] CONCAT    R4 := R4 .. ... .. R5
+        67 [   0] GETUPVAL  R5 := upval 0
+        68 [   0] GETTABLE  R5 := R5["framerate"]
+        69 [   0] GETTABLE  R5 := R5["renderer"]
+        70 [   0] GETTABLE  R5 := R5["txt"]
+        71 [   0] SELF      R6 := R5; R5 := R5["setText"]
+        72 [   0] LOADK     R7 := "FPS: "
+        73 [   0] GETGLOBAL R8 := _G["math"]
+        74 [   0] GETTABLE  R8 := R8["min"]
+        75 [   0] MOVE      R9 := R3
+        76 [   0] LOADK     R10 := 99
+        77 [   0] CALL      R8(...) nargs=2 nret=1
+        78 [   0] LOADK     R9 := "(avg: "
+        79 [   0] MOVE      R10 := R4
+        80 [   0] LOADK     R11 := ", min: "
+        81 [   0] GETUPVAL  R12 := upval 0
+        82 [   0] GETTABLE  R12 := R12["minLastFps"]
+        83 [   0] LOADK     R13 := ") "
+        84 [   0] GETGLOBAL R14 := _G["display"]
+        85 [   0] GETTABLE  R14 := R14["spriteCount"]
+        86 [   0] LOADK     R15 := " Sprites"
+        87 [   0] CONCAT    R7 := R7 .. ... .. R15
+        88 [   0] CALL      R5(...) nargs=2 nret=0
+        89 [   0] GETUPVAL  R5 := upval 0
+        90 [   0] GETTABLE  R5 := R5["memory"]
+        91 [   0] GETTABLE  R5 := R5["renderer"]
+        92 [   0] GETTABLE  R5 := R5["txt"]
+        93 [   0] SELF      R6 := R5; R5 := R5["setText"]
+        94 [   0] LOADK     R7 := "Mem: "
+        95 [   0] GETGLOBAL R8 := _G["math"]
+        96 [   0] GETTABLE  R8 := R8["round"]
+        97 [   0] GETGLOBAL R9 := _G["collectgarbage"]
+        98 [   0] LOADK     R10 := "count"
+        99 [   0] CALL      R9(...) nargs=1 nret=-1
+       100 [   0] CALL      R8(...) nargs=-1 nret=1
+       101 [   0] MUL       R8 := R8 * 0.001
+       102 [   0] LOADK     R9 := " kb lua ("
+       103 [   0] GETGLOBAL R10 := _G["math"]
+       104 [   0] GETTABLE  R10 := R10["round"]
+       105 [   0] GETGLOBAL R11 := _G["system"]
+       106 [   0] GETTABLE  R11 := R11["getInfo"]
+       107 [   0] LOADK     R12 := "textureMemoryUsed"
+       108 [   0] CALL      R11(...) nargs=1 nret=1
+       109 [   0] DIV       R11 := R11 / 1024
+       110 [   0] CALL      R10(...) nargs=1 nret=1
+       111 [   0] MUL       R10 := R10 * 0.001
+       112 [   0] LOADK     R11 := " mb tex)"
+       113 [   0] CONCAT    R7 := R7 .. ... .. R11
+       114 [   0] CALL      R5(...) nargs=2 nret=0
+       115 [   0] GETUPVAL  R4 := upval 0
+       116 [   0] GETUPVAL  R5 := upval 0
+       117 [   0] GETTABLE  R5 := R5["lastUpdate"]
+       118 [   0] SUB       R5 := R5 - 1
+       119 [   0] SETTABLE  R4["lastUpdate"] := R5
+       120 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 92-94, upvals=[], locals=[])
+      constants: strings=['interval'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["interval"] := R0
+         2 [   0] RETURN    return R0.. (0 values)

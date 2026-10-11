@@ -1,0 +1,942 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['fglib', 'utils', 'Util', 'require', 'UI_LIB_PATH', 'layouts.default_layouts', 'width', 'display', 'contentWidth', 'screenOriginX', 'height', 'contentHeight', 'screenOriginY', 'setLayout', 'getLayout', 'getDataFor', 'convertToParent', 'screenWidth', 'screenHeight', 'screenTop', 'screenBottom', 'screenLeft', 'screenRight', 'screenResolution'] numbers=[-2]
+     0 [   0] GETGLOBAL R0 := _G["fglib"]
+     1 [   0] GETTABLE  R0 := R0["utils"]
+     2 [   0] GETTABLE  R0 := R0["Util"]
+     3 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+     4 [   0] GETGLOBAL R2 := _G["require"]
+     5 [   0] GETGLOBAL R3 := _G["UI_LIB_PATH"]
+     6 [   0] LOADK     R4 := "layouts.default_layouts"
+     7 [   0] CONCAT    R3 := R3 .. ... .. R4
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+    10 [   0] GETGLOBAL R4 := _G["display"]
+    11 [   0] GETTABLE  R4 := R4["contentWidth"]
+    12 [   0] GETGLOBAL R5 := _G["display"]
+    13 [   0] GETTABLE  R5 := R5["screenOriginX"]
+    14 [   0] MUL       R5 := -2 * R5
+    15 [   0] ADD       R4 := R4 + R5
+    16 [   0] SETTABLE  R3["width"] := R4
+    17 [   0] GETGLOBAL R4 := _G["display"]
+    18 [   0] GETTABLE  R4 := R4["contentHeight"]
+    19 [   0] GETGLOBAL R5 := _G["display"]
+    20 [   0] GETTABLE  R5 := R5["screenOriginY"]
+    21 [   0] MUL       R5 := -2 * R5
+    22 [   0] ADD       R4 := R4 + R5
+    23 [   0] SETTABLE  R3["height"] := R4
+    24 [   0] LOADNIL   R4..R4 := nil
+    25 [   0] CLOSURE   R5 := closure #0
+    26 [   0] MOVE      R0 := R0
+    27 [   0] MOVE      R0 := R2
+    28 [   0] MOVE      R0 := R1
+    29 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+    30 [   0] CLOSURE   R7 := closure #1
+    31 [   0] MOVE      R0 := R1
+    32 [   0] MOVE      R0 := R6
+    33 [   0] CLOSURE   R8 := closure #2
+    34 [   0] MOVE      R0 := R7
+    35 [   0] MOVE      R0 := R0
+    36 [   0] MOVE      R0 := R3
+    37 [   0] CLOSURE   R9 := closure #3
+    38 [   0] MOVE      R0 := R3
+    39 [   0] MOVE      R0 := R7
+    40 [   0] MOVE      R0 := R0
+    41 [   0] CLOSURE   R10 := closure #4
+    42 [   0] MOVE      R0 := R0
+    43 [   0] CLOSURE   R11 := closure #5
+    44 [   0] MOVE      R0 := R7
+    45 [   0] MOVE      R0 := R10
+    46 [   0] CLOSURE   R12 := closure #6
+    47 [   0] MOVE      R0 := R8
+    48 [   0] MOVE      R0 := R11
+    49 [   0] NEWTABLE  R13 := {} (array 0, hash 11)
+    50 [   0] SETTABLE  R13["setLayout"] := R5
+    51 [   0] SETTABLE  R13["getLayout"] := R9
+    52 [   0] SETTABLE  R13["getDataFor"] := R12
+    53 [   0] SETTABLE  R13["convertToParent"] := R10
+    54 [   0] GETTABLE  R14 := R3["width"]
+    55 [   0] SETTABLE  R13["screenWidth"] := R14
+    56 [   0] GETTABLE  R14 := R3["height"]
+    57 [   0] SETTABLE  R13["screenHeight"] := R14
+    58 [   0] GETGLOBAL R14 := _G["display"]
+    59 [   0] GETTABLE  R14 := R14["screenOriginY"]
+    60 [   0] SETTABLE  R13["screenTop"] := R14
+    61 [   0] GETGLOBAL R14 := _G["display"]
+    62 [   0] GETTABLE  R14 := R14["screenOriginY"]
+    63 [   0] GETTABLE  R15 := R3["height"]
+    64 [   0] ADD       R14 := R14 + R15
+    65 [   0] SETTABLE  R13["screenBottom"] := R14
+    66 [   0] GETGLOBAL R14 := _G["display"]
+    67 [   0] GETTABLE  R14 := R14["screenOriginX"]
+    68 [   0] SETTABLE  R13["screenLeft"] := R14
+    69 [   0] GETGLOBAL R14 := _G["display"]
+    70 [   0] GETTABLE  R14 := R14["screenOriginX"]
+    71 [   0] GETTABLE  R15 := R3["height"]
+    72 [   0] ADD       R14 := R14 + R15
+    73 [   0] SETTABLE  R13["screenRight"] := R14
+    74 [   0] SETTABLE  R13["screenResolution"] := R3
+    75 [   0] RETURN    return R13.. (1 values)
+    76 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 13-16, upvals=[], locals=[])
+    constants: strings=['mergeInto'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] GETTABLE  R1 := R1["mergeInto"]
+       2 [   0] MOVE      R2 := R0
+       3 [   0] GETUPVAL  R3 := upval 1
+       4 [   0] LOADBOOL  R4 := True
+       5 [   0] LOADBOOL  R5 := False
+       6 [   0] CALL      R1(...) nargs=4 nret=0
+       7 [   0] SETUPVAL  upval 2 := R0
+       8 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 20-41, upvals=[], locals=[])
+    constants: strings=['type', 'string', 'gmatch', '[^.]+', 'table'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] GETGLOBAL R2 := _G["type"]
+       2 [   0] MOVE      R3 := R0
+       3 [   0] CALL      R2(...) nargs=1 nret=1
+       4 [   0] EQ        if (R2 == "string") ~= 0 then skip next
+       5 [   0] JMP       jmp +22 -> 28
+       6 [   0] GETUPVAL  R2 := upval 1
+       7 [   0] GETTABLE  R2 := R2[R0]
+       8 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +1 -> 11
+      10 [   0] RETURN    return R2.. (1 values)
+      11 [   0] GETGLOBAL R3 := _G["string"]
+      12 [   0] GETTABLE  R3 := R3["gmatch"]
+      13 [   0] MOVE      R4 := R0
+      14 [   0] LOADK     R5 := "[^.]+"
+      15 [   0] CALL      R3(...) nargs=2 nret=3
+      16 [   0] JMP       jmp +6 -> 23
+      17 [   0] GETTABLE  R7 := R1[R6]
+      18 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+      19 [   0] JMP       jmp +2 -> 22
+      20 [   0] GETTABLE  R1 := R1[R6]
+      21 [   0] JMP       jmp +1 -> 23
+      22 [   0] RETURN    return R0.. (0 values)
+      23 [   0] TFORLOOP  tforloop R3 nres=1
+      24 [   0] JMP       jmp -8 -> 17
+      25 [   0] GETUPVAL  R3 := upval 1
+      26 [   0] SETTABLE  R3[R0] := R1
+      27 [   0] JMP       jmp +8 -> 36
+      28 [   0] GETGLOBAL R2 := _G["type"]
+      29 [   0] MOVE      R3 := R0
+      30 [   0] CALL      R2(...) nargs=1 nret=1
+      31 [   0] EQ        if (R2 == "table") ~= 0 then skip next
+      32 [   0] JMP       jmp +2 -> 35
+      33 [   0] MOVE      R1 := R0
+      34 [   0] JMP       jmp +1 -> 36
+      35 [   0] RETURN    return R0.. (0 values)
+      36 [   0] RETURN    return R1.. (1 values)
+      37 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 43-105, upvals=[], locals=[])
+    constants: strings=['type', 'table', 'deepcopy', 'alignment', 'topLeft', 'topRight', 'x', 'width', 'topCenter', 'bottomLeft', 'y', 'height', 'centerLeft', 'bottomRight', 'centerRight', 'center', 'bottomCenter', 'display', 'screenOriginX', 'screenOriginY', 'string', 'tonumber', 'math', 'round'] numbers=[0.5, 1, 2, 0]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] MOVE      R2 := R0
+       2 [   0] CALL      R1(...) nargs=1 nret=1
+       3 [   0] GETGLOBAL R2 := _G["type"]
+       4 [   0] MOVE      R3 := R1
+       5 [   0] CALL      R2(...) nargs=1 nret=1
+       6 [   0] EQ        if (R2 == "table") ~= 0 then skip next
+       7 [   0] JMP       jmp +243 -> 251
+       8 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       9 [   0] GETUPVAL  R3 := upval 1
+      10 [   0] GETTABLE  R3 := R3["deepcopy"]
+      11 [   0] MOVE      R4 := R1
+      12 [   0] LOADBOOL  R5 := True
+      13 [   0] MOVE      R6 := R2
+      14 [   0] CALL      R3(...) nargs=3 nret=0
+      15 [   0] GETTABLE  R3 := R2["alignment"]
+      16 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      17 [   0] JMP       jmp +137 -> 155
+      18 [   0] GETTABLE  R3 := R1["alignment"]
+      19 [   0] EQ        if (R3 == "topLeft") ~= 0 then skip next
+      20 [   0] JMP       jmp +1 -> 22
+      21 [   0] JMP       jmp +133 -> 155
+      22 [   0] GETTABLE  R3 := R1["alignment"]
+      23 [   0] EQ        if (R3 == "topRight") ~= 0 then skip next
+      24 [   0] JMP       jmp +9 -> 34
+      25 [   0] GETTABLE  R3 := R2["x"]
+      26 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      27 [   0] JMP       jmp +4 -> 32
+      28 [   0] GETUPVAL  R3 := upval 2
+      29 [   0] GETTABLE  R3 := R3["width"]
+      30 [   0] GETTABLE  R4 := R1["x"]
+      31 [   0] ADD       R3 := R3 + R4
+      32 [   0] SETTABLE  R2["x"] := R3
+      33 [   0] JMP       jmp +121 -> 155
+      34 [   0] GETTABLE  R3 := R1["alignment"]
+      35 [   0] EQ        if (R3 == "topCenter") ~= 0 then skip next
+      36 [   0] JMP       jmp +10 -> 47
+      37 [   0] GETTABLE  R3 := R2["x"]
+      38 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      39 [   0] JMP       jmp +5 -> 45
+      40 [   0] GETUPVAL  R3 := upval 2
+      41 [   0] GETTABLE  R3 := R3["width"]
+      42 [   0] MUL       R3 := R3 * 0.5
+      43 [   0] GETTABLE  R4 := R1["x"]
+      44 [   0] ADD       R3 := R3 + R4
+      45 [   0] SETTABLE  R2["x"] := R3
+      46 [   0] JMP       jmp +108 -> 155
+      47 [   0] GETTABLE  R3 := R1["alignment"]
+      48 [   0] EQ        if (R3 == "bottomLeft") ~= 0 then skip next
+      49 [   0] JMP       jmp +9 -> 59
+      50 [   0] GETTABLE  R3 := R2["y"]
+      51 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      52 [   0] JMP       jmp +4 -> 57
+      53 [   0] GETUPVAL  R3 := upval 2
+      54 [   0] GETTABLE  R3 := R3["height"]
+      55 [   0] GETTABLE  R4 := R1["y"]
+      56 [   0] ADD       R3 := R3 + R4
+      57 [   0] SETTABLE  R2["y"] := R3
+      58 [   0] JMP       jmp +96 -> 155
+      59 [   0] GETTABLE  R3 := R1["alignment"]
+      60 [   0] EQ        if (R3 == "centerLeft") ~= 0 then skip next
+      61 [   0] JMP       jmp +10 -> 72
+      62 [   0] GETTABLE  R3 := R2["y"]
+      63 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      64 [   0] JMP       jmp +5 -> 70
+      65 [   0] GETUPVAL  R3 := upval 2
+      66 [   0] GETTABLE  R3 := R3["height"]
+      67 [   0] MUL       R3 := R3 * 0.5
+      68 [   0] GETTABLE  R4 := R1["y"]
+      69 [   0] ADD       R3 := R3 + R4
+      70 [   0] SETTABLE  R2["y"] := R3
+      71 [   0] JMP       jmp +83 -> 155
+      72 [   0] GETTABLE  R3 := R1["alignment"]
+      73 [   0] EQ        if (R3 == "bottomRight") ~= 0 then skip next
+      74 [   0] JMP       jmp +17 -> 92
+      75 [   0] GETTABLE  R3 := R2["x"]
+      76 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      77 [   0] JMP       jmp +4 -> 82
+      78 [   0] GETUPVAL  R3 := upval 2
+      79 [   0] GETTABLE  R3 := R3["width"]
+      80 [   0] GETTABLE  R4 := R1["x"]
+      81 [   0] ADD       R3 := R3 + R4
+      82 [   0] SETTABLE  R2["x"] := R3
+      83 [   0] GETTABLE  R3 := R2["y"]
+      84 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      85 [   0] JMP       jmp +4 -> 90
+      86 [   0] GETUPVAL  R3 := upval 2
+      87 [   0] GETTABLE  R3 := R3["height"]
+      88 [   0] GETTABLE  R4 := R1["y"]
+      89 [   0] ADD       R3 := R3 + R4
+      90 [   0] SETTABLE  R2["y"] := R3
+      91 [   0] JMP       jmp +63 -> 155
+      92 [   0] GETTABLE  R3 := R1["alignment"]
+      93 [   0] EQ        if (R3 == "centerRight") ~= 0 then skip next
+      94 [   0] JMP       jmp +18 -> 113
+      95 [   0] GETTABLE  R3 := R2["x"]
+      96 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      97 [   0] JMP       jmp +4 -> 102
+      98 [   0] GETUPVAL  R3 := upval 2
+      99 [   0] GETTABLE  R3 := R3["width"]
+     100 [   0] GETTABLE  R4 := R1["x"]
+     101 [   0] ADD       R3 := R3 + R4
+     102 [   0] SETTABLE  R2["x"] := R3
+     103 [   0] GETTABLE  R3 := R2["y"]
+     104 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     105 [   0] JMP       jmp +5 -> 111
+     106 [   0] GETUPVAL  R3 := upval 2
+     107 [   0] GETTABLE  R3 := R3["height"]
+     108 [   0] MUL       R3 := R3 * 0.5
+     109 [   0] GETTABLE  R4 := R1["y"]
+     110 [   0] ADD       R3 := R3 + R4
+     111 [   0] SETTABLE  R2["y"] := R3
+     112 [   0] JMP       jmp +42 -> 155
+     113 [   0] GETTABLE  R3 := R1["alignment"]
+     114 [   0] EQ        if (R3 == "center") ~= 0 then skip next
+     115 [   0] JMP       jmp +19 -> 135
+     116 [   0] GETTABLE  R3 := R2["x"]
+     117 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     118 [   0] JMP       jmp +5 -> 124
+     119 [   0] GETUPVAL  R3 := upval 2
+     120 [   0] GETTABLE  R3 := R3["width"]
+     121 [   0] MUL       R3 := R3 * 0.5
+     122 [   0] GETTABLE  R4 := R1["x"]
+     123 [   0] ADD       R3 := R3 + R4
+     124 [   0] SETTABLE  R2["x"] := R3
+     125 [   0] GETTABLE  R3 := R2["y"]
+     126 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     127 [   0] JMP       jmp +5 -> 133
+     128 [   0] GETUPVAL  R3 := upval 2
+     129 [   0] GETTABLE  R3 := R3["height"]
+     130 [   0] MUL       R3 := R3 * 0.5
+     131 [   0] GETTABLE  R4 := R1["y"]
+     132 [   0] ADD       R3 := R3 + R4
+     133 [   0] SETTABLE  R2["y"] := R3
+     134 [   0] JMP       jmp +20 -> 155
+     135 [   0] GETTABLE  R3 := R1["alignment"]
+     136 [   0] EQ        if (R3 == "bottomCenter") ~= 0 then skip next
+     137 [   0] JMP       jmp +17 -> 155
+     138 [   0] GETTABLE  R3 := R2["x"]
+     139 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     140 [   0] JMP       jmp +5 -> 146
+     141 [   0] GETUPVAL  R3 := upval 2
+     142 [   0] GETTABLE  R3 := R3["width"]
+     143 [   0] MUL       R3 := R3 * 0.5
+     144 [   0] GETTABLE  R4 := R1["x"]
+     145 [   0] ADD       R3 := R3 + R4
+     146 [   0] SETTABLE  R2["x"] := R3
+     147 [   0] GETTABLE  R3 := R2["y"]
+     148 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     149 [   0] JMP       jmp +4 -> 154
+     150 [   0] GETUPVAL  R3 := upval 2
+     151 [   0] GETTABLE  R3 := R3["height"]
+     152 [   0] GETTABLE  R4 := R1["y"]
+     153 [   0] ADD       R3 := R3 + R4
+     154 [   0] SETTABLE  R2["y"] := R3
+     155 [   0] GETTABLE  R3 := R2["x"]
+     156 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     157 [   0] JMP       jmp +4 -> 162
+     158 [   0] GETTABLE  R3 := R2["x"]
+     159 [   0] GETGLOBAL R4 := _G["display"]
+     160 [   0] GETTABLE  R4 := R4["screenOriginX"]
+     161 [   0] ADD       R3 := R3 + R4
+     162 [   0] SETTABLE  R2["x"] := R3
+     163 [   0] GETTABLE  R3 := R2["y"]
+     164 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     165 [   0] JMP       jmp +4 -> 170
+     166 [   0] GETTABLE  R3 := R2["y"]
+     167 [   0] GETGLOBAL R4 := _G["display"]
+     168 [   0] GETTABLE  R4 := R4["screenOriginY"]
+     169 [   0] ADD       R3 := R3 + R4
+     170 [   0] SETTABLE  R2["y"] := R3
+     171 [   0] GETGLOBAL R3 := _G["type"]
+     172 [   0] GETTABLE  R4 := R2["width"]
+     173 [   0] CALL      R3(...) nargs=1 nret=1
+     174 [   0] EQ        if (R3 == "string") ~= 0 then skip next
+     175 [   0] JMP       jmp +13 -> 189
+     176 [   0] GETGLOBAL R3 := _G["tonumber"]
+     177 [   0] GETTABLE  R4 := R2["width"]
+     178 [   0] CALL      R3(...) nargs=1 nret=1
+     179 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     180 [   0] JMP       jmp +29 -> 210
+     181 [   0] GETGLOBAL R4 := _G["math"]
+     182 [   0] GETTABLE  R4 := R4["round"]
+     183 [   0] GETUPVAL  R5 := upval 2
+     184 [   0] GETTABLE  R5 := R5["width"]
+     185 [   0] MUL       R5 := R5 * R3
+     186 [   0] CALL      R4(...) nargs=1 nret=1
+     187 [   0] SETTABLE  R2["width"] := R4
+     188 [   0] JMP       jmp +21 -> 210
+     189 [   0] GETGLOBAL R3 := _G["type"]
+     190 [   0] GETTABLE  R4 := R2["width"]
+     191 [   0] CALL      R3(...) nargs=1 nret=1
+     192 [   0] EQ        if (R3 == "table") ~= 0 then skip next
+     193 [   0] JMP       jmp +16 -> 210
+     194 [   0] GETGLOBAL R3 := _G["tonumber"]
+     195 [   0] GETTABLE  R4 := R2["width"]
+     196 [   0] GETTABLE  R4 := R4[1]
+     197 [   0] CALL      R3(...) nargs=1 nret=1
+     198 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     199 [   0] JMP       jmp +10 -> 210
+     200 [   0] GETUPVAL  R4 := upval 2
+     201 [   0] GETTABLE  R4 := R4["width"]
+     202 [   0] MUL       R4 := R4 * R3
+     203 [   0] GETTABLE  R5 := R2["width"]
+     204 [   0] GETTABLE  R5 := R5[2]
+     205 [   0] ADD       R4 := R4 + R5
+     206 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+     207 [   0] JMP       jmp +1 -> 209
+     208 [   0] LOADK     R4 := 0
+     209 [   0] SETTABLE  R2["width"] := R4
+     210 [   0] GETGLOBAL R3 := _G["type"]
+     211 [   0] GETTABLE  R4 := R2["height"]
+     212 [   0] CALL      R3(...) nargs=1 nret=1
+     213 [   0] EQ        if (R3 == "string") ~= 0 then skip next
+     214 [   0] JMP       jmp +13 -> 228
+     215 [   0] GETGLOBAL R3 := _G["tonumber"]
+     216 [   0] GETTABLE  R4 := R2["height"]
+     217 [   0] CALL      R3(...) nargs=1 nret=1
+     218 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     219 [   0] JMP       jmp +29 -> 249
+     220 [   0] GETGLOBAL R4 := _G["math"]
+     221 [   0] GETTABLE  R4 := R4["round"]
+     222 [   0] GETUPVAL  R5 := upval 2
+     223 [   0] GETTABLE  R5 := R5["height"]
+     224 [   0] MUL       R5 := R5 * R3
+     225 [   0] CALL      R4(...) nargs=1 nret=1
+     226 [   0] SETTABLE  R2["height"] := R4
+     227 [   0] JMP       jmp +21 -> 249
+     228 [   0] GETGLOBAL R3 := _G["type"]
+     229 [   0] GETTABLE  R4 := R2["height"]
+     230 [   0] CALL      R3(...) nargs=1 nret=1
+     231 [   0] EQ        if (R3 == "table") ~= 0 then skip next
+     232 [   0] JMP       jmp +16 -> 249
+     233 [   0] GETGLOBAL R3 := _G["tonumber"]
+     234 [   0] GETTABLE  R4 := R2["height"]
+     235 [   0] GETTABLE  R4 := R4[1]
+     236 [   0] CALL      R3(...) nargs=1 nret=1
+     237 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     238 [   0] JMP       jmp +10 -> 249
+     239 [   0] GETUPVAL  R4 := upval 2
+     240 [   0] GETTABLE  R4 := R4["height"]
+     241 [   0] MUL       R4 := R4 * R3
+     242 [   0] GETTABLE  R5 := R2["height"]
+     243 [   0] GETTABLE  R5 := R5[2]
+     244 [   0] ADD       R4 := R4 + R5
+     245 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+     246 [   0] JMP       jmp +1 -> 248
+     247 [   0] LOADK     R4 := 0
+     248 [   0] SETTABLE  R2["height"] := R4
+     249 [   0] RETURN    return R2.. (1 values)
+     250 [   0] JMP       jmp +1 -> 252
+     251 [   0] RETURN    return R1.. (1 values)
+     252 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=2, lines 107-154, upvals=[], locals=[])
+    constants: strings=['getWidth', 'getHeight', 'type', 'table', 'deepcopy', 'width', 'string', 'tonumber', 'math', 'round', 'log', 'err', 'Width is a single-element table value in layout ', 'height', 'Height is a single-element table value in layout '] numbers=[1, 2, 0]
+       0 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       1 [   0] JMP       jmp +8 -> 10
+       2 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+       3 [   0] CLOSURE   R3 := closure #0
+       4 [   0] GETUPVAL  R0 := upval 0
+       5 [   0] SETTABLE  R2["getWidth"] := R3
+       6 [   0] CLOSURE   R3 := closure #1
+       7 [   0] GETUPVAL  R0 := upval 0
+       8 [   0] SETTABLE  R2["getHeight"] := R3
+       9 [   0] MOVE      R1 := R2
+      10 [   0] GETUPVAL  R2 := upval 1
+      11 [   0] MOVE      R3 := R0
+      12 [   0] CALL      R2(...) nargs=1 nret=1
+      13 [   0] GETGLOBAL R3 := _G["type"]
+      14 [   0] MOVE      R4 := R2
+      15 [   0] CALL      R3(...) nargs=1 nret=1
+      16 [   0] EQ        if (R3 == "table") ~= 0 then skip next
+      17 [   0] JMP       jmp +107 -> 125
+      18 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+      19 [   0] GETUPVAL  R4 := upval 2
+      20 [   0] GETTABLE  R4 := R4["deepcopy"]
+      21 [   0] MOVE      R5 := R2
+      22 [   0] LOADBOOL  R6 := True
+      23 [   0] MOVE      R7 := R3
+      24 [   0] CALL      R4(...) nargs=3 nret=0
+      25 [   0] GETGLOBAL R4 := _G["type"]
+      26 [   0] GETTABLE  R5 := R3["width"]
+      27 [   0] CALL      R4(...) nargs=1 nret=1
+      28 [   0] EQ        if (R4 == "string") ~= 0 then skip next
+      29 [   0] JMP       jmp +13 -> 43
+      30 [   0] GETGLOBAL R4 := _G["tonumber"]
+      31 [   0] GETTABLE  R5 := R3["width"]
+      32 [   0] CALL      R4(...) nargs=1 nret=1
+      33 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      34 [   0] JMP       jmp +39 -> 74
+      35 [   0] GETGLOBAL R5 := _G["math"]
+      36 [   0] GETTABLE  R5 := R5["round"]
+      37 [   0] GETTABLE  R6 := R1["getWidth"]
+      38 [   0] CALL      R6(...) nargs=0 nret=1
+      39 [   0] MUL       R6 := R6 * R4
+      40 [   0] CALL      R5(...) nargs=1 nret=1
+      41 [   0] SETTABLE  R3["width"] := R5
+      42 [   0] JMP       jmp +31 -> 74
+      43 [   0] GETGLOBAL R4 := _G["type"]
+      44 [   0] GETTABLE  R5 := R3["width"]
+      45 [   0] CALL      R4(...) nargs=1 nret=1
+      46 [   0] EQ        if (R4 == "table") ~= 0 then skip next
+      47 [   0] JMP       jmp +26 -> 74
+      48 [   0] GETGLOBAL R4 := _G["tonumber"]
+      49 [   0] GETTABLE  R5 := R3["width"]
+      50 [   0] GETTABLE  R5 := R5[1]
+      51 [   0] CALL      R4(...) nargs=1 nret=1
+      52 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      53 [   0] JMP       jmp +20 -> 74
+      54 [   0] GETTABLE  R5 := R3["width"]
+      55 [   0] GETTABLE  R5 := R5[2]
+      56 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      57 [   0] JMP       jmp +11 -> 69
+      58 [   0] GETTABLE  R5 := R1["getWidth"]
+      59 [   0] CALL      R5(...) nargs=0 nret=1
+      60 [   0] MUL       R5 := R5 * R4
+      61 [   0] GETTABLE  R6 := R3["width"]
+      62 [   0] GETTABLE  R6 := R6[2]
+      63 [   0] ADD       R5 := R5 + R6
+      64 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      65 [   0] JMP       jmp +1 -> 67
+      66 [   0] LOADK     R5 := 0
+      67 [   0] SETTABLE  R3["width"] := R5
+      68 [   0] JMP       jmp +5 -> 74
+      69 [   0] GETGLOBAL R5 := _G["log"]
+      70 [   0] GETTABLE  R5 := R5["err"]
+      71 [   0] LOADK     R6 := "Width is a single-element table value in layout "
+      72 [   0] MOVE      R7 := R0
+      73 [   0] CALL      R5(...) nargs=2 nret=0
+      74 [   0] GETGLOBAL R4 := _G["type"]
+      75 [   0] GETTABLE  R5 := R3["height"]
+      76 [   0] CALL      R4(...) nargs=1 nret=1
+      77 [   0] EQ        if (R4 == "string") ~= 0 then skip next
+      78 [   0] JMP       jmp +13 -> 92
+      79 [   0] GETGLOBAL R4 := _G["tonumber"]
+      80 [   0] GETTABLE  R5 := R3["height"]
+      81 [   0] CALL      R4(...) nargs=1 nret=1
+      82 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      83 [   0] JMP       jmp +39 -> 123
+      84 [   0] GETGLOBAL R5 := _G["math"]
+      85 [   0] GETTABLE  R5 := R5["round"]
+      86 [   0] GETTABLE  R6 := R1["getHeight"]
+      87 [   0] CALL      R6(...) nargs=0 nret=1
+      88 [   0] MUL       R6 := R6 * R4
+      89 [   0] CALL      R5(...) nargs=1 nret=1
+      90 [   0] SETTABLE  R3["height"] := R5
+      91 [   0] JMP       jmp +31 -> 123
+      92 [   0] GETGLOBAL R4 := _G["type"]
+      93 [   0] GETTABLE  R5 := R3["height"]
+      94 [   0] CALL      R4(...) nargs=1 nret=1
+      95 [   0] EQ        if (R4 == "table") ~= 0 then skip next
+      96 [   0] JMP       jmp +26 -> 123
+      97 [   0] GETGLOBAL R4 := _G["tonumber"]
+      98 [   0] GETTABLE  R5 := R3["height"]
+      99 [   0] GETTABLE  R5 := R5[1]
+     100 [   0] CALL      R4(...) nargs=1 nret=1
+     101 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+     102 [   0] JMP       jmp +20 -> 123
+     103 [   0] GETTABLE  R5 := R3["height"]
+     104 [   0] GETTABLE  R5 := R5[2]
+     105 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+     106 [   0] JMP       jmp +11 -> 118
+     107 [   0] GETTABLE  R5 := R1["getHeight"]
+     108 [   0] CALL      R5(...) nargs=0 nret=1
+     109 [   0] MUL       R5 := R5 * R4
+     110 [   0] GETTABLE  R6 := R3["height"]
+     111 [   0] GETTABLE  R6 := R6[2]
+     112 [   0] ADD       R5 := R5 + R6
+     113 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+     114 [   0] JMP       jmp +1 -> 116
+     115 [   0] LOADK     R5 := 0
+     116 [   0] SETTABLE  R3["height"] := R5
+     117 [   0] JMP       jmp +5 -> 123
+     118 [   0] GETGLOBAL R5 := _G["log"]
+     119 [   0] GETTABLE  R5 := R5["err"]
+     120 [   0] LOADK     R6 := "Height is a single-element table value in layout "
+     121 [   0] MOVE      R7 := R0
+     122 [   0] CALL      R5(...) nargs=2 nret=0
+     123 [   0] RETURN    return R3.. (1 values)
+     124 [   0] JMP       jmp +1 -> 126
+     125 [   0] RETURN    return R2.. (1 values)
+     126 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#0 (params=0, lines 109-109, upvals=[], locals=[])
+      constants: strings=['width'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["width"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#1 (params=0, lines 110-110, upvals=[], locals=[])
+      constants: strings=['height'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["height"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=4, lines 156-242, upvals=[], locals=[])
+    constants: strings=['type', 'table', 'deepcopy', 'alignment', 'getWidth', 'log', 'msg', 'width option missing in element with layout id', 'getHeight', 'height option missing in element with layout id', 'topLeft', 'x', 'y', 'topRight', 'topCenter', 'bottomLeft', 'centerLeft', 'left', 'bottomRight', 'centerRight', 'right', 'center', 'bottomCenter', 'width', 'string', 'tonumber', 'math', 'round', 'height', 'iterationOffsetX', 'iterationIndex', 'iterationOffsetY'] numbers=[2, 0.5, 1, 0]
+       0 [   0] MOVE      R4 := R0
+       1 [   0] GETGLOBAL R5 := _G["type"]
+       2 [   0] MOVE      R6 := R4
+       3 [   0] CALL      R5(...) nargs=1 nret=1
+       4 [   0] EQ        if (R5 == "table") ~= 0 then skip next
+       5 [   0] JMP       jmp +377 -> 383
+       6 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+       7 [   0] GETUPVAL  R6 := upval 0
+       8 [   0] GETTABLE  R6 := R6["deepcopy"]
+       9 [   0] MOVE      R7 := R4
+      10 [   0] LOADBOOL  R8 := True
+      11 [   0] MOVE      R9 := R5
+      12 [   0] CALL      R6(...) nargs=3 nret=0
+      13 [   0] GETTABLE  R6 := R5["alignment"]
+      14 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      15 [   0] JMP       jmp +245 -> 261
+      16 [   0] GETTABLE  R6 := R2["getWidth"]
+      17 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      18 [   0] JMP       jmp +9 -> 28
+      19 [   0] GETTABLE  R6 := R2["getWidth"]
+      20 [   0] CALL      R6(...) nargs=0 nret=1
+      21 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+      22 [   0] JMP       jmp +5 -> 28
+      23 [   0] GETGLOBAL R6 := _G["log"]
+      24 [   0] GETTABLE  R6 := R6["msg"]
+      25 [   0] LOADK     R7 := "width option missing in element with layout id"
+      26 [   0] MOVE      R8 := R3
+      27 [   0] CALL      R6(...) nargs=2 nret=0
+      28 [   0] GETTABLE  R6 := R2["getHeight"]
+      29 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      30 [   0] JMP       jmp +9 -> 40
+      31 [   0] GETTABLE  R6 := R2["getHeight"]
+      32 [   0] CALL      R6(...) nargs=0 nret=1
+      33 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+      34 [   0] JMP       jmp +5 -> 40
+      35 [   0] GETGLOBAL R6 := _G["log"]
+      36 [   0] GETTABLE  R6 := R6["msg"]
+      37 [   0] LOADK     R7 := "height option missing in element with layout id"
+      38 [   0] MOVE      R8 := R3
+      39 [   0] CALL      R6(...) nargs=2 nret=0
+      40 [   0] GETTABLE  R6 := R4["alignment"]
+      41 [   0] EQ        if (R6 == "topLeft") ~= 0 then skip next
+      42 [   0] JMP       jmp +19 -> 62
+      43 [   0] GETTABLE  R6 := R5["x"]
+      44 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      45 [   0] JMP       jmp +5 -> 51
+      46 [   0] GETTABLE  R6 := R4["x"]
+      47 [   0] GETTABLE  R7 := R2["getWidth"]
+      48 [   0] CALL      R7(...) nargs=0 nret=1
+      49 [   0] DIV       R7 := R7 / 2
+      50 [   0] ADD       R6 := R6 + R7
+      51 [   0] SETTABLE  R5["x"] := R6
+      52 [   0] GETTABLE  R6 := R5["y"]
+      53 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      54 [   0] JMP       jmp +5 -> 60
+      55 [   0] GETTABLE  R6 := R4["y"]
+      56 [   0] GETTABLE  R7 := R2["getHeight"]
+      57 [   0] CALL      R7(...) nargs=0 nret=1
+      58 [   0] DIV       R7 := R7 / 2
+      59 [   0] ADD       R6 := R6 + R7
+      60 [   0] SETTABLE  R5["y"] := R6
+      61 [   0] JMP       jmp +199 -> 261
+      62 [   0] GETTABLE  R6 := R4["alignment"]
+      63 [   0] EQ        if (R6 == "topRight") ~= 0 then skip next
+      64 [   0] JMP       jmp +22 -> 87
+      65 [   0] GETTABLE  R6 := R5["x"]
+      66 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      67 [   0] JMP       jmp +8 -> 76
+      68 [   0] GETTABLE  R6 := R1["getWidth"]
+      69 [   0] CALL      R6(...) nargs=0 nret=1
+      70 [   0] GETTABLE  R7 := R4["x"]
+      71 [   0] ADD       R6 := R6 + R7
+      72 [   0] GETTABLE  R7 := R2["getWidth"]
+      73 [   0] CALL      R7(...) nargs=0 nret=1
+      74 [   0] DIV       R7 := R7 / 2
+      75 [   0] SUB       R6 := R6 - R7
+      76 [   0] SETTABLE  R5["x"] := R6
+      77 [   0] GETTABLE  R6 := R5["y"]
+      78 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      79 [   0] JMP       jmp +5 -> 85
+      80 [   0] GETTABLE  R6 := R4["y"]
+      81 [   0] GETTABLE  R7 := R2["getHeight"]
+      82 [   0] CALL      R7(...) nargs=0 nret=1
+      83 [   0] DIV       R7 := R7 / 2
+      84 [   0] ADD       R6 := R6 + R7
+      85 [   0] SETTABLE  R5["y"] := R6
+      86 [   0] JMP       jmp +174 -> 261
+      87 [   0] GETTABLE  R6 := R4["alignment"]
+      88 [   0] EQ        if (R6 == "topCenter") ~= 0 then skip next
+      89 [   0] JMP       jmp +19 -> 109
+      90 [   0] GETTABLE  R6 := R5["x"]
+      91 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      92 [   0] JMP       jmp +5 -> 98
+      93 [   0] GETTABLE  R6 := R1["getWidth"]
+      94 [   0] CALL      R6(...) nargs=0 nret=1
+      95 [   0] MUL       R6 := R6 * 0.5
+      96 [   0] GETTABLE  R7 := R4["x"]
+      97 [   0] ADD       R6 := R6 + R7
+      98 [   0] SETTABLE  R5["x"] := R6
+      99 [   0] GETTABLE  R6 := R5["y"]
+     100 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     101 [   0] JMP       jmp +5 -> 107
+     102 [   0] GETTABLE  R6 := R4["y"]
+     103 [   0] GETTABLE  R7 := R2["getHeight"]
+     104 [   0] CALL      R7(...) nargs=0 nret=1
+     105 [   0] DIV       R7 := R7 / 2
+     106 [   0] ADD       R6 := R6 + R7
+     107 [   0] SETTABLE  R5["y"] := R6
+     108 [   0] JMP       jmp +152 -> 261
+     109 [   0] GETTABLE  R6 := R4["alignment"]
+     110 [   0] EQ        if (R6 == "bottomLeft") ~= 0 then skip next
+     111 [   0] JMP       jmp +22 -> 134
+     112 [   0] GETTABLE  R6 := R5["x"]
+     113 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     114 [   0] JMP       jmp +5 -> 120
+     115 [   0] GETTABLE  R6 := R4["x"]
+     116 [   0] GETTABLE  R7 := R2["getWidth"]
+     117 [   0] CALL      R7(...) nargs=0 nret=1
+     118 [   0] DIV       R7 := R7 / 2
+     119 [   0] ADD       R6 := R6 + R7
+     120 [   0] SETTABLE  R5["x"] := R6
+     121 [   0] GETTABLE  R6 := R5["y"]
+     122 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     123 [   0] JMP       jmp +8 -> 132
+     124 [   0] GETTABLE  R6 := R1["getHeight"]
+     125 [   0] CALL      R6(...) nargs=0 nret=1
+     126 [   0] GETTABLE  R7 := R4["y"]
+     127 [   0] ADD       R6 := R6 + R7
+     128 [   0] GETTABLE  R7 := R2["getHeight"]
+     129 [   0] CALL      R7(...) nargs=0 nret=1
+     130 [   0] DIV       R7 := R7 / 2
+     131 [   0] SUB       R6 := R6 - R7
+     132 [   0] SETTABLE  R5["y"] := R6
+     133 [   0] JMP       jmp +127 -> 261
+     134 [   0] GETTABLE  R6 := R4["alignment"]
+     135 [   0] EQ        if (R6 == "centerLeft") ~= 1 then skip next
+     136 [   0] JMP       jmp +3 -> 140
+     137 [   0] GETTABLE  R6 := R4["alignment"]
+     138 [   0] EQ        if (R6 == "left") ~= 0 then skip next
+     139 [   0] JMP       jmp +19 -> 159
+     140 [   0] GETTABLE  R6 := R5["x"]
+     141 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     142 [   0] JMP       jmp +5 -> 148
+     143 [   0] GETTABLE  R6 := R4["x"]
+     144 [   0] GETTABLE  R7 := R2["getWidth"]
+     145 [   0] CALL      R7(...) nargs=0 nret=1
+     146 [   0] DIV       R7 := R7 / 2
+     147 [   0] ADD       R6 := R6 + R7
+     148 [   0] SETTABLE  R5["x"] := R6
+     149 [   0] GETTABLE  R6 := R5["y"]
+     150 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     151 [   0] JMP       jmp +5 -> 157
+     152 [   0] GETTABLE  R6 := R1["getHeight"]
+     153 [   0] CALL      R6(...) nargs=0 nret=1
+     154 [   0] MUL       R6 := R6 * 0.5
+     155 [   0] GETTABLE  R7 := R4["y"]
+     156 [   0] ADD       R6 := R6 + R7
+     157 [   0] SETTABLE  R5["y"] := R6
+     158 [   0] JMP       jmp +102 -> 261
+     159 [   0] GETTABLE  R6 := R4["alignment"]
+     160 [   0] EQ        if (R6 == "bottomRight") ~= 0 then skip next
+     161 [   0] JMP       jmp +25 -> 187
+     162 [   0] GETTABLE  R6 := R5["x"]
+     163 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     164 [   0] JMP       jmp +8 -> 173
+     165 [   0] GETTABLE  R6 := R1["getWidth"]
+     166 [   0] CALL      R6(...) nargs=0 nret=1
+     167 [   0] GETTABLE  R7 := R4["x"]
+     168 [   0] ADD       R6 := R6 + R7
+     169 [   0] GETTABLE  R7 := R2["getWidth"]
+     170 [   0] CALL      R7(...) nargs=0 nret=1
+     171 [   0] DIV       R7 := R7 / 2
+     172 [   0] SUB       R6 := R6 - R7
+     173 [   0] SETTABLE  R5["x"] := R6
+     174 [   0] GETTABLE  R6 := R5["y"]
+     175 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     176 [   0] JMP       jmp +8 -> 185
+     177 [   0] GETTABLE  R6 := R1["getHeight"]
+     178 [   0] CALL      R6(...) nargs=0 nret=1
+     179 [   0] GETTABLE  R7 := R4["y"]
+     180 [   0] ADD       R6 := R6 + R7
+     181 [   0] GETTABLE  R7 := R2["getHeight"]
+     182 [   0] CALL      R7(...) nargs=0 nret=1
+     183 [   0] DIV       R7 := R7 / 2
+     184 [   0] SUB       R6 := R6 - R7
+     185 [   0] SETTABLE  R5["y"] := R6
+     186 [   0] JMP       jmp +74 -> 261
+     187 [   0] GETTABLE  R6 := R4["alignment"]
+     188 [   0] EQ        if (R6 == "centerRight") ~= 1 then skip next
+     189 [   0] JMP       jmp +3 -> 193
+     190 [   0] GETTABLE  R6 := R4["alignment"]
+     191 [   0] EQ        if (R6 == "right") ~= 0 then skip next
+     192 [   0] JMP       jmp +22 -> 215
+     193 [   0] GETTABLE  R6 := R5["x"]
+     194 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     195 [   0] JMP       jmp +8 -> 204
+     196 [   0] GETTABLE  R6 := R1["getWidth"]
+     197 [   0] CALL      R6(...) nargs=0 nret=1
+     198 [   0] GETTABLE  R7 := R4["x"]
+     199 [   0] ADD       R6 := R6 + R7
+     200 [   0] GETTABLE  R7 := R2["getWidth"]
+     201 [   0] CALL      R7(...) nargs=0 nret=1
+     202 [   0] DIV       R7 := R7 / 2
+     203 [   0] SUB       R6 := R6 - R7
+     204 [   0] SETTABLE  R5["x"] := R6
+     205 [   0] GETTABLE  R6 := R5["y"]
+     206 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     207 [   0] JMP       jmp +5 -> 213
+     208 [   0] GETTABLE  R6 := R1["getHeight"]
+     209 [   0] CALL      R6(...) nargs=0 nret=1
+     210 [   0] MUL       R6 := R6 * 0.5
+     211 [   0] GETTABLE  R7 := R4["y"]
+     212 [   0] ADD       R6 := R6 + R7
+     213 [   0] SETTABLE  R5["y"] := R6
+     214 [   0] JMP       jmp +46 -> 261
+     215 [   0] GETTABLE  R6 := R4["alignment"]
+     216 [   0] EQ        if (R6 == "center") ~= 0 then skip next
+     217 [   0] JMP       jmp +19 -> 237
+     218 [   0] GETTABLE  R6 := R5["x"]
+     219 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     220 [   0] JMP       jmp +5 -> 226
+     221 [   0] GETTABLE  R6 := R1["getWidth"]
+     222 [   0] CALL      R6(...) nargs=0 nret=1
+     223 [   0] MUL       R6 := R6 * 0.5
+     224 [   0] GETTABLE  R7 := R4["x"]
+     225 [   0] ADD       R6 := R6 + R7
+     226 [   0] SETTABLE  R5["x"] := R6
+     227 [   0] GETTABLE  R6 := R5["y"]
+     228 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     229 [   0] JMP       jmp +5 -> 235
+     230 [   0] GETTABLE  R6 := R1["getHeight"]
+     231 [   0] CALL      R6(...) nargs=0 nret=1
+     232 [   0] MUL       R6 := R6 * 0.5
+     233 [   0] GETTABLE  R7 := R4["y"]
+     234 [   0] ADD       R6 := R6 + R7
+     235 [   0] SETTABLE  R5["y"] := R6
+     236 [   0] JMP       jmp +24 -> 261
+     237 [   0] GETTABLE  R6 := R4["alignment"]
+     238 [   0] EQ        if (R6 == "bottomCenter") ~= 0 then skip next
+     239 [   0] JMP       jmp +21 -> 261
+     240 [   0] GETTABLE  R6 := R5["x"]
+     241 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     242 [   0] JMP       jmp +5 -> 248
+     243 [   0] GETTABLE  R6 := R1["getWidth"]
+     244 [   0] CALL      R6(...) nargs=0 nret=1
+     245 [   0] MUL       R6 := R6 * 0.5
+     246 [   0] GETTABLE  R7 := R4["x"]
+     247 [   0] ADD       R6 := R6 + R7
+     248 [   0] SETTABLE  R5["x"] := R6
+     249 [   0] GETTABLE  R6 := R5["y"]
+     250 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     251 [   0] JMP       jmp +8 -> 260
+     252 [   0] GETTABLE  R6 := R1["getHeight"]
+     253 [   0] CALL      R6(...) nargs=0 nret=1
+     254 [   0] GETTABLE  R7 := R4["y"]
+     255 [   0] ADD       R6 := R6 + R7
+     256 [   0] GETTABLE  R7 := R2["getHeight"]
+     257 [   0] CALL      R7(...) nargs=0 nret=1
+     258 [   0] DIV       R7 := R7 / 2
+     259 [   0] SUB       R6 := R6 - R7
+     260 [   0] SETTABLE  R5["y"] := R6
+     261 [   0] GETTABLE  R6 := R5["x"]
+     262 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     263 [   0] JMP       jmp +5 -> 269
+     264 [   0] GETTABLE  R6 := R5["x"]
+     265 [   0] GETTABLE  R7 := R1["getWidth"]
+     266 [   0] CALL      R7(...) nargs=0 nret=1
+     267 [   0] DIV       R7 := R7 / 2
+     268 [   0] SUB       R6 := R6 - R7
+     269 [   0] SETTABLE  R5["x"] := R6
+     270 [   0] GETTABLE  R6 := R5["y"]
+     271 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     272 [   0] JMP       jmp +5 -> 278
+     273 [   0] GETTABLE  R6 := R5["y"]
+     274 [   0] GETTABLE  R7 := R1["getHeight"]
+     275 [   0] CALL      R7(...) nargs=0 nret=1
+     276 [   0] DIV       R7 := R7 / 2
+     277 [   0] SUB       R6 := R6 - R7
+     278 [   0] SETTABLE  R5["y"] := R6
+     279 [   0] GETGLOBAL R6 := _G["type"]
+     280 [   0] GETTABLE  R7 := R5["width"]
+     281 [   0] CALL      R6(...) nargs=1 nret=1
+     282 [   0] EQ        if (R6 == "string") ~= 0 then skip next
+     283 [   0] JMP       jmp +13 -> 297
+     284 [   0] GETGLOBAL R6 := _G["tonumber"]
+     285 [   0] GETTABLE  R7 := R5["width"]
+     286 [   0] CALL      R6(...) nargs=1 nret=1
+     287 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     288 [   0] JMP       jmp +29 -> 318
+     289 [   0] GETGLOBAL R7 := _G["math"]
+     290 [   0] GETTABLE  R7 := R7["round"]
+     291 [   0] GETTABLE  R8 := R1["getWidth"]
+     292 [   0] CALL      R8(...) nargs=0 nret=1
+     293 [   0] MUL       R8 := R8 * R6
+     294 [   0] CALL      R7(...) nargs=1 nret=1
+     295 [   0] SETTABLE  R5["width"] := R7
+     296 [   0] JMP       jmp +21 -> 318
+     297 [   0] GETGLOBAL R6 := _G["type"]
+     298 [   0] GETTABLE  R7 := R5["width"]
+     299 [   0] CALL      R6(...) nargs=1 nret=1
+     300 [   0] EQ        if (R6 == "table") ~= 0 then skip next
+     301 [   0] JMP       jmp +16 -> 318
+     302 [   0] GETGLOBAL R6 := _G["tonumber"]
+     303 [   0] GETTABLE  R7 := R5["width"]
+     304 [   0] GETTABLE  R7 := R7[1]
+     305 [   0] CALL      R6(...) nargs=1 nret=1
+     306 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     307 [   0] JMP       jmp +10 -> 318
+     308 [   0] GETTABLE  R7 := R1["getWidth"]
+     309 [   0] CALL      R7(...) nargs=0 nret=1
+     310 [   0] MUL       R7 := R7 * R6
+     311 [   0] GETTABLE  R8 := R5["width"]
+     312 [   0] GETTABLE  R8 := R8[2]
+     313 [   0] ADD       R7 := R7 + R8
+     314 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+     315 [   0] JMP       jmp +1 -> 317
+     316 [   0] LOADK     R7 := 0
+     317 [   0] SETTABLE  R5["width"] := R7
+     318 [   0] GETGLOBAL R6 := _G["type"]
+     319 [   0] GETTABLE  R7 := R5["height"]
+     320 [   0] CALL      R6(...) nargs=1 nret=1
+     321 [   0] EQ        if (R6 == "string") ~= 0 then skip next
+     322 [   0] JMP       jmp +13 -> 336
+     323 [   0] GETGLOBAL R6 := _G["tonumber"]
+     324 [   0] GETTABLE  R7 := R5["height"]
+     325 [   0] CALL      R6(...) nargs=1 nret=1
+     326 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     327 [   0] JMP       jmp +29 -> 357
+     328 [   0] GETGLOBAL R7 := _G["math"]
+     329 [   0] GETTABLE  R7 := R7["round"]
+     330 [   0] GETTABLE  R8 := R1["getHeight"]
+     331 [   0] CALL      R8(...) nargs=0 nret=1
+     332 [   0] MUL       R8 := R8 * R6
+     333 [   0] CALL      R7(...) nargs=1 nret=1
+     334 [   0] SETTABLE  R5["height"] := R7
+     335 [   0] JMP       jmp +21 -> 357
+     336 [   0] GETGLOBAL R6 := _G["type"]
+     337 [   0] GETTABLE  R7 := R5["height"]
+     338 [   0] CALL      R6(...) nargs=1 nret=1
+     339 [   0] EQ        if (R6 == "table") ~= 0 then skip next
+     340 [   0] JMP       jmp +16 -> 357
+     341 [   0] GETGLOBAL R6 := _G["tonumber"]
+     342 [   0] GETTABLE  R7 := R5["height"]
+     343 [   0] GETTABLE  R7 := R7[1]
+     344 [   0] CALL      R6(...) nargs=1 nret=1
+     345 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     346 [   0] JMP       jmp +10 -> 357
+     347 [   0] GETTABLE  R7 := R1["getHeight"]
+     348 [   0] CALL      R7(...) nargs=0 nret=1
+     349 [   0] MUL       R7 := R7 * R6
+     350 [   0] GETTABLE  R8 := R5["height"]
+     351 [   0] GETTABLE  R8 := R8[2]
+     352 [   0] ADD       R7 := R7 + R8
+     353 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+     354 [   0] JMP       jmp +1 -> 356
+     355 [   0] LOADK     R7 := 0
+     356 [   0] SETTABLE  R5["height"] := R7
+     357 [   0] GETTABLE  R6 := R5["iterationOffsetX"]
+     358 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     359 [   0] JMP       jmp +9 -> 369
+     360 [   0] GETTABLE  R6 := R5["iterationIndex"]
+     361 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     362 [   0] JMP       jmp +6 -> 369
+     363 [   0] GETTABLE  R6 := R5["x"]
+     364 [   0] GETTABLE  R7 := R5["iterationIndex"]
+     365 [   0] GETTABLE  R8 := R5["iterationOffsetX"]
+     366 [   0] MUL       R7 := R7 * R8
+     367 [   0] ADD       R6 := R6 + R7
+     368 [   0] SETTABLE  R5["x"] := R6
+     369 [   0] GETTABLE  R6 := R5["iterationOffsetY"]
+     370 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     371 [   0] JMP       jmp +9 -> 381
+     372 [   0] GETTABLE  R6 := R5["iterationIndex"]
+     373 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+     374 [   0] JMP       jmp +6 -> 381
+     375 [   0] GETTABLE  R6 := R5["y"]
+     376 [   0] GETTABLE  R7 := R5["iterationIndex"]
+     377 [   0] GETTABLE  R8 := R5["iterationOffsetY"]
+     378 [   0] MUL       R7 := R7 * R8
+     379 [   0] ADD       R6 := R6 + R7
+     380 [   0] SETTABLE  R5["y"] := R6
+     381 [   0] RETURN    return R5.. (1 values)
+     382 [   0] JMP       jmp +1 -> 384
+     383 [   0] RETURN    return R4.. (1 values)
+     384 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=3, lines 244-248, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R3 := upval 0
+       1 [   0] MOVE      R4 := R0
+       2 [   0] CALL      R3(...) nargs=1 nret=1
+       3 [   0] GETUPVAL  R4 := upval 1
+       4 [   0] MOVE      R5 := R3
+       5 [   0] MOVE      R6 := R1
+       6 [   0] MOVE      R7 := R2
+       7 [   0] MOVE      R8 := R0
+       8 [   0] TAILCALL  return R4(...) nargs=4
+       9 [   0] RETURN    return R4.. (-1 values)
+      10 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=3, lines 250-257, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       1 [   0] JMP       jmp +5 -> 7
+       2 [   0] GETUPVAL  R3 := upval 0
+       3 [   0] MOVE      R4 := R0
+       4 [   0] TAILCALL  return R3(...) nargs=1
+       5 [   0] RETURN    return R3.. (-1 values)
+       6 [   0] JMP       jmp +6 -> 13
+       7 [   0] GETUPVAL  R3 := upval 1
+       8 [   0] MOVE      R4 := R0
+       9 [   0] MOVE      R5 := R1
+      10 [   0] MOVE      R6 := R2
+      11 [   0] TAILCALL  return R3(...) nargs=3
+      12 [   0] RETURN    return R3.. (-1 values)
+      13 [   0] RETURN    return R0.. (0 values)

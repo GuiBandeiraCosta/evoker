@@ -1,0 +1,57 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['fglib', 'logging', 'Logger', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["fglib"]
+     1 [   0] GETTABLE  R0 := R0["logging"]
+     2 [   0] GETTABLE  R0 := R0["Logger"]
+     3 [   0] CLOSURE   R1 := closure #0
+     4 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     5 [   0] SETTABLE  R2["create"] := R1
+     6 [   0] RETURN    return R2.. (1 values)
+     7 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 11-35, upvals=[], locals=[])
+    constants: strings=['ui', 'createContainer', 'layout', 'x', 'y', 'width', 'height', 'alignment', 'center', 'getChild', 'setDelegate'] numbers=[0]
+       0 [   0] GETGLOBAL R0 := _G["ui"]
+       1 [   0] GETTABLE  R0 := R0["createContainer"]
+       2 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+       3 [   0] NEWTABLE  R2 := {} (array 0, hash 5)
+       4 [   0] SETTABLE  R2["x"] := 0
+       5 [   0] SETTABLE  R2["y"] := 0
+       6 [   0] SETTABLE  R2["width"] := 0
+       7 [   0] SETTABLE  R2["height"] := 0
+       8 [   0] SETTABLE  R2["alignment"] := "center"
+       9 [   0] SETTABLE  R1["layout"] := R2
+      10 [   0] CALL      R0(...) nargs=1 nret=1
+      11 [   0] LOADNIL   R1..R1 := nil
+      12 [   0] CLOSURE   R2 := closure #0
+      13 [   0] MOVE      R0 := R1
+      14 [   0] SETTABLE  R0["getChild"] := R2
+      15 [   0] CLOSURE   R2 := closure #1
+      16 [   0] MOVE      R0 := R1
+      17 [   0] MOVE      R0 := R0
+      18 [   0] SETTABLE  R0["setDelegate"] := R2
+      19 [   0] RETURN    return R0.. (1 values)
+      20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 18-20, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 22-32, upvals=[], locals=[])
+      constants: strings=['parent', 'remove', 'insert', 'removeSelf'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +8 -> 11
+         3 [   0] GETTABLE  R2 := R0["parent"]
+         4 [   0] SELF      R3 := R2; R2 := R2["remove"]
+         5 [   0] MOVE      R4 := R0
+         6 [   0] CALL      R2(...) nargs=2 nret=0
+         7 [   0] GETUPVAL  R2 := upval 1
+         8 [   0] SELF      R3 := R2; R2 := R2["insert"]
+         9 [   0] MOVE      R4 := R0
+        10 [   0] CALL      R2(...) nargs=2 nret=0
+        11 [   0] SETUPVAL  upval 0 := R0
+        12 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +2 -> 16
+        14 [   0] SELF      R3 := R1; R2 := R1["removeSelf"]
+        15 [   0] CALL      R2(...) nargs=1 nret=0
+        16 [   0] RETURN    return R0.. (0 values)

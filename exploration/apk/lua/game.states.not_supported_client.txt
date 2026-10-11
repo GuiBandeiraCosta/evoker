@@ -1,0 +1,121 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['create'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["create"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 9-48, upvals=[], locals=[])
+    constants: strings=['getName', 'enter', 'leave'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] CLOSURE   R1 := closure #0
+       2 [   0] SETTABLE  R0["getName"] := R1
+       3 [   0] CLOSURE   R1 := closure #1
+       4 [   0] SETTABLE  R0["enter"] := R1
+       5 [   0] CLOSURE   R1 := closure #2
+       6 [   0] SETTABLE  R0["leave"] := R1
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 12-14, upvals=[], locals=[])
+      constants: strings=['NOT_SUPPORTED_CLIENT'] numbers=[]
+         0 [   0] LOADK     R0 := "NOT_SUPPORTED_CLIENT"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 16-41, upvals=[], locals=[])
+      constants: strings=['getSharedContext', 'not_supported_client_data'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["getSharedContext"]
+         1 [   0] CALL      R1(...) nargs=0 nret=1
+         2 [   0] GETTABLE  R2 := R1["not_supported_client_data"]
+         3 [   0] CLOSURE   R3 := closure #0
+         4 [   0] MOVE      R0 := R2
+         5 [   0] MOVE      R4 := R3
+         6 [   0] CALL      R4(...) nargs=0 nret=0
+         7 [   0] SETTABLE  R1["not_supported_client_data"] := None
+         8 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 20-38, upvals=[], locals=[])
+        constants: strings=['native', 'showAlert', '_T', 'Outdated Version', 'text', '', 'Ok'] numbers=[]
+           0 [   0] GETGLOBAL R0 := _G["native"]
+           1 [   0] GETTABLE  R0 := R0["showAlert"]
+           2 [   0] GETGLOBAL R1 := _G["_T"]
+           3 [   0] LOADK     R2 := "Outdated Version"
+           4 [   0] CALL      R1(...) nargs=1 nret=1
+           5 [   0] GETUPVAL  R2 := upval 0
+           6 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+           7 [   0] JMP       jmp +4 -> 12
+           8 [   0] GETUPVAL  R2 := upval 0
+           9 [   0] GETTABLE  R2 := R2["text"]
+          10 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+          11 [   0] JMP       jmp +1 -> 13
+          12 [   0] LOADK     R2 := ""
+          13 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+          14 [   0] GETGLOBAL R4 := _G["_T"]
+          15 [   0] LOADK     R5 := "Ok"
+          16 [   0] CALL      R4(...) nargs=1 nret=-1
+          17 [   0] SETLIST   R3[...] := R4.. (n=0, block 1)
+          18 [   0] CLOSURE   R4 := closure #0
+          19 [   0] GETUPVAL  R0 := upval 0
+          20 [   0] CALL      R0(...) nargs=4 nret=0
+          21 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#1.#0.#0 (params=0, lines 21-37, upvals=[], locals=[])
+          constants: strings=['fglib', 'utils', 'Util', 'isAndroid', 'android', 'system', 'openURL', 'isWindows', 'windows', 'ios', 'require', 'util.util', 'requestExit'] numbers=[]
+             0 [   0] GETGLOBAL R0 := _G["fglib"]
+             1 [   0] GETTABLE  R0 := R0["utils"]
+             2 [   0] GETTABLE  R0 := R0["Util"]
+             3 [   0] GETTABLE  R0 := R0["isAndroid"]
+             4 [   0] CALL      R0(...) nargs=0 nret=1
+             5 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+             6 [   0] JMP       jmp +13 -> 20
+             7 [   0] GETUPVAL  R0 := upval 0
+             8 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+             9 [   0] JMP       jmp +42 -> 52
+            10 [   0] GETUPVAL  R0 := upval 0
+            11 [   0] GETTABLE  R0 := R0["android"]
+            12 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+            13 [   0] JMP       jmp +38 -> 52
+            14 [   0] GETGLOBAL R0 := _G["system"]
+            15 [   0] GETTABLE  R0 := R0["openURL"]
+            16 [   0] GETUPVAL  R1 := upval 0
+            17 [   0] GETTABLE  R1 := R1["android"]
+            18 [   0] CALL      R0(...) nargs=1 nret=0
+            19 [   0] JMP       jmp +32 -> 52
+            20 [   0] GETGLOBAL R0 := _G["fglib"]
+            21 [   0] GETTABLE  R0 := R0["utils"]
+            22 [   0] GETTABLE  R0 := R0["Util"]
+            23 [   0] GETTABLE  R0 := R0["isWindows"]
+            24 [   0] CALL      R0(...) nargs=0 nret=1
+            25 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+            26 [   0] JMP       jmp +13 -> 40
+            27 [   0] GETUPVAL  R0 := upval 0
+            28 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+            29 [   0] JMP       jmp +22 -> 52
+            30 [   0] GETUPVAL  R0 := upval 0
+            31 [   0] GETTABLE  R0 := R0["windows"]
+            32 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+            33 [   0] JMP       jmp +18 -> 52
+            34 [   0] GETGLOBAL R0 := _G["system"]
+            35 [   0] GETTABLE  R0 := R0["openURL"]
+            36 [   0] GETUPVAL  R1 := upval 0
+            37 [   0] GETTABLE  R1 := R1["windows"]
+            38 [   0] CALL      R0(...) nargs=1 nret=0
+            39 [   0] JMP       jmp +12 -> 52
+            40 [   0] GETUPVAL  R0 := upval 0
+            41 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+            42 [   0] JMP       jmp +9 -> 52
+            43 [   0] GETUPVAL  R0 := upval 0
+            44 [   0] GETTABLE  R0 := R0["ios"]
+            45 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+            46 [   0] JMP       jmp +5 -> 52
+            47 [   0] GETGLOBAL R0 := _G["system"]
+            48 [   0] GETTABLE  R0 := R0["openURL"]
+            49 [   0] GETUPVAL  R1 := upval 0
+            50 [   0] GETTABLE  R1 := R1["ios"]
+            51 [   0] CALL      R0(...) nargs=1 nret=0
+            52 [   0] GETGLOBAL R0 := _G["require"]
+            53 [   0] LOADK     R1 := "util.util"
+            54 [   0] CALL      R0(...) nargs=1 nret=1
+            55 [   0] GETTABLE  R1 := R0["requestExit"]
+            56 [   0] CALL      R1(...) nargs=0 nret=0
+            57 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 43-45, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)

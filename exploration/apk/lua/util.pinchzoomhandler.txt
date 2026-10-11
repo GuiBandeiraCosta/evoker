@@ -1,0 +1,337 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.touchtrackers', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "util.touchtrackers"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "util.util"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] MOVE      R0 := R0
+     8 [   0] MOVE      R0 := R1
+     9 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+    10 [   0] SETTABLE  R3["create"] := R2
+    11 [   0] RETURN    return R3.. (1 values)
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 12-120, upvals=[], locals=[])
+    constants: strings=['x', 'y', 'touchHandler', 'activate', 'deactivate'] numbers=[0]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] LOADK     R2 := 0
+       2 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       3 [   0] LOADNIL   R4..R4 := nil
+       4 [   0] CLOSURE   R5 := closure #0
+       5 [   0] MOVE      R0 := R3
+       6 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+       7 [   0] SETTABLE  R6["x"] := 0
+       8 [   0] SETTABLE  R6["y"] := 0
+       9 [   0] LOADNIL   R7..R8 := nil
+      10 [   0] CLOSURE   R9 := closure #1
+      11 [   0] MOVE      R0 := R3
+      12 [   0] GETUPVAL  R0 := upval 0
+      13 [   0] MOVE      R0 := R1
+      14 [   0] MOVE      R0 := R2
+      15 [   0] MOVE      R0 := R0
+      16 [   0] MOVE      R0 := R7
+      17 [   0] MOVE      R0 := R6
+      18 [   0] MOVE      R0 := R5
+      19 [   0] MOVE      R0 := R4
+      20 [   0] GETUPVAL  R0 := upval 1
+      21 [   0] SETTABLE  R1["touchHandler"] := R9
+      22 [   0] CLOSURE   R9 := closure #2
+      23 [   0] MOVE      R0 := R3
+      24 [   0] MOVE      R0 := R1
+      25 [   0] CLOSURE   R10 := closure #3
+      26 [   0] MOVE      R0 := R8
+      27 [   0] MOVE      R0 := R9
+      28 [   0] SETTABLE  R1["activate"] := R10
+      29 [   0] CLOSURE   R10 := closure #4
+      30 [   0] MOVE      R0 := R8
+      31 [   0] SETTABLE  R1["deactivate"] := R10
+      32 [   0] RETURN    return R1.. (1 values)
+      33 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 19-30, upvals=[], locals=[])
+      constants: strings=['pairs', 'cx', 'cy', 'math', 'sqrt'] numbers=[1, 2, 0.5]
+         0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+         1 [   0] GETGLOBAL R1 := _G["pairs"]
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] CALL      R1(...) nargs=1 nret=3
+         4 [   0] JMP       jmp +3 -> 8
+         5 [   0] LEN       R6 := #R0
+         6 [   0] ADD       R6 := R6 + 1
+         7 [   0] SETTABLE  R0[R6] := R5
+         8 [   0] TFORLOOP  tforloop R1 nres=2
+         9 [   0] JMP       jmp -5 -> 5
+        10 [   0] LEN       R1 := #R0
+        11 [   0] EQ        if (R1 == 2) ~= 0 then skip next
+        12 [   0] JMP       jmp +32 -> 45
+        13 [   0] GETTABLE  R1 := R0[1]
+        14 [   0] GETTABLE  R1 := R1["cx"]
+        15 [   0] GETTABLE  R2 := R0[2]
+        16 [   0] GETTABLE  R2 := R2["cx"]
+        17 [   0] SUB       R1 := R1 - R2
+        18 [   0] GETTABLE  R2 := R0[1]
+        19 [   0] GETTABLE  R2 := R2["cy"]
+        20 [   0] GETTABLE  R3 := R0[2]
+        21 [   0] GETTABLE  R3 := R3["cy"]
+        22 [   0] SUB       R2 := R2 - R3
+        23 [   0] GETTABLE  R3 := R0[1]
+        24 [   0] GETTABLE  R3 := R3["cx"]
+        25 [   0] GETTABLE  R4 := R0[2]
+        26 [   0] GETTABLE  R4 := R4["cx"]
+        27 [   0] ADD       R3 := R3 + R4
+        28 [   0] MUL       R3 := 0.5 * R3
+        29 [   0] GETTABLE  R4 := R0[1]
+        30 [   0] GETTABLE  R4 := R4["cy"]
+        31 [   0] GETTABLE  R5 := R0[2]
+        32 [   0] GETTABLE  R5 := R5["cy"]
+        33 [   0] ADD       R4 := R4 + R5
+        34 [   0] MUL       R4 := 0.5 * R4
+        35 [   0] GETGLOBAL R5 := _G["math"]
+        36 [   0] GETTABLE  R5 := R5["sqrt"]
+        37 [   0] MUL       R6 := R1 * R1
+        38 [   0] MUL       R7 := R2 * R2
+        39 [   0] ADD       R6 := R6 + R7
+        40 [   0] CALL      R5(...) nargs=1 nret=1
+        41 [   0] MOVE      R6 := R5
+        42 [   0] MOVE      R7 := R3
+        43 [   0] MOVE      R8 := R4
+        44 [   0] RETURN    return R6.. (3 values)
+        45 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 37-95, upvals=[], locals=[])
+      constants: strings=['target', 'contentToLocal', 'x', 'y', 'system', 'getTimer', 'phase', 'began', 'id', 'create', 'touchHandler', 'lastTs', 'start', 'touchtracker', 'moved', 'zoom', 'drag', 'speedX', 'speedY', 'dragged', 'dx', 'dy', 'sx', 'sy', 'scale', 'center', 'safeRemoveObject', 'ended'] numbers=[0, 1, 2, 250]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +180 -> 182
+         2 [   0] GETTABLE  R1 := R0["target"]
+         3 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +177 -> 182
+         5 [   0] GETTABLE  R1 := R0["target"]
+         6 [   0] SELF      R2 := R1; R1 := R1["contentToLocal"]
+         7 [   0] GETTABLE  R3 := R0["x"]
+         8 [   0] GETTABLE  R4 := R0["y"]
+         9 [   0] CALL      R1(...) nargs=3 nret=2
+        10 [   0] GETGLOBAL R3 := _G["system"]
+        11 [   0] GETTABLE  R3 := R3["getTimer"]
+        12 [   0] CALL      R3(...) nargs=0 nret=1
+        13 [   0] GETTABLE  R4 := R0["phase"]
+        14 [   0] EQ        if (R4 == "began") ~= 0 then skip next
+        15 [   0] JMP       jmp +28 -> 44
+        16 [   0] GETUPVAL  R4 := upval 0
+        17 [   0] GETTABLE  R5 := R0["id"]
+        18 [   0] GETTABLE  R4 := R4[R5]
+        19 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        20 [   0] JMP       jmp +161 -> 182
+        21 [   0] GETUPVAL  R4 := upval 0
+        22 [   0] GETTABLE  R5 := R0["id"]
+        23 [   0] GETUPVAL  R6 := upval 1
+        24 [   0] GETTABLE  R6 := R6["create"]
+        25 [   0] MOVE      R7 := R0
+        26 [   0] GETUPVAL  R8 := upval 2
+        27 [   0] GETTABLE  R8 := R8["touchHandler"]
+        28 [   0] CALL      R6(...) nargs=2 nret=1
+        29 [   0] SETTABLE  R4[R5] := R6
+        30 [   0] GETUPVAL  R4 := upval 0
+        31 [   0] GETTABLE  R5 := R0["id"]
+        32 [   0] GETTABLE  R4 := R4[R5]
+        33 [   0] SETTABLE  R4["lastTs"] := R3
+        34 [   0] GETUPVAL  R4 := upval 3
+        35 [   0] EQ        if (R4 == 0) ~= 0 then skip next
+        36 [   0] JMP       jmp +3 -> 40
+        37 [   0] GETUPVAL  R4 := upval 4
+        38 [   0] LOADK     R5 := "start"
+        39 [   0] CALL      R4(...) nargs=1 nret=0
+        40 [   0] GETUPVAL  R4 := upval 3
+        41 [   0] ADD       R4 := R4 + 1
+        42 [   0] SETUPVAL  upval 3 := R4
+        43 [   0] JMP       jmp +138 -> 182
+        44 [   0] GETTABLE  R4 := R0["touchtracker"]
+        45 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        46 [   0] JMP       jmp +20 -> 67
+        47 [   0] GETUPVAL  R4 := upval 0
+        48 [   0] GETTABLE  R5 := R0["id"]
+        49 [   0] GETTABLE  R4 := R4[R5]
+        50 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        51 [   0] JMP       jmp +15 -> 67
+        52 [   0] NEWTABLE  R4 := {} (array 0, hash 5)
+        53 [   0] SETTABLE  R4["phase"] := "began"
+        54 [   0] GETTABLE  R5 := R0["id"]
+        55 [   0] SETTABLE  R4["id"] := R5
+        56 [   0] GETTABLE  R5 := R0["target"]
+        57 [   0] SETTABLE  R4["target"] := R5
+        58 [   0] GETTABLE  R5 := R0["x"]
+        59 [   0] SETTABLE  R4["x"] := R5
+        60 [   0] GETTABLE  R5 := R0["y"]
+        61 [   0] SETTABLE  R4["y"] := R5
+        62 [   0] GETUPVAL  R5 := upval 2
+        63 [   0] GETTABLE  R5 := R5["touchHandler"]
+        64 [   0] MOVE      R6 := R4
+        65 [   0] CALL      R5(...) nargs=1 nret=0
+        66 [   0] JMP       jmp +115 -> 182
+        67 [   0] GETTABLE  R4 := R0["touchtracker"]
+        68 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        69 [   0] JMP       jmp +112 -> 182
+        70 [   0] GETTABLE  R4 := R0["phase"]
+        71 [   0] EQ        if (R4 == "moved") ~= 0 then skip next
+        72 [   0] JMP       jmp +62 -> 135
+        73 [   0] GETUPVAL  R4 := upval 0
+        74 [   0] GETTABLE  R5 := R0["id"]
+        75 [   0] GETTABLE  R4 := R4[R5]
+        76 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        77 [   0] JMP       jmp +4 -> 82
+        78 [   0] GETUPVAL  R4 := upval 0
+        79 [   0] GETTABLE  R5 := R0["id"]
+        80 [   0] GETTABLE  R4 := R4[R5]
+        81 [   0] SETTABLE  R4["lastTs"] := R3
+        82 [   0] GETUPVAL  R4 := upval 0
+        83 [   0] GETTABLE  R5 := R0["id"]
+        84 [   0] GETTABLE  R4 := R4[R5]
+        85 [   0] GETUPVAL  R5 := upval 3
+        86 [   0] EQ        if (R5 == 1) ~= 0 then skip next
+        87 [   0] JMP       jmp +24 -> 112
+        88 [   0] GETUPVAL  R5 := upval 5
+        89 [   0] EQ        if (R5 == "zoom") ~= 1 then skip next
+        90 [   0] JMP       jmp +2 -> 93
+        91 [   0] LOADK     R5 := "drag"
+        92 [   0] SETUPVAL  upval 5 := R5
+        93 [   0] GETUPVAL  R5 := upval 6
+        94 [   0] GETUPVAL  R6 := upval 6
+        95 [   0] GETTABLE  R7 := R4["speedX"]
+        96 [   0] GETTABLE  R8 := R4["speedY"]
+        97 [   0] SETTABLE  R6["y"] := R8
+        98 [   0] SETTABLE  R5["x"] := R7
+        99 [   0] GETUPVAL  R5 := upval 4
+       100 [   0] LOADK     R6 := "dragged"
+       101 [   0] NEWTABLE  R7 := {} (array 0, hash 4)
+       102 [   0] GETTABLE  R8 := R4["dx"]
+       103 [   0] SETTABLE  R7["dx"] := R8
+       104 [   0] GETTABLE  R8 := R4["dy"]
+       105 [   0] SETTABLE  R7["dy"] := R8
+       106 [   0] GETTABLE  R8 := R4["speedX"]
+       107 [   0] SETTABLE  R7["sx"] := R8
+       108 [   0] GETTABLE  R8 := R4["speedY"]
+       109 [   0] SETTABLE  R7["sy"] := R8
+       110 [   0] CALL      R5(...) nargs=2 nret=0
+       111 [   0] JMP       jmp +70 -> 182
+       112 [   0] GETUPVAL  R5 := upval 3
+       113 [   0] EQ        if (R5 == 2) ~= 0 then skip next
+       114 [   0] JMP       jmp +67 -> 182
+       115 [   0] LOADK     R5 := "zoom"
+       116 [   0] SETUPVAL  upval 5 := R5
+       117 [   0] GETUPVAL  R5 := upval 7
+       118 [   0] CALL      R5(...) nargs=0 nret=3
+       119 [   0] GETUPVAL  R8 := upval 8
+       120 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+       121 [   0] JMP       jmp +11 -> 133
+       122 [   0] GETUPVAL  R8 := upval 4
+       123 [   0] LOADK     R9 := "zoom"
+       124 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+       125 [   0] GETUPVAL  R11 := upval 8
+       126 [   0] DIV       R11 := R5 / R11
+       127 [   0] SETTABLE  R10["scale"] := R11
+       128 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+       129 [   0] SETTABLE  R11["x"] := R6
+       130 [   0] SETTABLE  R11["y"] := R7
+       131 [   0] SETTABLE  R10["center"] := R11
+       132 [   0] CALL      R8(...) nargs=2 nret=0
+       133 [   0] SETUPVAL  upval 8 := R5
+       134 [   0] JMP       jmp +47 -> 182
+       135 [   0] LOADNIL   R4..R4 := nil
+       136 [   0] SETUPVAL  upval 8 := R4
+       137 [   0] LOADNIL   R4..R4 := nil
+       138 [   0] GETUPVAL  R5 := upval 5
+       139 [   0] EQ        if (R5 == "drag") ~= 0 then skip next
+       140 [   0] JMP       jmp +15 -> 156
+       141 [   0] GETUPVAL  R5 := upval 0
+       142 [   0] GETTABLE  R6 := R0["id"]
+       143 [   0] GETTABLE  R5 := R5[R6]
+       144 [   0] GETTABLE  R5 := R5["lastTs"]
+       145 [   0] SUB       R6 := R3 - 250
+       146 [   0] LT        if (R6 < R5) ~= 0 then skip next
+       147 [   0] JMP       jmp +8 -> 156
+       148 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+       149 [   0] GETUPVAL  R6 := upval 6
+       150 [   0] GETTABLE  R6 := R6["x"]
+       151 [   0] SETTABLE  R5["x"] := R6
+       152 [   0] GETUPVAL  R6 := upval 6
+       153 [   0] GETTABLE  R6 := R6["y"]
+       154 [   0] SETTABLE  R5["y"] := R6
+       155 [   0] MOVE      R4 := R5
+       156 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+       157 [   0] SETTABLE  R5["x"] := 0
+       158 [   0] SETTABLE  R5["y"] := 0
+       159 [   0] SETUPVAL  upval 6 := R5
+       160 [   0] GETUPVAL  R5 := upval 0
+       161 [   0] GETTABLE  R6 := R0["id"]
+       162 [   0] GETTABLE  R5 := R5[R6]
+       163 [   0] GETUPVAL  R6 := upval 0
+       164 [   0] GETTABLE  R7 := R0["id"]
+       165 [   0] SETTABLE  R6[R7] := None
+       166 [   0] GETUPVAL  R6 := upval 9
+       167 [   0] GETTABLE  R6 := R6["safeRemoveObject"]
+       168 [   0] MOVE      R7 := R5
+       169 [   0] CALL      R6(...) nargs=1 nret=0
+       170 [   0] GETUPVAL  R6 := upval 3
+       171 [   0] SUB       R6 := R6 - 1
+       172 [   0] SETUPVAL  upval 3 := R6
+       173 [   0] GETUPVAL  R6 := upval 4
+       174 [   0] LOADK     R7 := "ended"
+       175 [   0] MOVE      R8 := R4
+       176 [   0] CALL      R6(...) nargs=2 nret=0
+       177 [   0] GETUPVAL  R6 := upval 3
+       178 [   0] EQ        if (R6 == 0) ~= 0 then skip next
+       179 [   0] JMP       jmp +2 -> 182
+       180 [   0] LOADNIL   R6..R6 := nil
+       181 [   0] SETUPVAL  upval 5 := R6
+       182 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 97-104, upvals=[], locals=[])
+      constants: strings=['system', 'getTimer', 'pairs', 'lastTs', 'touchHandler', 'phase', 'ended', 'id', 'touchtracker', 'target', 'x', 'y'] numbers=[4000, 0]
+         0 [   0] GETGLOBAL R0 := _G["system"]
+         1 [   0] GETTABLE  R0 := R0["getTimer"]
+         2 [   0] CALL      R0(...) nargs=0 nret=1
+         3 [   0] SUB       R0 := R0 - 4000
+         4 [   0] GETGLOBAL R1 := _G["pairs"]
+         5 [   0] GETUPVAL  R2 := upval 0
+         6 [   0] CALL      R1(...) nargs=1 nret=3
+         7 [   0] JMP       jmp +13 -> 21
+         8 [   0] GETTABLE  R6 := R5["lastTs"]
+         9 [   0] LT        if (R6 < R0) ~= 0 then skip next
+        10 [   0] JMP       jmp +10 -> 21
+        11 [   0] GETUPVAL  R6 := upval 1
+        12 [   0] GETTABLE  R6 := R6["touchHandler"]
+        13 [   0] NEWTABLE  R7 := {} (array 0, hash 6)
+        14 [   0] SETTABLE  R7["phase"] := "ended"
+        15 [   0] SETTABLE  R7["id"] := R4
+        16 [   0] SETTABLE  R7["touchtracker"] := True
+        17 [   0] SETTABLE  R7["target"] := R5
+        18 [   0] SETTABLE  R7["x"] := 0
+        19 [   0] SETTABLE  R7["y"] := 0
+        20 [   0] CALL      R6(...) nargs=1 nret=0
+        21 [   0] TFORLOOP  tforloop R1 nres=2
+        22 [   0] JMP       jmp -15 -> 8
+        23 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 106-111, upvals=[], locals=[])
+      constants: strings=['timer', 'cancel', 'performWithDelay'] numbers=[1, 0]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETGLOBAL R0 := _G["timer"]
+         4 [   0] GETTABLE  R0 := R0["cancel"]
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] GETGLOBAL R0 := _G["timer"]
+         8 [   0] GETTABLE  R0 := R0["performWithDelay"]
+         9 [   0] LOADK     R1 := 1
+        10 [   0] GETUPVAL  R2 := upval 1
+        11 [   0] LOADK     R3 := 0
+        12 [   0] CALL      R0(...) nargs=3 nret=1
+        13 [   0] SETUPVAL  upval 0 := R0
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 113-117, upvals=[], locals=[])
+      constants: strings=['timer', 'cancel'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETGLOBAL R0 := _G["timer"]
+         4 [   0] GETTABLE  R0 := R0["cancel"]
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] RETURN    return R0.. (0 values)

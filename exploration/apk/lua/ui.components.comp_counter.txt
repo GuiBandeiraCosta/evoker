@@ -1,0 +1,378 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'renderer.shadowedlabelrenderer', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "renderer.shadowedlabelrenderer"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "util.util"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] CLOSURE   R2 := closure #0
+     9 [   0] MOVE      R0 := R0
+    10 [   0] MOVE      R0 := R1
+    11 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+    12 [   0] SETTABLE  R3["create"] := R2
+    13 [   0] RETURN    return R3.. (1 values)
+    14 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 11-132, upvals=[], locals=[])
+    constants: strings=['time', 'label', '', 'ui', 'createContainer', 'layout', 'default.center', 'parent', 'firstNumberLabel', 'createLabel', 'renderer', 'txt', 'style', 'loadingHeadline', 'secondNumberLabel', 'y', 'setReferencePoint', 'display', 'BottomCenterReferencePoint', 'height', 'TopCenterReferencePoint', 'yScale', 'start', 'update', 'fadeOut', 'exit', 'enter', 'destroy', 'inherit', '_flaregames_remove'] numbers=[1, 500, 2, 1e-06]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] LOADK     R2 := 1
+       2 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       3 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] MOVE      R3 := R0
+       6 [   0] LOADBOOL  R4 := True
+       7 [   0] LOADNIL   R5..R7 := nil
+       8 [   0] GETTABLE  R8 := R3["time"]
+       9 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+      10 [   0] JMP       jmp +1 -> 12
+      11 [   0] LOADK     R8 := 500
+      12 [   0] GETTABLE  R9 := R3["label"]
+      13 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+      14 [   0] JMP       jmp +1 -> 16
+      15 [   0] LOADK     R9 := ""
+      16 [   0] CLOSURE   R10 := closure #0
+      17 [   0] GETGLOBAL R11 := _G["ui"]
+      18 [   0] GETTABLE  R11 := R11["createContainer"]
+      19 [   0] NEWTABLE  R12 := {} (array 0, hash 2)
+      20 [   0] GETTABLE  R13 := R3["layout"]
+      21 [   0] TEST      if (R13 truthy) ~= 1 then skip next
+      22 [   0] JMP       jmp +1 -> 24
+      23 [   0] LOADK     R13 := "default.center"
+      24 [   0] SETTABLE  R12["layout"] := R13
+      25 [   0] GETTABLE  R13 := R3["parent"]
+      26 [   0] SETTABLE  R12["parent"] := R13
+      27 [   0] CALL      R11(...) nargs=1 nret=1
+      28 [   0] MOVE      R1 := R11
+      29 [   0] GETGLOBAL R11 := _G["ui"]
+      30 [   0] GETTABLE  R11 := R11["createLabel"]
+      31 [   0] NEWTABLE  R12 := {} (array 0, hash 5)
+      32 [   0] SETTABLE  R12["parent"] := R1
+      33 [   0] GETUPVAL  R13 := upval 0
+      34 [   0] SETTABLE  R12["renderer"] := R13
+      35 [   0] SETTABLE  R12["layout"] := "default.center"
+      36 [   0] SETTABLE  R12["txt"] := R9
+      37 [   0] GETTABLE  R13 := R3["style"]
+      38 [   0] TEST      if (R13 truthy) ~= 1 then skip next
+      39 [   0] JMP       jmp +1 -> 41
+      40 [   0] LOADK     R13 := "loadingHeadline"
+      41 [   0] SETTABLE  R12["style"] := R13
+      42 [   0] CALL      R11(...) nargs=1 nret=1
+      43 [   0] SETTABLE  R1["firstNumberLabel"] := R11
+      44 [   0] GETGLOBAL R11 := _G["ui"]
+      45 [   0] GETTABLE  R11 := R11["createLabel"]
+      46 [   0] NEWTABLE  R12 := {} (array 0, hash 5)
+      47 [   0] SETTABLE  R12["parent"] := R1
+      48 [   0] GETUPVAL  R13 := upval 0
+      49 [   0] SETTABLE  R12["renderer"] := R13
+      50 [   0] SETTABLE  R12["layout"] := "default.center"
+      51 [   0] SETTABLE  R12["txt"] := R9
+      52 [   0] GETTABLE  R13 := R3["style"]
+      53 [   0] TEST      if (R13 truthy) ~= 1 then skip next
+      54 [   0] JMP       jmp +1 -> 56
+      55 [   0] LOADK     R13 := "loadingHeadline"
+      56 [   0] SETTABLE  R12["style"] := R13
+      57 [   0] CALL      R11(...) nargs=1 nret=1
+      58 [   0] SETTABLE  R1["secondNumberLabel"] := R11
+      59 [   0] GETTABLE  R11 := R1["firstNumberLabel"]
+      60 [   0] GETTABLE  R11 := R11["y"]
+      61 [   0] GETTABLE  R12 := R1["firstNumberLabel"]
+      62 [   0] SELF      R13 := R12; R12 := R12["setReferencePoint"]
+      63 [   0] GETGLOBAL R14 := _G["display"]
+      64 [   0] GETTABLE  R14 := R14["BottomCenterReferencePoint"]
+      65 [   0] CALL      R12(...) nargs=2 nret=0
+      66 [   0] GETTABLE  R12 := R1["firstNumberLabel"]
+      67 [   0] GETTABLE  R12 := R12["height"]
+      68 [   0] GETTABLE  R13 := R1["firstNumberLabel"]
+      69 [   0] DIV       R14 := R12 / 2
+      70 [   0] ADD       R14 := R11 + R14
+      71 [   0] SETTABLE  R13["y"] := R14
+      72 [   0] GETTABLE  R13 := R1["secondNumberLabel"]
+      73 [   0] GETTABLE  R13 := R13["y"]
+      74 [   0] GETTABLE  R14 := R1["secondNumberLabel"]
+      75 [   0] SELF      R15 := R14; R14 := R14["setReferencePoint"]
+      76 [   0] GETGLOBAL R16 := _G["display"]
+      77 [   0] GETTABLE  R16 := R16["TopCenterReferencePoint"]
+      78 [   0] CALL      R14(...) nargs=2 nret=0
+      79 [   0] GETTABLE  R14 := R1["secondNumberLabel"]
+      80 [   0] DIV       R15 := R12 / 2
+      81 [   0] SUB       R15 := R13 - R15
+      82 [   0] SETTABLE  R14["y"] := R15
+      83 [   0] GETTABLE  R14 := R1["firstNumberLabel"]
+      84 [   0] SETTABLE  R14["yScale"] := 1e-06
+      85 [   0] GETTABLE  R14 := R1["secondNumberLabel"]
+      86 [   0] SETTABLE  R14["yScale"] := 1e-06
+      87 [   0] CLOSURE   R14 := closure #1
+      88 [   0] MOVE      R0 := R1
+      89 [   0] MOVE      R0 := R9
+      90 [   0] MOVE      R0 := R2
+      91 [   0] MOVE      R0 := R11
+      92 [   0] MOVE      R0 := R12
+      93 [   0] MOVE      R0 := R5
+      94 [   0] MOVE      R0 := R8
+      95 [   0] SETTABLE  R1["start"] := R14
+      96 [   0] CLOSURE   R14 := closure #2
+      97 [   0] CLOSURE   R15 := closure #3
+      98 [   0] MOVE      R0 := R1
+      99 [   0] MOVE      R0 := R2
+     100 [   0] MOVE      R0 := R10
+     101 [   0] MOVE      R0 := R9
+     102 [   0] MOVE      R0 := R11
+     103 [   0] MOVE      R0 := R12
+     104 [   0] MOVE      R0 := R5
+     105 [   0] MOVE      R0 := R8
+     106 [   0] MOVE      R0 := R13
+     107 [   0] MOVE      R0 := R6
+     108 [   0] SETTABLE  R1["update"] := R15
+     109 [   0] CLOSURE   R15 := closure #4
+     110 [   0] MOVE      R0 := R7
+     111 [   0] MOVE      R0 := R1
+     112 [   0] MOVE      R0 := R8
+     113 [   0] SETTABLE  R1["fadeOut"] := R15
+     114 [   0] CLOSURE   R15 := closure #5
+     115 [   0] MOVE      R0 := R14
+     116 [   0] MOVE      R0 := R5
+     117 [   0] MOVE      R0 := R6
+     118 [   0] MOVE      R0 := R7
+     119 [   0] MOVE      R0 := R2
+     120 [   0] MOVE      R0 := R10
+     121 [   0] MOVE      R0 := R1
+     122 [   0] SETTABLE  R1["exit"] := R15
+     123 [   0] CLOSURE   R15 := closure #6
+     124 [   0] MOVE      R0 := R10
+     125 [   0] MOVE      R0 := R1
+     126 [   0] MOVE      R0 := R2
+     127 [   0] SETTABLE  R1["enter"] := R15
+     128 [   0] CLOSURE   R15 := closure #7
+     129 [   0] MOVE      R0 := R1
+     130 [   0] SETTABLE  R1["destroy"] := R15
+     131 [   0] GETUPVAL  R15 := upval 1
+     132 [   0] GETTABLE  R15 := R15["inherit"]
+     133 [   0] MOVE      R16 := R1
+     134 [   0] LOADK     R17 := "_flaregames_remove"
+     135 [   0] CLOSURE   R18 := closure #8
+     136 [   0] MOVE      R0 := R1
+     137 [   0] CALL      R15(...) nargs=3 nret=0
+     138 [   0] RETURN    return R1.. (1 values)
+     139 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 25-27, upvals=[], locals=[])
+      constants: strings=['isVisible'] numbers=[]
+         0 [   0] SETTABLE  R0["isVisible"] := R1
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 63-68, upvals=[], locals=[])
+      constants: strings=['firstNumberLabel', 'setReferencePoint', 'display', 'BottomCenterReferencePoint', 'update', 'txt', ' ', 'y', 'transition', 'to', 'time', 'yScale'] numbers=[2, 1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["firstNumberLabel"]
+         2 [   0] SELF      R1 := R0; R0 := R0["setReferencePoint"]
+         3 [   0] GETGLOBAL R2 := _G["display"]
+         4 [   0] GETTABLE  R2 := R2["BottomCenterReferencePoint"]
+         5 [   0] CALL      R0(...) nargs=2 nret=0
+         6 [   0] GETUPVAL  R0 := upval 0
+         7 [   0] GETTABLE  R0 := R0["firstNumberLabel"]
+         8 [   0] GETTABLE  R0 := R0["update"]
+         9 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+        10 [   0] GETUPVAL  R2 := upval 1
+        11 [   0] LOADK     R3 := " "
+        12 [   0] GETUPVAL  R4 := upval 2
+        13 [   0] CONCAT    R2 := R2 .. ... .. R4
+        14 [   0] SETTABLE  R1["txt"] := R2
+        15 [   0] CALL      R0(...) nargs=1 nret=0
+        16 [   0] GETUPVAL  R0 := upval 0
+        17 [   0] GETTABLE  R0 := R0["firstNumberLabel"]
+        18 [   0] GETUPVAL  R1 := upval 3
+        19 [   0] GETUPVAL  R2 := upval 4
+        20 [   0] DIV       R2 := R2 / 2
+        21 [   0] ADD       R1 := R1 + R2
+        22 [   0] SETTABLE  R0["y"] := R1
+        23 [   0] GETGLOBAL R0 := _G["transition"]
+        24 [   0] GETTABLE  R0 := R0["to"]
+        25 [   0] GETUPVAL  R1 := upval 0
+        26 [   0] GETTABLE  R1 := R1["firstNumberLabel"]
+        27 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+        28 [   0] GETUPVAL  R3 := upval 6
+        29 [   0] SETTABLE  R2["time"] := R3
+        30 [   0] SETTABLE  R2["yScale"] := 1
+        31 [   0] CALL      R0(...) nargs=2 nret=1
+        32 [   0] SETUPVAL  upval 5 := R0
+        33 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 70-75, upvals=[], locals=[])
+      constants: strings=['transition', 'cancel'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +4 -> 6
+         2 [   0] GETGLOBAL R1 := _G["transition"]
+         3 [   0] GETTABLE  R1 := R1["cancel"]
+         4 [   0] MOVE      R2 := R0
+         5 [   0] CALL      R1(...) nargs=1 nret=0
+         6 [   0] LOADNIL   R0..R0 := nil
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 79-101, upvals=[], locals=[])
+      constants: strings=['firstNumberLabel', 'yScale', 'secondNumberLabel', 'setReferencePoint', 'display', 'TopCenterReferencePoint', 'update', 'txt', ' ', 'y', 'transition', 'to', 'time', 'onComplete', 'BottomCenterReferencePoint'] numbers=[1, 1e-06, 2]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["firstNumberLabel"]
+         2 [   0] SETTABLE  R1["yScale"] := 1
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["secondNumberLabel"]
+         5 [   0] SETTABLE  R1["yScale"] := 1e-06
+         6 [   0] GETUPVAL  R1 := upval 1
+         7 [   0] TESTSET   if (R0 truthy) == 1 then R2 := R0 else skip next
+         8 [   0] JMP       jmp +2 -> 11
+         9 [   0] GETUPVAL  R2 := upval 1
+        10 [   0] ADD       R2 := R2 + 1
+        11 [   0] GETUPVAL  R3 := upval 2
+        12 [   0] GETUPVAL  R4 := upval 0
+        13 [   0] GETTABLE  R4 := R4["firstNumberLabel"]
+        14 [   0] LOADBOOL  R5 := True
+        15 [   0] CALL      R3(...) nargs=2 nret=0
+        16 [   0] GETUPVAL  R3 := upval 2
+        17 [   0] GETUPVAL  R4 := upval 0
+        18 [   0] GETTABLE  R4 := R4["secondNumberLabel"]
+        19 [   0] LOADBOOL  R5 := True
+        20 [   0] CALL      R3(...) nargs=2 nret=0
+        21 [   0] GETUPVAL  R3 := upval 0
+        22 [   0] GETTABLE  R3 := R3["firstNumberLabel"]
+        23 [   0] SELF      R4 := R3; R3 := R3["setReferencePoint"]
+        24 [   0] GETGLOBAL R5 := _G["display"]
+        25 [   0] GETTABLE  R5 := R5["TopCenterReferencePoint"]
+        26 [   0] CALL      R3(...) nargs=2 nret=0
+        27 [   0] GETUPVAL  R3 := upval 0
+        28 [   0] GETTABLE  R3 := R3["firstNumberLabel"]
+        29 [   0] GETTABLE  R3 := R3["update"]
+        30 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+        31 [   0] GETUPVAL  R5 := upval 3
+        32 [   0] LOADK     R6 := " "
+        33 [   0] MOVE      R7 := R1
+        34 [   0] CONCAT    R5 := R5 .. ... .. R7
+        35 [   0] SETTABLE  R4["txt"] := R5
+        36 [   0] CALL      R3(...) nargs=1 nret=0
+        37 [   0] GETUPVAL  R3 := upval 0
+        38 [   0] GETTABLE  R3 := R3["firstNumberLabel"]
+        39 [   0] GETUPVAL  R4 := upval 4
+        40 [   0] GETUPVAL  R5 := upval 5
+        41 [   0] DIV       R5 := R5 / 2
+        42 [   0] SUB       R4 := R4 - R5
+        43 [   0] SETTABLE  R3["y"] := R4
+        44 [   0] GETGLOBAL R3 := _G["transition"]
+        45 [   0] GETTABLE  R3 := R3["to"]
+        46 [   0] GETUPVAL  R4 := upval 0
+        47 [   0] GETTABLE  R4 := R4["firstNumberLabel"]
+        48 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+        49 [   0] GETUPVAL  R6 := upval 7
+        50 [   0] SETTABLE  R5["time"] := R6
+        51 [   0] SETTABLE  R5["yScale"] := 1e-06
+        52 [   0] CLOSURE   R6 := closure #0
+        53 [   0] GETUPVAL  R0 := upval 2
+        54 [   0] GETUPVAL  R0 := upval 0
+        55 [   0] SETTABLE  R5["onComplete"] := R6
+        56 [   0] CALL      R3(...) nargs=2 nret=1
+        57 [   0] SETUPVAL  upval 6 := R3
+        58 [   0] GETUPVAL  R3 := upval 0
+        59 [   0] GETTABLE  R3 := R3["secondNumberLabel"]
+        60 [   0] SELF      R4 := R3; R3 := R3["setReferencePoint"]
+        61 [   0] GETGLOBAL R5 := _G["display"]
+        62 [   0] GETTABLE  R5 := R5["BottomCenterReferencePoint"]
+        63 [   0] CALL      R3(...) nargs=2 nret=0
+        64 [   0] GETUPVAL  R3 := upval 0
+        65 [   0] GETTABLE  R3 := R3["secondNumberLabel"]
+        66 [   0] GETTABLE  R3 := R3["update"]
+        67 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+        68 [   0] GETUPVAL  R5 := upval 3
+        69 [   0] LOADK     R6 := " "
+        70 [   0] MOVE      R7 := R2
+        71 [   0] CONCAT    R5 := R5 .. ... .. R7
+        72 [   0] SETTABLE  R4["txt"] := R5
+        73 [   0] CALL      R3(...) nargs=1 nret=0
+        74 [   0] GETUPVAL  R3 := upval 0
+        75 [   0] GETTABLE  R3 := R3["secondNumberLabel"]
+        76 [   0] GETUPVAL  R4 := upval 8
+        77 [   0] GETUPVAL  R5 := upval 5
+        78 [   0] DIV       R5 := R5 / 2
+        79 [   0] ADD       R4 := R4 + R5
+        80 [   0] SETTABLE  R3["y"] := R4
+        81 [   0] GETGLOBAL R3 := _G["transition"]
+        82 [   0] GETTABLE  R3 := R3["to"]
+        83 [   0] GETUPVAL  R4 := upval 0
+        84 [   0] GETTABLE  R4 := R4["secondNumberLabel"]
+        85 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+        86 [   0] GETUPVAL  R6 := upval 7
+        87 [   0] SETTABLE  R5["time"] := R6
+        88 [   0] SETTABLE  R5["yScale"] := 1
+        89 [   0] CALL      R3(...) nargs=2 nret=1
+        90 [   0] SETUPVAL  upval 9 := R3
+        91 [   0] SETUPVAL  upval 1 := R2
+        92 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#3.#0 (params=0, lines 92-92, upvals=[], locals=[])
+        constants: strings=['firstNumberLabel'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] GETTABLE  R1 := R1["firstNumberLabel"]
+           3 [   0] LOADBOOL  R2 := False
+           4 [   0] CALL      R0(...) nargs=2 nret=0
+           5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 103-105, upvals=[], locals=[])
+      constants: strings=['transition', 'to', 'time', 'alpha'] numbers=[0]
+         0 [   0] GETGLOBAL R0 := _G["transition"]
+         1 [   0] GETTABLE  R0 := R0["to"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+         4 [   0] GETUPVAL  R3 := upval 2
+         5 [   0] SETTABLE  R2["time"] := R3
+         6 [   0] SETTABLE  R2["alpha"] := 0
+         7 [   0] CALL      R0(...) nargs=2 nret=1
+         8 [   0] SETUPVAL  upval 0 := R0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 107-114, upvals=[], locals=[])
+      constants: strings=['firstNumberLabel', 'secondNumberLabel'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] CALL      R0(...) nargs=1 nret=0
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] GETUPVAL  R1 := upval 2
+         5 [   0] CALL      R0(...) nargs=1 nret=0
+         6 [   0] GETUPVAL  R0 := upval 0
+         7 [   0] GETUPVAL  R1 := upval 3
+         8 [   0] CALL      R0(...) nargs=1 nret=0
+         9 [   0] LOADK     R0 := 1
+        10 [   0] SETUPVAL  upval 4 := R0
+        11 [   0] GETUPVAL  R0 := upval 5
+        12 [   0] GETUPVAL  R1 := upval 6
+        13 [   0] GETTABLE  R1 := R1["firstNumberLabel"]
+        14 [   0] LOADBOOL  R2 := False
+        15 [   0] CALL      R0(...) nargs=2 nret=0
+        16 [   0] GETUPVAL  R0 := upval 5
+        17 [   0] GETUPVAL  R1 := upval 6
+        18 [   0] GETTABLE  R1 := R1["secondNumberLabel"]
+        19 [   0] LOADBOOL  R2 := False
+        20 [   0] CALL      R0(...) nargs=2 nret=0
+        21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 116-121, upvals=[], locals=[])
+      constants: strings=['firstNumberLabel', 'secondNumberLabel', 'start'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] GETTABLE  R1 := R1["firstNumberLabel"]
+         3 [   0] LOADBOOL  R2 := True
+         4 [   0] CALL      R0(...) nargs=2 nret=0
+         5 [   0] GETUPVAL  R0 := upval 0
+         6 [   0] GETUPVAL  R1 := upval 1
+         7 [   0] GETTABLE  R1 := R1["secondNumberLabel"]
+         8 [   0] LOADBOOL  R2 := False
+         9 [   0] CALL      R0(...) nargs=2 nret=0
+        10 [   0] LOADK     R0 := 1
+        11 [   0] SETUPVAL  upval 2 := R0
+        12 [   0] GETUPVAL  R0 := upval 1
+        13 [   0] GETTABLE  R0 := R0["start"]
+        14 [   0] CALL      R0(...) nargs=0 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 123-125, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 127-129, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,130 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['fglib', 'utils', 'Util', 'logging', 'Logger', 'getEnemies', 'getNearestEnemyIdx', 'getTapRatingCoins', 'getWaves', 'getMaxCoinsDisplayed'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["fglib"]
+     1 [   0] GETTABLE  R0 := R0["utils"]
+     2 [   0] GETTABLE  R0 := R0["Util"]
+     3 [   0] GETGLOBAL R1 := _G["fglib"]
+     4 [   0] GETTABLE  R1 := R1["logging"]
+     5 [   0] GETTABLE  R1 := R1["Logger"]
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] CLOSURE   R3 := closure #1
+     8 [   0] CLOSURE   R4 := closure #2
+     9 [   0] MOVE      R0 := R0
+    10 [   0] CLOSURE   R5 := closure #3
+    11 [   0] CLOSURE   R6 := closure #4
+    12 [   0] MOVE      R0 := R5
+    13 [   0] NEWTABLE  R7 := {} (array 0, hash 5)
+    14 [   0] SETTABLE  R7["getEnemies"] := R2
+    15 [   0] SETTABLE  R7["getNearestEnemyIdx"] := R4
+    16 [   0] SETTABLE  R7["getTapRatingCoins"] := R6
+    17 [   0] SETTABLE  R7["getWaves"] := R3
+    18 [   0] SETTABLE  R7["getMaxCoinsDisplayed"] := R5
+    19 [   0] RETURN    return R7.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 11-20, upvals=[], locals=[])
+    constants: strings=['waves', 'enemies'] numbers=[1]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] LOADK     R2 := 1
+       2 [   0] GETTABLE  R3 := R0["waves"]
+       3 [   0] LEN       R3 := #R3
+       4 [   0] LOADK     R4 := 1
+       5 [   0] FORPREP   for R2.. jmp +13
+       6 [   0] GETTABLE  R6 := R0["waves"]
+       7 [   0] GETTABLE  R6 := R6[R5]
+       8 [   0] LOADK     R7 := 1
+       9 [   0] GETTABLE  R8 := R6["enemies"]
+      10 [   0] LEN       R8 := #R8
+      11 [   0] LOADK     R9 := 1
+      12 [   0] FORPREP   for R7.. jmp +5
+      13 [   0] LEN       R11 := #R1
+      14 [   0] ADD       R11 := R11 + 1
+      15 [   0] GETTABLE  R12 := R6["enemies"]
+      16 [   0] GETTABLE  R12 := R12[R10]
+      17 [   0] SETTABLE  R1[R11] := R12
+      18 [   0] FORLOOP   forloop R7 jmp -6
+      19 [   0] FORLOOP   forloop R2 jmp -14
+      20 [   0] RETURN    return R1.. (1 values)
+      21 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 22-28, upvals=[], locals=[])
+    constants: strings=['waves'] numbers=[1]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] LOADK     R2 := 1
+       2 [   0] GETTABLE  R3 := R0["waves"]
+       3 [   0] LEN       R3 := #R3
+       4 [   0] LOADK     R4 := 1
+       5 [   0] FORPREP   for R2.. jmp +5
+       6 [   0] LEN       R6 := #R1
+       7 [   0] ADD       R6 := R6 + 1
+       8 [   0] GETTABLE  R7 := R0["waves"]
+       9 [   0] GETTABLE  R7 := R7[R5]
+      10 [   0] SETTABLE  R1[R6] := R7
+      11 [   0] FORLOOP   forloop R2 jmp -6
+      12 [   0] RETURN    return R1.. (1 values)
+      13 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=3, lines 30-41, upvals=[], locals=[])
+    constants: strings=['distance', 'x', 'y'] numbers=[1]
+       0 [   0] LOADK     R5 := 1
+       1 [   0] LEN       R6 := #R2
+       2 [   0] LOADK     R7 := 1
+       3 [   0] FORPREP   for R5.. jmp +19
+       4 [   0] GETUPVAL  R9 := upval 0
+       5 [   0] GETTABLE  R9 := R9["distance"]
+       6 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+       7 [   0] SETTABLE  R10["x"] := R0
+       8 [   0] SETTABLE  R10["y"] := R1
+       9 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      10 [   0] GETTABLE  R12 := R2[R8]
+      11 [   0] GETTABLE  R12 := R12["x"]
+      12 [   0] SETTABLE  R11["x"] := R12
+      13 [   0] GETTABLE  R12 := R2[R8]
+      14 [   0] GETTABLE  R12 := R12["y"]
+      15 [   0] SETTABLE  R11["y"] := R12
+      16 [   0] CALL      R9(...) nargs=2 nret=1
+      17 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      18 [   0] JMP       jmp +2 -> 21
+      19 [   0] LT        if (R9 < R3) ~= 0 then skip next
+      20 [   0] JMP       jmp +2 -> 23
+      21 [   0] MOVE      R3 := R9
+      22 [   0] MOVE      R4 := R8
+      23 [   0] FORLOOP   forloop R5 jmp -20
+      24 [   0] MOVE      R5 := R4
+      25 [   0] MOVE      R6 := R3
+      26 [   0] RETURN    return R5.. (2 values)
+      27 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=0, lines 43-45, upvals=[], locals=[])
+    constants: strings=[] numbers=[7]
+       0 [   0] LOADK     R0 := 7
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=2, lines 47-57, upvals=[], locals=[])
+    constants: strings=['math', 'abs', 'width'] numbers=[0.5, 1, 2, 4, 0]
+       0 [   0] GETGLOBAL R2 := _G["math"]
+       1 [   0] GETTABLE  R2 := R2["abs"]
+       2 [   0] GETTABLE  R3 := R1["width"]
+       3 [   0] CALL      R2(...) nargs=1 nret=1
+       4 [   0] MUL       R3 := R2 * 0.5
+       5 [   0] LE        if (R0 <= R3) ~= 0 then skip next
+       6 [   0] JMP       jmp +5 -> 12
+       7 [   0] GETUPVAL  R3 := upval 0
+       8 [   0] CALL      R3(...) nargs=0 nret=1
+       9 [   0] LOADK     R4 := 1
+      10 [   0] RETURN    return R3.. (2 values)
+      11 [   0] JMP       jmp +17 -> 29
+      12 [   0] MUL       R3 := R2 * 0.5
+      13 [   0] LT        if (R3 < R0) ~= 0 then skip next
+      14 [   0] JMP       jmp +9 -> 24
+      15 [   0] GETTABLE  R3 := R1["width"]
+      16 [   0] LE        if (R0 <= R3) ~= 0 then skip next
+      17 [   0] JMP       jmp +6 -> 24
+      18 [   0] GETUPVAL  R3 := upval 0
+      19 [   0] CALL      R3(...) nargs=0 nret=1
+      20 [   0] SUB       R3 := R3 - 2
+      21 [   0] LOADK     R4 := 0.5
+      22 [   0] RETURN    return R3.. (2 values)
+      23 [   0] JMP       jmp +5 -> 29
+      24 [   0] GETUPVAL  R3 := upval 0
+      25 [   0] CALL      R3(...) nargs=0 nret=1
+      26 [   0] SUB       R3 := R3 - 4
+      27 [   0] LOADK     R4 := 0
+      28 [   0] RETURN    return R3.. (2 values)
+      29 [   0] RETURN    return R0.. (0 values)

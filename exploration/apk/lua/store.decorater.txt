@@ -1,0 +1,61 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['decorate'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["decorate"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 9-46, upvals=[], locals=[])
+    constants: strings=['pairs', 'productIdentifier', 'pid', 'isConsumable', 'consumable', 'type', 'ressource', 'amount', 'title', 'icon', 'description', 'localizedPrice', 'price', 'usergroup', 'replacesProductId', 'replacesProductIdentifier', 'table', 'insert', 'items', 'filter', 'promotion'] numbers=[]
+       0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       1 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       2 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+       3 [   0] GETGLOBAL R5 := _G["pairs"]
+       4 [   0] MOVE      R6 := R0
+       5 [   0] CALL      R5(...) nargs=1 nret=3
+       6 [   0] JMP       jmp +32 -> 39
+       7 [   0] NEWTABLE  R10 := {} (array 0, hash 11)
+       8 [   0] GETTABLE  R11 := R9["pid"]
+       9 [   0] SETTABLE  R10["productIdentifier"] := R11
+      10 [   0] GETTABLE  R11 := R9["consumable"]
+      11 [   0] SETTABLE  R10["isConsumable"] := R11
+      12 [   0] SETTABLE  R10["type"] := "ressource"
+      13 [   0] GETTABLE  R11 := R9["amount"]
+      14 [   0] SETTABLE  R10["amount"] := R11
+      15 [   0] GETTABLE  R11 := R9["title"]
+      16 [   0] SETTABLE  R10["title"] := R11
+      17 [   0] GETTABLE  R11 := R9["icon"]
+      18 [   0] SETTABLE  R10["icon"] := R11
+      19 [   0] GETTABLE  R11 := R9["description"]
+      20 [   0] SETTABLE  R10["description"] := R11
+      21 [   0] GETTABLE  R11 := R9["localizedPrice"]
+      22 [   0] SETTABLE  R10["localizedPrice"] := R11
+      23 [   0] GETTABLE  R11 := R9["price"]
+      24 [   0] SETTABLE  R10["price"] := R11
+      25 [   0] GETTABLE  R11 := R9["usergroup"]
+      26 [   0] SETTABLE  R10["usergroup"] := R11
+      27 [   0] GETTABLE  R11 := R9["replacesProductIdentifier"]
+      28 [   0] SETTABLE  R10["replacesProductId"] := R11
+      29 [   0] GETGLOBAL R11 := _G["table"]
+      30 [   0] GETTABLE  R11 := R11["insert"]
+      31 [   0] MOVE      R12 := R2
+      32 [   0] MOVE      R13 := R10
+      33 [   0] CALL      R11(...) nargs=2 nret=0
+      34 [   0] GETGLOBAL R11 := _G["table"]
+      35 [   0] GETTABLE  R11 := R11["insert"]
+      36 [   0] MOVE      R12 := R3
+      37 [   0] GETTABLE  R13 := R9["pid"]
+      38 [   0] CALL      R11(...) nargs=2 nret=0
+      39 [   0] TFORLOOP  tforloop R5 nres=2
+      40 [   0] JMP       jmp -34 -> 7
+      41 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      42 [   0] JMP       jmp +3 -> 46
+      43 [   0] EQ        if (R1 == None) ~= 1 then skip next
+      44 [   0] JMP       jmp +1 -> 46
+      45 [   0] MOVE      R4 := R1
+      46 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+      47 [   0] SETTABLE  R5["items"] := R2
+      48 [   0] SETTABLE  R5["filter"] := R3
+      49 [   0] SETTABLE  R5["promotion"] := R4
+      50 [   0] RETURN    return R5.. (1 values)
+      51 [   0] RETURN    return R0.. (0 values)

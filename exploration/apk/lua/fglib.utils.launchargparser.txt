@@ -1,0 +1,82 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'getInstance'] numbers=[1]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "logging.logger"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] LOADK     R2 := 1
+     7 [   0] CLOSURE   R3 := closure #0
+     8 [   0] MOVE      R0 := R1
+     9 [   0] MOVE      R0 := R2
+    10 [   0] CLOSURE   R4 := closure #1
+    11 [   0] MOVE      R0 := R3
+    12 [   0] LOADNIL   R5..R5 := nil
+    13 [   0] CLOSURE   R6 := closure #2
+    14 [   0] MOVE      R0 := R5
+    15 [   0] MOVE      R0 := R4
+    16 [   0] SETTABLE  R0["getInstance"] := R6
+    17 [   0] RETURN    return R0.. (1 values)
+    18 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 13-41, upvals=[], locals=[])
+    constants: strings=['parse'] numbers=[]
+       0 [   0] CLOSURE   R1 := closure #0
+       1 [   0] GETUPVAL  R0 := upval 0
+       2 [   0] GETUPVAL  R0 := upval 1
+       3 [   0] SETTABLE  R0["parse"] := R1
+       4 [   0] RETURN    return R0.. (1 values)
+       5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 15-38, upvals=[], locals=[])
+      constants: strings=['url', 'string', 'gmatch', '(%w+)=(%w+)', 'notification', 'custom', 'logmsg', 'ASPECT_INIT', ''] numbers=[1]
+         0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] RETURN    return R0.. (0 values)
+         3 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+         4 [   0] GETTABLE  R2 := R0["url"]
+         5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +10 -> 17
+         7 [   0] GETGLOBAL R2 := _G["string"]
+         8 [   0] GETTABLE  R2 := R2["gmatch"]
+         9 [   0] GETTABLE  R3 := R0["url"]
+        10 [   0] LOADK     R4 := "(%w+)=(%w+)"
+        11 [   0] CALL      R2(...) nargs=2 nret=3
+        12 [   0] JMP       jmp +1 -> 14
+        13 [   0] SETTABLE  R1[R5] := R6
+        14 [   0] TFORLOOP  tforloop R2 nres=2
+        15 [   0] JMP       jmp -3 -> 13
+        16 [   0] JMP       jmp +14 -> 31
+        17 [   0] GETTABLE  R2 := R0["notification"]
+        18 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        19 [   0] JMP       jmp +3 -> 23
+        20 [   0] GETTABLE  R2 := R0["notification"]
+        21 [   0] GETTABLE  R1 := R2["custom"]
+        22 [   0] JMP       jmp +8 -> 31
+        23 [   0] GETUPVAL  R2 := upval 0
+        24 [   0] GETTABLE  R2 := R2["logmsg"]
+        25 [   0] GETUPVAL  R3 := upval 1
+        26 [   0] GETUPVAL  R4 := upval 0
+        27 [   0] GETTABLE  R4 := R4["ASPECT_INIT"]
+        28 [   0] LOADK     R5 := 1
+        29 [   0] LOADK     R6 := ""
+        30 [   0] CALL      R2(...) nargs=4 nret=0
+        31 [   0] RETURN    return R1.. (1 values)
+        32 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 43-45, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       2 [   0] TAILCALL  return R0(...) nargs=1
+       3 [   0] RETURN    return R0.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 48-53, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,284 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'ui.renderer.iconbuttonrenderer', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "ui.renderer.iconbuttonrenderer"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "util.util"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] MOVE      R0 := R0
+     8 [   0] MOVE      R0 := R1
+     9 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+    10 [   0] SETTABLE  R3["create"] := R2
+    11 [   0] RETURN    return R3.. (1 values)
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 12-145, upvals=[], locals=[])
+    constants: strings=['parent', 'ui', 'createContainer', 'layout', 'levelUpAttributePart.container', 'levelUpAttributePart.attributeImg', 'img', 'createLabel', 'levelUpAttributePart.attributeCountLabel', 'renderer', 'require', 'UI_LIB_PATH', 'renderer.shadowedlabelrenderer', 'txt', '', 'style', 'defaultBold', 'createButton', 'levelUpAttributePart.attributeMinusBtn', 'eventid', 'comp_levelup_attribute_minus_button', 'borderImg', 'assets/gfx/hud/commons/hud_smallbutton_frame.png', 'fillImg', 'assets/gfx/hud/commons/hud_smallbutton_fill.png', 'activeIcn', 'assets/gfx/hud/icons/minus_icon_active.png', 'inactiveIcn', 'assets/gfx/hud/icons/minus_icon_inactive.png', 'ret', 'cb', 'levelUpAttributePart.attributePlusBtn', 'comp_levelup_attribute_plus_button', 'assets/gfx/hud/icons/plus_icon_active.png', 'assets/gfx/hud/icons/plus_icon_inactive.png', 'updateVisibilityOfButtons', 'lockAllButtons', 'update', 'updateAttributeValue', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[1]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] LOADNIL   R2..R3 := nil
+       2 [   0] LOADK     R4 := 1
+       3 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       4 [   0] JMP       jmp +5 -> 10
+       5 [   0] GETTABLE  R5 := R0["parent"]
+       6 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+       7 [   0] JMP       jmp +2 -> 10
+       8 [   0] GETTABLE  R1 := R0["parent"]
+       9 [   0] JMP       jmp +6 -> 16
+      10 [   0] GETGLOBAL R5 := _G["ui"]
+      11 [   0] GETTABLE  R5 := R5["createContainer"]
+      12 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      13 [   0] SETTABLE  R6["layout"] := "levelUpAttributePart.container"
+      14 [   0] CALL      R5(...) nargs=1 nret=1
+      15 [   0] MOVE      R1 := R5
+      16 [   0] GETGLOBAL R5 := _G["ui"]
+      17 [   0] GETTABLE  R5 := R5["createContainer"]
+      18 [   0] NEWTABLE  R6 := {} (array 0, hash 3)
+      19 [   0] SETTABLE  R6["parent"] := R1
+      20 [   0] SETTABLE  R6["layout"] := "levelUpAttributePart.attributeImg"
+      21 [   0] GETTABLE  R7 := R0["img"]
+      22 [   0] SETTABLE  R6["img"] := R7
+      23 [   0] CALL      R5(...) nargs=1 nret=1
+      24 [   0] GETGLOBAL R6 := _G["ui"]
+      25 [   0] GETTABLE  R6 := R6["createLabel"]
+      26 [   0] NEWTABLE  R7 := {} (array 0, hash 5)
+      27 [   0] SETTABLE  R7["parent"] := R1
+      28 [   0] SETTABLE  R7["layout"] := "levelUpAttributePart.attributeCountLabel"
+      29 [   0] GETGLOBAL R8 := _G["require"]
+      30 [   0] GETGLOBAL R9 := _G["UI_LIB_PATH"]
+      31 [   0] LOADK     R10 := "renderer.shadowedlabelrenderer"
+      32 [   0] CONCAT    R9 := R9 .. ... .. R10
+      33 [   0] CALL      R8(...) nargs=1 nret=1
+      34 [   0] SETTABLE  R7["renderer"] := R8
+      35 [   0] SETTABLE  R7["txt"] := ""
+      36 [   0] SETTABLE  R7["style"] := "defaultBold"
+      37 [   0] CALL      R6(...) nargs=1 nret=1
+      38 [   0] GETGLOBAL R7 := _G["ui"]
+      39 [   0] GETTABLE  R7 := R7["createButton"]
+      40 [   0] NEWTABLE  R8 := {} (array 0, hash 10)
+      41 [   0] SETTABLE  R8["parent"] := R1
+      42 [   0] SETTABLE  R8["layout"] := "levelUpAttributePart.attributeMinusBtn"
+      43 [   0] SETTABLE  R8["eventid"] := "comp_levelup_attribute_minus_button"
+      44 [   0] GETUPVAL  R9 := upval 0
+      45 [   0] SETTABLE  R8["renderer"] := R9
+      46 [   0] SETTABLE  R8["borderImg"] := "assets/gfx/hud/commons/hud_smallbutton_frame.png"
+      47 [   0] SETTABLE  R8["fillImg"] := "assets/gfx/hud/commons/hud_smallbutton_fill.png"
+      48 [   0] SETTABLE  R8["activeIcn"] := "assets/gfx/hud/icons/minus_icon_active.png"
+      49 [   0] SETTABLE  R8["inactiveIcn"] := "assets/gfx/hud/icons/minus_icon_inactive.png"
+      50 [   0] SETTABLE  R8["ret"] := True
+      51 [   0] CLOSURE   R9 := closure #0
+      52 [   0] MOVE      R0 := R1
+      53 [   0] MOVE      R0 := R2
+      54 [   0] SETTABLE  R8["cb"] := R9
+      55 [   0] CALL      R7(...) nargs=1 nret=1
+      56 [   0] GETGLOBAL R8 := _G["ui"]
+      57 [   0] GETTABLE  R8 := R8["createButton"]
+      58 [   0] NEWTABLE  R9 := {} (array 0, hash 10)
+      59 [   0] SETTABLE  R9["parent"] := R1
+      60 [   0] SETTABLE  R9["layout"] := "levelUpAttributePart.attributePlusBtn"
+      61 [   0] SETTABLE  R9["eventid"] := "comp_levelup_attribute_plus_button"
+      62 [   0] GETUPVAL  R10 := upval 0
+      63 [   0] SETTABLE  R9["renderer"] := R10
+      64 [   0] SETTABLE  R9["borderImg"] := "assets/gfx/hud/commons/hud_smallbutton_frame.png"
+      65 [   0] SETTABLE  R9["fillImg"] := "assets/gfx/hud/commons/hud_smallbutton_fill.png"
+      66 [   0] SETTABLE  R9["activeIcn"] := "assets/gfx/hud/icons/plus_icon_active.png"
+      67 [   0] SETTABLE  R9["inactiveIcn"] := "assets/gfx/hud/icons/plus_icon_inactive.png"
+      68 [   0] SETTABLE  R9["ret"] := True
+      69 [   0] CLOSURE   R10 := closure #1
+      70 [   0] MOVE      R0 := R1
+      71 [   0] MOVE      R0 := R2
+      72 [   0] SETTABLE  R9["cb"] := R10
+      73 [   0] CALL      R8(...) nargs=1 nret=1
+      74 [   0] CLOSURE   R9 := closure #2
+      75 [   0] MOVE      R0 := R7
+      76 [   0] MOVE      R0 := R8
+      77 [   0] SETTABLE  R1["updateVisibilityOfButtons"] := R9
+      78 [   0] CLOSURE   R9 := closure #3
+      79 [   0] MOVE      R0 := R7
+      80 [   0] MOVE      R0 := R8
+      81 [   0] SETTABLE  R1["lockAllButtons"] := R9
+      82 [   0] CLOSURE   R9 := closure #4
+      83 [   0] MOVE      R0 := R5
+      84 [   0] MOVE      R0 := R2
+      85 [   0] MOVE      R0 := R3
+      86 [   0] MOVE      R0 := R6
+      87 [   0] MOVE      R0 := R4
+      88 [   0] SETTABLE  R1["update"] := R9
+      89 [   0] CLOSURE   R9 := closure #5
+      90 [   0] MOVE      R0 := R3
+      91 [   0] MOVE      R0 := R4
+      92 [   0] MOVE      R0 := R1
+      93 [   0] SETTABLE  R1["updateAttributeValue"] := R9
+      94 [   0] GETTABLE  R9 := R1["update"]
+      95 [   0] MOVE      R10 := R0
+      96 [   0] CALL      R9(...) nargs=1 nret=0
+      97 [   0] CLOSURE   R9 := closure #6
+      98 [   0] SETTABLE  R1["enter"] := R9
+      99 [   0] CLOSURE   R9 := closure #7
+     100 [   0] SETTABLE  R1["exit"] := R9
+     101 [   0] CLOSURE   R9 := closure #8
+     102 [   0] MOVE      R0 := R1
+     103 [   0] SETTABLE  R1["destroy"] := R9
+     104 [   0] GETUPVAL  R9 := upval 1
+     105 [   0] GETTABLE  R9 := R9["inherit"]
+     106 [   0] MOVE      R10 := R1
+     107 [   0] LOADK     R11 := "_flaregames_remove"
+     108 [   0] CLOSURE   R12 := closure #9
+     109 [   0] MOVE      R0 := R1
+     110 [   0] CALL      R9(...) nargs=3 nret=0
+     111 [   0] RETURN    return R1.. (1 values)
+     112 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 52-54, upvals=[], locals=[])
+      constants: strings=['dispatchEvent', 'name', 'custom', 'sender', 'data', 'attribute', 'count'] numbers=[-1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["dispatchEvent"]
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+         3 [   0] SETTABLE  R2["name"] := "custom"
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] SETTABLE  R2["sender"] := R3
+         6 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+         7 [   0] GETUPVAL  R4 := upval 1
+         8 [   0] SETTABLE  R3["attribute"] := R4
+         9 [   0] SETTABLE  R3["count"] := -1
+        10 [   0] SETTABLE  R2["data"] := R3
+        11 [   0] CALL      R0(...) nargs=2 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 69-71, upvals=[], locals=[])
+      constants: strings=['dispatchEvent', 'name', 'custom', 'sender', 'data', 'attribute', 'count'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["dispatchEvent"]
+         2 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+         3 [   0] SETTABLE  R2["name"] := "custom"
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] SETTABLE  R2["sender"] := R3
+         6 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+         7 [   0] GETUPVAL  R4 := upval 1
+         8 [   0] SETTABLE  R3["attribute"] := R4
+         9 [   0] SETTABLE  R3["count"] := 1
+        10 [   0] SETTABLE  R2["data"] := R3
+        11 [   0] CALL      R0(...) nargs=2 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 75-94, upvals=[], locals=[])
+      constants: strings=['pointsLeft', 'distributed', 'unlock', 'lock'] numbers=[0]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +33 -> 35
+         2 [   0] GETTABLE  R1 := R0["pointsLeft"]
+         3 [   0] LT        if (0 < R1) ~= 0 then skip next
+         4 [   0] JMP       jmp +14 -> 19
+         5 [   0] GETTABLE  R1 := R0["distributed"]
+         6 [   0] LT        if (0 < R1) ~= 0 then skip next
+         7 [   0] JMP       jmp +4 -> 12
+         8 [   0] GETUPVAL  R1 := upval 0
+         9 [   0] GETTABLE  R1 := R1["unlock"]
+        10 [   0] CALL      R1(...) nargs=0 nret=0
+        11 [   0] JMP       jmp +3 -> 15
+        12 [   0] GETUPVAL  R1 := upval 0
+        13 [   0] GETTABLE  R1 := R1["lock"]
+        14 [   0] CALL      R1(...) nargs=0 nret=0
+        15 [   0] GETUPVAL  R1 := upval 1
+        16 [   0] GETTABLE  R1 := R1["unlock"]
+        17 [   0] CALL      R1(...) nargs=0 nret=0
+        18 [   0] JMP       jmp +16 -> 35
+        19 [   0] GETTABLE  R1 := R0["distributed"]
+        20 [   0] LT        if (0 < R1) ~= 0 then skip next
+        21 [   0] JMP       jmp +7 -> 29
+        22 [   0] GETUPVAL  R1 := upval 0
+        23 [   0] GETTABLE  R1 := R1["unlock"]
+        24 [   0] CALL      R1(...) nargs=0 nret=0
+        25 [   0] GETUPVAL  R1 := upval 1
+        26 [   0] GETTABLE  R1 := R1["lock"]
+        27 [   0] CALL      R1(...) nargs=0 nret=0
+        28 [   0] JMP       jmp +6 -> 35
+        29 [   0] GETUPVAL  R1 := upval 0
+        30 [   0] GETTABLE  R1 := R1["lock"]
+        31 [   0] CALL      R1(...) nargs=0 nret=0
+        32 [   0] GETUPVAL  R1 := upval 1
+        33 [   0] GETTABLE  R1 := R1["lock"]
+        34 [   0] CALL      R1(...) nargs=0 nret=0
+        35 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 96-99, upvals=[], locals=[])
+      constants: strings=['lock'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["lock"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETTABLE  R0 := R0["lock"]
+         5 [   0] CALL      R0(...) nargs=0 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 101-118, upvals=[], locals=[])
+      constants: strings=['attribute', 'update', 'img', 'attributeValue', 'txt', 'x', 'setReferencePoint', 'display', 'CenterRightReferencePoint', 'multiplier'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +36 -> 38
+         2 [   0] GETTABLE  R1 := R0["attribute"]
+         3 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +8 -> 13
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] GETTABLE  R1 := R1["update"]
+         7 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+         8 [   0] GETTABLE  R3 := R0["img"]
+         9 [   0] SETTABLE  R2["img"] := R3
+        10 [   0] CALL      R1(...) nargs=1 nret=0
+        11 [   0] GETTABLE  R1 := R0["attribute"]
+        12 [   0] SETUPVAL  upval 1 := R1
+        13 [   0] GETTABLE  R1 := R0["attributeValue"]
+        14 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +17 -> 33
+        16 [   0] GETTABLE  R1 := R0["attributeValue"]
+        17 [   0] SETUPVAL  upval 2 := R1
+        18 [   0] GETUPVAL  R1 := upval 3
+        19 [   0] GETTABLE  R1 := R1["update"]
+        20 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+        21 [   0] GETUPVAL  R3 := upval 2
+        22 [   0] SETTABLE  R2["txt"] := R3
+        23 [   0] CALL      R1(...) nargs=1 nret=0
+        24 [   0] GETUPVAL  R1 := upval 3
+        25 [   0] GETTABLE  R1 := R1["x"]
+        26 [   0] GETUPVAL  R2 := upval 3
+        27 [   0] SELF      R3 := R2; R2 := R2["setReferencePoint"]
+        28 [   0] GETGLOBAL R4 := _G["display"]
+        29 [   0] GETTABLE  R4 := R4["CenterRightReferencePoint"]
+        30 [   0] CALL      R2(...) nargs=2 nret=0
+        31 [   0] GETUPVAL  R2 := upval 3
+        32 [   0] SETTABLE  R2["x"] := R1
+        33 [   0] GETTABLE  R1 := R0["multiplier"]
+        34 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        35 [   0] JMP       jmp +2 -> 38
+        36 [   0] GETTABLE  R1 := R0["multiplier"]
+        37 [   0] SETUPVAL  upval 4 := R1
+        38 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 120-125, upvals=[], locals=[])
+      constants: strings=['audioEngine', 'playEffect', 'ui_button_switch', 'update', 'attributeValue'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["audioEngine"]
+         1 [   0] GETTABLE  R1 := R1["playEffect"]
+         2 [   0] LOADK     R2 := "ui_button_switch"
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETUPVAL  R2 := upval 1
+         6 [   0] MUL       R2 := R0 * R2
+         7 [   0] ADD       R1 := R1 + R2
+         8 [   0] SETUPVAL  upval 0 := R1
+         9 [   0] GETUPVAL  R1 := upval 2
+        10 [   0] GETTABLE  R1 := R1["update"]
+        11 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+        12 [   0] GETUPVAL  R3 := upval 0
+        13 [   0] SETTABLE  R2["attributeValue"] := R3
+        14 [   0] CALL      R1(...) nargs=1 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 130-131, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 133-134, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 136-138, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 140-142, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

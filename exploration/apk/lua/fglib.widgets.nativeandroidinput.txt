@@ -1,0 +1,253 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'native.softkeyboard', 'eventdispatcher', 'logging.logger', 'new'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "native.softkeyboard"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "eventdispatcher"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "logging.logger"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+    16 [   0] CLOSURE   R4 := closure #0
+    17 [   0] MOVE      R0 := R0
+    18 [   0] CLOSURE   R5 := closure #1
+    19 [   0] MOVE      R0 := R4
+    20 [   0] MOVE      R0 := R1
+    21 [   0] SETTABLE  R3["new"] := R5
+    22 [   0] RETURN    return R3.. (1 values)
+    23 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 14-102, upvals=[], locals=[])
+    constants: strings=['', 'onDonePressed', 'askOnClipboardResult', 'setInputFilter', 'showInput', 'getText', 'destroyInput', 'showKeyboard', 'hideKeyboard', 'pushToClipboard', 'getFromClipboard', 'destroy'] numbers=[]
+       0 [   0] LOADK     R1 := ""
+       1 [   0] CLOSURE   R2 := closure #0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] SETGLOBAL _G["onDonePressed"] := R2
+       4 [   0] CLOSURE   R2 := closure #1
+       5 [   0] MOVE      R0 := R0
+       6 [   0] SETGLOBAL _G["askOnClipboardResult"] := R2
+       7 [   0] CLOSURE   R2 := closure #2
+       8 [   0] GETUPVAL  R0 := upval 0
+       9 [   0] SETTABLE  R0["setInputFilter"] := R2
+      10 [   0] CLOSURE   R2 := closure #3
+      11 [   0] MOVE      R0 := R1
+      12 [   0] GETUPVAL  R0 := upval 0
+      13 [   0] SETTABLE  R0["showInput"] := R2
+      14 [   0] CLOSURE   R2 := closure #4
+      15 [   0] GETUPVAL  R0 := upval 0
+      16 [   0] SETTABLE  R0["getText"] := R2
+      17 [   0] CLOSURE   R2 := closure #5
+      18 [   0] GETUPVAL  R0 := upval 0
+      19 [   0] SETTABLE  R0["destroyInput"] := R2
+      20 [   0] CLOSURE   R2 := closure #6
+      21 [   0] GETUPVAL  R0 := upval 0
+      22 [   0] MOVE      R0 := R1
+      23 [   0] SETTABLE  R0["showKeyboard"] := R2
+      24 [   0] CLOSURE   R2 := closure #7
+      25 [   0] GETUPVAL  R0 := upval 0
+      26 [   0] SETTABLE  R0["hideKeyboard"] := R2
+      27 [   0] CLOSURE   R2 := closure #8
+      28 [   0] GETUPVAL  R0 := upval 0
+      29 [   0] SETTABLE  R0["pushToClipboard"] := R2
+      30 [   0] CLOSURE   R2 := closure #9
+      31 [   0] GETUPVAL  R0 := upval 0
+      32 [   0] SETTABLE  R0["getFromClipboard"] := R2
+      33 [   0] CLOSURE   R2 := closure #10
+      34 [   0] MOVE      R0 := R1
+      35 [   0] GETUPVAL  R0 := upval 0
+      36 [   0] SETTABLE  R0["destroy"] := R2
+      37 [   0] RETURN    return R0.. (1 values)
+      38 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 18-22, upvals=[], locals=[])
+      constants: strings=['print', 'emitting user finished: ', 'emit', 'userFinished'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["print"]
+         1 [   0] LOADK     R2 := "emitting user finished: "
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CONCAT    R2 := R2 .. ... .. R3
+         4 [   0] CALL      R1(...) nargs=1 nret=0
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] GETTABLE  R1 := R1["emit"]
+         7 [   0] LOADK     R2 := "userFinished"
+         8 [   0] MOVE      R3 := R0
+         9 [   0] CALL      R1(...) nargs=2 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 24-28, upvals=[], locals=[])
+      constants: strings=['print', 'emitting clipboard result: ', 'emit', 'clipboardResult', ''] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["print"]
+         1 [   0] LOADK     R2 := "emitting clipboard result: "
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CONCAT    R2 := R2 .. ... .. R3
+         4 [   0] CALL      R1(...) nargs=1 nret=0
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] GETTABLE  R1 := R1["emit"]
+         7 [   0] LOADK     R2 := "clipboardResult"
+         8 [   0] TESTSET   if (R0 truthy) == 1 then R3 := R0 else skip next
+         9 [   0] JMP       jmp +1 -> 11
+        10 [   0] LOADK     R3 := ""
+        11 [   0] CALL      R1(...) nargs=2 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 30-41, upvals=[], locals=[])
+      constants: strings=['sub', 'table', 'insert', 'setInputFilter'] numbers=[1]
+         0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+         1 [   0] LOADK     R2 := 1
+         2 [   0] LEN       R3 := #R0
+         3 [   0] LOADK     R4 := 1
+         4 [   0] FORPREP   for R2.. jmp +9
+         5 [   0] SELF      R7 := R0; R6 := R0["sub"]
+         6 [   0] MOVE      R8 := R5
+         7 [   0] MOVE      R9 := R5
+         8 [   0] CALL      R6(...) nargs=3 nret=1
+         9 [   0] GETGLOBAL R7 := _G["table"]
+        10 [   0] GETTABLE  R7 := R7["insert"]
+        11 [   0] MOVE      R8 := R1
+        12 [   0] MOVE      R9 := R6
+        13 [   0] CALL      R7(...) nargs=2 nret=0
+        14 [   0] FORLOOP   forloop R2 jmp -10
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2["setInputFilter"]
+        17 [   0] MOVE      R3 := R1
+        18 [   0] CALL      R2(...) nargs=1 nret=0
+        19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=11, lines 43-69, upvals=[], locals=[])
+      constants: strings=['display', 'screenOriginX', 'contentScaleX', 'screenOriginY', 'contentScaleY', 'showEditText', ''] numbers=[0, -1, 100, 12, 255]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] TESTSET   if (R2 truthy) == 1 then R11 := R2 else skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] LOADK     R11 := 0
+         4 [   0] GETGLOBAL R12 := _G["display"]
+         5 [   0] GETTABLE  R12 := R12["screenOriginX"]
+         6 [   0] GETGLOBAL R13 := _G["display"]
+         7 [   0] GETTABLE  R13 := R13["contentScaleX"]
+         8 [   0] DIV       R12 := R12 / R13
+         9 [   0] MUL       R12 := -1 * R12
+        10 [   0] GETGLOBAL R13 := _G["display"]
+        11 [   0] GETTABLE  R13 := R13["contentScaleX"]
+        12 [   0] DIV       R13 := R11 / R13
+        13 [   0] ADD       R11 := R12 + R13
+        14 [   0] TESTSET   if (R3 truthy) == 1 then R12 := R3 else skip next
+        15 [   0] JMP       jmp +1 -> 17
+        16 [   0] LOADK     R12 := 0
+        17 [   0] GETGLOBAL R13 := _G["display"]
+        18 [   0] GETTABLE  R13 := R13["screenOriginY"]
+        19 [   0] GETGLOBAL R14 := _G["display"]
+        20 [   0] GETTABLE  R14 := R14["contentScaleY"]
+        21 [   0] DIV       R13 := R13 / R14
+        22 [   0] MUL       R13 := -1 * R13
+        23 [   0] GETGLOBAL R14 := _G["display"]
+        24 [   0] GETTABLE  R14 := R14["contentScaleY"]
+        25 [   0] DIV       R14 := R12 / R14
+        26 [   0] ADD       R12 := R13 + R14
+        27 [   0] TESTSET   if (R4 truthy) == 1 then R13 := R4 else skip next
+        28 [   0] JMP       jmp +1 -> 30
+        29 [   0] LOADK     R13 := 100
+        30 [   0] GETGLOBAL R14 := _G["display"]
+        31 [   0] GETTABLE  R14 := R14["contentScaleX"]
+        32 [   0] DIV       R13 := R13 / R14
+        33 [   0] TESTSET   if (R5 truthy) == 1 then R14 := R5 else skip next
+        34 [   0] JMP       jmp +1 -> 36
+        35 [   0] LOADK     R14 := 100
+        36 [   0] GETGLOBAL R15 := _G["display"]
+        37 [   0] GETTABLE  R15 := R15["contentScaleY"]
+        38 [   0] DIV       R14 := R14 / R15
+        39 [   0] TESTSET   if (R1 truthy) == 1 then R15 := R1 else skip next
+        40 [   0] JMP       jmp +1 -> 42
+        41 [   0] LOADK     R15 := 12
+        42 [   0] GETGLOBAL R16 := _G["display"]
+        43 [   0] GETTABLE  R16 := R16["contentScaleX"]
+        44 [   0] DIV       R15 := R15 / R16
+        45 [   0] LOADBOOL  R16 := False
+        46 [   0] EQ        if (R10 == True) ~= 0 then skip next
+        47 [   0] JMP       jmp +1 -> 49
+        48 [   0] LOADBOOL  R16 := True
+        49 [   0] GETUPVAL  R17 := upval 1
+        50 [   0] GETTABLE  R17 := R17["showEditText"]
+        51 [   0] TESTSET   if (R9 truthy) == 1 then R18 := R9 else skip next
+        52 [   0] JMP       jmp +1 -> 54
+        53 [   0] LOADK     R18 := 255
+        54 [   0] TESTSET   if (R8 truthy) == 1 then R19 := R8 else skip next
+        55 [   0] JMP       jmp +1 -> 57
+        56 [   0] LOADK     R19 := 255
+        57 [   0] TESTSET   if (R7 truthy) == 1 then R20 := R7 else skip next
+        58 [   0] JMP       jmp +1 -> 60
+        59 [   0] LOADK     R20 := 255
+        60 [   0] TESTSET   if (R6 truthy) == 1 then R21 := R6 else skip next
+        61 [   0] JMP       jmp +1 -> 63
+        62 [   0] LOADK     R21 := 255
+        63 [   0] MOVE      R22 := R16
+        64 [   0] MOVE      R23 := R14
+        65 [   0] MOVE      R24 := R13
+        66 [   0] MOVE      R25 := R12
+        67 [   0] MOVE      R26 := R11
+        68 [   0] MOVE      R27 := R15
+        69 [   0] TESTSET   if (R0 truthy) == 1 then R28 := R0 else skip next
+        70 [   0] JMP       jmp +1 -> 72
+        71 [   0] LOADK     R28 := ""
+        72 [   0] CALL      R17(...) nargs=11 nret=0
+        73 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 71-73, upvals=[], locals=[])
+      constants: strings=['getText'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["getText"]
+         2 [   0] TAILCALL  return R0(...) nargs=0
+         3 [   0] RETURN    return R0.. (-1 values)
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 75-77, upvals=[], locals=[])
+      constants: strings=['hideEditText'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["hideEditText"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 79-81, upvals=[], locals=[])
+      constants: strings=['showKeyboard'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["showKeyboard"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 83-85, upvals=[], locals=[])
+      constants: strings=['hideKeyboard'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["hideKeyboard"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=1, lines 87-89, upvals=[], locals=[])
+      constants: strings=['pushToClipboard'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["pushToClipboard"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 91-93, upvals=[], locals=[])
+      constants: strings=['getFromClipboard'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["getFromClipboard"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 95-99, upvals=[], locals=[])
+      constants: strings=['', 'hideKeyboard', 'hideEditText'] numbers=[]
+         0 [   0] LOADK     R0 := ""
+         1 [   0] SETUPVAL  upval 0 := R0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETTABLE  R0 := R0["hideKeyboard"]
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] GETUPVAL  R0 := upval 1
+         6 [   0] GETTABLE  R0 := R0["hideEditText"]
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 104-107, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new"]
+       3 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       4 [   0] CALL      R1(...) nargs=1 nret=-1
+       5 [   0] TAILCALL  return R0(...) nargs=-1
+       6 [   0] RETURN    return R0.. (-1 values)
+       7 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,151 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['create'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["create"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 9-61, upvals=[], locals=[])
+    constants: strings=['getName', 'enter', 'leave'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] CLOSURE   R1 := closure #0
+       2 [   0] SETTABLE  R0["getName"] := R1
+       3 [   0] CLOSURE   R1 := closure #1
+       4 [   0] SETTABLE  R0["enter"] := R1
+       5 [   0] CLOSURE   R1 := closure #2
+       6 [   0] SETTABLE  R0["leave"] := R1
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 12-14, upvals=[], locals=[])
+      constants: strings=['NOT_SUPPORTED_SERVER'] numbers=[]
+         0 [   0] LOADK     R0 := "NOT_SUPPORTED_SERVER"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 16-54, upvals=[], locals=[])
+      constants: strings=['getSharedContext', 'not_supported_server_data'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["getSharedContext"]
+         1 [   0] CALL      R1(...) nargs=0 nret=1
+         2 [   0] GETTABLE  R2 := R1["not_supported_server_data"]
+         3 [   0] CLOSURE   R3 := closure #0
+         4 [   0] MOVE      R4 := R3
+         5 [   0] CALL      R4(...) nargs=0 nret=0
+         6 [   0] SETTABLE  R1["not_supported_server_data"] := None
+         7 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 20-51, upvals=[], locals=[])
+        constants: strings=['native', 'showAlert', '_T', 'Outdated Server Version', '  ', 'Ok'] numbers=[]
+           0 [   0] GETGLOBAL R0 := _G["native"]
+           1 [   0] GETTABLE  R0 := R0["showAlert"]
+           2 [   0] GETGLOBAL R1 := _G["_T"]
+           3 [   0] LOADK     R2 := "Outdated Server Version"
+           4 [   0] CALL      R1(...) nargs=1 nret=1
+           5 [   0] LOADK     R2 := "  "
+           6 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+           7 [   0] GETGLOBAL R4 := _G["_T"]
+           8 [   0] LOADK     R5 := "Ok"
+           9 [   0] CALL      R4(...) nargs=1 nret=-1
+          10 [   0] SETLIST   R3[...] := R4.. (n=0, block 1)
+          11 [   0] CLOSURE   R4 := closure #0
+          12 [   0] CALL      R0(...) nargs=4 nret=0
+          13 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#1.#0.#0 (params=0, lines 21-50, upvals=[], locals=[])
+          constants: strings=['_DEBUG', 'require', 'util.util', 'requestExit', 'util.debug.stagingserver', 'getServerList', 'pairs', 'importance', 'name', 'onNextTick'] numbers=[1]
+             0 [   0] GETGLOBAL R0 := _G["_DEBUG"]
+             1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+             2 [   0] JMP       jmp +6 -> 9
+             3 [   0] GETGLOBAL R0 := _G["require"]
+             4 [   0] LOADK     R1 := "util.util"
+             5 [   0] CALL      R0(...) nargs=1 nret=1
+             6 [   0] GETTABLE  R1 := R0["requestExit"]
+             7 [   0] CALL      R1(...) nargs=0 nret=0
+             8 [   0] JMP       jmp +29 -> 38
+             9 [   0] GETGLOBAL R0 := _G["require"]
+            10 [   0] LOADK     R1 := "util.debug.stagingserver"
+            11 [   0] CALL      R0(...) nargs=1 nret=1
+            12 [   0] GETTABLE  R1 := R0["getServerList"]
+            13 [   0] CALL      R1(...) nargs=0 nret=1
+            14 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+            15 [   0] GETGLOBAL R3 := _G["pairs"]
+            16 [   0] MOVE      R4 := R1
+            17 [   0] CALL      R3(...) nargs=1 nret=3
+            18 [   0] JMP       jmp +7 -> 26
+            19 [   0] GETTABLE  R8 := R7["importance"]
+            20 [   0] EQ        if (R8 == 1) ~= 0 then skip next
+            21 [   0] JMP       jmp +4 -> 26
+            22 [   0] LEN       R8 := #R2
+            23 [   0] ADD       R8 := R8 + 1
+            24 [   0] GETTABLE  R9 := R7["name"]
+            25 [   0] SETTABLE  R2[R8] := R9
+            26 [   0] TFORLOOP  tforloop R3 nres=2
+            27 [   0] JMP       jmp -9 -> 19
+            28 [   0] GETGLOBAL R3 := _G["require"]
+            29 [   0] LOADK     R4 := "util.util"
+            30 [   0] CALL      R3(...) nargs=1 nret=1
+            31 [   0] GETTABLE  R4 := R3["onNextTick"]
+            32 [   0] CLOSURE   R5 := closure #0
+            33 [   0] MOVE      R0 := R2
+            34 [   0] MOVE      R0 := R0
+            35 [   0] MOVE      R0 := R3
+            36 [   0] CALL      R4(...) nargs=1 nret=0
+            37 [   0] CLOSE     A=0 B=0 C=0
+            38 [   0] RETURN    return R0.. (0 values)
+          function main.#0.#1.#0.#0.#0 (params=0, lines 35-48, upvals=[], locals=[])
+            constants: strings=['native', 'showAlert', '_T', 'Choose Server', '  '] numbers=[]
+               0 [   0] GETGLOBAL R0 := _G["native"]
+               1 [   0] GETTABLE  R0 := R0["showAlert"]
+               2 [   0] GETGLOBAL R1 := _G["_T"]
+               3 [   0] LOADK     R2 := "Choose Server"
+               4 [   0] CALL      R1(...) nargs=1 nret=1
+               5 [   0] LOADK     R2 := "  "
+               6 [   0] GETUPVAL  R3 := upval 0
+               7 [   0] CLOSURE   R4 := closure #0
+               8 [   0] GETUPVAL  R0 := upval 0
+               9 [   0] GETUPVAL  R0 := upval 1
+              10 [   0] GETUPVAL  R0 := upval 2
+              11 [   0] CALL      R0(...) nargs=4 nret=0
+              12 [   0] RETURN    return R0.. (0 values)
+            function main.#0.#1.#0.#0.#0.#0 (params=1, lines 36-47, upvals=[], locals=[])
+              constants: strings=['index', 'getServerURLByName', 'require', 'server.server', 'getInstance', 'setDebugServer', 'debugOverwriteUser', 'userId', 'password', 'userName', 'timer', 'performWithDelay'] numbers=[500]
+                 0 [   0] GETUPVAL  R2 := upval 0
+                 1 [   0] GETTABLE  R3 := R0["index"]
+                 2 [   0] GETTABLE  R2 := R2[R3]
+                 3 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+                 4 [   0] JMP       jmp +7 -> 12
+                 5 [   0] GETUPVAL  R2 := upval 1
+                 6 [   0] GETTABLE  R2 := R2["getServerURLByName"]
+                 7 [   0] GETUPVAL  R3 := upval 0
+                 8 [   0] GETTABLE  R4 := R0["index"]
+                 9 [   0] GETTABLE  R3 := R3[R4]
+                10 [   0] CALL      R2(...) nargs=1 nret=1
+                11 [   0] MOVE      R1 := R2
+                12 [   0] GETGLOBAL R2 := _G["require"]
+                13 [   0] LOADK     R3 := "server.server"
+                14 [   0] CALL      R2(...) nargs=1 nret=1
+                15 [   0] GETTABLE  R2 := R2["getInstance"]
+                16 [   0] CALL      R2(...) nargs=0 nret=1
+                17 [   0] GETTABLE  R3 := R2["setDebugServer"]
+                18 [   0] MOVE      R4 := R1
+                19 [   0] CALL      R3(...) nargs=1 nret=0
+                20 [   0] GETTABLE  R3 := R2["debugOverwriteUser"]
+                21 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+                22 [   0] SETTABLE  R4["userId"] := None
+                23 [   0] GETGLOBAL R5 := _G["password"]
+                24 [   0] SETTABLE  R4["password"] := R5
+                25 [   0] GETGLOBAL R5 := _G["userName"]
+                26 [   0] SETTABLE  R4["userName"] := R5
+                27 [   0] CALL      R3(...) nargs=1 nret=0
+                28 [   0] GETGLOBAL R3 := _G["timer"]
+                29 [   0] GETTABLE  R3 := R3["performWithDelay"]
+                30 [   0] LOADK     R4 := 500
+                31 [   0] CLOSURE   R5 := closure #0
+                32 [   0] GETUPVAL  R0 := upval 2
+                33 [   0] CALL      R3(...) nargs=2 nret=0
+                34 [   0] RETURN    return R0.. (0 values)
+              function main.#0.#1.#0.#0.#0.#0.#0 (params=0, lines 44-46, upvals=[], locals=[])
+                constants: strings=['requestExit'] numbers=[]
+                   0 [   0] GETUPVAL  R0 := upval 0
+                   1 [   0] GETTABLE  R0 := R0["requestExit"]
+                   2 [   0] CALL      R0(...) nargs=0 nret=0
+                   3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 56-58, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)

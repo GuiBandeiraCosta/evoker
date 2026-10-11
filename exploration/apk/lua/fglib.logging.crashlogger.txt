@@ -1,0 +1,124 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.eventconsole', 'utils.util', 'activate'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.eventconsole"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "utils.util"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] LOADBOOL  R2 := False
+    11 [   0] CLOSURE   R3 := closure #0
+    12 [   0] MOVE      R0 := R2
+    13 [   0] MOVE      R0 := R0
+    14 [   0] MOVE      R0 := R1
+    15 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+    16 [   0] SETTABLE  R4["activate"] := R3
+    17 [   0] RETURN    return R4.. (1 values)
+    18 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 14-47, upvals=[], locals=[])
+    constants: strings=['create', 'Runtime', 'addEventListener', 'unhandledError'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       2 [   0] JMP       jmp +1 -> 4
+       3 [   0] RETURN    return R0.. (0 values)
+       4 [   0] LOADBOOL  R0 := True
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 1
+       7 [   0] GETTABLE  R0 := R0["create"]
+       8 [   0] CALL      R0(...) nargs=0 nret=1
+       9 [   0] SETUPVAL  upval 1 := R0
+      10 [   0] CLOSURE   R0 := closure #0
+      11 [   0] GETUPVAL  R0 := upval 1
+      12 [   0] GETUPVAL  R0 := upval 2
+      13 [   0] GETGLOBAL R1 := _G["Runtime"]
+      14 [   0] SELF      R2 := R1; R1 := R1["addEventListener"]
+      15 [   0] LOADK     R3 := "unhandledError"
+      16 [   0] MOVE      R4 := R0
+      17 [   0] CALL      R1(...) nargs=3 nret=0
+      18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 19-43, upvals=[], locals=[])
+      constants: strings=['require', 'FGLIB_PATH', 'fglib', 'getGameID', 'getAppVersion', 'error', 'GameId: ', 'ClientVersion: ', 'Errorname: ', 'name', 'split', 'errorMessage', '\n', 'seperate', 'stackTrace', 'enable'] numbers=[1, 80]
+         0 [   0] GETGLOBAL R1 := _G["require"]
+         1 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+         2 [   0] LOADK     R3 := "fglib"
+         3 [   0] CONCAT    R2 := R2 .. ... .. R3
+         4 [   0] CALL      R1(...) nargs=1 nret=1
+         5 [   0] GETTABLE  R2 := R1["getGameID"]
+         6 [   0] CALL      R2(...) nargs=0 nret=1
+         7 [   0] GETTABLE  R3 := R1["getAppVersion"]
+         8 [   0] CALL      R3(...) nargs=0 nret=1
+         9 [   0] GETUPVAL  R4 := upval 0
+        10 [   0] SELF      R5 := R4; R4 := R4["error"]
+        11 [   0] LOADK     R6 := "GameId: "
+        12 [   0] MOVE      R7 := R2
+        13 [   0] CONCAT    R6 := R6 .. ... .. R7
+        14 [   0] CALL      R4(...) nargs=2 nret=0
+        15 [   0] GETUPVAL  R4 := upval 0
+        16 [   0] SELF      R5 := R4; R4 := R4["error"]
+        17 [   0] LOADK     R6 := "ClientVersion: "
+        18 [   0] MOVE      R7 := R3
+        19 [   0] CONCAT    R6 := R6 .. ... .. R7
+        20 [   0] CALL      R4(...) nargs=2 nret=0
+        21 [   0] GETUPVAL  R4 := upval 0
+        22 [   0] SELF      R5 := R4; R4 := R4["error"]
+        23 [   0] LOADK     R6 := "Errorname: "
+        24 [   0] GETTABLE  R7 := R0["name"]
+        25 [   0] CONCAT    R6 := R6 .. ... .. R7
+        26 [   0] CALL      R4(...) nargs=2 nret=0
+        27 [   0] GETUPVAL  R4 := upval 1
+        28 [   0] GETTABLE  R4 := R4["split"]
+        29 [   0] GETTABLE  R5 := R0["errorMessage"]
+        30 [   0] LOADK     R6 := "\n"
+        31 [   0] CALL      R4(...) nargs=2 nret=1
+        32 [   0] LOADK     R5 := 1
+        33 [   0] LEN       R6 := #R4
+        34 [   0] LOADK     R7 := 1
+        35 [   0] FORPREP   for R5.. jmp +14
+        36 [   0] GETUPVAL  R9 := upval 1
+        37 [   0] GETTABLE  R9 := R9["seperate"]
+        38 [   0] GETTABLE  R10 := R4[R8]
+        39 [   0] LOADK     R11 := 80
+        40 [   0] CALL      R9(...) nargs=2 nret=1
+        41 [   0] LOADK     R10 := 1
+        42 [   0] LEN       R11 := #R9
+        43 [   0] LOADK     R12 := 1
+        44 [   0] FORPREP   for R10.. jmp +4
+        45 [   0] GETUPVAL  R14 := upval 0
+        46 [   0] SELF      R15 := R14; R14 := R14["error"]
+        47 [   0] GETTABLE  R16 := R9[R13]
+        48 [   0] CALL      R14(...) nargs=2 nret=0
+        49 [   0] FORLOOP   forloop R10 jmp -5
+        50 [   0] FORLOOP   forloop R5 jmp -15
+        51 [   0] GETUPVAL  R5 := upval 1
+        52 [   0] GETTABLE  R5 := R5["split"]
+        53 [   0] GETTABLE  R6 := R0["stackTrace"]
+        54 [   0] LOADK     R7 := "\n"
+        55 [   0] CALL      R5(...) nargs=2 nret=1
+        56 [   0] MOVE      R4 := R5
+        57 [   0] LOADK     R5 := 1
+        58 [   0] LEN       R6 := #R4
+        59 [   0] LOADK     R7 := 1
+        60 [   0] FORPREP   for R5.. jmp +14
+        61 [   0] GETUPVAL  R9 := upval 1
+        62 [   0] GETTABLE  R9 := R9["seperate"]
+        63 [   0] GETTABLE  R10 := R4[R8]
+        64 [   0] LOADK     R11 := 80
+        65 [   0] CALL      R9(...) nargs=2 nret=1
+        66 [   0] LOADK     R10 := 1
+        67 [   0] LEN       R11 := #R9
+        68 [   0] LOADK     R12 := 1
+        69 [   0] FORPREP   for R10.. jmp +4
+        70 [   0] GETUPVAL  R14 := upval 0
+        71 [   0] SELF      R15 := R14; R14 := R14["error"]
+        72 [   0] GETTABLE  R16 := R9[R13]
+        73 [   0] CALL      R14(...) nargs=2 nret=0
+        74 [   0] FORLOOP   forloop R10 jmp -5
+        75 [   0] FORLOOP   forloop R5 jmp -15
+        76 [   0] GETUPVAL  R5 := upval 0
+        77 [   0] SELF      R6 := R5; R5 := R5["enable"]
+        78 [   0] CALL      R5(...) nargs=1 nret=0
+        79 [   0] RETURN    return R0.. (0 values)

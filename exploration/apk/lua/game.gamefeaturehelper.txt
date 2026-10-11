@@ -1,0 +1,231 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['ui.screens.landingpage.landingpage_screen', 'feature', 'landing_page', 'fallbackScene', 'ui.screens.map2.map2_screen', 'showPopup', 'getScreenForwards'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+     3 [   0] SETTABLE  R2["feature"] := "landing_page"
+     4 [   0] SETTABLE  R2["fallbackScene"] := "ui.screens.map2.map2_screen"
+     5 [   0] SETTABLE  R1["ui.screens.landingpage.landingpage_screen"] := R2
+     6 [   0] CLOSURE   R2 := closure #1
+     7 [   0] MOVE      R0 := R1
+     8 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+     9 [   0] SETTABLE  R3["showPopup"] := R0
+    10 [   0] SETTABLE  R3["getScreenForwards"] := R2
+    11 [   0] RETURN    return R3.. (1 values)
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 8-105, upvals=[], locals=[])
+    constants: strings=['require', 'ui.common.nav_controllerv3', 'getInstance', 'evolve', '_T', 'Card Fusing Unlocked!', 'Combine two identical cards to power up.', 'assets/gfx/hud/rewardanimation/unlocks/unlock_fuse.png', 'enhance', 'Card Training Unlocked!', 'Sacrifice weak cards to level strong cards up.', 'assets/gfx/hud/rewardanimation/unlocks/unlock_train.png', 'pvp', 'Arena Unlocked!', 'Fight against other player', 'assets/gfx/hud/rewardanimation/unlocks/unlock_pvp.png', 'leagues', 'Leagues Unlocked!', 'Get to the Top!', 'find', 'cardslot', 'game.usermanager', 'getUnlockedDeckSLotsCount', 'Card Slot Unlocked!', 'Your deck can now hold #numCards# cards.', 'numCards', 'assets/gfx/hud/rewardanimation/unlocks/unlock_cardslot.png', 'landing_page', 'landingPageUnlocked', 'log', 'msg', 'unlock, ', 'featureUnlockedPopup', 'headerTxt', 'textBody', 'warningImageSrc', 'flyToDeck', 'okCallback', 'queueOverlay', 'ui.screens.overlays.unlock_feature_popup_overlay'] numbers=[]
+       0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       1 [   0] JMP       jmp +132 -> 134
+       2 [   0] GETGLOBAL R2 := _G["require"]
+       3 [   0] LOADK     R3 := "ui.common.nav_controllerv3"
+       4 [   0] CALL      R2(...) nargs=1 nret=1
+       5 [   0] GETTABLE  R2 := R2["getInstance"]
+       6 [   0] CALL      R2(...) nargs=0 nret=1
+       7 [   0] LOADNIL   R3..R5 := nil
+       8 [   0] LOADBOOL  R6 := False
+       9 [   0] LOADNIL   R7..R7 := nil
+      10 [   0] EQ        if (R0 == "evolve") ~= 0 then skip next
+      11 [   0] JMP       jmp +14 -> 26
+      12 [   0] GETGLOBAL R8 := _G["_T"]
+      13 [   0] LOADK     R9 := "Card Fusing Unlocked!"
+      14 [   0] CALL      R8(...) nargs=1 nret=1
+      15 [   0] MOVE      R3 := R8
+      16 [   0] GETGLOBAL R8 := _G["_T"]
+      17 [   0] LOADK     R9 := "Combine two identical cards to power up."
+      18 [   0] CALL      R8(...) nargs=1 nret=1
+      19 [   0] MOVE      R4 := R8
+      20 [   0] LOADK     R5 := "assets/gfx/hud/rewardanimation/unlocks/unlock_fuse.png"
+      21 [   0] LOADBOOL  R6 := True
+      22 [   0] CLOSURE   R7 := closure #0
+      23 [   0] MOVE      R0 := R0
+      24 [   0] MOVE      R0 := R1
+      25 [   0] JMP       jmp +85 -> 111
+      26 [   0] EQ        if (R0 == "enhance") ~= 0 then skip next
+      27 [   0] JMP       jmp +14 -> 42
+      28 [   0] GETGLOBAL R8 := _G["_T"]
+      29 [   0] LOADK     R9 := "Card Training Unlocked!"
+      30 [   0] CALL      R8(...) nargs=1 nret=1
+      31 [   0] MOVE      R3 := R8
+      32 [   0] GETGLOBAL R8 := _G["_T"]
+      33 [   0] LOADK     R9 := "Sacrifice weak cards to level strong cards up."
+      34 [   0] CALL      R8(...) nargs=1 nret=1
+      35 [   0] MOVE      R4 := R8
+      36 [   0] LOADK     R5 := "assets/gfx/hud/rewardanimation/unlocks/unlock_train.png"
+      37 [   0] LOADBOOL  R6 := True
+      38 [   0] CLOSURE   R7 := closure #1
+      39 [   0] MOVE      R0 := R0
+      40 [   0] MOVE      R0 := R1
+      41 [   0] JMP       jmp +69 -> 111
+      42 [   0] EQ        if (R0 == "pvp") ~= 0 then skip next
+      43 [   0] JMP       jmp +13 -> 57
+      44 [   0] GETGLOBAL R8 := _G["_T"]
+      45 [   0] LOADK     R9 := "Arena Unlocked!"
+      46 [   0] CALL      R8(...) nargs=1 nret=1
+      47 [   0] MOVE      R3 := R8
+      48 [   0] GETGLOBAL R8 := _G["_T"]
+      49 [   0] LOADK     R9 := "Fight against other player"
+      50 [   0] CALL      R8(...) nargs=1 nret=1
+      51 [   0] MOVE      R4 := R8
+      52 [   0] LOADK     R5 := "assets/gfx/hud/rewardanimation/unlocks/unlock_pvp.png"
+      53 [   0] LOADBOOL  R6 := False
+      54 [   0] CLOSURE   R7 := closure #2
+      55 [   0] MOVE      R0 := R1
+      56 [   0] JMP       jmp +54 -> 111
+      57 [   0] EQ        if (R0 == "leagues") ~= 0 then skip next
+      58 [   0] JMP       jmp +13 -> 72
+      59 [   0] GETGLOBAL R8 := _G["_T"]
+      60 [   0] LOADK     R9 := "Leagues Unlocked!"
+      61 [   0] CALL      R8(...) nargs=1 nret=1
+      62 [   0] MOVE      R3 := R8
+      63 [   0] GETGLOBAL R8 := _G["_T"]
+      64 [   0] LOADK     R9 := "Get to the Top!"
+      65 [   0] CALL      R8(...) nargs=1 nret=1
+      66 [   0] MOVE      R4 := R8
+      67 [   0] LOADK     R5 := "assets/gfx/hud/rewardanimation/unlocks/unlock_pvp.png"
+      68 [   0] LOADBOOL  R6 := False
+      69 [   0] CLOSURE   R7 := closure #3
+      70 [   0] MOVE      R0 := R1
+      71 [   0] JMP       jmp +39 -> 111
+      72 [   0] SELF      R9 := R0; R8 := R0["find"]
+      73 [   0] LOADK     R10 := "cardslot"
+      74 [   0] CALL      R8(...) nargs=2 nret=1
+      75 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+      76 [   0] JMP       jmp +23 -> 100
+      77 [   0] GETGLOBAL R8 := _G["require"]
+      78 [   0] LOADK     R9 := "game.usermanager"
+      79 [   0] CALL      R8(...) nargs=1 nret=1
+      80 [   0] GETTABLE  R8 := R8["getInstance"]
+      81 [   0] CALL      R8(...) nargs=0 nret=1
+      82 [   0] GETTABLE  R9 := R8["getUnlockedDeckSLotsCount"]
+      83 [   0] CALL      R9(...) nargs=0 nret=1
+      84 [   0] GETGLOBAL R10 := _G["_T"]
+      85 [   0] LOADK     R11 := "Card Slot Unlocked!"
+      86 [   0] CALL      R10(...) nargs=1 nret=1
+      87 [   0] MOVE      R3 := R10
+      88 [   0] GETGLOBAL R10 := _G["_T"]
+      89 [   0] LOADK     R11 := "Your deck can now hold #numCards# cards."
+      90 [   0] NEWTABLE  R12 := {} (array 0, hash 1)
+      91 [   0] SETTABLE  R12["numCards"] := R9
+      92 [   0] CALL      R10(...) nargs=2 nret=1
+      93 [   0] MOVE      R4 := R10
+      94 [   0] LOADK     R5 := "assets/gfx/hud/rewardanimation/unlocks/unlock_cardslot.png"
+      95 [   0] LOADBOOL  R6 := True
+      96 [   0] CLOSURE   R7 := closure #4
+      97 [   0] MOVE      R0 := R0
+      98 [   0] MOVE      R0 := R1
+      99 [   0] JMP       jmp +11 -> 111
+     100 [   0] SELF      R9 := R0; R8 := R0["find"]
+     101 [   0] LOADK     R10 := "landing_page"
+     102 [   0] CALL      R8(...) nargs=2 nret=1
+     103 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+     104 [   0] JMP       jmp +6 -> 111
+     105 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+     106 [   0] JMP       jmp +3 -> 110
+     107 [   0] MOVE      R8 := R1
+     108 [   0] LOADK     R9 := "landingPageUnlocked"
+     109 [   0] CALL      R8(...) nargs=1 nret=0
+     110 [   0] RETURN    return R0.. (0 values)
+     111 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+     112 [   0] JMP       jmp +21 -> 134
+     113 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+     114 [   0] JMP       jmp +19 -> 134
+     115 [   0] GETGLOBAL R8 := _G["log"]
+     116 [   0] GETTABLE  R8 := R8["msg"]
+     117 [   0] LOADK     R9 := "unlock, "
+     118 [   0] MOVE      R10 := R0
+     119 [   0] CONCAT    R9 := R9 .. ... .. R10
+     120 [   0] CALL      R8(...) nargs=1 nret=0
+     121 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+     122 [   0] NEWTABLE  R9 := {} (array 0, hash 5)
+     123 [   0] SETTABLE  R9["headerTxt"] := R3
+     124 [   0] SETTABLE  R9["textBody"] := R4
+     125 [   0] SETTABLE  R9["warningImageSrc"] := R5
+     126 [   0] SETTABLE  R9["flyToDeck"] := R6
+     127 [   0] SETTABLE  R9["okCallback"] := R7
+     128 [   0] SETTABLE  R8["featureUnlockedPopup"] := R9
+     129 [   0] GETTABLE  R9 := R2["queueOverlay"]
+     130 [   0] LOADK     R10 := "ui.screens.overlays.unlock_feature_popup_overlay"
+     131 [   0] MOVE      R11 := R8
+     132 [   0] CALL      R9(...) nargs=2 nret=0
+     133 [   0] JMP       jmp +0 -> 134
+     134 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 22-28, upvals=[], locals=[])
+      constants: strings=['require', 'game.clientstatestore', 'getInstance', 'set', 'enhanceEvolveUnlocked'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "game.clientstatestore"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R0 := R0["getInstance"]
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R1 := R0["set"]
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] LOADBOOL  R3 := True
+         8 [   0] CALL      R1(...) nargs=2 nret=0
+         9 [   0] GETUPVAL  R1 := upval 1
+        10 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +3 -> 15
+        12 [   0] GETUPVAL  R1 := upval 1
+        13 [   0] LOADK     R2 := "enhanceEvolveUnlocked"
+        14 [   0] CALL      R1(...) nargs=1 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 34-40, upvals=[], locals=[])
+      constants: strings=['require', 'game.clientstatestore', 'getInstance', 'set', 'enhanceEvolveUnlocked'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "game.clientstatestore"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R0 := R0["getInstance"]
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R1 := R0["set"]
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] LOADBOOL  R3 := True
+         8 [   0] CALL      R1(...) nargs=2 nret=0
+         9 [   0] GETUPVAL  R1 := upval 1
+        10 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +3 -> 15
+        12 [   0] GETUPVAL  R1 := upval 1
+        13 [   0] LOADK     R2 := "enhanceEvolveUnlocked"
+        14 [   0] CALL      R1(...) nargs=1 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 46-50, upvals=[], locals=[])
+      constants: strings=['pvpUnlocked'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] LOADK     R1 := "pvpUnlocked"
+         5 [   0] CALL      R0(...) nargs=1 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 56-60, upvals=[], locals=[])
+      constants: strings=['leaguesUnlocked'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] LOADK     R1 := "leaguesUnlocked"
+         5 [   0] CALL      R0(...) nargs=1 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 68-74, upvals=[], locals=[])
+      constants: strings=['require', 'game.clientstatestore', 'getInstance', 'set', 'unlock_', 'deckSlotUnlocked'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "game.clientstatestore"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R0 := R0["getInstance"]
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R1 := R0["set"]
+         6 [   0] LOADK     R2 := "unlock_"
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] CONCAT    R2 := R2 .. ... .. R3
+         9 [   0] LOADBOOL  R3 := True
+        10 [   0] CALL      R1(...) nargs=2 nret=0
+        11 [   0] GETUPVAL  R1 := upval 1
+        12 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +3 -> 17
+        14 [   0] GETUPVAL  R1 := upval 1
+        15 [   0] LOADK     R2 := "deckSlotUnlocked"
+        16 [   0] CALL      R1(...) nargs=1 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 112-114, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)

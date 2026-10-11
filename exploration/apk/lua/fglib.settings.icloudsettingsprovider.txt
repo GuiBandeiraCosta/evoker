@@ -1,0 +1,122 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'settings.settingsprovider', 'settings.dbsettingsprovider', 'logging.logger', 'native.icloud', 'new'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "settings.settingsprovider"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "settings.dbsettingsprovider"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "logging.logger"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] LOADK     R3 := 3
+    16 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+    17 [   0] GETGLOBAL R5 := _G["require"]
+    18 [   0] GETGLOBAL R6 := _G["FGLIB_PATH"]
+    19 [   0] LOADK     R7 := "native.icloud"
+    20 [   0] CONCAT    R6 := R6 .. ... .. R7
+    21 [   0] CALL      R5(...) nargs=1 nret=1
+    22 [   0] CLOSURE   R6 := closure #0
+    23 [   0] MOVE      R0 := R5
+    24 [   0] CLOSURE   R7 := closure #1
+    25 [   0] MOVE      R0 := R5
+    26 [   0] MOVE      R0 := R6
+    27 [   0] MOVE      R0 := R0
+    28 [   0] MOVE      R0 := R2
+    29 [   0] MOVE      R0 := R1
+    30 [   0] SETTABLE  R4["new"] := R7
+    31 [   0] RETURN    return R4.. (1 values)
+    32 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 8-31, upvals=[], locals=[])
+    constants: strings=['fetch', 'delete', 'saveKey', 'save'] numbers=[]
+       0 [   0] CLOSURE   R1 := closure #0
+       1 [   0] GETUPVAL  R0 := upval 0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] SETTABLE  R0["fetch"] := R1
+       4 [   0] CLOSURE   R1 := closure #1
+       5 [   0] GETUPVAL  R0 := upval 0
+       6 [   0] SETTABLE  R0["delete"] := R1
+       7 [   0] CLOSURE   R1 := closure #2
+       8 [   0] GETUPVAL  R0 := upval 0
+       9 [   0] SETTABLE  R0["saveKey"] := R1
+      10 [   0] CLOSURE   R1 := closure #3
+      11 [   0] GETUPVAL  R0 := upval 0
+      12 [   0] SETTABLE  R0["save"] := R1
+      13 [   0] RETURN    return R0.. (1 values)
+      14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 10-13, upvals=[], locals=[])
+      constants: strings=['synchronize', 'emit', 'settingsLoaded', 'settings', 'getAllValues'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["synchronize"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETTABLE  R0 := R0["emit"]
+         5 [   0] LOADK     R1 := "settingsLoaded"
+         6 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETTABLE  R3 := R3["getAllValues"]
+         9 [   0] CALL      R3(...) nargs=0 nret=1
+        10 [   0] SETTABLE  R2["settings"] := R3
+        11 [   0] CALL      R0(...) nargs=2 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 15-17, upvals=[], locals=[])
+      constants: strings=['removeValue'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["removeValue"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=2, lines 19-21, upvals=[], locals=[])
+      constants: strings=['setValue'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["setValue"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] MOVE      R4 := R1
+         4 [   0] CALL      R2(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 23-27, upvals=[], locals=[])
+      constants: strings=['pairs', 'setValue'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["pairs"]
+         1 [   0] MOVE      R2 := R0
+         2 [   0] CALL      R1(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +5 -> 9
+         4 [   0] GETUPVAL  R6 := upval 0
+         5 [   0] GETTABLE  R6 := R6["setValue"]
+         6 [   0] MOVE      R7 := R4
+         7 [   0] MOVE      R8 := R5
+         8 [   0] CALL      R6(...) nargs=2 nret=0
+         9 [   0] TFORLOOP  tforloop R1 nres=2
+        10 [   0] JMP       jmp -7 -> 4
+        11 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 33-42, upvals=[], locals=[])
+    constants: strings=['isFrameworkAvailable', 'new', 'warn', 'iCloud is not available, automatic fallback to DBSettingsProvider'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       2 [   0] JMP       jmp +12 -> 15
+       3 [   0] GETUPVAL  R0 := upval 0
+       4 [   0] GETTABLE  R0 := R0["isFrameworkAvailable"]
+       5 [   0] CALL      R0(...) nargs=0 nret=1
+       6 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       7 [   0] JMP       jmp +7 -> 15
+       8 [   0] GETUPVAL  R0 := upval 1
+       9 [   0] GETUPVAL  R1 := upval 2
+      10 [   0] GETTABLE  R1 := R1["new"]
+      11 [   0] CALL      R1(...) nargs=0 nret=-1
+      12 [   0] TAILCALL  return R0(...) nargs=-1
+      13 [   0] RETURN    return R0.. (-1 values)
+      14 [   0] JMP       jmp +8 -> 23
+      15 [   0] GETUPVAL  R0 := upval 3
+      16 [   0] GETTABLE  R0 := R0["warn"]
+      17 [   0] LOADK     R1 := "iCloud is not available, automatic fallback to DBSettingsProvider"
+      18 [   0] CALL      R0(...) nargs=1 nret=0
+      19 [   0] GETUPVAL  R0 := upval 4
+      20 [   0] GETTABLE  R0 := R0["new"]
+      21 [   0] TAILCALL  return R0(...) nargs=0
+      22 [   0] RETURN    return R0.. (-1 values)
+      23 [   0] RETURN    return R0.. (0 values)

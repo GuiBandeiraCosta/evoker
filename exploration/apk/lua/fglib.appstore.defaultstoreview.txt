@@ -1,0 +1,1134 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'assetmanager', 'appstore.storeview', 'display.defaultview', 'ui.ui', 'new'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "assetmanager"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "appstore.storeview"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R3 := _G["require"]
+    16 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    17 [   0] LOADK     R5 := "display.defaultview"
+    18 [   0] CONCAT    R4 := R4 .. ... .. R5
+    19 [   0] CALL      R3(...) nargs=1 nret=1
+    20 [   0] LOADK     R4 := 3
+    21 [   0] GETGLOBAL R5 := _G["require"]
+    22 [   0] GETGLOBAL R6 := _G["FGLIB_PATH"]
+    23 [   0] LOADK     R7 := "ui.ui"
+    24 [   0] CONCAT    R6 := R6 .. ... .. R7
+    25 [   0] CALL      R5(...) nargs=1 nret=1
+    26 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+    27 [   0] CLOSURE   R7 := closure #0
+    28 [   0] MOVE      R0 := R5
+    29 [   0] MOVE      R0 := R1
+    30 [   0] MOVE      R0 := R0
+    31 [   0] MOVE      R0 := R4
+    32 [   0] CLOSURE   R8 := closure #1
+    33 [   0] MOVE      R0 := R7
+    34 [   0] MOVE      R0 := R3
+    35 [   0] MOVE      R0 := R2
+    36 [   0] SETTABLE  R6["new"] := R8
+    37 [   0] RETURN    return R6.. (1 values)
+    38 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=3, lines 12-416, upvals=[], locals=[])
+    constants: strings=['bgasset', 'appstore/bg_appstore.png', 'productbutton_released', 'common/menu_textbutton.png', 'productbutton_pressed', 'common/menu_textbutton_active.png', 'calloutbutton_released', 'appstore/menu_buybutton.png', 'calloutbutton_pressed', 'appstore/menu_buybutton_active.png', 'exitbutton', 'x', 'y', 'title', '', 'moneyFlag', 'premiumcoin', 'voucherpic', 'setTheme', 'setProductMetaInfo', 'initAssets', 'setAutoClose', 'setCodesActive', 'onOrientationHandler', 'show', 'hide', 'createProductButton', 'initBaseProductIdentifier', 'initProductButtons', 'initCodeButton', 'popupButtonHandler', 'purchaseInitiatedHandler', 'onPurchaseClosed', 'invalidClientPopupListener', 'purchaseFinishedHandler', 'giveRewardHandler', 'productsFetchingHandler', 'disableActivityIndicator', 'productsReceivedHandler'] numbers=[1.99, 10, 252, 394]
+       0 [   0] LOADBOOL  R3 := False
+       1 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+       2 [   0] LOADNIL   R5..R6 := nil
+       3 [   0] LOADBOOL  R7 := False
+       4 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+       5 [   0] LOADBOOL  R9 := False
+       6 [   0] LOADK     R10 := 1.99
+       7 [   0] LOADK     R11 := 10
+       8 [   0] NEWTABLE  R12 := {} (array 0, hash 9)
+       9 [   0] SETTABLE  R12["bgasset"] := "appstore/bg_appstore.png"
+      10 [   0] SETTABLE  R12["productbutton_released"] := "common/menu_textbutton.png"
+      11 [   0] SETTABLE  R12["productbutton_pressed"] := "common/menu_textbutton_active.png"
+      12 [   0] SETTABLE  R12["calloutbutton_released"] := "appstore/menu_buybutton.png"
+      13 [   0] SETTABLE  R12["calloutbutton_pressed"] := "appstore/menu_buybutton_active.png"
+      14 [   0] NEWTABLE  R13 := {} (array 0, hash 3)
+      15 [   0] SETTABLE  R13["x"] := 252
+      16 [   0] SETTABLE  R13["y"] := 394
+      17 [   0] SETTABLE  R13["title"] := ""
+      18 [   0] SETTABLE  R12["exitbutton"] := R13
+      19 [   0] SETTABLE  R12["moneyFlag"] := "appstore/menu_buybutton.png"
+      20 [   0] SETTABLE  R12["premiumcoin"] := "appstore/menu_buybutton.png"
+      21 [   0] SETTABLE  R12["voucherpic"] := "appstore/menu_buybutton.png"
+      22 [   0] GETTABLE  R13 := R0["setTheme"]
+      23 [   0] MOVE      R14 := R12
+      24 [   0] CALL      R13(...) nargs=1 nret=0
+      25 [   0] CLOSURE   R13 := closure #0
+      26 [   0] MOVE      R0 := R8
+      27 [   0] SETTABLE  R0["setProductMetaInfo"] := R13
+      28 [   0] GETTABLE  R13 := R0["initAssets"]
+      29 [   0] CLOSURE   R14 := closure #1
+      30 [   0] MOVE      R0 := R0
+      31 [   0] MOVE      R0 := R13
+      32 [   0] MOVE      R0 := R5
+      33 [   0] SETTABLE  R0["initAssets"] := R14
+      34 [   0] CLOSURE   R14 := closure #2
+      35 [   0] MOVE      R0 := R7
+      36 [   0] SETTABLE  R0["setAutoClose"] := R14
+      37 [   0] CLOSURE   R14 := closure #3
+      38 [   0] MOVE      R0 := R9
+      39 [   0] SETTABLE  R0["setCodesActive"] := R14
+      40 [   0] GETTABLE  R14 := R0["onOrientationHandler"]
+      41 [   0] CLOSURE   R15 := closure #4
+      42 [   0] MOVE      R0 := R14
+      43 [   0] MOVE      R0 := R5
+      44 [   0] MOVE      R0 := R0
+      45 [   0] SETTABLE  R0["onOrientationHandler"] := R15
+      46 [   0] GETTABLE  R15 := R0["show"]
+      47 [   0] CLOSURE   R16 := closure #5
+      48 [   0] MOVE      R0 := R15
+      49 [   0] MOVE      R0 := R0
+      50 [   0] SETTABLE  R0["show"] := R16
+      51 [   0] GETTABLE  R16 := R0["hide"]
+      52 [   0] CLOSURE   R17 := closure #6
+      53 [   0] MOVE      R0 := R16
+      54 [   0] MOVE      R0 := R0
+      55 [   0] SETTABLE  R0["hide"] := R17
+      56 [   0] CLOSURE   R17 := closure #7
+      57 [   0] MOVE      R0 := R0
+      58 [   0] MOVE      R0 := R8
+      59 [   0] GETUPVAL  R0 := upval 0
+      60 [   0] GETUPVAL  R0 := upval 1
+      61 [   0] MOVE      R0 := R5
+      62 [   0] MOVE      R0 := R10
+      63 [   0] MOVE      R0 := R11
+      64 [   0] SETTABLE  R0["createProductButton"] := R17
+      65 [   0] CLOSURE   R17 := closure #8
+      66 [   0] MOVE      R0 := R4
+      67 [   0] MOVE      R0 := R8
+      68 [   0] MOVE      R0 := R11
+      69 [   0] MOVE      R0 := R10
+      70 [   0] SETTABLE  R0["initBaseProductIdentifier"] := R17
+      71 [   0] CLOSURE   R17 := closure #9
+      72 [   0] GETUPVAL  R0 := upval 2
+      73 [   0] GETUPVAL  R0 := upval 3
+      74 [   0] MOVE      R0 := R5
+      75 [   0] MOVE      R0 := R0
+      76 [   0] MOVE      R0 := R4
+      77 [   0] MOVE      R0 := R8
+      78 [   0] SETTABLE  R0["initProductButtons"] := R17
+      79 [   0] CLOSURE   R17 := closure #10
+      80 [   0] MOVE      R0 := R9
+      81 [   0] MOVE      R0 := R0
+      82 [   0] GETUPVAL  R0 := upval 0
+      83 [   0] GETUPVAL  R0 := upval 1
+      84 [   0] MOVE      R0 := R5
+      85 [   0] SETTABLE  R0["initCodeButton"] := R17
+      86 [   0] CLOSURE   R17 := closure #11
+      87 [   0] GETUPVAL  R0 := upval 2
+      88 [   0] GETUPVAL  R0 := upval 3
+      89 [   0] MOVE      R0 := R7
+      90 [   0] MOVE      R0 := R0
+      91 [   0] SETTABLE  R0["popupButtonHandler"] := R17
+      92 [   0] CLOSURE   R17 := closure #12
+      93 [   0] SETTABLE  R0["purchaseInitiatedHandler"] := R17
+      94 [   0] CLOSURE   R17 := closure #13
+      95 [   0] MOVE      R0 := R7
+      96 [   0] MOVE      R0 := R0
+      97 [   0] SETTABLE  R0["onPurchaseClosed"] := R17
+      98 [   0] CLOSURE   R17 := closure #14
+      99 [   0] MOVE      R0 := R0
+     100 [   0] SETTABLE  R0["invalidClientPopupListener"] := R17
+     101 [   0] CLOSURE   R17 := closure #15
+     102 [   0] MOVE      R0 := R0
+     103 [   0] MOVE      R0 := R7
+     104 [   0] SETTABLE  R0["purchaseFinishedHandler"] := R17
+     105 [   0] CLOSURE   R17 := closure #16
+     106 [   0] MOVE      R0 := R7
+     107 [   0] MOVE      R0 := R0
+     108 [   0] SETTABLE  R0["giveRewardHandler"] := R17
+     109 [   0] CLOSURE   R17 := closure #17
+     110 [   0] MOVE      R0 := R0
+     111 [   0] SETTABLE  R0["productsFetchingHandler"] := R17
+     112 [   0] CLOSURE   R17 := closure #18
+     113 [   0] SETTABLE  R0["disableActivityIndicator"] := R17
+     114 [   0] CLOSURE   R17 := closure #19
+     115 [   0] GETUPVAL  R0 := upval 2
+     116 [   0] GETUPVAL  R0 := upval 3
+     117 [   0] MOVE      R0 := R0
+     118 [   0] MOVE      R0 := R4
+     119 [   0] MOVE      R0 := R3
+     120 [   0] SETTABLE  R0["productsReceivedHandler"] := R17
+     121 [   0] GETTABLE  R17 := R0["hide"]
+     122 [   0] CALL      R17(...) nargs=0 nret=0
+     123 [   0] RETURN    return R0.. (1 values)
+     124 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 41-43, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 46-57, upvals=[], locals=[])
+      constants: strings=['areAssetsInitialized', '', 'display', 'newGroup', 'displaygroup', 'insert', 'onOrientationHandler'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["areAssetsInitialized"]
+         2 [   0] CALL      R1(...) nargs=0 nret=1
+         3 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +17 -> 22
+         5 [   0] GETUPVAL  R1 := upval 1
+         6 [   0] TESTSET   if (R0 truthy) == 1 then R2 := R0 else skip next
+         7 [   0] JMP       jmp +1 -> 9
+         8 [   0] LOADK     R2 := ""
+         9 [   0] CALL      R1(...) nargs=1 nret=0
+        10 [   0] GETGLOBAL R1 := _G["display"]
+        11 [   0] GETTABLE  R1 := R1["newGroup"]
+        12 [   0] CALL      R1(...) nargs=0 nret=1
+        13 [   0] SETUPVAL  upval 2 := R1
+        14 [   0] GETUPVAL  R1 := upval 0
+        15 [   0] GETTABLE  R1 := R1["displaygroup"]
+        16 [   0] SELF      R2 := R1; R1 := R1["insert"]
+        17 [   0] GETUPVAL  R3 := upval 2
+        18 [   0] CALL      R1(...) nargs=2 nret=0
+        19 [   0] GETUPVAL  R1 := upval 0
+        20 [   0] GETTABLE  R1 := R1["onOrientationHandler"]
+        21 [   0] CALL      R1(...) nargs=0 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 59-61, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 63-65, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 68-79, upvals=[], locals=[])
+      constants: strings=['x', 'display', 'contentWidth', 'y', 'screentitle', 'setReferencePoint', 'CenterReferencePoint'] numbers=[2, 93]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] CALL      R1(...) nargs=0 nret=0
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +7 -> 12
+         5 [   0] GETUPVAL  R1 := upval 1
+         6 [   0] GETGLOBAL R2 := _G["display"]
+         7 [   0] GETTABLE  R2 := R2["contentWidth"]
+         8 [   0] DIV       R2 := R2 / 2
+         9 [   0] SETTABLE  R1["x"] := R2
+        10 [   0] GETUPVAL  R1 := upval 1
+        11 [   0] SETTABLE  R1["y"] := 93
+        12 [   0] GETUPVAL  R1 := upval 2
+        13 [   0] GETTABLE  R1 := R1["screentitle"]
+        14 [   0] SELF      R2 := R1; R1 := R1["setReferencePoint"]
+        15 [   0] GETGLOBAL R3 := _G["display"]
+        16 [   0] GETTABLE  R3 := R3["CenterReferencePoint"]
+        17 [   0] CALL      R1(...) nargs=2 nret=0
+        18 [   0] GETUPVAL  R1 := upval 2
+        19 [   0] GETTABLE  R1 := R1["screentitle"]
+        20 [   0] GETGLOBAL R2 := _G["display"]
+        21 [   0] GETTABLE  R2 := R2["contentWidth"]
+        22 [   0] DIV       R2 := R2 / 2
+        23 [   0] SETTABLE  R1["x"] := R2
+        24 [   0] GETUPVAL  R1 := upval 2
+        25 [   0] GETTABLE  R1 := R1["screentitle"]
+        26 [   0] SETTABLE  R1["y"] := 93
+        27 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=2, lines 82-98, upvals=[], locals=[])
+      constants: strings=['initProductButtons', 'initCodeButton', 'tracker', 'logStoreOpenEvent', 'fglib', 'appstore', 'PurchaseManager', 'getInstance', 'isShopReachable', 'native', 'showAlert', '_T', 'SHOP_NOT_REACHABLE_TITLE', 'SHOP_NOT_REACHABLE_TEXT', 'OK', 'popupButtonHandler', 'logStoreNotReachableEvent'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] CALL      R2(...) nargs=0 nret=0
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETTABLE  R2 := R2["initProductButtons"]
+         4 [   0] CALL      R2(...) nargs=0 nret=0
+         5 [   0] GETUPVAL  R2 := upval 1
+         6 [   0] GETTABLE  R2 := R2["initCodeButton"]
+         7 [   0] CALL      R2(...) nargs=0 nret=0
+         8 [   0] GETUPVAL  R2 := upval 1
+         9 [   0] GETTABLE  R2 := R2["tracker"]
+        10 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +6 -> 18
+        12 [   0] GETUPVAL  R2 := upval 1
+        13 [   0] GETTABLE  R2 := R2["tracker"]
+        14 [   0] GETTABLE  R2 := R2["logStoreOpenEvent"]
+        15 [   0] MOVE      R3 := R0
+        16 [   0] MOVE      R4 := R1
+        17 [   0] CALL      R2(...) nargs=2 nret=0
+        18 [   0] GETGLOBAL R2 := _G["fglib"]
+        19 [   0] GETTABLE  R2 := R2["appstore"]
+        20 [   0] GETTABLE  R2 := R2["PurchaseManager"]
+        21 [   0] GETTABLE  R2 := R2["getInstance"]
+        22 [   0] CALL      R2(...) nargs=0 nret=1
+        23 [   0] GETTABLE  R2 := R2["isShopReachable"]
+        24 [   0] CALL      R2(...) nargs=0 nret=1
+        25 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        26 [   0] JMP       jmp +24 -> 51
+        27 [   0] GETGLOBAL R2 := _G["native"]
+        28 [   0] GETTABLE  R2 := R2["showAlert"]
+        29 [   0] GETGLOBAL R3 := _G["_T"]
+        30 [   0] LOADK     R4 := "SHOP_NOT_REACHABLE_TITLE"
+        31 [   0] CALL      R3(...) nargs=1 nret=1
+        32 [   0] GETGLOBAL R4 := _G["_T"]
+        33 [   0] LOADK     R5 := "SHOP_NOT_REACHABLE_TEXT"
+        34 [   0] CALL      R4(...) nargs=1 nret=1
+        35 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+        36 [   0] GETGLOBAL R6 := _G["_T"]
+        37 [   0] LOADK     R7 := "OK"
+        38 [   0] CALL      R6(...) nargs=1 nret=-1
+        39 [   0] SETLIST   R5[...] := R6.. (n=0, block 1)
+        40 [   0] GETUPVAL  R6 := upval 1
+        41 [   0] GETTABLE  R6 := R6["popupButtonHandler"]
+        42 [   0] CALL      R2(...) nargs=4 nret=0
+        43 [   0] GETUPVAL  R2 := upval 1
+        44 [   0] GETTABLE  R2 := R2["tracker"]
+        45 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        46 [   0] JMP       jmp +4 -> 51
+        47 [   0] GETUPVAL  R2 := upval 1
+        48 [   0] GETTABLE  R2 := R2["tracker"]
+        49 [   0] GETTABLE  R2 := R2["logStoreNotReachableEvent"]
+        50 [   0] CALL      R2(...) nargs=0 nret=0
+        51 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 101-107, upvals=[], locals=[])
+      constants: strings=['tracker', 'logStoreCloseEvent'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETTABLE  R0 := R0["tracker"]
+         4 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +4 -> 10
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] GETTABLE  R0 := R0["tracker"]
+         8 [   0] GETTABLE  R0 := R0["logStoreCloseEvent"]
+         9 [   0] CALL      R0(...) nargs=0 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 109-189, upvals=[], locals=[])
+      constants: strings=['buyThis_closure', 'price', 'productIdentifier', 'localizedPrice', 'cleanAmount', 'title', 'tostring', 'newButton', 'default', 'getInstance', 'getCurrentThemePath', 'theme', 'productbutton_released', 'over', 'productbutton_pressed', 'onRelease', 'text', '', 'textColor', 'font', 'Helvetica', 'size', 'emboss', 'offset', 'xoffset', 'moneyFlag', 'display', 'newText', 'system', 'nativeFont', 'newImage', 'premiumcoin', 'x', 'y', 'setReferencePoint', 'CenterRightReferencePoint', 'insert', 'upperFlag', 'flagText', 'string', 'find', '#BARGAIN#', 'fglib', 'utils', 'Util', 'getBargainPercentage', 'gsub', 'newEmbossedText', 'setTextColor', 'unpack', 'flagTextColor', 'CenterReferencePoint'] numbers=[0.99, 255, 15, -12, -90, 12, -6, -58, 50, 9, -75, 90, 8, 0, 56, 14]
+         0 [   0] CLOSURE   R2 := closure #0
+         1 [   0] GETUPVAL  R0 := upval 0
+         2 [   0] SETGLOBAL _G["buyThis_closure"] := R2
+         3 [   0] GETTABLE  R2 := R1["price"]
+         4 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         5 [   0] JMP       jmp +1 -> 7
+         6 [   0] SETTABLE  R1["price"] := 0.99
+         7 [   0] GETUPVAL  R2 := upval 1
+         8 [   0] GETTABLE  R3 := R1["productIdentifier"]
+         9 [   0] GETTABLE  R2 := R2[R3]
+        10 [   0] GETTABLE  R3 := R1["localizedPrice"]
+        11 [   0] GETTABLE  R4 := R1["cleanAmount"]
+        12 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        13 [   0] JMP       jmp +1 -> 15
+        14 [   0] GETTABLE  R4 := R1["title"]
+        15 [   0] GETGLOBAL R5 := _G["tostring"]
+        16 [   0] MOVE      R6 := R4
+        17 [   0] CALL      R5(...) nargs=1 nret=1
+        18 [   0] MOVE      R4 := R5
+        19 [   0] GETUPVAL  R5 := upval 2
+        20 [   0] GETTABLE  R5 := R5["newButton"]
+        21 [   0] NEWTABLE  R6 := {} (array 0, hash 10)
+        22 [   0] GETUPVAL  R7 := upval 3
+        23 [   0] GETTABLE  R7 := R7["getInstance"]
+        24 [   0] CALL      R7(...) nargs=0 nret=1
+        25 [   0] GETTABLE  R7 := R7["getCurrentThemePath"]
+        26 [   0] CALL      R7(...) nargs=0 nret=1
+        27 [   0] GETUPVAL  R8 := upval 0
+        28 [   0] GETTABLE  R8 := R8["theme"]
+        29 [   0] GETTABLE  R8 := R8["productbutton_released"]
+        30 [   0] CONCAT    R7 := R7 .. ... .. R8
+        31 [   0] SETTABLE  R6["default"] := R7
+        32 [   0] GETUPVAL  R7 := upval 3
+        33 [   0] GETTABLE  R7 := R7["getInstance"]
+        34 [   0] CALL      R7(...) nargs=0 nret=1
+        35 [   0] GETTABLE  R7 := R7["getCurrentThemePath"]
+        36 [   0] CALL      R7(...) nargs=0 nret=1
+        37 [   0] GETUPVAL  R8 := upval 0
+        38 [   0] GETTABLE  R8 := R8["theme"]
+        39 [   0] GETTABLE  R8 := R8["productbutton_pressed"]
+        40 [   0] CONCAT    R7 := R7 .. ... .. R8
+        41 [   0] SETTABLE  R6["over"] := R7
+        42 [   0] GETGLOBAL R7 := _G["buyThis_closure"]
+        43 [   0] MOVE      R8 := R0
+        44 [   0] MOVE      R9 := R1
+        45 [   0] CALL      R7(...) nargs=2 nret=1
+        46 [   0] SETTABLE  R6["onRelease"] := R7
+        47 [   0] SETTABLE  R6["text"] := ""
+        48 [   0] NEWTABLE  R7 := {} (array 4, hash 0)
+        49 [   0] LOADK     R8 := 255
+        50 [   0] LOADK     R9 := 255
+        51 [   0] LOADK     R10 := 255
+        52 [   0] LOADK     R11 := 255
+        53 [   0] SETLIST   R7[...] := R8.. (n=4, block 1)
+        54 [   0] SETTABLE  R6["textColor"] := R7
+        55 [   0] SETTABLE  R6["font"] := "Helvetica"
+        56 [   0] SETTABLE  R6["size"] := 15
+        57 [   0] SETTABLE  R6["emboss"] := False
+        58 [   0] SETTABLE  R6["offset"] := -12
+        59 [   0] SETTABLE  R6["xoffset"] := -90
+        60 [   0] CALL      R5(...) nargs=1 nret=1
+        61 [   0] GETUPVAL  R6 := upval 2
+        62 [   0] GETTABLE  R6 := R6["newButton"]
+        63 [   0] NEWTABLE  R7 := {} (array 0, hash 9)
+        64 [   0] GETUPVAL  R8 := upval 3
+        65 [   0] GETTABLE  R8 := R8["getInstance"]
+        66 [   0] CALL      R8(...) nargs=0 nret=1
+        67 [   0] GETTABLE  R8 := R8["getCurrentThemePath"]
+        68 [   0] CALL      R8(...) nargs=0 nret=1
+        69 [   0] GETUPVAL  R9 := upval 0
+        70 [   0] GETTABLE  R9 := R9["theme"]
+        71 [   0] GETTABLE  R9 := R9["moneyFlag"]
+        72 [   0] CONCAT    R8 := R8 .. ... .. R9
+        73 [   0] SETTABLE  R7["default"] := R8
+        74 [   0] GETUPVAL  R8 := upval 3
+        75 [   0] GETTABLE  R8 := R8["getInstance"]
+        76 [   0] CALL      R8(...) nargs=0 nret=1
+        77 [   0] GETTABLE  R8 := R8["getCurrentThemePath"]
+        78 [   0] CALL      R8(...) nargs=0 nret=1
+        79 [   0] GETUPVAL  R9 := upval 0
+        80 [   0] GETTABLE  R9 := R9["theme"]
+        81 [   0] GETTABLE  R9 := R9["moneyFlag"]
+        82 [   0] CONCAT    R8 := R8 .. ... .. R9
+        83 [   0] SETTABLE  R7["over"] := R8
+        84 [   0] GETGLOBAL R8 := _G["buyThis_closure"]
+        85 [   0] MOVE      R9 := R0
+        86 [   0] MOVE      R10 := R1
+        87 [   0] CALL      R8(...) nargs=2 nret=1
+        88 [   0] SETTABLE  R7["onRelease"] := R8
+        89 [   0] SETTABLE  R7["text"] := ""
+        90 [   0] NEWTABLE  R8 := {} (array 4, hash 0)
+        91 [   0] LOADK     R9 := 255
+        92 [   0] LOADK     R10 := 255
+        93 [   0] LOADK     R11 := 255
+        94 [   0] LOADK     R12 := 255
+        95 [   0] SETLIST   R8[...] := R9.. (n=4, block 1)
+        96 [   0] SETTABLE  R7["textColor"] := R8
+        97 [   0] SETTABLE  R7["font"] := "Helvetica"
+        98 [   0] SETTABLE  R7["size"] := 12
+        99 [   0] SETTABLE  R7["emboss"] := False
+       100 [   0] SETTABLE  R7["offset"] := -6
+       101 [   0] CALL      R6(...) nargs=1 nret=1
+       102 [   0] GETGLOBAL R7 := _G["display"]
+       103 [   0] GETTABLE  R7 := R7["newText"]
+       104 [   0] MOVE      R8 := R4
+       105 [   0] LOADK     R9 := -58
+       106 [   0] MUL       R10 := R0 * 50
+       107 [   0] SUB       R10 := R10 - 9
+       108 [   0] GETGLOBAL R11 := _G["system"]
+       109 [   0] GETTABLE  R11 := R11["nativeFont"]
+       110 [   0] LOADK     R12 := 15
+       111 [   0] CALL      R7(...) nargs=5 nret=1
+       112 [   0] GETGLOBAL R8 := _G["display"]
+       113 [   0] GETTABLE  R8 := R8["newImage"]
+       114 [   0] GETUPVAL  R9 := upval 3
+       115 [   0] GETTABLE  R9 := R9["getInstance"]
+       116 [   0] CALL      R9(...) nargs=0 nret=1
+       117 [   0] GETTABLE  R9 := R9["getCurrentThemePath"]
+       118 [   0] CALL      R9(...) nargs=0 nret=1
+       119 [   0] GETUPVAL  R10 := upval 0
+       120 [   0] GETTABLE  R10 := R10["theme"]
+       121 [   0] GETTABLE  R10 := R10["premiumcoin"]
+       122 [   0] CONCAT    R9 := R9 .. ... .. R10
+       123 [   0] CALL      R8(...) nargs=1 nret=1
+       124 [   0] LOADK     R9 := -75
+       125 [   0] MUL       R10 := R0 * 50
+       126 [   0] SETTABLE  R8["y"] := R10
+       127 [   0] SETTABLE  R8["x"] := R9
+       128 [   0] GETGLOBAL R9 := _G["display"]
+       129 [   0] GETTABLE  R9 := R9["newText"]
+       130 [   0] MOVE      R10 := R3
+       131 [   0] LOADK     R11 := 50
+       132 [   0] MUL       R12 := R0 * 50
+       133 [   0] GETGLOBAL R13 := _G["system"]
+       134 [   0] GETTABLE  R13 := R13["nativeFont"]
+       135 [   0] LOADK     R14 := 12
+       136 [   0] CALL      R9(...) nargs=5 nret=1
+       137 [   0] SELF      R11 := R9; R10 := R9["setReferencePoint"]
+       138 [   0] GETGLOBAL R12 := _G["display"]
+       139 [   0] GETTABLE  R12 := R12["CenterRightReferencePoint"]
+       140 [   0] CALL      R10(...) nargs=2 nret=0
+       141 [   0] LOADK     R10 := 90
+       142 [   0] MUL       R11 := R0 * 50
+       143 [   0] ADD       R11 := R11 + 8
+       144 [   0] SETTABLE  R9["y"] := R11
+       145 [   0] SETTABLE  R9["x"] := R10
+       146 [   0] GETUPVAL  R10 := upval 4
+       147 [   0] SELF      R11 := R10; R10 := R10["insert"]
+       148 [   0] MOVE      R12 := R5
+       149 [   0] CALL      R10(...) nargs=2 nret=0
+       150 [   0] GETUPVAL  R10 := upval 4
+       151 [   0] SELF      R11 := R10; R10 := R10["insert"]
+       152 [   0] MOVE      R12 := R6
+       153 [   0] CALL      R10(...) nargs=2 nret=0
+       154 [   0] GETUPVAL  R10 := upval 4
+       155 [   0] SELF      R11 := R10; R10 := R10["insert"]
+       156 [   0] MOVE      R12 := R9
+       157 [   0] CALL      R10(...) nargs=2 nret=0
+       158 [   0] LOADK     R10 := 0
+       159 [   0] MUL       R11 := R0 * 50
+       160 [   0] SETTABLE  R5["y"] := R11
+       161 [   0] SETTABLE  R5["x"] := R10
+       162 [   0] LOADK     R10 := 56
+       163 [   0] MUL       R11 := R0 * 50
+       164 [   0] ADD       R11 := R11 + 8
+       165 [   0] SETTABLE  R6["y"] := R11
+       166 [   0] SETTABLE  R6["x"] := R10
+       167 [   0] GETTABLE  R10 := R2["upperFlag"]
+       168 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+       169 [   0] JMP       jmp +79 -> 249
+       170 [   0] GETUPVAL  R10 := upval 0
+       171 [   0] GETTABLE  R10 := R10["theme"]
+       172 [   0] GETTABLE  R11 := R2["upperFlag"]
+       173 [   0] GETTABLE  R10 := R10[R11]
+       174 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+       175 [   0] JMP       jmp +73 -> 249
+       176 [   0] GETGLOBAL R10 := _G["display"]
+       177 [   0] GETTABLE  R10 := R10["newImage"]
+       178 [   0] GETUPVAL  R11 := upval 3
+       179 [   0] GETTABLE  R11 := R11["getInstance"]
+       180 [   0] CALL      R11(...) nargs=0 nret=1
+       181 [   0] GETTABLE  R11 := R11["getCurrentThemePath"]
+       182 [   0] CALL      R11(...) nargs=0 nret=1
+       183 [   0] GETUPVAL  R12 := upval 0
+       184 [   0] GETTABLE  R12 := R12["theme"]
+       185 [   0] GETTABLE  R13 := R2["upperFlag"]
+       186 [   0] GETTABLE  R12 := R12[R13]
+       187 [   0] CONCAT    R11 := R11 .. ... .. R12
+       188 [   0] CALL      R10(...) nargs=1 nret=1
+       189 [   0] LOADK     R11 := 0
+       190 [   0] MUL       R12 := R0 * 50
+       191 [   0] SETTABLE  R10["y"] := R12
+       192 [   0] SETTABLE  R10["x"] := R11
+       193 [   0] GETUPVAL  R11 := upval 4
+       194 [   0] SELF      R12 := R11; R11 := R11["insert"]
+       195 [   0] MOVE      R13 := R10
+       196 [   0] CALL      R11(...) nargs=2 nret=0
+       197 [   0] GETTABLE  R11 := R2["flagText"]
+       198 [   0] GETGLOBAL R12 := _G["string"]
+       199 [   0] GETTABLE  R12 := R12["find"]
+       200 [   0] MOVE      R13 := R11
+       201 [   0] LOADK     R14 := "#BARGAIN#"
+       202 [   0] CALL      R12(...) nargs=2 nret=1
+       203 [   0] EQ        if (R12 == None) ~= 1 then skip next
+       204 [   0] JMP       jmp +18 -> 223
+       205 [   0] GETGLOBAL R12 := _G["fglib"]
+       206 [   0] GETTABLE  R12 := R12["utils"]
+       207 [   0] GETTABLE  R12 := R12["Util"]
+       208 [   0] GETTABLE  R12 := R12["getBargainPercentage"]
+       209 [   0] GETTABLE  R13 := R1["price"]
+       210 [   0] GETTABLE  R14 := R1["cleanAmount"]
+       211 [   0] GETUPVAL  R15 := upval 5
+       212 [   0] GETUPVAL  R16 := upval 6
+       213 [   0] CALL      R12(...) nargs=4 nret=1
+       214 [   0] GETGLOBAL R13 := _G["string"]
+       215 [   0] GETTABLE  R13 := R13["gsub"]
+       216 [   0] MOVE      R14 := R11
+       217 [   0] LOADK     R15 := "#BARGAIN#"
+       218 [   0] GETGLOBAL R16 := _G["tostring"]
+       219 [   0] MOVE      R17 := R12
+       220 [   0] CALL      R16(...) nargs=1 nret=-1
+       221 [   0] CALL      R13(...) nargs=-1 nret=1
+       222 [   0] MOVE      R11 := R13
+       223 [   0] GETGLOBAL R12 := _G["display"]
+       224 [   0] GETTABLE  R12 := R12["newEmbossedText"]
+       225 [   0] MOVE      R13 := R11
+       226 [   0] LOADK     R14 := 0
+       227 [   0] MUL       R15 := R0 * 50
+       228 [   0] GETGLOBAL R16 := _G["system"]
+       229 [   0] GETTABLE  R16 := R16["nativeFont"]
+       230 [   0] LOADK     R17 := 14
+       231 [   0] CALL      R12(...) nargs=5 nret=1
+       232 [   0] SELF      R14 := R12; R13 := R12["setTextColor"]
+       233 [   0] GETGLOBAL R15 := _G["unpack"]
+       234 [   0] GETTABLE  R16 := R2["flagTextColor"]
+       235 [   0] CALL      R15(...) nargs=1 nret=-1
+       236 [   0] CALL      R13(...) nargs=-1 nret=0
+       237 [   0] SELF      R14 := R12; R13 := R12["setReferencePoint"]
+       238 [   0] GETGLOBAL R15 := _G["display"]
+       239 [   0] GETTABLE  R15 := R15["CenterReferencePoint"]
+       240 [   0] CALL      R13(...) nargs=2 nret=0
+       241 [   0] LOADK     R13 := 0
+       242 [   0] MUL       R14 := R0 * 50
+       243 [   0] SETTABLE  R12["y"] := R14
+       244 [   0] SETTABLE  R12["x"] := R13
+       245 [   0] GETUPVAL  R13 := upval 4
+       246 [   0] SELF      R14 := R13; R13 := R13["insert"]
+       247 [   0] MOVE      R15 := R12
+       248 [   0] CALL      R13(...) nargs=2 nret=0
+       249 [   0] GETUPVAL  R10 := upval 4
+       250 [   0] SELF      R11 := R10; R10 := R10["insert"]
+       251 [   0] MOVE      R12 := R7
+       252 [   0] CALL      R10(...) nargs=2 nret=0
+       253 [   0] GETUPVAL  R10 := upval 4
+       254 [   0] SELF      R11 := R10; R10 := R10["insert"]
+       255 [   0] MOVE      R12 := R8
+       256 [   0] CALL      R10(...) nargs=2 nret=0
+       257 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#0 (params=2, lines 111-117, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] CLOSURE   R2 := closure #0
+           1 [   0] GETUPVAL  R0 := upval 0
+           2 [   0] MOVE      R0 := R0
+           3 [   0] MOVE      R0 := R1
+           4 [   0] RETURN    return R2.. (1 values)
+           5 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#7.#0.#0 (params=1, lines 113-116, upvals=[], locals=[])
+          constants: strings=['emitPurchaseProduct', 'idx', 'productIdentifier'] numbers=[]
+             0 [   0] GETUPVAL  R1 := upval 0
+             1 [   0] GETTABLE  R1 := R1["emitPurchaseProduct"]
+             2 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+             3 [   0] GETUPVAL  R3 := upval 1
+             4 [   0] SETTABLE  R2["idx"] := R3
+             5 [   0] GETUPVAL  R3 := upval 2
+             6 [   0] GETTABLE  R3 := R3["productIdentifier"]
+             7 [   0] SETTABLE  R2["productIdentifier"] := R3
+             8 [   0] CALL      R1(...) nargs=1 nret=0
+             9 [   0] LOADBOOL  R1 := True
+            10 [   0] RETURN    return R1.. (1 values)
+            11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 191-204, upvals=[], locals=[])
+      constants: strings=['ipairs', 'productIdentifier', 'rank', 'cleanAmount', 'price'] numbers=[1]
+         0 [   0] GETGLOBAL R0 := _G["ipairs"]
+         1 [   0] GETUPVAL  R1 := upval 0
+         2 [   0] CALL      R0(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +19 -> 23
+         4 [   0] MOVE      R5 := R3
+         5 [   0] GETUPVAL  R6 := upval 1
+         6 [   0] GETTABLE  R7 := R4["productIdentifier"]
+         7 [   0] GETTABLE  R6 := R6[R7]
+         8 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +6 -> 16
+        10 [   0] GETUPVAL  R6 := upval 1
+        11 [   0] GETTABLE  R7 := R4["productIdentifier"]
+        12 [   0] GETTABLE  R6 := R6[R7]
+        13 [   0] GETTABLE  R6 := R6["rank"]
+        14 [   0] TESTSET   if (R6 truthy) == 1 then R5 := R6 else skip next
+        15 [   0] JMP       jmp +0 -> 16
+        16 [   0] EQ        if (R5 == 1) ~= 0 then skip next
+        17 [   0] JMP       jmp +5 -> 23
+        18 [   0] GETTABLE  R6 := R4["cleanAmount"]
+        19 [   0] SETUPVAL  upval 2 := R6
+        20 [   0] GETTABLE  R6 := R4["price"]
+        21 [   0] SETUPVAL  upval 3 := R6
+        22 [   0] RETURN    return R0.. (0 values)
+        23 [   0] TFORLOOP  tforloop R0 nres=2
+        24 [   0] JMP       jmp -21 -> 4
+        25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 206-228, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_INIT', 'initProductButtons ', 'displaygroup', 'isVisible', 'numChildren', 'remove', 'initBaseProductIdentifier', 'ipairs', 'productIdentifier', 'rank', 'createProductButton', 'initCodeButton'] numbers=[3, 0, 1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_INIT"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "initProductButtons "
+         7 [   0] GETUPVAL  R5 := upval 2
+         8 [   0] CALL      R0(...) nargs=5 nret=0
+         9 [   0] GETUPVAL  R0 := upval 3
+        10 [   0] GETTABLE  R0 := R0["displaygroup"]
+        11 [   0] GETTABLE  R0 := R0["isVisible"]
+        12 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +38 -> 52
+        14 [   0] GETUPVAL  R0 := upval 2
+        15 [   0] GETTABLE  R0 := R0["numChildren"]
+        16 [   0] LT        if (0 < R0) ~= 0 then skip next
+        17 [   0] JMP       jmp +5 -> 23
+        18 [   0] GETUPVAL  R0 := upval 2
+        19 [   0] SELF      R1 := R0; R0 := R0["remove"]
+        20 [   0] LOADK     R2 := 1
+        21 [   0] CALL      R0(...) nargs=2 nret=0
+        22 [   0] JMP       jmp -9 -> 14
+        23 [   0] GETUPVAL  R0 := upval 3
+        24 [   0] GETTABLE  R0 := R0["initBaseProductIdentifier"]
+        25 [   0] CALL      R0(...) nargs=0 nret=0
+        26 [   0] GETGLOBAL R0 := _G["ipairs"]
+        27 [   0] GETUPVAL  R1 := upval 4
+        28 [   0] CALL      R0(...) nargs=1 nret=3
+        29 [   0] JMP       jmp +17 -> 47
+        30 [   0] MOVE      R5 := R3
+        31 [   0] GETUPVAL  R6 := upval 5
+        32 [   0] GETTABLE  R7 := R4["productIdentifier"]
+        33 [   0] GETTABLE  R6 := R6[R7]
+        34 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        35 [   0] JMP       jmp +6 -> 42
+        36 [   0] GETUPVAL  R6 := upval 5
+        37 [   0] GETTABLE  R7 := R4["productIdentifier"]
+        38 [   0] GETTABLE  R6 := R6[R7]
+        39 [   0] GETTABLE  R6 := R6["rank"]
+        40 [   0] TESTSET   if (R6 truthy) == 1 then R5 := R6 else skip next
+        41 [   0] JMP       jmp +0 -> 42
+        42 [   0] GETUPVAL  R6 := upval 3
+        43 [   0] GETTABLE  R6 := R6["createProductButton"]
+        44 [   0] MOVE      R7 := R5
+        45 [   0] MOVE      R8 := R4
+        46 [   0] CALL      R6(...) nargs=2 nret=0
+        47 [   0] TFORLOOP  tforloop R0 nres=2
+        48 [   0] JMP       jmp -19 -> 30
+        49 [   0] GETUPVAL  R0 := upval 3
+        50 [   0] GETTABLE  R0 := R0["initCodeButton"]
+        51 [   0] CALL      R0(...) nargs=0 nret=0
+        52 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 230-308, upvals=[], locals=[])
+      constants: strings=['sendCodeHandler', 'verifyCode_closure', 'newButton', 'default', 'getInstance', 'getCurrentThemePath', 'theme', 'productbutton_released', 'over', 'productbutton_pressed', 'onRelease', 'text', '', 'textColor', 'font', 'Helvetica', 'size', 'emboss', 'offset', 'xoffset', 'display', 'newText', '_T', 'APPSTORE_ENTER_CODE_BUTTON_LABEL', 'system', 'nativeFont', 'insert', 'x', 'y', 'voucherpic', 'newImage'] numbers=[255, 15, -12, -90, -40, 242, 0, 250, -75]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == False) ~= 0 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] CLOSURE   R0 := closure #0
+         5 [   0] GETUPVAL  R0 := upval 1
+         6 [   0] SETGLOBAL _G["sendCodeHandler"] := R0
+         7 [   0] CLOSURE   R0 := closure #1
+         8 [   0] SETGLOBAL _G["verifyCode_closure"] := R0
+         9 [   0] GETUPVAL  R0 := upval 2
+        10 [   0] GETTABLE  R0 := R0["newButton"]
+        11 [   0] NEWTABLE  R1 := {} (array 0, hash 10)
+        12 [   0] GETUPVAL  R2 := upval 3
+        13 [   0] GETTABLE  R2 := R2["getInstance"]
+        14 [   0] CALL      R2(...) nargs=0 nret=1
+        15 [   0] GETTABLE  R2 := R2["getCurrentThemePath"]
+        16 [   0] CALL      R2(...) nargs=0 nret=1
+        17 [   0] GETUPVAL  R3 := upval 1
+        18 [   0] GETTABLE  R3 := R3["theme"]
+        19 [   0] GETTABLE  R3 := R3["productbutton_released"]
+        20 [   0] CONCAT    R2 := R2 .. ... .. R3
+        21 [   0] SETTABLE  R1["default"] := R2
+        22 [   0] GETUPVAL  R2 := upval 3
+        23 [   0] GETTABLE  R2 := R2["getInstance"]
+        24 [   0] CALL      R2(...) nargs=0 nret=1
+        25 [   0] GETTABLE  R2 := R2["getCurrentThemePath"]
+        26 [   0] CALL      R2(...) nargs=0 nret=1
+        27 [   0] GETUPVAL  R3 := upval 1
+        28 [   0] GETTABLE  R3 := R3["theme"]
+        29 [   0] GETTABLE  R3 := R3["productbutton_pressed"]
+        30 [   0] CONCAT    R2 := R2 .. ... .. R3
+        31 [   0] SETTABLE  R1["over"] := R2
+        32 [   0] GETGLOBAL R2 := _G["verifyCode_closure"]
+        33 [   0] CALL      R2(...) nargs=0 nret=1
+        34 [   0] SETTABLE  R1["onRelease"] := R2
+        35 [   0] SETTABLE  R1["text"] := ""
+        36 [   0] NEWTABLE  R2 := {} (array 4, hash 0)
+        37 [   0] LOADK     R3 := 255
+        38 [   0] LOADK     R4 := 255
+        39 [   0] LOADK     R5 := 255
+        40 [   0] LOADK     R6 := 255
+        41 [   0] SETLIST   R2[...] := R3.. (n=4, block 1)
+        42 [   0] SETTABLE  R1["textColor"] := R2
+        43 [   0] SETTABLE  R1["font"] := "Helvetica"
+        44 [   0] SETTABLE  R1["size"] := 15
+        45 [   0] SETTABLE  R1["emboss"] := False
+        46 [   0] SETTABLE  R1["offset"] := -12
+        47 [   0] SETTABLE  R1["xoffset"] := -90
+        48 [   0] CALL      R0(...) nargs=1 nret=1
+        49 [   0] GETGLOBAL R1 := _G["display"]
+        50 [   0] GETTABLE  R1 := R1["newText"]
+        51 [   0] GETGLOBAL R2 := _G["_T"]
+        52 [   0] LOADK     R3 := "APPSTORE_ENTER_CODE_BUTTON_LABEL"
+        53 [   0] CALL      R2(...) nargs=1 nret=1
+        54 [   0] LOADK     R3 := -40
+        55 [   0] LOADK     R4 := 242
+        56 [   0] GETGLOBAL R5 := _G["system"]
+        57 [   0] GETTABLE  R5 := R5["nativeFont"]
+        58 [   0] LOADK     R6 := 15
+        59 [   0] CALL      R1(...) nargs=5 nret=1
+        60 [   0] GETUPVAL  R2 := upval 4
+        61 [   0] SELF      R3 := R2; R2 := R2["insert"]
+        62 [   0] MOVE      R4 := R0
+        63 [   0] CALL      R2(...) nargs=2 nret=0
+        64 [   0] GETUPVAL  R2 := upval 4
+        65 [   0] SELF      R3 := R2; R2 := R2["insert"]
+        66 [   0] MOVE      R4 := R1
+        67 [   0] CALL      R2(...) nargs=2 nret=0
+        68 [   0] LOADK     R2 := 0
+        69 [   0] SETTABLE  R0["y"] := 250
+        70 [   0] SETTABLE  R0["x"] := R2
+        71 [   0] GETUPVAL  R2 := upval 1
+        72 [   0] GETTABLE  R2 := R2["theme"]
+        73 [   0] GETTABLE  R2 := R2["voucherpic"]
+        74 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        75 [   0] JMP       jmp +19 -> 95
+        76 [   0] GETGLOBAL R2 := _G["display"]
+        77 [   0] GETTABLE  R2 := R2["newImage"]
+        78 [   0] GETUPVAL  R3 := upval 3
+        79 [   0] GETTABLE  R3 := R3["getInstance"]
+        80 [   0] CALL      R3(...) nargs=0 nret=1
+        81 [   0] GETTABLE  R3 := R3["getCurrentThemePath"]
+        82 [   0] CALL      R3(...) nargs=0 nret=1
+        83 [   0] GETUPVAL  R4 := upval 1
+        84 [   0] GETTABLE  R4 := R4["theme"]
+        85 [   0] GETTABLE  R4 := R4["voucherpic"]
+        86 [   0] CONCAT    R3 := R3 .. ... .. R4
+        87 [   0] CALL      R2(...) nargs=1 nret=1
+        88 [   0] LOADK     R3 := -75
+        89 [   0] SETTABLE  R2["y"] := 250
+        90 [   0] SETTABLE  R2["x"] := R3
+        91 [   0] GETUPVAL  R3 := upval 4
+        92 [   0] SELF      R4 := R3; R3 := R3["insert"]
+        93 [   0] MOVE      R5 := R2
+        94 [   0] CALL      R3(...) nargs=2 nret=0
+        95 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#10.#0 (params=1, lines 236-240, upvals=[], locals=[])
+        constants: strings=['index', 'emitVerifyCode', 'code', 'text'] numbers=[2]
+           0 [   0] GETTABLE  R1 := R0["index"]
+           1 [   0] EQ        if (R1 == 2) ~= 0 then skip next
+           2 [   0] JMP       jmp +6 -> 9
+           3 [   0] GETUPVAL  R1 := upval 0
+           4 [   0] GETTABLE  R1 := R1["emitVerifyCode"]
+           5 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+           6 [   0] GETTABLE  R3 := R0["text"]
+           7 [   0] SETTABLE  R2["code"] := R3
+           8 [   0] CALL      R1(...) nargs=1 nret=0
+           9 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#10.#1 (params=0, lines 242-286, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] CLOSURE   R0 := closure #0
+           1 [   0] RETURN    return R0.. (1 values)
+           2 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#10.#1.#0 (params=1, lines 244-285, upvals=[], locals=[])
+          constants: strings=['bgasset', 'shop/shopbackground.png', 'productbutton_released', 'shop/buyobjekt1.png', 'productbutton_pressed', 'shop/buyobjekt2.png', 'backbutton_released', 'shop/menu_backbutton.png', 'backbutton_pressed', 'shop/menu_backbutton_active.png', 'calloutbutton_released', 'shop/flag5.png', 'calloutbutton_pressed', 'yellowFlag', 'shop/flag2.png', 'greenFlag', 'shop/flag3.png', 'moneyFlag', 'premiumcoin', 'shop/premiumcoin.png', 'background', 'assets/shop/promocode2.png', 'message_offsetY', 'message_offsetX', 'title_offsetY', 'button_styles', 'default', 'normal', 'shop/promocode_button.png', 'active', 'showtext', 'positive', 'negative', 'fglib', 'display', 'setInputOverlayTheme', 'appstore', 'PurchaseManager', 'getInstance', 'hasAlreadyEnteredCode', 'native', 'showAlert', '_T', 'APPSTORE_CODE_ALREADY_ENTERED_TITLE', 'APPSTORE_CODE_ALREADY_ENTERED_TEXT', 'APPSTORE_CODE_ALREADY_ENTERED_OK', 'showInputOverlay', 'APPSTORE_ENTER_CODE_TITLE', 'APPSTORE_ENTER_CODE_TEXT', 'APPSTORE_ENTER_CODE_CANCEL', 'APPSTORE_ENTER_CODE_SEND', 'sendCodeHandler'] numbers=[-10, 20]
+             0 [   0] NEWTABLE  R1 := {} (array 0, hash 11)
+             1 [   0] SETTABLE  R1["bgasset"] := "shop/shopbackground.png"
+             2 [   0] SETTABLE  R1["productbutton_released"] := "shop/buyobjekt1.png"
+             3 [   0] SETTABLE  R1["productbutton_pressed"] := "shop/buyobjekt2.png"
+             4 [   0] SETTABLE  R1["backbutton_released"] := "shop/menu_backbutton.png"
+             5 [   0] SETTABLE  R1["backbutton_pressed"] := "shop/menu_backbutton_active.png"
+             6 [   0] SETTABLE  R1["calloutbutton_released"] := "shop/flag5.png"
+             7 [   0] SETTABLE  R1["calloutbutton_pressed"] := "shop/flag5.png"
+             8 [   0] SETTABLE  R1["yellowFlag"] := "shop/flag2.png"
+             9 [   0] SETTABLE  R1["greenFlag"] := "shop/flag3.png"
+            10 [   0] SETTABLE  R1["moneyFlag"] := "shop/flag5.png"
+            11 [   0] SETTABLE  R1["premiumcoin"] := "shop/premiumcoin.png"
+            12 [   0] NEWTABLE  R2 := {} (array 0, hash 5)
+            13 [   0] SETTABLE  R2["background"] := "assets/shop/promocode2.png"
+            14 [   0] SETTABLE  R2["message_offsetY"] := -10
+            15 [   0] SETTABLE  R2["message_offsetX"] := 20
+            16 [   0] SETTABLE  R2["title_offsetY"] := -10
+            17 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+            18 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+            19 [   0] SETTABLE  R4["normal"] := "shop/promocode_button.png"
+            20 [   0] SETTABLE  R4["active"] := "shop/promocode_button.png"
+            21 [   0] SETTABLE  R4["showtext"] := True
+            22 [   0] SETTABLE  R3["default"] := R4
+            23 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+            24 [   0] SETTABLE  R4["normal"] := "shop/promocode_button.png"
+            25 [   0] SETTABLE  R4["active"] := "shop/promocode_button.png"
+            26 [   0] SETTABLE  R4["showtext"] := True
+            27 [   0] SETTABLE  R3["positive"] := R4
+            28 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+            29 [   0] SETTABLE  R4["normal"] := "shop/promocode_button.png"
+            30 [   0] SETTABLE  R4["active"] := "shop/promocode_button.png"
+            31 [   0] SETTABLE  R4["showtext"] := True
+            32 [   0] SETTABLE  R3["negative"] := R4
+            33 [   0] SETTABLE  R2["button_styles"] := R3
+            34 [   0] GETGLOBAL R3 := _G["fglib"]
+            35 [   0] GETTABLE  R3 := R3["display"]
+            36 [   0] GETTABLE  R3 := R3["setInputOverlayTheme"]
+            37 [   0] MOVE      R4 := R2
+            38 [   0] CALL      R3(...) nargs=1 nret=0
+            39 [   0] GETGLOBAL R3 := _G["fglib"]
+            40 [   0] GETTABLE  R3 := R3["appstore"]
+            41 [   0] GETTABLE  R3 := R3["PurchaseManager"]
+            42 [   0] GETTABLE  R3 := R3["getInstance"]
+            43 [   0] CALL      R3(...) nargs=0 nret=1
+            44 [   0] GETTABLE  R3 := R3["hasAlreadyEnteredCode"]
+            45 [   0] CALL      R3(...) nargs=0 nret=1
+            46 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+            47 [   0] JMP       jmp +15 -> 63
+            48 [   0] GETGLOBAL R3 := _G["native"]
+            49 [   0] GETTABLE  R3 := R3["showAlert"]
+            50 [   0] GETGLOBAL R4 := _G["_T"]
+            51 [   0] LOADK     R5 := "APPSTORE_CODE_ALREADY_ENTERED_TITLE"
+            52 [   0] CALL      R4(...) nargs=1 nret=1
+            53 [   0] GETGLOBAL R5 := _G["_T"]
+            54 [   0] LOADK     R6 := "APPSTORE_CODE_ALREADY_ENTERED_TEXT"
+            55 [   0] CALL      R5(...) nargs=1 nret=1
+            56 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+            57 [   0] GETGLOBAL R7 := _G["_T"]
+            58 [   0] LOADK     R8 := "APPSTORE_CODE_ALREADY_ENTERED_OK"
+            59 [   0] CALL      R7(...) nargs=1 nret=-1
+            60 [   0] SETLIST   R6[...] := R7.. (n=0, block 1)
+            61 [   0] CALL      R3(...) nargs=3 nret=0
+            62 [   0] JMP       jmp +19 -> 82
+            63 [   0] GETGLOBAL R3 := _G["fglib"]
+            64 [   0] GETTABLE  R3 := R3["display"]
+            65 [   0] GETTABLE  R3 := R3["showInputOverlay"]
+            66 [   0] GETGLOBAL R4 := _G["_T"]
+            67 [   0] LOADK     R5 := "APPSTORE_ENTER_CODE_TITLE"
+            68 [   0] CALL      R4(...) nargs=1 nret=1
+            69 [   0] GETGLOBAL R5 := _G["_T"]
+            70 [   0] LOADK     R6 := "APPSTORE_ENTER_CODE_TEXT"
+            71 [   0] CALL      R5(...) nargs=1 nret=1
+            72 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+            73 [   0] GETGLOBAL R7 := _G["_T"]
+            74 [   0] LOADK     R8 := "APPSTORE_ENTER_CODE_CANCEL"
+            75 [   0] CALL      R7(...) nargs=1 nret=1
+            76 [   0] GETGLOBAL R8 := _G["_T"]
+            77 [   0] LOADK     R9 := "APPSTORE_ENTER_CODE_SEND"
+            78 [   0] CALL      R8(...) nargs=1 nret=-1
+            79 [   0] SETLIST   R6[...] := R7.. (n=0, block 1)
+            80 [   0] GETGLOBAL R7 := _G["sendCodeHandler"]
+            81 [   0] CALL      R3(...) nargs=4 nret=0
+            82 [   0] LOADBOOL  R3 := True
+            83 [   0] RETURN    return R3.. (1 values)
+            84 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=1, lines 310-317, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_DISPLAY', 'DefaultView:popupButtonHandler', 'id', 'emitExit'] numbers=[3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logmsg"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["ASPECT_DISPLAY"]
+         5 [   0] LOADK     R4 := 3
+         6 [   0] LOADK     R5 := "DefaultView:popupButtonHandler"
+         7 [   0] GETTABLE  R6 := R0["id"]
+         8 [   0] CALL      R1(...) nargs=5 nret=0
+         9 [   0] GETUPVAL  R1 := upval 2
+        10 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +3 -> 15
+        12 [   0] GETUPVAL  R1 := upval 3
+        13 [   0] GETTABLE  R1 := R1["emitExit"]
+        14 [   0] CALL      R1(...) nargs=0 nret=0
+        15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=2, lines 319-322, upvals=[], locals=[])
+      constants: strings=['native', 'setActivityIndicator'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["native"]
+         1 [   0] GETTABLE  R2 := R2["setActivityIndicator"]
+         2 [   0] LOADBOOL  R3 := True
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=1, lines 324-328, upvals=[], locals=[])
+      constants: strings=['emitExit'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETUPVAL  R1 := upval 1
+         4 [   0] GETTABLE  R1 := R1["emitExit"]
+         5 [   0] CALL      R1(...) nargs=0 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=1, lines 330-342, upvals=[], locals=[])
+      constants: strings=['index', 'tracker', 'logStoreOpenStorePageEvent', 'fglib', 'appstore', 'PurchaseManager', 'getInstance', 'openStorePage', 'logStoreDenyOpenStorePageEvent'] numbers=[1]
+         0 [   0] GETTABLE  R1 := R0["index"]
+         1 [   0] EQ        if (R1 == 1) ~= 0 then skip next
+         2 [   0] JMP       jmp +16 -> 19
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["tracker"]
+         5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +4 -> 11
+         7 [   0] GETUPVAL  R1 := upval 0
+         8 [   0] GETTABLE  R1 := R1["tracker"]
+         9 [   0] GETTABLE  R1 := R1["logStoreOpenStorePageEvent"]
+        10 [   0] CALL      R1(...) nargs=0 nret=0
+        11 [   0] GETGLOBAL R1 := _G["fglib"]
+        12 [   0] GETTABLE  R1 := R1["appstore"]
+        13 [   0] GETTABLE  R1 := R1["PurchaseManager"]
+        14 [   0] GETTABLE  R1 := R1["getInstance"]
+        15 [   0] CALL      R1(...) nargs=0 nret=1
+        16 [   0] GETTABLE  R1 := R1["openStorePage"]
+        17 [   0] CALL      R1(...) nargs=0 nret=0
+        18 [   0] JMP       jmp +8 -> 27
+        19 [   0] GETUPVAL  R1 := upval 0
+        20 [   0] GETTABLE  R1 := R1["tracker"]
+        21 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        22 [   0] JMP       jmp +4 -> 27
+        23 [   0] GETUPVAL  R1 := upval 0
+        24 [   0] GETTABLE  R1 := R1["tracker"]
+        25 [   0] GETTABLE  R1 := R1["logStoreDenyOpenStorePageEvent"]
+        26 [   0] CALL      R1(...) nargs=0 nret=0
+        27 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=2, lines 344-373, upvals=[], locals=[])
+      constants: strings=['native', 'setActivityIndicator', 'purchased', 'transaction', 'state', 'showAlert', '_T', 'APPSTORE_TRANSACTION_PURCHASED_TITLE', 'APPSTORE_TRANSACTION_PURCHASED_TEXT', 'OK', 'cancelled', 'failed', 'errorType', 'invalidClient', 'APPSTORE_TRANSACTION_INVALID_CLIENT_TITLE', 'APPSTORE_TRANSACTION_INVALID_CLIENT_TEXT', 'OPEN_MARKETPLACE', 'NOT_NOW', 'invalidClientPopupListener', 'APPSTORE_TRANSACTION_ERROR_TITLE', 'APPSTORE_TRANSACTION_ERROR_TEXT', '\n\n', 'errorString', 'emitExit'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["native"]
+         1 [   0] GETTABLE  R2 := R2["setActivityIndicator"]
+         2 [   0] LOADBOOL  R3 := False
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] GETTABLE  R2 := R1["transaction"]
+         5 [   0] GETTABLE  R2 := R2["state"]
+         6 [   0] EQ        if ("purchased" == R2) ~= 0 then skip next
+         7 [   0] JMP       jmp +15 -> 23
+         8 [   0] GETGLOBAL R2 := _G["native"]
+         9 [   0] GETTABLE  R2 := R2["showAlert"]
+        10 [   0] GETGLOBAL R3 := _G["_T"]
+        11 [   0] LOADK     R4 := "APPSTORE_TRANSACTION_PURCHASED_TITLE"
+        12 [   0] CALL      R3(...) nargs=1 nret=1
+        13 [   0] GETGLOBAL R4 := _G["_T"]
+        14 [   0] LOADK     R5 := "APPSTORE_TRANSACTION_PURCHASED_TEXT"
+        15 [   0] CALL      R4(...) nargs=1 nret=1
+        16 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+        17 [   0] GETGLOBAL R6 := _G["_T"]
+        18 [   0] LOADK     R7 := "OK"
+        19 [   0] CALL      R6(...) nargs=1 nret=-1
+        20 [   0] SETLIST   R5[...] := R6.. (n=0, block 1)
+        21 [   0] CALL      R2(...) nargs=3 nret=0
+        22 [   0] JMP       jmp +70 -> 93
+        23 [   0] GETTABLE  R2 := R1["transaction"]
+        24 [   0] GETTABLE  R2 := R2["state"]
+        25 [   0] EQ        if ("cancelled" == R2) ~= 0 then skip next
+        26 [   0] JMP       jmp +1 -> 28
+        27 [   0] JMP       jmp +65 -> 93
+        28 [   0] GETTABLE  R2 := R1["transaction"]
+        29 [   0] GETTABLE  R2 := R2["state"]
+        30 [   0] EQ        if ("failed" == R2) ~= 0 then skip next
+        31 [   0] JMP       jmp +43 -> 75
+        32 [   0] GETTABLE  R2 := R1["transaction"]
+        33 [   0] GETTABLE  R2 := R2["errorType"]
+        34 [   0] EQ        if (R2 == "invalidClient") ~= 0 then skip next
+        35 [   0] JMP       jmp +20 -> 56
+        36 [   0] GETGLOBAL R2 := _G["native"]
+        37 [   0] GETTABLE  R2 := R2["showAlert"]
+        38 [   0] GETGLOBAL R3 := _G["_T"]
+        39 [   0] LOADK     R4 := "APPSTORE_TRANSACTION_INVALID_CLIENT_TITLE"
+        40 [   0] CALL      R3(...) nargs=1 nret=1
+        41 [   0] GETGLOBAL R4 := _G["_T"]
+        42 [   0] LOADK     R5 := "APPSTORE_TRANSACTION_INVALID_CLIENT_TEXT"
+        43 [   0] CALL      R4(...) nargs=1 nret=1
+        44 [   0] NEWTABLE  R5 := {} (array 1, hash 0)
+        45 [   0] GETGLOBAL R6 := _G["_T"]
+        46 [   0] LOADK     R7 := "OPEN_MARKETPLACE"
+        47 [   0] CALL      R6(...) nargs=1 nret=1
+        48 [   0] GETGLOBAL R7 := _G["_T"]
+        49 [   0] LOADK     R8 := "NOT_NOW"
+        50 [   0] CALL      R7(...) nargs=1 nret=-1
+        51 [   0] SETLIST   R5[...] := R6.. (n=0, block 1)
+        52 [   0] GETUPVAL  R6 := upval 0
+        53 [   0] GETTABLE  R6 := R6["invalidClientPopupListener"]
+        54 [   0] CALL      R2(...) nargs=4 nret=0
+        55 [   0] JMP       jmp +37 -> 93
+        56 [   0] GETGLOBAL R2 := _G["native"]
+        57 [   0] GETTABLE  R2 := R2["showAlert"]
+        58 [   0] GETGLOBAL R3 := _G["_T"]
+        59 [   0] LOADK     R4 := "APPSTORE_TRANSACTION_ERROR_TITLE"
+        60 [   0] CALL      R3(...) nargs=1 nret=1
+        61 [   0] GETGLOBAL R4 := _G["_T"]
+        62 [   0] LOADK     R5 := "APPSTORE_TRANSACTION_ERROR_TEXT"
+        63 [   0] CALL      R4(...) nargs=1 nret=1
+        64 [   0] LOADK     R5 := "\n\n"
+        65 [   0] GETTABLE  R6 := R1["transaction"]
+        66 [   0] GETTABLE  R6 := R6["errorString"]
+        67 [   0] CONCAT    R4 := R4 .. ... .. R6
+        68 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+        69 [   0] GETGLOBAL R6 := _G["_T"]
+        70 [   0] LOADK     R7 := "OK"
+        71 [   0] CALL      R6(...) nargs=1 nret=-1
+        72 [   0] SETLIST   R5[...] := R6.. (n=0, block 1)
+        73 [   0] CALL      R2(...) nargs=3 nret=0
+        74 [   0] JMP       jmp +18 -> 93
+        75 [   0] GETGLOBAL R2 := _G["native"]
+        76 [   0] GETTABLE  R2 := R2["showAlert"]
+        77 [   0] GETGLOBAL R3 := _G["_T"]
+        78 [   0] LOADK     R4 := "APPSTORE_TRANSACTION_ERROR_TITLE"
+        79 [   0] CALL      R3(...) nargs=1 nret=1
+        80 [   0] GETGLOBAL R4 := _G["_T"]
+        81 [   0] LOADK     R5 := "APPSTORE_TRANSACTION_ERROR_TEXT"
+        82 [   0] CALL      R4(...) nargs=1 nret=1
+        83 [   0] LOADK     R5 := "\n\n"
+        84 [   0] GETTABLE  R6 := R1["transaction"]
+        85 [   0] GETTABLE  R6 := R6["errorString"]
+        86 [   0] CONCAT    R4 := R4 .. ... .. R6
+        87 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+        88 [   0] GETGLOBAL R6 := _G["_T"]
+        89 [   0] LOADK     R7 := "OK"
+        90 [   0] CALL      R6(...) nargs=1 nret=-1
+        91 [   0] SETLIST   R5[...] := R6.. (n=0, block 1)
+        92 [   0] CALL      R2(...) nargs=3 nret=0
+        93 [   0] GETUPVAL  R2 := upval 1
+        94 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        95 [   0] JMP       jmp +3 -> 99
+        96 [   0] GETUPVAL  R2 := upval 0
+        97 [   0] GETTABLE  R2 := R2["emitExit"]
+        98 [   0] CALL      R2(...) nargs=0 nret=0
+        99 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#16 (params=2, lines 375-383, upvals=[], locals=[])
+      constants: strings=['native', 'showAlert', '_T', 'APPSTORE_GIVE_REWARD_TITLE', 'APPSTORE_GIVE_REWARD_', 'tostring', 'reward', '_TEXT', 'OK', 'emitExit'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["native"]
+         1 [   0] GETTABLE  R2 := R2["showAlert"]
+         2 [   0] GETGLOBAL R3 := _G["_T"]
+         3 [   0] LOADK     R4 := "APPSTORE_GIVE_REWARD_TITLE"
+         4 [   0] CALL      R3(...) nargs=1 nret=1
+         5 [   0] GETGLOBAL R4 := _G["_T"]
+         6 [   0] LOADK     R5 := "APPSTORE_GIVE_REWARD_"
+         7 [   0] GETGLOBAL R6 := _G["tostring"]
+         8 [   0] GETTABLE  R7 := R1["reward"]
+         9 [   0] CALL      R6(...) nargs=1 nret=1
+        10 [   0] LOADK     R7 := "_TEXT"
+        11 [   0] CONCAT    R5 := R5 .. ... .. R7
+        12 [   0] CALL      R4(...) nargs=1 nret=1
+        13 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+        14 [   0] GETGLOBAL R6 := _G["_T"]
+        15 [   0] LOADK     R7 := "OK"
+        16 [   0] CALL      R6(...) nargs=1 nret=-1
+        17 [   0] SETLIST   R5[...] := R6.. (n=0, block 1)
+        18 [   0] CALL      R2(...) nargs=3 nret=0
+        19 [   0] GETUPVAL  R2 := upval 0
+        20 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        21 [   0] JMP       jmp +3 -> 25
+        22 [   0] GETUPVAL  R2 := upval 1
+        23 [   0] GETTABLE  R2 := R2["emitExit"]
+        24 [   0] CALL      R2(...) nargs=0 nret=0
+        25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#17 (params=2, lines 385-390, upvals=[], locals=[])
+      constants: strings=['native', 'setActivityIndicator', 'areAssetsInitialized'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["native"]
+         1 [   0] GETTABLE  R2 := R2["setActivityIndicator"]
+         2 [   0] LOADBOOL  R3 := True
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] GETTABLE  R2 := R2["areAssetsInitialized"]
+         6 [   0] CALL      R2(...) nargs=0 nret=1
+         7 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +0 -> 9
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#18 (params=0, lines 392-394, upvals=[], locals=[])
+      constants: strings=['native', 'setActivityIndicator'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["native"]
+         1 [   0] GETTABLE  R0 := R0["setActivityIndicator"]
+         2 [   0] LOADBOOL  R1 := False
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#19 (params=2, lines 396-410, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_APPSTORE', 'DefaultStoreView:productsReceivedHandler', 'currentpopup', 'timer', 'performWithDelay', 'disableActivityIndicator', 'hidePopup', 'products', 'initProductButtons'] numbers=[3, 10]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETUPVAL  R3 := upval 1
+         3 [   0] GETUPVAL  R4 := upval 0
+         4 [   0] GETTABLE  R4 := R4["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "DefaultStoreView:productsReceivedHandler"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] GETUPVAL  R2 := upval 0
+        10 [   0] GETTABLE  R2 := R2["logmsg"]
+        11 [   0] GETUPVAL  R3 := upval 1
+        12 [   0] GETUPVAL  R4 := upval 0
+        13 [   0] GETTABLE  R4 := R4["ASPECT_APPSTORE"]
+        14 [   0] LOADK     R5 := 3
+        15 [   0] LOADK     R6 := "DefaultStoreView:productsReceivedHandler"
+        16 [   0] GETUPVAL  R7 := upval 2
+        17 [   0] GETTABLE  R7 := R7["currentpopup"]
+        18 [   0] CALL      R2(...) nargs=5 nret=0
+        19 [   0] GETGLOBAL R2 := _G["timer"]
+        20 [   0] GETTABLE  R2 := R2["performWithDelay"]
+        21 [   0] LOADK     R3 := 10
+        22 [   0] GETUPVAL  R4 := upval 2
+        23 [   0] GETTABLE  R4 := R4["disableActivityIndicator"]
+        24 [   0] CALL      R2(...) nargs=2 nret=0
+        25 [   0] GETUPVAL  R2 := upval 2
+        26 [   0] GETTABLE  R2 := R2["hidePopup"]
+        27 [   0] CALL      R2(...) nargs=0 nret=0
+        28 [   0] GETTABLE  R2 := R1["products"]
+        29 [   0] SETUPVAL  upval 3 := R2
+        30 [   0] GETUPVAL  R2 := upval 2
+        31 [   0] GETTABLE  R2 := R2["initProductButtons"]
+        32 [   0] CALL      R2(...) nargs=0 nret=0
+        33 [   0] LOADBOOL  R2 := True
+        34 [   0] SETUPVAL  upval 4 := R2
+        35 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=2, lines 418-422, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETUPVAL  R3 := upval 1
+       2 [   0] GETTABLE  R3 := R3["new_inherit"]
+       3 [   0] GETUPVAL  R4 := upval 2
+       4 [   0] GETTABLE  R4 := R4["new"]
+       5 [   0] CALL      R4(...) nargs=0 nret=-1
+       6 [   0] CALL      R3(...) nargs=-1 nret=1
+       7 [   0] MOVE      R4 := R0
+       8 [   0] MOVE      R5 := R1
+       9 [   0] TAILCALL  return R2(...) nargs=3
+      10 [   0] RETURN    return R2.. (-1 values)
+      11 [   0] RETURN    return R0.. (0 values)

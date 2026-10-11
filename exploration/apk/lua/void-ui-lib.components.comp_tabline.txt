@@ -1,0 +1,249 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'renderer.tabrenderer', 'widgets.labelshadower', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "renderer.tabrenderer"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+     7 [   0] LOADK     R3 := "widgets.labelshadower"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] CLOSURE   R2 := closure #0
+    11 [   0] MOVE      R0 := R0
+    12 [   0] MOVE      R0 := R1
+    13 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+    14 [   0] SETTABLE  R3["create"] := R2
+    15 [   0] RETURN    return R3.. (1 values)
+    16 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 4-96, upvals=[], locals=[])
+    constants: strings=['ui', 'createContainer', 'layout', 'width', 'height', 'options', 'max', 'tabManager.type', 'btn', 'icon', 'label', 'badge', 'isMain', 'assets/ui/btn_tab_big_active.png', 'assets/ui/btn_tab_big_inactive.png', 'assets/ui/btn_tab_small_active.png', 'assets/ui/btn_tab_small_inactive.png', 'createBtn', 'renderer', 'parent', 'activeImg', 'inActiveImg', 'ret', 'beganSound', 'fxbutton_select_down', 'endedSound', 'fxbutton_select_up', 'cb', 'iconLayout', 'create', 'labelLayout', 'txtAlign', 'center', 'fontSize', 'txt', '..', 'txtColor', 'styles', 'colors', 'white', 'shadowColor', 'black', 'update', 'select', 'hide'] numbers=[320, 176, 4, 1, 12.95]
+       0 [   0] GETGLOBAL R1 := _G["ui"]
+       1 [   0] GETTABLE  R1 := R1["createContainer"]
+       2 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+       3 [   0] GETTABLE  R3 := R0["layout"]
+       4 [   0] SETTABLE  R2["layout"] := R3
+       5 [   0] SETTABLE  R2["width"] := 320
+       6 [   0] SETTABLE  R2["height"] := 176
+       7 [   0] CALL      R1(...) nargs=1 nret=1
+       8 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+       9 [   0] SETTABLE  R2["max"] := 4
+      10 [   0] SETTABLE  R1["options"] := R2
+      11 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      12 [   0] JMP       jmp +6 -> 19
+      13 [   0] GETTABLE  R2 := R0["max"]
+      14 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      15 [   0] JMP       jmp +3 -> 19
+      16 [   0] GETTABLE  R2 := R1["options"]
+      17 [   0] GETTABLE  R3 := R0["max"]
+      18 [   0] SETTABLE  R2["max"] := R3
+      19 [   0] LOADK     R2 := "tabManager.type"
+      20 [   0] GETTABLE  R3 := R1["options"]
+      21 [   0] GETTABLE  R3 := R3["max"]
+      22 [   0] CONCAT    R2 := R2 .. ... .. R3
+      23 [   0] LOADNIL   R3..R4 := nil
+      24 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      25 [   0] SETTABLE  R1["btn"] := R5
+      26 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      27 [   0] SETTABLE  R1["icon"] := R5
+      28 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      29 [   0] SETTABLE  R1["label"] := R5
+      30 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      31 [   0] SETTABLE  R1["badge"] := R5
+      32 [   0] LOADK     R5 := 1
+      33 [   0] GETTABLE  R6 := R1["options"]
+      34 [   0] GETTABLE  R6 := R6["max"]
+      35 [   0] LOADK     R7 := 1
+      36 [   0] FORPREP   for R5.. jmp +62
+      37 [   0] GETTABLE  R9 := R0["isMain"]
+      38 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+      39 [   0] JMP       jmp +3 -> 43
+      40 [   0] LOADK     R3 := "assets/ui/btn_tab_big_active.png"
+      41 [   0] LOADK     R4 := "assets/ui/btn_tab_big_inactive.png"
+      42 [   0] JMP       jmp +2 -> 45
+      43 [   0] LOADK     R3 := "assets/ui/btn_tab_small_active.png"
+      44 [   0] LOADK     R4 := "assets/ui/btn_tab_small_inactive.png"
+      45 [   0] GETTABLE  R9 := R1["btn"]
+      46 [   0] GETGLOBAL R10 := _G["ui"]
+      47 [   0] GETTABLE  R10 := R10["createBtn"]
+      48 [   0] NEWTABLE  R11 := {} (array 0, hash 9)
+      49 [   0] GETUPVAL  R12 := upval 0
+      50 [   0] SETTABLE  R11["renderer"] := R12
+      51 [   0] MOVE      R12 := R2
+      52 [   0] LOADK     R13 := "btn"
+      53 [   0] MOVE      R14 := R8
+      54 [   0] CONCAT    R12 := R12 .. ... .. R14
+      55 [   0] SETTABLE  R11["layout"] := R12
+      56 [   0] SETTABLE  R11["parent"] := R1
+      57 [   0] SETTABLE  R11["activeImg"] := R3
+      58 [   0] SETTABLE  R11["inActiveImg"] := R4
+      59 [   0] SETTABLE  R11["ret"] := True
+      60 [   0] SETTABLE  R11["beganSound"] := "fxbutton_select_down"
+      61 [   0] SETTABLE  R11["endedSound"] := "fxbutton_select_up"
+      62 [   0] CLOSURE   R12 := closure #0
+      63 [   0] SETTABLE  R11["cb"] := R12
+      64 [   0] CALL      R10(...) nargs=1 nret=1
+      65 [   0] SETTABLE  R9[R8] := R10
+      66 [   0] GETTABLE  R9 := R1["icon"]
+      67 [   0] GETGLOBAL R10 := _G["ui"]
+      68 [   0] GETTABLE  R10 := R10["createContainer"]
+      69 [   0] NEWTABLE  R11 := {} (array 0, hash 2)
+      70 [   0] GETTABLE  R12 := R0["iconLayout"]
+      71 [   0] SETTABLE  R11["layout"] := R12
+      72 [   0] GETTABLE  R12 := R1["btn"]
+      73 [   0] GETTABLE  R12 := R12[R8]
+      74 [   0] SETTABLE  R11["parent"] := R12
+      75 [   0] CALL      R10(...) nargs=1 nret=1
+      76 [   0] SETTABLE  R9[R8] := R10
+      77 [   0] GETTABLE  R9 := R1["label"]
+      78 [   0] GETUPVAL  R10 := upval 1
+      79 [   0] GETTABLE  R10 := R10["create"]
+      80 [   0] NEWTABLE  R11 := {} (array 0, hash 7)
+      81 [   0] GETTABLE  R12 := R0["labelLayout"]
+      82 [   0] SETTABLE  R11["layout"] := R12
+      83 [   0] GETTABLE  R12 := R1["btn"]
+      84 [   0] GETTABLE  R12 := R12[R8]
+      85 [   0] SETTABLE  R11["parent"] := R12
+      86 [   0] SETTABLE  R11["txtAlign"] := "center"
+      87 [   0] SETTABLE  R11["fontSize"] := 12.95
+      88 [   0] SETTABLE  R11["txt"] := ".."
+      89 [   0] GETGLOBAL R12 := _G["styles"]
+      90 [   0] GETTABLE  R12 := R12["colors"]
+      91 [   0] GETTABLE  R12 := R12["white"]
+      92 [   0] SETTABLE  R11["txtColor"] := R12
+      93 [   0] GETGLOBAL R12 := _G["styles"]
+      94 [   0] GETTABLE  R12 := R12["colors"]
+      95 [   0] GETTABLE  R12 := R12["black"]
+      96 [   0] SETTABLE  R11["shadowColor"] := R12
+      97 [   0] CALL      R10(...) nargs=1 nret=1
+      98 [   0] SETTABLE  R9[R8] := R10
+      99 [   0] FORLOOP   forloop R5 jmp -63
+     100 [   0] CLOSURE   R5 := closure #1
+     101 [   0] MOVE      R0 := R1
+     102 [   0] SETTABLE  R1["update"] := R5
+     103 [   0] CLOSURE   R5 := closure #2
+     104 [   0] MOVE      R0 := R1
+     105 [   0] SETTABLE  R1["select"] := R5
+     106 [   0] GETTABLE  R5 := R1["hide"]
+     107 [   0] CALL      R5(...) nargs=0 nret=0
+     108 [   0] RETURN    return R1.. (1 values)
+     109 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 40-40, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 58-78, upvals=[], locals=[])
+      constants: strings=['options', 'max', 'btn', 'update', 'xScale', 'cb', 'setCallBack', 'icon', 'label'] numbers=[1, -1]
+         0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] RETURN    return R0.. (0 values)
+         3 [   0] LOADK     R1 := 1
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] GETTABLE  R2 := R2["options"]
+         6 [   0] GETTABLE  R2 := R2["max"]
+         7 [   0] LOADK     R3 := 1
+         8 [   0] FORPREP   for R1.. jmp +54
+         9 [   0] GETTABLE  R5 := R0[R4]
+        10 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +31 -> 43
+        12 [   0] GETUPVAL  R6 := upval 0
+        13 [   0] GETTABLE  R6 := R6["btn"]
+        14 [   0] GETTABLE  R6 := R6[R4]
+        15 [   0] GETTABLE  R6 := R6["update"]
+        16 [   0] GETTABLE  R7 := R5["btn"]
+        17 [   0] CALL      R6(...) nargs=1 nret=0
+        18 [   0] GETUPVAL  R6 := upval 0
+        19 [   0] GETTABLE  R6 := R6["options"]
+        20 [   0] GETTABLE  R6 := R6["max"]
+        21 [   0] EQ        if (R4 == R6) ~= 0 then skip next
+        22 [   0] JMP       jmp +7 -> 30
+        23 [   0] GETUPVAL  R6 := upval 0
+        24 [   0] GETTABLE  R6 := R6["btn"]
+        25 [   0] GETTABLE  R6 := R6[R4]
+        26 [   0] GETTABLE  R6 := R6["update"]
+        27 [   0] NEWTABLE  R7 := {} (array 0, hash 1)
+        28 [   0] SETTABLE  R7["xScale"] := -1
+        29 [   0] CALL      R6(...) nargs=1 nret=0
+        30 [   0] GETTABLE  R6 := R5["btn"]
+        31 [   0] GETTABLE  R6 := R6["cb"]
+        32 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        33 [   0] JMP       jmp +9 -> 43
+        34 [   0] GETUPVAL  R6 := upval 0
+        35 [   0] GETTABLE  R6 := R6["btn"]
+        36 [   0] GETTABLE  R6 := R6[R4]
+        37 [   0] GETTABLE  R6 := R6["setCallBack"]
+        38 [   0] CLOSURE   R7 := closure #0
+        39 [   0] GETUPVAL  R0 := upval 0
+        40 [   0] MOVE      R0 := R4
+        41 [   0] MOVE      R0 := R5
+        42 [   0] CALL      R6(...) nargs=1 nret=0
+        43 [   0] GETTABLE  R6 := R5["icon"]
+        44 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        45 [   0] JMP       jmp +6 -> 52
+        46 [   0] GETUPVAL  R6 := upval 0
+        47 [   0] GETTABLE  R6 := R6["icon"]
+        48 [   0] GETTABLE  R6 := R6[R4]
+        49 [   0] GETTABLE  R6 := R6["update"]
+        50 [   0] GETTABLE  R7 := R5["icon"]
+        51 [   0] CALL      R6(...) nargs=1 nret=0
+        52 [   0] GETTABLE  R6 := R5["label"]
+        53 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        54 [   0] JMP       jmp +6 -> 61
+        55 [   0] GETUPVAL  R6 := upval 0
+        56 [   0] GETTABLE  R6 := R6["label"]
+        57 [   0] GETTABLE  R6 := R6[R4]
+        58 [   0] GETTABLE  R6 := R6["update"]
+        59 [   0] GETTABLE  R7 := R5["label"]
+        60 [   0] CALL      R6(...) nargs=1 nret=0
+        61 [   0] CLOSE     A=5 B=0 C=0
+        62 [   0] CLOSE     A=4 B=0 C=0
+        63 [   0] FORLOOP   forloop R1 jmp -55
+        64 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 70-73, upvals=[], locals=[])
+        constants: strings=['select', 'btn', 'cb'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["select"]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] GETUPVAL  R0 := upval 2
+           5 [   0] GETTABLE  R0 := R0["btn"]
+           6 [   0] GETTABLE  R0 := R0["cb"]
+           7 [   0] CALL      R0(...) nargs=0 nret=0
+           8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=2, lines 80-91, upvals=[], locals=[])
+      constants: strings=['selected', 'options', 'max', 'btn', 'update', 'active', 'getCallback'] numbers=[1]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] SETTABLE  R2["selected"] := R0
+         2 [   0] LOADK     R2 := 1
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["options"]
+         5 [   0] GETTABLE  R3 := R3["max"]
+         6 [   0] LOADK     R4 := 1
+         7 [   0] FORPREP   for R2.. jmp +25
+         8 [   0] EQ        if (R5 == R0) ~= 0 then skip next
+         9 [   0] JMP       jmp +16 -> 26
+        10 [   0] GETUPVAL  R6 := upval 0
+        11 [   0] GETTABLE  R6 := R6["btn"]
+        12 [   0] GETTABLE  R6 := R6[R0]
+        13 [   0] GETTABLE  R6 := R6["update"]
+        14 [   0] NEWTABLE  R7 := {} (array 0, hash 1)
+        15 [   0] SETTABLE  R7["active"] := True
+        16 [   0] CALL      R6(...) nargs=1 nret=0
+        17 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        18 [   0] JMP       jmp +14 -> 33
+        19 [   0] GETUPVAL  R6 := upval 0
+        20 [   0] GETTABLE  R6 := R6["btn"]
+        21 [   0] GETTABLE  R6 := R6[R0]
+        22 [   0] GETTABLE  R6 := R6["getCallback"]
+        23 [   0] CALL      R6(...) nargs=0 nret=1
+        24 [   0] CALL      R6(...) nargs=0 nret=0
+        25 [   0] JMP       jmp +7 -> 33
+        26 [   0] GETUPVAL  R6 := upval 0
+        27 [   0] GETTABLE  R6 := R6["btn"]
+        28 [   0] GETTABLE  R6 := R6[R5]
+        29 [   0] GETTABLE  R6 := R6["update"]
+        30 [   0] NEWTABLE  R7 := {} (array 0, hash 1)
+        31 [   0] SETTABLE  R7["active"] := False
+        32 [   0] CALL      R6(...) nargs=1 nret=0
+        33 [   0] FORLOOP   forloop R2 jmp -26
+        34 [   0] RETURN    return R0.. (0 values)

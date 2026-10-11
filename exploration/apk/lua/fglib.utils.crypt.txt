@@ -1,0 +1,291 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/', 'base64enc', 'base64dec', 'encrypt', 'decrypt'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] LOADK     R1 := 3
+     6 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+     7 [   0] LOADK     R3 := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+     8 [   0] CLOSURE   R4 := closure #0
+     9 [   0] MOVE      R0 := R3
+    10 [   0] SETTABLE  R2["base64enc"] := R4
+    11 [   0] CLOSURE   R4 := closure #1
+    12 [   0] MOVE      R0 := R3
+    13 [   0] SETTABLE  R2["base64dec"] := R4
+    14 [   0] CLOSURE   R4 := closure #2
+    15 [   0] CLOSURE   R5 := closure #3
+    16 [   0] MOVE      R0 := R4
+    17 [   0] CLOSURE   R6 := closure #4
+    18 [   0] MOVE      R0 := R2
+    19 [   0] SETTABLE  R2["encrypt"] := R6
+    20 [   0] CLOSURE   R6 := closure #5
+    21 [   0] MOVE      R0 := R2
+    22 [   0] SETTABLE  R2["decrypt"] := R6
+    23 [   0] RETURN    return R2.. (1 values)
+    24 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 10-21, upvals=[], locals=[])
+    constants: strings=['gsub', '.', '0000', '%d%d%d?%d?%d?%d?', '', '==', '='] numbers=[3, 1]
+       0 [   0] SELF      R2 := R0; R1 := R0["gsub"]
+       1 [   0] LOADK     R3 := "."
+       2 [   0] CLOSURE   R4 := closure #0
+       3 [   0] CALL      R1(...) nargs=3 nret=1
+       4 [   0] LOADK     R2 := "0000"
+       5 [   0] CONCAT    R1 := R1 .. ... .. R2
+       6 [   0] SELF      R2 := R1; R1 := R1["gsub"]
+       7 [   0] LOADK     R3 := "%d%d%d?%d?%d?%d?"
+       8 [   0] CLOSURE   R4 := closure #1
+       9 [   0] GETUPVAL  R0 := upval 0
+      10 [   0] CALL      R1(...) nargs=3 nret=1
+      11 [   0] NEWTABLE  R2 := {} (array 3, hash 0)
+      12 [   0] LOADK     R3 := ""
+      13 [   0] LOADK     R4 := "=="
+      14 [   0] LOADK     R5 := "="
+      15 [   0] SETLIST   R2[...] := R3.. (n=3, block 1)
+      16 [   0] LEN       R3 := #R0
+      17 [   0] MOD       R3 := R3 % 3
+      18 [   0] ADD       R3 := R3 + 1
+      19 [   0] GETTABLE  R2 := R2[R3]
+      20 [   0] CONCAT    R1 := R1 .. ... .. R2
+      21 [   0] RETURN    return R1.. (1 values)
+      22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 11-15, upvals=[], locals=[])
+      constants: strings=['', 'byte', '1', '0'] numbers=[8, 1, -1, 2, 0]
+         0 [   0] LOADK     R1 := ""
+         1 [   0] SELF      R3 := R0; R2 := R0["byte"]
+         2 [   0] CALL      R2(...) nargs=1 nret=1
+         3 [   0] LOADK     R3 := 8
+         4 [   0] LOADK     R4 := 1
+         5 [   0] LOADK     R5 := -1
+         6 [   0] FORPREP   for R3.. jmp +14
+         7 [   0] MOVE      R7 := R1
+         8 [   0] POW       R8 := 2 ^ R6
+         9 [   0] MOD       R8 := R2 % R8
+        10 [   0] SUB       R9 := R6 - 1
+        11 [   0] POW       R9 := 2 ^ R9
+        12 [   0] MOD       R9 := R2 % R9
+        13 [   0] SUB       R8 := R8 - R9
+        14 [   0] LT        if (0 < R8) ~= 0 then skip next
+        15 [   0] JMP       jmp +3 -> 19
+        16 [   0] LOADK     R8 := "1"
+        17 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+        18 [   0] JMP       jmp +1 -> 20
+        19 [   0] LOADK     R8 := "0"
+        20 [   0] CONCAT    R1 := R7 .. ... .. R8
+        21 [   0] FORLOOP   forloop R3 jmp -15
+        22 [   0] RETURN    return R1.. (1 values)
+        23 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 15-20, upvals=[], locals=[])
+      constants: strings=['', 'sub', '1'] numbers=[6, 0, 1, 2]
+         0 [   0] LEN       R1 := #R0
+         1 [   0] LT        if (R1 < 6) ~= 0 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] LOADK     R1 := ""
+         4 [   0] RETURN    return R1.. (1 values)
+         5 [   0] LOADK     R1 := 0
+         6 [   0] LOADK     R2 := 1
+         7 [   0] LOADK     R3 := 6
+         8 [   0] LOADK     R4 := 1
+         9 [   0] FORPREP   for R2.. jmp +12
+        10 [   0] SELF      R7 := R0; R6 := R0["sub"]
+        11 [   0] MOVE      R8 := R5
+        12 [   0] MOVE      R9 := R5
+        13 [   0] CALL      R6(...) nargs=3 nret=1
+        14 [   0] EQ        if (R6 == "1") ~= 0 then skip next
+        15 [   0] JMP       jmp +4 -> 20
+        16 [   0] SUB       R6 := 6 - R5
+        17 [   0] POW       R6 := 2 ^ R6
+        18 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+        19 [   0] JMP       jmp +1 -> 21
+        20 [   0] LOADK     R6 := 0
+        21 [   0] ADD       R1 := R1 + R6
+        22 [   0] FORLOOP   forloop R2 jmp -13
+        23 [   0] GETUPVAL  R2 := upval 0
+        24 [   0] SELF      R3 := R2; R2 := R2["sub"]
+        25 [   0] ADD       R4 := R1 + 1
+        26 [   0] ADD       R5 := R1 + 1
+        27 [   0] TAILCALL  return R2(...) nargs=3
+        28 [   0] RETURN    return R2.. (-1 values)
+        29 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 24-37, upvals=[], locals=[])
+    constants: strings=['string', 'gsub', '[^', '=]', '', '.', '%d%d%d?%d?%d?%d?%d?%d?'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["string"]
+       1 [   0] GETTABLE  R1 := R1["gsub"]
+       2 [   0] MOVE      R2 := R0
+       3 [   0] LOADK     R3 := "[^"
+       4 [   0] GETUPVAL  R4 := upval 0
+       5 [   0] LOADK     R5 := "=]"
+       6 [   0] CONCAT    R3 := R3 .. ... .. R5
+       7 [   0] LOADK     R4 := ""
+       8 [   0] CALL      R1(...) nargs=3 nret=1
+       9 [   0] MOVE      R0 := R1
+      10 [   0] SELF      R2 := R0; R1 := R0["gsub"]
+      11 [   0] LOADK     R3 := "."
+      12 [   0] CLOSURE   R4 := closure #0
+      13 [   0] GETUPVAL  R0 := upval 0
+      14 [   0] CALL      R1(...) nargs=3 nret=1
+      15 [   0] SELF      R2 := R1; R1 := R1["gsub"]
+      16 [   0] LOADK     R3 := "%d%d%d?%d?%d?%d?%d?%d?"
+      17 [   0] CLOSURE   R4 := closure #1
+      18 [   0] CALL      R1(...) nargs=3 nret=1
+      19 [   0] RETURN    return R1.. (1 values)
+      20 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=1, lines 26-31, upvals=[], locals=[])
+      constants: strings=['=', '', 'find', '1', '0'] numbers=[1, 6, -1, 2, 0]
+         0 [   0] EQ        if (R0 == "=") ~= 0 then skip next
+         1 [   0] JMP       jmp +2 -> 4
+         2 [   0] LOADK     R1 := ""
+         3 [   0] RETURN    return R1.. (1 values)
+         4 [   0] LOADK     R1 := ""
+         5 [   0] GETUPVAL  R2 := upval 0
+         6 [   0] SELF      R3 := R2; R2 := R2["find"]
+         7 [   0] MOVE      R4 := R0
+         8 [   0] CALL      R2(...) nargs=2 nret=1
+         9 [   0] SUB       R2 := R2 - 1
+        10 [   0] LOADK     R3 := 6
+        11 [   0] LOADK     R4 := 1
+        12 [   0] LOADK     R5 := -1
+        13 [   0] FORPREP   for R3.. jmp +14
+        14 [   0] MOVE      R7 := R1
+        15 [   0] POW       R8 := 2 ^ R6
+        16 [   0] MOD       R8 := R2 % R8
+        17 [   0] SUB       R9 := R6 - 1
+        18 [   0] POW       R9 := 2 ^ R9
+        19 [   0] MOD       R9 := R2 % R9
+        20 [   0] SUB       R8 := R8 - R9
+        21 [   0] LT        if (0 < R8) ~= 0 then skip next
+        22 [   0] JMP       jmp +3 -> 26
+        23 [   0] LOADK     R8 := "1"
+        24 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+        25 [   0] JMP       jmp +1 -> 27
+        26 [   0] LOADK     R8 := "0"
+        27 [   0] CONCAT    R1 := R7 .. ... .. R8
+        28 [   0] FORLOOP   forloop R3 jmp -15
+        29 [   0] RETURN    return R1.. (1 values)
+        30 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#1 (params=1, lines 31-36, upvals=[], locals=[])
+      constants: strings=['', 'sub', '1', 'string', 'char'] numbers=[8, 0, 1, 2]
+         0 [   0] LEN       R1 := #R0
+         1 [   0] EQ        if (R1 == 8) ~= 1 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] LOADK     R1 := ""
+         4 [   0] RETURN    return R1.. (1 values)
+         5 [   0] LOADK     R1 := 0
+         6 [   0] LOADK     R2 := 1
+         7 [   0] LOADK     R3 := 8
+         8 [   0] LOADK     R4 := 1
+         9 [   0] FORPREP   for R2.. jmp +12
+        10 [   0] SELF      R7 := R0; R6 := R0["sub"]
+        11 [   0] MOVE      R8 := R5
+        12 [   0] MOVE      R9 := R5
+        13 [   0] CALL      R6(...) nargs=3 nret=1
+        14 [   0] EQ        if (R6 == "1") ~= 0 then skip next
+        15 [   0] JMP       jmp +4 -> 20
+        16 [   0] SUB       R6 := 8 - R5
+        17 [   0] POW       R6 := 2 ^ R6
+        18 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+        19 [   0] JMP       jmp +1 -> 21
+        20 [   0] LOADK     R6 := 0
+        21 [   0] ADD       R1 := R1 + R6
+        22 [   0] FORLOOP   forloop R2 jmp -13
+        23 [   0] GETGLOBAL R2 := _G["string"]
+        24 [   0] GETTABLE  R2 := R2["char"]
+        25 [   0] MOVE      R3 := R1
+        26 [   0] TAILCALL  return R2(...) nargs=1
+        27 [   0] RETURN    return R2.. (-1 values)
+        28 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=3, lines 40-42, upvals=[], locals=[])
+    constants: strings=['string', 'char', 'byte'] numbers=[32, 95]
+       0 [   0] GETGLOBAL R3 := _G["string"]
+       1 [   0] GETTABLE  R3 := R3["char"]
+       2 [   0] GETGLOBAL R4 := _G["string"]
+       3 [   0] GETTABLE  R4 := R4["byte"]
+       4 [   0] MOVE      R5 := R0
+       5 [   0] CALL      R4(...) nargs=1 nret=1
+       6 [   0] SUB       R4 := R4 - 32
+       7 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       8 [   0] JMP       jmp +3 -> 12
+       9 [   0] UNM       R5 := -R1
+      10 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      11 [   0] JMP       jmp +1 -> 13
+      12 [   0] MOVE      R5 := R1
+      13 [   0] ADD       R4 := R4 + R5
+      14 [   0] MOD       R4 := R4 % 95
+      15 [   0] ADD       R4 := R4 + 32
+      16 [   0] TAILCALL  return R3(...) nargs=1
+      17 [   0] RETURN    return R3.. (-1 values)
+      18 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=3, lines 44-65, upvals=[], locals=[])
+    constants: strings=['', 'string', 'sub', 'char', 'math', 'random'] numbers=[1, 5, 0, 3, 4, 32, 126]
+       0 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       1 [   0] LOADK     R4 := ""
+       2 [   0] LOADK     R5 := 1
+       3 [   0] LEN       R6 := #R0
+       4 [   0] LOADK     R7 := 1
+       5 [   0] FORPREP   for R5.. jmp +29
+       6 [   0] LEN       R9 := #R0
+       7 [   0] GETTABLE  R10 := R1[5]
+       8 [   0] SUB       R9 := R9 - R10
+       9 [   0] LE        if (R8 <= R9) ~= 1 then skip next
+      10 [   0] JMP       jmp +2 -> 13
+      11 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+      12 [   0] JMP       jmp +22 -> 35
+      13 [   0] LOADK     R9 := 0
+      14 [   0] LOADK     R10 := 3
+      15 [   0] LOADK     R11 := 1
+      16 [   0] FORPREP   for R9.. jmp +17
+      17 [   0] MOD       R13 := R8 % 4
+      18 [   0] EQ        if (R13 == R12) ~= 0 then skip next
+      19 [   0] JMP       jmp +14 -> 34
+      20 [   0] MOVE      R13 := R4
+      21 [   0] GETUPVAL  R14 := upval 0
+      22 [   0] GETGLOBAL R15 := _G["string"]
+      23 [   0] GETTABLE  R15 := R15["sub"]
+      24 [   0] MOVE      R16 := R0
+      25 [   0] MOVE      R17 := R8
+      26 [   0] MOVE      R18 := R8
+      27 [   0] CALL      R15(...) nargs=3 nret=1
+      28 [   0] ADD       R16 := R12 + 1
+      29 [   0] GETTABLE  R16 := R1[R16]
+      30 [   0] MOVE      R17 := R2
+      31 [   0] CALL      R14(...) nargs=3 nret=1
+      32 [   0] CONCAT    R4 := R13 .. ... .. R14
+      33 [   0] JMP       jmp +1 -> 35
+      34 [   0] FORLOOP   forloop R9 jmp -18
+      35 [   0] FORLOOP   forloop R5 jmp -30
+      36 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+      37 [   0] JMP       jmp +15 -> 53
+      38 [   0] LOADK     R5 := 1
+      39 [   0] GETTABLE  R6 := R1[5]
+      40 [   0] LOADK     R7 := 1
+      41 [   0] FORPREP   for R5.. jmp +10
+      42 [   0] MOVE      R9 := R4
+      43 [   0] GETGLOBAL R10 := _G["string"]
+      44 [   0] GETTABLE  R10 := R10["char"]
+      45 [   0] GETGLOBAL R11 := _G["math"]
+      46 [   0] GETTABLE  R11 := R11["random"]
+      47 [   0] LOADK     R12 := 32
+      48 [   0] LOADK     R13 := 126
+      49 [   0] CALL      R11(...) nargs=2 nret=-1
+      50 [   0] CALL      R10(...) nargs=-1 nret=1
+      51 [   0] CONCAT    R4 := R9 .. ... .. R10
+      52 [   0] FORLOOP   forloop R5 jmp -11
+      53 [   0] RETURN    return R4.. (1 values)
+      54 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=2, lines 68-71, upvals=[], locals=[])
+    constants: strings=['base64enc'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETTABLE  R2 := R2["base64enc"]
+       2 [   0] MOVE      R3 := R0
+       3 [   0] TAILCALL  return R2(...) nargs=1
+       4 [   0] RETURN    return R2.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=2, lines 74-78, upvals=[], locals=[])
+    constants: strings=['base64dec'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETTABLE  R2 := R2["base64dec"]
+       2 [   0] MOVE      R3 := R0
+       3 [   0] TAILCALL  return R2(...) nargs=1
+       4 [   0] RETURN    return R2.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)

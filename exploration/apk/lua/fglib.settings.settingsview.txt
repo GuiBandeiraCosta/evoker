@@ -1,0 +1,62 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'settings.settingsmanager', 'new_inherit', 'new'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "settings.settingsmanager"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] MOVE      R0 := R0
+     8 [   0] SETTABLE  R1["new_inherit"] := R2
+     9 [   0] CLOSURE   R2 := closure #1
+    10 [   0] MOVE      R0 := R1
+    11 [   0] SETTABLE  R1["new"] := R2
+    12 [   0] RETURN    return R1.. (1 values)
+    13 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 5-27, upvals=[], locals=[])
+    constants: strings=['getInstance', 'setShowKeys', 'getShowKeys', 'getSettingsManager'] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] GETTABLE  R2 := R2["getInstance"]
+       3 [   0] CALL      R2(...) nargs=0 nret=1
+       4 [   0] CLOSURE   R3 := closure #0
+       5 [   0] MOVE      R0 := R1
+       6 [   0] SETTABLE  R0["setShowKeys"] := R3
+       7 [   0] CLOSURE   R3 := closure #1
+       8 [   0] MOVE      R0 := R1
+       9 [   0] SETTABLE  R0["getShowKeys"] := R3
+      10 [   0] CLOSURE   R3 := closure #2
+      11 [   0] MOVE      R0 := R2
+      12 [   0] SETTABLE  R0["getSettingsManager"] := R3
+      13 [   0] RETURN    return R0.. (1 values)
+      14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 10-14, upvals=[], locals=[])
+      constants: strings=['ipairs'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["ipairs"]
+         1 [   0] MOVE      R2 := R0
+         2 [   0] CALL      R1(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +2 -> 6
+         4 [   0] GETUPVAL  R6 := upval 0
+         5 [   0] SETTABLE  R6[R5] := True
+         6 [   0] TFORLOOP  tforloop R1 nres=2
+         7 [   0] JMP       jmp -4 -> 4
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 16-18, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 20-22, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 29-33, upvals=[], locals=[])
+    constants: strings=['new_inherit'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["new_inherit"]
+       2 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       3 [   0] TAILCALL  return R0(...) nargs=1
+       4 [   0] RETURN    return R0.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,56 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.util', 'decorate'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "util.util"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] CLOSURE   R1 := closure #0
+     4 [   0] MOVE      R0 := R0
+     5 [   0] CLOSURE   R2 := closure #1
+     6 [   0] MOVE      R0 := R1
+     7 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+     8 [   0] SETTABLE  R3["decorate"] := R2
+     9 [   0] RETURN    return R3.. (1 values)
+    10 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 10-28, upvals=[], locals=[])
+    constants: strings=['require', 'server.metadatamanager', 'getInstance', 'parent', 'layout', 'default.center', 'speed', 'anim_src', 'getNamedAnimation', 'animation', 'copyToExistingTable', 'ui.components.comp_anim_player', 'create', 'load', 'autoStart', 'start'] numbers=[1.2]
+       0 [   0] GETGLOBAL R2 := _G["require"]
+       1 [   0] LOADK     R3 := "server.metadatamanager"
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] GETTABLE  R2 := R2["getInstance"]
+       4 [   0] CALL      R2(...) nargs=0 nret=1
+       5 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+       6 [   0] SETTABLE  R3["parent"] := R1
+       7 [   0] SETTABLE  R3["layout"] := "default.center"
+       8 [   0] SETTABLE  R3["speed"] := 1.2
+       9 [   0] GETTABLE  R4 := R2["getNamedAnimation"]
+      10 [   0] GETTABLE  R5 := R0["animation"]
+      11 [   0] CALL      R4(...) nargs=1 nret=1
+      12 [   0] SETTABLE  R3["anim_src"] := R4
+      13 [   0] GETUPVAL  R4 := upval 0
+      14 [   0] GETTABLE  R4 := R4["copyToExistingTable"]
+      15 [   0] MOVE      R5 := R0
+      16 [   0] MOVE      R6 := R3
+      17 [   0] CALL      R4(...) nargs=2 nret=1
+      18 [   0] MOVE      R3 := R4
+      19 [   0] GETGLOBAL R4 := _G["require"]
+      20 [   0] LOADK     R5 := "ui.components.comp_anim_player"
+      21 [   0] CALL      R4(...) nargs=1 nret=1
+      22 [   0] GETTABLE  R4 := R4["create"]
+      23 [   0] MOVE      R5 := R3
+      24 [   0] CALL      R4(...) nargs=1 nret=1
+      25 [   0] GETTABLE  R5 := R4["load"]
+      26 [   0] CALL      R5(...) nargs=0 nret=0
+      27 [   0] GETTABLE  R5 := R0["autoStart"]
+      28 [   0] EQ        if (R5 == True) ~= 0 then skip next
+      29 [   0] JMP       jmp +4 -> 34
+      30 [   0] GETTABLE  R5 := R4["start"]
+      31 [   0] LOADNIL   R6..R7 := nil
+      32 [   0] LOADBOOL  R8 := True
+      33 [   0] CALL      R5(...) nargs=3 nret=0
+      34 [   0] RETURN    return R4.. (1 values)
+      35 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 30-32, upvals=[], locals=[])
+    constants: strings=['server_anim'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] SETTABLE  R0["server_anim"] := R1
+       2 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,71 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['new'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] CLOSURE   R1 := closure #0
+     2 [   0] CLOSURE   R2 := closure #1
+     3 [   0] MOVE      R0 := R1
+     4 [   0] SETTABLE  R0["new"] := R2
+     5 [   0] RETURN    return R0.. (1 values)
+     6 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 5-31, upvals=[], locals=[])
+    constants: strings=['system', 'pathForFile', 'DocumentsDirectory', 'openFile', 'log'] numbers=[0]
+       0 [   0] GETGLOBAL R2 := _G["system"]
+       1 [   0] GETTABLE  R2 := R2["pathForFile"]
+       2 [   0] MOVE      R3 := R1
+       3 [   0] GETGLOBAL R4 := _G["system"]
+       4 [   0] GETTABLE  R4 := R4["DocumentsDirectory"]
+       5 [   0] CALL      R2(...) nargs=2 nret=1
+       6 [   0] LOADNIL   R3..R3 := nil
+       7 [   0] LOADK     R4 := 0
+       8 [   0] CLOSURE   R5 := closure #0
+       9 [   0] MOVE      R0 := R3
+      10 [   0] MOVE      R0 := R2
+      11 [   0] SETTABLE  R0["openFile"] := R5
+      12 [   0] CLOSURE   R5 := closure #1
+      13 [   0] MOVE      R0 := R3
+      14 [   0] MOVE      R0 := R4
+      15 [   0] SETTABLE  R0["log"] := R5
+      16 [   0] GETTABLE  R5 := R0["openFile"]
+      17 [   0] CALL      R5(...) nargs=0 nret=0
+      18 [   0] RETURN    return R0.. (1 values)
+      19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 11-13, upvals=[], locals=[])
+      constants: strings=['io', 'open', 'a+'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["io"]
+         1 [   0] GETTABLE  R0 := R0["open"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] LOADK     R2 := "a+"
+         4 [   0] CALL      R0(...) nargs=2 nret=1
+         5 [   0] SETUPVAL  upval 0 := R0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 15-25, upvals=[], locals=[])
+      constants: strings=['write', '\n', 'flush'] numbers=[1, 20, 0]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         2 [   0] JMP       jmp +17 -> 20
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] SELF      R2 := R1; R1 := R1["write"]
+         5 [   0] MOVE      R3 := R0
+         6 [   0] LOADK     R4 := "\n"
+         7 [   0] CONCAT    R3 := R3 .. ... .. R4
+         8 [   0] CALL      R1(...) nargs=2 nret=0
+         9 [   0] GETUPVAL  R1 := upval 1
+        10 [   0] ADD       R1 := R1 + 1
+        11 [   0] SETUPVAL  upval 1 := R1
+        12 [   0] GETUPVAL  R1 := upval 1
+        13 [   0] LT        if (20 < R1) ~= 0 then skip next
+        14 [   0] JMP       jmp +5 -> 20
+        15 [   0] LOADK     R1 := 0
+        16 [   0] SETUPVAL  upval 1 := R1
+        17 [   0] GETUPVAL  R1 := upval 0
+        18 [   0] SELF      R2 := R1; R1 := R1["flush"]
+        19 [   0] CALL      R1(...) nargs=1 nret=0
+        20 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 33-37, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       2 [   0] MOVE      R3 := R0
+       3 [   0] TAILCALL  return R1(...) nargs=2
+       4 [   0] RETURN    return R1.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)

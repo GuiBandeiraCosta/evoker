@@ -1,0 +1,364 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['create'] numbers=[1800]
+     0 [   0] LOADK     R0 := 1800
+     1 [   0] CLOSURE   R1 := closure #0
+     2 [   0] MOVE      R0 := R0
+     3 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     4 [   0] SETTABLE  R2["create"] := R1
+     5 [   0] RETURN    return R2.. (1 values)
+     6 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 12-146, upvals=[], locals=[])
+    constants: strings=['getName', 'enter', 'leave'] numbers=[0]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] LOADNIL   R1..R2 := nil
+       2 [   0] LOADK     R3 := 0
+       3 [   0] CLOSURE   R4 := closure #0
+       4 [   0] SETTABLE  R0["getName"] := R4
+       5 [   0] CLOSURE   R4 := closure #1
+       6 [   0] MOVE      R0 := R2
+       7 [   0] MOVE      R0 := R3
+       8 [   0] SETTABLE  R0["enter"] := R4
+       9 [   0] CLOSURE   R4 := closure #2
+      10 [   0] MOVE      R0 := R2
+      11 [   0] MOVE      R0 := R3
+      12 [   0] GETUPVAL  R0 := upval 0
+      13 [   0] SETTABLE  R0["leave"] := R4
+      14 [   0] RETURN    return R0.. (1 values)
+      15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 21-23, upvals=[], locals=[])
+      constants: strings=['SUSPENDED'] numbers=[]
+         0 [   0] LOADK     R0 := "SUSPENDED"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 25-103, upvals=[], locals=[])
+      constants: strings=['require', 'ui.common.nav_controllerv3', 'getInstance', 'getSharedContext', 'overlaysAllowed', 'blockOverlays', 'native', 'setKeyboardFocus', 'game.usermanager', 'cancelStaminaTimer', 'cancelManaTimer', 'server.metadatamanager', 'getMetadata', 'restore', 'stamina', 'mana', 'getMaxStamina', 'getStamina', 'getMaxMana', 'getMana', 'util.clientsettings', 'getPushNotificationLevel', 'on', 'important', 'math', 'max', 'alert', '_T', 'Your Mana and Stamina has been restored.', 'time', 'game.leaguemanager', 'getLeagueInfo', 'activeLeague', 'getLocalizedLeagueTimeout', 'os', 'Tournament finshed: Collect your reward!', 'table', 'sort', 'fglib', 'utils', 'Util', 'isIPhone', 'plugin.notifications', 'scheduleNotification', 'badge', 'system', 'audioEngine', 'setMusicVolume', 'setAtmoVolume', 'setEffectVolume', 'Runtime', 'addEventListener'] numbers=[60, 1, 0]
+         0 [   0] GETGLOBAL R1 := _G["require"]
+         1 [   0] LOADK     R2 := "ui.common.nav_controllerv3"
+         2 [   0] CALL      R1(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R1 := R1["getInstance"]
+         4 [   0] CALL      R1(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R2 := R0["getSharedContext"]
+         6 [   0] CALL      R2(...) nargs=0 nret=1
+         7 [   0] GETTABLE  R3 := R1["overlaysAllowed"]
+         8 [   0] CALL      R3(...) nargs=0 nret=1
+         9 [   0] SETTABLE  R2["overlaysAllowed"] := R3
+        10 [   0] GETTABLE  R3 := R1["blockOverlays"]
+        11 [   0] CALL      R3(...) nargs=0 nret=0
+        12 [   0] GETGLOBAL R3 := _G["native"]
+        13 [   0] GETTABLE  R3 := R3["setKeyboardFocus"]
+        14 [   0] LOADNIL   R4..R4 := nil
+        15 [   0] CALL      R3(...) nargs=1 nret=0
+        16 [   0] GETGLOBAL R3 := _G["require"]
+        17 [   0] LOADK     R4 := "game.usermanager"
+        18 [   0] CALL      R3(...) nargs=1 nret=1
+        19 [   0] GETTABLE  R3 := R3["getInstance"]
+        20 [   0] CALL      R3(...) nargs=0 nret=1
+        21 [   0] GETTABLE  R4 := R3["cancelStaminaTimer"]
+        22 [   0] CALL      R4(...) nargs=0 nret=0
+        23 [   0] GETTABLE  R4 := R3["cancelManaTimer"]
+        24 [   0] CALL      R4(...) nargs=0 nret=0
+        25 [   0] GETGLOBAL R4 := _G["require"]
+        26 [   0] LOADK     R5 := "server.metadatamanager"
+        27 [   0] CALL      R4(...) nargs=1 nret=1
+        28 [   0] GETTABLE  R4 := R4["getInstance"]
+        29 [   0] CALL      R4(...) nargs=0 nret=1
+        30 [   0] GETTABLE  R5 := R4["getMetadata"]
+        31 [   0] CALL      R5(...) nargs=0 nret=1
+        32 [   0] LOADNIL   R6..R7 := nil
+        33 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        34 [   0] JMP       jmp +7 -> 42
+        35 [   0] GETTABLE  R8 := R5["restore"]
+        36 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        37 [   0] JMP       jmp +4 -> 42
+        38 [   0] GETTABLE  R8 := R5["restore"]
+        39 [   0] GETTABLE  R6 := R8["stamina"]
+        40 [   0] GETTABLE  R8 := R5["restore"]
+        41 [   0] GETTABLE  R7 := R8["mana"]
+        42 [   0] GETTABLE  R8 := R3["getMaxStamina"]
+        43 [   0] CALL      R8(...) nargs=0 nret=1
+        44 [   0] GETTABLE  R9 := R3["getStamina"]
+        45 [   0] CALL      R9(...) nargs=0 nret=1
+        46 [   0] GETTABLE  R10 := R3["getMaxMana"]
+        47 [   0] CALL      R10(...) nargs=0 nret=1
+        48 [   0] GETTABLE  R11 := R3["getMana"]
+        49 [   0] CALL      R11(...) nargs=0 nret=1
+        50 [   0] NEWTABLE  R12 := {} (array 0, hash 0)
+        51 [   0] GETGLOBAL R13 := _G["require"]
+        52 [   0] LOADK     R14 := "util.clientsettings"
+        53 [   0] CALL      R13(...) nargs=1 nret=1
+        54 [   0] GETTABLE  R13 := R13["getInstance"]
+        55 [   0] CALL      R13(...) nargs=0 nret=1
+        56 [   0] GETTABLE  R14 := R13["getPushNotificationLevel"]
+        57 [   0] CALL      R14(...) nargs=0 nret=1
+        58 [   0] EQ        if (R14 == "on") ~= 1 then skip next
+        59 [   0] JMP       jmp +2 -> 62
+        60 [   0] EQ        if (R14 == "important") ~= 0 then skip next
+        61 [   0] JMP       jmp +108 -> 170
+        62 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        63 [   0] JMP       jmp +34 -> 98
+        64 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+        65 [   0] JMP       jmp +32 -> 98
+        66 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        67 [   0] JMP       jmp +30 -> 98
+        68 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+        69 [   0] JMP       jmp +28 -> 98
+        70 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+        71 [   0] JMP       jmp +26 -> 98
+        72 [   0] TEST      if (R11 truthy) ~= 0 then skip next
+        73 [   0] JMP       jmp +24 -> 98
+        74 [   0] SUB       R15 := R8 - R9
+        75 [   0] MUL       R15 := R15 * R6
+        76 [   0] SUB       R16 := R10 - R11
+        77 [   0] MUL       R16 := R16 * R7
+        78 [   0] GETGLOBAL R17 := _G["math"]
+        79 [   0] GETTABLE  R17 := R17["max"]
+        80 [   0] MOVE      R18 := R15
+        81 [   0] MOVE      R19 := R16
+        82 [   0] CALL      R17(...) nargs=2 nret=1
+        83 [   0] GETGLOBAL R18 := _G["math"]
+        84 [   0] GETTABLE  R18 := R18["max"]
+        85 [   0] MOVE      R19 := R17
+        86 [   0] CALL      R18(...) nargs=1 nret=1
+        87 [   0] LT        if (60 < R18) ~= 0 then skip next
+        88 [   0] JMP       jmp +9 -> 98
+        89 [   0] LEN       R18 := #R12
+        90 [   0] ADD       R18 := R18 + 1
+        91 [   0] NEWTABLE  R19 := {} (array 0, hash 2)
+        92 [   0] GETGLOBAL R20 := _G["_T"]
+        93 [   0] LOADK     R21 := "Your Mana and Stamina has been restored."
+        94 [   0] CALL      R20(...) nargs=1 nret=1
+        95 [   0] SETTABLE  R19["alert"] := R20
+        96 [   0] SETTABLE  R19["time"] := R17
+        97 [   0] SETTABLE  R12[R18] := R19
+        98 [   0] GETGLOBAL R15 := _G["require"]
+        99 [   0] LOADK     R16 := "game.leaguemanager"
+       100 [   0] CALL      R15(...) nargs=1 nret=1
+       101 [   0] GETTABLE  R15 := R15["getInstance"]
+       102 [   0] CALL      R15(...) nargs=0 nret=1
+       103 [   0] GETTABLE  R16 := R15["getLeagueInfo"]
+       104 [   0] CALL      R16(...) nargs=0 nret=1
+       105 [   0] TEST      if (R16 truthy) ~= 0 then skip next
+       106 [   0] JMP       jmp +23 -> 130
+       107 [   0] GETTABLE  R17 := R16["activeLeague"]
+       108 [   0] TEST      if (R17 truthy) ~= 0 then skip next
+       109 [   0] JMP       jmp +20 -> 130
+       110 [   0] GETTABLE  R17 := R16["activeLeague"]
+       111 [   0] EQ        if (R17 == True) ~= 0 then skip next
+       112 [   0] JMP       jmp +17 -> 130
+       113 [   0] GETTABLE  R17 := R15["getLocalizedLeagueTimeout"]
+       114 [   0] CALL      R17(...) nargs=0 nret=1
+       115 [   0] TEST      if (R17 truthy) ~= 0 then skip next
+       116 [   0] JMP       jmp +13 -> 130
+       117 [   0] GETGLOBAL R18 := _G["os"]
+       118 [   0] GETTABLE  R18 := R18["time"]
+       119 [   0] CALL      R18(...) nargs=0 nret=1
+       120 [   0] SUB       R18 := R17 - R18
+       121 [   0] LEN       R19 := #R12
+       122 [   0] ADD       R19 := R19 + 1
+       123 [   0] NEWTABLE  R20 := {} (array 0, hash 2)
+       124 [   0] GETGLOBAL R21 := _G["_T"]
+       125 [   0] LOADK     R22 := "Tournament finshed: Collect your reward!"
+       126 [   0] CALL      R21(...) nargs=1 nret=1
+       127 [   0] SETTABLE  R20["alert"] := R21
+       128 [   0] SETTABLE  R20["time"] := R18
+       129 [   0] SETTABLE  R12[R19] := R20
+       130 [   0] LEN       R17 := #R12
+       131 [   0] LT        if (0 < R17) ~= 0 then skip next
+       132 [   0] JMP       jmp +37 -> 170
+       133 [   0] GETGLOBAL R17 := _G["table"]
+       134 [   0] GETTABLE  R17 := R17["sort"]
+       135 [   0] MOVE      R18 := R12
+       136 [   0] CLOSURE   R19 := closure #0
+       137 [   0] CALL      R17(...) nargs=2 nret=0
+       138 [   0] LOADK     R17 := 1
+       139 [   0] LEN       R18 := #R12
+       140 [   0] LOADK     R19 := 1
+       141 [   0] FORPREP   for R17.. jmp +27
+       142 [   0] GETTABLE  R21 := R12[R20]
+       143 [   0] GETGLOBAL R22 := _G["fglib"]
+       144 [   0] GETTABLE  R22 := R22["utils"]
+       145 [   0] GETTABLE  R22 := R22["Util"]
+       146 [   0] GETTABLE  R22 := R22["isIPhone"]
+       147 [   0] CALL      R22(...) nargs=0 nret=1
+       148 [   0] TEST      if (R22 truthy) ~= 0 then skip next
+       149 [   0] JMP       jmp +11 -> 161
+       150 [   0] GETGLOBAL R22 := _G["require"]
+       151 [   0] LOADK     R23 := "plugin.notifications"
+       152 [   0] CALL      R22(...) nargs=1 nret=1
+       153 [   0] GETTABLE  R23 := R22["scheduleNotification"]
+       154 [   0] GETTABLE  R24 := R21["time"]
+       155 [   0] NEWTABLE  R25 := {} (array 0, hash 2)
+       156 [   0] GETTABLE  R26 := R21["alert"]
+       157 [   0] SETTABLE  R25["alert"] := R26
+       158 [   0] SETTABLE  R25["badge"] := R20
+       159 [   0] CALL      R23(...) nargs=2 nret=0
+       160 [   0] JMP       jmp +8 -> 169
+       161 [   0] GETGLOBAL R22 := _G["system"]
+       162 [   0] GETTABLE  R22 := R22["scheduleNotification"]
+       163 [   0] GETTABLE  R23 := R21["time"]
+       164 [   0] NEWTABLE  R24 := {} (array 0, hash 2)
+       165 [   0] GETTABLE  R25 := R21["alert"]
+       166 [   0] SETTABLE  R24["alert"] := R25
+       167 [   0] SETTABLE  R24["badge"] := R20
+       168 [   0] CALL      R22(...) nargs=2 nret=0
+       169 [   0] FORLOOP   forloop R17 jmp -28
+       170 [   0] GETGLOBAL R15 := _G["audioEngine"]
+       171 [   0] GETTABLE  R15 := R15["setMusicVolume"]
+       172 [   0] LOADK     R16 := 0
+       173 [   0] CALL      R15(...) nargs=1 nret=0
+       174 [   0] GETGLOBAL R15 := _G["audioEngine"]
+       175 [   0] GETTABLE  R15 := R15["setAtmoVolume"]
+       176 [   0] LOADK     R16 := 0
+       177 [   0] CALL      R15(...) nargs=1 nret=0
+       178 [   0] GETGLOBAL R15 := _G["audioEngine"]
+       179 [   0] GETTABLE  R15 := R15["setEffectVolume"]
+       180 [   0] LOADK     R16 := 0
+       181 [   0] CALL      R15(...) nargs=1 nret=0
+       182 [   0] CLOSURE   R15 := closure #1
+       183 [   0] MOVE      R0 := R0
+       184 [   0] SETUPVAL  upval 0 := R15
+       185 [   0] GETGLOBAL R15 := _G["Runtime"]
+       186 [   0] SELF      R16 := R15; R15 := R15["addEventListener"]
+       187 [   0] LOADK     R17 := "system"
+       188 [   0] GETUPVAL  R18 := upval 0
+       189 [   0] CALL      R15(...) nargs=3 nret=0
+       190 [   0] GETGLOBAL R15 := _G["os"]
+       191 [   0] GETTABLE  R15 := R15["time"]
+       192 [   0] CALL      R15(...) nargs=0 nret=1
+       193 [   0] SETUPVAL  upval 1 := R15
+       194 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=2, lines 76-76, upvals=[], locals=[])
+        constants: strings=['time'] numbers=[]
+           0 [   0] GETTABLE  R2 := R0["time"]
+           1 [   0] GETTABLE  R3 := R1["time"]
+           2 [   0] LT        if (R2 < R3) ~= 1 then skip next
+           3 [   0] JMP       jmp +1 -> 5
+           4 [   0] LOADBOOL  R2 := False (skip)
+           5 [   0] LOADBOOL  R2 := True
+           6 [   0] RETURN    return R2.. (1 values)
+           7 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#1 (params=1, lines 95-99, upvals=[], locals=[])
+        constants: strings=['type', 'applicationResume', 'triggerTo', 'NOT_LOGGED_IN'] numbers=[]
+           0 [   0] GETTABLE  R1 := R0["type"]
+           1 [   0] EQ        if (R1 == "applicationResume") ~= 0 then skip next
+           2 [   0] JMP       jmp +4 -> 7
+           3 [   0] GETUPVAL  R1 := upval 0
+           4 [   0] GETTABLE  R1 := R1["triggerTo"]
+           5 [   0] LOADK     R2 := "NOT_LOGGED_IN"
+           6 [   0] CALL      R1(...) nargs=1 nret=0
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 105-143, upvals=[], locals=[])
+      constants: strings=['Runtime', 'removeEventListener', 'system', 'require', 'server.server', 'getInstance', 'resetServerTimeSync', 'reset', 'ui.common.nav_controllerv3', 'fglib', 'settings', 'SettingsManager', 'getValue', 'game.startGame', 'setValue', 'ratings.numstarts', 'native', 'setProperty', 'applicationIconBadgeNumber', 'utils', 'Util', 'isIPhone', 'plugin.notifications', 'cancelNotification', 'game.usermanager', 'processAllTimer', 'os', 'time', 'getSharedContext', 'force_home_scene', 'cloud.clouduserhandler', 'cloudDataUpdated', 'util.clientsettings', 'audioEngine', 'setMusicVolume', 'getMusicVolume', 'setAtmoVolume', 'setEffectVolume', 'getFxVolume'] numbers=[0, 1]
+         0 [   0] GETGLOBAL R1 := _G["Runtime"]
+         1 [   0] SELF      R2 := R1; R1 := R1["removeEventListener"]
+         2 [   0] LOADK     R3 := "system"
+         3 [   0] GETUPVAL  R4 := upval 0
+         4 [   0] CALL      R1(...) nargs=3 nret=0
+         5 [   0] LOADNIL   R1..R1 := nil
+         6 [   0] SETUPVAL  upval 0 := R1
+         7 [   0] GETGLOBAL R1 := _G["require"]
+         8 [   0] LOADK     R2 := "server.server"
+         9 [   0] CALL      R1(...) nargs=1 nret=1
+        10 [   0] GETTABLE  R1 := R1["getInstance"]
+        11 [   0] CALL      R1(...) nargs=0 nret=1
+        12 [   0] GETTABLE  R2 := R1["resetServerTimeSync"]
+        13 [   0] CALL      R2(...) nargs=0 nret=0
+        14 [   0] GETTABLE  R2 := R1["reset"]
+        15 [   0] CALL      R2(...) nargs=0 nret=0
+        16 [   0] GETGLOBAL R2 := _G["require"]
+        17 [   0] LOADK     R3 := "ui.common.nav_controllerv3"
+        18 [   0] CALL      R2(...) nargs=1 nret=1
+        19 [   0] GETTABLE  R2 := R2["getInstance"]
+        20 [   0] CALL      R2(...) nargs=0 nret=1
+        21 [   0] GETGLOBAL R3 := _G["fglib"]
+        22 [   0] GETTABLE  R3 := R3["settings"]
+        23 [   0] GETTABLE  R3 := R3["SettingsManager"]
+        24 [   0] GETTABLE  R3 := R3["getInstance"]
+        25 [   0] CALL      R3(...) nargs=0 nret=1
+        26 [   0] GETTABLE  R4 := R3["getValue"]
+        27 [   0] LOADK     R5 := "game.startGame"
+        28 [   0] LOADK     R6 := 0
+        29 [   0] CALL      R4(...) nargs=2 nret=1
+        30 [   0] ADD       R4 := R4 + 1
+        31 [   0] GETTABLE  R5 := R3["setValue"]
+        32 [   0] LOADK     R6 := "game.startGame"
+        33 [   0] MOVE      R7 := R4
+        34 [   0] CALL      R5(...) nargs=2 nret=0
+        35 [   0] GETTABLE  R5 := R3["setValue"]
+        36 [   0] LOADK     R6 := "ratings.numstarts"
+        37 [   0] MOVE      R7 := R4
+        38 [   0] CALL      R5(...) nargs=2 nret=0
+        39 [   0] GETGLOBAL R5 := _G["native"]
+        40 [   0] GETTABLE  R5 := R5["setProperty"]
+        41 [   0] LOADK     R6 := "applicationIconBadgeNumber"
+        42 [   0] LOADK     R7 := 0
+        43 [   0] CALL      R5(...) nargs=2 nret=0
+        44 [   0] GETGLOBAL R5 := _G["fglib"]
+        45 [   0] GETTABLE  R5 := R5["utils"]
+        46 [   0] GETTABLE  R5 := R5["Util"]
+        47 [   0] GETTABLE  R5 := R5["isIPhone"]
+        48 [   0] CALL      R5(...) nargs=0 nret=1
+        49 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        50 [   0] JMP       jmp +6 -> 57
+        51 [   0] GETGLOBAL R5 := _G["require"]
+        52 [   0] LOADK     R6 := "plugin.notifications"
+        53 [   0] CALL      R5(...) nargs=1 nret=1
+        54 [   0] GETTABLE  R6 := R5["cancelNotification"]
+        55 [   0] CALL      R6(...) nargs=0 nret=0
+        56 [   0] JMP       jmp +3 -> 60
+        57 [   0] GETGLOBAL R5 := _G["system"]
+        58 [   0] GETTABLE  R5 := R5["cancelNotification"]
+        59 [   0] CALL      R5(...) nargs=0 nret=0
+        60 [   0] GETGLOBAL R5 := _G["require"]
+        61 [   0] LOADK     R6 := "game.usermanager"
+        62 [   0] CALL      R5(...) nargs=1 nret=1
+        63 [   0] GETTABLE  R5 := R5["getInstance"]
+        64 [   0] CALL      R5(...) nargs=0 nret=1
+        65 [   0] GETTABLE  R6 := R5["processAllTimer"]
+        66 [   0] CALL      R6(...) nargs=0 nret=0
+        67 [   0] GETGLOBAL R6 := _G["os"]
+        68 [   0] GETTABLE  R6 := R6["time"]
+        69 [   0] CALL      R6(...) nargs=0 nret=1
+        70 [   0] GETUPVAL  R7 := upval 1
+        71 [   0] SUB       R6 := R6 - R7
+        72 [   0] GETUPVAL  R7 := upval 2
+        73 [   0] LT        if (R7 < R6) ~= 0 then skip next
+        74 [   0] JMP       jmp +3 -> 78
+        75 [   0] GETTABLE  R7 := R0["getSharedContext"]
+        76 [   0] CALL      R7(...) nargs=0 nret=1
+        77 [   0] SETTABLE  R7["force_home_scene"] := True
+        78 [   0] GETGLOBAL R7 := _G["fglib"]
+        79 [   0] GETTABLE  R7 := R7["utils"]
+        80 [   0] GETTABLE  R7 := R7["Util"]
+        81 [   0] GETTABLE  R7 := R7["isIPhone"]
+        82 [   0] CALL      R7(...) nargs=0 nret=1
+        83 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+        84 [   0] JMP       jmp +7 -> 92
+        85 [   0] GETGLOBAL R7 := _G["require"]
+        86 [   0] LOADK     R8 := "cloud.clouduserhandler"
+        87 [   0] CALL      R7(...) nargs=1 nret=1
+        88 [   0] GETTABLE  R7 := R7["getInstance"]
+        89 [   0] CALL      R7(...) nargs=0 nret=1
+        90 [   0] GETTABLE  R8 := R7["cloudDataUpdated"]
+        91 [   0] CALL      R8(...) nargs=0 nret=0
+        92 [   0] GETGLOBAL R7 := _G["require"]
+        93 [   0] LOADK     R8 := "util.clientsettings"
+        94 [   0] CALL      R7(...) nargs=1 nret=1
+        95 [   0] GETTABLE  R7 := R7["getInstance"]
+        96 [   0] CALL      R7(...) nargs=0 nret=1
+        97 [   0] GETGLOBAL R8 := _G["audioEngine"]
+        98 [   0] GETTABLE  R8 := R8["setMusicVolume"]
+        99 [   0] GETTABLE  R9 := R7["getMusicVolume"]
+       100 [   0] CALL      R9(...) nargs=0 nret=-1
+       101 [   0] CALL      R8(...) nargs=-1 nret=0
+       102 [   0] GETGLOBAL R8 := _G["audioEngine"]
+       103 [   0] GETTABLE  R8 := R8["setAtmoVolume"]
+       104 [   0] GETTABLE  R9 := R7["getMusicVolume"]
+       105 [   0] CALL      R9(...) nargs=0 nret=-1
+       106 [   0] CALL      R8(...) nargs=-1 nret=0
+       107 [   0] GETGLOBAL R8 := _G["audioEngine"]
+       108 [   0] GETTABLE  R8 := R8["setEffectVolume"]
+       109 [   0] GETTABLE  R9 := R7["getFxVolume"]
+       110 [   0] CALL      R9(...) nargs=0 nret=-1
+       111 [   0] CALL      R8(...) nargs=-1 nret=0
+       112 [   0] RETURN    return R0.. (0 values)

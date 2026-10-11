@@ -1,0 +1,175 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['init', 'activateBtn', 'inActivateBtn', 'update'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] CLOSURE   R1 := closure #1
+     2 [   0] CLOSURE   R2 := closure #2
+     3 [   0] CLOSURE   R3 := closure #3
+     4 [   0] MOVE      R0 := R2
+     5 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+     6 [   0] SETTABLE  R4["init"] := R3
+     7 [   0] SETTABLE  R4["activateBtn"] := R0
+     8 [   0] SETTABLE  R4["inActivateBtn"] := R1
+     9 [   0] SETTABLE  R4["update"] := R2
+    10 [   0] RETURN    return R4.. (1 values)
+    11 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 1-5, upvals=[], locals=[])
+    constants: strings=['initOptions', 'noAnim', 'transition', 'to', 'delay', 'time', 'xScale', 'yScale'] numbers=[0, 80, 0.95]
+       0 [   0] GETTABLE  R2 := R0["initOptions"]
+       1 [   0] GETTABLE  R2 := R2["noAnim"]
+       2 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       3 [   0] JMP       jmp +9 -> 13
+       4 [   0] GETGLOBAL R2 := _G["transition"]
+       5 [   0] GETTABLE  R2 := R2["to"]
+       6 [   0] MOVE      R3 := R0
+       7 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+       8 [   0] SETTABLE  R4["delay"] := 0
+       9 [   0] SETTABLE  R4["time"] := 80
+      10 [   0] SETTABLE  R4["xScale"] := 0.95
+      11 [   0] SETTABLE  R4["yScale"] := 0.95
+      12 [   0] CALL      R2(...) nargs=2 nret=0
+      13 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=2, lines 7-11, upvals=[], locals=[])
+    constants: strings=['initOptions', 'noAnim', 'transition', 'to', 'delay', 'time', 'xScale', 'yScale', 'easing', 'outQuad'] numbers=[0, 80, 1]
+       0 [   0] GETTABLE  R2 := R0["initOptions"]
+       1 [   0] GETTABLE  R2 := R2["noAnim"]
+       2 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       3 [   0] JMP       jmp +12 -> 16
+       4 [   0] GETGLOBAL R2 := _G["transition"]
+       5 [   0] GETTABLE  R2 := R2["to"]
+       6 [   0] MOVE      R3 := R0
+       7 [   0] NEWTABLE  R4 := {} (array 0, hash 5)
+       8 [   0] SETTABLE  R4["delay"] := 0
+       9 [   0] SETTABLE  R4["time"] := 80
+      10 [   0] SETTABLE  R4["xScale"] := 1
+      11 [   0] SETTABLE  R4["yScale"] := 1
+      12 [   0] GETGLOBAL R5 := _G["easing"]
+      13 [   0] GETTABLE  R5 := R5["outQuad"]
+      14 [   0] SETTABLE  R4["transition"] := R5
+      15 [   0] CALL      R2(...) nargs=2 nret=0
+      16 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=2, lines 13-16, upvals=[], locals=[])
+    constants: strings=['isVisible', 'alpha'] numbers=[]
+       0 [   0] GETTABLE  R2 := R1["isVisible"]
+       1 [   0] EQ        if (R2 == None) ~= 1 then skip next
+       2 [   0] JMP       jmp +2 -> 5
+       3 [   0] GETTABLE  R2 := R1["isVisible"]
+       4 [   0] SETTABLE  R0["isVisible"] := R2
+       5 [   0] GETTABLE  R2 := R1["alpha"]
+       6 [   0] EQ        if (R2 == None) ~= 1 then skip next
+       7 [   0] JMP       jmp +2 -> 10
+       8 [   0] GETTABLE  R2 := R1["alpha"]
+       9 [   0] SETTABLE  R0["alpha"] := R2
+      10 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=2, lines 18-55, upvals=[], locals=[])
+    constants: strings=['layoutData', 'layoutManager', 'getLayout', 'layout', 'parent', 'renderer', 'initOptions', 'getWidth', 'getHeight', 'x', 'y', 'width', 'height', 'rect', 'display', 'newRect', 'color', 'r', 'g', 'b', 'a', 'isVisible', 'isHitTestable', 'setFillColor', 'insert', 'w', 'h'] numbers=[2, 0]
+       0 [   0] GETGLOBAL R2 := _G["layoutManager"]
+       1 [   0] GETTABLE  R2 := R2["getLayout"]
+       2 [   0] GETTABLE  R3 := R1["layout"]
+       3 [   0] GETTABLE  R4 := R1["parent"]
+       4 [   0] CALL      R2(...) nargs=2 nret=1
+       5 [   0] SETTABLE  R0["layoutData"] := R2
+       6 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       7 [   0] SETTABLE  R0["renderer"] := R2
+       8 [   0] SETTABLE  R0["initOptions"] := R1
+       9 [   0] CLOSURE   R2 := closure #0
+      10 [   0] MOVE      R0 := R1
+      11 [   0] MOVE      R0 := R0
+      12 [   0] SETTABLE  R0["getWidth"] := R2
+      13 [   0] CLOSURE   R2 := closure #1
+      14 [   0] MOVE      R0 := R1
+      15 [   0] MOVE      R0 := R0
+      16 [   0] SETTABLE  R0["getHeight"] := R2
+      17 [   0] GETTABLE  R2 := R1["x"]
+      18 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+      19 [   0] JMP       jmp +2 -> 22
+      20 [   0] GETTABLE  R2 := R0["layoutData"]
+      21 [   0] GETTABLE  R2 := R2["x"]
+      22 [   0] GETTABLE  R3 := R1["y"]
+      23 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      24 [   0] JMP       jmp +2 -> 27
+      25 [   0] GETTABLE  R3 := R0["layoutData"]
+      26 [   0] GETTABLE  R3 := R3["y"]
+      27 [   0] GETTABLE  R4 := R1["width"]
+      28 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+      29 [   0] JMP       jmp +2 -> 32
+      30 [   0] GETTABLE  R4 := R0["layoutData"]
+      31 [   0] GETTABLE  R4 := R4["width"]
+      32 [   0] GETTABLE  R5 := R1["height"]
+      33 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      34 [   0] JMP       jmp +2 -> 37
+      35 [   0] GETTABLE  R5 := R0["layoutData"]
+      36 [   0] GETTABLE  R5 := R5["height"]
+      37 [   0] GETTABLE  R6 := R0["renderer"]
+      38 [   0] GETGLOBAL R7 := _G["display"]
+      39 [   0] GETTABLE  R7 := R7["newRect"]
+      40 [   0] UNM       R8 := -R4
+      41 [   0] DIV       R8 := R8 / 2
+      42 [   0] UNM       R9 := -R5
+      43 [   0] DIV       R9 := R9 / 2
+      44 [   0] MOVE      R10 := R4
+      45 [   0] MOVE      R11 := R5
+      46 [   0] CALL      R7(...) nargs=4 nret=1
+      47 [   0] SETTABLE  R6["rect"] := R7
+      48 [   0] GETTABLE  R6 := R1["color"]
+      49 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+      50 [   0] JMP       jmp +5 -> 56
+      51 [   0] NEWTABLE  R6 := {} (array 0, hash 4)
+      52 [   0] SETTABLE  R6["r"] := 0
+      53 [   0] SETTABLE  R6["g"] := 0
+      54 [   0] SETTABLE  R6["b"] := 0
+      55 [   0] SETTABLE  R6["a"] := 0
+      56 [   0] GETTABLE  R7 := R1["color"]
+      57 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+      58 [   0] JMP       jmp +6 -> 65
+      59 [   0] GETTABLE  R7 := R0["renderer"]
+      60 [   0] GETTABLE  R7 := R7["rect"]
+      61 [   0] SETTABLE  R7["isVisible"] := False
+      62 [   0] GETTABLE  R7 := R0["renderer"]
+      63 [   0] GETTABLE  R7 := R7["rect"]
+      64 [   0] SETTABLE  R7["isHitTestable"] := True
+      65 [   0] GETTABLE  R7 := R0["renderer"]
+      66 [   0] GETTABLE  R7 := R7["rect"]
+      67 [   0] SELF      R8 := R7; R7 := R7["setFillColor"]
+      68 [   0] GETTABLE  R9 := R6["r"]
+      69 [   0] GETTABLE  R10 := R6["g"]
+      70 [   0] GETTABLE  R11 := R6["b"]
+      71 [   0] GETTABLE  R12 := R6["a"]
+      72 [   0] CALL      R7(...) nargs=5 nret=0
+      73 [   0] SELF      R8 := R0; R7 := R0["insert"]
+      74 [   0] GETTABLE  R9 := R0["renderer"]
+      75 [   0] GETTABLE  R9 := R9["rect"]
+      76 [   0] CALL      R7(...) nargs=2 nret=0
+      77 [   0] GETTABLE  R7 := R0["renderer"]
+      78 [   0] SETTABLE  R7["w"] := R4
+      79 [   0] GETTABLE  R7 := R0["renderer"]
+      80 [   0] SETTABLE  R7["h"] := R5
+      81 [   0] SETTABLE  R0["x"] := R2
+      82 [   0] SETTABLE  R0["y"] := R3
+      83 [   0] GETUPVAL  R7 := upval 0
+      84 [   0] MOVE      R8 := R0
+      85 [   0] MOVE      R9 := R1
+      86 [   0] CALL      R7(...) nargs=2 nret=0
+      87 [   0] RETURN    return R0.. (1 values)
+      88 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#0 (params=0, lines 24-26, upvals=[], locals=[])
+      constants: strings=['width', 'layoutData'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["width"]
+         2 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R0 := upval 1
+         5 [   0] GETTABLE  R0 := R0["layoutData"]
+         6 [   0] GETTABLE  R0 := R0["width"]
+         7 [   0] RETURN    return R0.. (1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#1 (params=0, lines 27-29, upvals=[], locals=[])
+      constants: strings=['height', 'layoutData'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["height"]
+         2 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R0 := upval 1
+         5 [   0] GETTABLE  R0 := R0["layoutData"]
+         6 [   0] GETTABLE  R0 := R0["height"]
+         7 [   0] RETURN    return R0.. (1 values)
+         8 [   0] RETURN    return R0.. (0 values)

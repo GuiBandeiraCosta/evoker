@@ -1,0 +1,375 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'renderer.animatedcontainerrenderer', 'math', 'pi', 'display', 'contentWidth', 'screenOriginX', 'util.util', 'create'] numbers=[180, -2]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "renderer.animatedcontainerrenderer"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["math"]
+     6 [   0] GETTABLE  R1 := R1["pi"]
+     7 [   0] DIV       R1 := 180 / R1
+     8 [   0] GETGLOBAL R2 := _G["display"]
+     9 [   0] GETTABLE  R2 := R2["contentWidth"]
+    10 [   0] GETGLOBAL R3 := _G["display"]
+    11 [   0] GETTABLE  R3 := R3["screenOriginX"]
+    12 [   0] MUL       R3 := -2 * R3
+    13 [   0] ADD       R2 := R2 + R3
+    14 [   0] GETGLOBAL R3 := _G["require"]
+    15 [   0] LOADK     R4 := "util.util"
+    16 [   0] CALL      R3(...) nargs=1 nret=1
+    17 [   0] CLOSURE   R4 := closure #0
+    18 [   0] MOVE      R0 := R0
+    19 [   0] MOVE      R0 := R1
+    20 [   0] MOVE      R0 := R3
+    21 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+    22 [   0] SETTABLE  R5["create"] := R4
+    23 [   0] RETURN    return R5.. (1 values)
+    24 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 14-125, upvals=[], locals=[])
+    constants: strings=['require', 'util.safetransition', 'create', 'width', 'height', 'ui', 'createContainer', 'layout', 'default.center', 'parent', 'renderer', 'anim', 'ui.animations.bird', 'switchAnimation', 'idle', 'isVisible', 'alpha', 'doFlying', 'exit', 'enter', 'destroy', 'inherit', '_flaregames_remove'] numbers=[5, 1, 0]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] GETGLOBAL R2 := _G["require"]
+       2 [   0] LOADK     R3 := "util.safetransition"
+       3 [   0] CALL      R2(...) nargs=1 nret=1
+       4 [   0] GETTABLE  R2 := R2["create"]
+       5 [   0] CALL      R2(...) nargs=0 nret=1
+       6 [   0] GETTABLE  R3 := R0["width"]
+       7 [   0] GETTABLE  R4 := R0["height"]
+       8 [   0] LOADK     R5 := 5
+       9 [   0] GETGLOBAL R6 := _G["ui"]
+      10 [   0] GETTABLE  R6 := R6["createContainer"]
+      11 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+      12 [   0] SETTABLE  R7["layout"] := "default.center"
+      13 [   0] GETTABLE  R8 := R0["parent"]
+      14 [   0] SETTABLE  R7["parent"] := R8
+      15 [   0] CALL      R6(...) nargs=1 nret=1
+      16 [   0] MOVE      R1 := R6
+      17 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+      18 [   0] LOADK     R7 := 1
+      19 [   0] MOVE      R8 := R5
+      20 [   0] LOADK     R9 := 1
+      21 [   0] FORPREP   for R7.. jmp +15
+      22 [   0] GETGLOBAL R11 := _G["ui"]
+      23 [   0] GETTABLE  R11 := R11["createContainer"]
+      24 [   0] NEWTABLE  R12 := {} (array 0, hash 4)
+      25 [   0] SETTABLE  R12["layout"] := "default.center"
+      26 [   0] SETTABLE  R12["parent"] := R1
+      27 [   0] GETUPVAL  R13 := upval 0
+      28 [   0] SETTABLE  R12["renderer"] := R13
+      29 [   0] SETTABLE  R12["anim"] := "ui.animations.bird"
+      30 [   0] CALL      R11(...) nargs=1 nret=1
+      31 [   0] GETTABLE  R12 := R11["renderer"]
+      32 [   0] GETTABLE  R12 := R12["anim"]
+      33 [   0] GETTABLE  R12 := R12["switchAnimation"]
+      34 [   0] LOADK     R13 := "idle"
+      35 [   0] CALL      R12(...) nargs=1 nret=0
+      36 [   0] SETTABLE  R6[R10] := R11
+      37 [   0] FORLOOP   forloop R7 jmp -16
+      38 [   0] SETTABLE  R1["isVisible"] := False
+      39 [   0] SETTABLE  R1["alpha"] := 0
+      40 [   0] CLOSURE   R7 := closure #0
+      41 [   0] MOVE      R0 := R1
+      42 [   0] MOVE      R0 := R3
+      43 [   0] MOVE      R0 := R4
+      44 [   0] CLOSURE   R8 := closure #1
+      45 [   0] GETUPVAL  R0 := upval 1
+      46 [   0] CLOSURE   R9 := closure #2
+      47 [   0] MOVE      R0 := R1
+      48 [   0] MOVE      R0 := R6
+      49 [   0] MOVE      R0 := R8
+      50 [   0] MOVE      R0 := R2
+      51 [   0] MOVE      R0 := R7
+      52 [   0] SETTABLE  R1["doFlying"] := R9
+      53 [   0] CLOSURE   R9 := closure #3
+      54 [   0] MOVE      R0 := R1
+      55 [   0] MOVE      R0 := R2
+      56 [   0] SETTABLE  R1["exit"] := R9
+      57 [   0] CLOSURE   R9 := closure #4
+      58 [   0] MOVE      R0 := R6
+      59 [   0] MOVE      R0 := R7
+      60 [   0] SETTABLE  R1["enter"] := R9
+      61 [   0] CLOSURE   R9 := closure #5
+      62 [   0] MOVE      R0 := R1
+      63 [   0] SETTABLE  R1["destroy"] := R9
+      64 [   0] GETUPVAL  R9 := upval 2
+      65 [   0] GETTABLE  R9 := R9["inherit"]
+      66 [   0] MOVE      R10 := R1
+      67 [   0] LOADK     R11 := "_flaregames_remove"
+      68 [   0] CLOSURE   R12 := closure #6
+      69 [   0] MOVE      R0 := R1
+      70 [   0] CALL      R9(...) nargs=3 nret=0
+      71 [   0] RETURN    return R1.. (1 values)
+      72 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 44-69, upvals=[], locals=[])
+      constants: strings=['isVisible', 'x', 'math', 'random', 'y', 'cos', 'pi', 'sin', 'doFlying', 'startPosition', 'endPosition', 'bird'] numbers=[360, 180, 0, 3000]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["isVisible"] := False
+         2 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+         3 [   0] GETGLOBAL R2 := _G["math"]
+         4 [   0] GETTABLE  R2 := R2["random"]
+         5 [   0] GETUPVAL  R3 := upval 1
+         6 [   0] CALL      R2(...) nargs=1 nret=1
+         7 [   0] SETTABLE  R1["x"] := R2
+         8 [   0] GETGLOBAL R2 := _G["math"]
+         9 [   0] GETTABLE  R2 := R2["random"]
+        10 [   0] GETUPVAL  R3 := upval 2
+        11 [   0] CALL      R2(...) nargs=1 nret=1
+        12 [   0] SETTABLE  R1["y"] := R2
+        13 [   0] GETGLOBAL R2 := _G["math"]
+        14 [   0] GETTABLE  R2 := R2["random"]
+        15 [   0] LOADK     R3 := 360
+        16 [   0] CALL      R2(...) nargs=1 nret=1
+        17 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+        18 [   0] GETGLOBAL R4 := _G["math"]
+        19 [   0] GETTABLE  R4 := R4["cos"]
+        20 [   0] DIV       R5 := R2 / 180
+        21 [   0] GETGLOBAL R6 := _G["math"]
+        22 [   0] GETTABLE  R6 := R6["pi"]
+        23 [   0] MUL       R5 := R5 * R6
+        24 [   0] CALL      R4(...) nargs=1 nret=1
+        25 [   0] SETTABLE  R3["x"] := R4
+        26 [   0] GETGLOBAL R4 := _G["math"]
+        27 [   0] GETTABLE  R4 := R4["sin"]
+        28 [   0] DIV       R5 := R2 / 180
+        29 [   0] GETGLOBAL R6 := _G["math"]
+        30 [   0] GETTABLE  R6 := R6["pi"]
+        31 [   0] MUL       R5 := R5 * R6
+        32 [   0] CALL      R4(...) nargs=1 nret=1
+        33 [   0] SETTABLE  R3["y"] := R4
+        34 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+        35 [   0] SETTABLE  R4["x"] := 0
+        36 [   0] GETTABLE  R5 := R1["y"]
+        37 [   0] GETTABLE  R6 := R1["x"]
+        38 [   0] UNM       R6 := -R6
+        39 [   0] GETTABLE  R7 := R3["x"]
+        40 [   0] DIV       R6 := R6 / R7
+        41 [   0] GETTABLE  R7 := R3["y"]
+        42 [   0] MUL       R6 := R6 * R7
+        43 [   0] ADD       R5 := R5 + R6
+        44 [   0] SETTABLE  R4["y"] := R5
+        45 [   0] MOVE      R5 := R4
+        46 [   0] GETTABLE  R6 := R4["y"]
+        47 [   0] LT        if (R6 < 0) ~= 0 then skip next
+        48 [   0] JMP       jmp +13 -> 62
+        49 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+        50 [   0] GETTABLE  R7 := R1["x"]
+        51 [   0] GETTABLE  R8 := R1["y"]
+        52 [   0] UNM       R8 := -R8
+        53 [   0] GETTABLE  R9 := R3["y"]
+        54 [   0] DIV       R8 := R8 / R9
+        55 [   0] GETTABLE  R9 := R3["x"]
+        56 [   0] MUL       R8 := R8 * R9
+        57 [   0] ADD       R7 := R7 + R8
+        58 [   0] SETTABLE  R6["x"] := R7
+        59 [   0] SETTABLE  R6["y"] := 0
+        60 [   0] MOVE      R5 := R6
+        61 [   0] JMP       jmp +18 -> 80
+        62 [   0] GETTABLE  R6 := R4["y"]
+        63 [   0] GETUPVAL  R7 := upval 1
+        64 [   0] LT        if (R7 < R6) ~= 0 then skip next
+        65 [   0] JMP       jmp +14 -> 80
+        66 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+        67 [   0] GETTABLE  R7 := R1["x"]
+        68 [   0] GETUPVAL  R8 := upval 1
+        69 [   0] GETTABLE  R9 := R1["y"]
+        70 [   0] SUB       R8 := R8 - R9
+        71 [   0] GETTABLE  R9 := R3["y"]
+        72 [   0] DIV       R8 := R8 / R9
+        73 [   0] GETTABLE  R9 := R3["x"]
+        74 [   0] MUL       R8 := R8 * R9
+        75 [   0] ADD       R7 := R7 + R8
+        76 [   0] SETTABLE  R6["x"] := R7
+        77 [   0] GETUPVAL  R7 := upval 1
+        78 [   0] SETTABLE  R6["y"] := R7
+        79 [   0] MOVE      R5 := R6
+        80 [   0] NEWTABLE  R6 := {} (array 0, hash 2)
+        81 [   0] SETTABLE  R6["x"] := 3000
+        82 [   0] GETTABLE  R7 := R1["y"]
+        83 [   0] GETTABLE  R8 := R1["x"]
+        84 [   0] SUB       R8 := 3000 - R8
+        85 [   0] GETTABLE  R9 := R3["x"]
+        86 [   0] DIV       R8 := R8 / R9
+        87 [   0] GETTABLE  R9 := R3["y"]
+        88 [   0] MUL       R8 := R8 * R9
+        89 [   0] ADD       R7 := R7 + R8
+        90 [   0] SETTABLE  R6["y"] := R7
+        91 [   0] MOVE      R7 := R6
+        92 [   0] GETTABLE  R8 := R6["y"]
+        93 [   0] LT        if (R8 < 0) ~= 0 then skip next
+        94 [   0] JMP       jmp +13 -> 108
+        95 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+        96 [   0] GETTABLE  R9 := R1["x"]
+        97 [   0] GETTABLE  R10 := R1["y"]
+        98 [   0] UNM       R10 := -R10
+        99 [   0] GETTABLE  R11 := R3["y"]
+       100 [   0] DIV       R10 := R10 / R11
+       101 [   0] GETTABLE  R11 := R3["x"]
+       102 [   0] MUL       R10 := R10 * R11
+       103 [   0] ADD       R9 := R9 + R10
+       104 [   0] SETTABLE  R8["x"] := R9
+       105 [   0] SETTABLE  R8["y"] := 0
+       106 [   0] MOVE      R7 := R8
+       107 [   0] JMP       jmp +18 -> 126
+       108 [   0] GETTABLE  R8 := R6["y"]
+       109 [   0] GETUPVAL  R9 := upval 1
+       110 [   0] LT        if (R9 < R8) ~= 0 then skip next
+       111 [   0] JMP       jmp +14 -> 126
+       112 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+       113 [   0] GETTABLE  R9 := R1["x"]
+       114 [   0] GETUPVAL  R10 := upval 1
+       115 [   0] GETTABLE  R11 := R1["y"]
+       116 [   0] SUB       R10 := R10 - R11
+       117 [   0] GETTABLE  R11 := R3["y"]
+       118 [   0] DIV       R10 := R10 / R11
+       119 [   0] GETTABLE  R11 := R3["x"]
+       120 [   0] MUL       R10 := R10 * R11
+       121 [   0] ADD       R9 := R9 + R10
+       122 [   0] SETTABLE  R8["x"] := R9
+       123 [   0] GETUPVAL  R9 := upval 1
+       124 [   0] SETTABLE  R8["y"] := R9
+       125 [   0] MOVE      R7 := R8
+       126 [   0] GETUPVAL  R8 := upval 0
+       127 [   0] GETTABLE  R8 := R8["doFlying"]
+       128 [   0] NEWTABLE  R9 := {} (array 0, hash 3)
+       129 [   0] SETTABLE  R9["startPosition"] := R5
+       130 [   0] SETTABLE  R9["endPosition"] := R7
+       131 [   0] SETTABLE  R9["bird"] := R0
+       132 [   0] CALL      R8(...) nargs=1 nret=0
+       133 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 71-90, upvals=[], locals=[])
+      constants: strings=['x', 'y', 'math', 'sqrt', 'acos'] numbers=[0, 360, 180, 30]
+         0 [   0] MOVE      R2 := R0
+         1 [   0] MOVE      R3 := R1
+         2 [   0] GETTABLE  R4 := R2["x"]
+         3 [   0] GETTABLE  R5 := R3["x"]
+         4 [   0] SUB       R4 := R4 - R5
+         5 [   0] GETTABLE  R5 := R2["y"]
+         6 [   0] GETTABLE  R6 := R3["y"]
+         7 [   0] SUB       R5 := R5 - R6
+         8 [   0] GETGLOBAL R6 := _G["math"]
+         9 [   0] GETTABLE  R6 := R6["sqrt"]
+        10 [   0] MUL       R7 := R4 * R4
+        11 [   0] MUL       R8 := R5 * R5
+        12 [   0] ADD       R7 := R7 + R8
+        13 [   0] CALL      R6(...) nargs=1 nret=1
+        14 [   0] DIV       R4 := R4 / R6
+        15 [   0] DIV       R5 := R5 / R6
+        16 [   0] LOADK     R7 := 0
+        17 [   0] GETGLOBAL R8 := _G["math"]
+        18 [   0] GETTABLE  R8 := R8["acos"]
+        19 [   0] MOVE      R9 := R4
+        20 [   0] CALL      R8(...) nargs=1 nret=1
+        21 [   0] GETUPVAL  R9 := upval 0
+        22 [   0] MUL       R7 := R8 * R9
+        23 [   0] LT        if (R5 < 0) ~= 0 then skip next
+        24 [   0] JMP       jmp +1 -> 26
+        25 [   0] SUB       R7 := 360 - R7
+        26 [   0] ADD       R8 := R7 + 180
+        27 [   0] SUB       R7 := R8 - 30
+        28 [   0] RETURN    return R7.. (1 values)
+        29 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 92-102, upvals=[], locals=[])
+      constants: strings=['alpha', 'isVisible', 'bird', 'x', 'y', 'startPosition', 'rotation', 'endPosition', 'math', 'sqrt', 'renderer', 'anim', 'switchAnimation', 'fly', 'to', 'time', 'onComplete'] numbers=[1, 40]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["alpha"] := 1
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] SETTABLE  R1["isVisible"] := True
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] GETTABLE  R2 := R0["bird"]
+         6 [   0] GETTABLE  R1 := R1[R2]
+         7 [   0] GETTABLE  R2 := R0["startPosition"]
+         8 [   0] GETTABLE  R2 := R2["x"]
+         9 [   0] GETTABLE  R3 := R0["startPosition"]
+        10 [   0] GETTABLE  R3 := R3["y"]
+        11 [   0] SETTABLE  R1["y"] := R3
+        12 [   0] SETTABLE  R1["x"] := R2
+        13 [   0] GETUPVAL  R2 := upval 2
+        14 [   0] GETTABLE  R3 := R0["startPosition"]
+        15 [   0] GETTABLE  R4 := R0["endPosition"]
+        16 [   0] CALL      R2(...) nargs=2 nret=1
+        17 [   0] SETTABLE  R1["rotation"] := R2
+        18 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+        19 [   0] GETTABLE  R3 := R0["endPosition"]
+        20 [   0] GETTABLE  R3 := R3["x"]
+        21 [   0] GETTABLE  R4 := R0["startPosition"]
+        22 [   0] GETTABLE  R4 := R4["x"]
+        23 [   0] SUB       R3 := R3 - R4
+        24 [   0] SETTABLE  R2["x"] := R3
+        25 [   0] GETTABLE  R3 := R0["endPosition"]
+        26 [   0] GETTABLE  R3 := R3["y"]
+        27 [   0] GETTABLE  R4 := R0["startPosition"]
+        28 [   0] GETTABLE  R4 := R4["y"]
+        29 [   0] SUB       R3 := R3 - R4
+        30 [   0] SETTABLE  R2["y"] := R3
+        31 [   0] GETGLOBAL R3 := _G["math"]
+        32 [   0] GETTABLE  R3 := R3["sqrt"]
+        33 [   0] GETTABLE  R4 := R2["x"]
+        34 [   0] GETTABLE  R5 := R2["x"]
+        35 [   0] MUL       R4 := R4 * R5
+        36 [   0] GETTABLE  R5 := R2["y"]
+        37 [   0] GETTABLE  R6 := R2["y"]
+        38 [   0] MUL       R5 := R5 * R6
+        39 [   0] ADD       R4 := R4 + R5
+        40 [   0] CALL      R3(...) nargs=1 nret=1
+        41 [   0] GETTABLE  R4 := R1["renderer"]
+        42 [   0] GETTABLE  R4 := R4["anim"]
+        43 [   0] GETTABLE  R4 := R4["switchAnimation"]
+        44 [   0] LOADK     R5 := "fly"
+        45 [   0] CALL      R4(...) nargs=1 nret=0
+        46 [   0] GETUPVAL  R4 := upval 3
+        47 [   0] GETTABLE  R4 := R4["to"]
+        48 [   0] MOVE      R5 := R1
+        49 [   0] NEWTABLE  R6 := {} (array 0, hash 4)
+        50 [   0] GETTABLE  R7 := R0["endPosition"]
+        51 [   0] GETTABLE  R7 := R7["x"]
+        52 [   0] SETTABLE  R6["x"] := R7
+        53 [   0] GETTABLE  R7 := R0["endPosition"]
+        54 [   0] GETTABLE  R7 := R7["y"]
+        55 [   0] SETTABLE  R6["y"] := R7
+        56 [   0] MUL       R7 := R3 * 40
+        57 [   0] SETTABLE  R6["time"] := R7
+        58 [   0] CLOSURE   R7 := closure #0
+        59 [   0] GETUPVAL  R0 := upval 4
+        60 [   0] MOVE      R0 := R0
+        61 [   0] SETTABLE  R6["onComplete"] := R7
+        62 [   0] CALL      R4(...) nargs=2 nret=0
+        63 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#2.#0 (params=0, lines 101-101, upvals=[], locals=[])
+        constants: strings=['bird'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] GETTABLE  R1 := R1["bird"]
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 105-108, upvals=[], locals=[])
+      constants: strings=['isVisible', 'cancelAll'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["isVisible"] := False
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETTABLE  R0 := R0["cancelAll"]
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 110-114, upvals=[], locals=[])
+      constants: strings=[] numbers=[1]
+         0 [   0] LOADK     R0 := 1
+         1 [   0] GETUPVAL  R1 := upval 0
+         2 [   0] LEN       R1 := #R1
+         3 [   0] LOADK     R2 := 1
+         4 [   0] FORPREP   for R0.. jmp +3
+         5 [   0] GETUPVAL  R4 := upval 1
+         6 [   0] MOVE      R5 := R3
+         7 [   0] CALL      R4(...) nargs=1 nret=0
+         8 [   0] FORLOOP   forloop R0 jmp -4
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 116-118, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 120-122, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

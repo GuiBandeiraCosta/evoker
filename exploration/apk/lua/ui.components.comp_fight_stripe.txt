@@ -1,0 +1,176 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.util', 'UI_LIB_PATH', 'renderer.shadowedlabelrenderer', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "util.util"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+     5 [   0] LOADK     R3 := "renderer.shadowedlabelrenderer"
+     6 [   0] CONCAT    R2 := R2 .. ... .. R3
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] CLOSURE   R2 := closure #0
+     9 [   0] MOVE      R0 := R1
+    10 [   0] MOVE      R0 := R0
+    11 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+    12 [   0] SETTABLE  R3["create"] := R2
+    13 [   0] RETURN    return R3.. (1 values)
+    14 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 11-73, upvals=[], locals=[])
+    constants: strings=['ui', 'createContainer', 'parent', 'layout', 'fightStripe.Player1', 'enemy', 'fightStripe.Player2', 'Stripe1', 'img', 'assets/gfx/hud/commons/seperator_big.png', 'Stripe2', 'Img', 'assets/gfx/hud/rewardcards/card_money01_thumb.png', 'hud', 'assets/gfx/hud/fight/hud_player02.png', 'createLabel', 'Name', 'renderer', 'style', 'fightPlayer1Name', 'txt', 'Player1', 'getPlayerImageObject', 'update', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["ui"]
+       1 [   0] GETTABLE  R1 := R1["createContainer"]
+       2 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+       3 [   0] GETTABLE  R3 := R0["parent"]
+       4 [   0] SETTABLE  R2["parent"] := R3
+       5 [   0] GETTABLE  R3 := R0["layout"]
+       6 [   0] SETTABLE  R2["layout"] := R3
+       7 [   0] CALL      R1(...) nargs=1 nret=1
+       8 [   0] LOADK     R2 := "fightStripe.Player1"
+       9 [   0] GETTABLE  R3 := R0["enemy"]
+      10 [   0] EQ        if (R3 == True) ~= 0 then skip next
+      11 [   0] JMP       jmp +1 -> 13
+      12 [   0] LOADK     R2 := "fightStripe.Player2"
+      13 [   0] GETGLOBAL R3 := _G["ui"]
+      14 [   0] GETTABLE  R3 := R3["createContainer"]
+      15 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+      16 [   0] SETTABLE  R4["parent"] := R1
+      17 [   0] MOVE      R5 := R2
+      18 [   0] LOADK     R6 := "Stripe1"
+      19 [   0] CONCAT    R5 := R5 .. ... .. R6
+      20 [   0] SETTABLE  R4["layout"] := R5
+      21 [   0] SETTABLE  R4["img"] := "assets/gfx/hud/commons/seperator_big.png"
+      22 [   0] CALL      R3(...) nargs=1 nret=1
+      23 [   0] GETGLOBAL R4 := _G["ui"]
+      24 [   0] GETTABLE  R4 := R4["createContainer"]
+      25 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+      26 [   0] SETTABLE  R5["parent"] := R1
+      27 [   0] MOVE      R6 := R2
+      28 [   0] LOADK     R7 := "Stripe2"
+      29 [   0] CONCAT    R6 := R6 .. ... .. R7
+      30 [   0] SETTABLE  R5["layout"] := R6
+      31 [   0] SETTABLE  R5["img"] := "assets/gfx/hud/commons/seperator_big.png"
+      32 [   0] CALL      R4(...) nargs=1 nret=1
+      33 [   0] GETGLOBAL R5 := _G["ui"]
+      34 [   0] GETTABLE  R5 := R5["createContainer"]
+      35 [   0] NEWTABLE  R6 := {} (array 0, hash 3)
+      36 [   0] SETTABLE  R6["parent"] := R1
+      37 [   0] MOVE      R7 := R2
+      38 [   0] LOADK     R8 := "Img"
+      39 [   0] CONCAT    R7 := R7 .. ... .. R8
+      40 [   0] SETTABLE  R6["layout"] := R7
+      41 [   0] SETTABLE  R6["img"] := "assets/gfx/hud/rewardcards/card_money01_thumb.png"
+      42 [   0] CALL      R5(...) nargs=1 nret=1
+      43 [   0] GETGLOBAL R6 := _G["ui"]
+      44 [   0] GETTABLE  R6 := R6["createContainer"]
+      45 [   0] NEWTABLE  R7 := {} (array 0, hash 3)
+      46 [   0] SETTABLE  R7["parent"] := R1
+      47 [   0] MOVE      R8 := R2
+      48 [   0] LOADK     R9 := "hud"
+      49 [   0] CONCAT    R8 := R8 .. ... .. R9
+      50 [   0] SETTABLE  R7["layout"] := R8
+      51 [   0] SETTABLE  R7["img"] := "assets/gfx/hud/fight/hud_player02.png"
+      52 [   0] CALL      R6(...) nargs=1 nret=1
+      53 [   0] GETGLOBAL R7 := _G["ui"]
+      54 [   0] GETTABLE  R7 := R7["createLabel"]
+      55 [   0] NEWTABLE  R8 := {} (array 0, hash 5)
+      56 [   0] SETTABLE  R8["parent"] := R1
+      57 [   0] MOVE      R9 := R2
+      58 [   0] LOADK     R10 := "Name"
+      59 [   0] CONCAT    R9 := R9 .. ... .. R10
+      60 [   0] SETTABLE  R8["layout"] := R9
+      61 [   0] GETUPVAL  R9 := upval 0
+      62 [   0] SETTABLE  R8["renderer"] := R9
+      63 [   0] SETTABLE  R8["style"] := "fightPlayer1Name"
+      64 [   0] SETTABLE  R8["txt"] := "Player1"
+      65 [   0] CALL      R7(...) nargs=1 nret=1
+      66 [   0] CLOSURE   R8 := closure #0
+      67 [   0] MOVE      R0 := R5
+      68 [   0] SETTABLE  R1["getPlayerImageObject"] := R8
+      69 [   0] CLOSURE   R8 := closure #1
+      70 [   0] CLOSURE   R9 := closure #2
+      71 [   0] MOVE      R0 := R7
+      72 [   0] MOVE      R0 := R5
+      73 [   0] MOVE      R0 := R8
+      74 [   0] SETTABLE  R1["update"] := R9
+      75 [   0] CLOSURE   R9 := closure #3
+      76 [   0] SETTABLE  R1["enter"] := R9
+      77 [   0] CLOSURE   R9 := closure #4
+      78 [   0] SETTABLE  R1["exit"] := R9
+      79 [   0] CLOSURE   R9 := closure #5
+      80 [   0] MOVE      R0 := R1
+      81 [   0] SETTABLE  R1["destroy"] := R9
+      82 [   0] GETUPVAL  R9 := upval 1
+      83 [   0] GETTABLE  R9 := R9["inherit"]
+      84 [   0] MOVE      R10 := R1
+      85 [   0] LOADK     R11 := "_flaregames_remove"
+      86 [   0] CLOSURE   R12 := closure #6
+      87 [   0] MOVE      R0 := R1
+      88 [   0] CALL      R9(...) nargs=3 nret=0
+      89 [   0] RETURN    return R1.. (1 values)
+      90 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 33-35, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=3, lines 37-46, upvals=[], locals=[])
+      constants: strings=['xScale', 'width', 'yScale', 'height'] numbers=[0]
+         0 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +5 -> 7
+         2 [   0] LT        if (0 < R1) ~= 0 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETTABLE  R3 := R0["width"]
+         5 [   0] DIV       R3 := R1 / R3
+         6 [   0] SETTABLE  R0["xScale"] := R3
+         7 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +5 -> 14
+         9 [   0] LT        if (0 < R2) ~= 0 then skip next
+        10 [   0] JMP       jmp +3 -> 14
+        11 [   0] GETTABLE  R3 := R0["height"]
+        12 [   0] DIV       R3 := R2 / R3
+        13 [   0] SETTABLE  R0["yScale"] := R3
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 48-56, upvals=[], locals=[])
+      constants: strings=['playerName', 'update', 'txt', 'playerImage', 'img'] numbers=[40]
+         0 [   0] GETTABLE  R1 := R0["playerName"]
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +6 -> 9
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["update"]
+         5 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+         6 [   0] GETTABLE  R3 := R0["playerName"]
+         7 [   0] SETTABLE  R2["txt"] := R3
+         8 [   0] CALL      R1(...) nargs=1 nret=0
+         9 [   0] GETTABLE  R1 := R0["playerImage"]
+        10 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +11 -> 23
+        12 [   0] GETUPVAL  R1 := upval 1
+        13 [   0] GETTABLE  R1 := R1["update"]
+        14 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+        15 [   0] GETTABLE  R3 := R0["playerImage"]
+        16 [   0] SETTABLE  R2["img"] := R3
+        17 [   0] CALL      R1(...) nargs=1 nret=0
+        18 [   0] GETUPVAL  R1 := upval 2
+        19 [   0] GETUPVAL  R2 := upval 1
+        20 [   0] LOADK     R3 := 40
+        21 [   0] LOADK     R4 := 40
+        22 [   0] CALL      R1(...) nargs=3 nret=0
+        23 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 58-59, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 61-62, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 64-66, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 68-70, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

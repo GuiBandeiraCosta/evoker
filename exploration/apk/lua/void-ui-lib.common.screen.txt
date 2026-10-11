@@ -1,0 +1,99 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['up', 'down', 'left', 'right', 'addContributor', 'getUsableScreenOffset', 'screenWidth', 'layoutManager', 'screenHeight', 'screenTop', 'screenBottom', 'screenLeft', 'screenRight'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 4)
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+     2 [   0] SETTABLE  R0["up"] := R1
+     3 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+     4 [   0] SETTABLE  R0["down"] := R1
+     5 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+     6 [   0] SETTABLE  R0["left"] := R1
+     7 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+     8 [   0] SETTABLE  R0["right"] := R1
+     9 [   0] CLOSURE   R1 := closure #0
+    10 [   0] MOVE      R0 := R0
+    11 [   0] CLOSURE   R2 := closure #1
+    12 [   0] MOVE      R0 := R0
+    13 [   0] NEWTABLE  R3 := {} (array 0, hash 8)
+    14 [   0] SETTABLE  R3["addContributor"] := R1
+    15 [   0] SETTABLE  R3["getUsableScreenOffset"] := R2
+    16 [   0] GETGLOBAL R4 := _G["layoutManager"]
+    17 [   0] GETTABLE  R4 := R4["screenWidth"]
+    18 [   0] SETTABLE  R3["screenWidth"] := R4
+    19 [   0] GETGLOBAL R4 := _G["layoutManager"]
+    20 [   0] GETTABLE  R4 := R4["screenHeight"]
+    21 [   0] SETTABLE  R3["screenHeight"] := R4
+    22 [   0] GETGLOBAL R4 := _G["layoutManager"]
+    23 [   0] GETTABLE  R4 := R4["screenTop"]
+    24 [   0] SETTABLE  R3["screenTop"] := R4
+    25 [   0] GETGLOBAL R4 := _G["layoutManager"]
+    26 [   0] GETTABLE  R4 := R4["screenBottom"]
+    27 [   0] SETTABLE  R3["screenBottom"] := R4
+    28 [   0] GETGLOBAL R4 := _G["layoutManager"]
+    29 [   0] GETTABLE  R4 := R4["screenLeft"]
+    30 [   0] SETTABLE  R3["screenLeft"] := R4
+    31 [   0] GETGLOBAL R4 := _G["layoutManager"]
+    32 [   0] GETTABLE  R4 := R4["screenRight"]
+    33 [   0] SETTABLE  R3["screenRight"] := R4
+    34 [   0] RETURN    return R3.. (1 values)
+    35 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 8-11, upvals=[], locals=[])
+    constants: strings=[] numbers=[1]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETTABLE  R2 := R2[R0]
+       2 [   0] LEN       R3 := #R2
+       3 [   0] ADD       R3 := R3 + 1
+       4 [   0] SETTABLE  R2[R3] := R1
+       5 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 13-40, upvals=[], locals=[])
+    constants: strings=['pairs', 'up', 'getSize', 'down', 'left', 'right'] numbers=[0]
+       0 [   0] LOADK     R0 := 0
+       1 [   0] GETGLOBAL R1 := _G["pairs"]
+       2 [   0] GETUPVAL  R2 := upval 0
+       3 [   0] GETTABLE  R2 := R2["up"]
+       4 [   0] CALL      R1(...) nargs=1 nret=3
+       5 [   0] JMP       jmp +3 -> 9
+       6 [   0] GETTABLE  R6 := R5["getSize"]
+       7 [   0] CALL      R6(...) nargs=0 nret=1
+       8 [   0] ADD       R0 := R0 + R6
+       9 [   0] TFORLOOP  tforloop R1 nres=2
+      10 [   0] JMP       jmp -5 -> 6
+      11 [   0] LOADK     R1 := 0
+      12 [   0] GETGLOBAL R2 := _G["pairs"]
+      13 [   0] GETUPVAL  R3 := upval 0
+      14 [   0] GETTABLE  R3 := R3["down"]
+      15 [   0] CALL      R2(...) nargs=1 nret=3
+      16 [   0] JMP       jmp +3 -> 20
+      17 [   0] GETTABLE  R7 := R6["getSize"]
+      18 [   0] CALL      R7(...) nargs=0 nret=1
+      19 [   0] ADD       R1 := R1 + R7
+      20 [   0] TFORLOOP  tforloop R2 nres=2
+      21 [   0] JMP       jmp -5 -> 17
+      22 [   0] LOADK     R2 := 0
+      23 [   0] GETGLOBAL R3 := _G["pairs"]
+      24 [   0] GETUPVAL  R4 := upval 0
+      25 [   0] GETTABLE  R4 := R4["left"]
+      26 [   0] CALL      R3(...) nargs=1 nret=3
+      27 [   0] JMP       jmp +3 -> 31
+      28 [   0] GETTABLE  R8 := R7["getSize"]
+      29 [   0] CALL      R8(...) nargs=0 nret=1
+      30 [   0] ADD       R2 := R2 + R8
+      31 [   0] TFORLOOP  tforloop R3 nres=2
+      32 [   0] JMP       jmp -5 -> 28
+      33 [   0] LOADK     R3 := 0
+      34 [   0] GETGLOBAL R4 := _G["pairs"]
+      35 [   0] GETUPVAL  R5 := upval 0
+      36 [   0] GETTABLE  R5 := R5["right"]
+      37 [   0] CALL      R4(...) nargs=1 nret=3
+      38 [   0] JMP       jmp +3 -> 42
+      39 [   0] GETTABLE  R9 := R8["getSize"]
+      40 [   0] CALL      R9(...) nargs=0 nret=1
+      41 [   0] ADD       R3 := R3 + R9
+      42 [   0] TFORLOOP  tforloop R4 nres=2
+      43 [   0] JMP       jmp -5 -> 39
+      44 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+      45 [   0] SETTABLE  R4["up"] := R0
+      46 [   0] SETTABLE  R4["down"] := R1
+      47 [   0] SETTABLE  R4["left"] := R2
+      48 [   0] SETTABLE  R4["right"] := R3
+      49 [   0] RETURN    return R4.. (1 values)
+      50 [   0] RETURN    return R0.. (0 values)

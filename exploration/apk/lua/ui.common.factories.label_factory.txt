@@ -1,0 +1,45 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'renderer.textfieldlabelrenderer2', 'util.util', 'decorate'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "renderer.textfieldlabelrenderer2"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "util.util"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] CLOSURE   R2 := closure #0
+     9 [   0] MOVE      R0 := R0
+    10 [   0] MOVE      R0 := R1
+    11 [   0] CLOSURE   R3 := closure #1
+    12 [   0] MOVE      R0 := R2
+    13 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+    14 [   0] SETTABLE  R4["decorate"] := R3
+    15 [   0] RETURN    return R4.. (1 values)
+    16 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 11-26, upvals=[], locals=[])
+    constants: strings=['parent', 'renderer', 'fitText', 'txt', '', 'copyToExistingTable', 'ui', 'createLabel'] numbers=[]
+       0 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+       1 [   0] SETTABLE  R3["parent"] := R1
+       2 [   0] GETUPVAL  R4 := upval 0
+       3 [   0] SETTABLE  R3["renderer"] := R4
+       4 [   0] SETTABLE  R3["fitText"] := True
+       5 [   0] SETTABLE  R3["txt"] := ""
+       6 [   0] GETUPVAL  R4 := upval 1
+       7 [   0] GETTABLE  R4 := R4["copyToExistingTable"]
+       8 [   0] MOVE      R5 := R0
+       9 [   0] MOVE      R6 := R3
+      10 [   0] CALL      R4(...) nargs=2 nret=1
+      11 [   0] MOVE      R3 := R4
+      12 [   0] GETGLOBAL R4 := _G["ui"]
+      13 [   0] GETTABLE  R4 := R4["createLabel"]
+      14 [   0] MOVE      R5 := R3
+      15 [   0] CALL      R4(...) nargs=1 nret=1
+      16 [   0] MOVE      R2 := R4
+      17 [   0] RETURN    return R2.. (1 values)
+      18 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 28-30, upvals=[], locals=[])
+    constants: strings=['default_label'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] SETTABLE  R0["default_label"] := R1
+       2 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,187 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['fgrequire', 'logging.logger', 'getLogger', 'GAME', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["fgrequire"]
+     1 [   0] LOADK     R1 := "logging.logger"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETTABLE  R0 := R0["getLogger"]
+     4 [   0] LOADK     R1 := "GAME"
+     5 [   0] CALL      R0(...) nargs=1 nret=1
+     6 [   0] CLOSURE   R1 := closure #0
+     7 [   0] MOVE      R0 := R0
+     8 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     9 [   0] SETTABLE  R2["create"] := R1
+    10 [   0] RETURN    return R2.. (1 values)
+    11 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 4-69, upvals=[], locals=[])
+    constants: strings=['getName', 'enter', 'leave'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] CLOSURE   R1 := closure #0
+       2 [   0] SETTABLE  R0["getName"] := R1
+       3 [   0] CLOSURE   R1 := closure #1
+       4 [   0] GETUPVAL  R0 := upval 0
+       5 [   0] SETTABLE  R0["enter"] := R1
+       6 [   0] CLOSURE   R1 := closure #2
+       7 [   0] SETTABLE  R0["leave"] := R1
+       8 [   0] RETURN    return R0.. (1 values)
+       9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 9-11, upvals=[], locals=[])
+      constants: strings=['CLOUD_LOGIN_SILENT'] numbers=[]
+         0 [   0] LOADK     R0 := "CLOUD_LOGIN_SILENT"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 13-63, upvals=[], locals=[])
+      constants: strings=['require', 'FGLIB_PATH', 'utils.util', 'info', 'Initializing Cloud-Subsystem ...', 'gameservices.cloudv3', 'getInstance', 'fglib', 'tracking', 'Tracker', 'isAvailable', 'cloud.clouduserhandler', 'addObserver', 'cloudDataUpdated', 'init', 'isIPhone', 'signIn', 'isAndroid', 'util.clientsettings', 'gameNetwork', 'request', 'isConnected', 'log', 'msg', 'is corona google logged in: ', 'ui.common.nav_controllerv3', 'refreshScreen', 'isGoogleCloudEnabled', 'native.gcloud', 'signOutAfterExternalSignOut', 'setGoogleCloudEnabled', 'Cloud-Subsystem not available. Skipping ...'] numbers=[]
+         0 [   0] CLOSURE   R1 := closure #0
+         1 [   0] MOVE      R0 := R0
+         2 [   0] GETGLOBAL R2 := _G["require"]
+         3 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+         4 [   0] LOADK     R4 := "utils.util"
+         5 [   0] CONCAT    R3 := R3 .. ... .. R4
+         6 [   0] CALL      R2(...) nargs=1 nret=1
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETTABLE  R3 := R3["info"]
+         9 [   0] LOADK     R4 := "Initializing Cloud-Subsystem ..."
+        10 [   0] CALL      R3(...) nargs=1 nret=0
+        11 [   0] GETGLOBAL R3 := _G["require"]
+        12 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+        13 [   0] LOADK     R5 := "gameservices.cloudv3"
+        14 [   0] CONCAT    R4 := R4 .. ... .. R5
+        15 [   0] CALL      R3(...) nargs=1 nret=1
+        16 [   0] GETTABLE  R3 := R3["getInstance"]
+        17 [   0] CALL      R3(...) nargs=0 nret=1
+        18 [   0] GETGLOBAL R4 := _G["fglib"]
+        19 [   0] GETTABLE  R4 := R4["tracking"]
+        20 [   0] GETTABLE  R4 := R4["Tracker"]
+        21 [   0] GETTABLE  R4 := R4["getInstance"]
+        22 [   0] CALL      R4(...) nargs=0 nret=1
+        23 [   0] GETTABLE  R5 := R3["isAvailable"]
+        24 [   0] CALL      R5(...) nargs=0 nret=1
+        25 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        26 [   0] JMP       jmp +86 -> 113
+        27 [   0] GETGLOBAL R5 := _G["require"]
+        28 [   0] LOADK     R6 := "cloud.clouduserhandler"
+        29 [   0] CALL      R5(...) nargs=1 nret=1
+        30 [   0] GETTABLE  R5 := R5["getInstance"]
+        31 [   0] CALL      R5(...) nargs=0 nret=1
+        32 [   0] GETTABLE  R6 := R3["addObserver"]
+        33 [   0] GETTABLE  R7 := R5["cloudDataUpdated"]
+        34 [   0] CALL      R6(...) nargs=1 nret=0
+        35 [   0] GETTABLE  R6 := R3["init"]
+        36 [   0] CALL      R6(...) nargs=0 nret=0
+        37 [   0] GETTABLE  R6 := R2["isIPhone"]
+        38 [   0] CALL      R6(...) nargs=0 nret=1
+        39 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        40 [   0] JMP       jmp +6 -> 47
+        41 [   0] GETTABLE  R6 := R3["signIn"]
+        42 [   0] CLOSURE   R7 := closure #1
+        43 [   0] MOVE      R0 := R4
+        44 [   0] MOVE      R0 := R1
+        45 [   0] CALL      R6(...) nargs=1 nret=0
+        46 [   0] JMP       jmp +72 -> 119
+        47 [   0] GETTABLE  R6 := R2["isAndroid"]
+        48 [   0] CALL      R6(...) nargs=0 nret=1
+        49 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        50 [   0] JMP       jmp +59 -> 110
+        51 [   0] GETGLOBAL R6 := _G["require"]
+        52 [   0] LOADK     R7 := "util.clientsettings"
+        53 [   0] CALL      R6(...) nargs=1 nret=1
+        54 [   0] GETTABLE  R6 := R6["getInstance"]
+        55 [   0] CALL      R6(...) nargs=0 nret=1
+        56 [   0] GETGLOBAL R7 := _G["require"]
+        57 [   0] LOADK     R8 := "gameNetwork"
+        58 [   0] CALL      R7(...) nargs=1 nret=1
+        59 [   0] GETTABLE  R8 := R7["request"]
+        60 [   0] LOADK     R9 := "isConnected"
+        61 [   0] CALL      R8(...) nargs=1 nret=1
+        62 [   0] GETGLOBAL R9 := _G["log"]
+        63 [   0] GETTABLE  R9 := R9["msg"]
+        64 [   0] LOADK     R10 := "is corona google logged in: "
+        65 [   0] MOVE      R11 := R8
+        66 [   0] CALL      R9(...) nargs=2 nret=0
+        67 [   0] GETGLOBAL R9 := _G["require"]
+        68 [   0] LOADK     R10 := "ui.common.nav_controllerv3"
+        69 [   0] CALL      R9(...) nargs=1 nret=1
+        70 [   0] GETTABLE  R9 := R9["getInstance"]
+        71 [   0] CALL      R9(...) nargs=0 nret=1
+        72 [   0] GETTABLE  R10 := R9["refreshScreen"]
+        73 [   0] CALL      R10(...) nargs=0 nret=0
+        74 [   0] EQ        if (R8 == None) ~= 1 then skip next
+        75 [   0] JMP       jmp +19 -> 95
+        76 [   0] EQ        if (R8 == False) ~= 0 then skip next
+        77 [   0] JMP       jmp +17 -> 95
+        78 [   0] GETTABLE  R10 := R6["isGoogleCloudEnabled"]
+        79 [   0] CALL      R10(...) nargs=0 nret=1
+        80 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+        81 [   0] JMP       jmp +13 -> 95
+        82 [   0] GETGLOBAL R10 := _G["require"]
+        83 [   0] GETGLOBAL R11 := _G["FGLIB_PATH"]
+        84 [   0] LOADK     R12 := "native.gcloud"
+        85 [   0] CONCAT    R11 := R11 .. ... .. R12
+        86 [   0] CALL      R10(...) nargs=1 nret=1
+        87 [   0] GETTABLE  R11 := R10["signOutAfterExternalSignOut"]
+        88 [   0] CALL      R11(...) nargs=0 nret=0
+        89 [   0] GETTABLE  R11 := R6["setGoogleCloudEnabled"]
+        90 [   0] LOADBOOL  R12 := False
+        91 [   0] CALL      R11(...) nargs=1 nret=0
+        92 [   0] MOVE      R11 := R1
+        93 [   0] CALL      R11(...) nargs=0 nret=0
+        94 [   0] JMP       jmp +13 -> 108
+        95 [   0] GETTABLE  R10 := R6["isGoogleCloudEnabled"]
+        96 [   0] CALL      R10(...) nargs=0 nret=1
+        97 [   0] TEST      if (R10 truthy) ~= 0 then skip next
+        98 [   0] JMP       jmp +7 -> 106
+        99 [   0] GETTABLE  R10 := R3["signIn"]
+       100 [   0] CLOSURE   R11 := closure #2
+       101 [   0] MOVE      R0 := R4
+       102 [   0] MOVE      R0 := R6
+       103 [   0] MOVE      R0 := R1
+       104 [   0] CALL      R10(...) nargs=1 nret=0
+       105 [   0] JMP       jmp +2 -> 108
+       106 [   0] MOVE      R10 := R1
+       107 [   0] CALL      R10(...) nargs=0 nret=0
+       108 [   0] CLOSE     A=6 B=0 C=0
+       109 [   0] JMP       jmp +9 -> 119
+       110 [   0] MOVE      R6 := R1
+       111 [   0] CALL      R6(...) nargs=0 nret=0
+       112 [   0] JMP       jmp +6 -> 119
+       113 [   0] GETUPVAL  R5 := upval 0
+       114 [   0] GETTABLE  R5 := R5["info"]
+       115 [   0] LOADK     R6 := "Cloud-Subsystem not available. Skipping ..."
+       116 [   0] CALL      R5(...) nargs=1 nret=0
+       117 [   0] MOVE      R5 := R1
+       118 [   0] CALL      R5(...) nargs=0 nret=0
+       119 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 14-16, upvals=[], locals=[])
+        constants: strings=['triggerTo', 'FACEBOOK_LOGIN_SILENT'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["triggerTo"]
+           2 [   0] LOADK     R1 := "FACEBOOK_LOGIN_SILENT"
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#1 (params=1, lines 28-31, upvals=[], locals=[])
+        constants: strings=['logUserAttributesEvent', 'cloud_enabled'] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R1 := R1["logUserAttributesEvent"]
+           2 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+           3 [   0] SETTABLE  R2["cloud_enabled"] := R0
+           4 [   0] CALL      R1(...) nargs=1 nret=0
+           5 [   0] GETUPVAL  R1 := upval 1
+           6 [   0] CALL      R1(...) nargs=0 nret=0
+           7 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#2 (params=1, lines 48-52, upvals=[], locals=[])
+        constants: strings=['logUserAttributesEvent', 'cloud_enabled', 'setGoogleCloudEnabled'] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R1 := R1["logUserAttributesEvent"]
+           2 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+           3 [   0] SETTABLE  R2["cloud_enabled"] := R0
+           4 [   0] CALL      R1(...) nargs=1 nret=0
+           5 [   0] GETUPVAL  R1 := upval 1
+           6 [   0] GETTABLE  R1 := R1["setGoogleCloudEnabled"]
+           7 [   0] MOVE      R2 := R0
+           8 [   0] CALL      R1(...) nargs=1 nret=0
+           9 [   0] GETUPVAL  R1 := upval 2
+          10 [   0] CALL      R1(...) nargs=0 nret=0
+          11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 65-66, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)

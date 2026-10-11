@@ -1,0 +1,255 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.util', 'util.time', 'ui.components.loa.loa_default_comp', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "util.util"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "util.time"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] LOADK     R3 := "ui.components.loa.loa_default_comp"
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] CLOSURE   R3 := closure #0
+    10 [   0] MOVE      R0 := R0
+    11 [   0] MOVE      R0 := R2
+    12 [   0] MOVE      R0 := R1
+    13 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+    14 [   0] SETTABLE  R4["create"] := R3
+    15 [   0] RETURN    return R4.. (1 values)
+    16 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 11-117, upvals=[], locals=[])
+    constants: strings=['ui', 'createContainer', 'parent', 'layout', 'loa', 'require', 'server.server', 'getInstance', 'enter', 'exit', 'update', 'destroy', 'inherit', '_flaregames_remove', 'init', 'updateTimerLbl', 'startTimer', 'stopTimer'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["ui"]
+       1 [   0] GETTABLE  R1 := R1["createContainer"]
+       2 [   0] NEWTABLE  R2 := {} (array 0, hash 2)
+       3 [   0] GETTABLE  R3 := R0["parent"]
+       4 [   0] SETTABLE  R2["parent"] := R3
+       5 [   0] GETTABLE  R3 := R0["layout"]
+       6 [   0] SETTABLE  R2["layout"] := R3
+       7 [   0] CALL      R1(...) nargs=1 nret=1
+       8 [   0] GETTABLE  R2 := R0["loa"]
+       9 [   0] EQ        if (R2 == None) ~= 0 then skip next
+      10 [   0] JMP       jmp +1 -> 12
+      11 [   0] LOADBOOL  R2 := False (skip)
+      12 [   0] LOADBOOL  R2 := True
+      13 [   0] GETGLOBAL R3 := _G["require"]
+      14 [   0] LOADK     R4 := "server.server"
+      15 [   0] CALL      R3(...) nargs=1 nret=1
+      16 [   0] GETTABLE  R3 := R3["getInstance"]
+      17 [   0] CALL      R3(...) nargs=0 nret=1
+      18 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+      19 [   0] LOADBOOL  R5 := False
+      20 [   0] LOADNIL   R6..R8 := nil
+      21 [   0] CLOSURE   R9 := closure #0
+      22 [   0] MOVE      R0 := R5
+      23 [   0] MOVE      R0 := R4
+      24 [   0] SETTABLE  R1["enter"] := R9
+      25 [   0] CLOSURE   R9 := closure #1
+      26 [   0] MOVE      R0 := R5
+      27 [   0] MOVE      R0 := R4
+      28 [   0] SETTABLE  R1["exit"] := R9
+      29 [   0] CLOSURE   R9 := closure #2
+      30 [   0] MOVE      R0 := R6
+      31 [   0] GETUPVAL  R0 := upval 0
+      32 [   0] MOVE      R0 := R4
+      33 [   0] MOVE      R0 := R5
+      34 [   0] SETTABLE  R1["update"] := R9
+      35 [   0] CLOSURE   R9 := closure #3
+      36 [   0] MOVE      R0 := R1
+      37 [   0] SETTABLE  R1["destroy"] := R9
+      38 [   0] GETUPVAL  R9 := upval 0
+      39 [   0] GETTABLE  R9 := R9["inherit"]
+      40 [   0] MOVE      R10 := R1
+      41 [   0] LOADK     R11 := "_flaregames_remove"
+      42 [   0] CLOSURE   R12 := closure #4
+      43 [   0] MOVE      R0 := R1
+      44 [   0] CALL      R9(...) nargs=3 nret=0
+      45 [   0] CLOSURE   R9 := closure #5
+      46 [   0] MOVE      R0 := R7
+      47 [   0] MOVE      R0 := R2
+      48 [   0] GETUPVAL  R0 := upval 1
+      49 [   0] MOVE      R0 := R1
+      50 [   0] MOVE      R0 := R6
+      51 [   0] MOVE      R0 := R4
+      52 [   0] SETTABLE  R4["init"] := R9
+      53 [   0] CLOSURE   R9 := closure #6
+      54 [   0] MOVE      R0 := R7
+      55 [   0] MOVE      R0 := R6
+      56 [   0] GETUPVAL  R0 := upval 2
+      57 [   0] MOVE      R0 := R4
+      58 [   0] SETTABLE  R4["updateTimerLbl"] := R9
+      59 [   0] CLOSURE   R9 := closure #7
+      60 [   0] MOVE      R0 := R4
+      61 [   0] MOVE      R0 := R8
+      62 [   0] SETTABLE  R4["startTimer"] := R9
+      63 [   0] CLOSURE   R9 := closure #8
+      64 [   0] MOVE      R0 := R8
+      65 [   0] SETTABLE  R4["stopTimer"] := R9
+      66 [   0] GETTABLE  R9 := R4["init"]
+      67 [   0] MOVE      R10 := R0
+      68 [   0] CALL      R9(...) nargs=1 nret=0
+      69 [   0] RETURN    return R1.. (1 values)
+      70 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 33-37, upvals=[], locals=[])
+      constants: strings=['startTimer'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] LOADBOOL  R0 := True
+         5 [   0] SETUPVAL  upval 0 := R0
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] GETTABLE  R0 := R0["startTimer"]
+         8 [   0] CALL      R0(...) nargs=0 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 39-43, upvals=[], locals=[])
+      constants: strings=['stopTimer'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] LOADBOOL  R0 := False
+         5 [   0] SETUPVAL  upval 0 := R0
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] GETTABLE  R0 := R0["stopTimer"]
+         8 [   0] CALL      R0(...) nargs=0 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 45-54, upvals=[], locals=[])
+      constants: strings=['pairs', 'safeRemoveObject', 'init', 'startTimer'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["pairs"]
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] CALL      R1(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +4 -> 8
+         4 [   0] GETUPVAL  R6 := upval 1
+         5 [   0] GETTABLE  R6 := R6["safeRemoveObject"]
+         6 [   0] MOVE      R7 := R5
+         7 [   0] CALL      R6(...) nargs=1 nret=0
+         8 [   0] TFORLOOP  tforloop R1 nres=2
+         9 [   0] JMP       jmp -6 -> 4
+        10 [   0] LOADNIL   R1..R1 := nil
+        11 [   0] SETUPVAL  upval 0 := R1
+        12 [   0] GETUPVAL  R1 := upval 2
+        13 [   0] GETTABLE  R1 := R1["init"]
+        14 [   0] MOVE      R2 := R0
+        15 [   0] CALL      R1(...) nargs=1 nret=0
+        16 [   0] GETUPVAL  R1 := upval 3
+        17 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        18 [   0] JMP       jmp +3 -> 22
+        19 [   0] GETUPVAL  R1 := upval 2
+        20 [   0] GETTABLE  R1 := R1["startTimer"]
+        21 [   0] CALL      R1(...) nargs=0 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 56-58, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 60-62, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 68-91, upvals=[], locals=[])
+      constants: strings=['timeout', 'require', 'ui.common.view_factory', 'getInstance', 'create', 'layout', 'default.center', 'params', 'loa', 'parent', 'timerLbl', 'getUIObject', 'timeoutLbl', 'createFrom', 'ui.components.banner.smallbanner_def', 'bannerImg', 'img', 'image', 'updateTimerLbl'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["timeout"]
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] GETTABLE  R1 := R0["timeout"]
+         4 [   0] SETUPVAL  upval 0 := R1
+         5 [   0] GETGLOBAL R1 := _G["require"]
+         6 [   0] LOADK     R2 := "ui.common.view_factory"
+         7 [   0] CALL      R1(...) nargs=1 nret=1
+         8 [   0] GETTABLE  R1 := R1["getInstance"]
+         9 [   0] CALL      R1(...) nargs=0 nret=1
+        10 [   0] GETUPVAL  R2 := upval 1
+        11 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        12 [   0] JMP       jmp +16 -> 29
+        13 [   0] GETUPVAL  R2 := upval 2
+        14 [   0] GETTABLE  R2 := R2["create"]
+        15 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+        16 [   0] SETTABLE  R3["layout"] := "default.center"
+        17 [   0] GETTABLE  R4 := R0["loa"]
+        18 [   0] SETTABLE  R3["params"] := R4
+        19 [   0] GETUPVAL  R4 := upval 3
+        20 [   0] SETTABLE  R3["parent"] := R4
+        21 [   0] CALL      R2(...) nargs=1 nret=1
+        22 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+        23 [   0] GETTABLE  R4 := R2["getUIObject"]
+        24 [   0] LOADK     R5 := "timeoutLbl"
+        25 [   0] CALL      R4(...) nargs=1 nret=1
+        26 [   0] SETTABLE  R3["timerLbl"] := R4
+        27 [   0] SETUPVAL  upval 4 := R3
+        28 [   0] JMP       jmp +10 -> 39
+        29 [   0] GETTABLE  R2 := R1["createFrom"]
+        30 [   0] LOADK     R3 := "ui.components.banner.smallbanner_def"
+        31 [   0] GETUPVAL  R4 := upval 3
+        32 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+        33 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+        34 [   0] GETTABLE  R7 := R0["image"]
+        35 [   0] SETTABLE  R6["img"] := R7
+        36 [   0] SETTABLE  R5["bannerImg"] := R6
+        37 [   0] CALL      R2(...) nargs=3 nret=1
+        38 [   0] SETUPVAL  upval 4 := R2
+        39 [   0] GETUPVAL  R2 := upval 5
+        40 [   0] GETTABLE  R2 := R2["updateTimerLbl"]
+        41 [   0] CALL      R2(...) nargs=0 nret=0
+        42 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 93-100, upvals=[], locals=[])
+      constants: strings=['timerLbl', 'isVisible', 'update', 'txt', 'getTimeText', 'stopTimer'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +16 -> 19
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] GETTABLE  R0 := R0["timerLbl"]
+         5 [   0] SETTABLE  R0["isVisible"] := True
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] GETTABLE  R0 := R0["timerLbl"]
+         8 [   0] GETTABLE  R0 := R0["update"]
+         9 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+        10 [   0] GETUPVAL  R2 := upval 2
+        11 [   0] GETTABLE  R2 := R2["getTimeText"]
+        12 [   0] GETUPVAL  R3 := upval 0
+        13 [   0] CLOSURE   R4 := closure #0
+        14 [   0] GETUPVAL  R0 := upval 3
+        15 [   0] CALL      R2(...) nargs=2 nret=1
+        16 [   0] SETTABLE  R1["txt"] := R2
+        17 [   0] CALL      R0(...) nargs=1 nret=0
+        18 [   0] JMP       jmp +3 -> 22
+        19 [   0] GETUPVAL  R0 := upval 3
+        20 [   0] GETTABLE  R0 := R0["stopTimer"]
+        21 [   0] CALL      R0(...) nargs=0 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#6.#0 (params=0, lines 96-96, upvals=[], locals=[])
+        constants: strings=['stopTimer'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["stopTimer"]
+           2 [   0] CALL      R0(...) nargs=0 nret=0
+           3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 102-105, upvals=[], locals=[])
+      constants: strings=['stopTimer', 'timer', 'performWithDelay', 'updateTimerLbl'] numbers=[1000, 0]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["stopTimer"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] GETGLOBAL R0 := _G["timer"]
+         4 [   0] GETTABLE  R0 := R0["performWithDelay"]
+         5 [   0] LOADK     R1 := 1000
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] GETTABLE  R2 := R2["updateTimerLbl"]
+         8 [   0] LOADK     R3 := 0
+         9 [   0] CALL      R0(...) nargs=3 nret=1
+        10 [   0] SETUPVAL  upval 1 := R0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 107-112, upvals=[], locals=[])
+      constants: strings=['timer', 'cancel'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETGLOBAL R0 := _G["timer"]
+         4 [   0] GETTABLE  R0 := R0["cancel"]
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] LOADNIL   R0..R0 := nil
+         8 [   0] SETUPVAL  upval 0 := R0
+         9 [   0] RETURN    return R0.. (0 values)

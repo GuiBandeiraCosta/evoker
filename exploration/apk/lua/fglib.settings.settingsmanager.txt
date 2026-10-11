@@ -1,0 +1,532 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'settings.filesettingsprovider', 'settings.dbsettingsprovider', 'eventlistener', 'getInstance'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "settings.filesettingsprovider"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "settings.dbsettingsprovider"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R3 := _G["require"]
+    16 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    17 [   0] LOADK     R5 := "eventlistener"
+    18 [   0] CONCAT    R4 := R4 .. ... .. R5
+    19 [   0] CALL      R3(...) nargs=1 nret=1
+    20 [   0] LOADK     R4 := 3
+    21 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+    22 [   0] CLOSURE   R6 := closure #0
+    23 [   0] MOVE      R0 := R2
+    24 [   0] CLOSURE   R7 := closure #1
+    25 [   0] MOVE      R0 := R6
+    26 [   0] MOVE      R0 := R3
+    27 [   0] LOADNIL   R8..R8 := nil
+    28 [   0] CLOSURE   R9 := closure #2
+    29 [   0] MOVE      R0 := R8
+    30 [   0] MOVE      R0 := R7
+    31 [   0] SETTABLE  R5["getInstance"] := R9
+    32 [   0] RETURN    return R5.. (1 values)
+    33 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 9-214, upvals=[], locals=[])
+    constants: strings=['setProvider', 'emitSettingsUpdate', 'changeValue', 'setDefaults', 'getAllSettings', 'resolveKeys', 'deleteValue', 'setValue', 'getValue', 'getSetting', 'saveSettings', 'loadSettings', 'loadSettingsWithDefaults', 'addUpdateListener', 'removeUpdateListener', 'removeAllUpdateListeners', 'settingsLoadedHandler', 'areSettingsLoaded', 'onSystemEvent', 'new', 'Runtime', 'addEventListener', 'system'] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       2 [   0] LOADNIL   R3..R3 := nil
+       3 [   0] LOADBOOL  R4 := True
+       4 [   0] LOADBOOL  R5 := False
+       5 [   0] CLOSURE   R6 := closure #0
+       6 [   0] MOVE      R0 := R3
+       7 [   0] MOVE      R0 := R0
+       8 [   0] SETTABLE  R0["setProvider"] := R6
+       9 [   0] CLOSURE   R6 := closure #1
+      10 [   0] MOVE      R0 := R2
+      11 [   0] MOVE      R0 := R0
+      12 [   0] MOVE      R0 := R1
+      13 [   0] SETTABLE  R0["emitSettingsUpdate"] := R6
+      14 [   0] CLOSURE   R6 := closure #2
+      15 [   0] MOVE      R0 := R0
+      16 [   0] SETTABLE  R0["changeValue"] := R6
+      17 [   0] CLOSURE   R6 := closure #3
+      18 [   0] MOVE      R0 := R0
+      19 [   0] MOVE      R0 := R4
+      20 [   0] SETTABLE  R0["setDefaults"] := R6
+      21 [   0] CLOSURE   R6 := closure #4
+      22 [   0] MOVE      R0 := R1
+      23 [   0] SETTABLE  R0["getAllSettings"] := R6
+      24 [   0] CLOSURE   R6 := closure #5
+      25 [   0] MOVE      R0 := R1
+      26 [   0] SETTABLE  R0["resolveKeys"] := R6
+      27 [   0] CLOSURE   R6 := closure #6
+      28 [   0] MOVE      R0 := R0
+      29 [   0] MOVE      R0 := R1
+      30 [   0] MOVE      R0 := R3
+      31 [   0] SETTABLE  R0["deleteValue"] := R6
+      32 [   0] CLOSURE   R6 := closure #7
+      33 [   0] MOVE      R0 := R1
+      34 [   0] MOVE      R0 := R0
+      35 [   0] MOVE      R0 := R3
+      36 [   0] SETTABLE  R0["setValue"] := R6
+      37 [   0] CLOSURE   R6 := closure #8
+      38 [   0] MOVE      R0 := R1
+      39 [   0] SETTABLE  R0["getValue"] := R6
+      40 [   0] CLOSURE   R6 := closure #9
+      41 [   0] MOVE      R0 := R1
+      42 [   0] SETTABLE  R0["getSetting"] := R6
+      43 [   0] CLOSURE   R6 := closure #10
+      44 [   0] MOVE      R0 := R4
+      45 [   0] MOVE      R0 := R1
+      46 [   0] MOVE      R0 := R3
+      47 [   0] SETTABLE  R0["saveSettings"] := R6
+      48 [   0] CLOSURE   R6 := closure #11
+      49 [   0] MOVE      R0 := R4
+      50 [   0] MOVE      R0 := R3
+      51 [   0] SETTABLE  R0["loadSettings"] := R6
+      52 [   0] CLOSURE   R6 := closure #12
+      53 [   0] MOVE      R0 := R0
+      54 [   0] SETTABLE  R0["loadSettingsWithDefaults"] := R6
+      55 [   0] CLOSURE   R6 := closure #13
+      56 [   0] MOVE      R0 := R0
+      57 [   0] MOVE      R0 := R2
+      58 [   0] MOVE      R0 := R1
+      59 [   0] SETTABLE  R0["addUpdateListener"] := R6
+      60 [   0] CLOSURE   R6 := closure #14
+      61 [   0] MOVE      R0 := R2
+      62 [   0] SETTABLE  R0["removeUpdateListener"] := R6
+      63 [   0] CLOSURE   R6 := closure #15
+      64 [   0] MOVE      R0 := R2
+      65 [   0] MOVE      R0 := R0
+      66 [   0] SETTABLE  R0["removeAllUpdateListeners"] := R6
+      67 [   0] CLOSURE   R6 := closure #16
+      68 [   0] MOVE      R0 := R0
+      69 [   0] MOVE      R0 := R5
+      70 [   0] SETTABLE  R0["settingsLoadedHandler"] := R6
+      71 [   0] CLOSURE   R6 := closure #17
+      72 [   0] MOVE      R0 := R5
+      73 [   0] SETTABLE  R0["areSettingsLoaded"] := R6
+      74 [   0] CLOSURE   R6 := closure #18
+      75 [   0] MOVE      R0 := R0
+      76 [   0] SETTABLE  R0["onSystemEvent"] := R6
+      77 [   0] GETTABLE  R6 := R0["setProvider"]
+      78 [   0] GETUPVAL  R7 := upval 0
+      79 [   0] GETTABLE  R7 := R7["new"]
+      80 [   0] CALL      R7(...) nargs=0 nret=-1
+      81 [   0] CALL      R6(...) nargs=-1 nret=0
+      82 [   0] GETGLOBAL R6 := _G["Runtime"]
+      83 [   0] SELF      R7 := R6; R6 := R6["addEventListener"]
+      84 [   0] LOADK     R8 := "system"
+      85 [   0] GETTABLE  R9 := R0["onSystemEvent"]
+      86 [   0] CALL      R6(...) nargs=3 nret=0
+      87 [   0] RETURN    return R0.. (1 values)
+      88 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 17-20, upvals=[], locals=[])
+      constants: strings=['subscribeTo', 'settingsLoaded'] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] GETTABLE  R1 := R1["subscribeTo"]
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] LOADK     R3 := "settingsLoaded"
+         5 [   0] CALL      R1(...) nargs=2 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 24-30, upvals=[], locals=[])
+      constants: strings=['ipairs', 'key', 'value', 'formervalue'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +20 -> 24
+         4 [   0] GETGLOBAL R1 := _G["ipairs"]
+         5 [   0] GETUPVAL  R2 := upval 0
+         6 [   0] GETTABLE  R2 := R2[R0]
+         7 [   0] CALL      R1(...) nargs=1 nret=3
+         8 [   0] JMP       jmp +13 -> 22
+         9 [   0] MOVE      R6 := R5
+        10 [   0] GETUPVAL  R7 := upval 1
+        11 [   0] NEWTABLE  R8 := {} (array 0, hash 3)
+        12 [   0] SETTABLE  R8["key"] := R0
+        13 [   0] GETUPVAL  R9 := upval 2
+        14 [   0] GETTABLE  R9 := R9[R0]
+        15 [   0] GETTABLE  R9 := R9["value"]
+        16 [   0] SETTABLE  R8["value"] := R9
+        17 [   0] GETUPVAL  R9 := upval 2
+        18 [   0] GETTABLE  R9 := R9[R0]
+        19 [   0] GETTABLE  R9 := R9["formervalue"]
+        20 [   0] SETTABLE  R8["formervalue"] := R9
+        21 [   0] CALL      R6(...) nargs=2 nret=0
+        22 [   0] TFORLOOP  tforloop R1 nres=2
+        23 [   0] JMP       jmp -15 -> 9
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=2, lines 32-42, upvals=[], locals=[])
+      constants: strings=['getValue', 'setValue', 'type', 'number'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["getValue"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CALL      R2(...) nargs=1 nret=1
+         4 [   0] EQ        if (R2 == None) ~= 0 then skip next
+         5 [   0] JMP       jmp +6 -> 12
+         6 [   0] GETUPVAL  R3 := upval 0
+         7 [   0] GETTABLE  R3 := R3["setValue"]
+         8 [   0] MOVE      R4 := R0
+         9 [   0] MOVE      R5 := R1
+        10 [   0] CALL      R3(...) nargs=2 nret=0
+        11 [   0] JMP       jmp +10 -> 22
+        12 [   0] GETGLOBAL R3 := _G["type"]
+        13 [   0] MOVE      R4 := R2
+        14 [   0] CALL      R3(...) nargs=1 nret=1
+        15 [   0] EQ        if (R3 == "number") ~= 0 then skip next
+        16 [   0] JMP       jmp +5 -> 22
+        17 [   0] GETUPVAL  R3 := upval 0
+        18 [   0] GETTABLE  R3 := R3["setValue"]
+        19 [   0] MOVE      R4 := R0
+        20 [   0] ADD       R5 := R2 + R1
+        21 [   0] CALL      R3(...) nargs=2 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 44-57, upvals=[], locals=[])
+      constants: strings=['', 'pairs', 'type', 'table', 'setDefaults', '.', 'setValue'] numbers=[]
+         0 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADK     R1 := ""
+         3 [   0] GETGLOBAL R2 := _G["pairs"]
+         4 [   0] MOVE      R3 := R0
+         5 [   0] CALL      R2(...) nargs=1 nret=3
+         6 [   0] JMP       jmp +26 -> 33
+         7 [   0] GETGLOBAL R7 := _G["type"]
+         8 [   0] MOVE      R8 := R6
+         9 [   0] CALL      R7(...) nargs=1 nret=1
+        10 [   0] EQ        if (R7 == "table") ~= 0 then skip next
+        11 [   0] JMP       jmp +9 -> 21
+        12 [   0] GETUPVAL  R7 := upval 0
+        13 [   0] GETTABLE  R7 := R7["setDefaults"]
+        14 [   0] MOVE      R8 := R6
+        15 [   0] MOVE      R9 := R1
+        16 [   0] MOVE      R10 := R5
+        17 [   0] LOADK     R11 := "."
+        18 [   0] CONCAT    R9 := R9 .. ... .. R11
+        19 [   0] CALL      R7(...) nargs=2 nret=0
+        20 [   0] JMP       jmp +12 -> 33
+        21 [   0] LOADBOOL  R7 := False
+        22 [   0] SETUPVAL  upval 1 := R7
+        23 [   0] GETUPVAL  R7 := upval 0
+        24 [   0] GETTABLE  R7 := R7["setValue"]
+        25 [   0] MOVE      R8 := R1
+        26 [   0] MOVE      R9 := R5
+        27 [   0] CONCAT    R8 := R8 .. ... .. R9
+        28 [   0] MOVE      R9 := R6
+        29 [   0] MOVE      R10 := R6
+        30 [   0] CALL      R7(...) nargs=3 nret=0
+        31 [   0] LOADBOOL  R7 := True
+        32 [   0] SETUPVAL  upval 1 := R7
+        33 [   0] TFORLOOP  tforloop R2 nres=2
+        34 [   0] JMP       jmp -28 -> 7
+        35 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 59-61, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 63-76, upvals=[], locals=[])
+      constants: strings=['^', '$', 'pairs', 'string', 'find', 'table', 'insert'] numbers=[]
+         0 [   0] LOADK     R1 := "^"
+         1 [   0] MOVE      R2 := R0
+         2 [   0] LOADK     R3 := "$"
+         3 [   0] CONCAT    R1 := R1 .. ... .. R3
+         4 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         5 [   0] GETGLOBAL R3 := _G["pairs"]
+         6 [   0] GETUPVAL  R4 := upval 0
+         7 [   0] CALL      R3(...) nargs=1 nret=3
+         8 [   0] JMP       jmp +12 -> 21
+         9 [   0] GETGLOBAL R8 := _G["string"]
+        10 [   0] GETTABLE  R8 := R8["find"]
+        11 [   0] MOVE      R9 := R6
+        12 [   0] MOVE      R10 := R1
+        13 [   0] CALL      R8(...) nargs=2 nret=1
+        14 [   0] EQ        if (R8 == None) ~= 1 then skip next
+        15 [   0] JMP       jmp +5 -> 21
+        16 [   0] GETGLOBAL R8 := _G["table"]
+        17 [   0] GETTABLE  R8 := R8["insert"]
+        18 [   0] MOVE      R9 := R2
+        19 [   0] MOVE      R10 := R6
+        20 [   0] CALL      R8(...) nargs=2 nret=0
+        21 [   0] TFORLOOP  tforloop R3 nres=2
+        22 [   0] JMP       jmp -14 -> 9
+        23 [   0] RETURN    return R2.. (1 values)
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=1, lines 78-84, upvals=[], locals=[])
+      constants: strings=['resolveKeys', 'ipairs', 'delete'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["resolveKeys"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] CALL      R1(...) nargs=1 nret=1
+         4 [   0] GETGLOBAL R2 := _G["ipairs"]
+         5 [   0] MOVE      R3 := R1
+         6 [   0] CALL      R2(...) nargs=1 nret=3
+         7 [   0] JMP       jmp +6 -> 14
+         8 [   0] GETUPVAL  R7 := upval 1
+         9 [   0] SETTABLE  R7[R6] := None
+        10 [   0] GETUPVAL  R7 := upval 2
+        11 [   0] GETTABLE  R7 := R7["delete"]
+        12 [   0] MOVE      R8 := R6
+        13 [   0] CALL      R7(...) nargs=1 nret=0
+        14 [   0] TFORLOOP  tforloop R2 nres=2
+        15 [   0] JMP       jmp -8 -> 8
+        16 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=3, lines 86-102, upvals=[], locals=[])
+      constants: strings=['key', 'value', 'defaultvalue', 'formervalue', 'emitSettingsUpdate', 'saveKey'] numbers=[]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] GETTABLE  R3 := R3[R0]
+         2 [   0] EQ        if (R3 == None) ~= 0 then skip next
+         3 [   0] JMP       jmp +7 -> 11
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+         6 [   0] SETTABLE  R4["key"] := R0
+         7 [   0] SETTABLE  R4["value"] := None
+         8 [   0] SETTABLE  R4["defaultvalue"] := None
+         9 [   0] SETTABLE  R4["formervalue"] := None
+        10 [   0] SETTABLE  R3[R0] := R4
+        11 [   0] GETUPVAL  R3 := upval 0
+        12 [   0] GETTABLE  R3 := R3[R0]
+        13 [   0] GETUPVAL  R4 := upval 0
+        14 [   0] GETTABLE  R4 := R4[R0]
+        15 [   0] GETTABLE  R4 := R4["value"]
+        16 [   0] SETTABLE  R3["formervalue"] := R4
+        17 [   0] GETUPVAL  R3 := upval 0
+        18 [   0] GETTABLE  R3 := R3[R0]
+        19 [   0] SETTABLE  R3["value"] := R1
+        20 [   0] EQ        if (R2 == None) ~= 1 then skip next
+        21 [   0] JMP       jmp +3 -> 25
+        22 [   0] GETUPVAL  R3 := upval 0
+        23 [   0] GETTABLE  R3 := R3[R0]
+        24 [   0] SETTABLE  R3["defaultvalue"] := R2
+        25 [   0] GETUPVAL  R3 := upval 1
+        26 [   0] GETTABLE  R3 := R3["emitSettingsUpdate"]
+        27 [   0] MOVE      R4 := R0
+        28 [   0] CALL      R3(...) nargs=1 nret=0
+        29 [   0] GETUPVAL  R3 := upval 2
+        30 [   0] GETTABLE  R3 := R3["saveKey"]
+        31 [   0] MOVE      R4 := R0
+        32 [   0] MOVE      R5 := R1
+        33 [   0] CALL      R3(...) nargs=2 nret=0
+        34 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 104-113, upvals=[], locals=[])
+      constants: strings=['value', 'nil'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2[R0]
+         2 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +7 -> 11
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] GETTABLE  R2 := R2[R0]
+         6 [   0] GETTABLE  R2 := R2["value"]
+         7 [   0] EQ        if (R2 == "nil") ~= 0 then skip next
+         8 [   0] JMP       jmp +2 -> 11
+         9 [   0] GETUPVAL  R2 := upval 0
+        10 [   0] SETTABLE  R2[R0] := None
+        11 [   0] GETUPVAL  R2 := upval 0
+        12 [   0] GETTABLE  R2 := R2[R0]
+        13 [   0] EQ        if (R2 == None) ~= 1 then skip next
+        14 [   0] JMP       jmp +4 -> 19
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2[R0]
+        17 [   0] GETTABLE  R2 := R2["value"]
+        18 [   0] RETURN    return R2.. (1 values)
+        19 [   0] RETURN    return R1.. (1 values)
+        20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=1, lines 115-120, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETTABLE  R1 := R1[R0]
+         6 [   0] RETURN    return R1.. (1 values)
+         7 [   0] LOADNIL   R1..R1 := nil
+         8 [   0] RETURN    return R1.. (1 values)
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 122-131, upvals=[], locals=[])
+      constants: strings=['pairs', 'value', 'save'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+         5 [   0] GETGLOBAL R1 := _G["pairs"]
+         6 [   0] GETUPVAL  R2 := upval 1
+         7 [   0] CALL      R1(...) nargs=1 nret=3
+         8 [   0] JMP       jmp +2 -> 11
+         9 [   0] GETTABLE  R6 := R5["value"]
+        10 [   0] SETTABLE  R0[R4] := R6
+        11 [   0] TFORLOOP  tforloop R1 nres=2
+        12 [   0] JMP       jmp -4 -> 9
+        13 [   0] GETUPVAL  R1 := upval 2
+        14 [   0] GETTABLE  R1 := R1["save"]
+        15 [   0] MOVE      R2 := R0
+        16 [   0] CALL      R1(...) nargs=1 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=1, lines 133-137, upvals=[], locals=[])
+      constants: strings=['fetch'] numbers=[]
+         0 [   0] LOADBOOL  R1 := False
+         1 [   0] SETUPVAL  upval 0 := R1
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETTABLE  R1 := R1["fetch"]
+         4 [   0] MOVE      R2 := R0
+         5 [   0] CALL      R1(...) nargs=1 nret=0
+         6 [   0] LOADBOOL  R1 := True
+         7 [   0] SETUPVAL  upval 0 := R1
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=1, lines 139-142, upvals=[], locals=[])
+      constants: strings=['setDefaults', 'loadSettings'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["setDefaults"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETTABLE  R1 := R1["loadSettings"]
+         6 [   0] CALL      R1(...) nargs=0 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=3, lines 144-168, upvals=[], locals=[])
+      constants: strings=['type', 'table', 'ipairs', 'addUpdateListener', 'settingsUpdateHandler', 'insert', 'emitSettingsUpdate'] numbers=[]
+         0 [   0] EQ        if (R2 == None) ~= 0 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R2 := True
+         3 [   0] GETGLOBAL R3 := _G["type"]
+         4 [   0] MOVE      R4 := R1
+         5 [   0] CALL      R3(...) nargs=1 nret=1
+         6 [   0] EQ        if (R3 == "table") ~= 0 then skip next
+         7 [   0] JMP       jmp +12 -> 20
+         8 [   0] GETGLOBAL R3 := _G["ipairs"]
+         9 [   0] MOVE      R4 := R1
+        10 [   0] CALL      R3(...) nargs=1 nret=3
+        11 [   0] JMP       jmp +5 -> 17
+        12 [   0] GETUPVAL  R8 := upval 0
+        13 [   0] GETTABLE  R8 := R8["addUpdateListener"]
+        14 [   0] MOVE      R9 := R0
+        15 [   0] MOVE      R10 := R7
+        16 [   0] CALL      R8(...) nargs=2 nret=0
+        17 [   0] TFORLOOP  tforloop R3 nres=2
+        18 [   0] JMP       jmp -7 -> 12
+        19 [   0] RETURN    return R0.. (0 values)
+        20 [   0] GETTABLE  R3 := R0["settingsUpdateHandler"]
+        21 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        22 [   0] JMP       jmp +1 -> 24
+        23 [   0] RETURN    return R0.. (0 values)
+        24 [   0] GETUPVAL  R3 := upval 1
+        25 [   0] GETTABLE  R3 := R3[R1]
+        26 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        27 [   0] JMP       jmp +3 -> 31
+        28 [   0] GETUPVAL  R3 := upval 1
+        29 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+        30 [   0] SETTABLE  R3[R1] := R4
+        31 [   0] GETGLOBAL R3 := _G["table"]
+        32 [   0] GETTABLE  R3 := R3["insert"]
+        33 [   0] GETUPVAL  R4 := upval 1
+        34 [   0] GETTABLE  R4 := R4[R1]
+        35 [   0] GETTABLE  R5 := R0["settingsUpdateHandler"]
+        36 [   0] CALL      R3(...) nargs=2 nret=0
+        37 [   0] GETUPVAL  R3 := upval 2
+        38 [   0] GETTABLE  R3 := R3[R1]
+        39 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        40 [   0] JMP       jmp +6 -> 47
+        41 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        42 [   0] JMP       jmp +4 -> 47
+        43 [   0] GETUPVAL  R3 := upval 0
+        44 [   0] GETTABLE  R3 := R3["emitSettingsUpdate"]
+        45 [   0] MOVE      R4 := R1
+        46 [   0] CALL      R3(...) nargs=1 nret=0
+        47 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=2, lines 170-180, upvals=[], locals=[])
+      constants: strings=['pairs', 'settingsUpdateHandler', 'table', 'remove'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2[R1]
+         2 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         3 [   0] JMP       jmp +1 -> 5
+         4 [   0] RETURN    return R0.. (0 values)
+         5 [   0] GETGLOBAL R2 := _G["pairs"]
+         6 [   0] GETUPVAL  R3 := upval 0
+         7 [   0] GETTABLE  R3 := R3[R1]
+         8 [   0] CALL      R2(...) nargs=1 nret=3
+         9 [   0] JMP       jmp +10 -> 20
+        10 [   0] GETTABLE  R7 := R0["settingsUpdateHandler"]
+        11 [   0] EQ        if (R6 == R7) ~= 0 then skip next
+        12 [   0] JMP       jmp +7 -> 20
+        13 [   0] GETGLOBAL R7 := _G["table"]
+        14 [   0] GETTABLE  R7 := R7["remove"]
+        15 [   0] GETUPVAL  R8 := upval 0
+        16 [   0] GETTABLE  R8 := R8[R1]
+        17 [   0] MOVE      R9 := R5
+        18 [   0] CALL      R7(...) nargs=2 nret=0
+        19 [   0] JMP       jmp +2 -> 22
+        20 [   0] TFORLOOP  tforloop R2 nres=2
+        21 [   0] JMP       jmp -12 -> 10
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=1, lines 182-187, upvals=[], locals=[])
+      constants: strings=['pairs', 'removeUpdateListener'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["pairs"]
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] CALL      R1(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +5 -> 9
+         4 [   0] GETUPVAL  R6 := upval 1
+         5 [   0] GETTABLE  R6 := R6["removeUpdateListener"]
+         6 [   0] MOVE      R7 := R0
+         7 [   0] MOVE      R8 := R4
+         8 [   0] CALL      R6(...) nargs=2 nret=0
+         9 [   0] TFORLOOP  tforloop R1 nres=2
+        10 [   0] JMP       jmp -7 -> 4
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#16 (params=2, lines 189-194, upvals=[], locals=[])
+      constants: strings=['pairs', 'settings', 'setValue'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["pairs"]
+         1 [   0] GETTABLE  R3 := R1["settings"]
+         2 [   0] CALL      R2(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +5 -> 9
+         4 [   0] GETUPVAL  R7 := upval 0
+         5 [   0] GETTABLE  R7 := R7["setValue"]
+         6 [   0] MOVE      R8 := R5
+         7 [   0] MOVE      R9 := R6
+         8 [   0] CALL      R7(...) nargs=2 nret=0
+         9 [   0] TFORLOOP  tforloop R2 nres=2
+        10 [   0] JMP       jmp -7 -> 4
+        11 [   0] LOADBOOL  R2 := True
+        12 [   0] SETUPVAL  upval 1 := R2
+        13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#17 (params=0, lines 196-198, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#18 (params=1, lines 200-204, upvals=[], locals=[])
+      constants: strings=['type', 'applicationExit', 'applicationSuspend', 'saveSettings'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["type"]
+         1 [   0] EQ        if (R1 == "applicationExit") ~= 1 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETTABLE  R1 := R0["type"]
+         4 [   0] EQ        if (R1 == "applicationSuspend") ~= 0 then skip next
+         5 [   0] JMP       jmp +3 -> 9
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] GETTABLE  R1 := R1["saveSettings"]
+         8 [   0] CALL      R1(...) nargs=0 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 216-220, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new"]
+       3 [   0] CALL      R1(...) nargs=0 nret=-1
+       4 [   0] TAILCALL  return R0(...) nargs=-1
+       5 [   0] RETURN    return R0.. (-1 values)
+       6 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 223-228, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

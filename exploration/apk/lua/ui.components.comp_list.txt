@@ -1,0 +1,211 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'components.comp_slicedbox', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "components.comp_slicedbox"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "util.util"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] CLOSURE   R2 := closure #0
+     9 [   0] MOVE      R0 := R0
+    10 [   0] MOVE      R0 := R1
+    11 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+    12 [   0] SETTABLE  R3["create"] := R2
+    13 [   0] RETURN    return R3.. (1 values)
+    14 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 11-84, upvals=[], locals=[])
+    constants: strings=['layout', 'slicedLayout', 'background', 'assets/gfx/nosheet_backgrounds/fullscreen_background.jpg', 'border', 'vertiLeft', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe04.png', 'vertiRight', 'assets/gfx/hud/popupframe/largeframe/hud_nineframe05.png', 'parent', 'ui', 'createContainer', 'create', 'list', 'require', 'ui.components.comp_listview', 'container', 'addEntries', 'initList', 'setAlpha', 'getList', 'exit', 'enter', 'destroy', 'inherit', '_flaregames_remove'] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] NEWTABLE  R2 := {} (array 0, hash 4)
+       2 [   0] GETTABLE  R3 := R0["slicedLayout"]
+       3 [   0] SETTABLE  R2["layout"] := R3
+       4 [   0] GETTABLE  R3 := R0["background"]
+       5 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+       6 [   0] JMP       jmp +1 -> 8
+       7 [   0] LOADK     R3 := "assets/gfx/nosheet_backgrounds/fullscreen_background.jpg"
+       8 [   0] SETTABLE  R2["background"] := R3
+       9 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+      10 [   0] SETTABLE  R3["vertiLeft"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe04.png"
+      11 [   0] SETTABLE  R3["vertiRight"] := "assets/gfx/hud/popupframe/largeframe/hud_nineframe05.png"
+      12 [   0] SETTABLE  R2["border"] := R3
+      13 [   0] GETTABLE  R3 := R0["parent"]
+      14 [   0] SETTABLE  R2["parent"] := R3
+      15 [   0] GETGLOBAL R3 := _G["ui"]
+      16 [   0] GETTABLE  R3 := R3["createContainer"]
+      17 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+      18 [   0] GETTABLE  R5 := R0["parent"]
+      19 [   0] SETTABLE  R4["parent"] := R5
+      20 [   0] GETTABLE  R5 := R0["layout"]
+      21 [   0] SETTABLE  R4["layout"] := R5
+      22 [   0] CALL      R3(...) nargs=1 nret=1
+      23 [   0] GETUPVAL  R4 := upval 0
+      24 [   0] GETTABLE  R4 := R4["create"]
+      25 [   0] MOVE      R5 := R2
+      26 [   0] CALL      R4(...) nargs=1 nret=1
+      27 [   0] MOVE      R1 := R4
+      28 [   0] GETGLOBAL R4 := _G["require"]
+      29 [   0] LOADK     R5 := "ui.components.comp_listview"
+      30 [   0] CALL      R4(...) nargs=1 nret=1
+      31 [   0] GETTABLE  R4 := R4["create"]
+      32 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+      33 [   0] SETTABLE  R5["container"] := R3
+      34 [   0] CALL      R4(...) nargs=1 nret=1
+      35 [   0] SETTABLE  R1["list"] := R4
+      36 [   0] CLOSURE   R4 := closure #0
+      37 [   0] MOVE      R0 := R1
+      38 [   0] SETTABLE  R1["addEntries"] := R4
+      39 [   0] CLOSURE   R4 := closure #1
+      40 [   0] MOVE      R0 := R1
+      41 [   0] GETUPVAL  R0 := upval 1
+      42 [   0] SETTABLE  R1["initList"] := R4
+      43 [   0] CLOSURE   R4 := closure #2
+      44 [   0] MOVE      R0 := R1
+      45 [   0] SETTABLE  R1["setAlpha"] := R4
+      46 [   0] CLOSURE   R4 := closure #3
+      47 [   0] MOVE      R0 := R1
+      48 [   0] SETTABLE  R1["getList"] := R4
+      49 [   0] CLOSURE   R4 := closure #4
+      50 [   0] MOVE      R0 := R1
+      51 [   0] GETUPVAL  R0 := upval 1
+      52 [   0] SETTABLE  R1["exit"] := R4
+      53 [   0] CLOSURE   R4 := closure #5
+      54 [   0] SETTABLE  R1["enter"] := R4
+      55 [   0] CLOSURE   R4 := closure #6
+      56 [   0] MOVE      R0 := R1
+      57 [   0] SETTABLE  R1["destroy"] := R4
+      58 [   0] GETUPVAL  R4 := upval 1
+      59 [   0] GETTABLE  R4 := R4["inherit"]
+      60 [   0] MOVE      R5 := R1
+      61 [   0] LOADK     R6 := "_flaregames_remove"
+      62 [   0] CLOSURE   R7 := closure #7
+      63 [   0] MOVE      R0 := R1
+      64 [   0] CALL      R4(...) nargs=3 nret=0
+      65 [   0] RETURN    return R1.. (1 values)
+      66 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 33-39, upvals=[], locals=[])
+      constants: strings=['entries', 'list', 'addItem', 'forceReferencePoint', 'height'] numbers=[1]
+         0 [   0] LOADK     R1 := 1
+         1 [   0] GETTABLE  R2 := R0["entries"]
+         2 [   0] LEN       R2 := #R2
+         3 [   0] LOADK     R3 := 1
+         4 [   0] FORPREP   for R1.. jmp +19
+         5 [   0] GETTABLE  R5 := R0["entries"]
+         6 [   0] GETTABLE  R5 := R5[R4]
+         7 [   0] GETUPVAL  R6 := upval 0
+         8 [   0] GETTABLE  R6 := R6["list"]
+         9 [   0] GETTABLE  R6 := R6["addItem"]
+        10 [   0] MOVE      R7 := R5
+        11 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+        12 [   0] SETTABLE  R8["forceReferencePoint"] := False
+        13 [   0] GETTABLE  R9 := R0["entries"]
+        14 [   0] LEN       R9 := #R9
+        15 [   0] GETTABLE  R10 := R0["entries"]
+        16 [   0] GETTABLE  R10 := R10[R4]
+        17 [   0] GETTABLE  R10 := R10["height"]
+        18 [   0] MUL       R9 := R9 * R10
+        19 [   0] SETTABLE  R8["height"] := R9
+        20 [   0] CALL      R6(...) nargs=2 nret=0
+        21 [   0] GETUPVAL  R6 := upval 0
+        22 [   0] GETTABLE  R6 := R6["entries"]
+        23 [   0] SETTABLE  R6[R4] := R5
+        24 [   0] FORLOOP   forloop R1 jmp -20
+        25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 41-55, upvals=[], locals=[])
+      constants: strings=['list', 'init', 'touchGrp', 'hardBorder', 'stayAtPosition', 'entries', 'safeRemoveObject', 'addEntries', 'insert', 'getGrp'] numbers=[0, 1]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["list"]
+         2 [   0] GETTABLE  R1 := R1["init"]
+         3 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] SETTABLE  R2["touchGrp"] := R3
+         6 [   0] SETTABLE  R2["hardBorder"] := False
+         7 [   0] SETTABLE  R2["stayAtPosition"] := False
+         8 [   0] CALL      R1(...) nargs=1 nret=0
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] GETTABLE  R1 := R1["entries"]
+        11 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        12 [   0] JMP       jmp +18 -> 31
+        13 [   0] GETUPVAL  R1 := upval 0
+        14 [   0] GETTABLE  R1 := R1["entries"]
+        15 [   0] LEN       R1 := #R1
+        16 [   0] LT        if (0 < R1) ~= 0 then skip next
+        17 [   0] JMP       jmp +13 -> 31
+        18 [   0] LOADK     R1 := 1
+        19 [   0] GETUPVAL  R2 := upval 0
+        20 [   0] GETTABLE  R2 := R2["entries"]
+        21 [   0] LEN       R2 := #R2
+        22 [   0] LOADK     R3 := 1
+        23 [   0] FORPREP   for R1.. jmp +6
+        24 [   0] GETUPVAL  R5 := upval 1
+        25 [   0] GETTABLE  R5 := R5["safeRemoveObject"]
+        26 [   0] GETUPVAL  R6 := upval 0
+        27 [   0] GETTABLE  R6 := R6["entries"]
+        28 [   0] GETTABLE  R6 := R6[R4]
+        29 [   0] CALL      R5(...) nargs=1 nret=0
+        30 [   0] FORLOOP   forloop R1 jmp -7
+        31 [   0] GETUPVAL  R1 := upval 0
+        32 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+        33 [   0] SETTABLE  R1["entries"] := R2
+        34 [   0] GETUPVAL  R1 := upval 0
+        35 [   0] GETTABLE  R1 := R1["addEntries"]
+        36 [   0] MOVE      R2 := R0
+        37 [   0] CALL      R1(...) nargs=1 nret=0
+        38 [   0] GETUPVAL  R1 := upval 0
+        39 [   0] SELF      R2 := R1; R1 := R1["insert"]
+        40 [   0] GETUPVAL  R3 := upval 0
+        41 [   0] GETTABLE  R3 := R3["list"]
+        42 [   0] GETTABLE  R3 := R3["getGrp"]
+        43 [   0] CALL      R3(...) nargs=0 nret=-1
+        44 [   0] CALL      R1(...) nargs=-1 nret=0
+        45 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 57-61, upvals=[], locals=[])
+      constants: strings=['list', 'getGrp', 'alpha'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["list"]
+         2 [   0] GETTABLE  R1 := R1["getGrp"]
+         3 [   0] CALL      R1(...) nargs=0 nret=1
+         4 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +5 -> 11
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] GETTABLE  R1 := R1["list"]
+         8 [   0] GETTABLE  R1 := R1["getGrp"]
+         9 [   0] CALL      R1(...) nargs=0 nret=1
+        10 [   0] SETTABLE  R1["alpha"] := R0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 63-65, upvals=[], locals=[])
+      constants: strings=['list', 'getGrp'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["list"]
+         2 [   0] GETTABLE  R0 := R0["getGrp"]
+         3 [   0] TAILCALL  return R0(...) nargs=0
+         4 [   0] RETURN    return R0.. (-1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 67-70, upvals=[], locals=[])
+      constants: strings=['list', 'exit', 'safeRemoveObject'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["list"]
+         2 [   0] GETTABLE  R0 := R0["exit"]
+         3 [   0] CALL      R0(...) nargs=0 nret=0
+         4 [   0] GETUPVAL  R0 := upval 1
+         5 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] GETTABLE  R1 := R1["list"]
+         8 [   0] CALL      R0(...) nargs=1 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 72-73, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 75-77, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 79-81, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)

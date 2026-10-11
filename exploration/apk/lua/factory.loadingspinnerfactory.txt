@@ -1,0 +1,94 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "util.util"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] CLOSURE   R1 := closure #0
+     4 [   0] MOVE      R0 := R0
+     5 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     6 [   0] SETTABLE  R2["create"] := R1
+     7 [   0] RETURN    return R2.. (1 values)
+     8 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 9-32, upvals=[], locals=[])
+    constants: strings=['display', 'newGroup', 'newRect', 'insert', 'setFillColor', 'toBack', 'alpha', 'fglib', 'autohd', 'newImage', 'assets/gfx/hud/icons/loading.png', 'inherit', '_flaregames_remove'] numbers=[2, 0, 0.6]
+       0 [   0] GETGLOBAL R2 := _G["display"]
+       1 [   0] GETTABLE  R2 := R2["newGroup"]
+       2 [   0] CALL      R2(...) nargs=0 nret=1
+       3 [   0] GETGLOBAL R3 := _G["display"]
+       4 [   0] GETTABLE  R3 := R3["newRect"]
+       5 [   0] UNM       R4 := -R0
+       6 [   0] DIV       R4 := R4 / 2
+       7 [   0] UNM       R5 := -R1
+       8 [   0] DIV       R5 := R5 / 2
+       9 [   0] MOVE      R6 := R0
+      10 [   0] MOVE      R7 := R1
+      11 [   0] CALL      R3(...) nargs=4 nret=1
+      12 [   0] SELF      R5 := R2; R4 := R2["insert"]
+      13 [   0] MOVE      R6 := R3
+      14 [   0] CALL      R4(...) nargs=2 nret=0
+      15 [   0] SELF      R5 := R3; R4 := R3["setFillColor"]
+      16 [   0] LOADK     R6 := 0
+      17 [   0] LOADK     R7 := 0
+      18 [   0] LOADK     R8 := 0
+      19 [   0] CALL      R4(...) nargs=4 nret=0
+      20 [   0] SELF      R5 := R3; R4 := R3["toBack"]
+      21 [   0] CALL      R4(...) nargs=1 nret=0
+      22 [   0] SETTABLE  R3["alpha"] := 0.6
+      23 [   0] GETGLOBAL R4 := _G["fglib"]
+      24 [   0] GETTABLE  R4 := R4["display"]
+      25 [   0] GETTABLE  R4 := R4["autohd"]
+      26 [   0] GETTABLE  R4 := R4["newImage"]
+      27 [   0] LOADK     R5 := "assets/gfx/hud/icons/loading.png"
+      28 [   0] CALL      R4(...) nargs=1 nret=1
+      29 [   0] SELF      R6 := R2; R5 := R2["insert"]
+      30 [   0] MOVE      R7 := R4
+      31 [   0] CALL      R5(...) nargs=2 nret=0
+      32 [   0] LOADNIL   R5..R5 := nil
+      33 [   0] CLOSURE   R6 := closure #0
+      34 [   0] MOVE      R0 := R4
+      35 [   0] MOVE      R0 := R5
+      36 [   0] MOVE      R0 := R6
+      37 [   0] MOVE      R7 := R6
+      38 [   0] CALL      R7(...) nargs=0 nret=0
+      39 [   0] GETUPVAL  R7 := upval 0
+      40 [   0] GETTABLE  R7 := R7["inherit"]
+      41 [   0] MOVE      R8 := R2
+      42 [   0] LOADK     R9 := "_flaregames_remove"
+      43 [   0] CLOSURE   R10 := closure #1
+      44 [   0] MOVE      R0 := R5
+      45 [   0] CALL      R7(...) nargs=3 nret=0
+      46 [   0] RETURN    return R2.. (1 values)
+      47 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 19-22, upvals=[], locals=[])
+      constants: strings=['rotation', 'transition', 'to', 'time', 'onComplete'] numbers=[0, 360, 5000]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["rotation"] := 0
+         2 [   0] GETGLOBAL R0 := _G["transition"]
+         3 [   0] GETTABLE  R0 := R0["to"]
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+         6 [   0] SETTABLE  R2["rotation"] := 360
+         7 [   0] SETTABLE  R2["time"] := 5000
+         8 [   0] CLOSURE   R3 := closure #0
+         9 [   0] GETUPVAL  R0 := upval 2
+        10 [   0] SETTABLE  R2["onComplete"] := R3
+        11 [   0] CALL      R0(...) nargs=2 nret=1
+        12 [   0] SETUPVAL  upval 1 := R0
+        13 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#0.#0 (params=0, lines 21-21, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] CALL      R0(...) nargs=0 nret=0
+           2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 24-29, upvals=[], locals=[])
+      constants: strings=['transition', 'cancel'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETGLOBAL R0 := _G["transition"]
+         4 [   0] GETTABLE  R0 := R0["cancel"]
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] LOADNIL   R0..R0 := nil
+         8 [   0] SETUPVAL  upval 0 := R0
+         9 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,288 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['table', 'pcall', 'xpcall', 'display', 'require', 'UI_LIB_PATH', 'common.assets', 'native', 'unpack', '_DEBUG', 'system', 'getInfo', 'environment', 'simulator', 'init'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["table"]
+     1 [   0] GETGLOBAL R1 := _G["pcall"]
+     2 [   0] GETGLOBAL R2 := _G["xpcall"]
+     3 [   0] GETGLOBAL R3 := _G["display"]
+     4 [   0] GETGLOBAL R4 := _G["require"]
+     5 [   0] GETGLOBAL R5 := _G["UI_LIB_PATH"]
+     6 [   0] LOADK     R6 := "common.assets"
+     7 [   0] CONCAT    R5 := R5 .. ... .. R6
+     8 [   0] CALL      R4(...) nargs=1 nret=1
+     9 [   0] GETGLOBAL R5 := _G["native"]
+    10 [   0] GETGLOBAL R6 := _G["unpack"]
+    11 [   0] GETGLOBAL R7 := _G["_DEBUG"]
+    12 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+    13 [   0] JMP       jmp +1 -> 15
+    14 [   0] LOADBOOL  R7 := False
+    15 [   0] SETGLOBAL _G["_DEBUG"] := R7
+    16 [   0] GETGLOBAL R7 := _G["system"]
+    17 [   0] GETTABLE  R7 := R7["getInfo"]
+    18 [   0] LOADK     R8 := "environment"
+    19 [   0] CALL      R7(...) nargs=1 nret=1
+    20 [   0] EQ        if (R7 == "simulator") ~= 1 then skip next
+    21 [   0] JMP       jmp +1 -> 23
+    22 [   0] LOADBOOL  R7 := False (skip)
+    23 [   0] LOADBOOL  R7 := True
+    24 [   0] CLOSURE   R8 := closure #0
+    25 [   0] MOVE      R0 := R0
+    26 [   0] MOVE      R0 := R6
+    27 [   0] MOVE      R0 := R7
+    28 [   0] MOVE      R0 := R3
+    29 [   0] MOVE      R0 := R4
+    30 [   0] MOVE      R0 := R5
+    31 [   0] MOVE      R0 := R2
+    32 [   0] NEWTABLE  R9 := {} (array 0, hash 1)
+    33 [   0] SETTABLE  R9["init"] := R8
+    34 [   0] RETURN    return R9.. (1 values)
+    35 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 21-103, upvals=[], locals=[])
+    constants: strings=['SAVE_CALL'] numbers=[]
+       0 [   0] CLOSURE   R2 := closure #0
+       1 [   0] CLOSURE   R3 := closure #1
+       2 [   0] GETUPVAL  R0 := upval 0
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] GETUPVAL  R0 := upval 2
+       5 [   0] MOVE      R0 := R1
+       6 [   0] MOVE      R0 := R2
+       7 [   0] MOVE      R0 := R0
+       8 [   0] GETUPVAL  R0 := upval 3
+       9 [   0] GETUPVAL  R0 := upval 4
+      10 [   0] GETUPVAL  R0 := upval 5
+      11 [   0] GETUPVAL  R0 := upval 6
+      12 [   0] SETGLOBAL _G["SAVE_CALL"] := R3
+      13 [   0] LOADBOOL  R3 := True
+      14 [   0] RETURN    return R3.. (1 values)
+      15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 25-30, upvals=[], locals=[])
+      constants: strings=['phase', 'ended', 'os', 'exit'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["phase"]
+         1 [   0] EQ        if (R1 == "ended") ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETGLOBAL R1 := _G["os"]
+         4 [   0] GETTABLE  R1 := R1["exit"]
+         5 [   0] CALL      R1(...) nargs=0 nret=0
+         6 [   0] LOADBOOL  R1 := True
+         7 [   0] RETURN    return R1.. (1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 32-100, upvals=[], locals=[])
+      constants: strings=['_DEBUG'] numbers=[]
+         0 [   0] CLOSURE   R1 := closure #0
+         1 [   0] MOVE      R0 := R0
+         2 [   0] GETUPVAL  R0 := upval 0
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] CLOSURE   R2 := closure #1
+         5 [   0] GETUPVAL  R0 := upval 2
+         6 [   0] GETUPVAL  R0 := upval 3
+         7 [   0] GETUPVAL  R0 := upval 4
+         8 [   0] GETUPVAL  R0 := upval 5
+         9 [   0] GETUPVAL  R0 := upval 6
+        10 [   0] GETUPVAL  R0 := upval 7
+        11 [   0] GETUPVAL  R0 := upval 8
+        12 [   0] GETGLOBAL R3 := _G["_DEBUG"]
+        13 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +5 -> 20
+        15 [   0] GETUPVAL  R3 := upval 9
+        16 [   0] MOVE      R4 := R1
+        17 [   0] MOVE      R5 := R2
+        18 [   0] CALL      R3(...) nargs=2 nret=0
+        19 [   0] JMP       jmp +2 -> 22
+        20 [   0] MOVE      R3 := R1
+        21 [   0] CALL      R3(...) nargs=0 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 33-37, upvals=[], locals=[])
+        constants: strings=['remove'] numbers=[1]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0[1]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] GETTABLE  R1 := R1["remove"]
+           4 [   0] GETUPVAL  R2 := upval 0
+           5 [   0] LOADK     R3 := 1
+           6 [   0] CALL      R1(...) nargs=2 nret=0
+           7 [   0] MOVE      R1 := R0
+           8 [   0] GETUPVAL  R2 := upval 2
+           9 [   0] GETUPVAL  R3 := upval 0
+          10 [   0] CALL      R2(...) nargs=1 nret=-1
+          11 [   0] CALL      R1(...) nargs=-1 nret=0
+          12 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#1 (params=1, lines 39-93, upvals=[], locals=[])
+        constants: strings=['_DEBUG', 'log', 'msg', '>>>>>> SAVE_CALL verbose error log:', 'debug', 'traceback', 'removeEventListener', 'touch', 'removeSelf', 'newGroup', 'newRect', 'getText', 'systemFont', 'setTextColor', 'insert', 'y', 'setFillColor', 'setStrokeColor', 'strokeWidth', 'addEventListener', 'newText', 'exit', 'setReferencePoint', 'BottomRightReferencePoint', 'x', 'width'] numbers=[0, 100, 320, 300, 10, 255, 7, 128, 40, 2, 20, 390]
+           0 [   0] GETGLOBAL R1 := _G["_DEBUG"]
+           1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+           2 [   0] JMP       jmp +175 -> 178
+           3 [   0] GETUPVAL  R1 := upval 0
+           4 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+           5 [   0] JMP       jmp +15 -> 21
+           6 [   0] GETGLOBAL R1 := _G["log"]
+           7 [   0] GETTABLE  R1 := R1["msg"]
+           8 [   0] LOADK     R2 := ">>>>>> SAVE_CALL verbose error log:"
+           9 [   0] CALL      R1(...) nargs=1 nret=0
+          10 [   0] GETGLOBAL R1 := _G["log"]
+          11 [   0] GETTABLE  R1 := R1["msg"]
+          12 [   0] MOVE      R2 := R0
+          13 [   0] CALL      R1(...) nargs=1 nret=0
+          14 [   0] GETGLOBAL R1 := _G["log"]
+          15 [   0] GETTABLE  R1 := R1["msg"]
+          16 [   0] GETGLOBAL R2 := _G["debug"]
+          17 [   0] GETTABLE  R2 := R2["traceback"]
+          18 [   0] CALL      R2(...) nargs=0 nret=-1
+          19 [   0] CALL      R1(...) nargs=-1 nret=0
+          20 [   0] JMP       jmp +157 -> 178
+          21 [   0] GETUPVAL  R1 := upval 1
+          22 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+          23 [   0] JMP       jmp +10 -> 34
+          24 [   0] GETUPVAL  R1 := upval 1
+          25 [   0] SELF      R2 := R1; R1 := R1["removeEventListener"]
+          26 [   0] LOADK     R3 := "touch"
+          27 [   0] GETUPVAL  R4 := upval 2
+          28 [   0] CALL      R1(...) nargs=3 nret=0
+          29 [   0] GETUPVAL  R1 := upval 1
+          30 [   0] SELF      R2 := R1; R1 := R1["removeSelf"]
+          31 [   0] CALL      R1(...) nargs=1 nret=0
+          32 [   0] LOADNIL   R1..R1 := nil
+          33 [   0] SETUPVAL  upval 1 := R1
+          34 [   0] GETUPVAL  R1 := upval 3
+          35 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+          36 [   0] JMP       jmp +3 -> 40
+          37 [   0] GETUPVAL  R1 := upval 3
+          38 [   0] SELF      R2 := R1; R1 := R1["removeSelf"]
+          39 [   0] CALL      R1(...) nargs=1 nret=0
+          40 [   0] GETUPVAL  R1 := upval 4
+          41 [   0] GETTABLE  R1 := R1["newGroup"]
+          42 [   0] CALL      R1(...) nargs=0 nret=1
+          43 [   0] SETUPVAL  upval 3 := R1
+          44 [   0] GETUPVAL  R1 := upval 4
+          45 [   0] GETTABLE  R1 := R1["newRect"]
+          46 [   0] GETUPVAL  R2 := upval 3
+          47 [   0] LOADK     R3 := 0
+          48 [   0] LOADK     R4 := 100
+          49 [   0] LOADK     R5 := 320
+          50 [   0] LOADK     R6 := 300
+          51 [   0] CALL      R1(...) nargs=5 nret=1
+          52 [   0] GETUPVAL  R2 := upval 5
+          53 [   0] GETTABLE  R2 := R2["getText"]
+          54 [   0] MOVE      R3 := R0
+          55 [   0] LOADK     R4 := 0
+          56 [   0] LOADK     R5 := 0
+          57 [   0] LOADK     R6 := 320
+          58 [   0] LOADK     R7 := 100
+          59 [   0] GETUPVAL  R8 := upval 6
+          60 [   0] GETTABLE  R8 := R8["systemFont"]
+          61 [   0] LOADK     R9 := 10
+          62 [   0] CALL      R2(...) nargs=7 nret=1
+          63 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+          64 [   0] JMP       jmp +13 -> 78
+          65 [   0] SELF      R4 := R2; R3 := R2["setTextColor"]
+          66 [   0] LOADK     R5 := 255
+          67 [   0] LOADK     R6 := 0
+          68 [   0] LOADK     R7 := 0
+          69 [   0] LOADK     R8 := 255
+          70 [   0] CALL      R3(...) nargs=5 nret=0
+          71 [   0] GETUPVAL  R3 := upval 3
+          72 [   0] SELF      R4 := R3; R3 := R3["insert"]
+          73 [   0] MOVE      R5 := R2
+          74 [   0] CALL      R3(...) nargs=2 nret=0
+          75 [   0] GETTABLE  R3 := R1["y"]
+          76 [   0] SUB       R3 := R3 - 100
+          77 [   0] SETTABLE  R2["y"] := R3
+          78 [   0] GETGLOBAL R3 := _G["debug"]
+          79 [   0] GETTABLE  R3 := R3["traceback"]
+          80 [   0] CALL      R3(...) nargs=0 nret=1
+          81 [   0] GETUPVAL  R4 := upval 5
+          82 [   0] GETTABLE  R4 := R4["getText"]
+          83 [   0] MOVE      R5 := R3
+          84 [   0] LOADK     R6 := 0
+          85 [   0] LOADK     R7 := 100
+          86 [   0] LOADK     R8 := 320
+          87 [   0] LOADK     R9 := 300
+          88 [   0] GETUPVAL  R10 := upval 6
+          89 [   0] GETTABLE  R10 := R10["systemFont"]
+          90 [   0] LOADK     R11 := 7
+          91 [   0] CALL      R4(...) nargs=7 nret=1
+          92 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+          93 [   0] JMP       jmp +13 -> 107
+          94 [   0] SELF      R6 := R4; R5 := R4["setTextColor"]
+          95 [   0] LOADK     R7 := 128
+          96 [   0] LOADK     R8 := 0
+          97 [   0] LOADK     R9 := 0
+          98 [   0] LOADK     R10 := 255
+          99 [   0] CALL      R5(...) nargs=5 nret=0
+         100 [   0] GETUPVAL  R5 := upval 3
+         101 [   0] SELF      R6 := R5; R5 := R5["insert"]
+         102 [   0] MOVE      R7 := R4
+         103 [   0] CALL      R5(...) nargs=2 nret=0
+         104 [   0] GETTABLE  R5 := R1["y"]
+         105 [   0] ADD       R5 := R5 + 100
+         106 [   0] SETTABLE  R4["y"] := R5
+         107 [   0] GETUPVAL  R5 := upval 4
+         108 [   0] GETTABLE  R5 := R5["newGroup"]
+         109 [   0] CALL      R5(...) nargs=0 nret=1
+         110 [   0] GETUPVAL  R6 := upval 4
+         111 [   0] GETTABLE  R6 := R6["newRect"]
+         112 [   0] MOVE      R7 := R5
+         113 [   0] LOADK     R8 := 0
+         114 [   0] LOADK     R9 := 0
+         115 [   0] LOADK     R10 := 100
+         116 [   0] LOADK     R11 := 40
+         117 [   0] CALL      R6(...) nargs=5 nret=1
+         118 [   0] SELF      R8 := R6; R7 := R6["setFillColor"]
+         119 [   0] LOADK     R9 := 255
+         120 [   0] LOADK     R10 := 0
+         121 [   0] LOADK     R11 := 0
+         122 [   0] LOADK     R12 := 255
+         123 [   0] CALL      R7(...) nargs=5 nret=0
+         124 [   0] SELF      R8 := R6; R7 := R6["setStrokeColor"]
+         125 [   0] LOADK     R9 := 0
+         126 [   0] LOADK     R10 := 0
+         127 [   0] LOADK     R11 := 0
+         128 [   0] LOADK     R12 := 255
+         129 [   0] CALL      R7(...) nargs=5 nret=0
+         130 [   0] SETTABLE  R6["strokeWidth"] := 2
+         131 [   0] SELF      R8 := R6; R7 := R6["addEventListener"]
+         132 [   0] LOADK     R9 := "touch"
+         133 [   0] GETUPVAL  R10 := upval 2
+         134 [   0] CALL      R7(...) nargs=3 nret=0
+         135 [   0] GETUPVAL  R7 := upval 4
+         136 [   0] GETTABLE  R7 := R7["newText"]
+         137 [   0] MOVE      R8 := R5
+         138 [   0] LOADK     R9 := "exit"
+         139 [   0] LOADK     R10 := 10
+         140 [   0] LOADK     R11 := 7
+         141 [   0] GETUPVAL  R12 := upval 6
+         142 [   0] GETTABLE  R12 := R12["systemFont"]
+         143 [   0] LOADK     R13 := 20
+         144 [   0] CALL      R7(...) nargs=6 nret=1
+         145 [   0] SELF      R9 := R7; R8 := R7["setTextColor"]
+         146 [   0] LOADK     R10 := 255
+         147 [   0] LOADK     R11 := 255
+         148 [   0] LOADK     R12 := 255
+         149 [   0] LOADK     R13 := 255
+         150 [   0] CALL      R8(...) nargs=5 nret=0
+         151 [   0] GETUPVAL  R8 := upval 3
+         152 [   0] SELF      R9 := R8; R8 := R8["insert"]
+         153 [   0] MOVE      R10 := R5
+         154 [   0] CALL      R8(...) nargs=2 nret=0
+         155 [   0] SELF      R9 := R5; R8 := R5["setReferencePoint"]
+         156 [   0] GETUPVAL  R10 := upval 4
+         157 [   0] GETTABLE  R10 := R10["BottomRightReferencePoint"]
+         158 [   0] CALL      R8(...) nargs=2 nret=0
+         159 [   0] GETUPVAL  R8 := upval 3
+         160 [   0] GETTABLE  R8 := R8["width"]
+         161 [   0] SUB       R8 := R8 - 10
+         162 [   0] SETTABLE  R5["x"] := R8
+         163 [   0] SETTABLE  R5["y"] := 390
+         164 [   0] GETGLOBAL R8 := _G["log"]
+         165 [   0] GETTABLE  R8 := R8["msg"]
+         166 [   0] LOADK     R9 := ">>>>>> SAVE_CALL verbose error log:"
+         167 [   0] CALL      R8(...) nargs=1 nret=0
+         168 [   0] GETGLOBAL R8 := _G["log"]
+         169 [   0] GETTABLE  R8 := R8["msg"]
+         170 [   0] MOVE      R9 := R0
+         171 [   0] CALL      R8(...) nargs=1 nret=0
+         172 [   0] GETGLOBAL R8 := _G["log"]
+         173 [   0] GETTABLE  R8 := R8["msg"]
+         174 [   0] GETGLOBAL R9 := _G["debug"]
+         175 [   0] GETTABLE  R9 := R9["traceback"]
+         176 [   0] CALL      R9(...) nargs=0 nret=-1
+         177 [   0] CALL      R8(...) nargs=-1 nret=0
+         178 [   0] RETURN    return R0.. (0 values)

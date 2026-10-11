@@ -1,0 +1,738 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'socket.socket', 'eventdispatcher', 'new'] numbers=[2, 100, 3, 1, 1000, 4000, 8000, 0, 6]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "logging.logger"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+     8 [   0] LOADK     R4 := "socket.socket"
+     9 [   0] CONCAT    R3 := R3 .. ... .. R4
+    10 [   0] CALL      R2(...) nargs=1 nret=1
+    11 [   0] GETGLOBAL R3 := _G["require"]
+    12 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    13 [   0] LOADK     R5 := "eventdispatcher"
+    14 [   0] CONCAT    R4 := R4 .. ... .. R5
+    15 [   0] CALL      R3(...) nargs=1 nret=1
+    16 [   0] LOADK     R4 := 2
+    17 [   0] LOADK     R5 := 100
+    18 [   0] LOADK     R6 := 3
+    19 [   0] NEWTABLE  R7 := {} (array 0, hash 3)
+    20 [   0] SETTABLE  R7[1] := 1000
+    21 [   0] SETTABLE  R7[2] := 4000
+    22 [   0] SETTABLE  R7[3] := 8000
+    23 [   0] NEWTABLE  R8 := {} (array 0, hash 3)
+    24 [   0] SETTABLE  R8[1] := 0
+    25 [   0] SETTABLE  R8[2] := 1
+    26 [   0] SETTABLE  R8[3] := 6
+    27 [   0] CLOSURE   R9 := closure #0
+    28 [   0] MOVE      R0 := R4
+    29 [   0] MOVE      R0 := R1
+    30 [   0] MOVE      R0 := R5
+    31 [   0] MOVE      R0 := R7
+    32 [   0] MOVE      R0 := R8
+    33 [   0] MOVE      R0 := R6
+    34 [   0] CLOSURE   R10 := closure #1
+    35 [   0] MOVE      R0 := R9
+    36 [   0] MOVE      R0 := R3
+    37 [   0] SETTABLE  R0["new"] := R10
+    38 [   0] RETURN    return R0.. (1 values)
+    39 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=7, lines 40-311, upvals=[], locals=[])
+    constants: strings=['CHAT_VERSION', 'require', 'FGLIB_PATH', 'socket.socket', 'setVerbose', 'updateURLandPort', 'updateParams', 'isLoggedIn', 'ping', 'connect', 'listenTo', 'addMessageToQueue', 'refreshCustomDataForUserId', 'sendmessage', 'getChatroomIds', 'getMessages', 'getUserlist', 'logout', 'socket_connectionHandler', 'socket_dataHandler'] numbers=[1]
+       0 [   0] GETUPVAL  R7 := upval 0
+       1 [   0] SETTABLE  R0["CHAT_VERSION"] := R7
+       2 [   0] MOVE      R7 := R1
+       3 [   0] MOVE      R8 := R2
+       4 [   0] MOVE      R9 := R3
+       5 [   0] MOVE      R10 := R4
+       6 [   0] MOVE      R11 := R5
+       7 [   0] MOVE      R12 := R6
+       8 [   0] GETGLOBAL R13 := _G["require"]
+       9 [   0] GETGLOBAL R14 := _G["FGLIB_PATH"]
+      10 [   0] LOADK     R15 := "socket.socket"
+      11 [   0] CONCAT    R14 := R14 .. ... .. R15
+      12 [   0] CALL      R13(...) nargs=1 nret=1
+      13 [   0] LOADNIL   R14..R14 := nil
+      14 [   0] NEWTABLE  R15 := {} (array 0, hash 0)
+      15 [   0] NEWTABLE  R16 := {} (array 0, hash 0)
+      16 [   0] LOADNIL   R17..R18 := nil
+      17 [   0] LOADK     R19 := 1
+      18 [   0] LOADBOOL  R20 := False
+      19 [   0] LOADBOOL  R21 := False
+      20 [   0] CLOSURE   R22 := closure #0
+      21 [   0] MOVE      R0 := R21
+      22 [   0] GETUPVAL  R0 := upval 1
+      23 [   0] CLOSURE   R23 := closure #1
+      24 [   0] MOVE      R0 := R7
+      25 [   0] MOVE      R0 := R8
+      26 [   0] CLOSURE   R24 := closure #2
+      27 [   0] MOVE      R0 := R16
+      28 [   0] CLOSURE   R25 := closure #3
+      29 [   0] MOVE      R0 := R22
+      30 [   0] MOVE      R0 := R23
+      31 [   0] GETUPVAL  R0 := upval 0
+      32 [   0] MOVE      R0 := R13
+      33 [   0] CLOSURE   R26 := closure #4
+      34 [   0] MOVE      R0 := R22
+      35 [   0] MOVE      R0 := R20
+      36 [   0] MOVE      R0 := R17
+      37 [   0] MOVE      R0 := R25
+      38 [   0] MOVE      R0 := R18
+      39 [   0] MOVE      R0 := R0
+      40 [   0] MOVE      R0 := R24
+      41 [   0] CLOSURE   R27 := closure #5
+      42 [   0] MOVE      R0 := R21
+      43 [   0] MOVE      R0 := R13
+      44 [   0] SETTABLE  R0["setVerbose"] := R27
+      45 [   0] CLOSURE   R27 := closure #6
+      46 [   0] MOVE      R0 := R11
+      47 [   0] MOVE      R0 := R12
+      48 [   0] SETTABLE  R0["updateURLandPort"] := R27
+      49 [   0] CLOSURE   R27 := closure #7
+      50 [   0] MOVE      R0 := R8
+      51 [   0] MOVE      R0 := R10
+      52 [   0] MOVE      R0 := R7
+      53 [   0] MOVE      R0 := R9
+      54 [   0] SETTABLE  R0["updateParams"] := R27
+      55 [   0] CLOSURE   R27 := closure #8
+      56 [   0] MOVE      R0 := R22
+      57 [   0] MOVE      R0 := R13
+      58 [   0] MOVE      R0 := R20
+      59 [   0] SETTABLE  R0["isLoggedIn"] := R27
+      60 [   0] CLOSURE   R27 := closure #9
+      61 [   0] MOVE      R0 := R13
+      62 [   0] MOVE      R0 := R23
+      63 [   0] SETTABLE  R0["ping"] := R27
+      64 [   0] CLOSURE   R27 := closure #10
+      65 [   0] MOVE      R0 := R20
+      66 [   0] MOVE      R0 := R13
+      67 [   0] MOVE      R0 := R19
+      68 [   0] MOVE      R0 := R11
+      69 [   0] MOVE      R0 := R12
+      70 [   0] MOVE      R0 := R14
+      71 [   0] MOVE      R0 := R22
+      72 [   0] MOVE      R0 := R23
+      73 [   0] SETTABLE  R0["connect"] := R27
+      74 [   0] CLOSURE   R27 := closure #11
+      75 [   0] MOVE      R0 := R23
+      76 [   0] MOVE      R0 := R13
+      77 [   0] SETTABLE  R0["listenTo"] := R27
+      78 [   0] CLOSURE   R27 := closure #12
+      79 [   0] MOVE      R0 := R15
+      80 [   0] GETUPVAL  R0 := upval 2
+      81 [   0] MOVE      R0 := R0
+      82 [   0] SETTABLE  R0["addMessageToQueue"] := R27
+      83 [   0] CLOSURE   R27 := closure #13
+      84 [   0] MOVE      R0 := R15
+      85 [   0] SETTABLE  R0["refreshCustomDataForUserId"] := R27
+      86 [   0] CLOSURE   R27 := closure #14
+      87 [   0] MOVE      R0 := R22
+      88 [   0] MOVE      R0 := R13
+      89 [   0] MOVE      R0 := R20
+      90 [   0] MOVE      R0 := R0
+      91 [   0] MOVE      R0 := R23
+      92 [   0] SETTABLE  R0["sendmessage"] := R27
+      93 [   0] CLOSURE   R27 := closure #15
+      94 [   0] MOVE      R0 := R10
+      95 [   0] SETTABLE  R0["getChatroomIds"] := R27
+      96 [   0] CLOSURE   R27 := closure #16
+      97 [   0] MOVE      R0 := R15
+      98 [   0] SETTABLE  R0["getMessages"] := R27
+      99 [   0] CLOSURE   R27 := closure #17
+     100 [   0] GETUPVAL  R0 := upval 0
+     101 [   0] MOVE      R0 := R16
+     102 [   0] SETTABLE  R0["getUserlist"] := R27
+     103 [   0] CLOSURE   R27 := closure #18
+     104 [   0] MOVE      R0 := R20
+     105 [   0] SETTABLE  R0["isLoggedIn"] := R27
+     106 [   0] CLOSURE   R27 := closure #19
+     107 [   0] MOVE      R0 := R22
+     108 [   0] MOVE      R0 := R23
+     109 [   0] MOVE      R0 := R13
+     110 [   0] MOVE      R0 := R20
+     111 [   0] MOVE      R0 := R17
+     112 [   0] MOVE      R0 := R0
+     113 [   0] SETTABLE  R0["logout"] := R27
+     114 [   0] NEWTABLE  R27 := {} (array 0, hash 2)
+     115 [   0] CLOSURE   R28 := closure #20
+     116 [   0] GETUPVAL  R0 := upval 3
+     117 [   0] MOVE      R0 := R19
+     118 [   0] GETUPVAL  R0 := upval 4
+     119 [   0] MOVE      R0 := R22
+     120 [   0] GETUPVAL  R0 := upval 5
+     121 [   0] MOVE      R0 := R13
+     122 [   0] MOVE      R0 := R11
+     123 [   0] MOVE      R0 := R12
+     124 [   0] MOVE      R0 := R14
+     125 [   0] MOVE      R0 := R0
+     126 [   0] SETTABLE  R27["socket_connectionHandler"] := R28
+     127 [   0] CLOSURE   R28 := closure #21
+     128 [   0] MOVE      R0 := R26
+     129 [   0] SETTABLE  R27["socket_dataHandler"] := R28
+     130 [   0] MOVE      R14 := R27
+     131 [   0] RETURN    return R0.. (1 values)
+     132 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 63-65, upvals=[], locals=[])
+      constants: strings=['msg'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETUPVAL  R1 := upval 1
+         4 [   0] GETTABLE  R1 := R1["msg"]
+         5 [   0] VARARG    R2.. := ... (-1)
+         6 [   0] CALL      R1(...) nargs=-1 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 67-75, upvals=[], locals=[])
+      constants: strings=['t', 'h', 's'] numbers=[]
+         0 [   0] NEWTABLE  R1 := {} (array 0, hash 3)
+         1 [   0] SETTABLE  R1["t"] := R0
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] SETTABLE  R1["h"] := R2
+         4 [   0] GETUPVAL  R2 := upval 1
+         5 [   0] SETTABLE  R1["s"] := R2
+         6 [   0] RETURN    return R1.. (1 values)
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 77-80, upvals=[], locals=[])
+      constants: strings=['c', 'cl'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R2 := R0["c"]
+         2 [   0] GETTABLE  R3 := R0["cl"]
+         3 [   0] SETTABLE  R1[R2] := R3
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 82-87, upvals=[], locals=[])
+      constants: strings=['Chatmanager: login...', 'v', 'sendmessage'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] LOADK     R1 := "Chatmanager: login..."
+         2 [   0] CALL      R0(...) nargs=1 nret=0
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] LOADK     R1 := 1
+         5 [   0] CALL      R0(...) nargs=1 nret=1
+         6 [   0] GETUPVAL  R1 := upval 2
+         7 [   0] SETTABLE  R0["v"] := R1
+         8 [   0] GETUPVAL  R1 := upval 3
+         9 [   0] SELF      R2 := R1; R1 := R1["sendmessage"]
+        10 [   0] MOVE      R3 := R0
+        11 [   0] CALL      R1(...) nargs=2 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 89-123, upvals=[], locals=[])
+      constants: strings=['Chatmanager: onMessage (type,data)', 't', 'd', 'timer', 'cancel', 'success', 'performWithDelay', 'connect', 'ping', 'emit', 'chat_login', 'chat_userlist', 'addMessageToQueue'] numbers=[0, 2000, 1, 5000, 3, 4, 5]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] LOADK     R2 := "Chatmanager: onMessage (type,data)"
+         2 [   0] GETTABLE  R3 := R0["t"]
+         3 [   0] GETTABLE  R4 := R0["d"]
+         4 [   0] CALL      R1(...) nargs=3 nret=0
+         5 [   0] GETTABLE  R1 := R0["t"]
+         6 [   0] EQ        if (R1 == 0) ~= 0 then skip next
+         7 [   0] JMP       jmp +34 -> 42
+         8 [   0] LOADBOOL  R1 := False
+         9 [   0] SETUPVAL  upval 1 := R1
+        10 [   0] GETUPVAL  R1 := upval 2
+        11 [   0] EQ        if (R1 == None) ~= 1 then skip next
+        12 [   0] JMP       jmp +4 -> 17
+        13 [   0] GETGLOBAL R1 := _G["timer"]
+        14 [   0] GETTABLE  R1 := R1["cancel"]
+        15 [   0] GETUPVAL  R2 := upval 2
+        16 [   0] CALL      R1(...) nargs=1 nret=0
+        17 [   0] GETTABLE  R1 := R0["d"]
+        18 [   0] GETTABLE  R1 := R1["success"]
+        19 [   0] EQ        if (R1 == True) ~= 0 then skip next
+        20 [   0] JMP       jmp +3 -> 24
+        21 [   0] GETUPVAL  R1 := upval 3
+        22 [   0] CALL      R1(...) nargs=0 nret=0
+        23 [   0] JMP       jmp +89 -> 113
+        24 [   0] GETUPVAL  R1 := upval 4
+        25 [   0] EQ        if (R1 == None) ~= 1 then skip next
+        26 [   0] JMP       jmp +6 -> 33
+        27 [   0] GETGLOBAL R1 := _G["timer"]
+        28 [   0] GETTABLE  R1 := R1["cancel"]
+        29 [   0] GETUPVAL  R2 := upval 4
+        30 [   0] CALL      R1(...) nargs=1 nret=0
+        31 [   0] LOADNIL   R1..R1 := nil
+        32 [   0] SETUPVAL  upval 4 := R1
+        33 [   0] GETGLOBAL R1 := _G["timer"]
+        34 [   0] GETTABLE  R1 := R1["performWithDelay"]
+        35 [   0] LOADK     R2 := 2000
+        36 [   0] GETUPVAL  R3 := upval 5
+        37 [   0] GETTABLE  R3 := R3["connect"]
+        38 [   0] CALL      R3(...) nargs=0 nret=-1
+        39 [   0] CALL      R1(...) nargs=-1 nret=1
+        40 [   0] SETUPVAL  upval 4 := R1
+        41 [   0] JMP       jmp +71 -> 113
+        42 [   0] GETTABLE  R1 := R0["t"]
+        43 [   0] EQ        if (R1 == 1) ~= 0 then skip next
+        44 [   0] JMP       jmp +27 -> 72
+        45 [   0] GETTABLE  R1 := R0["d"]
+        46 [   0] GETTABLE  R1 := R1["success"]
+        47 [   0] SETUPVAL  upval 1 := R1
+        48 [   0] GETUPVAL  R1 := upval 2
+        49 [   0] EQ        if (R1 == None) ~= 1 then skip next
+        50 [   0] JMP       jmp +4 -> 55
+        51 [   0] GETGLOBAL R1 := _G["timer"]
+        52 [   0] GETTABLE  R1 := R1["cancel"]
+        53 [   0] GETUPVAL  R2 := upval 2
+        54 [   0] CALL      R1(...) nargs=1 nret=0
+        55 [   0] GETUPVAL  R1 := upval 1
+        56 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        57 [   0] JMP       jmp +8 -> 66
+        58 [   0] GETGLOBAL R1 := _G["timer"]
+        59 [   0] GETTABLE  R1 := R1["performWithDelay"]
+        60 [   0] LOADK     R2 := 5000
+        61 [   0] GETUPVAL  R3 := upval 5
+        62 [   0] GETTABLE  R3 := R3["ping"]
+        63 [   0] LOADK     R4 := 0
+        64 [   0] CALL      R1(...) nargs=3 nret=1
+        65 [   0] SETUPVAL  upval 2 := R1
+        66 [   0] GETUPVAL  R1 := upval 5
+        67 [   0] GETTABLE  R1 := R1["emit"]
+        68 [   0] LOADK     R2 := "chat_login"
+        69 [   0] GETTABLE  R3 := R0["d"]
+        70 [   0] CALL      R1(...) nargs=2 nret=0
+        71 [   0] JMP       jmp +41 -> 113
+        72 [   0] GETTABLE  R1 := R0["t"]
+        73 [   0] EQ        if (R1 == 3) ~= 0 then skip next
+        74 [   0] JMP       jmp +9 -> 84
+        75 [   0] GETUPVAL  R1 := upval 6
+        76 [   0] GETTABLE  R2 := R0["d"]
+        77 [   0] CALL      R1(...) nargs=1 nret=0
+        78 [   0] GETUPVAL  R1 := upval 5
+        79 [   0] GETTABLE  R1 := R1["emit"]
+        80 [   0] LOADK     R2 := "chat_userlist"
+        81 [   0] GETTABLE  R3 := R0["d"]
+        82 [   0] CALL      R1(...) nargs=2 nret=0
+        83 [   0] JMP       jmp +29 -> 113
+        84 [   0] GETTABLE  R1 := R0["t"]
+        85 [   0] EQ        if (R1 == 4) ~= 0 then skip next
+        86 [   0] JMP       jmp +5 -> 92
+        87 [   0] GETUPVAL  R1 := upval 5
+        88 [   0] GETTABLE  R1 := R1["addMessageToQueue"]
+        89 [   0] GETTABLE  R2 := R0["d"]
+        90 [   0] CALL      R1(...) nargs=1 nret=0
+        91 [   0] JMP       jmp +21 -> 113
+        92 [   0] GETTABLE  R1 := R0["t"]
+        93 [   0] EQ        if (R1 == 5) ~= 0 then skip next
+        94 [   0] JMP       jmp +18 -> 113
+        95 [   0] GETTABLE  R1 := R0["d"]
+        96 [   0] GETTABLE  R1 := R1["success"]
+        97 [   0] EQ        if (R1 == False) ~= 0 then skip next
+        98 [   0] JMP       jmp +14 -> 113
+        99 [   0] LOADBOOL  R1 := False
+       100 [   0] SETUPVAL  upval 1 := R1
+       101 [   0] GETUPVAL  R1 := upval 2
+       102 [   0] EQ        if (R1 == None) ~= 1 then skip next
+       103 [   0] JMP       jmp +4 -> 108
+       104 [   0] GETGLOBAL R1 := _G["timer"]
+       105 [   0] GETTABLE  R1 := R1["cancel"]
+       106 [   0] GETUPVAL  R2 := upval 2
+       107 [   0] CALL      R1(...) nargs=1 nret=0
+       108 [   0] GETUPVAL  R1 := upval 5
+       109 [   0] GETTABLE  R1 := R1["emit"]
+       110 [   0] LOADK     R2 := "chat_login"
+       111 [   0] GETTABLE  R3 := R0["d"]
+       112 [   0] CALL      R1(...) nargs=2 nret=0
+       113 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 125-128, upvals=[], locals=[])
+      constants: strings=['setVerbose'] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] SELF      R2 := R1; R1 := R1["setVerbose"]
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 130-133, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] SETUPVAL  upval 1 := R1
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=4, lines 135-140, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R2
+         1 [   0] SETUPVAL  upval 1 := R0
+         2 [   0] SETUPVAL  upval 2 := R1
+         3 [   0] SETUPVAL  upval 3 := R3
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 142-147, upvals=[], locals=[])
+      constants: strings=['Chatmanager: is socket connected', 'isConnected', 'Chatmanager: is manager logged in'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] LOADK     R1 := "Chatmanager: is socket connected"
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] SELF      R3 := R2; R2 := R2["isConnected"]
+         4 [   0] CALL      R2(...) nargs=1 nret=-1
+         5 [   0] CALL      R0(...) nargs=-1 nret=0
+         6 [   0] GETUPVAL  R0 := upval 0
+         7 [   0] LOADK     R1 := "Chatmanager: is manager logged in"
+         8 [   0] GETUPVAL  R2 := upval 2
+         9 [   0] CALL      R0(...) nargs=2 nret=0
+        10 [   0] GETUPVAL  R0 := upval 2
+        11 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        12 [   0] JMP       jmp +3 -> 16
+        13 [   0] GETUPVAL  R0 := upval 1
+        14 [   0] SELF      R1 := R0; R0 := R0["isConnected"]
+        15 [   0] CALL      R0(...) nargs=1 nret=1
+        16 [   0] RETURN    return R0.. (1 values)
+        17 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 149-151, upvals=[], locals=[])
+      constants: strings=['sendmessage'] numbers=[5]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SELF      R1 := R0; R0 := R0["sendmessage"]
+         2 [   0] GETUPVAL  R2 := upval 1
+         3 [   0] LOADK     R3 := 5
+         4 [   0] CALL      R2(...) nargs=1 nret=-1
+         5 [   0] CALL      R0(...) nargs=-1 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 153-165, upvals=[], locals=[])
+      constants: strings=['isConnected', 'connect', 'socket_connectionHandler', 'socket_dataHandler', 'Chatmanager: connecting...', 'sendmessage'] numbers=[1, 0]
+         0 [   0] LOADBOOL  R0 := False
+         1 [   0] SETUPVAL  upval 0 := R0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] SELF      R1 := R0; R0 := R0["isConnected"]
+         4 [   0] CALL      R0(...) nargs=1 nret=1
+         5 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         6 [   0] JMP       jmp +12 -> 19
+         7 [   0] LOADK     R0 := 1
+         8 [   0] SETUPVAL  upval 2 := R0
+         9 [   0] GETUPVAL  R0 := upval 1
+        10 [   0] SELF      R1 := R0; R0 := R0["connect"]
+        11 [   0] GETUPVAL  R2 := upval 3
+        12 [   0] GETUPVAL  R3 := upval 4
+        13 [   0] GETUPVAL  R4 := upval 5
+        14 [   0] GETTABLE  R4 := R4["socket_connectionHandler"]
+        15 [   0] GETUPVAL  R5 := upval 5
+        16 [   0] GETTABLE  R5 := R5["socket_dataHandler"]
+        17 [   0] CALL      R0(...) nargs=5 nret=0
+        18 [   0] RETURN    return R0.. (0 values)
+        19 [   0] GETUPVAL  R0 := upval 6
+        20 [   0] LOADK     R1 := "Chatmanager: connecting..."
+        21 [   0] CALL      R0(...) nargs=1 nret=0
+        22 [   0] GETUPVAL  R0 := upval 1
+        23 [   0] SELF      R1 := R0; R0 := R0["sendmessage"]
+        24 [   0] GETUPVAL  R2 := upval 7
+        25 [   0] LOADK     R3 := 0
+        26 [   0] CALL      R2(...) nargs=1 nret=-1
+        27 [   0] CALL      R0(...) nargs=-1 nret=0
+        28 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=2, lines 167-178, upvals=[], locals=[])
+      constants: strings=['type', 'number', 'error', 'listenstate has to be a number. 0 dont listen - 1 listen', 'l', 'c', 'sendmessage'] numbers=[2]
+         0 [   0] GETGLOBAL R2 := _G["type"]
+         1 [   0] MOVE      R3 := R1
+         2 [   0] CALL      R2(...) nargs=1 nret=1
+         3 [   0] EQ        if (R2 == "number") ~= 1 then skip next
+         4 [   0] JMP       jmp +3 -> 8
+         5 [   0] GETGLOBAL R2 := _G["error"]
+         6 [   0] LOADK     R3 := "listenstate has to be a number. 0 dont listen - 1 listen"
+         7 [   0] CALL      R2(...) nargs=1 nret=0
+         8 [   0] GETUPVAL  R2 := upval 0
+         9 [   0] LOADK     R3 := 2
+        10 [   0] CALL      R2(...) nargs=1 nret=1
+        11 [   0] SETTABLE  R2["l"] := R1
+        12 [   0] SETTABLE  R2["c"] := R0
+        13 [   0] GETUPVAL  R3 := upval 1
+        14 [   0] SELF      R4 := R3; R3 := R3["sendmessage"]
+        15 [   0] MOVE      R5 := R2
+        16 [   0] CALL      R3(...) nargs=2 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=1, lines 180-206, upvals=[], locals=[])
+      constants: strings=['c', 'timestamp', 'os', 'time', 'id', 'tostring', 'math', 'random', 'clock', 'table', 'sort', 'd', 'refreshCustomDataForUserId', 'emit', 'chat_message'] numbers=[1]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +3 -> 5
+         2 [   0] GETTABLE  R1 := R0["c"]
+         3 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] RETURN    return R0.. (0 values)
+         6 [   0] GETUPVAL  R1 := upval 0
+         7 [   0] GETTABLE  R2 := R0["c"]
+         8 [   0] GETTABLE  R1 := R1[R2]
+         9 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        10 [   0] JMP       jmp +1 -> 12
+        11 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+        12 [   0] GETGLOBAL R2 := _G["os"]
+        13 [   0] GETTABLE  R2 := R2["time"]
+        14 [   0] CALL      R2(...) nargs=0 nret=1
+        15 [   0] SETTABLE  R0["timestamp"] := R2
+        16 [   0] GETGLOBAL R2 := _G["tostring"]
+        17 [   0] GETGLOBAL R3 := _G["math"]
+        18 [   0] GETTABLE  R3 := R3["random"]
+        19 [   0] CALL      R3(...) nargs=0 nret=-1
+        20 [   0] CALL      R2(...) nargs=-1 nret=1
+        21 [   0] GETGLOBAL R3 := _G["tostring"]
+        22 [   0] GETGLOBAL R4 := _G["os"]
+        23 [   0] GETTABLE  R4 := R4["clock"]
+        24 [   0] CALL      R4(...) nargs=0 nret=-1
+        25 [   0] CALL      R3(...) nargs=-1 nret=1
+        26 [   0] CONCAT    R2 := R2 .. ... .. R3
+        27 [   0] SETTABLE  R0["id"] := R2
+        28 [   0] LEN       R2 := #R1
+        29 [   0] ADD       R2 := R2 + 1
+        30 [   0] SETTABLE  R1[R2] := R0
+        31 [   0] GETGLOBAL R2 := _G["table"]
+        32 [   0] GETTABLE  R2 := R2["sort"]
+        33 [   0] MOVE      R3 := R1
+        34 [   0] CLOSURE   R4 := closure #0
+        35 [   0] CALL      R2(...) nargs=2 nret=0
+        36 [   0] LEN       R2 := #R1
+        37 [   0] GETUPVAL  R3 := upval 1
+        38 [   0] LT        if (R3 < R2) ~= 0 then skip next
+        39 [   0] JMP       jmp +2 -> 42
+        40 [   0] LEN       R2 := #R1
+        41 [   0] SETTABLE  R1[R2] := None
+        42 [   0] GETUPVAL  R2 := upval 0
+        43 [   0] GETTABLE  R3 := R0["c"]
+        44 [   0] SETTABLE  R2[R3] := R1
+        45 [   0] GETTABLE  R2 := R0["d"]
+        46 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        47 [   0] JMP       jmp +10 -> 58
+        48 [   0] GETTABLE  R2 := R0["d"]
+        49 [   0] GETTABLE  R2 := R2["id"]
+        50 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        51 [   0] JMP       jmp +6 -> 58
+        52 [   0] GETUPVAL  R2 := upval 2
+        53 [   0] GETTABLE  R2 := R2["refreshCustomDataForUserId"]
+        54 [   0] GETTABLE  R3 := R0["d"]
+        55 [   0] GETTABLE  R3 := R3["id"]
+        56 [   0] GETTABLE  R4 := R0["d"]
+        57 [   0] CALL      R2(...) nargs=2 nret=0
+        58 [   0] GETUPVAL  R2 := upval 2
+        59 [   0] GETTABLE  R2 := R2["emit"]
+        60 [   0] LOADK     R3 := "chat_message"
+        61 [   0] MOVE      R4 := R0
+        62 [   0] CALL      R2(...) nargs=2 nret=0
+        63 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#12.#0 (params=2, lines 189-191, upvals=[], locals=[])
+        constants: strings=['timestamp'] numbers=[]
+           0 [   0] GETTABLE  R2 := R0["timestamp"]
+           1 [   0] GETTABLE  R3 := R1["timestamp"]
+           2 [   0] LT        if (R3 < R2) ~= 1 then skip next
+           3 [   0] JMP       jmp +1 -> 5
+           4 [   0] LOADBOOL  R2 := False (skip)
+           5 [   0] LOADBOOL  R2 := True
+           6 [   0] RETURN    return R2.. (1 values)
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=2, lines 208-223, upvals=[], locals=[])
+      constants: strings=['pairs', 'd', 'id'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["pairs"]
+         1 [   0] GETUPVAL  R3 := upval 0
+         2 [   0] CALL      R2(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +18 -> 22
+         4 [   0] GETGLOBAL R7 := _G["pairs"]
+         5 [   0] MOVE      R8 := R6
+         6 [   0] CALL      R7(...) nargs=1 nret=3
+         7 [   0] JMP       jmp +12 -> 20
+         8 [   0] GETTABLE  R12 := R11["d"]
+         9 [   0] EQ        if (R12 == None) ~= 1 then skip next
+        10 [   0] JMP       jmp +9 -> 20
+        11 [   0] GETTABLE  R12 := R11["d"]
+        12 [   0] GETTABLE  R12 := R12["id"]
+        13 [   0] TEST      if (R12 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +5 -> 20
+        15 [   0] GETTABLE  R12 := R11["d"]
+        16 [   0] GETTABLE  R12 := R12["id"]
+        17 [   0] EQ        if (R12 == R0) ~= 0 then skip next
+        18 [   0] JMP       jmp +1 -> 20
+        19 [   0] SETTABLE  R11["d"] := R1
+        20 [   0] TFORLOOP  tforloop R7 nres=2
+        21 [   0] JMP       jmp -14 -> 8
+        22 [   0] TFORLOOP  tforloop R2 nres=2
+        23 [   0] JMP       jmp -20 -> 4
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=2, lines 225-235, upvals=[], locals=[])
+      constants: strings=['connected, loggedin', 'isConnected', '', 'isLoggedIn', 'm', 'c', 'sendmessage'] numbers=[4]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] LOADK     R3 := "connected, loggedin"
+         2 [   0] GETUPVAL  R4 := upval 1
+         3 [   0] SELF      R5 := R4; R4 := R4["isConnected"]
+         4 [   0] CALL      R4(...) nargs=1 nret=1
+         5 [   0] GETUPVAL  R5 := upval 2
+         6 [   0] MOVE      R6 := R0
+         7 [   0] CALL      R2(...) nargs=4 nret=0
+         8 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         9 [   0] JMP       jmp +7 -> 17
+        10 [   0] EQ        if (R0 == "") ~= 1 then skip next
+        11 [   0] JMP       jmp +5 -> 17
+        12 [   0] GETUPVAL  R2 := upval 3
+        13 [   0] GETTABLE  R2 := R2["isLoggedIn"]
+        14 [   0] CALL      R2(...) nargs=0 nret=1
+        15 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        16 [   0] JMP       jmp +1 -> 18
+        17 [   0] RETURN    return R0.. (0 values)
+        18 [   0] GETUPVAL  R2 := upval 4
+        19 [   0] LOADK     R3 := 4
+        20 [   0] CALL      R2(...) nargs=1 nret=1
+        21 [   0] SETTABLE  R2["m"] := R0
+        22 [   0] SETTABLE  R2["c"] := R1
+        23 [   0] GETUPVAL  R3 := upval 1
+        24 [   0] SELF      R4 := R3; R3 := R3["sendmessage"]
+        25 [   0] MOVE      R5 := R2
+        26 [   0] CALL      R3(...) nargs=2 nret=0
+        27 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=0, lines 237-239, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#16 (params=1, lines 241-244, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         3 [   0] JMP       jmp +1 -> 5
+         4 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+         5 [   0] RETURN    return R1.. (1 values)
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#17 (params=1, lines 247-256, upvals=[], locals=[])
+      constants: strings=[] numbers=[0, 2]
+         0 [   0] LOADK     R1 := 0
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] EQ        if (R2 == None) ~= 1 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] LT        if (R2 < 2) ~= 0 then skip next
+         6 [   0] JMP       jmp +12 -> 19
+         7 [   0] GETUPVAL  R2 := upval 1
+         8 [   0] GETTABLE  R2 := R2[R0]
+         9 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        10 [   0] JMP       jmp +5 -> 16
+        11 [   0] GETUPVAL  R2 := upval 1
+        12 [   0] GETTABLE  R2 := R2[R0]
+        13 [   0] LEN       R2 := #R2
+        14 [   0] RETURN    return R2.. (1 values)
+        15 [   0] JMP       jmp +13 -> 29
+        16 [   0] LOADK     R2 := 0
+        17 [   0] RETURN    return R2.. (1 values)
+        18 [   0] JMP       jmp +10 -> 29
+        19 [   0] GETUPVAL  R2 := upval 1
+        20 [   0] GETTABLE  R2 := R2[R0]
+        21 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        22 [   0] JMP       jmp +4 -> 27
+        23 [   0] GETUPVAL  R2 := upval 1
+        24 [   0] GETTABLE  R2 := R2[R0]
+        25 [   0] RETURN    return R2.. (1 values)
+        26 [   0] JMP       jmp +2 -> 29
+        27 [   0] LOADK     R2 := 0
+        28 [   0] RETURN    return R2.. (1 values)
+        29 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#18 (params=0, lines 258-260, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#19 (params=0, lines 262-273, upvals=[], locals=[])
+      constants: strings=['Chatmanager: logging out...', 'sendmessage', 'disconnect', 'timer', 'cancel', 'emit', 'chat_logout'] numbers=[9]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] LOADK     R1 := "Chatmanager: logging out..."
+         2 [   0] CALL      R0(...) nargs=1 nret=0
+         3 [   0] GETUPVAL  R0 := upval 1
+         4 [   0] LOADK     R1 := 9
+         5 [   0] CALL      R0(...) nargs=1 nret=1
+         6 [   0] GETUPVAL  R1 := upval 2
+         7 [   0] SELF      R2 := R1; R1 := R1["sendmessage"]
+         8 [   0] MOVE      R3 := R0
+         9 [   0] CALL      R1(...) nargs=2 nret=0
+        10 [   0] LOADBOOL  R1 := False
+        11 [   0] SETUPVAL  upval 3 := R1
+        12 [   0] GETUPVAL  R1 := upval 2
+        13 [   0] SELF      R2 := R1; R1 := R1["disconnect"]
+        14 [   0] CALL      R1(...) nargs=1 nret=0
+        15 [   0] GETUPVAL  R1 := upval 4
+        16 [   0] EQ        if (R1 == None) ~= 1 then skip next
+        17 [   0] JMP       jmp +4 -> 22
+        18 [   0] GETGLOBAL R1 := _G["timer"]
+        19 [   0] GETTABLE  R1 := R1["cancel"]
+        20 [   0] GETUPVAL  R2 := upval 4
+        21 [   0] CALL      R1(...) nargs=1 nret=0
+        22 [   0] GETUPVAL  R1 := upval 5
+        23 [   0] GETTABLE  R1 := R1["emit"]
+        24 [   0] LOADK     R2 := "chat_logout"
+        25 [   0] CALL      R1(...) nargs=1 nret=0
+        26 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#20 (params=0, lines 280-303, upvals=[], locals=[])
+      constants: strings=['retry', 'chatmanager connectionhandler', 'isConnected', 'reconnecttimeout', 'timer', 'performWithDelay', 'connect'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] GETTABLE  R0 := R0[R1]
+         3 [   0] GETUPVAL  R1 := upval 2
+         4 [   0] GETUPVAL  R2 := upval 1
+         5 [   0] GETTABLE  R1 := R1[R2]
+         6 [   0] GETUPVAL  R2 := upval 3
+         7 [   0] LOADK     R3 := "retry"
+         8 [   0] GETUPVAL  R4 := upval 1
+         9 [   0] CALL      R2(...) nargs=2 nret=0
+        10 [   0] GETUPVAL  R2 := upval 1
+        11 [   0] GETUPVAL  R3 := upval 4
+        12 [   0] LT        if (R3 < R2) ~= 0 then skip next
+        13 [   0] JMP       jmp +1 -> 15
+        14 [   0] RETURN    return R0.. (0 values)
+        15 [   0] GETUPVAL  R2 := upval 3
+        16 [   0] LOADK     R3 := "chatmanager connectionhandler"
+        17 [   0] GETUPVAL  R4 := upval 5
+        18 [   0] SELF      R5 := R4; R4 := R4["isConnected"]
+        19 [   0] CALL      R4(...) nargs=1 nret=-1
+        20 [   0] CALL      R2(...) nargs=-1 nret=0
+        21 [   0] GETUPVAL  R2 := upval 5
+        22 [   0] SELF      R3 := R2; R2 := R2["isConnected"]
+        23 [   0] CALL      R2(...) nargs=1 nret=1
+        24 [   0] EQ        if (R2 == False) ~= 0 then skip next
+        25 [   0] JMP       jmp +16 -> 42
+        26 [   0] GETUPVAL  R2 := upval 3
+        27 [   0] LOADK     R3 := "reconnecttimeout"
+        28 [   0] MOVE      R4 := R0
+        29 [   0] CALL      R2(...) nargs=2 nret=0
+        30 [   0] GETGLOBAL R2 := _G["timer"]
+        31 [   0] GETTABLE  R2 := R2["performWithDelay"]
+        32 [   0] MOVE      R3 := R0
+        33 [   0] CLOSURE   R4 := closure #0
+        34 [   0] GETUPVAL  R0 := upval 5
+        35 [   0] GETUPVAL  R0 := upval 1
+        36 [   0] GETUPVAL  R0 := upval 6
+        37 [   0] GETUPVAL  R0 := upval 7
+        38 [   0] GETUPVAL  R0 := upval 8
+        39 [   0] MOVE      R0 := R1
+        40 [   0] CALL      R2(...) nargs=2 nret=0
+        41 [   0] JMP       jmp +3 -> 45
+        42 [   0] GETUPVAL  R2 := upval 9
+        43 [   0] GETTABLE  R2 := R2["connect"]
+        44 [   0] CALL      R2(...) nargs=0 nret=0
+        45 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#20.#0 (params=0, lines 293-299, upvals=[], locals=[])
+        constants: strings=['isConnected', 'connect', 'socket_connectionHandler', 'socket_dataHandler'] numbers=[1]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] SELF      R1 := R0; R0 := R0["isConnected"]
+           2 [   0] CALL      R0(...) nargs=1 nret=1
+           3 [   0] EQ        if (R0 == False) ~= 0 then skip next
+           4 [   0] JMP       jmp +13 -> 18
+           5 [   0] GETUPVAL  R0 := upval 1
+           6 [   0] ADD       R0 := R0 + 1
+           7 [   0] SETUPVAL  upval 1 := R0
+           8 [   0] GETUPVAL  R0 := upval 0
+           9 [   0] SELF      R1 := R0; R0 := R0["connect"]
+          10 [   0] GETUPVAL  R2 := upval 2
+          11 [   0] GETUPVAL  R3 := upval 3
+          12 [   0] GETUPVAL  R4 := upval 4
+          13 [   0] GETTABLE  R4 := R4["socket_connectionHandler"]
+          14 [   0] GETUPVAL  R5 := upval 4
+          15 [   0] GETTABLE  R5 := R5["socket_dataHandler"]
+          16 [   0] GETUPVAL  R6 := upval 5
+          17 [   0] CALL      R0(...) nargs=6 nret=0
+          18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#21 (params=1, lines 305-307, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] MOVE      R2 := R0
+         2 [   0] CALL      R1(...) nargs=1 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=6, lines 313-316, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R6 := upval 0
+       1 [   0] GETUPVAL  R7 := upval 1
+       2 [   0] GETTABLE  R7 := R7["new"]
+       3 [   0] CALL      R7(...) nargs=0 nret=1
+       4 [   0] MOVE      R8 := R0
+       5 [   0] MOVE      R9 := R1
+       6 [   0] MOVE      R10 := R2
+       7 [   0] MOVE      R11 := R3
+       8 [   0] MOVE      R12 := R4
+       9 [   0] MOVE      R13 := R5
+      10 [   0] TAILCALL  return R6(...) nargs=7
+      11 [   0] RETURN    return R6.. (-1 values)
+      12 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,136 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'fglib.eventlistener', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "fglib.eventlistener"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] CLOSURE   R1 := closure #0
+     4 [   0] MOVE      R0 := R0
+     5 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     6 [   0] SETTABLE  R2["create"] := R1
+     7 [   0] RETURN    return R2.. (1 values)
+     8 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 11-61, upvals=[], locals=[])
+    constants: strings=['getName', 'enter', 'leave'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] LOADNIL   R1..R2 := nil
+       2 [   0] CLOSURE   R3 := closure #0
+       3 [   0] SETTABLE  R0["getName"] := R3
+       4 [   0] CLOSURE   R3 := closure #1
+       5 [   0] MOVE      R0 := R2
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] MOVE      R0 := R1
+       8 [   0] SETTABLE  R0["enter"] := R3
+       9 [   0] CLOSURE   R3 := closure #2
+      10 [   0] MOVE      R0 := R1
+      11 [   0] MOVE      R0 := R2
+      12 [   0] SETTABLE  R0["leave"] := R3
+      13 [   0] RETURN    return R0.. (1 values)
+      14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 17-19, upvals=[], locals=[])
+      constants: strings=['MAINTENANCE'] numbers=[]
+         0 [   0] LOADK     R0 := "MAINTENANCE"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 21-49, upvals=[], locals=[])
+      constants: strings=['require', 'game.hudmanager', 'getInstance', 'showWaitingIndicator', 'server.server', 'new', 'serverMaintenanceHandler', 'subscribeTo', 'serverMaintenance', 'isMaintenanceMode'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["require"]
+         1 [   0] LOADK     R2 := "game.hudmanager"
+         2 [   0] CALL      R1(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R1 := R1["getInstance"]
+         4 [   0] CALL      R1(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R2 := R1["showWaitingIndicator"]
+         6 [   0] CALL      R2(...) nargs=0 nret=0
+         7 [   0] GETGLOBAL R2 := _G["require"]
+         8 [   0] LOADK     R3 := "server.server"
+         9 [   0] CALL      R2(...) nargs=1 nret=1
+        10 [   0] GETTABLE  R2 := R2["getInstance"]
+        11 [   0] CALL      R2(...) nargs=0 nret=1
+        12 [   0] GETUPVAL  R3 := upval 1
+        13 [   0] GETTABLE  R3 := R3["new"]
+        14 [   0] CALL      R3(...) nargs=0 nret=1
+        15 [   0] SETUPVAL  upval 0 := R3
+        16 [   0] GETUPVAL  R3 := upval 0
+        17 [   0] CLOSURE   R4 := closure #0
+        18 [   0] MOVE      R0 := R1
+        19 [   0] GETUPVAL  R0 := upval 2
+        20 [   0] MOVE      R0 := R2
+        21 [   0] MOVE      R0 := R0
+        22 [   0] SETTABLE  R3["serverMaintenanceHandler"] := R4
+        23 [   0] GETUPVAL  R3 := upval 0
+        24 [   0] GETTABLE  R3 := R3["subscribeTo"]
+        25 [   0] MOVE      R4 := R2
+        26 [   0] LOADK     R5 := "serverMaintenance"
+        27 [   0] CALL      R3(...) nargs=2 nret=0
+        28 [   0] GETTABLE  R3 := R2["isMaintenanceMode"]
+        29 [   0] CALL      R3(...) nargs=0 nret=0
+        30 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=2, lines 28-45, upvals=[], locals=[])
+        constants: strings=['maintenance', 'showCustomText', 'msg', 'timer', 'cancel', 'performWithDelay', 'hideCustomText', 'getSharedContext', 'force_home_scene', 'triggerTo', 'NOT_LOGGED_IN'] numbers=[10000]
+           0 [   0] GETTABLE  R2 := R1["maintenance"]
+           1 [   0] EQ        if (R2 == None) ~= 1 then skip next
+           2 [   0] JMP       jmp +36 -> 39
+           3 [   0] GETTABLE  R2 := R1["maintenance"]
+           4 [   0] EQ        if (R2 == True) ~= 0 then skip next
+           5 [   0] JMP       jmp +19 -> 25
+           6 [   0] GETUPVAL  R2 := upval 0
+           7 [   0] GETTABLE  R2 := R2["showCustomText"]
+           8 [   0] GETTABLE  R3 := R1["msg"]
+           9 [   0] CALL      R2(...) nargs=1 nret=0
+          10 [   0] GETUPVAL  R2 := upval 1
+          11 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+          12 [   0] JMP       jmp +4 -> 17
+          13 [   0] GETGLOBAL R2 := _G["timer"]
+          14 [   0] GETTABLE  R2 := R2["cancel"]
+          15 [   0] GETUPVAL  R3 := upval 1
+          16 [   0] CALL      R2(...) nargs=1 nret=0
+          17 [   0] GETGLOBAL R2 := _G["timer"]
+          18 [   0] GETTABLE  R2 := R2["performWithDelay"]
+          19 [   0] LOADK     R3 := 10000
+          20 [   0] CLOSURE   R4 := closure #0
+          21 [   0] GETUPVAL  R0 := upval 2
+          22 [   0] CALL      R2(...) nargs=2 nret=1
+          23 [   0] SETUPVAL  upval 1 := R2
+          24 [   0] JMP       jmp +14 -> 39
+          25 [   0] GETTABLE  R2 := R1["maintenance"]
+          26 [   0] EQ        if (R2 == False) ~= 0 then skip next
+          27 [   0] JMP       jmp +11 -> 39
+          28 [   0] GETUPVAL  R2 := upval 0
+          29 [   0] GETTABLE  R2 := R2["hideCustomText"]
+          30 [   0] CALL      R2(...) nargs=0 nret=0
+          31 [   0] GETUPVAL  R2 := upval 3
+          32 [   0] GETTABLE  R2 := R2["getSharedContext"]
+          33 [   0] CALL      R2(...) nargs=0 nret=1
+          34 [   0] SETTABLE  R2["force_home_scene"] := True
+          35 [   0] GETUPVAL  R3 := upval 3
+          36 [   0] GETTABLE  R3 := R3["triggerTo"]
+          37 [   0] LOADK     R4 := "NOT_LOGGED_IN"
+          38 [   0] CALL      R3(...) nargs=1 nret=0
+          39 [   0] RETURN    return R0.. (0 values)
+        function main.#0.#1.#0.#0 (params=0, lines 35-37, upvals=[], locals=[])
+          constants: strings=['isMaintenanceMode'] numbers=[]
+             0 [   0] GETUPVAL  R0 := upval 0
+             1 [   0] GETTABLE  R0 := R0["isMaintenanceMode"]
+             2 [   0] CALL      R0(...) nargs=0 nret=0
+             3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 51-58, upvals=[], locals=[])
+      constants: strings=['timer', 'cancel', 'require', 'server.server', 'getInstance', 'unsubscribeFrom', 'serverMaintenance'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETGLOBAL R0 := _G["timer"]
+         4 [   0] GETTABLE  R0 := R0["cancel"]
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] LOADNIL   R0..R0 := nil
+         8 [   0] SETUPVAL  upval 0 := R0
+         9 [   0] GETGLOBAL R0 := _G["require"]
+        10 [   0] LOADK     R1 := "server.server"
+        11 [   0] CALL      R0(...) nargs=1 nret=1
+        12 [   0] GETTABLE  R0 := R0["getInstance"]
+        13 [   0] CALL      R0(...) nargs=0 nret=1
+        14 [   0] GETUPVAL  R1 := upval 1
+        15 [   0] GETTABLE  R1 := R1["unsubscribeFrom"]
+        16 [   0] MOVE      R2 := R0
+        17 [   0] LOADK     R3 := "serverMaintenance"
+        18 [   0] CALL      R1(...) nargs=2 nret=0
+        19 [   0] RETURN    return R0.. (0 values)

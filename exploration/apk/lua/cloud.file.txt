@@ -1,0 +1,435 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'compat', 'lfs', 'json', '', 'mkdir', 'rmdir', 'dirList', 'loadJson', 'saveJson', 'loadJsonAbs', 'saveJsonAbs', 'setPathPrefix', 'getPathPrefix', 'rmdirContents'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "compat"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETTABLE  R1 := R0["lfs"]
+     4 [   0] GETGLOBAL R2 := _G["require"]
+     5 [   0] LOADK     R3 := "json"
+     6 [   0] CALL      R2(...) nargs=1 nret=1
+     7 [   0] LOADK     R3 := ""
+     8 [   0] CLOSURE   R4 := closure #0
+     9 [   0] MOVE      R0 := R3
+    10 [   0] CLOSURE   R5 := closure #1
+    11 [   0] MOVE      R0 := R3
+    12 [   0] CLOSURE   R6 := closure #2
+    13 [   0] MOVE      R0 := R1
+    14 [   0] MOVE      R0 := R6
+    15 [   0] CLOSURE   R7 := closure #3
+    16 [   0] MOVE      R0 := R3
+    17 [   0] MOVE      R0 := R1
+    18 [   0] CLOSURE   R8 := closure #4
+    19 [   0] MOVE      R0 := R1
+    20 [   0] MOVE      R0 := R8
+    21 [   0] CLOSURE   R9 := closure #5
+    22 [   0] MOVE      R0 := R3
+    23 [   0] MOVE      R0 := R1
+    24 [   0] MOVE      R0 := R6
+    25 [   0] CLOSURE   R10 := closure #6
+    26 [   0] MOVE      R0 := R3
+    27 [   0] MOVE      R0 := R8
+    28 [   0] CLOSURE   R11 := closure #7
+    29 [   0] MOVE      R0 := R3
+    30 [   0] MOVE      R0 := R1
+    31 [   0] MOVE      R0 := R8
+    32 [   0] CLOSURE   R12 := closure #8
+    33 [   0] MOVE      R0 := R2
+    34 [   0] CLOSURE   R13 := closure #9
+    35 [   0] MOVE      R0 := R2
+    36 [   0] CLOSURE   R14 := closure #10
+    37 [   0] MOVE      R0 := R12
+    38 [   0] MOVE      R0 := R3
+    39 [   0] CLOSURE   R15 := closure #11
+    40 [   0] MOVE      R0 := R13
+    41 [   0] MOVE      R0 := R3
+    42 [   0] NEWTABLE  R16 := {} (array 0, hash 10)
+    43 [   0] SETTABLE  R16["mkdir"] := R9
+    44 [   0] SETTABLE  R16["rmdir"] := R10
+    45 [   0] SETTABLE  R16["dirList"] := R7
+    46 [   0] SETTABLE  R16["loadJson"] := R14
+    47 [   0] SETTABLE  R16["saveJson"] := R15
+    48 [   0] SETTABLE  R16["loadJsonAbs"] := R12
+    49 [   0] SETTABLE  R16["saveJsonAbs"] := R13
+    50 [   0] SETTABLE  R16["setPathPrefix"] := R4
+    51 [   0] SETTABLE  R16["getPathPrefix"] := R5
+    52 [   0] SETTABLE  R16["rmdirContents"] := R11
+    53 [   0] RETURN    return R16.. (1 values)
+    54 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 7-9, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] SETUPVAL  upval 0 := R0
+       1 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 11-13, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 15-31, upvals=[], locals=[])
+    constants: strings=['find', '/', 'sub', 'mkdir', 'chdir', '..'] numbers=[1]
+       0 [   0] SELF      R2 := R0; R1 := R0["find"]
+       1 [   0] LOADK     R3 := "/"
+       2 [   0] CALL      R1(...) nargs=2 nret=1
+       3 [   0] LOADNIL   R2..R3 := nil
+       4 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       5 [   0] JMP       jmp +10 -> 16
+       6 [   0] SELF      R5 := R0; R4 := R0["sub"]
+       7 [   0] LOADK     R6 := 1
+       8 [   0] SUB       R7 := R1 - 1
+       9 [   0] CALL      R4(...) nargs=3 nret=1
+      10 [   0] MOVE      R2 := R4
+      11 [   0] SELF      R5 := R0; R4 := R0["sub"]
+      12 [   0] ADD       R6 := R1 + 1
+      13 [   0] CALL      R4(...) nargs=2 nret=1
+      14 [   0] MOVE      R3 := R4
+      15 [   0] JMP       jmp +1 -> 17
+      16 [   0] MOVE      R2 := R0
+      17 [   0] GETUPVAL  R4 := upval 0
+      18 [   0] GETTABLE  R4 := R4["mkdir"]
+      19 [   0] MOVE      R5 := R2
+      20 [   0] CALL      R4(...) nargs=1 nret=0
+      21 [   0] GETUPVAL  R4 := upval 0
+      22 [   0] GETTABLE  R4 := R4["chdir"]
+      23 [   0] MOVE      R5 := R2
+      24 [   0] CALL      R4(...) nargs=1 nret=0
+      25 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      26 [   0] JMP       jmp +3 -> 30
+      27 [   0] GETUPVAL  R4 := upval 1
+      28 [   0] MOVE      R5 := R3
+      29 [   0] CALL      R4(...) nargs=1 nret=0
+      30 [   0] GETUPVAL  R4 := upval 0
+      31 [   0] GETTABLE  R4 := R4["chdir"]
+      32 [   0] LOADK     R5 := ".."
+      33 [   0] CALL      R4(...) nargs=1 nret=0
+      34 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=2, lines 33-42, upvals=[], locals=[])
+    constants: strings=['system', 'pathForFile', '', 'DocumentsDirectory', 'dir', '.', '..', 'attributes', '/', 'mode', 'directory'] numbers=[1]
+       0 [   0] GETGLOBAL R2 := _G["system"]
+       1 [   0] GETTABLE  R2 := R2["pathForFile"]
+       2 [   0] GETUPVAL  R3 := upval 0
+       3 [   0] LOADK     R4 := ""
+       4 [   0] CONCAT    R3 := R3 .. ... .. R4
+       5 [   0] TESTSET   if (R1 truthy) == 1 then R4 := R1 else skip next
+       6 [   0] JMP       jmp +2 -> 9
+       7 [   0] GETGLOBAL R4 := _G["system"]
+       8 [   0] GETTABLE  R4 := R4["DocumentsDirectory"]
+       9 [   0] CALL      R2(...) nargs=2 nret=1
+      10 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+      11 [   0] GETUPVAL  R4 := upval 1
+      12 [   0] GETTABLE  R4 := R4["dir"]
+      13 [   0] MOVE      R5 := R2
+      14 [   0] CALL      R4(...) nargs=1 nret=3
+      15 [   0] JMP       jmp +17 -> 33
+      16 [   0] EQ        if (R7 == ".") ~= 1 then skip next
+      17 [   0] JMP       jmp +15 -> 33
+      18 [   0] EQ        if (R7 == "..") ~= 1 then skip next
+      19 [   0] JMP       jmp +13 -> 33
+      20 [   0] GETUPVAL  R9 := upval 1
+      21 [   0] GETTABLE  R9 := R9["attributes"]
+      22 [   0] MOVE      R10 := R2
+      23 [   0] LOADK     R11 := "/"
+      24 [   0] MOVE      R12 := R7
+      25 [   0] CONCAT    R10 := R10 .. ... .. R12
+      26 [   0] CALL      R9(...) nargs=1 nret=1
+      27 [   0] GETTABLE  R9 := R9["mode"]
+      28 [   0] EQ        if (R9 == "directory") ~= 0 then skip next
+      29 [   0] JMP       jmp +3 -> 33
+      30 [   0] LEN       R9 := #R3
+      31 [   0] ADD       R9 := R9 + 1
+      32 [   0] SETTABLE  R3[R9] := R7
+      33 [   0] TFORLOOP  tforloop R4 nres=2
+      34 [   0] JMP       jmp -19 -> 16
+      35 [   0] RETURN    return R3.. (1 values)
+      36 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=1, lines 44-58, upvals=[], locals=[])
+    constants: strings=['log', 'msg', 'enter dir', 'dir', '.', '..', 'attributes', '/', 'mode', 'directory', 'rmdir', 'fakecloud.json', 'os', 'remove', 'rmfile'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["log"]
+       1 [   0] GETTABLE  R1 := R1["msg"]
+       2 [   0] LOADK     R2 := "enter dir"
+       3 [   0] MOVE      R3 := R0
+       4 [   0] CALL      R1(...) nargs=2 nret=0
+       5 [   0] GETUPVAL  R1 := upval 0
+       6 [   0] GETTABLE  R1 := R1["dir"]
+       7 [   0] MOVE      R2 := R0
+       8 [   0] CALL      R1(...) nargs=1 nret=3
+       9 [   0] JMP       jmp +53 -> 63
+      10 [   0] EQ        if (R4 == ".") ~= 1 then skip next
+      11 [   0] JMP       jmp +51 -> 63
+      12 [   0] EQ        if (R4 == "..") ~= 1 then skip next
+      13 [   0] JMP       jmp +49 -> 63
+      14 [   0] GETUPVAL  R6 := upval 0
+      15 [   0] GETTABLE  R6 := R6["attributes"]
+      16 [   0] MOVE      R7 := R0
+      17 [   0] LOADK     R8 := "/"
+      18 [   0] MOVE      R9 := R4
+      19 [   0] CONCAT    R7 := R7 .. ... .. R9
+      20 [   0] CALL      R6(...) nargs=1 nret=1
+      21 [   0] GETTABLE  R6 := R6["mode"]
+      22 [   0] EQ        if (R6 == "directory") ~= 0 then skip next
+      23 [   0] JMP       jmp +22 -> 46
+      24 [   0] GETUPVAL  R6 := upval 1
+      25 [   0] MOVE      R7 := R0
+      26 [   0] LOADK     R8 := "/"
+      27 [   0] MOVE      R9 := R4
+      28 [   0] CONCAT    R7 := R7 .. ... .. R9
+      29 [   0] CALL      R6(...) nargs=1 nret=0
+      30 [   0] GETUPVAL  R6 := upval 0
+      31 [   0] GETTABLE  R6 := R6["rmdir"]
+      32 [   0] MOVE      R7 := R0
+      33 [   0] LOADK     R8 := "/"
+      34 [   0] MOVE      R9 := R4
+      35 [   0] CONCAT    R7 := R7 .. ... .. R9
+      36 [   0] CALL      R6(...) nargs=1 nret=0
+      37 [   0] GETGLOBAL R6 := _G["log"]
+      38 [   0] GETTABLE  R6 := R6["msg"]
+      39 [   0] LOADK     R7 := "rmdir"
+      40 [   0] MOVE      R8 := R0
+      41 [   0] LOADK     R9 := "/"
+      42 [   0] MOVE      R10 := R4
+      43 [   0] CONCAT    R8 := R8 .. ... .. R10
+      44 [   0] CALL      R6(...) nargs=2 nret=0
+      45 [   0] JMP       jmp +17 -> 63
+      46 [   0] EQ        if (R4 == "fakecloud.json") ~= 1 then skip next
+      47 [   0] JMP       jmp +15 -> 63
+      48 [   0] GETGLOBAL R6 := _G["os"]
+      49 [   0] GETTABLE  R6 := R6["remove"]
+      50 [   0] MOVE      R7 := R0
+      51 [   0] LOADK     R8 := "/"
+      52 [   0] MOVE      R9 := R4
+      53 [   0] CONCAT    R7 := R7 .. ... .. R9
+      54 [   0] CALL      R6(...) nargs=1 nret=0
+      55 [   0] GETGLOBAL R6 := _G["log"]
+      56 [   0] GETTABLE  R6 := R6["msg"]
+      57 [   0] LOADK     R7 := "rmfile"
+      58 [   0] MOVE      R8 := R0
+      59 [   0] LOADK     R9 := "/"
+      60 [   0] MOVE      R10 := R4
+      61 [   0] CONCAT    R8 := R8 .. ... .. R10
+      62 [   0] CALL      R6(...) nargs=2 nret=0
+      63 [   0] TFORLOOP  tforloop R1 nres=2
+      64 [   0] JMP       jmp -55 -> 10
+      65 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=2, lines 60-67, upvals=[], locals=[])
+    constants: strings=['system', 'pathForFile', '', 'DocumentsDirectory', 'currentdir', 'chdir', 'log', 'msg', 'mkdir '] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["system"]
+       1 [   0] GETTABLE  R2 := R2["pathForFile"]
+       2 [   0] GETUPVAL  R3 := upval 0
+       3 [   0] LOADK     R4 := ""
+       4 [   0] CONCAT    R3 := R3 .. ... .. R4
+       5 [   0] TESTSET   if (R1 truthy) == 1 then R4 := R1 else skip next
+       6 [   0] JMP       jmp +2 -> 9
+       7 [   0] GETGLOBAL R4 := _G["system"]
+       8 [   0] GETTABLE  R4 := R4["DocumentsDirectory"]
+       9 [   0] CALL      R2(...) nargs=2 nret=1
+      10 [   0] GETUPVAL  R3 := upval 1
+      11 [   0] GETTABLE  R3 := R3["currentdir"]
+      12 [   0] CALL      R3(...) nargs=0 nret=1
+      13 [   0] GETUPVAL  R4 := upval 1
+      14 [   0] GETTABLE  R4 := R4["chdir"]
+      15 [   0] MOVE      R5 := R2
+      16 [   0] CALL      R4(...) nargs=1 nret=0
+      17 [   0] GETGLOBAL R4 := _G["log"]
+      18 [   0] GETTABLE  R4 := R4["msg"]
+      19 [   0] LOADK     R5 := "mkdir "
+      20 [   0] MOVE      R6 := R2
+      21 [   0] CALL      R4(...) nargs=2 nret=0
+      22 [   0] GETUPVAL  R4 := upval 2
+      23 [   0] MOVE      R5 := R0
+      24 [   0] CALL      R4(...) nargs=1 nret=0
+      25 [   0] GETUPVAL  R4 := upval 1
+      26 [   0] GETTABLE  R4 := R4["chdir"]
+      27 [   0] MOVE      R5 := R3
+      28 [   0] CALL      R4(...) nargs=1 nret=0
+      29 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=2, lines 69-72, upvals=[], locals=[])
+    constants: strings=['system', 'pathForFile', '', 'DocumentsDirectory', '/'] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["system"]
+       1 [   0] GETTABLE  R2 := R2["pathForFile"]
+       2 [   0] GETUPVAL  R3 := upval 0
+       3 [   0] LOADK     R4 := ""
+       4 [   0] CONCAT    R3 := R3 .. ... .. R4
+       5 [   0] TESTSET   if (R1 truthy) == 1 then R4 := R1 else skip next
+       6 [   0] JMP       jmp +2 -> 9
+       7 [   0] GETGLOBAL R4 := _G["system"]
+       8 [   0] GETTABLE  R4 := R4["DocumentsDirectory"]
+       9 [   0] CALL      R2(...) nargs=2 nret=1
+      10 [   0] GETUPVAL  R3 := upval 1
+      11 [   0] MOVE      R4 := R2
+      12 [   0] LOADK     R5 := "/"
+      13 [   0] MOVE      R6 := R0
+      14 [   0] CONCAT    R4 := R4 .. ... .. R6
+      15 [   0] CALL      R3(...) nargs=1 nret=0
+      16 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=2, lines 74-90, upvals=[], locals=[])
+    constants: strings=['system', 'pathForFile', '', 'DocumentsDirectory', 'log', 'msg', 'drop all in', 'dir', 'check drop direntry', 'attributes', '/', 'mode', '.', '..', 'directory', 'rmdir', 'fakecloud.json', 'os', 'remove', 'rmfile'] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["system"]
+       1 [   0] GETTABLE  R2 := R2["pathForFile"]
+       2 [   0] GETUPVAL  R3 := upval 0
+       3 [   0] LOADK     R4 := ""
+       4 [   0] CONCAT    R3 := R3 .. ... .. R4
+       5 [   0] TESTSET   if (R1 truthy) == 1 then R4 := R1 else skip next
+       6 [   0] JMP       jmp +2 -> 9
+       7 [   0] GETGLOBAL R4 := _G["system"]
+       8 [   0] GETTABLE  R4 := R4["DocumentsDirectory"]
+       9 [   0] CALL      R2(...) nargs=2 nret=1
+      10 [   0] GETGLOBAL R3 := _G["log"]
+      11 [   0] GETTABLE  R3 := R3["msg"]
+      12 [   0] LOADK     R4 := "drop all in"
+      13 [   0] MOVE      R5 := R2
+      14 [   0] CALL      R3(...) nargs=2 nret=0
+      15 [   0] GETUPVAL  R3 := upval 1
+      16 [   0] GETTABLE  R3 := R3["dir"]
+      17 [   0] MOVE      R4 := R2
+      18 [   0] CALL      R3(...) nargs=1 nret=3
+      19 [   0] JMP       jmp +66 -> 86
+      20 [   0] GETGLOBAL R8 := _G["log"]
+      21 [   0] GETTABLE  R8 := R8["msg"]
+      22 [   0] LOADK     R9 := "check drop direntry"
+      23 [   0] MOVE      R10 := R6
+      24 [   0] GETUPVAL  R11 := upval 1
+      25 [   0] GETTABLE  R11 := R11["attributes"]
+      26 [   0] MOVE      R12 := R2
+      27 [   0] LOADK     R13 := "/"
+      28 [   0] MOVE      R14 := R6
+      29 [   0] CONCAT    R12 := R12 .. ... .. R14
+      30 [   0] CALL      R11(...) nargs=1 nret=1
+      31 [   0] GETTABLE  R11 := R11["mode"]
+      32 [   0] CALL      R8(...) nargs=3 nret=0
+      33 [   0] EQ        if (R6 == ".") ~= 1 then skip next
+      34 [   0] JMP       jmp +51 -> 86
+      35 [   0] EQ        if (R6 == "..") ~= 1 then skip next
+      36 [   0] JMP       jmp +49 -> 86
+      37 [   0] GETUPVAL  R8 := upval 1
+      38 [   0] GETTABLE  R8 := R8["attributes"]
+      39 [   0] MOVE      R9 := R2
+      40 [   0] LOADK     R10 := "/"
+      41 [   0] MOVE      R11 := R6
+      42 [   0] CONCAT    R9 := R9 .. ... .. R11
+      43 [   0] CALL      R8(...) nargs=1 nret=1
+      44 [   0] GETTABLE  R8 := R8["mode"]
+      45 [   0] EQ        if (R8 == "directory") ~= 0 then skip next
+      46 [   0] JMP       jmp +22 -> 69
+      47 [   0] GETUPVAL  R8 := upval 2
+      48 [   0] MOVE      R9 := R2
+      49 [   0] LOADK     R10 := "/"
+      50 [   0] MOVE      R11 := R6
+      51 [   0] CONCAT    R9 := R9 .. ... .. R11
+      52 [   0] CALL      R8(...) nargs=1 nret=0
+      53 [   0] GETUPVAL  R8 := upval 1
+      54 [   0] GETTABLE  R8 := R8["rmdir"]
+      55 [   0] MOVE      R9 := R2
+      56 [   0] LOADK     R10 := "/"
+      57 [   0] MOVE      R11 := R6
+      58 [   0] CONCAT    R9 := R9 .. ... .. R11
+      59 [   0] CALL      R8(...) nargs=1 nret=0
+      60 [   0] GETGLOBAL R8 := _G["log"]
+      61 [   0] GETTABLE  R8 := R8["msg"]
+      62 [   0] LOADK     R9 := "rmdir"
+      63 [   0] MOVE      R10 := R2
+      64 [   0] LOADK     R11 := "/"
+      65 [   0] MOVE      R12 := R6
+      66 [   0] CONCAT    R10 := R10 .. ... .. R12
+      67 [   0] CALL      R8(...) nargs=2 nret=0
+      68 [   0] JMP       jmp +17 -> 86
+      69 [   0] EQ        if (R6 == "fakecloud.json") ~= 1 then skip next
+      70 [   0] JMP       jmp +15 -> 86
+      71 [   0] GETGLOBAL R8 := _G["os"]
+      72 [   0] GETTABLE  R8 := R8["remove"]
+      73 [   0] MOVE      R9 := R2
+      74 [   0] LOADK     R10 := "/"
+      75 [   0] MOVE      R11 := R6
+      76 [   0] CONCAT    R9 := R9 .. ... .. R11
+      77 [   0] CALL      R8(...) nargs=1 nret=0
+      78 [   0] GETGLOBAL R8 := _G["log"]
+      79 [   0] GETTABLE  R8 := R8["msg"]
+      80 [   0] LOADK     R9 := "rmfile"
+      81 [   0] MOVE      R10 := R2
+      82 [   0] LOADK     R11 := "/"
+      83 [   0] MOVE      R12 := R6
+      84 [   0] CONCAT    R10 := R10 .. ... .. R12
+      85 [   0] CALL      R8(...) nargs=2 nret=0
+      86 [   0] TFORLOOP  tforloop R3 nres=2
+      87 [   0] JMP       jmp -68 -> 20
+      88 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=2, lines 92-99, upvals=[], locals=[])
+    constants: strings=['system', 'pathForFile', 'DocumentsDirectory', 'io', 'open', 'r', 'log', 'msg', 'cannot open file', 'read', '*a', 'close', 'decode'] numbers=[]
+       0 [   0] GETGLOBAL R2 := _G["system"]
+       1 [   0] GETTABLE  R2 := R2["pathForFile"]
+       2 [   0] MOVE      R3 := R0
+       3 [   0] TESTSET   if (R1 truthy) == 1 then R4 := R1 else skip next
+       4 [   0] JMP       jmp +2 -> 7
+       5 [   0] GETGLOBAL R4 := _G["system"]
+       6 [   0] GETTABLE  R4 := R4["DocumentsDirectory"]
+       7 [   0] CALL      R2(...) nargs=2 nret=1
+       8 [   0] GETGLOBAL R3 := _G["io"]
+       9 [   0] GETTABLE  R3 := R3["open"]
+      10 [   0] MOVE      R4 := R2
+      11 [   0] LOADK     R5 := "r"
+      12 [   0] CALL      R3(...) nargs=2 nret=1
+      13 [   0] EQ        if (R3 == None) ~= 0 then skip next
+      14 [   0] JMP       jmp +7 -> 22
+      15 [   0] GETGLOBAL R4 := _G["log"]
+      16 [   0] GETTABLE  R4 := R4["msg"]
+      17 [   0] LOADK     R5 := "cannot open file"
+      18 [   0] MOVE      R6 := R2
+      19 [   0] CALL      R4(...) nargs=2 nret=0
+      20 [   0] LOADNIL   R4..R4 := nil
+      21 [   0] RETURN    return R4.. (1 values)
+      22 [   0] SELF      R5 := R3; R4 := R3["read"]
+      23 [   0] LOADK     R6 := "*a"
+      24 [   0] CALL      R4(...) nargs=2 nret=1
+      25 [   0] GETGLOBAL R5 := _G["io"]
+      26 [   0] GETTABLE  R5 := R5["close"]
+      27 [   0] MOVE      R6 := R3
+      28 [   0] CALL      R5(...) nargs=1 nret=0
+      29 [   0] GETUPVAL  R5 := upval 0
+      30 [   0] GETTABLE  R5 := R5["decode"]
+      31 [   0] MOVE      R6 := R4
+      32 [   0] TAILCALL  return R5(...) nargs=1
+      33 [   0] RETURN    return R5.. (-1 values)
+      34 [   0] RETURN    return R0.. (0 values)
+  function main.#9 (params=3, lines 101-106, upvals=[], locals=[])
+    constants: strings=['system', 'pathForFile', 'DocumentsDirectory', 'io', 'open', 'w', 'write', 'encode', 'close'] numbers=[]
+       0 [   0] GETGLOBAL R3 := _G["system"]
+       1 [   0] GETTABLE  R3 := R3["pathForFile"]
+       2 [   0] MOVE      R4 := R0
+       3 [   0] TESTSET   if (R2 truthy) == 1 then R5 := R2 else skip next
+       4 [   0] JMP       jmp +2 -> 7
+       5 [   0] GETGLOBAL R5 := _G["system"]
+       6 [   0] GETTABLE  R5 := R5["DocumentsDirectory"]
+       7 [   0] CALL      R3(...) nargs=2 nret=1
+       8 [   0] GETGLOBAL R4 := _G["io"]
+       9 [   0] GETTABLE  R4 := R4["open"]
+      10 [   0] MOVE      R5 := R3
+      11 [   0] LOADK     R6 := "w"
+      12 [   0] CALL      R4(...) nargs=2 nret=1
+      13 [   0] SELF      R6 := R4; R5 := R4["write"]
+      14 [   0] GETUPVAL  R7 := upval 0
+      15 [   0] GETTABLE  R7 := R7["encode"]
+      16 [   0] MOVE      R8 := R1
+      17 [   0] CALL      R7(...) nargs=1 nret=-1
+      18 [   0] CALL      R5(...) nargs=-1 nret=1
+      19 [   0] GETGLOBAL R6 := _G["io"]
+      20 [   0] GETTABLE  R6 := R6["close"]
+      21 [   0] MOVE      R7 := R4
+      22 [   0] CALL      R6(...) nargs=1 nret=0
+      23 [   0] RETURN    return R0.. (0 values)
+  function main.#10 (params=2, lines 108-110, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] GETUPVAL  R3 := upval 1
+       2 [   0] MOVE      R4 := R0
+       3 [   0] CONCAT    R3 := R3 .. ... .. R4
+       4 [   0] MOVE      R4 := R1
+       5 [   0] TAILCALL  return R2(...) nargs=2
+       6 [   0] RETURN    return R2.. (-1 values)
+       7 [   0] RETURN    return R0.. (0 values)
+  function main.#11 (params=3, lines 112-114, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R3 := upval 0
+       1 [   0] GETUPVAL  R4 := upval 1
+       2 [   0] MOVE      R5 := R0
+       3 [   0] CONCAT    R4 := R4 .. ... .. R5
+       4 [   0] MOVE      R5 := R1
+       5 [   0] MOVE      R6 := R2
+       6 [   0] CALL      R3(...) nargs=3 nret=0
+       7 [   0] RETURN    return R0.. (0 values)

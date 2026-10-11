@@ -1,0 +1,96 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['talkmanagerinit', 'talkmanagermessage', 'getInstance'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] LOADNIL   R1..R1 := nil
+     2 [   0] LOADK     R2 := "talkmanagerinit"
+     3 [   0] LOADK     R3 := "talkmanagermessage"
+     4 [   0] CLOSURE   R4 := closure #0
+     5 [   0] MOVE      R0 := R3
+     6 [   0] MOVE      R0 := R2
+     7 [   0] CLOSURE   R5 := closure #1
+     8 [   0] MOVE      R0 := R1
+     9 [   0] MOVE      R0 := R4
+    10 [   0] SETTABLE  R0["getInstance"] := R5
+    11 [   0] RETURN    return R0.. (1 values)
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 8-56, upvals=[], locals=[])
+    constants: strings=['swrveAcceptSwrveTalkCustomAction', 'init'] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] CLOSURE   R2 := closure #0
+       2 [   0] MOVE      R0 := R1
+       3 [   0] MOVE      R0 := R0
+       4 [   0] GETUPVAL  R0 := upval 0
+       5 [   0] SETGLOBAL _G["swrveAcceptSwrveTalkCustomAction"] := R2
+       6 [   0] CLOSURE   R2 := closure #1
+       7 [   0] MOVE      R0 := R0
+       8 [   0] GETUPVAL  R0 := upval 1
+       9 [   0] CLOSURE   R3 := closure #2
+      10 [   0] MOVE      R0 := R2
+      11 [   0] SETTABLE  R0["init"] := R3
+      12 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 14-21, upvals=[], locals=[])
+      constants: strings=['emit'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         3 [   0] JMP       jmp +5 -> 9
+         4 [   0] GETUPVAL  R2 := upval 1
+         5 [   0] GETTABLE  R2 := R2["emit"]
+         6 [   0] GETUPVAL  R3 := upval 2
+         7 [   0] MOVE      R4 := R1
+         8 [   0] CALL      R2(...) nargs=2 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 25-51, upvals=[], locals=[])
+      constants: strings=['messageID', 'TW.M1', 'headline', 'you are an awesome customer', 'description', 'you bought so much stuff, we offer you better items!', 'icon', '', 'buttons', 'order', 'label', 'accept', 'action', 'type', 'goto', 'gotoid', 'shop', 'decline', 'none', 'emit'] numbers=[1, 2]
+         0 [   0] GETGLOBAL R0 := _G["messageID"]
+         1 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+         2 [   0] SETTABLE  R1["headline"] := "you are an awesome customer"
+         3 [   0] SETTABLE  R1["description"] := "you bought so much stuff, we offer you better items!"
+         4 [   0] SETTABLE  R1["icon"] := ""
+         5 [   0] NEWTABLE  R2 := {} (array 1, hash 0)
+         6 [   0] NEWTABLE  R3 := {} (array 0, hash 6)
+         7 [   0] SETTABLE  R3["order"] := 1
+         8 [   0] SETTABLE  R3["label"] := "accept"
+         9 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+        10 [   0] SETTABLE  R4["type"] := "goto"
+        11 [   0] SETTABLE  R4["gotoid"] := "shop"
+        12 [   0] SETTABLE  R3["action"] := R4
+        13 [   0] SETTABLE  R3["order"] := 2
+        14 [   0] SETTABLE  R3["label"] := "decline"
+        15 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+        16 [   0] SETTABLE  R4["type"] := "none"
+        17 [   0] SETTABLE  R3["action"] := R4
+        18 [   0] SETLIST   R2[...] := R3.. (n=1, block 1)
+        19 [   0] SETTABLE  R1["buttons"] := R2
+        20 [   0] SETTABLE  R0["TW.M1"] := R1
+        21 [   0] GETUPVAL  R0 := upval 0
+        22 [   0] GETTABLE  R0 := R0["emit"]
+        23 [   0] GETUPVAL  R1 := upval 1
+        24 [   0] CALL      R0(...) nargs=1 nret=0
+        25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 53-55, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 58-66, upvals=[], locals=[])
+    constants: strings=['require', 'FGLIB_PATH', 'eventdispatcher', 'new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 1 then skip next
+       2 [   0] JMP       jmp +2 -> 5
+       3 [   0] GETUPVAL  R0 := upval 0
+       4 [   0] RETURN    return R0.. (1 values)
+       5 [   0] GETUPVAL  R0 := upval 1
+       6 [   0] GETGLOBAL R1 := _G["require"]
+       7 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+       8 [   0] LOADK     R3 := "eventdispatcher"
+       9 [   0] CONCAT    R2 := R2 .. ... .. R3
+      10 [   0] CALL      R1(...) nargs=1 nret=1
+      11 [   0] GETTABLE  R1 := R1["new"]
+      12 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+      13 [   0] CALL      R1(...) nargs=1 nret=-1
+      14 [   0] CALL      R0(...) nargs=-1 nret=1
+      15 [   0] SETUPVAL  upval 0 := R0
+      16 [   0] GETUPVAL  R0 := upval 0
+      17 [   0] RETURN    return R0.. (1 values)
+      18 [   0] RETURN    return R0.. (0 values)

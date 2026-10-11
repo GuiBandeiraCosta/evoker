@@ -1,0 +1,122 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['callback', 'transition', 'to', 'colorTransition'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["transition"]
+     2 [   0] GETTABLE  R1 := R1["to"]
+     3 [   0] SETTABLE  R0["callback"] := R1
+     4 [   0] CLOSURE   R1 := closure #0
+     5 [   0] SETTABLE  R0["colorTransition"] := R1
+     6 [   0] RETURN    return R0.. (1 values)
+     7 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=7, lines 34-83, upvals=[], locals=[])
+    constants: strings=['easing', 'linear', 'r', 'g', 'b', 'a', 'step', '__index', '__newindex', 'time', 'delay', 'transition', 'setmetatable', 'colorScale', 'callback'] numbers=[255, 0, 1, 2, 3, 1000]
+       0 [   0] MOVE      R7 := R1
+       1 [   0] TESTSET   if (R6 truthy) == 1 then R8 := R6 else skip next
+       2 [   0] JMP       jmp +2 -> 5
+       3 [   0] GETGLOBAL R8 := _G["easing"]
+       4 [   0] GETTABLE  R8 := R8["linear"]
+       5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       6 [   0] JMP       jmp +8 -> 15
+       7 [   0] NEWTABLE  R9 := {} (array 4, hash 0)
+       8 [   0] GETTABLE  R10 := R2["r"]
+       9 [   0] GETTABLE  R11 := R2["g"]
+      10 [   0] GETTABLE  R12 := R2["b"]
+      11 [   0] GETTABLE  R13 := R2["a"]
+      12 [   0] SETLIST   R9[...] := R10.. (n=4, block 1)
+      13 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+      14 [   0] JMP       jmp +5 -> 20
+      15 [   0] NEWTABLE  R9 := {} (array 3, hash 0)
+      16 [   0] LOADK     R10 := 255
+      17 [   0] LOADK     R11 := 255
+      18 [   0] LOADK     R12 := 255
+      19 [   0] SETLIST   R9[...] := R10.. (n=3, block 1)
+      20 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      21 [   0] JMP       jmp +8 -> 30
+      22 [   0] NEWTABLE  R10 := {} (array 4, hash 0)
+      23 [   0] GETTABLE  R11 := R3["r"]
+      24 [   0] GETTABLE  R12 := R3["g"]
+      25 [   0] GETTABLE  R13 := R3["b"]
+      26 [   0] GETTABLE  R14 := R3["a"]
+      27 [   0] SETLIST   R10[...] := R11.. (n=4, block 1)
+      28 [   0] TEST      if (R10 truthy) ~= 1 then skip next
+      29 [   0] JMP       jmp +5 -> 35
+      30 [   0] NEWTABLE  R10 := {} (array 3, hash 0)
+      31 [   0] LOADK     R11 := 0
+      32 [   0] LOADK     R12 := 0
+      33 [   0] LOADK     R13 := 0
+      34 [   0] SETLIST   R10[...] := R11.. (n=3, block 1)
+      35 [   0] LOADNIL   R11..R11 := nil
+      36 [   0] NEWTABLE  R12 := {} (array 0, hash 0)
+      37 [   0] GETTABLE  R13 := R10[1]
+      38 [   0] GETTABLE  R14 := R9[1]
+      39 [   0] SUB       R13 := R13 - R14
+      40 [   0] GETTABLE  R14 := R10[2]
+      41 [   0] GETTABLE  R15 := R9[2]
+      42 [   0] SUB       R14 := R14 - R15
+      43 [   0] GETTABLE  R15 := R10[3]
+      44 [   0] GETTABLE  R16 := R9[3]
+      45 [   0] SUB       R15 := R15 - R16
+      46 [   0] NEWTABLE  R16 := {} (array 0, hash 1)
+      47 [   0] SETTABLE  R16["step"] := 0
+      48 [   0] NEWTABLE  R17 := {} (array 0, hash 2)
+      49 [   0] CLOSURE   R18 := closure #0
+      50 [   0] SETTABLE  R17["__index"] := R18
+      51 [   0] CLOSURE   R18 := closure #1
+      52 [   0] MOVE      R0 := R7
+      53 [   0] MOVE      R0 := R9
+      54 [   0] MOVE      R0 := R13
+      55 [   0] MOVE      R0 := R14
+      56 [   0] MOVE      R0 := R15
+      57 [   0] SETTABLE  R17["__newindex"] := R18
+      58 [   0] TESTSET   if (R4 truthy) == 1 then R18 := R4 else skip next
+      59 [   0] JMP       jmp +1 -> 61
+      60 [   0] LOADK     R18 := 1000
+      61 [   0] SETTABLE  R12["time"] := R18
+      62 [   0] TESTSET   if (R5 truthy) == 1 then R18 := R5 else skip next
+      63 [   0] JMP       jmp +1 -> 65
+      64 [   0] LOADK     R18 := 0
+      65 [   0] SETTABLE  R12["delay"] := R18
+      66 [   0] SETTABLE  R12["transition"] := R8
+      67 [   0] GETGLOBAL R18 := _G["setmetatable"]
+      68 [   0] MOVE      R19 := R16
+      69 [   0] MOVE      R20 := R17
+      70 [   0] CALL      R18(...) nargs=2 nret=0
+      71 [   0] SETTABLE  R12["colorScale"] := 1
+      72 [   0] GETTABLE  R18 := R0["callback"]
+      73 [   0] MOVE      R19 := R16
+      74 [   0] MOVE      R20 := R12
+      75 [   0] CALL      R18(...) nargs=2 nret=1
+      76 [   0] MOVE      R11 := R18
+      77 [   0] RETURN    return R11.. (1 values)
+      78 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 52-55, upvals=[], locals=[])
+      constants: strings=['step'] numbers=[]
+         0 [   0] GETTABLE  R2 := R0["step"]
+         1 [   0] RETURN    return R2.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=3, lines 57-66, upvals=[], locals=[])
+      constants: strings=['setFillColor', 'step'] numbers=[1, 2, 3]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] GETTABLE  R3 := R3["setFillColor"]
+         2 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +18 -> 22
+         4 [   0] GETUPVAL  R3 := upval 0
+         5 [   0] SELF      R4 := R3; R3 := R3["setFillColor"]
+         6 [   0] GETUPVAL  R5 := upval 1
+         7 [   0] GETTABLE  R5 := R5[1]
+         8 [   0] GETUPVAL  R6 := upval 2
+         9 [   0] MUL       R6 := R2 * R6
+        10 [   0] ADD       R5 := R5 + R6
+        11 [   0] GETUPVAL  R6 := upval 1
+        12 [   0] GETTABLE  R6 := R6[2]
+        13 [   0] GETUPVAL  R7 := upval 3
+        14 [   0] MUL       R7 := R2 * R7
+        15 [   0] ADD       R6 := R6 + R7
+        16 [   0] GETUPVAL  R7 := upval 1
+        17 [   0] GETTABLE  R7 := R7[3]
+        18 [   0] GETUPVAL  R8 := upval 4
+        19 [   0] MUL       R8 := R2 * R8
+        20 [   0] ADD       R7 := R7 + R8
+        21 [   0] CALL      R3(...) nargs=4 nret=0
+        22 [   0] SETTABLE  R0["step"] := R2
+        23 [   0] RETURN    return R0.. (0 values)

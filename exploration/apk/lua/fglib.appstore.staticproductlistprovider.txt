@@ -1,0 +1,143 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'appstore.productlistprovider', 'logging.logger', 'new'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "appstore.productlistprovider"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "logging.logger"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] LOADK     R2 := 3
+    11 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+    12 [   0] CLOSURE   R4 := closure #0
+    13 [   0] MOVE      R0 := R1
+    14 [   0] MOVE      R0 := R2
+    15 [   0] CLOSURE   R5 := closure #1
+    16 [   0] MOVE      R0 := R4
+    17 [   0] MOVE      R0 := R0
+    18 [   0] SETTABLE  R3["new"] := R5
+    19 [   0] RETURN    return R3.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=3, lines 8-53, upvals=[], locals=[])
+    constants: strings=['', 'ipairs', 'type', 'table', 'productIdentifier', '.', 'setProductMetaData', 'isConsumable', 'err', 'StaticProductListProvider: product list has wrong format!', 'fetch'] numbers=[]
+       0 [   0] TESTSET   if (R2 truthy) == 1 then R3 := R2 else skip next
+       1 [   0] JMP       jmp +1 -> 3
+       2 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       3 [   0] MOVE      R4 := R1
+       4 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+       5 [   0] EQ        if (R4 == "") ~= 1 then skip next
+       6 [   0] JMP       jmp +34 -> 41
+       7 [   0] GETGLOBAL R6 := _G["ipairs"]
+       8 [   0] MOVE      R7 := R3
+       9 [   0] CALL      R6(...) nargs=1 nret=3
+      10 [   0] JMP       jmp +27 -> 38
+      11 [   0] GETGLOBAL R11 := _G["type"]
+      12 [   0] MOVE      R12 := R10
+      13 [   0] CALL      R11(...) nargs=1 nret=1
+      14 [   0] EQ        if (R11 == "table") ~= 0 then skip next
+      15 [   0] JMP       jmp +18 -> 34
+      16 [   0] GETTABLE  R11 := R3[R9]
+      17 [   0] MOVE      R12 := R4
+      18 [   0] LOADK     R13 := "."
+      19 [   0] GETTABLE  R14 := R3[R9]
+      20 [   0] GETTABLE  R14 := R14["productIdentifier"]
+      21 [   0] CONCAT    R12 := R12 .. ... .. R14
+      22 [   0] SETTABLE  R11["productIdentifier"] := R12
+      23 [   0] GETTABLE  R11 := R3[R9]
+      24 [   0] GETTABLE  R11 := R11["productIdentifier"]
+      25 [   0] SETTABLE  R5[R9] := R11
+      26 [   0] GETTABLE  R11 := R0["setProductMetaData"]
+      27 [   0] GETTABLE  R12 := R3[R9]
+      28 [   0] GETTABLE  R12 := R12["productIdentifier"]
+      29 [   0] GETTABLE  R13 := R3[R9]
+      30 [   0] GETTABLE  R13 := R13["isConsumable"]
+      31 [   0] GETTABLE  R14 := R3[R9]
+      32 [   0] CALL      R11(...) nargs=3 nret=0
+      33 [   0] JMP       jmp +4 -> 38
+      34 [   0] GETUPVAL  R11 := upval 0
+      35 [   0] GETTABLE  R11 := R11["err"]
+      36 [   0] LOADK     R12 := "StaticProductListProvider: product list has wrong format!"
+      37 [   0] CALL      R11(...) nargs=1 nret=0
+      38 [   0] TFORLOOP  tforloop R6 nres=2
+      39 [   0] JMP       jmp -29 -> 11
+      40 [   0] JMP       jmp +30 -> 71
+      41 [   0] GETGLOBAL R6 := _G["ipairs"]
+      42 [   0] MOVE      R7 := R3
+      43 [   0] CALL      R6(...) nargs=1 nret=3
+      44 [   0] JMP       jmp +24 -> 69
+      45 [   0] GETGLOBAL R11 := _G["type"]
+      46 [   0] MOVE      R12 := R10
+      47 [   0] CALL      R11(...) nargs=1 nret=1
+      48 [   0] EQ        if (R11 == "table") ~= 0 then skip next
+      49 [   0] JMP       jmp +15 -> 65
+      50 [   0] GETTABLE  R11 := R3[R9]
+      51 [   0] GETTABLE  R12 := R3[R9]
+      52 [   0] GETTABLE  R12 := R12["productIdentifier"]
+      53 [   0] SETTABLE  R11["productIdentifier"] := R12
+      54 [   0] GETTABLE  R11 := R3[R9]
+      55 [   0] GETTABLE  R11 := R11["productIdentifier"]
+      56 [   0] SETTABLE  R5[R9] := R11
+      57 [   0] GETTABLE  R11 := R0["setProductMetaData"]
+      58 [   0] GETTABLE  R12 := R3[R9]
+      59 [   0] GETTABLE  R12 := R12["productIdentifier"]
+      60 [   0] GETTABLE  R13 := R3[R9]
+      61 [   0] GETTABLE  R13 := R13["isConsumable"]
+      62 [   0] GETTABLE  R14 := R3[R9]
+      63 [   0] CALL      R11(...) nargs=3 nret=0
+      64 [   0] JMP       jmp +4 -> 69
+      65 [   0] GETUPVAL  R11 := upval 0
+      66 [   0] GETTABLE  R11 := R11["err"]
+      67 [   0] LOADK     R12 := "StaticProductListProvider: product list has wrong format!"
+      68 [   0] CALL      R11(...) nargs=1 nret=0
+      69 [   0] TFORLOOP  tforloop R6 nres=2
+      70 [   0] JMP       jmp -26 -> 45
+      71 [   0] CLOSURE   R6 := closure #0
+      72 [   0] GETUPVAL  R0 := upval 0
+      73 [   0] GETUPVAL  R0 := upval 1
+      74 [   0] MOVE      R0 := R3
+      75 [   0] MOVE      R0 := R5
+      76 [   0] MOVE      R0 := R0
+      77 [   0] SETTABLE  R0["fetch"] := R6
+      78 [   0] RETURN    return R0.. (1 values)
+      79 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 41-48, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_APPSTORE', 'StaticProductListProvider:fetch', 'getStoreInterface', 'loadProducts', 'loadProductsCallback'] numbers=[3]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_APPSTORE"]
+         5 [   0] LOADK     R3 := 3
+         6 [   0] LOADK     R4 := "StaticProductListProvider:fetch"
+         7 [   0] GETUPVAL  R5 := upval 2
+         8 [   0] GETUPVAL  R6 := upval 3
+         9 [   0] CALL      R0(...) nargs=6 nret=0
+        10 [   0] GETUPVAL  R0 := upval 4
+        11 [   0] GETTABLE  R0 := R0["getStoreInterface"]
+        12 [   0] CALL      R0(...) nargs=0 nret=1
+        13 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +9 -> 24
+        15 [   0] GETUPVAL  R0 := upval 4
+        16 [   0] GETTABLE  R0 := R0["getStoreInterface"]
+        17 [   0] CALL      R0(...) nargs=0 nret=1
+        18 [   0] GETTABLE  R0 := R0["loadProducts"]
+        19 [   0] GETUPVAL  R1 := upval 3
+        20 [   0] GETUPVAL  R2 := upval 4
+        21 [   0] GETTABLE  R2 := R2["loadProductsCallback"]
+        22 [   0] GETUPVAL  R3 := upval 2
+        23 [   0] CALL      R0(...) nargs=3 nret=0
+        24 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=3, lines 55-59, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R3 := upval 0
+       1 [   0] GETUPVAL  R4 := upval 1
+       2 [   0] GETTABLE  R4 := R4["new"]
+       3 [   0] CALL      R4(...) nargs=0 nret=1
+       4 [   0] MOVE      R5 := R0
+       5 [   0] MOVE      R6 := R1
+       6 [   0] TAILCALL  return R3(...) nargs=3
+       7 [   0] RETURN    return R3.. (-1 values)
+       8 [   0] RETURN    return R0.. (0 values)

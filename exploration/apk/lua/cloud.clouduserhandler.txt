@@ -1,0 +1,599 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'fglib.eventlistener', 'fglib.eventdispatcher', 'util.util', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "fglib.eventlistener"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] LOADK     R2 := "fglib.eventdispatcher"
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] GETGLOBAL R2 := _G["require"]
+     7 [   0] LOADK     R3 := "util.util"
+     8 [   0] CALL      R2(...) nargs=1 nret=1
+     9 [   0] CLOSURE   R3 := closure #0
+    10 [   0] MOVE      R0 := R0
+    11 [   0] MOVE      R0 := R1
+    12 [   0] MOVE      R0 := R2
+    13 [   0] LOADNIL   R4..R4 := nil
+    14 [   0] CLOSURE   R5 := closure #1
+    15 [   0] MOVE      R0 := R4
+    16 [   0] MOVE      R0 := R3
+    17 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+    18 [   0] SETTABLE  R6["getInstance"] := R5
+    19 [   0] RETURN    return R6.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 11-215, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new', 'fglib', 'utils', 'Util', 'syncLocalToCloud', 'syncCloudToLocal', 'syncNewToCloud', 'logout', 'updateCloudId', 'achievementsUnlockedHandler', 'leaderboardScoreUpdatedHandler', 'cloudDataUpdated'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["new_inherit"]
+       2 [   0] GETUPVAL  R1 := upval 1
+       3 [   0] GETTABLE  R1 := R1["new"]
+       4 [   0] CALL      R1(...) nargs=0 nret=-1
+       5 [   0] CALL      R0(...) nargs=-1 nret=1
+       6 [   0] GETGLOBAL R1 := _G["fglib"]
+       7 [   0] GETTABLE  R1 := R1["utils"]
+       8 [   0] GETTABLE  R1 := R1["Util"]
+       9 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+      10 [   0] CLOSURE   R3 := closure #0
+      11 [   0] SETTABLE  R2["syncLocalToCloud"] := R3
+      12 [   0] CLOSURE   R3 := closure #1
+      13 [   0] SETTABLE  R2["syncCloudToLocal"] := R3
+      14 [   0] CLOSURE   R3 := closure #2
+      15 [   0] GETUPVAL  R0 := upval 0
+      16 [   0] MOVE      R0 := R2
+      17 [   0] SETTABLE  R2["syncNewToCloud"] := R3
+      18 [   0] CLOSURE   R3 := closure #3
+      19 [   0] MOVE      R0 := R0
+      20 [   0] SETTABLE  R2["logout"] := R3
+      21 [   0] CLOSURE   R3 := closure #4
+      22 [   0] SETTABLE  R2["updateCloudId"] := R3
+      23 [   0] CLOSURE   R3 := closure #5
+      24 [   0] GETUPVAL  R0 := upval 2
+      25 [   0] MOVE      R0 := R2
+      26 [   0] CLOSURE   R4 := closure #6
+      27 [   0] MOVE      R0 := R3
+      28 [   0] CLOSURE   R5 := closure #7
+      29 [   0] MOVE      R0 := R1
+      30 [   0] SETTABLE  R0["achievementsUnlockedHandler"] := R5
+      31 [   0] CLOSURE   R5 := closure #8
+      32 [   0] MOVE      R0 := R1
+      33 [   0] SETTABLE  R0["leaderboardScoreUpdatedHandler"] := R5
+      34 [   0] CLOSURE   R5 := closure #9
+      35 [   0] MOVE      R0 := R1
+      36 [   0] GETUPVAL  R0 := upval 0
+      37 [   0] MOVE      R0 := R0
+      38 [   0] MOVE      R0 := R4
+      39 [   0] SETTABLE  R0["cloudDataUpdated"] := R5
+      40 [   0] RETURN    return R0.. (1 values)
+      41 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 18-29, upvals=[], locals=[])
+      constants: strings=['require', 'server.server', 'getInstance', 'FGLIB_PATH', 'gameservices.cloudv3', 'getAccount', 'log', 'msg', 'clouduserhandler: syncLocalToCloud', 'getUserName', 'setValue', 'userId', 'getUserId', 'password', 'getPassword', 'userName', 'setCloudAccountId'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "server.server"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R0 := R0["getInstance"]
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] GETGLOBAL R1 := _G["require"]
+         6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+         7 [   0] LOADK     R3 := "gameservices.cloudv3"
+         8 [   0] CONCAT    R2 := R2 .. ... .. R3
+         9 [   0] CALL      R1(...) nargs=1 nret=1
+        10 [   0] GETTABLE  R1 := R1["getInstance"]
+        11 [   0] CALL      R1(...) nargs=0 nret=1
+        12 [   0] GETTABLE  R2 := R1["getAccount"]
+        13 [   0] CALL      R2(...) nargs=0 nret=1
+        14 [   0] GETGLOBAL R3 := _G["log"]
+        15 [   0] GETTABLE  R3 := R3["msg"]
+        16 [   0] LOADK     R4 := "clouduserhandler: syncLocalToCloud"
+        17 [   0] GETTABLE  R5 := R0["getUserName"]
+        18 [   0] CALL      R5(...) nargs=0 nret=-1
+        19 [   0] CALL      R3(...) nargs=-1 nret=0
+        20 [   0] GETTABLE  R3 := R1["setValue"]
+        21 [   0] LOADK     R4 := "userId"
+        22 [   0] GETTABLE  R5 := R0["getUserId"]
+        23 [   0] CALL      R5(...) nargs=0 nret=-1
+        24 [   0] CALL      R3(...) nargs=-1 nret=0
+        25 [   0] GETTABLE  R3 := R1["setValue"]
+        26 [   0] LOADK     R4 := "password"
+        27 [   0] GETTABLE  R5 := R0["getPassword"]
+        28 [   0] CALL      R5(...) nargs=0 nret=-1
+        29 [   0] CALL      R3(...) nargs=-1 nret=0
+        30 [   0] GETTABLE  R3 := R1["setValue"]
+        31 [   0] LOADK     R4 := "userName"
+        32 [   0] GETTABLE  R5 := R0["getUserName"]
+        33 [   0] CALL      R5(...) nargs=0 nret=-1
+        34 [   0] CALL      R3(...) nargs=-1 nret=0
+        35 [   0] GETTABLE  R3 := R0["setCloudAccountId"]
+        36 [   0] MOVE      R4 := R2
+        37 [   0] CALL      R3(...) nargs=1 nret=0
+        38 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 31-55, upvals=[], locals=[])
+      constants: strings=['require', 'server.server', 'getInstance', 'FGLIB_PATH', 'gameservices.cloudv3', 'getAccount', 'getValue', 'userId', 'log', 'msg', 'clouduserhandler: syncCloudToLocal', 'cloudAccountId', 'password', 'userName', 'newUserData ', 'overwriteUser', 'warn', 'Failed to overwrite local user with ', 'game.lifecyclemanager', 'reset'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["require"]
+         1 [   0] LOADK     R1 := "server.server"
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R0 := R0["getInstance"]
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] GETGLOBAL R1 := _G["require"]
+         6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+         7 [   0] LOADK     R3 := "gameservices.cloudv3"
+         8 [   0] CONCAT    R2 := R2 .. ... .. R3
+         9 [   0] CALL      R1(...) nargs=1 nret=1
+        10 [   0] GETTABLE  R1 := R1["getInstance"]
+        11 [   0] CALL      R1(...) nargs=0 nret=1
+        12 [   0] GETTABLE  R2 := R1["getAccount"]
+        13 [   0] CALL      R2(...) nargs=0 nret=1
+        14 [   0] GETTABLE  R3 := R1["getValue"]
+        15 [   0] LOADK     R4 := "userId"
+        16 [   0] CALL      R3(...) nargs=1 nret=1
+        17 [   0] GETGLOBAL R4 := _G["log"]
+        18 [   0] GETTABLE  R4 := R4["msg"]
+        19 [   0] LOADK     R5 := "clouduserhandler: syncCloudToLocal"
+        20 [   0] CALL      R4(...) nargs=1 nret=0
+        21 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        22 [   0] JMP       jmp +33 -> 56
+        23 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+        24 [   0] SETTABLE  R4["userId"] := R3
+        25 [   0] SETTABLE  R4["cloudAccountId"] := R2
+        26 [   0] GETTABLE  R5 := R1["getValue"]
+        27 [   0] LOADK     R6 := "password"
+        28 [   0] CALL      R5(...) nargs=1 nret=1
+        29 [   0] SETTABLE  R4["password"] := R5
+        30 [   0] GETTABLE  R5 := R1["getValue"]
+        31 [   0] LOADK     R6 := "userName"
+        32 [   0] CALL      R5(...) nargs=1 nret=1
+        33 [   0] SETTABLE  R4["userName"] := R5
+        34 [   0] GETGLOBAL R5 := _G["log"]
+        35 [   0] GETTABLE  R5 := R5["msg"]
+        36 [   0] LOADK     R6 := "newUserData "
+        37 [   0] MOVE      R7 := R4
+        38 [   0] CALL      R5(...) nargs=2 nret=0
+        39 [   0] GETTABLE  R5 := R0["overwriteUser"]
+        40 [   0] MOVE      R6 := R4
+        41 [   0] CALL      R5(...) nargs=1 nret=1
+        42 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+        43 [   0] JMP       jmp +5 -> 49
+        44 [   0] GETGLOBAL R5 := _G["log"]
+        45 [   0] GETTABLE  R5 := R5["warn"]
+        46 [   0] LOADK     R6 := "Failed to overwrite local user with "
+        47 [   0] MOVE      R7 := R4
+        48 [   0] CALL      R5(...) nargs=2 nret=0
+        49 [   0] GETGLOBAL R5 := _G["require"]
+        50 [   0] LOADK     R6 := "game.lifecyclemanager"
+        51 [   0] CALL      R5(...) nargs=1 nret=1
+        52 [   0] GETTABLE  R5 := R5["getInstance"]
+        53 [   0] CALL      R5(...) nargs=0 nret=1
+        54 [   0] GETTABLE  R6 := R5["reset"]
+        55 [   0] CALL      R6(...) nargs=0 nret=0
+        56 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 57-71, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'clouduserhandler: syncNewToCloud', 'require', 'server.server', 'getInstance', 'new', 'userRegisteredHandler', 'subscribeTo', 'userRegistered', 'deleteUser', 'game.lifecyclemanager', 'reset'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "clouduserhandler: syncNewToCloud"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETGLOBAL R0 := _G["require"]
+         5 [   0] LOADK     R1 := "server.server"
+         6 [   0] CALL      R0(...) nargs=1 nret=1
+         7 [   0] GETTABLE  R0 := R0["getInstance"]
+         8 [   0] CALL      R0(...) nargs=0 nret=1
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] GETTABLE  R1 := R1["new"]
+        11 [   0] CALL      R1(...) nargs=0 nret=1
+        12 [   0] CLOSURE   R2 := closure #0
+        13 [   0] MOVE      R0 := R1
+        14 [   0] MOVE      R0 := R0
+        15 [   0] GETUPVAL  R0 := upval 1
+        16 [   0] SETTABLE  R1["userRegisteredHandler"] := R2
+        17 [   0] GETTABLE  R2 := R1["subscribeTo"]
+        18 [   0] MOVE      R3 := R0
+        19 [   0] LOADK     R4 := "userRegistered"
+        20 [   0] CALL      R2(...) nargs=2 nret=0
+        21 [   0] GETTABLE  R2 := R0["deleteUser"]
+        22 [   0] CALL      R2(...) nargs=0 nret=0
+        23 [   0] GETGLOBAL R2 := _G["require"]
+        24 [   0] LOADK     R3 := "game.lifecyclemanager"
+        25 [   0] CALL      R2(...) nargs=1 nret=1
+        26 [   0] GETTABLE  R2 := R2["getInstance"]
+        27 [   0] CALL      R2(...) nargs=0 nret=1
+        28 [   0] GETTABLE  R3 := R2["reset"]
+        29 [   0] CALL      R3(...) nargs=0 nret=0
+        30 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#2.#0 (params=0, lines 61-64, upvals=[], locals=[])
+        constants: strings=['unsubscribeFrom', 'userRegistered', 'syncLocalToCloud'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] LOADK     R2 := "userRegistered"
+           4 [   0] CALL      R0(...) nargs=2 nret=0
+           5 [   0] GETUPVAL  R0 := upval 2
+           6 [   0] GETTABLE  R0 := R0["syncLocalToCloud"]
+           7 [   0] CALL      R0(...) nargs=0 nret=0
+           8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 73-86, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'clouduserhandler: logout', 'require', 'FGLIB_PATH', 'gameservices.cloudv3', 'getInstance', 'fglib', 'tracking', 'Tracker', 'util.clientsettings', 'game.hudmanager', 'signOut'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "clouduserhandler: logout"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETGLOBAL R0 := _G["require"]
+         5 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+         6 [   0] LOADK     R2 := "gameservices.cloudv3"
+         7 [   0] CONCAT    R1 := R1 .. ... .. R2
+         8 [   0] CALL      R0(...) nargs=1 nret=1
+         9 [   0] GETTABLE  R0 := R0["getInstance"]
+        10 [   0] CALL      R0(...) nargs=0 nret=1
+        11 [   0] GETGLOBAL R1 := _G["fglib"]
+        12 [   0] GETTABLE  R1 := R1["tracking"]
+        13 [   0] GETTABLE  R1 := R1["Tracker"]
+        14 [   0] GETTABLE  R1 := R1["getInstance"]
+        15 [   0] CALL      R1(...) nargs=0 nret=1
+        16 [   0] GETGLOBAL R2 := _G["require"]
+        17 [   0] LOADK     R3 := "util.clientsettings"
+        18 [   0] CALL      R2(...) nargs=1 nret=1
+        19 [   0] GETTABLE  R2 := R2["getInstance"]
+        20 [   0] CALL      R2(...) nargs=0 nret=1
+        21 [   0] GETGLOBAL R3 := _G["require"]
+        22 [   0] LOADK     R4 := "game.hudmanager"
+        23 [   0] CALL      R3(...) nargs=1 nret=1
+        24 [   0] GETTABLE  R3 := R3["getInstance"]
+        25 [   0] CALL      R3(...) nargs=0 nret=1
+        26 [   0] GETTABLE  R4 := R0["signOut"]
+        27 [   0] CLOSURE   R5 := closure #0
+        28 [   0] MOVE      R0 := R1
+        29 [   0] MOVE      R0 := R2
+        30 [   0] GETUPVAL  R0 := upval 0
+        31 [   0] CALL      R4(...) nargs=1 nret=0
+        32 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#3.#0 (params=0, lines 81-85, upvals=[], locals=[])
+        constants: strings=['logUserAttributesEvent', 'cloud_enabled', 'setGoogleCloudEnabled', 'emit', 'cloudSignedOut'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["logUserAttributesEvent"]
+           2 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+           3 [   0] SETTABLE  R1["cloud_enabled"] := False
+           4 [   0] CALL      R0(...) nargs=1 nret=0
+           5 [   0] GETUPVAL  R0 := upval 1
+           6 [   0] GETTABLE  R0 := R0["setGoogleCloudEnabled"]
+           7 [   0] LOADBOOL  R1 := False
+           8 [   0] CALL      R0(...) nargs=1 nret=0
+           9 [   0] GETUPVAL  R0 := upval 2
+          10 [   0] GETTABLE  R0 := R0["emit"]
+          11 [   0] LOADK     R1 := "cloudSignedOut"
+          12 [   0] CALL      R0(...) nargs=1 nret=0
+          13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 88-94, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'clouduserhandler: update local cloud binding', 'require', 'FGLIB_PATH', 'gameservices.cloudv3', 'getInstance', 'getAccount', 'server.server', 'setCloudAccountId'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "clouduserhandler: update local cloud binding"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETGLOBAL R0 := _G["require"]
+         5 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+         6 [   0] LOADK     R2 := "gameservices.cloudv3"
+         7 [   0] CONCAT    R1 := R1 .. ... .. R2
+         8 [   0] CALL      R0(...) nargs=1 nret=1
+         9 [   0] GETTABLE  R0 := R0["getInstance"]
+        10 [   0] CALL      R0(...) nargs=0 nret=1
+        11 [   0] GETTABLE  R1 := R0["getAccount"]
+        12 [   0] CALL      R1(...) nargs=0 nret=1
+        13 [   0] GETGLOBAL R2 := _G["require"]
+        14 [   0] LOADK     R3 := "server.server"
+        15 [   0] CALL      R2(...) nargs=1 nret=1
+        16 [   0] GETTABLE  R2 := R2["getInstance"]
+        17 [   0] CALL      R2(...) nargs=0 nret=1
+        18 [   0] GETTABLE  R3 := R2["setCloudAccountId"]
+        19 [   0] MOVE      R4 := R1
+        20 [   0] CALL      R3(...) nargs=1 nret=0
+        21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 97-101, upvals=[], locals=[])
+      constants: strings=['safeCall'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] RETURN    return R0.. (0 values)
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["safeCall"]
+         5 [   0] GETUPVAL  R2 := upval 1
+         6 [   0] GETTABLE  R2 := R2[R0]
+         7 [   0] CALL      R1(...) nargs=1 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=1, lines 104-135, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'resolved iCloud data:', 'require', 'cloud.clouduserhelper', 'type', 'action', 'closeActivePopup', 'showPopup', 'ui.common.nav_controllerv3', 'getInstance', 'pushPopup', 'popupText', 'buttons', 'cancel'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["log"]
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "resolved iCloud data:"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         6 [   0] JMP       jmp +1 -> 8
+         7 [   0] RETURN    return R0.. (0 values)
+         8 [   0] GETGLOBAL R1 := _G["require"]
+         9 [   0] LOADK     R2 := "cloud.clouduserhelper"
+        10 [   0] CALL      R1(...) nargs=1 nret=1
+        11 [   0] GETTABLE  R2 := R0["type"]
+        12 [   0] EQ        if (R2 == "action") ~= 0 then skip next
+        13 [   0] JMP       jmp +6 -> 20
+        14 [   0] GETUPVAL  R2 := upval 0
+        15 [   0] GETTABLE  R3 := R0["action"]
+        16 [   0] CALL      R2(...) nargs=1 nret=0
+        17 [   0] GETTABLE  R2 := R1["closeActivePopup"]
+        18 [   0] CALL      R2(...) nargs=0 nret=0
+        19 [   0] JMP       jmp +24 -> 44
+        20 [   0] GETTABLE  R2 := R0["type"]
+        21 [   0] EQ        if (R2 == "showPopup") ~= 0 then skip next
+        22 [   0] JMP       jmp +19 -> 42
+        23 [   0] GETGLOBAL R2 := _G["require"]
+        24 [   0] LOADK     R3 := "ui.common.nav_controllerv3"
+        25 [   0] CALL      R2(...) nargs=1 nret=1
+        26 [   0] GETTABLE  R2 := R2["getInstance"]
+        27 [   0] CALL      R2(...) nargs=0 nret=1
+        28 [   0] CLOSURE   R3 := closure #0
+        29 [   0] GETUPVAL  R0 := upval 0
+        30 [   0] MOVE      R0 := R2
+        31 [   0] GETTABLE  R4 := R1["pushPopup"]
+        32 [   0] GETTABLE  R5 := R0["popupText"]
+        33 [   0] GETTABLE  R6 := R0["buttons"]
+        34 [   0] GETTABLE  R7 := R0["cancel"]
+        35 [   0] CLOSURE   R8 := closure #1
+        36 [   0] MOVE      R0 := R1
+        37 [   0] MOVE      R0 := R3
+        38 [   0] MOVE      R0 := R0
+        39 [   0] CALL      R4(...) nargs=4 nret=0
+        40 [   0] CLOSE     A=2 B=0 C=0
+        41 [   0] JMP       jmp +2 -> 44
+        42 [   0] GETTABLE  R2 := R1["closeActivePopup"]
+        43 [   0] CALL      R2(...) nargs=0 nret=0
+        44 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#6.#0 (params=1, lines 114-117, upvals=[], locals=[])
+        constants: strings=['action', 'popOverlay'] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R2 := R0["action"]
+           2 [   0] CALL      R1(...) nargs=1 nret=0
+           3 [   0] GETUPVAL  R1 := upval 1
+           4 [   0] GETTABLE  R1 := R1["popOverlay"]
+           5 [   0] CALL      R1(...) nargs=0 nret=0
+           6 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#6.#1 (params=1, lines 123-130, upvals=[], locals=[])
+        constants: strings=['closeActivePopup', 'buttons', 'cancel'] numbers=[0]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R1 := R1["closeActivePopup"]
+           2 [   0] CALL      R1(...) nargs=0 nret=0
+           3 [   0] LT        if (0 < R0) ~= 0 then skip next
+           4 [   0] JMP       jmp +6 -> 11
+           5 [   0] GETUPVAL  R1 := upval 1
+           6 [   0] GETUPVAL  R2 := upval 2
+           7 [   0] GETTABLE  R2 := R2["buttons"]
+           8 [   0] GETTABLE  R2 := R2[R0]
+           9 [   0] CALL      R1(...) nargs=1 nret=0
+          10 [   0] JMP       jmp +4 -> 15
+          11 [   0] GETUPVAL  R1 := upval 1
+          12 [   0] GETUPVAL  R2 := upval 2
+          13 [   0] GETTABLE  R2 := R2["cancel"]
+          14 [   0] CALL      R1(...) nargs=1 nret=0
+          15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 137-150, upvals=[], locals=[])
+      constants: strings=['pairs', 'achievements', 'isAndroid', 'googleId', 'isIPhone', 'itunesId', 'fglib', 'gameservices', 'GameNetworkV3', 'getInstance', 'unlockAchievement'] numbers=[100]
+         0 [   0] GETGLOBAL R2 := _G["pairs"]
+         1 [   0] GETTABLE  R3 := R1["achievements"]
+         2 [   0] CALL      R2(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +26 -> 30
+         4 [   0] LOADNIL   R7..R7 := nil
+         5 [   0] GETUPVAL  R8 := upval 0
+         6 [   0] GETTABLE  R8 := R8["isAndroid"]
+         7 [   0] CALL      R8(...) nargs=0 nret=1
+         8 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +2 -> 12
+        10 [   0] GETTABLE  R7 := R6["googleId"]
+        11 [   0] JMP       jmp +6 -> 18
+        12 [   0] GETUPVAL  R8 := upval 0
+        13 [   0] GETTABLE  R8 := R8["isIPhone"]
+        14 [   0] CALL      R8(...) nargs=0 nret=1
+        15 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        16 [   0] JMP       jmp +1 -> 18
+        17 [   0] GETTABLE  R7 := R6["itunesId"]
+        18 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+        19 [   0] JMP       jmp +10 -> 30
+        20 [   0] GETGLOBAL R8 := _G["fglib"]
+        21 [   0] GETTABLE  R8 := R8["gameservices"]
+        22 [   0] GETTABLE  R8 := R8["GameNetworkV3"]
+        23 [   0] GETTABLE  R8 := R8["getInstance"]
+        24 [   0] CALL      R8(...) nargs=0 nret=1
+        25 [   0] GETTABLE  R9 := R8["unlockAchievement"]
+        26 [   0] MOVE      R10 := R7
+        27 [   0] LOADK     R11 := 100
+        28 [   0] LOADBOOL  R12 := False
+        29 [   0] CALL      R9(...) nargs=3 nret=0
+        30 [   0] TFORLOOP  tforloop R2 nres=2
+        31 [   0] JMP       jmp -28 -> 4
+        32 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 152-163, upvals=[], locals=[])
+      constants: strings=['isAndroid', 'googleId', 'isIPhone', 'itunesId', 'fglib', 'gameservices', 'GameNetworkV3', 'getInstance', 'setLeaderboardScore', 'amount'] numbers=[]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] GETTABLE  R3 := R3["isAndroid"]
+         2 [   0] CALL      R3(...) nargs=0 nret=1
+         3 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +2 -> 7
+         5 [   0] GETTABLE  R2 := R1["googleId"]
+         6 [   0] JMP       jmp +6 -> 13
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETTABLE  R3 := R3["isIPhone"]
+         9 [   0] CALL      R3(...) nargs=0 nret=1
+        10 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        11 [   0] JMP       jmp +1 -> 13
+        12 [   0] GETTABLE  R2 := R1["itunesId"]
+        13 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +9 -> 24
+        15 [   0] GETGLOBAL R3 := _G["fglib"]
+        16 [   0] GETTABLE  R3 := R3["gameservices"]
+        17 [   0] GETTABLE  R3 := R3["GameNetworkV3"]
+        18 [   0] GETTABLE  R3 := R3["getInstance"]
+        19 [   0] CALL      R3(...) nargs=0 nret=1
+        20 [   0] GETTABLE  R4 := R3["setLeaderboardScore"]
+        21 [   0] MOVE      R5 := R2
+        22 [   0] GETTABLE  R6 := R1["amount"]
+        23 [   0] CALL      R4(...) nargs=2 nret=0
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 165-212, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'clouduserhandler: cloudDataUpdated called!', 'isIPhone', 'require', 'cloud.icloudresolver', 'isAndroid', 'cloud.gcloudresolver', 'server.server', 'getInstance', 'FGLIB_PATH', 'gameservices.cloudv3', 'getAccount', 'getCloudAccountId', 'cloud cupdate local, icloud ', 'getUserId', '', 'clouduserhandler: cloudDataUpdated deffered, becaus of no local user', 'new', 'loginHandler', 'subscribeTo', 'login', 'getValue', 'userId', 'clouduserhandler: iCloudUserId found', 'basicUserInfoReceivedHandler', 'basicUserInfoReceived', 'requestUserBasicInfo', 'clouduserhandler: iCloudUserId NOT found', 'resolve'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "clouduserhandler: cloudDataUpdated called!"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] LOADNIL   R0..R0 := nil
+         5 [   0] GETUPVAL  R1 := upval 0
+         6 [   0] GETTABLE  R1 := R1["isIPhone"]
+         7 [   0] CALL      R1(...) nargs=0 nret=1
+         8 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +5 -> 15
+        10 [   0] GETGLOBAL R1 := _G["require"]
+        11 [   0] LOADK     R2 := "cloud.icloudresolver"
+        12 [   0] CALL      R1(...) nargs=1 nret=1
+        13 [   0] MOVE      R0 := R1
+        14 [   0] JMP       jmp +11 -> 26
+        15 [   0] GETUPVAL  R1 := upval 0
+        16 [   0] GETTABLE  R1 := R1["isAndroid"]
+        17 [   0] CALL      R1(...) nargs=0 nret=1
+        18 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        19 [   0] JMP       jmp +5 -> 25
+        20 [   0] GETGLOBAL R1 := _G["require"]
+        21 [   0] LOADK     R2 := "cloud.gcloudresolver"
+        22 [   0] CALL      R1(...) nargs=1 nret=1
+        23 [   0] MOVE      R0 := R1
+        24 [   0] JMP       jmp +1 -> 26
+        25 [   0] RETURN    return R0.. (0 values)
+        26 [   0] GETGLOBAL R1 := _G["require"]
+        27 [   0] LOADK     R2 := "server.server"
+        28 [   0] CALL      R1(...) nargs=1 nret=1
+        29 [   0] GETTABLE  R1 := R1["getInstance"]
+        30 [   0] CALL      R1(...) nargs=0 nret=1
+        31 [   0] GETGLOBAL R2 := _G["require"]
+        32 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+        33 [   0] LOADK     R4 := "gameservices.cloudv3"
+        34 [   0] CONCAT    R3 := R3 .. ... .. R4
+        35 [   0] CALL      R2(...) nargs=1 nret=1
+        36 [   0] GETTABLE  R2 := R2["getInstance"]
+        37 [   0] CALL      R2(...) nargs=0 nret=1
+        38 [   0] GETTABLE  R3 := R2["getAccount"]
+        39 [   0] CALL      R3(...) nargs=0 nret=1
+        40 [   0] GETTABLE  R4 := R1["getCloudAccountId"]
+        41 [   0] CALL      R4(...) nargs=0 nret=1
+        42 [   0] GETGLOBAL R5 := _G["log"]
+        43 [   0] GETTABLE  R5 := R5["msg"]
+        44 [   0] LOADK     R6 := "cloud cupdate local, icloud "
+        45 [   0] MOVE      R7 := R4
+        46 [   0] MOVE      R8 := R3
+        47 [   0] CALL      R5(...) nargs=3 nret=0
+        48 [   0] GETTABLE  R5 := R1["getUserId"]
+        49 [   0] CALL      R5(...) nargs=0 nret=1
+        50 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+        51 [   0] JMP       jmp +2 -> 54
+        52 [   0] EQ        if (R5 == "") ~= 0 then skip next
+        53 [   0] JMP       jmp +18 -> 72
+        54 [   0] GETGLOBAL R6 := _G["log"]
+        55 [   0] GETTABLE  R6 := R6["msg"]
+        56 [   0] LOADK     R7 := "clouduserhandler: cloudDataUpdated deffered, becaus of no local user"
+        57 [   0] CALL      R6(...) nargs=1 nret=0
+        58 [   0] GETUPVAL  R6 := upval 1
+        59 [   0] GETTABLE  R6 := R6["new"]
+        60 [   0] CALL      R6(...) nargs=0 nret=1
+        61 [   0] CLOSURE   R7 := closure #0
+        62 [   0] MOVE      R0 := R6
+        63 [   0] MOVE      R0 := R1
+        64 [   0] GETUPVAL  R0 := upval 2
+        65 [   0] SETTABLE  R6["loginHandler"] := R7
+        66 [   0] GETTABLE  R7 := R6["subscribeTo"]
+        67 [   0] MOVE      R8 := R1
+        68 [   0] LOADK     R9 := "login"
+        69 [   0] CALL      R7(...) nargs=2 nret=0
+        70 [   0] RETURN    return R0.. (0 values)
+        71 [   0] CLOSE     A=6 B=0 C=0
+        72 [   0] GETTABLE  R6 := R2["getValue"]
+        73 [   0] LOADK     R7 := "userId"
+        74 [   0] CALL      R6(...) nargs=1 nret=1
+        75 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        76 [   0] JMP       jmp +27 -> 104
+        77 [   0] GETGLOBAL R7 := _G["log"]
+        78 [   0] GETTABLE  R7 := R7["msg"]
+        79 [   0] LOADK     R8 := "clouduserhandler: iCloudUserId found"
+        80 [   0] MOVE      R9 := R6
+        81 [   0] CALL      R7(...) nargs=2 nret=0
+        82 [   0] GETUPVAL  R7 := upval 1
+        83 [   0] GETTABLE  R7 := R7["new"]
+        84 [   0] CALL      R7(...) nargs=0 nret=1
+        85 [   0] CLOSURE   R8 := closure #1
+        86 [   0] MOVE      R0 := R7
+        87 [   0] MOVE      R0 := R1
+        88 [   0] MOVE      R0 := R0
+        89 [   0] MOVE      R0 := R4
+        90 [   0] MOVE      R0 := R3
+        91 [   0] MOVE      R0 := R5
+        92 [   0] MOVE      R0 := R6
+        93 [   0] GETUPVAL  R0 := upval 3
+        94 [   0] SETTABLE  R7["basicUserInfoReceivedHandler"] := R8
+        95 [   0] GETTABLE  R8 := R7["subscribeTo"]
+        96 [   0] MOVE      R9 := R1
+        97 [   0] LOADK     R10 := "basicUserInfoReceived"
+        98 [   0] CALL      R8(...) nargs=2 nret=0
+        99 [   0] GETTABLE  R8 := R1["requestUserBasicInfo"]
+       100 [   0] MOVE      R9 := R6
+       101 [   0] CALL      R8(...) nargs=1 nret=0
+       102 [   0] CLOSE     A=7 B=0 C=0
+       103 [   0] JMP       jmp +13 -> 117
+       104 [   0] GETGLOBAL R7 := _G["log"]
+       105 [   0] GETTABLE  R7 := R7["msg"]
+       106 [   0] LOADK     R8 := "clouduserhandler: iCloudUserId NOT found"
+       107 [   0] CALL      R7(...) nargs=1 nret=0
+       108 [   0] GETTABLE  R7 := R0["resolve"]
+       109 [   0] MOVE      R8 := R4
+       110 [   0] MOVE      R9 := R3
+       111 [   0] MOVE      R10 := R5
+       112 [   0] MOVE      R11 := R6
+       113 [   0] CALL      R7(...) nargs=4 nret=1
+       114 [   0] GETUPVAL  R8 := upval 3
+       115 [   0] MOVE      R9 := R7
+       116 [   0] CALL      R8(...) nargs=1 nret=0
+       117 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#9.#0 (params=0, lines 185-188, upvals=[], locals=[])
+        constants: strings=['unsubscribeFrom', 'login', 'cloudDataUpdated'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+           2 [   0] GETUPVAL  R1 := upval 1
+           3 [   0] LOADK     R2 := "login"
+           4 [   0] CALL      R0(...) nargs=2 nret=0
+           5 [   0] GETUPVAL  R0 := upval 2
+           6 [   0] GETTABLE  R0 := R0["cloudDataUpdated"]
+           7 [   0] CALL      R0(...) nargs=0 nret=0
+           8 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#9.#1 (params=2, lines 198-204, upvals=[], locals=[])
+        constants: strings=['log', 'msg', 'clouduserhandler: requestUserBasicInfoHandler', 'unsubscribeFrom', 'basicUserInfoReceived', 'resolve'] numbers=[]
+           0 [   0] GETGLOBAL R2 := _G["log"]
+           1 [   0] GETTABLE  R2 := R2["msg"]
+           2 [   0] LOADK     R3 := "clouduserhandler: requestUserBasicInfoHandler"
+           3 [   0] MOVE      R4 := R1
+           4 [   0] CALL      R2(...) nargs=2 nret=0
+           5 [   0] GETUPVAL  R2 := upval 0
+           6 [   0] GETTABLE  R2 := R2["unsubscribeFrom"]
+           7 [   0] GETUPVAL  R3 := upval 1
+           8 [   0] LOADK     R4 := "basicUserInfoReceived"
+           9 [   0] CALL      R2(...) nargs=2 nret=0
+          10 [   0] GETUPVAL  R2 := upval 2
+          11 [   0] GETTABLE  R2 := R2["resolve"]
+          12 [   0] GETUPVAL  R3 := upval 3
+          13 [   0] GETUPVAL  R4 := upval 4
+          14 [   0] GETUPVAL  R5 := upval 5
+          15 [   0] GETUPVAL  R6 := upval 6
+          16 [   0] MOVE      R7 := R1
+          17 [   0] CALL      R2(...) nargs=5 nret=1
+          18 [   0] GETUPVAL  R3 := upval 7
+          19 [   0] MOVE      R4 := R2
+          20 [   0] CALL      R3(...) nargs=1 nret=0
+          21 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 219-224, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

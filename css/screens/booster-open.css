@@ -1,0 +1,239 @@
+/* Evoker Web - Booster screen after the 1.7.4 openbooster_def: cardshop_background_01 cavern, topbar_bg strip
+   with back arrow / gem count / token count / green refresh button, the 3x3 grid of flipcard backs with their
+   price (token + "1" or hud_gemiconsingle + gems), the zoomed card in its glowingcard frame with newcardglow rays
+   and a newcardsheen sweep, the "Card added to set" plate (cardnotification_progressbar). */
+
+.screen-body.booster-open {
+  position: absolute; inset: 0;
+  padding: 0; overflow: hidden;
+  background: url('/assets/orig/ui/cardshop_background_01.png') center bottom / cover no-repeat, #0b1418;
+}
+
+/* ---------- top bar ---------- */
+.booster-topbar {
+  position: absolute; left: 0; right: 0; top: 0; height: 98px; z-index: 5;
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 2px 12px 0;
+  background: url('/assets/orig/ui/topbar_bg.png') center bottom / 100% auto no-repeat, #1b1d1f;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .7);
+  transition: opacity .4s ease;
+}
+.booster-topbar.faded { opacity: 0; pointer-events: none; }
+.booster-backbtn { width: 64px; height: 90px; }
+.booster-res {
+  display: flex; align-items: center; gap: 10px;
+  height: 90px; padding: 0 8px;
+  font-size: 34px; font-weight: var(--fw-bold); color: var(--text);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .9);
+}
+.booster-res.gems { margin-left: 70px; min-width: 190px; }
+.booster-res.tokens { min-width: 140px; }
+.booster-res-img { width: 54px; height: 40px; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .8)); }
+.booster-res .token-img { width: 44px; height: 44px; }
+.booster-reset {
+  margin: 8px 0 0 auto; width: 78px; height: 78px; padding: 0;
+  border: 14px solid transparent;
+  border-image: url('/assets/orig/ui/frames/button_green.png') 30 fill / 18px stretch;
+  background: none;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform var(--t-fast), filter var(--t-fast);
+}
+.booster-reset:hover { filter: brightness(1.12); }
+.booster-reset:active { transform: scale(.95); }
+.booster-reset-icon { width: 40px; height: 46px; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .7)); }
+
+.booster-name {
+  position: absolute; left: 0; right: 0; top: 112px; z-index: 1;
+  text-align: center; font-size: 26px; font-weight: var(--fw-bold); color: var(--tan);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .95);
+  pointer-events: none;
+}
+
+/* token images (.token-img / .token-tri) and the popups come from shop.css, loaded with this screen */
+
+/* ---------- grid ---------- */
+.booster-grid { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.booster-cell {
+  position: absolute; width: 196px; height: 278px; padding: 0;
+  border: 0; background: transparent;
+  pointer-events: auto; cursor: pointer;
+  transition: transform var(--t-fast), filter var(--t-fast), opacity .35s ease;
+}
+.booster-cell:focus-visible { outline: 3px solid var(--tan); outline-offset: 4px; }
+.booster-back-face {
+  position: absolute; inset: 0;
+  border-radius: 8px;
+  background: url('/assets/orig/ui/flipcard.png') center / 100% 100% no-repeat;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .75);
+}
+.booster-back:hover .booster-back-face { filter: brightness(1.15) drop-shadow(0 0 14px rgba(150, 230, 255, .7)); }
+.booster-cost {
+  position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  font-size: 34px; font-weight: var(--fw-bold); color: #fff;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .95);
+  pointer-events: none;
+}
+.booster-cost-img { width: 70px; height: 62px; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .8)); }
+.booster-cost .token-tri { width: 70px; height: 66px; }
+.booster-cell.flash .booster-back-face { animation: boosterFlash .16s ease-in both; }
+@keyframes boosterFlash { to { filter: brightness(3) saturate(0); transform: scaleX(.1); } }
+
+/* face-up thumbnail: art in a rarity-coloured frame */
+.booster-face {
+  position: absolute; inset: 0;
+  border: 6px solid var(--r-common);
+  border-radius: 8px;
+  background: #0b0c0d;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .75), inset 0 0 0 2px rgba(0, 0, 0, .7);
+}
+.booster-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.booster-face-name {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 6px 6px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .85));
+  font-size: 17px; font-weight: var(--fw-bold); line-height: 1.1; text-align: center; color: #fff;
+}
+.booster-face.rarity-uncommon { border-color: var(--rt-uncommon); }
+.booster-face.rarity-rare { border-color: var(--rt-rare); }
+.booster-face.rarity-heroic { border-color: var(--rt-heroic); }
+.booster-face.rarity-legendary { border-color: var(--rt-legendary); }
+.booster-face.rarity-ultimate { border-color: var(--rt-ultimate); }
+.booster-cell.drawn:hover .booster-face { filter: brightness(1.1); }
+.booster-cell.pending { visibility: hidden; }
+
+/* sealed: the cards wait in the pack; dealing: they fly from the altar to their slot */
+.booster-grid.sealed .booster-cell { opacity: 0; pointer-events: none; }
+.booster-grid.dealing .booster-cell { animation: boosterDeal .55s cubic-bezier(.2, .8, .3, 1) both; animation-delay: var(--delay); }
+@keyframes boosterDeal {
+  from { transform: translate(var(--fx), var(--fy)) scale(.18) rotate(-8deg); opacity: 0; }
+  30% { opacity: 1; }
+  to { transform: none; opacity: 1; }
+}
+.booster-grid.discarding .booster-cell { animation: boosterDiscard .6s ease-in both; animation-delay: var(--delay); }
+@keyframes boosterDiscard {
+  30% { transform: scale(1.06); filter: brightness(1.6); }
+  to { transform: scale(.4) rotate(14deg); opacity: 0; filter: brightness(2.5); }
+}
+
+/* ---------- opening: the pack on the altar under a beam of light ---------- */
+.booster-layer { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.booster-layer > * { pointer-events: auto; }
+.booster-intro { position: absolute; inset: 0; cursor: pointer; }
+.booster-beam {
+  position: absolute; left: 340px; top: -40px; width: 40px; height: 860px;
+  background: linear-gradient(180deg, rgba(200, 245, 255, 0) 0%, rgba(200, 245, 255, .85) 70%, #fff 100%);
+  filter: blur(6px);
+  transform-origin: 50% 0;
+  animation: beamIn .7s ease-out both;
+}
+@keyframes beamIn { from { transform: scaleY(0); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+.booster-chest {
+  position: absolute; left: 360px; top: 820px; width: 0; height: 0;
+  transition: transform .65s cubic-bezier(.5, 0, .2, 1);
+}
+.booster-chest-card {
+  position: absolute; left: -26px; top: -74px; width: 52px; height: 74px;
+  border-radius: 3px;
+  box-shadow: 0 0 18px rgba(170, 240, 255, .9);
+  animation: chestBob 1.6s ease-in-out infinite;
+}
+@keyframes chestBob { 50% { transform: translateY(-6px); } }
+.booster-chest-glow {
+  position: absolute; left: -120px; top: -160px; width: 240px; height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 250, 255, .9) 0%, rgba(120, 220, 255, .45) 30%, rgba(80, 180, 255, 0) 68%);
+  mix-blend-mode: screen;
+  animation: chestGlow 1.2s ease-in-out infinite;
+}
+@keyframes chestGlow { 50% { transform: scale(1.15); opacity: .8; } }
+.booster-intro.grow .booster-chest { transform: translate(0, -180px) scale(5.4); }
+.booster-intro.grow .booster-beam { opacity: .4; transition: opacity .5s; }
+.booster-intro.burst .booster-chest { transform: translate(0, -180px) scale(7); opacity: 0; transition: transform .22s ease-out, opacity .22s ease-out; }
+.booster-intro.burst::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .95) 0%, rgba(190, 240, 255, .5) 35%, rgba(0, 0, 0, 0) 70%);
+  animation: burstFlash .3s ease-out both;
+}
+@keyframes burstFlash { from { opacity: 1; } to { opacity: 0; } }
+
+/* ---------- zoomed card ---------- */
+.booster-shade { position: absolute; inset: 0; background: rgba(0, 0, 0, .55); animation: fadeIn .25s ease both; cursor: pointer; }
+.booster-shade.out { animation: fadeOut .35s ease both; }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes fadeOut { to { opacity: 0; } }
+.booster-reveal {
+  position: absolute; left: 60px; top: 235.5px; /* centre (360, 650) minus half of the 600 x 829 card */
+  width: 600px; height: 829px;
+  transform: scale(var(--to-s));
+  transform-origin: 50% 50%;
+  animation: boosterZoom .45s cubic-bezier(.2, .8, .3, 1.1) both;
+  cursor: pointer;
+}
+@keyframes boosterZoom {
+  from { transform: translate(var(--from-x), var(--from-y)) scale(var(--from-s)); }
+  to { transform: scale(var(--to-s)); }
+}
+.booster-reveal.settle { animation: boosterSettle .38s cubic-bezier(.5, 0, .7, .4) both; }
+@keyframes boosterSettle {
+  from { transform: scale(var(--to-s)); }
+  to { transform: translate(var(--from-x), var(--from-y)) scale(var(--from-s)); }
+}
+.booster-reveal.no-anim, .booster-reveal.no-anim.settle { animation: none; }
+.booster-reveal .card-detail-wrap { position: relative; z-index: 1; }
+.booster-rays {
+  position: absolute; left: 50%; top: 50%; width: 1100px; height: 1300px;
+  transform: translate(-50%, -50%);
+  opacity: .8; pointer-events: none;
+  animation: boosterRays 2.6s ease-in-out infinite;
+}
+@keyframes boosterRays { 0%, 100% { opacity: .55; transform: translate(-50%, -50%) scale(1); } 50% { opacity: .9; transform: translate(-50%, -50%) scale(1.05); } }
+.booster-reveal.settle .booster-rays, .booster-reveal.settle .booster-glow { opacity: 0; transition: opacity .2s; }
+.booster-glow {
+  position: absolute; inset: -30px -28px;
+  background: var(--glow-img) center / 100% 100% no-repeat;
+  opacity: .9; pointer-events: none;
+  animation: boosterGlowPulse 2.2s ease-in-out infinite;
+}
+@keyframes boosterGlowPulse { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
+.booster-sheen { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
+.booster-sheen::after {
+  content: ''; position: absolute; top: -10%; left: -60%; width: 55%; height: 120%;
+  background: url('/assets/orig/ui/newcardsheen01.png') center / 100% 100% no-repeat;
+  opacity: .7; mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%, #000 65%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 35%, #000 65%, transparent);
+  animation: boosterSheen 1.1s ease-out .4s both;
+}
+@keyframes boosterSheen { from { left: -60%; } to { left: 110%; } }
+
+/* ---------- "Card added to set:" plate (new_card_notify_def) ---------- */
+.booster-setplate {
+  position: absolute; left: 40px; right: 40px; top: 104px; z-index: 3;
+  padding: 10px 22px 14px;
+  background: rgba(14, 16, 18, .94);
+  border: 3px solid #3a3d40; border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .8);
+  text-align: center;
+  animation: plateDrop .45s cubic-bezier(.2, .9, .3, 1.2) .2s both;
+}
+.booster-setplate.out { animation: plateUp .3s ease-in both; }
+@keyframes plateDrop { from { transform: translateY(-180px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes plateUp { to { transform: translateY(-180px); opacity: 0; } }
+.booster-setplate-label { font-size: 26px; font-weight: var(--fw-bold); color: #fff; }
+.booster-setplate-name { font-size: 34px; font-weight: var(--fw-bold); color: #8fd0ff; line-height: 1.2; }
+.booster-setplate-bar {
+  position: relative; height: 26px; margin-top: 8px;
+  background: url('/assets/orig/ui/cardnotification_progressbar.png') center / 100% 100% no-repeat;
+  border-radius: 4px; overflow: hidden;
+}
+.booster-setplate-fill { position: absolute; left: 6px; top: 9px; bottom: 9px; max-width: calc(100% - 12px); background: linear-gradient(180deg, #ffb35a, #e0661c); border-radius: 2px; }
+.booster-setplate-count { position: absolute; left: 22px; top: 1px; font-size: 18px; color: #fff; text-shadow: 0 1px 2px #000; }
+
+.booster-error { margin: 160px 40px; padding: 30px; display: flex; flex-direction: column; align-items: center; gap: 20px; font-size: 26px; text-align: center; }
+
+.booster-open.reduced .booster-cell, .booster-open.reduced .booster-rays, .booster-open.reduced .booster-glow,
+.booster-open.reduced .booster-sheen::after, .booster-open.reduced .booster-setplate { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .booster-cell, .booster-reveal, .booster-rays, .booster-glow, .booster-sheen::after, .booster-setplate, .booster-chest-card, .booster-chest-glow { animation: none; }
+}

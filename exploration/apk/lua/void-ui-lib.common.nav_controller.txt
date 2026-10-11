@@ -1,0 +1,856 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'storyboard', 'UI_LIB_PATH', 'common.util', 'effect', 'fade', 'time', 'getSceneBefore', 'getStack', 'setScene', 'pushScene', 'pushView', 'popScene', 'getStackSize', 'isRootScene', 'getBackName', 'getActual', 'addListener', 'removeListener', 'popView', 'popViews', 'popViewsFixed', 'popToScene', 'popSceneMod', 'popToFirstSceneMod', 'setAutoPurge', 'setDefaultFading', 'topIsScene', 'blockEvents', 'unblockEvents', 'isOnStack'] numbers=[10]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "storyboard"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+     5 [   0] LOADK     R3 := "common.util"
+     6 [   0] CONCAT    R2 := R2 .. ... .. R3
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+     9 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+    10 [   0] LOADNIL   R4..R5 := nil
+    11 [   0] LOADBOOL  R6 := False
+    12 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+    13 [   0] SETTABLE  R7["effect"] := "fade"
+    14 [   0] SETTABLE  R7["time"] := 10
+    15 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+    16 [   0] SETTABLE  R8["effect"] := "fade"
+    17 [   0] SETTABLE  R8["time"] := 10
+    18 [   0] CLOSURE   R9 := closure #0
+    19 [   0] MOVE      R0 := R3
+    20 [   0] CLOSURE   R10 := closure #1
+    21 [   0] MOVE      R0 := R3
+    22 [   0] CLOSURE   R11 := closure #2
+    23 [   0] MOVE      R0 := R2
+    24 [   0] CLOSURE   R12 := closure #3
+    25 [   0] MOVE      R0 := R11
+    26 [   0] MOVE      R0 := R2
+    27 [   0] CLOSURE   R13 := closure #4
+    28 [   0] MOVE      R0 := R6
+    29 [   0] MOVE      R0 := R12
+    30 [   0] MOVE      R0 := R3
+    31 [   0] CLOSURE   R14 := closure #5
+    32 [   0] MOVE      R0 := R6
+    33 [   0] CLOSURE   R15 := closure #6
+    34 [   0] MOVE      R0 := R6
+    35 [   0] CLOSURE   R16 := closure #7
+    36 [   0] MOVE      R0 := R2
+    37 [   0] CLOSURE   R17 := closure #8
+    38 [   0] MOVE      R0 := R2
+    39 [   0] CLOSURE   R18 := closure #9
+    40 [   0] MOVE      R0 := R0
+    41 [   0] CLOSURE   R19 := closure #10
+    42 [   0] MOVE      R0 := R7
+    43 [   0] MOVE      R0 := R8
+    44 [   0] CLOSURE   R20 := closure #11
+    45 [   0] MOVE      R0 := R17
+    46 [   0] MOVE      R0 := R2
+    47 [   0] CLOSURE   R21 := closure #12
+    48 [   0] MOVE      R0 := R5
+    49 [   0] CLOSURE   R22 := closure #13
+    50 [   0] MOVE      R0 := R13
+    51 [   0] MOVE      R0 := R2
+    52 [   0] MOVE      R0 := R5
+    53 [   0] MOVE      R0 := R4
+    54 [   0] MOVE      R0 := R0
+    55 [   0] CLOSURE   R23 := closure #14
+    56 [   0] MOVE      R0 := R17
+    57 [   0] MOVE      R0 := R2
+    58 [   0] MOVE      R0 := R1
+    59 [   0] MOVE      R0 := R7
+    60 [   0] MOVE      R0 := R22
+    61 [   0] MOVE      R0 := R0
+    62 [   0] CLOSURE   R24 := closure #15
+    63 [   0] MOVE      R0 := R2
+    64 [   0] CLOSURE   R25 := closure #16
+    65 [   0] MOVE      R0 := R23
+    66 [   0] CLOSURE   R26 := closure #17
+    67 [   0] MOVE      R0 := R4
+    68 [   0] MOVE      R0 := R22
+    69 [   0] LOADNIL   R27..R27 := nil
+    70 [   0] CLOSURE   R28 := closure #18
+    71 [   0] MOVE      R0 := R2
+    72 [   0] MOVE      R0 := R13
+    73 [   0] MOVE      R0 := R4
+    74 [   0] MOVE      R0 := R1
+    75 [   0] MOVE      R0 := R8
+    76 [   0] MOVE      R0 := R0
+    77 [   0] CLOSURE   R27 := closure #19
+    78 [   0] MOVE      R0 := R17
+    79 [   0] MOVE      R0 := R2
+    80 [   0] MOVE      R0 := R28
+    81 [   0] CLOSURE   R29 := closure #20
+    82 [   0] MOVE      R0 := R2
+    83 [   0] MOVE      R0 := R13
+    84 [   0] CLOSURE   R30 := closure #21
+    85 [   0] MOVE      R0 := R2
+    86 [   0] MOVE      R0 := R13
+    87 [   0] CLOSURE   R31 := closure #22
+    88 [   0] MOVE      R0 := R17
+    89 [   0] MOVE      R0 := R13
+    90 [   0] MOVE      R0 := R2
+    91 [   0] CLOSURE   R32 := closure #23
+    92 [   0] MOVE      R0 := R2
+    93 [   0] MOVE      R0 := R13
+    94 [   0] MOVE      R0 := R4
+    95 [   0] MOVE      R0 := R1
+    96 [   0] MOVE      R0 := R8
+    97 [   0] MOVE      R0 := R0
+    98 [   0] CLOSURE   R33 := closure #24
+    99 [   0] MOVE      R0 := R2
+   100 [   0] MOVE      R0 := R13
+   101 [   0] MOVE      R0 := R4
+   102 [   0] MOVE      R0 := R1
+   103 [   0] MOVE      R0 := R8
+   104 [   0] MOVE      R0 := R0
+   105 [   0] CLOSURE   R34 := closure #25
+   106 [   0] MOVE      R0 := R2
+   107 [   0] CLOSURE   R35 := closure #26
+   108 [   0] MOVE      R0 := R2
+   109 [   0] NEWTABLE  R36 := {} (array 0, hash 20)
+   110 [   0] SETTABLE  R36["getSceneBefore"] := R21
+   111 [   0] SETTABLE  R36["getStack"] := R24
+   112 [   0] SETTABLE  R36["setScene"] := R25
+   113 [   0] SETTABLE  R36["pushScene"] := R23
+   114 [   0] SETTABLE  R36["pushView"] := R26
+   115 [   0] SETTABLE  R36["popScene"] := R28
+   116 [   0] SETTABLE  R36["getStackSize"] := R16
+   117 [   0] SETTABLE  R36["isRootScene"] := R17
+   118 [   0] SETTABLE  R36["getBackName"] := R20
+   119 [   0] SETTABLE  R36["getActual"] := R11
+   120 [   0] SETTABLE  R36["addListener"] := R9
+   121 [   0] SETTABLE  R36["removeListener"] := R10
+   122 [   0] SETTABLE  R36["popView"] := R29
+   123 [   0] SETTABLE  R36["popViews"] := R31
+   124 [   0] SETTABLE  R36["popViewsFixed"] := R30
+   125 [   0] SETTABLE  R36["popToScene"] := R27
+   126 [   0] SETTABLE  R36["popSceneMod"] := R32
+   127 [   0] SETTABLE  R36["popToFirstSceneMod"] := R33
+   128 [   0] SETTABLE  R36["setAutoPurge"] := R18
+   129 [   0] SETTABLE  R36["setDefaultFading"] := R19
+   130 [   0] SETTABLE  R36["topIsScene"] := R34
+   131 [   0] SETTABLE  R36["blockEvents"] := R14
+   132 [   0] SETTABLE  R36["unblockEvents"] := R15
+   133 [   0] SETTABLE  R36["isOnStack"] := R35
+   134 [   0] RETURN    return R36.. (1 values)
+   135 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 20-22, upvals=[], locals=[])
+    constants: strings=[] numbers=[1]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] LEN       R2 := #R2
+       3 [   0] ADD       R2 := R2 + 1
+       4 [   0] SETTABLE  R1[R2] := R0
+       5 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 24-31, upvals=[], locals=[])
+    constants: strings=['table', 'remove'] numbers=[1]
+       0 [   0] LOADK     R1 := 1
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] LEN       R2 := #R2
+       3 [   0] LOADK     R3 := 1
+       4 [   0] FORPREP   for R1.. jmp +10
+       5 [   0] GETUPVAL  R5 := upval 0
+       6 [   0] GETTABLE  R5 := R5[R4]
+       7 [   0] EQ        if (R5 == R0) ~= 0 then skip next
+       8 [   0] JMP       jmp +6 -> 15
+       9 [   0] GETGLOBAL R5 := _G["table"]
+      10 [   0] GETTABLE  R5 := R5["remove"]
+      11 [   0] GETUPVAL  R6 := upval 0
+      12 [   0] MOVE      R7 := R4
+      13 [   0] CALL      R5(...) nargs=2 nret=0
+      14 [   0] RETURN    return R0.. (0 values)
+      15 [   0] FORLOOP   forloop R1 jmp -11
+      16 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 33-35, upvals=[], locals=[])
+    constants: strings=['scene', 'undefined'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 0
+       2 [   0] LEN       R1 := #R1
+       3 [   0] GETTABLE  R0 := R0[R1]
+       4 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+       5 [   0] JMP       jmp +2 -> 8
+       6 [   0] NEWTABLE  R0 := {} (array 0, hash 1)
+       7 [   0] SETTABLE  R0["scene"] := "undefined"
+       8 [   0] RETURN    return R0.. (1 values)
+       9 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=1, lines 37-50, upvals=[], locals=[])
+    constants: strings=['scene', 'id', 'log', 'assert', 'Needs a >id< param, like all the other navcontroller-pushable things!', 'type', 'sceneChange', 'name', 'stackSize', 'trackingContext'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] CALL      R1(...) nargs=0 nret=1
+       2 [   0] GETTABLE  R2 := R1["scene"]
+       3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] GETTABLE  R2 := R1["id"]
+       6 [   0] GETGLOBAL R3 := _G["log"]
+       7 [   0] GETTABLE  R3 := R3["assert"]
+       8 [   0] MOVE      R4 := R2
+       9 [   0] LOADK     R5 := "Needs a >id< param, like all the other navcontroller-pushable things!"
+      10 [   0] CALL      R3(...) nargs=2 nret=0
+      11 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+      12 [   0] TESTSET   if (R0 truthy) == 1 then R4 := R0 else skip next
+      13 [   0] JMP       jmp +1 -> 15
+      14 [   0] LOADK     R4 := "sceneChange"
+      15 [   0] SETTABLE  R3["type"] := R4
+      16 [   0] SETTABLE  R3["name"] := R2
+      17 [   0] GETUPVAL  R4 := upval 1
+      18 [   0] LEN       R4 := #R4
+      19 [   0] SETTABLE  R3["stackSize"] := R4
+      20 [   0] GETTABLE  R4 := R1["trackingContext"]
+      21 [   0] SETTABLE  R3["trackingContext"] := R4
+      22 [   0] RETURN    return R3.. (1 values)
+      23 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=1, lines 52-61, upvals=[], locals=[])
+    constants: strings=['log', 'msg', 'event dispatching is blocked', 'ipairs'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       2 [   0] JMP       jmp +5 -> 8
+       3 [   0] GETGLOBAL R1 := _G["log"]
+       4 [   0] GETTABLE  R1 := R1["msg"]
+       5 [   0] LOADK     R2 := "event dispatching is blocked"
+       6 [   0] CALL      R1(...) nargs=1 nret=0
+       7 [   0] RETURN    return R0.. (0 values)
+       8 [   0] GETUPVAL  R1 := upval 1
+       9 [   0] MOVE      R2 := R0
+      10 [   0] CALL      R1(...) nargs=1 nret=1
+      11 [   0] GETGLOBAL R2 := _G["ipairs"]
+      12 [   0] GETUPVAL  R3 := upval 2
+      13 [   0] CALL      R2(...) nargs=1 nret=3
+      14 [   0] JMP       jmp +3 -> 18
+      15 [   0] MOVE      R7 := R6
+      16 [   0] MOVE      R8 := R1
+      17 [   0] CALL      R7(...) nargs=1 nret=0
+      18 [   0] TFORLOOP  tforloop R2 nres=2
+      19 [   0] JMP       jmp -5 -> 15
+      20 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=0, lines 63-65, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] LOADBOOL  R0 := True
+       1 [   0] SETUPVAL  upval 0 := R0
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=0, lines 66-68, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] LOADBOOL  R0 := False
+       1 [   0] SETUPVAL  upval 0 := R0
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=0, lines 70-72, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] LEN       R0 := #R0
+       2 [   0] RETURN    return R0.. (1 values)
+       3 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=0, lines 74-76, upvals=[], locals=[])
+    constants: strings=[] numbers=[1]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] LEN       R0 := #R0
+       2 [   0] EQ        if (R0 == 1) ~= 1 then skip next
+       3 [   0] JMP       jmp +1 -> 5
+       4 [   0] LOADBOOL  R0 := False (skip)
+       5 [   0] LOADBOOL  R0 := True
+       6 [   0] RETURN    return R0.. (1 values)
+       7 [   0] RETURN    return R0.. (0 values)
+  function main.#9 (params=1, lines 78-80, upvals=[], locals=[])
+    constants: strings=['purgeOnSceneChange'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] SETTABLE  R1["purgeOnSceneChange"] := R0
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#10 (params=2, lines 82-87, upvals=[], locals=[])
+    constants: strings=['effect', 'time'] numbers=[]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] SETTABLE  R2["effect"] := R0
+       2 [   0] GETUPVAL  R2 := upval 0
+       3 [   0] SETTABLE  R2["time"] := R1
+       4 [   0] GETUPVAL  R2 := upval 1
+       5 [   0] SETTABLE  R2["effect"] := R0
+       6 [   0] GETUPVAL  R2 := upval 1
+       7 [   0] SETTABLE  R2["time"] := R1
+       8 [   0] RETURN    return R0.. (0 values)
+  function main.#11 (params=0, lines 89-95, upvals=[], locals=[])
+    constants: strings=['name', 'Back'] numbers=[1]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] CALL      R0(...) nargs=0 nret=1
+       2 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+       3 [   0] JMP       jmp +10 -> 14
+       4 [   0] GETUPVAL  R0 := upval 1
+       5 [   0] GETUPVAL  R1 := upval 1
+       6 [   0] LEN       R1 := #R1
+       7 [   0] SUB       R1 := R1 - 1
+       8 [   0] GETTABLE  R0 := R0[R1]
+       9 [   0] GETTABLE  R1 := R0["name"]
+      10 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+      11 [   0] JMP       jmp +1 -> 13
+      12 [   0] LOADK     R1 := "Back"
+      13 [   0] RETURN    return R1.. (1 values)
+      14 [   0] LOADNIL   R0..R0 := nil
+      15 [   0] RETURN    return R0.. (1 values)
+      16 [   0] RETURN    return R0.. (0 values)
+  function main.#12 (params=0, lines 97-99, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#13 (params=2, lines 101-122, upvals=[], locals=[])
+    constants: strings=['LEAVE', 'id', 'hide', 'table', 'remove', 'show', 'gotoScene', 'scene', 'ENTER'] numbers=[1]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] LOADK     R3 := "LEAVE"
+       2 [   0] CALL      R2(...) nargs=1 nret=0
+       3 [   0] LOADK     R2 := 1
+       4 [   0] GETUPVAL  R3 := upval 1
+       5 [   0] LEN       R3 := #R3
+       6 [   0] LOADK     R4 := 1
+       7 [   0] FORPREP   for R2.. jmp +24
+       8 [   0] GETUPVAL  R6 := upval 1
+       9 [   0] GETTABLE  R6 := R6[R5]
+      10 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      11 [   0] JMP       jmp +20 -> 32
+      12 [   0] GETTABLE  R6 := R0["id"]
+      13 [   0] GETUPVAL  R7 := upval 1
+      14 [   0] GETTABLE  R7 := R7[R5]
+      15 [   0] GETTABLE  R7 := R7["id"]
+      16 [   0] EQ        if (R6 == R7) ~= 0 then skip next
+      17 [   0] JMP       jmp +14 -> 32
+      18 [   0] GETUPVAL  R6 := upval 1
+      19 [   0] GETTABLE  R6 := R6[R5]
+      20 [   0] GETTABLE  R6 := R6["hide"]
+      21 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      22 [   0] JMP       jmp +9 -> 32
+      23 [   0] GETUPVAL  R6 := upval 1
+      24 [   0] GETTABLE  R6 := R6[R5]
+      25 [   0] GETTABLE  R6 := R6["hide"]
+      26 [   0] CALL      R6(...) nargs=0 nret=0
+      27 [   0] GETGLOBAL R6 := _G["table"]
+      28 [   0] GETTABLE  R6 := R6["remove"]
+      29 [   0] GETUPVAL  R7 := upval 1
+      30 [   0] MOVE      R8 := R5
+      31 [   0] CALL      R6(...) nargs=2 nret=0
+      32 [   0] FORLOOP   forloop R2 jmp -25
+      33 [   0] GETUPVAL  R2 := upval 1
+      34 [   0] GETUPVAL  R3 := upval 1
+      35 [   0] LEN       R3 := #R3
+      36 [   0] ADD       R3 := R3 + 1
+      37 [   0] SETTABLE  R2[R3] := R0
+      38 [   0] GETTABLE  R2 := R0["show"]
+      39 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      40 [   0] JMP       jmp +3 -> 44
+      41 [   0] GETTABLE  R2 := R0["show"]
+      42 [   0] CALL      R2(...) nargs=0 nret=0
+      43 [   0] JMP       jmp +9 -> 53
+      44 [   0] GETUPVAL  R2 := upval 3
+      45 [   0] SETUPVAL  upval 2 := R2
+      46 [   0] GETUPVAL  R2 := upval 4
+      47 [   0] GETTABLE  R2 := R2["gotoScene"]
+      48 [   0] GETTABLE  R3 := R0["scene"]
+      49 [   0] MOVE      R4 := R1
+      50 [   0] CALL      R2(...) nargs=2 nret=0
+      51 [   0] GETTABLE  R2 := R0["scene"]
+      52 [   0] SETUPVAL  upval 3 := R2
+      53 [   0] GETUPVAL  R2 := upval 0
+      54 [   0] LOADK     R3 := "ENTER"
+      55 [   0] CALL      R2(...) nargs=1 nret=0
+      56 [   0] RETURN    return R0.. (0 values)
+  function main.#14 (params=5, lines 124-164, upvals=[], locals=[])
+    constants: strings=['show', 'hide', 'table', 'remove', 'scene', 'pushParams', 'flatCopy', 'popParams', 'name', 'params', 'getScene', 'backOnTop', 'purgeOnSceneChange', 'purgeAll'] numbers=[]
+       0 [   0] LOADBOOL  R5 := False
+       1 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+       2 [   0] JMP       jmp +37 -> 40
+       3 [   0] GETUPVAL  R6 := upval 0
+       4 [   0] CALL      R6(...) nargs=0 nret=1
+       5 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+       6 [   0] JMP       jmp +33 -> 40
+       7 [   0] GETUPVAL  R6 := upval 1
+       8 [   0] GETUPVAL  R7 := upval 1
+       9 [   0] LEN       R7 := #R7
+      10 [   0] GETTABLE  R6 := R6[R7]
+      11 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      12 [   0] JMP       jmp +25 -> 38
+      13 [   0] GETUPVAL  R6 := upval 1
+      14 [   0] GETUPVAL  R7 := upval 1
+      15 [   0] LEN       R7 := #R7
+      16 [   0] GETTABLE  R6 := R6[R7]
+      17 [   0] GETTABLE  R6 := R6["show"]
+      18 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      19 [   0] JMP       jmp +18 -> 38
+      20 [   0] GETUPVAL  R6 := upval 1
+      21 [   0] GETUPVAL  R7 := upval 1
+      22 [   0] LEN       R7 := #R7
+      23 [   0] GETTABLE  R6 := R6[R7]
+      24 [   0] GETTABLE  R6 := R6["hide"]
+      25 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      26 [   0] JMP       jmp +6 -> 33
+      27 [   0] GETUPVAL  R6 := upval 1
+      28 [   0] GETUPVAL  R7 := upval 1
+      29 [   0] LEN       R7 := #R7
+      30 [   0] GETTABLE  R6 := R6[R7]
+      31 [   0] GETTABLE  R6 := R6["hide"]
+      32 [   0] CALL      R6(...) nargs=0 nret=0
+      33 [   0] GETGLOBAL R6 := _G["table"]
+      34 [   0] GETTABLE  R6 := R6["remove"]
+      35 [   0] GETUPVAL  R7 := upval 1
+      36 [   0] CALL      R6(...) nargs=1 nret=0
+      37 [   0] JMP       jmp -37 -> 1
+      38 [   0] LOADBOOL  R5 := True
+      39 [   0] JMP       jmp -39 -> 1
+      40 [   0] GETUPVAL  R6 := upval 1
+      41 [   0] GETUPVAL  R7 := upval 1
+      42 [   0] LEN       R7 := #R7
+      43 [   0] GETTABLE  R6 := R6[R7]
+      44 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      45 [   0] JMP       jmp +13 -> 59
+      46 [   0] GETUPVAL  R6 := upval 1
+      47 [   0] GETUPVAL  R7 := upval 1
+      48 [   0] LEN       R7 := #R7
+      49 [   0] GETTABLE  R6 := R6[R7]
+      50 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      51 [   0] JMP       jmp +41 -> 93
+      52 [   0] GETUPVAL  R6 := upval 1
+      53 [   0] GETUPVAL  R7 := upval 1
+      54 [   0] LEN       R7 := #R7
+      55 [   0] GETTABLE  R6 := R6[R7]
+      56 [   0] GETTABLE  R6 := R6["scene"]
+      57 [   0] EQ        if (R6 == R0) ~= 1 then skip next
+      58 [   0] JMP       jmp +34 -> 93
+      59 [   0] NEWTABLE  R6 := {} (array 0, hash 4)
+      60 [   0] SETTABLE  R6["scene"] := R0
+      61 [   0] GETUPVAL  R7 := upval 2
+      62 [   0] GETTABLE  R7 := R7["flatCopy"]
+      63 [   0] TESTSET   if (R2 truthy) == 1 then R8 := R2 else skip next
+      64 [   0] JMP       jmp +1 -> 66
+      65 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+      66 [   0] CALL      R7(...) nargs=1 nret=1
+      67 [   0] SETTABLE  R6["pushParams"] := R7
+      68 [   0] GETUPVAL  R7 := upval 2
+      69 [   0] GETTABLE  R7 := R7["flatCopy"]
+      70 [   0] TESTSET   if (R3 truthy) == 1 then R8 := R3 else skip next
+      71 [   0] JMP       jmp +1 -> 73
+      72 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+      73 [   0] CALL      R7(...) nargs=1 nret=1
+      74 [   0] SETTABLE  R6["popParams"] := R7
+      75 [   0] SETTABLE  R6["name"] := R1
+      76 [   0] GETUPVAL  R7 := upval 2
+      77 [   0] GETTABLE  R7 := R7["flatCopy"]
+      78 [   0] GETUPVAL  R8 := upval 3
+      79 [   0] CALL      R7(...) nargs=1 nret=1
+      80 [   0] GETTABLE  R8 := R6["pushParams"]
+      81 [   0] SETTABLE  R7["params"] := R8
+      82 [   0] GETUPVAL  R8 := upval 4
+      83 [   0] MOVE      R9 := R6
+      84 [   0] MOVE      R10 := R7
+      85 [   0] CALL      R8(...) nargs=2 nret=0
+      86 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      87 [   0] JMP       jmp +25 -> 113
+      88 [   0] NEWTABLE  R8 := {} (array 1, hash 0)
+      89 [   0] MOVE      R9 := R6
+      90 [   0] SETLIST   R8[...] := R9.. (n=1, block 1)
+      91 [   0] SETUPVAL  upval 1 := R8
+      92 [   0] JMP       jmp +20 -> 113
+      93 [   0] GETUPVAL  R6 := upval 5
+      94 [   0] GETTABLE  R6 := R6["getScene"]
+      95 [   0] MOVE      R7 := R0
+      96 [   0] CALL      R6(...) nargs=1 nret=1
+      97 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+      98 [   0] JMP       jmp +14 -> 113
+      99 [   0] GETTABLE  R7 := R6["backOnTop"]
+     100 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+     101 [   0] JMP       jmp +11 -> 113
+     102 [   0] SELF      R8 := R6; R7 := R6["backOnTop"]
+     103 [   0] NEWTABLE  R9 := {} (array 0, hash 2)
+     104 [   0] GETUPVAL  R10 := upval 2
+     105 [   0] GETTABLE  R10 := R10["flatCopy"]
+     106 [   0] TESTSET   if (R2 truthy) == 1 then R11 := R2 else skip next
+     107 [   0] JMP       jmp +1 -> 109
+     108 [   0] NEWTABLE  R11 := {} (array 0, hash 0)
+     109 [   0] CALL      R10(...) nargs=1 nret=1
+     110 [   0] SETTABLE  R9["params"] := R10
+     111 [   0] SETTABLE  R9["name"] := R1
+     112 [   0] CALL      R7(...) nargs=2 nret=0
+     113 [   0] GETUPVAL  R6 := upval 5
+     114 [   0] GETTABLE  R6 := R6["purgeOnSceneChange"]
+     115 [   0] EQ        if (R6 == False) ~= 0 then skip next
+     116 [   0] JMP       jmp +3 -> 120
+     117 [   0] GETUPVAL  R6 := upval 5
+     118 [   0] GETTABLE  R6 := R6["purgeAll"]
+     119 [   0] CALL      R6(...) nargs=0 nret=0
+     120 [   0] RETURN    return R0.. (0 values)
+  function main.#15 (params=0, lines 166-168, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#16 (params=4, lines 170-172, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R4 := upval 0
+       1 [   0] MOVE      R5 := R0
+       2 [   0] MOVE      R6 := R1
+       3 [   0] MOVE      R7 := R2
+       4 [   0] MOVE      R8 := R3
+       5 [   0] LOADBOOL  R9 := True
+       6 [   0] CALL      R4(...) nargs=5 nret=0
+       7 [   0] RETURN    return R0.. (0 values)
+  function main.#17 (params=6, lines 174-186, upvals=[], locals=[])
+    constants: strings=['actualScene', 'show', 'hide', 'name', 'id', 'keepBottomHud', 'trackingContext'] numbers=[]
+       0 [   0] NEWTABLE  R6 := {} (array 0, hash 7)
+       1 [   0] GETUPVAL  R7 := upval 0
+       2 [   0] SETTABLE  R6["actualScene"] := R7
+       3 [   0] SETTABLE  R6["show"] := R0
+       4 [   0] SETTABLE  R6["hide"] := R1
+       5 [   0] SETTABLE  R6["name"] := R2
+       6 [   0] SETTABLE  R6["id"] := R3
+       7 [   0] SETTABLE  R6["keepBottomHud"] := R4
+       8 [   0] SETTABLE  R6["trackingContext"] := R5
+       9 [   0] GETUPVAL  R7 := upval 1
+      10 [   0] MOVE      R8 := R6
+      11 [   0] CALL      R7(...) nargs=1 nret=0
+      12 [   0] RETURN    return R0.. (0 values)
+  function main.#18 (params=0, lines 190-212, upvals=[], locals=[])
+    constants: strings=['log', 'msg', 'WARNING: trying popping top level scene', 'LEAVE', 'table', 'remove', 'hide', 'scene', 'flatCopy', 'params', 'popParams', 'gotoScene', 'show', 'ENTER'] numbers=[1]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] LEN       R0 := #R0
+       2 [   0] LE        if (R0 <= 1) ~= 0 then skip next
+       3 [   0] JMP       jmp +5 -> 9
+       4 [   0] GETGLOBAL R0 := _G["log"]
+       5 [   0] GETTABLE  R0 := R0["msg"]
+       6 [   0] LOADK     R1 := "WARNING: trying popping top level scene"
+       7 [   0] CALL      R0(...) nargs=1 nret=0
+       8 [   0] RETURN    return R0.. (0 values)
+       9 [   0] GETUPVAL  R0 := upval 0
+      10 [   0] GETUPVAL  R1 := upval 0
+      11 [   0] LEN       R1 := #R1
+      12 [   0] GETTABLE  R0 := R0[R1]
+      13 [   0] GETUPVAL  R1 := upval 1
+      14 [   0] LOADK     R2 := "LEAVE"
+      15 [   0] CALL      R1(...) nargs=1 nret=0
+      16 [   0] GETGLOBAL R1 := _G["table"]
+      17 [   0] GETTABLE  R1 := R1["remove"]
+      18 [   0] GETUPVAL  R2 := upval 0
+      19 [   0] CALL      R1(...) nargs=1 nret=0
+      20 [   0] GETTABLE  R1 := R0["hide"]
+      21 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      22 [   0] JMP       jmp +2 -> 25
+      23 [   0] GETTABLE  R1 := R0["hide"]
+      24 [   0] CALL      R1(...) nargs=0 nret=0
+      25 [   0] GETUPVAL  R1 := upval 0
+      26 [   0] GETUPVAL  R2 := upval 0
+      27 [   0] LEN       R2 := #R2
+      28 [   0] GETTABLE  R1 := R1[R2]
+      29 [   0] GETTABLE  R2 := R1["scene"]
+      30 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      31 [   0] JMP       jmp +24 -> 56
+      32 [   0] GETTABLE  R2 := R1["scene"]
+      33 [   0] GETUPVAL  R3 := upval 2
+      34 [   0] EQ        if (R2 == R3) ~= 1 then skip next
+      35 [   0] JMP       jmp +20 -> 56
+      36 [   0] GETUPVAL  R2 := upval 3
+      37 [   0] GETTABLE  R2 := R2["flatCopy"]
+      38 [   0] GETUPVAL  R3 := upval 4
+      39 [   0] CALL      R2(...) nargs=1 nret=1
+      40 [   0] GETUPVAL  R3 := upval 3
+      41 [   0] GETTABLE  R3 := R3["flatCopy"]
+      42 [   0] GETTABLE  R4 := R0["popParams"]
+      43 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+      44 [   0] JMP       jmp +1 -> 46
+      45 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+      46 [   0] CALL      R3(...) nargs=1 nret=1
+      47 [   0] SETTABLE  R2["params"] := R3
+      48 [   0] GETUPVAL  R3 := upval 5
+      49 [   0] GETTABLE  R3 := R3["gotoScene"]
+      50 [   0] GETTABLE  R4 := R1["scene"]
+      51 [   0] MOVE      R5 := R2
+      52 [   0] CALL      R3(...) nargs=2 nret=0
+      53 [   0] GETTABLE  R3 := R1["scene"]
+      54 [   0] SETUPVAL  upval 2 := R3
+      55 [   0] JMP       jmp +5 -> 61
+      56 [   0] GETTABLE  R2 := R1["show"]
+      57 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      58 [   0] JMP       jmp +2 -> 61
+      59 [   0] GETTABLE  R2 := R1["show"]
+      60 [   0] CALL      R2(...) nargs=0 nret=0
+      61 [   0] GETUPVAL  R2 := upval 1
+      62 [   0] LOADK     R3 := "ENTER"
+      63 [   0] CALL      R2(...) nargs=1 nret=0
+      64 [   0] RETURN    return R0.. (0 values)
+  function main.#19 (params=1, lines 214-223, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] CALL      R1(...) nargs=0 nret=1
+       2 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       3 [   0] JMP       jmp +11 -> 15
+       4 [   0] GETUPVAL  R1 := upval 1
+       5 [   0] GETUPVAL  R2 := upval 1
+       6 [   0] LEN       R2 := #R2
+       7 [   0] GETTABLE  R1 := R1[R2]
+       8 [   0] EQ        if (R1 == R0) ~= 0 then skip next
+       9 [   0] JMP       jmp +2 -> 12
+      10 [   0] RETURN    return R0.. (0 values)
+      11 [   0] JMP       jmp -12 -> 0
+      12 [   0] GETUPVAL  R1 := upval 2
+      13 [   0] CALL      R1(...) nargs=0 nret=0
+      14 [   0] JMP       jmp -15 -> 0
+      15 [   0] RETURN    return R0.. (0 values)
+  function main.#20 (params=0, lines 225-234, upvals=[], locals=[])
+    constants: strings=['LEAVE', 'actualScene', 'table', 'remove', 'hide', 'ENTER'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 0
+       2 [   0] LEN       R1 := #R1
+       3 [   0] GETTABLE  R0 := R0[R1]
+       4 [   0] GETUPVAL  R1 := upval 1
+       5 [   0] LOADK     R2 := "LEAVE"
+       6 [   0] CALL      R1(...) nargs=1 nret=0
+       7 [   0] GETTABLE  R1 := R0["actualScene"]
+       8 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +9 -> 19
+      10 [   0] GETGLOBAL R1 := _G["table"]
+      11 [   0] GETTABLE  R1 := R1["remove"]
+      12 [   0] GETUPVAL  R2 := upval 0
+      13 [   0] CALL      R1(...) nargs=1 nret=0
+      14 [   0] GETTABLE  R1 := R0["hide"]
+      15 [   0] CALL      R1(...) nargs=0 nret=0
+      16 [   0] GETUPVAL  R1 := upval 1
+      17 [   0] LOADK     R2 := "ENTER"
+      18 [   0] CALL      R1(...) nargs=1 nret=0
+      19 [   0] RETURN    return R0.. (0 values)
+  function main.#21 (params=0, lines 236-245, upvals=[], locals=[])
+    constants: strings=['actualScene', 'LEAVE', 'table', 'remove', 'hide', 'ENTER'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 0
+       2 [   0] LEN       R1 := #R1
+       3 [   0] GETTABLE  R0 := R0[R1]
+       4 [   0] GETTABLE  R1 := R0["actualScene"]
+       5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       6 [   0] JMP       jmp +14 -> 21
+       7 [   0] GETUPVAL  R1 := upval 1
+       8 [   0] LOADK     R2 := "LEAVE"
+       9 [   0] CALL      R1(...) nargs=1 nret=0
+      10 [   0] GETGLOBAL R1 := _G["table"]
+      11 [   0] GETTABLE  R1 := R1["remove"]
+      12 [   0] GETUPVAL  R2 := upval 0
+      13 [   0] CALL      R1(...) nargs=1 nret=0
+      14 [   0] GETTABLE  R1 := R0["hide"]
+      15 [   0] CALL      R1(...) nargs=0 nret=0
+      16 [   0] GETUPVAL  R1 := upval 0
+      17 [   0] GETUPVAL  R2 := upval 0
+      18 [   0] LEN       R2 := #R2
+      19 [   0] GETTABLE  R0 := R1[R2]
+      20 [   0] JMP       jmp -17 -> 4
+      21 [   0] GETUPVAL  R1 := upval 1
+      22 [   0] LOADK     R2 := "ENTER"
+      23 [   0] CALL      R1(...) nargs=1 nret=0
+      24 [   0] RETURN    return R0.. (0 values)
+  function main.#22 (params=1, lines 247-259, upvals=[], locals=[])
+    constants: strings=['LEAVE', 'table', 'remove', 'hide', 'show', 'ENTER', 'log', 'msg', 'WARNING: trying popping top level scene'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] CALL      R1(...) nargs=0 nret=1
+       2 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+       3 [   0] JMP       jmp +24 -> 28
+       4 [   0] GETUPVAL  R1 := upval 1
+       5 [   0] LOADK     R2 := "LEAVE"
+       6 [   0] CALL      R1(...) nargs=1 nret=0
+       7 [   0] GETUPVAL  R1 := upval 2
+       8 [   0] GETUPVAL  R2 := upval 2
+       9 [   0] LEN       R2 := #R2
+      10 [   0] GETTABLE  R1 := R1[R2]
+      11 [   0] GETGLOBAL R2 := _G["table"]
+      12 [   0] GETTABLE  R2 := R2["remove"]
+      13 [   0] GETUPVAL  R3 := upval 2
+      14 [   0] CALL      R2(...) nargs=1 nret=0
+      15 [   0] GETTABLE  R2 := R1["hide"]
+      16 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      17 [   0] JMP       jmp +2 -> 20
+      18 [   0] GETTABLE  R2 := R1["hide"]
+      19 [   0] CALL      R2(...) nargs=0 nret=0
+      20 [   0] GETTABLE  R2 := R1["show"]
+      21 [   0] EQ        if (R2 == R0) ~= 0 then skip next
+      22 [   0] JMP       jmp -23 -> 0
+      23 [   0] GETUPVAL  R2 := upval 1
+      24 [   0] LOADK     R3 := "ENTER"
+      25 [   0] CALL      R2(...) nargs=1 nret=0
+      26 [   0] RETURN    return R0.. (0 values)
+      27 [   0] JMP       jmp -28 -> 0
+      28 [   0] GETGLOBAL R1 := _G["log"]
+      29 [   0] GETTABLE  R1 := R1["msg"]
+      30 [   0] LOADK     R2 := "WARNING: trying popping top level scene"
+      31 [   0] CALL      R1(...) nargs=1 nret=0
+      32 [   0] RETURN    return R0.. (0 values)
+  function main.#23 (params=1, lines 261-280, upvals=[], locals=[])
+    constants: strings=['log', 'msg', 'WARNING: trying popping top level scene', 'LEAVE', 'table', 'remove', 'hide', 'scene', 'flatCopy', 'params', 'popParams', 'gotoScene', 'show', 'ENTER'] numbers=[1]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] LEN       R1 := #R1
+       2 [   0] LE        if (R1 <= 1) ~= 0 then skip next
+       3 [   0] JMP       jmp +5 -> 9
+       4 [   0] GETGLOBAL R1 := _G["log"]
+       5 [   0] GETTABLE  R1 := R1["msg"]
+       6 [   0] LOADK     R2 := "WARNING: trying popping top level scene"
+       7 [   0] CALL      R1(...) nargs=1 nret=0
+       8 [   0] RETURN    return R0.. (0 values)
+       9 [   0] GETUPVAL  R1 := upval 1
+      10 [   0] LOADK     R2 := "LEAVE"
+      11 [   0] CALL      R1(...) nargs=1 nret=0
+      12 [   0] GETUPVAL  R1 := upval 0
+      13 [   0] GETUPVAL  R2 := upval 0
+      14 [   0] LEN       R2 := #R2
+      15 [   0] GETTABLE  R1 := R1[R2]
+      16 [   0] GETGLOBAL R2 := _G["table"]
+      17 [   0] GETTABLE  R2 := R2["remove"]
+      18 [   0] GETUPVAL  R3 := upval 0
+      19 [   0] CALL      R2(...) nargs=1 nret=0
+      20 [   0] GETTABLE  R2 := R1["hide"]
+      21 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      22 [   0] JMP       jmp +2 -> 25
+      23 [   0] GETTABLE  R2 := R1["hide"]
+      24 [   0] CALL      R2(...) nargs=0 nret=0
+      25 [   0] GETUPVAL  R2 := upval 0
+      26 [   0] GETUPVAL  R3 := upval 0
+      27 [   0] LEN       R3 := #R3
+      28 [   0] GETTABLE  R2 := R2[R3]
+      29 [   0] GETTABLE  R3 := R2["scene"]
+      30 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      31 [   0] JMP       jmp +26 -> 58
+      32 [   0] GETTABLE  R3 := R2["scene"]
+      33 [   0] GETUPVAL  R4 := upval 2
+      34 [   0] EQ        if (R3 == R4) ~= 1 then skip next
+      35 [   0] JMP       jmp +22 -> 58
+      36 [   0] GETUPVAL  R3 := upval 3
+      37 [   0] GETTABLE  R3 := R3["flatCopy"]
+      38 [   0] GETUPVAL  R4 := upval 4
+      39 [   0] CALL      R3(...) nargs=1 nret=1
+      40 [   0] TESTSET   if (R0 truthy) == 1 then R4 := R0 else skip next
+      41 [   0] JMP       jmp +7 -> 49
+      42 [   0] GETUPVAL  R4 := upval 3
+      43 [   0] GETTABLE  R4 := R4["flatCopy"]
+      44 [   0] GETTABLE  R5 := R1["popParams"]
+      45 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      46 [   0] JMP       jmp +1 -> 48
+      47 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      48 [   0] CALL      R4(...) nargs=1 nret=1
+      49 [   0] SETTABLE  R3["params"] := R4
+      50 [   0] GETUPVAL  R4 := upval 5
+      51 [   0] GETTABLE  R4 := R4["gotoScene"]
+      52 [   0] GETTABLE  R5 := R2["scene"]
+      53 [   0] MOVE      R6 := R3
+      54 [   0] CALL      R4(...) nargs=2 nret=0
+      55 [   0] GETTABLE  R4 := R2["scene"]
+      56 [   0] SETUPVAL  upval 2 := R4
+      57 [   0] JMP       jmp +5 -> 63
+      58 [   0] GETTABLE  R3 := R2["show"]
+      59 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      60 [   0] JMP       jmp +2 -> 63
+      61 [   0] GETTABLE  R3 := R2["show"]
+      62 [   0] CALL      R3(...) nargs=0 nret=0
+      63 [   0] GETUPVAL  R3 := upval 1
+      64 [   0] LOADK     R4 := "ENTER"
+      65 [   0] CALL      R3(...) nargs=1 nret=0
+      66 [   0] RETURN    return R0.. (0 values)
+  function main.#24 (params=1, lines 282-302, upvals=[], locals=[])
+    constants: strings=['log', 'msg', 'WARNING: trying popping top level scene', 'LEAVE', 'table', 'remove', 'hide', 'scene', 'flatCopy', 'params', 'popParams', 'gotoScene', 'show', 'ENTER'] numbers=[1]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] LEN       R1 := #R1
+       2 [   0] LE        if (R1 <= 1) ~= 0 then skip next
+       3 [   0] JMP       jmp +5 -> 9
+       4 [   0] GETGLOBAL R1 := _G["log"]
+       5 [   0] GETTABLE  R1 := R1["msg"]
+       6 [   0] LOADK     R2 := "WARNING: trying popping top level scene"
+       7 [   0] CALL      R1(...) nargs=1 nret=0
+       8 [   0] RETURN    return R0.. (0 values)
+       9 [   0] GETUPVAL  R1 := upval 1
+      10 [   0] LOADK     R2 := "LEAVE"
+      11 [   0] CALL      R1(...) nargs=1 nret=0
+      12 [   0] GETUPVAL  R1 := upval 0
+      13 [   0] GETUPVAL  R2 := upval 0
+      14 [   0] LEN       R2 := #R2
+      15 [   0] GETTABLE  R1 := R1[R2]
+      16 [   0] GETGLOBAL R2 := _G["table"]
+      17 [   0] GETTABLE  R2 := R2["remove"]
+      18 [   0] GETUPVAL  R3 := upval 0
+      19 [   0] CALL      R2(...) nargs=1 nret=0
+      20 [   0] GETTABLE  R2 := R1["hide"]
+      21 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      22 [   0] JMP       jmp +2 -> 25
+      23 [   0] GETTABLE  R2 := R1["hide"]
+      24 [   0] CALL      R2(...) nargs=0 nret=0
+      25 [   0] GETUPVAL  R2 := upval 0
+      26 [   0] GETTABLE  R2 := R2[1]
+      27 [   0] NEWTABLE  R3 := {} (array 1, hash 0)
+      28 [   0] MOVE      R4 := R2
+      29 [   0] SETLIST   R3[...] := R4.. (n=1, block 1)
+      30 [   0] SETUPVAL  upval 0 := R3
+      31 [   0] GETTABLE  R3 := R2["scene"]
+      32 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      33 [   0] JMP       jmp +26 -> 60
+      34 [   0] GETTABLE  R3 := R2["scene"]
+      35 [   0] GETUPVAL  R4 := upval 2
+      36 [   0] EQ        if (R3 == R4) ~= 1 then skip next
+      37 [   0] JMP       jmp +22 -> 60
+      38 [   0] GETUPVAL  R3 := upval 3
+      39 [   0] GETTABLE  R3 := R3["flatCopy"]
+      40 [   0] GETUPVAL  R4 := upval 4
+      41 [   0] CALL      R3(...) nargs=1 nret=1
+      42 [   0] TESTSET   if (R0 truthy) == 1 then R4 := R0 else skip next
+      43 [   0] JMP       jmp +7 -> 51
+      44 [   0] GETUPVAL  R4 := upval 3
+      45 [   0] GETTABLE  R4 := R4["flatCopy"]
+      46 [   0] GETTABLE  R5 := R1["popParams"]
+      47 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      48 [   0] JMP       jmp +1 -> 50
+      49 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      50 [   0] CALL      R4(...) nargs=1 nret=1
+      51 [   0] SETTABLE  R3["params"] := R4
+      52 [   0] GETUPVAL  R4 := upval 5
+      53 [   0] GETTABLE  R4 := R4["gotoScene"]
+      54 [   0] GETTABLE  R5 := R2["scene"]
+      55 [   0] MOVE      R6 := R3
+      56 [   0] CALL      R4(...) nargs=2 nret=0
+      57 [   0] GETTABLE  R4 := R2["scene"]
+      58 [   0] SETUPVAL  upval 2 := R4
+      59 [   0] JMP       jmp +5 -> 65
+      60 [   0] GETTABLE  R3 := R2["show"]
+      61 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      62 [   0] JMP       jmp +2 -> 65
+      63 [   0] GETTABLE  R3 := R2["show"]
+      64 [   0] CALL      R3(...) nargs=0 nret=0
+      65 [   0] GETUPVAL  R3 := upval 1
+      66 [   0] LOADK     R4 := "ENTER"
+      67 [   0] CALL      R3(...) nargs=1 nret=0
+      68 [   0] RETURN    return R0.. (0 values)
+  function main.#25 (params=0, lines 304-307, upvals=[], locals=[])
+    constants: strings=['scene'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 0
+       2 [   0] LEN       R1 := #R1
+       3 [   0] GETTABLE  R0 := R0[R1]
+       4 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       5 [   0] JMP       jmp +9 -> 15
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] GETUPVAL  R1 := upval 0
+       8 [   0] LEN       R1 := #R1
+       9 [   0] GETTABLE  R0 := R0[R1]
+      10 [   0] GETTABLE  R0 := R0["scene"]
+      11 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      12 [   0] JMP       jmp +2 -> 15
+      13 [   0] LOADBOOL  R0 := True
+      14 [   0] RETURN    return R0.. (1 values)
+      15 [   0] LOADBOOL  R0 := False
+      16 [   0] RETURN    return R0.. (1 values)
+      17 [   0] RETURN    return R0.. (0 values)
+  function main.#26 (params=1, lines 309-314, upvals=[], locals=[])
+    constants: strings=['id'] numbers=[1]
+       0 [   0] LOADK     R1 := 1
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] LEN       R2 := #R2
+       3 [   0] LOADK     R3 := 1
+       4 [   0] FORPREP   for R1.. jmp +12
+       5 [   0] GETUPVAL  R5 := upval 0
+       6 [   0] GETTABLE  R5 := R5[R4]
+       7 [   0] GETTABLE  R5 := R5["id"]
+       8 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+       9 [   0] JMP       jmp +7 -> 17
+      10 [   0] GETUPVAL  R5 := upval 0
+      11 [   0] GETTABLE  R5 := R5[R4]
+      12 [   0] GETTABLE  R5 := R5["id"]
+      13 [   0] EQ        if (R5 == R0) ~= 0 then skip next
+      14 [   0] JMP       jmp +2 -> 17
+      15 [   0] LOADBOOL  R5 := True
+      16 [   0] RETURN    return R5.. (1 values)
+      17 [   0] FORLOOP   forloop R1 jmp -13
+      18 [   0] LOADBOOL  R1 := False
+      19 [   0] RETURN    return R1.. (1 values)
+      20 [   0] RETURN    return R0.. (0 values)

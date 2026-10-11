@@ -1,0 +1,195 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['create'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["create"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 9-81, upvals=[], locals=[])
+    constants: strings=['fgrequire', 'logging.logger', 'getLogger', 'GAME', 'addState', 'addTransition', 'triggerTo', 'getSharedContext', 'getCurrentState'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] GETGLOBAL R1 := _G["fgrequire"]
+       2 [   0] LOADK     R2 := "logging.logger"
+       3 [   0] CALL      R1(...) nargs=1 nret=1
+       4 [   0] GETTABLE  R1 := R1["getLogger"]
+       5 [   0] LOADK     R2 := "GAME"
+       6 [   0] CALL      R1(...) nargs=1 nret=1
+       7 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       8 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+       9 [   0] LOADNIL   R4..R4 := nil
+      10 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+      11 [   0] CLOSURE   R6 := closure #0
+      12 [   0] MOVE      R0 := R2
+      13 [   0] SETTABLE  R0["addState"] := R6
+      14 [   0] CLOSURE   R6 := closure #1
+      15 [   0] MOVE      R0 := R2
+      16 [   0] MOVE      R0 := R1
+      17 [   0] MOVE      R0 := R3
+      18 [   0] SETTABLE  R0["addTransition"] := R6
+      19 [   0] CLOSURE   R6 := closure #2
+      20 [   0] MOVE      R0 := R4
+      21 [   0] MOVE      R0 := R2
+      22 [   0] MOVE      R0 := R1
+      23 [   0] MOVE      R0 := R3
+      24 [   0] MOVE      R0 := R0
+      25 [   0] SETTABLE  R0["triggerTo"] := R6
+      26 [   0] CLOSURE   R6 := closure #3
+      27 [   0] MOVE      R0 := R5
+      28 [   0] SETTABLE  R0["getSharedContext"] := R6
+      29 [   0] CLOSURE   R6 := closure #4
+      30 [   0] MOVE      R0 := R4
+      31 [   0] SETTABLE  R0["getCurrentState"] := R6
+      32 [   0] RETURN    return R0.. (1 values)
+      33 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 20-23, upvals=[], locals=[])
+      constants: strings=['getName'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["getName"]
+         1 [   0] CALL      R1(...) nargs=0 nret=1
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] SETTABLE  R2[R1] := R0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 25-40, upvals=[], locals=[])
+      constants: strings=['getName', 'warn', 'Transition from unknown state: ', 'Transition to unknown state: '] numbers=[]
+         0 [   0] GETTABLE  R2 := R0["getName"]
+         1 [   0] CALL      R2(...) nargs=0 nret=1
+         2 [   0] GETTABLE  R3 := R1["getName"]
+         3 [   0] CALL      R3(...) nargs=0 nret=1
+         4 [   0] GETUPVAL  R4 := upval 0
+         5 [   0] GETTABLE  R4 := R4[R2]
+         6 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+         7 [   0] JMP       jmp +6 -> 14
+         8 [   0] GETUPVAL  R4 := upval 1
+         9 [   0] GETTABLE  R4 := R4["warn"]
+        10 [   0] LOADK     R5 := "Transition from unknown state: "
+        11 [   0] MOVE      R6 := R2
+        12 [   0] CALL      R4(...) nargs=2 nret=0
+        13 [   0] RETURN    return R0.. (0 values)
+        14 [   0] GETUPVAL  R4 := upval 0
+        15 [   0] GETTABLE  R4 := R4[R3]
+        16 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        17 [   0] JMP       jmp +6 -> 24
+        18 [   0] GETUPVAL  R4 := upval 1
+        19 [   0] GETTABLE  R4 := R4["warn"]
+        20 [   0] LOADK     R5 := "Transition to unknown state: "
+        21 [   0] MOVE      R6 := R3
+        22 [   0] CALL      R4(...) nargs=2 nret=0
+        23 [   0] RETURN    return R0.. (0 values)
+        24 [   0] GETUPVAL  R4 := upval 2
+        25 [   0] GETTABLE  R4 := R4[R2]
+        26 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        27 [   0] JMP       jmp +3 -> 31
+        28 [   0] GETUPVAL  R4 := upval 2
+        29 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+        30 [   0] SETTABLE  R4[R2] := R5
+        31 [   0] GETUPVAL  R4 := upval 2
+        32 [   0] GETTABLE  R4 := R4[R2]
+        33 [   0] SETTABLE  R4[R3] := True
+        34 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 42-70, upvals=[], locals=[])
+      constants: strings=['warn', 'Transition to unknown state: ', 'Ignoring not allowed Transition from', '->', 'info', 'Transition from', 'leave', 'type', 'function', 'enter'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] EQ        if (R1 == R0) ~= 0 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] GETTABLE  R1 := R1[R0]
+         6 [   0] EQ        if (R1 == None) ~= 0 then skip next
+         7 [   0] JMP       jmp +6 -> 14
+         8 [   0] GETUPVAL  R1 := upval 2
+         9 [   0] GETTABLE  R1 := R1["warn"]
+        10 [   0] LOADK     R2 := "Transition to unknown state: "
+        11 [   0] MOVE      R3 := R0
+        12 [   0] CALL      R1(...) nargs=2 nret=0
+        13 [   0] RETURN    return R0.. (0 values)
+        14 [   0] LOADBOOL  R1 := False
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        17 [   0] JMP       jmp +2 -> 20
+        18 [   0] LOADBOOL  R1 := True
+        19 [   0] JMP       jmp +12 -> 32
+        20 [   0] GETUPVAL  R2 := upval 3
+        21 [   0] GETUPVAL  R3 := upval 0
+        22 [   0] GETTABLE  R2 := R2[R3]
+        23 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        24 [   0] JMP       jmp +7 -> 32
+        25 [   0] GETUPVAL  R2 := upval 3
+        26 [   0] GETUPVAL  R3 := upval 0
+        27 [   0] GETTABLE  R2 := R2[R3]
+        28 [   0] GETTABLE  R2 := R2[R0]
+        29 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        30 [   0] JMP       jmp +1 -> 32
+        31 [   0] LOADBOOL  R1 := True
+        32 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        33 [   0] JMP       jmp +8 -> 42
+        34 [   0] GETUPVAL  R2 := upval 2
+        35 [   0] GETTABLE  R2 := R2["warn"]
+        36 [   0] LOADK     R3 := "Ignoring not allowed Transition from"
+        37 [   0] GETUPVAL  R4 := upval 0
+        38 [   0] LOADK     R5 := "->"
+        39 [   0] MOVE      R6 := R0
+        40 [   0] CALL      R2(...) nargs=4 nret=0
+        41 [   0] JMP       jmp +7 -> 49
+        42 [   0] GETUPVAL  R2 := upval 2
+        43 [   0] GETTABLE  R2 := R2["info"]
+        44 [   0] LOADK     R3 := "Transition from"
+        45 [   0] GETUPVAL  R4 := upval 0
+        46 [   0] LOADK     R5 := "->"
+        47 [   0] MOVE      R6 := R0
+        48 [   0] CALL      R2(...) nargs=4 nret=0
+        49 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        50 [   0] JMP       jmp +44 -> 95
+        51 [   0] GETUPVAL  R2 := upval 0
+        52 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        53 [   0] JMP       jmp +20 -> 74
+        54 [   0] GETUPVAL  R2 := upval 1
+        55 [   0] GETUPVAL  R3 := upval 0
+        56 [   0] GETTABLE  R2 := R2[R3]
+        57 [   0] GETTABLE  R2 := R2["leave"]
+        58 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        59 [   0] JMP       jmp +14 -> 74
+        60 [   0] GETGLOBAL R2 := _G["type"]
+        61 [   0] GETUPVAL  R3 := upval 1
+        62 [   0] GETUPVAL  R4 := upval 0
+        63 [   0] GETTABLE  R3 := R3[R4]
+        64 [   0] GETTABLE  R3 := R3["leave"]
+        65 [   0] CALL      R2(...) nargs=1 nret=1
+        66 [   0] EQ        if (R2 == "function") ~= 0 then skip next
+        67 [   0] JMP       jmp +6 -> 74
+        68 [   0] GETUPVAL  R2 := upval 1
+        69 [   0] GETUPVAL  R3 := upval 0
+        70 [   0] GETTABLE  R2 := R2[R3]
+        71 [   0] GETTABLE  R2 := R2["leave"]
+        72 [   0] GETUPVAL  R3 := upval 4
+        73 [   0] CALL      R2(...) nargs=1 nret=0
+        74 [   0] SETUPVAL  upval 0 := R0
+        75 [   0] GETUPVAL  R2 := upval 1
+        76 [   0] GETUPVAL  R3 := upval 0
+        77 [   0] GETTABLE  R2 := R2[R3]
+        78 [   0] GETTABLE  R2 := R2["enter"]
+        79 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        80 [   0] JMP       jmp +14 -> 95
+        81 [   0] GETGLOBAL R2 := _G["type"]
+        82 [   0] GETUPVAL  R3 := upval 1
+        83 [   0] GETUPVAL  R4 := upval 0
+        84 [   0] GETTABLE  R3 := R3[R4]
+        85 [   0] GETTABLE  R3 := R3["enter"]
+        86 [   0] CALL      R2(...) nargs=1 nret=1
+        87 [   0] EQ        if (R2 == "function") ~= 0 then skip next
+        88 [   0] JMP       jmp +6 -> 95
+        89 [   0] GETUPVAL  R2 := upval 1
+        90 [   0] GETUPVAL  R3 := upval 0
+        91 [   0] GETTABLE  R2 := R2[R3]
+        92 [   0] GETTABLE  R2 := R2["enter"]
+        93 [   0] GETUPVAL  R3 := upval 4
+        94 [   0] CALL      R2(...) nargs=1 nret=0
+        95 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 72-74, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 76-78, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)

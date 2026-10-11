@@ -1,0 +1,155 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'util.util', 'fglib.eventlistener', 'pushPopup', 'closeActivePopup'] numbers=[]
+     0 [   0] GETGLOBAL R1 := _G["require"]
+     1 [   0] LOADK     R2 := "util.util"
+     2 [   0] CALL      R1(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R2 := _G["require"]
+     4 [   0] LOADK     R3 := "fglib.eventlistener"
+     5 [   0] CALL      R2(...) nargs=1 nret=1
+     6 [   0] CLOSURE   R3 := closure #0
+     7 [   0] MOVE      R0 := R1
+     8 [   0] MOVE      R0 := R0
+     9 [   0] CLOSURE   R4 := closure #1
+    10 [   0] MOVE      R0 := R3
+    11 [   0] MOVE      R0 := R2
+    12 [   0] MOVE      R0 := R0
+    13 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+    14 [   0] SETTABLE  R5["pushPopup"] := R4
+    15 [   0] SETTABLE  R5["closeActivePopup"] := R3
+    16 [   0] RETURN    return R5.. (1 values)
+    17 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 11-14, upvals=[], locals=[])
+    constants: strings=['safeRemoveObject'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["safeRemoveObject"]
+       2 [   0] GETUPVAL  R1 := upval 1
+       3 [   0] CALL      R0(...) nargs=1 nret=0
+       4 [   0] LOADNIL   R0..R0 := nil
+       5 [   0] SETUPVAL  upval 1 := R0
+       6 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=4, lines 16-75, upvals=[], locals=[])
+    constants: strings=['require', 'ui.common.backbuttonmanager', 'getInstance', 'new', 'backButtonPressedHandler', 'layout', 'default.center', 'textBodyLblTxt', 'replaceable', 'yesBtnTxt', 'text', 'yesBtnCallback', 'noBtnTxt', 'noBtnCallback', 'closeBtnCallback', 'subscribeTo', 'backButtonPressed', 'setBackButtonIgnoreStatus', 'ui.components.popups.comp_cloud_popup', 'create', 'params', 'enter', 'game.hudmanager', 'addToTopGroup'] numbers=[1, 2]
+       0 [   0] GETGLOBAL R4 := _G["require"]
+       1 [   0] LOADK     R5 := "ui.common.backbuttonmanager"
+       2 [   0] CALL      R4(...) nargs=1 nret=1
+       3 [   0] GETTABLE  R4 := R4["getInstance"]
+       4 [   0] CALL      R4(...) nargs=0 nret=1
+       5 [   0] GETUPVAL  R5 := upval 0
+       6 [   0] CALL      R5(...) nargs=0 nret=0
+       7 [   0] GETUPVAL  R5 := upval 1
+       8 [   0] GETTABLE  R5 := R5["new"]
+       9 [   0] CALL      R5(...) nargs=0 nret=1
+      10 [   0] CLOSURE   R6 := closure #0
+      11 [   0] MOVE      R0 := R5
+      12 [   0] MOVE      R0 := R4
+      13 [   0] CLOSURE   R7 := closure #1
+      14 [   0] MOVE      R0 := R6
+      15 [   0] MOVE      R0 := R3
+      16 [   0] CLOSURE   R8 := closure #2
+      17 [   0] MOVE      R0 := R7
+      18 [   0] SETTABLE  R5["backButtonPressedHandler"] := R8
+      19 [   0] NEWTABLE  R8 := {} (array 0, hash 3)
+      20 [   0] SETTABLE  R8["layout"] := "default.center"
+      21 [   0] SETTABLE  R8["textBodyLblTxt"] := R0
+      22 [   0] SETTABLE  R8["replaceable"] := True
+      23 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      24 [   0] JMP       jmp +20 -> 45
+      25 [   0] GETTABLE  R9 := R1[1]
+      26 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+      27 [   0] JMP       jmp +7 -> 35
+      28 [   0] GETTABLE  R9 := R1[1]
+      29 [   0] GETTABLE  R9 := R9["text"]
+      30 [   0] SETTABLE  R8["yesBtnTxt"] := R9
+      31 [   0] CLOSURE   R9 := closure #3
+      32 [   0] MOVE      R0 := R6
+      33 [   0] MOVE      R0 := R3
+      34 [   0] SETTABLE  R8["yesBtnCallback"] := R9
+      35 [   0] GETTABLE  R9 := R1[2]
+      36 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+      37 [   0] JMP       jmp +7 -> 45
+      38 [   0] GETTABLE  R9 := R1[2]
+      39 [   0] GETTABLE  R9 := R9["text"]
+      40 [   0] SETTABLE  R8["noBtnTxt"] := R9
+      41 [   0] CLOSURE   R9 := closure #4
+      42 [   0] MOVE      R0 := R6
+      43 [   0] MOVE      R0 := R3
+      44 [   0] SETTABLE  R8["noBtnCallback"] := R9
+      45 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      46 [   0] JMP       jmp +10 -> 57
+      47 [   0] CLOSURE   R9 := closure #5
+      48 [   0] MOVE      R0 := R7
+      49 [   0] SETTABLE  R8["closeBtnCallback"] := R9
+      50 [   0] GETTABLE  R9 := R5["subscribeTo"]
+      51 [   0] MOVE      R10 := R4
+      52 [   0] LOADK     R11 := "backButtonPressed"
+      53 [   0] CALL      R9(...) nargs=2 nret=0
+      54 [   0] GETTABLE  R9 := R4["setBackButtonIgnoreStatus"]
+      55 [   0] LOADBOOL  R10 := True
+      56 [   0] CALL      R9(...) nargs=1 nret=0
+      57 [   0] GETGLOBAL R9 := _G["require"]
+      58 [   0] LOADK     R10 := "ui.components.popups.comp_cloud_popup"
+      59 [   0] CALL      R9(...) nargs=1 nret=1
+      60 [   0] GETTABLE  R9 := R9["create"]
+      61 [   0] NEWTABLE  R10 := {} (array 0, hash 2)
+      62 [   0] SETTABLE  R10["layout"] := "default.center"
+      63 [   0] SETTABLE  R10["params"] := R8
+      64 [   0] CALL      R9(...) nargs=1 nret=1
+      65 [   0] SETUPVAL  upval 2 := R9
+      66 [   0] GETUPVAL  R9 := upval 2
+      67 [   0] GETTABLE  R9 := R9["enter"]
+      68 [   0] CALL      R9(...) nargs=0 nret=0
+      69 [   0] GETGLOBAL R9 := _G["require"]
+      70 [   0] LOADK     R10 := "game.hudmanager"
+      71 [   0] CALL      R9(...) nargs=1 nret=1
+      72 [   0] GETTABLE  R9 := R9["getInstance"]
+      73 [   0] CALL      R9(...) nargs=0 nret=1
+      74 [   0] GETTABLE  R10 := R9["addToTopGroup"]
+      75 [   0] GETUPVAL  R11 := upval 2
+      76 [   0] CALL      R10(...) nargs=1 nret=0
+      77 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=0, lines 21-24, upvals=[], locals=[])
+      constants: strings=['unsubscribeFrom', 'backButtonPressed', 'setBackButtonIgnoreStatus'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] LOADK     R2 := "backButtonPressed"
+         4 [   0] CALL      R0(...) nargs=2 nret=0
+         5 [   0] GETUPVAL  R0 := upval 1
+         6 [   0] GETTABLE  R0 := R0["setBackButtonIgnoreStatus"]
+         7 [   0] LOADBOOL  R1 := False
+         8 [   0] CALL      R0(...) nargs=1 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#1 (params=0, lines 26-29, upvals=[], locals=[])
+      constants: strings=[] numbers=[-1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] LOADK     R1 := -1
+         4 [   0] CALL      R0(...) nargs=1 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#2 (params=2, lines 31-33, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] CALL      R2(...) nargs=0 nret=0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#3 (params=0, lines 45-48, upvals=[], locals=[])
+      constants: strings=[] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] LOADK     R1 := 1
+         4 [   0] CALL      R0(...) nargs=1 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#4 (params=0, lines 52-55, upvals=[], locals=[])
+      constants: strings=[] numbers=[2]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] LOADK     R1 := 2
+         4 [   0] CALL      R0(...) nargs=1 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#5 (params=0, lines 59-61, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] RETURN    return R0.. (0 values)

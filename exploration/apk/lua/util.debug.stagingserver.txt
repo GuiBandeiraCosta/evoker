@@ -1,0 +1,105 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['importance', 'name', 'cem', 'server_url', 'http://192.168.2.15:9001/', 'Markus', 'http://192.168.2.96:9001/', 'Staging 2', 'http://ev-staging-2-1718834447.us-east-1.elb.amazonaws.com/', 'Staging 3', 'http://ev-staging-3-965526921.us-east-1.elb.amazonaws.com/', 'Staging 4', 'http://ev-staging-4-481051675.us-east-1.elb.amazonaws.com/', 'Nightly Stable', 'http://ev-staging-nightly-1785682132.us-east-1.elb.amazonaws.com/', 'RC Environment', 'http://ev-staging-rc-1681629836.us-east-1.elb.amazonaws.com/', 'Live Test Environment', 'http://ev-staging-live-test-115022087.us-east-1.elb.amazonaws.com/', 'RC Environment (wc1)', 'http://wc-staging-1-1363130550.us-east-1.elb.amazonaws.com/', 'require', 'warcards', 'getServerList', 'getServerNameFromURL', 'getServerURLByName'] numbers=[0, 1]
+     0 [   0] NEWTABLE  R0 := {} (array 8, hash 0)
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 3)
+     2 [   0] SETTABLE  R1["importance"] := 0
+     3 [   0] SETTABLE  R1["name"] := "cem"
+     4 [   0] SETTABLE  R1["server_url"] := "http://192.168.2.15:9001/"
+     5 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+     6 [   0] SETTABLE  R2["importance"] := 0
+     7 [   0] SETTABLE  R2["name"] := "Markus"
+     8 [   0] SETTABLE  R2["server_url"] := "http://192.168.2.96:9001/"
+     9 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+    10 [   0] SETTABLE  R3["importance"] := 0
+    11 [   0] SETTABLE  R3["name"] := "Staging 2"
+    12 [   0] SETTABLE  R3["server_url"] := "http://ev-staging-2-1718834447.us-east-1.elb.amazonaws.com/"
+    13 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+    14 [   0] SETTABLE  R4["importance"] := 0
+    15 [   0] SETTABLE  R4["name"] := "Staging 3"
+    16 [   0] SETTABLE  R4["server_url"] := "http://ev-staging-3-965526921.us-east-1.elb.amazonaws.com/"
+    17 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+    18 [   0] SETTABLE  R5["importance"] := 0
+    19 [   0] SETTABLE  R5["name"] := "Staging 4"
+    20 [   0] SETTABLE  R5["server_url"] := "http://ev-staging-4-481051675.us-east-1.elb.amazonaws.com/"
+    21 [   0] NEWTABLE  R6 := {} (array 0, hash 3)
+    22 [   0] SETTABLE  R6["importance"] := 0
+    23 [   0] SETTABLE  R6["name"] := "Nightly Stable"
+    24 [   0] SETTABLE  R6["server_url"] := "http://ev-staging-nightly-1785682132.us-east-1.elb.amazonaws.com/"
+    25 [   0] NEWTABLE  R7 := {} (array 0, hash 3)
+    26 [   0] SETTABLE  R7["importance"] := 1
+    27 [   0] SETTABLE  R7["name"] := "RC Environment"
+    28 [   0] SETTABLE  R7["server_url"] := "http://ev-staging-rc-1681629836.us-east-1.elb.amazonaws.com/"
+    29 [   0] NEWTABLE  R8 := {} (array 0, hash 3)
+    30 [   0] SETTABLE  R8["importance"] := 1
+    31 [   0] SETTABLE  R8["name"] := "Live Test Environment"
+    32 [   0] SETTABLE  R8["server_url"] := "http://ev-staging-live-test-115022087.us-east-1.elb.amazonaws.com/"
+    33 [   0] SETLIST   R0[...] := R1.. (n=8, block 1)
+    34 [   0] NEWTABLE  R1 := {} (array 4, hash 0)
+    35 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+    36 [   0] SETTABLE  R2["importance"] := 0
+    37 [   0] SETTABLE  R2["name"] := "cem"
+    38 [   0] SETTABLE  R2["server_url"] := "http://192.168.2.15:9001/"
+    39 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+    40 [   0] SETTABLE  R3["importance"] := 0
+    41 [   0] SETTABLE  R3["name"] := "Markus"
+    42 [   0] SETTABLE  R3["server_url"] := "http://192.168.2.96:9001/"
+    43 [   0] NEWTABLE  R4 := {} (array 0, hash 3)
+    44 [   0] SETTABLE  R4["importance"] := 0
+    45 [   0] SETTABLE  R4["name"] := "Staging 2"
+    46 [   0] SETTABLE  R4["server_url"] := "http://ev-staging-2-1718834447.us-east-1.elb.amazonaws.com/"
+    47 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+    48 [   0] SETTABLE  R5["importance"] := 1
+    49 [   0] SETTABLE  R5["name"] := "RC Environment (wc1)"
+    50 [   0] SETTABLE  R5["server_url"] := "http://wc-staging-1-1363130550.us-east-1.elb.amazonaws.com/"
+    51 [   0] SETLIST   R1[...] := R2.. (n=4, block 1)
+    52 [   0] GETGLOBAL R2 := _G["require"]
+    53 [   0] LOADK     R3 := "warcards"
+    54 [   0] CALL      R2(...) nargs=1 nret=1
+    55 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+    56 [   0] JMP       jmp +1 -> 58
+    57 [   0] MOVE      R0 := R1
+    58 [   0] CLOSURE   R3 := closure #0
+    59 [   0] MOVE      R0 := R0
+    60 [   0] CLOSURE   R4 := closure #1
+    61 [   0] MOVE      R0 := R0
+    62 [   0] CLOSURE   R5 := closure #2
+    63 [   0] MOVE      R0 := R0
+    64 [   0] NEWTABLE  R6 := {} (array 0, hash 3)
+    65 [   0] SETTABLE  R6["getServerList"] := R4
+    66 [   0] SETTABLE  R6["getServerNameFromURL"] := R5
+    67 [   0] SETTABLE  R6["getServerURLByName"] := R3
+    68 [   0] RETURN    return R6.. (1 values)
+    69 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 30-36, upvals=[], locals=[])
+    constants: strings=['pairs', 'name', 'server_url'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["pairs"]
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] CALL      R1(...) nargs=1 nret=3
+       3 [   0] JMP       jmp +5 -> 9
+       4 [   0] GETTABLE  R6 := R5["name"]
+       5 [   0] EQ        if (R6 == R0) ~= 0 then skip next
+       6 [   0] JMP       jmp +2 -> 9
+       7 [   0] GETTABLE  R6 := R5["server_url"]
+       8 [   0] RETURN    return R6.. (1 values)
+       9 [   0] TFORLOOP  tforloop R1 nres=2
+      10 [   0] JMP       jmp -7 -> 4
+      11 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 38-40, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 42-48, upvals=[], locals=[])
+    constants: strings=['pairs', 'server_url', 'name'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["pairs"]
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] CALL      R1(...) nargs=1 nret=3
+       3 [   0] JMP       jmp +5 -> 9
+       4 [   0] GETTABLE  R6 := R5["server_url"]
+       5 [   0] EQ        if (R6 == R0) ~= 0 then skip next
+       6 [   0] JMP       jmp +2 -> 9
+       7 [   0] GETTABLE  R6 := R5["name"]
+       8 [   0] RETURN    return R6.. (1 values)
+       9 [   0] TFORLOOP  tforloop R1 nres=2
+      10 [   0] JMP       jmp -7 -> 4
+      11 [   0] RETURN    return R0.. (0 values)

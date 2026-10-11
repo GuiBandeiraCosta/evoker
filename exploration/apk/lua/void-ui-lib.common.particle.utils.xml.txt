@@ -1,0 +1,412 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['module', 'package', 'seeall', 'newParser'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["module"]
+     1 [   0] VARARG    R1.. := ... (1)
+     2 [   0] GETGLOBAL R2 := _G["package"]
+     3 [   0] GETTABLE  R2 := R2["seeall"]
+     4 [   0] CALL      R0(...) nargs=2 nret=0
+     5 [   0] CLOSURE   R0 := closure #0
+     6 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     7 [   0] SETTABLE  R1["newParser"] := R0
+     8 [   0] RETURN    return R1.. (1 values)
+     9 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 20-163, upvals=[], locals=[])
+    constants: strings=['ToXmlString', 'FromXmlString', 'ParseArgs', 'ParseXmlText', 'loadFile', 'convertToTable'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] CLOSURE   R1 := closure #0
+       2 [   0] SETTABLE  R0["ToXmlString"] := R1
+       3 [   0] CLOSURE   R1 := closure #1
+       4 [   0] SETTABLE  R0["FromXmlString"] := R1
+       5 [   0] CLOSURE   R1 := closure #2
+       6 [   0] SETTABLE  R0["ParseArgs"] := R1
+       7 [   0] CLOSURE   R1 := closure #3
+       8 [   0] SETTABLE  R0["ParseXmlText"] := R1
+       9 [   0] CLOSURE   R1 := closure #4
+      10 [   0] SETTABLE  R0["loadFile"] := R1
+      11 [   0] CLOSURE   R1 := closure #5
+      12 [   0] MOVE      R0 := R0
+      13 [   0] SETTABLE  R0["convertToTable"] := R1
+      14 [   0] RETURN    return R0.. (1 values)
+      15 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 24-34, upvals=[], locals=[])
+      constants: strings=['string', 'gsub', '&', '<', '>', '"', '([^%w%&%;%p%\t% ])'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["string"]
+         1 [   0] GETTABLE  R2 := R2["gsub"]
+         2 [   0] MOVE      R3 := R1
+         3 [   0] LOADK     R4 := "&"
+         4 [   0] LOADK     R5 := "&"
+         5 [   0] CALL      R2(...) nargs=3 nret=1
+         6 [   0] MOVE      R1 := R2
+         7 [   0] GETGLOBAL R2 := _G["string"]
+         8 [   0] GETTABLE  R2 := R2["gsub"]
+         9 [   0] MOVE      R3 := R1
+        10 [   0] LOADK     R4 := "<"
+        11 [   0] LOADK     R5 := "<"
+        12 [   0] CALL      R2(...) nargs=3 nret=1
+        13 [   0] MOVE      R1 := R2
+        14 [   0] GETGLOBAL R2 := _G["string"]
+        15 [   0] GETTABLE  R2 := R2["gsub"]
+        16 [   0] MOVE      R3 := R1
+        17 [   0] LOADK     R4 := ">"
+        18 [   0] LOADK     R5 := ">"
+        19 [   0] CALL      R2(...) nargs=3 nret=1
+        20 [   0] MOVE      R1 := R2
+        21 [   0] GETGLOBAL R2 := _G["string"]
+        22 [   0] GETTABLE  R2 := R2["gsub"]
+        23 [   0] MOVE      R3 := R1
+        24 [   0] LOADK     R4 := """
+        25 [   0] LOADK     R5 := """
+        26 [   0] CALL      R2(...) nargs=3 nret=1
+        27 [   0] MOVE      R1 := R2
+        28 [   0] GETGLOBAL R2 := _G["string"]
+        29 [   0] GETTABLE  R2 := R2["gsub"]
+        30 [   0] MOVE      R3 := R1
+        31 [   0] LOADK     R4 := "([^%w%&%;%p%	% ])"
+        32 [   0] CLOSURE   R5 := closure #0
+        33 [   0] CALL      R2(...) nargs=3 nret=1
+        34 [   0] MOVE      R1 := R2
+        35 [   0] RETURN    return R1.. (1 values)
+        36 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#0.#0 (params=1, lines 30-32, upvals=[], locals=[])
+        constants: strings=['string', 'format', '&#x%X;', 'byte'] numbers=[]
+           0 [   0] GETGLOBAL R1 := _G["string"]
+           1 [   0] GETTABLE  R1 := R1["format"]
+           2 [   0] LOADK     R2 := "&#x%X;"
+           3 [   0] GETGLOBAL R3 := _G["string"]
+           4 [   0] GETTABLE  R3 := R3["byte"]
+           5 [   0] MOVE      R4 := R0
+           6 [   0] CALL      R3(...) nargs=1 nret=-1
+           7 [   0] TAILCALL  return R1(...) nargs=-1
+           8 [   0] RETURN    return R1.. (-1 values)
+           9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 36-51, upvals=[], locals=[])
+      constants: strings=['string', 'gsub', '&#x([%x]+)%;', '&#([0-9]+)%;', '"', '&apos;', "'", '>', '<', '&'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["string"]
+         1 [   0] GETTABLE  R2 := R2["gsub"]
+         2 [   0] MOVE      R3 := R1
+         3 [   0] LOADK     R4 := "&#x([%x]+)%;"
+         4 [   0] CLOSURE   R5 := closure #0
+         5 [   0] CALL      R2(...) nargs=3 nret=1
+         6 [   0] MOVE      R1 := R2
+         7 [   0] GETGLOBAL R2 := _G["string"]
+         8 [   0] GETTABLE  R2 := R2["gsub"]
+         9 [   0] MOVE      R3 := R1
+        10 [   0] LOADK     R4 := "&#([0-9]+)%;"
+        11 [   0] CLOSURE   R5 := closure #1
+        12 [   0] CALL      R2(...) nargs=3 nret=1
+        13 [   0] MOVE      R1 := R2
+        14 [   0] GETGLOBAL R2 := _G["string"]
+        15 [   0] GETTABLE  R2 := R2["gsub"]
+        16 [   0] MOVE      R3 := R1
+        17 [   0] LOADK     R4 := """
+        18 [   0] LOADK     R5 := """
+        19 [   0] CALL      R2(...) nargs=3 nret=1
+        20 [   0] MOVE      R1 := R2
+        21 [   0] GETGLOBAL R2 := _G["string"]
+        22 [   0] GETTABLE  R2 := R2["gsub"]
+        23 [   0] MOVE      R3 := R1
+        24 [   0] LOADK     R4 := "&apos;"
+        25 [   0] LOADK     R5 := "'"
+        26 [   0] CALL      R2(...) nargs=3 nret=1
+        27 [   0] MOVE      R1 := R2
+        28 [   0] GETGLOBAL R2 := _G["string"]
+        29 [   0] GETTABLE  R2 := R2["gsub"]
+        30 [   0] MOVE      R3 := R1
+        31 [   0] LOADK     R4 := ">"
+        32 [   0] LOADK     R5 := ">"
+        33 [   0] CALL      R2(...) nargs=3 nret=1
+        34 [   0] MOVE      R1 := R2
+        35 [   0] GETGLOBAL R2 := _G["string"]
+        36 [   0] GETTABLE  R2 := R2["gsub"]
+        37 [   0] MOVE      R3 := R1
+        38 [   0] LOADK     R4 := "<"
+        39 [   0] LOADK     R5 := "<"
+        40 [   0] CALL      R2(...) nargs=3 nret=1
+        41 [   0] MOVE      R1 := R2
+        42 [   0] GETGLOBAL R2 := _G["string"]
+        43 [   0] GETTABLE  R2 := R2["gsub"]
+        44 [   0] MOVE      R3 := R1
+        45 [   0] LOADK     R4 := "&"
+        46 [   0] LOADK     R5 := "&"
+        47 [   0] CALL      R2(...) nargs=3 nret=1
+        48 [   0] MOVE      R1 := R2
+        49 [   0] RETURN    return R1.. (1 values)
+        50 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=1, lines 38-40, upvals=[], locals=[])
+        constants: strings=['string', 'char', 'tonumber'] numbers=[16]
+           0 [   0] GETGLOBAL R1 := _G["string"]
+           1 [   0] GETTABLE  R1 := R1["char"]
+           2 [   0] GETGLOBAL R2 := _G["tonumber"]
+           3 [   0] MOVE      R3 := R0
+           4 [   0] LOADK     R4 := 16
+           5 [   0] CALL      R2(...) nargs=2 nret=-1
+           6 [   0] TAILCALL  return R1(...) nargs=-1
+           7 [   0] RETURN    return R1.. (-1 values)
+           8 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#1 (params=1, lines 42-44, upvals=[], locals=[])
+        constants: strings=['string', 'char', 'tonumber'] numbers=[10]
+           0 [   0] GETGLOBAL R1 := _G["string"]
+           1 [   0] GETTABLE  R1 := R1["char"]
+           2 [   0] GETGLOBAL R2 := _G["tonumber"]
+           3 [   0] MOVE      R3 := R0
+           4 [   0] LOADK     R4 := 10
+           5 [   0] CALL      R2(...) nargs=2 nret=-1
+           6 [   0] TAILCALL  return R1(...) nargs=-1
+           7 [   0] RETURN    return R1.. (-1 values)
+           8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=2, lines 53-59, upvals=[], locals=[])
+      constants: strings=['string', 'gsub', '(%w+)=(["\'])(.-)%2'] numbers=[]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] GETGLOBAL R3 := _G["string"]
+         2 [   0] GETTABLE  R3 := R3["gsub"]
+         3 [   0] MOVE      R4 := R1
+         4 [   0] LOADK     R5 := "(%w+)=(["'])(.-)%2"
+         5 [   0] CLOSURE   R6 := closure #0
+         6 [   0] MOVE      R0 := R2
+         7 [   0] MOVE      R0 := R0
+         8 [   0] CALL      R3(...) nargs=3 nret=0
+         9 [   0] RETURN    return R2.. (1 values)
+        10 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#2.#0 (params=3, lines 55-57, upvals=[], locals=[])
+        constants: strings=['FromXmlString'] numbers=[]
+           0 [   0] GETUPVAL  R3 := upval 0
+           1 [   0] GETUPVAL  R4 := upval 1
+           2 [   0] SELF      R5 := R4; R4 := R4["FromXmlString"]
+           3 [   0] MOVE      R6 := R2
+           4 [   0] CALL      R4(...) nargs=2 nret=1
+           5 [   0] SETTABLE  R3[R0] := R4
+           6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 61-100, upvals=[], locals=[])
+      constants: strings=['name', 'value', 'properties', 'child', 'table', 'insert', 'string', 'find', '<(%/?)([%w:]+)(.-)(%/?)>', 'sub', '^%s*$', '', 'FromXmlString', '/', 'ParseArgs', 'remove', 'error', 'XmlParser: nothing to close with ', 'XmlParser: trying to close ', ' with ', 'XmlParser: unclosed ', 'n'] numbers=[1]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+         2 [   0] SETTABLE  R3["name"] := None
+         3 [   0] SETTABLE  R3["value"] := None
+         4 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+         5 [   0] SETTABLE  R3["properties"] := R4
+         6 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+         7 [   0] SETTABLE  R3["child"] := R4
+         8 [   0] GETGLOBAL R4 := _G["table"]
+         9 [   0] GETTABLE  R4 := R4["insert"]
+        10 [   0] MOVE      R5 := R2
+        11 [   0] MOVE      R6 := R3
+        12 [   0] CALL      R4(...) nargs=2 nret=0
+        13 [   0] LOADNIL   R4..R8 := nil
+        14 [   0] LOADK     R9 := 1
+        15 [   0] LOADK     R10 := 1
+        16 [   0] GETGLOBAL R11 := _G["string"]
+        17 [   0] GETTABLE  R11 := R11["find"]
+        18 [   0] MOVE      R12 := R1
+        19 [   0] LOADK     R13 := "<(%/?)([%w:]+)(.-)(%/?)>"
+        20 [   0] MOVE      R14 := R9
+        21 [   0] CALL      R11(...) nargs=3 nret=6
+        22 [   0] MOVE      R8 := R16
+        23 [   0] MOVE      R7 := R15
+        24 [   0] MOVE      R6 := R14
+        25 [   0] MOVE      R5 := R13
+        26 [   0] MOVE      R10 := R12
+        27 [   0] MOVE      R4 := R11
+        28 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        29 [   0] JMP       jmp +1 -> 31
+        30 [   0] JMP       jmp +87 -> 118
+        31 [   0] GETGLOBAL R11 := _G["string"]
+        32 [   0] GETTABLE  R11 := R11["sub"]
+        33 [   0] MOVE      R12 := R1
+        34 [   0] MOVE      R13 := R9
+        35 [   0] SUB       R14 := R4 - 1
+        36 [   0] CALL      R11(...) nargs=3 nret=1
+        37 [   0] GETGLOBAL R12 := _G["string"]
+        38 [   0] GETTABLE  R12 := R12["find"]
+        39 [   0] MOVE      R13 := R11
+        40 [   0] LOADK     R14 := "^%s*$"
+        41 [   0] CALL      R12(...) nargs=2 nret=1
+        42 [   0] TEST      if (R12 truthy) ~= 1 then skip next
+        43 [   0] JMP       jmp +9 -> 53
+        44 [   0] GETTABLE  R12 := R3["value"]
+        45 [   0] TEST      if (R12 truthy) ~= 1 then skip next
+        46 [   0] JMP       jmp +1 -> 48
+        47 [   0] LOADK     R12 := ""
+        48 [   0] SELF      R14 := R0; R13 := R0["FromXmlString"]
+        49 [   0] MOVE      R15 := R11
+        50 [   0] CALL      R13(...) nargs=2 nret=1
+        51 [   0] CONCAT    R12 := R12 .. ... .. R13
+        52 [   0] SETTABLE  R3["value"] := R12
+        53 [   0] EQ        if (R8 == "/") ~= 0 then skip next
+        54 [   0] JMP       jmp +14 -> 69
+        55 [   0] GETGLOBAL R12 := _G["table"]
+        56 [   0] GETTABLE  R12 := R12["insert"]
+        57 [   0] GETTABLE  R13 := R3["child"]
+        58 [   0] NEWTABLE  R14 := {} (array 0, hash 4)
+        59 [   0] SETTABLE  R14["name"] := R6
+        60 [   0] SETTABLE  R14["value"] := None
+        61 [   0] SELF      R16 := R0; R15 := R0["ParseArgs"]
+        62 [   0] MOVE      R17 := R7
+        63 [   0] CALL      R15(...) nargs=2 nret=1
+        64 [   0] SETTABLE  R14["properties"] := R15
+        65 [   0] NEWTABLE  R15 := {} (array 0, hash 0)
+        66 [   0] SETTABLE  R14["child"] := R15
+        67 [   0] CALL      R12(...) nargs=2 nret=0
+        68 [   0] JMP       jmp +47 -> 116
+        69 [   0] EQ        if (R5 == "") ~= 0 then skip next
+        70 [   0] JMP       jmp +16 -> 87
+        71 [   0] NEWTABLE  R12 := {} (array 0, hash 4)
+        72 [   0] SETTABLE  R12["name"] := R6
+        73 [   0] SETTABLE  R12["value"] := None
+        74 [   0] SELF      R14 := R0; R13 := R0["ParseArgs"]
+        75 [   0] MOVE      R15 := R7
+        76 [   0] CALL      R13(...) nargs=2 nret=1
+        77 [   0] SETTABLE  R12["properties"] := R13
+        78 [   0] NEWTABLE  R13 := {} (array 0, hash 0)
+        79 [   0] SETTABLE  R12["child"] := R13
+        80 [   0] MOVE      R3 := R12
+        81 [   0] GETGLOBAL R12 := _G["table"]
+        82 [   0] GETTABLE  R12 := R12["insert"]
+        83 [   0] MOVE      R13 := R2
+        84 [   0] MOVE      R14 := R3
+        85 [   0] CALL      R12(...) nargs=2 nret=0
+        86 [   0] JMP       jmp +29 -> 116
+        87 [   0] GETGLOBAL R12 := _G["table"]
+        88 [   0] GETTABLE  R12 := R12["remove"]
+        89 [   0] MOVE      R13 := R2
+        90 [   0] CALL      R12(...) nargs=1 nret=1
+        91 [   0] LEN       R13 := #R2
+        92 [   0] GETTABLE  R3 := R2[R13]
+        93 [   0] LEN       R13 := #R2
+        94 [   0] LT        if (R13 < 1) ~= 0 then skip next
+        95 [   0] JMP       jmp +5 -> 101
+        96 [   0] GETGLOBAL R13 := _G["error"]
+        97 [   0] LOADK     R14 := "XmlParser: nothing to close with "
+        98 [   0] MOVE      R15 := R6
+        99 [   0] CONCAT    R14 := R14 .. ... .. R15
+       100 [   0] CALL      R13(...) nargs=1 nret=0
+       101 [   0] GETTABLE  R13 := R12["name"]
+       102 [   0] EQ        if (R13 == R6) ~= 1 then skip next
+       103 [   0] JMP       jmp +7 -> 111
+       104 [   0] GETGLOBAL R13 := _G["error"]
+       105 [   0] LOADK     R14 := "XmlParser: trying to close "
+       106 [   0] GETTABLE  R15 := R12["name"]
+       107 [   0] LOADK     R16 := " with "
+       108 [   0] MOVE      R17 := R6
+       109 [   0] CONCAT    R14 := R14 .. ... .. R17
+       110 [   0] CALL      R13(...) nargs=1 nret=0
+       111 [   0] GETGLOBAL R13 := _G["table"]
+       112 [   0] GETTABLE  R13 := R13["insert"]
+       113 [   0] GETTABLE  R14 := R3["child"]
+       114 [   0] MOVE      R15 := R12
+       115 [   0] CALL      R13(...) nargs=2 nret=0
+       116 [   0] ADD       R9 := R10 + 1
+       117 [   0] JMP       jmp -102 -> 16
+       118 [   0] GETGLOBAL R11 := _G["string"]
+       119 [   0] GETTABLE  R11 := R11["sub"]
+       120 [   0] MOVE      R12 := R1
+       121 [   0] MOVE      R13 := R9
+       122 [   0] CALL      R11(...) nargs=2 nret=1
+       123 [   0] GETGLOBAL R12 := _G["string"]
+       124 [   0] GETTABLE  R12 := R12["find"]
+       125 [   0] MOVE      R13 := R11
+       126 [   0] LOADK     R14 := "^%s*$"
+       127 [   0] CALL      R12(...) nargs=2 nret=1
+       128 [   0] TEST      if (R12 truthy) ~= 1 then skip next
+       129 [   0] JMP       jmp +13 -> 143
+       130 [   0] LEN       R12 := #R2
+       131 [   0] GETTABLE  R12 := R2[R12]
+       132 [   0] LEN       R13 := #R2
+       133 [   0] GETTABLE  R13 := R2[R13]
+       134 [   0] GETTABLE  R13 := R13["value"]
+       135 [   0] TEST      if (R13 truthy) ~= 1 then skip next
+       136 [   0] JMP       jmp +1 -> 138
+       137 [   0] LOADK     R13 := ""
+       138 [   0] SELF      R15 := R0; R14 := R0["FromXmlString"]
+       139 [   0] MOVE      R16 := R11
+       140 [   0] CALL      R14(...) nargs=2 nret=1
+       141 [   0] CONCAT    R13 := R13 .. ... .. R14
+       142 [   0] SETTABLE  R12["value"] := R13
+       143 [   0] LEN       R12 := #R2
+       144 [   0] LT        if (1 < R12) ~= 0 then skip next
+       145 [   0] JMP       jmp +7 -> 153
+       146 [   0] GETGLOBAL R12 := _G["error"]
+       147 [   0] LOADK     R13 := "XmlParser: unclosed "
+       148 [   0] GETTABLE  R14 := R2["n"]
+       149 [   0] GETTABLE  R14 := R2[R14]
+       150 [   0] GETTABLE  R14 := R14["name"]
+       151 [   0] CONCAT    R13 := R13 .. ... .. R14
+       152 [   0] CALL      R12(...) nargs=1 nret=0
+       153 [   0] GETTABLE  R12 := R2[1]
+       154 [   0] GETTABLE  R12 := R12["child"]
+       155 [   0] GETTABLE  R12 := R12[1]
+       156 [   0] RETURN    return R12.. (1 values)
+       157 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=3, lines 102-118, upvals=[], locals=[])
+      constants: strings=['system', 'ResourceDirectory', 'pathForFile', 'io', 'open', 'r', 'read', '*a', 'close', 'ParseXmlText', 'print'] numbers=[]
+         0 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +2 -> 4
+         2 [   0] GETGLOBAL R3 := _G["system"]
+         3 [   0] GETTABLE  R2 := R3["ResourceDirectory"]
+         4 [   0] GETGLOBAL R3 := _G["system"]
+         5 [   0] GETTABLE  R3 := R3["pathForFile"]
+         6 [   0] MOVE      R4 := R1
+         7 [   0] MOVE      R5 := R2
+         8 [   0] CALL      R3(...) nargs=2 nret=1
+         9 [   0] GETGLOBAL R4 := _G["io"]
+        10 [   0] GETTABLE  R4 := R4["open"]
+        11 [   0] MOVE      R5 := R3
+        12 [   0] LOADK     R6 := "r"
+        13 [   0] CALL      R4(...) nargs=2 nret=2
+        14 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +15 -> 31
+        16 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+        17 [   0] JMP       jmp +13 -> 31
+        18 [   0] SELF      R7 := R4; R6 := R4["read"]
+        19 [   0] LOADK     R8 := "*a"
+        20 [   0] CALL      R6(...) nargs=2 nret=1
+        21 [   0] GETGLOBAL R7 := _G["io"]
+        22 [   0] GETTABLE  R7 := R7["close"]
+        23 [   0] MOVE      R8 := R4
+        24 [   0] CALL      R7(...) nargs=1 nret=0
+        25 [   0] SELF      R8 := R0; R7 := R0["ParseXmlText"]
+        26 [   0] MOVE      R9 := R6
+        27 [   0] CALL      R7(...) nargs=2 nret=1
+        28 [   0] LOADNIL   R8..R8 := nil
+        29 [   0] RETURN    return R7.. (2 values)
+        30 [   0] JMP       jmp +5 -> 36
+        31 [   0] GETGLOBAL R6 := _G["print"]
+        32 [   0] MOVE      R7 := R5
+        33 [   0] CALL      R6(...) nargs=1 nret=0
+        34 [   0] LOADNIL   R6..R6 := nil
+        35 [   0] RETURN    return R6.. (1 values)
+        36 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=3, lines 142-160, upvals=[], locals=[])
+      constants: strings=['pairs', 'properties', 'child', 'name', 'convertToTable'] numbers=[0, 1]
+         0 [   0] GETGLOBAL R3 := _G["pairs"]
+         1 [   0] GETTABLE  R4 := R1["properties"]
+         2 [   0] CALL      R3(...) nargs=1 nret=3
+         3 [   0] JMP       jmp +1 -> 5
+         4 [   0] SETTABLE  R2[R6] := R7
+         5 [   0] TFORLOOP  tforloop R3 nres=2
+         6 [   0] JMP       jmp -3 -> 4
+         7 [   0] GETTABLE  R3 := R1["child"]
+         8 [   0] LEN       R3 := #R3
+         9 [   0] EQ        if (R3 == 0) ~= 0 then skip next
+        10 [   0] JMP       jmp +1 -> 12
+        11 [   0] RETURN    return R0.. (0 values)
+        12 [   0] LOADK     R3 := 1
+        13 [   0] GETTABLE  R4 := R1["child"]
+        14 [   0] LEN       R4 := #R4
+        15 [   0] LOADK     R5 := 1
+        16 [   0] FORPREP   for R3.. jmp +14
+        17 [   0] GETTABLE  R7 := R1["child"]
+        18 [   0] GETTABLE  R7 := R7[R6]
+        19 [   0] GETTABLE  R7 := R7["name"]
+        20 [   0] GETTABLE  R8 := R2[R7]
+        21 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+        22 [   0] JMP       jmp +2 -> 25
+        23 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+        24 [   0] SETTABLE  R2[R7] := R8
+        25 [   0] GETUPVAL  R8 := upval 0
+        26 [   0] SELF      R9 := R8; R8 := R8["convertToTable"]
+        27 [   0] GETTABLE  R10 := R1["child"]
+        28 [   0] GETTABLE  R10 := R10[R6]
+        29 [   0] GETTABLE  R11 := R2[R7]
+        30 [   0] CALL      R8(...) nargs=3 nret=0
+        31 [   0] FORLOOP   forloop R3 jmp -15
+        32 [   0] RETURN    return R0.. (0 values)

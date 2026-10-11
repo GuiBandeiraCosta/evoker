@@ -1,0 +1,200 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'utils.util', 'logging.logger', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "utils.util"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "logging.logger"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] CLOSURE   R2 := closure #0
+    11 [   0] MOVE      R0 := R0
+    12 [   0] MOVE      R0 := R1
+    13 [   0] LOADNIL   R3..R3 := nil
+    14 [   0] CLOSURE   R4 := closure #1
+    15 [   0] MOVE      R0 := R3
+    16 [   0] MOVE      R0 := R2
+    17 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+    18 [   0] SETTABLE  R5["getInstance"] := R4
+    19 [   0] RETURN    return R5.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 9-67, upvals=[], locals=[])
+    constants: strings=['isSimulator', 'msg', '[GameServices] Initializing Fake-Cloud ', 'require', 'FGLIB_PATH', 'gameservices.fakecloud', 'getInstance', 'isAndroid', '[GameServices] Initializing Google Play Game Services ...', 'gameservices.googleimpl', 'isIPhone', '[GameServices] Initializing Apple Game Center ... ', 'gameservices.gamecenterimpl', '[GameServices] Game Network not suported. Initializing null-Cloud ', 'gameservices.nullcloud', 'init', 'signIn', 'isLoggedIn', 'signOut', 'unlockAchievement', 'setLeaderboardScore', 'showLeaderboard', 'showAchievements', 'isAvailable'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] LOADNIL   R1..R1 := nil
+       2 [   0] GETUPVAL  R2 := upval 0
+       3 [   0] GETTABLE  R2 := R2["isSimulator"]
+       4 [   0] CALL      R2(...) nargs=0 nret=1
+       5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+       6 [   0] JMP       jmp +13 -> 20
+       7 [   0] GETUPVAL  R2 := upval 1
+       8 [   0] GETTABLE  R2 := R2["msg"]
+       9 [   0] LOADK     R3 := "[GameServices] Initializing Fake-Cloud "
+      10 [   0] CALL      R2(...) nargs=1 nret=0
+      11 [   0] GETGLOBAL R2 := _G["require"]
+      12 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+      13 [   0] LOADK     R4 := "gameservices.fakecloud"
+      14 [   0] CONCAT    R3 := R3 .. ... .. R4
+      15 [   0] CALL      R2(...) nargs=1 nret=1
+      16 [   0] GETTABLE  R2 := R2["getInstance"]
+      17 [   0] CALL      R2(...) nargs=0 nret=1
+      18 [   0] MOVE      R1 := R2
+      19 [   0] JMP       jmp +48 -> 68
+      20 [   0] GETUPVAL  R2 := upval 0
+      21 [   0] GETTABLE  R2 := R2["isAndroid"]
+      22 [   0] CALL      R2(...) nargs=0 nret=1
+      23 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      24 [   0] JMP       jmp +13 -> 38
+      25 [   0] GETUPVAL  R2 := upval 1
+      26 [   0] GETTABLE  R2 := R2["msg"]
+      27 [   0] LOADK     R3 := "[GameServices] Initializing Google Play Game Services ..."
+      28 [   0] CALL      R2(...) nargs=1 nret=0
+      29 [   0] GETGLOBAL R2 := _G["require"]
+      30 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+      31 [   0] LOADK     R4 := "gameservices.googleimpl"
+      32 [   0] CONCAT    R3 := R3 .. ... .. R4
+      33 [   0] CALL      R2(...) nargs=1 nret=1
+      34 [   0] GETTABLE  R2 := R2["getInstance"]
+      35 [   0] CALL      R2(...) nargs=0 nret=1
+      36 [   0] MOVE      R1 := R2
+      37 [   0] JMP       jmp +30 -> 68
+      38 [   0] GETUPVAL  R2 := upval 0
+      39 [   0] GETTABLE  R2 := R2["isIPhone"]
+      40 [   0] CALL      R2(...) nargs=0 nret=1
+      41 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      42 [   0] JMP       jmp +13 -> 56
+      43 [   0] GETUPVAL  R2 := upval 1
+      44 [   0] GETTABLE  R2 := R2["msg"]
+      45 [   0] LOADK     R3 := "[GameServices] Initializing Apple Game Center ... "
+      46 [   0] CALL      R2(...) nargs=1 nret=0
+      47 [   0] GETGLOBAL R2 := _G["require"]
+      48 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+      49 [   0] LOADK     R4 := "gameservices.gamecenterimpl"
+      50 [   0] CONCAT    R3 := R3 .. ... .. R4
+      51 [   0] CALL      R2(...) nargs=1 nret=1
+      52 [   0] GETTABLE  R2 := R2["getInstance"]
+      53 [   0] CALL      R2(...) nargs=0 nret=1
+      54 [   0] MOVE      R1 := R2
+      55 [   0] JMP       jmp +12 -> 68
+      56 [   0] GETUPVAL  R2 := upval 1
+      57 [   0] GETTABLE  R2 := R2["msg"]
+      58 [   0] LOADK     R3 := "[GameServices] Game Network not suported. Initializing null-Cloud "
+      59 [   0] CALL      R2(...) nargs=1 nret=0
+      60 [   0] GETGLOBAL R2 := _G["require"]
+      61 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+      62 [   0] LOADK     R4 := "gameservices.nullcloud"
+      63 [   0] CONCAT    R3 := R3 .. ... .. R4
+      64 [   0] CALL      R2(...) nargs=1 nret=1
+      65 [   0] GETTABLE  R2 := R2["getInstance"]
+      66 [   0] CALL      R2(...) nargs=0 nret=1
+      67 [   0] MOVE      R1 := R2
+      68 [   0] CLOSURE   R2 := closure #0
+      69 [   0] SETTABLE  R0["init"] := R2
+      70 [   0] CLOSURE   R2 := closure #1
+      71 [   0] MOVE      R0 := R1
+      72 [   0] SETTABLE  R0["signIn"] := R2
+      73 [   0] CLOSURE   R2 := closure #2
+      74 [   0] MOVE      R0 := R1
+      75 [   0] SETTABLE  R0["isLoggedIn"] := R2
+      76 [   0] CLOSURE   R2 := closure #3
+      77 [   0] MOVE      R0 := R1
+      78 [   0] SETTABLE  R0["signOut"] := R2
+      79 [   0] CLOSURE   R2 := closure #4
+      80 [   0] MOVE      R0 := R1
+      81 [   0] SETTABLE  R0["unlockAchievement"] := R2
+      82 [   0] CLOSURE   R2 := closure #5
+      83 [   0] MOVE      R0 := R1
+      84 [   0] SETTABLE  R0["setLeaderboardScore"] := R2
+      85 [   0] CLOSURE   R2 := closure #6
+      86 [   0] MOVE      R0 := R1
+      87 [   0] SETTABLE  R0["showLeaderboard"] := R2
+      88 [   0] CLOSURE   R2 := closure #7
+      89 [   0] MOVE      R0 := R1
+      90 [   0] SETTABLE  R0["showAchievements"] := R2
+      91 [   0] CLOSURE   R2 := closure #8
+      92 [   0] MOVE      R0 := R1
+      93 [   0] SETTABLE  R0["isAvailable"] := R2
+      94 [   0] RETURN    return R0.. (1 values)
+      95 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 28-30, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 33-35, upvals=[], locals=[])
+      constants: strings=['signInGameNetwork'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["signInGameNetwork"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] TAILCALL  return R1(...) nargs=1
+         4 [   0] RETURN    return R1.. (-1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 37-39, upvals=[], locals=[])
+      constants: strings=['isLoggedInGameNetwork'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["isLoggedInGameNetwork"]
+         2 [   0] TAILCALL  return R0(...) nargs=0
+         3 [   0] RETURN    return R0.. (-1 values)
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 42-44, upvals=[], locals=[])
+      constants: strings=['signOutGameNetwork'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["signOutGameNetwork"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] TAILCALL  return R1(...) nargs=1
+         4 [   0] RETURN    return R1.. (-1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=4, lines 46-48, upvals=[], locals=[])
+      constants: strings=['unlockAchievement'] numbers=[]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["unlockAchievement"]
+         2 [   0] MOVE      R5 := R0
+         3 [   0] MOVE      R6 := R1
+         4 [   0] MOVE      R7 := R2
+         5 [   0] MOVE      R8 := R3
+         6 [   0] TAILCALL  return R4(...) nargs=4
+         7 [   0] RETURN    return R4.. (-1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=3, lines 50-52, upvals=[], locals=[])
+      constants: strings=['setLeaderboardScore'] numbers=[]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] GETTABLE  R3 := R3["setLeaderboardScore"]
+         2 [   0] MOVE      R4 := R0
+         3 [   0] MOVE      R5 := R1
+         4 [   0] MOVE      R6 := R2
+         5 [   0] TAILCALL  return R3(...) nargs=3
+         6 [   0] RETURN    return R3.. (-1 values)
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 54-56, upvals=[], locals=[])
+      constants: strings=['showLeaderboard'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["showLeaderboard"]
+         2 [   0] TAILCALL  return R0(...) nargs=0
+         3 [   0] RETURN    return R0.. (-1 values)
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 58-60, upvals=[], locals=[])
+      constants: strings=['showAchievements'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["showAchievements"]
+         2 [   0] TAILCALL  return R0(...) nargs=0
+         3 [   0] RETURN    return R0.. (-1 values)
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 62-64, upvals=[], locals=[])
+      constants: strings=['isGameNetworkAvailable'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["isGameNetworkAvailable"]
+         2 [   0] TAILCALL  return R0(...) nargs=0
+         3 [   0] RETURN    return R0.. (-1 values)
+         4 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 71-76, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

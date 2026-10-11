@@ -1,0 +1,20 @@
+/* App-level styles: name dialog, boot error, shared screen bits used by several screens. */
+
+/* Name entry dialog (title screen) */
+.name-input {
+  display: block; width: 100%; height: 72px;
+  padding: 0 18px;
+  font: inherit; font-size: 32px; font-weight: 600; text-align: center;
+  color: var(--gold);
+  background: linear-gradient(180deg, #0b0c0d, #16181a);
+  border: 2px solid var(--stone-edge-dark); border-radius: 6px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, .9), 0 1px 0 var(--bevel-hi);
+  outline: none;
+  user-select: text; -webkit-user-select: text;
+}
+.name-input:focus { border-color: var(--steel-hi); box-shadow: inset 0 2px 6px rgba(0, 0, 0, .9), 0 0 0 3px rgba(77, 127, 158, .45); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+}

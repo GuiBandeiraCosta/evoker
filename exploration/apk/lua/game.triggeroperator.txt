@@ -1,0 +1,264 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['getInstance'] numbers=[]
+     0 [   0] CLOSURE   R1 := closure #0
+     1 [   0] CLOSURE   R2 := closure #1
+     2 [   0] MOVE      R0 := R0
+     3 [   0] MOVE      R0 := R1
+     4 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+     5 [   0] SETTABLE  R3["getInstance"] := R2
+     6 [   0] RETURN    return R3.. (1 values)
+     7 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 9-74, upvals=[], locals=[])
+    constants: strings=['exists', 'not', 'eq', 'ne', 'le', 'lt', 'gt', 'ge', 'contains', 'not_contains', 'is_true', 'is_false', 'not_null', 'is_null'] numbers=[]
+       0 [   0] CLOSURE   R0 := closure #0
+       1 [   0] LOADNIL   R1..R1 := nil
+       2 [   0] NEWTABLE  R2 := {} (array 0, hash 14)
+       3 [   0] CLOSURE   R3 := closure #1
+       4 [   0] SETTABLE  R2["exists"] := R3
+       5 [   0] CLOSURE   R3 := closure #2
+       6 [   0] SETTABLE  R2["not"] := R3
+       7 [   0] CLOSURE   R3 := closure #3
+       8 [   0] SETTABLE  R2["eq"] := R3
+       9 [   0] CLOSURE   R3 := closure #4
+      10 [   0] SETTABLE  R2["ne"] := R3
+      11 [   0] CLOSURE   R3 := closure #5
+      12 [   0] MOVE      R0 := R0
+      13 [   0] SETTABLE  R2["le"] := R3
+      14 [   0] CLOSURE   R3 := closure #6
+      15 [   0] MOVE      R0 := R0
+      16 [   0] SETTABLE  R2["lt"] := R3
+      17 [   0] CLOSURE   R3 := closure #7
+      18 [   0] MOVE      R0 := R0
+      19 [   0] SETTABLE  R2["gt"] := R3
+      20 [   0] CLOSURE   R3 := closure #8
+      21 [   0] MOVE      R0 := R0
+      22 [   0] SETTABLE  R2["ge"] := R3
+      23 [   0] CLOSURE   R3 := closure #9
+      24 [   0] SETTABLE  R2["contains"] := R3
+      25 [   0] CLOSURE   R3 := closure #10
+      26 [   0] MOVE      R0 := R1
+      27 [   0] SETTABLE  R2["not_contains"] := R3
+      28 [   0] CLOSURE   R3 := closure #11
+      29 [   0] SETTABLE  R2["is_true"] := R3
+      30 [   0] CLOSURE   R3 := closure #12
+      31 [   0] SETTABLE  R2["is_false"] := R3
+      32 [   0] CLOSURE   R3 := closure #13
+      33 [   0] SETTABLE  R2["not_null"] := R3
+      34 [   0] CLOSURE   R3 := closure #14
+      35 [   0] SETTABLE  R2["is_null"] := R3
+      36 [   0] MOVE      R1 := R2
+      37 [   0] RETURN    return R1.. (1 values)
+      38 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=3, lines 10-18, upvals=[], locals=[])
+      constants: strings=['type', 'number'] numbers=[]
+         0 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         1 [   0] JMP       jmp +18 -> 20
+         2 [   0] GETGLOBAL R3 := _G["type"]
+         3 [   0] MOVE      R4 := R0
+         4 [   0] CALL      R3(...) nargs=1 nret=1
+         5 [   0] EQ        if (R3 == "number") ~= 0 then skip next
+         6 [   0] JMP       jmp +13 -> 20
+         7 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         8 [   0] JMP       jmp +11 -> 20
+         9 [   0] GETGLOBAL R3 := _G["type"]
+        10 [   0] MOVE      R4 := R1
+        11 [   0] CALL      R3(...) nargs=1 nret=1
+        12 [   0] EQ        if (R3 == "number") ~= 0 then skip next
+        13 [   0] JMP       jmp +6 -> 20
+        14 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +6 -> 22
+        16 [   0] MOVE      R3 := R2
+        17 [   0] TAILCALL  return R3(...) nargs=0
+        18 [   0] RETURN    return R3.. (-1 values)
+        19 [   0] JMP       jmp +2 -> 22
+        20 [   0] LOADBOOL  R3 := False
+        21 [   0] RETURN    return R3.. (1 values)
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 22-24, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] EQ        if (R0 == True) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R2 := False (skip)
+         3 [   0] LOADBOOL  R2 := True
+         4 [   0] RETURN    return R2.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=2, lines 25-27, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] NOT       R2 := not R0
+         1 [   0] RETURN    return R2.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 28-30, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] EQ        if (R0 == R1) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R2 := False (skip)
+         3 [   0] LOADBOOL  R2 := True
+         4 [   0] RETURN    return R2.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=2, lines 31-33, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] EQ        if (R0 == R1) ~= 0 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R2 := False (skip)
+         3 [   0] LOADBOOL  R2 := True
+         4 [   0] RETURN    return R2.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=2, lines 34-36, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] MOVE      R3 := R0
+         2 [   0] MOVE      R4 := R1
+         3 [   0] CLOSURE   R5 := closure #0
+         4 [   0] MOVE      R0 := R0
+         5 [   0] MOVE      R0 := R1
+         6 [   0] TAILCALL  return R2(...) nargs=3
+         7 [   0] RETURN    return R2.. (-1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#5.#0 (params=0, lines 35-35, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] LE        if (R0 <= R1) ~= 1 then skip next
+           3 [   0] JMP       jmp +1 -> 5
+           4 [   0] LOADBOOL  R0 := False (skip)
+           5 [   0] LOADBOOL  R0 := True
+           6 [   0] RETURN    return R0.. (1 values)
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 37-39, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] MOVE      R3 := R0
+         2 [   0] MOVE      R4 := R1
+         3 [   0] CLOSURE   R5 := closure #0
+         4 [   0] MOVE      R0 := R0
+         5 [   0] MOVE      R0 := R1
+         6 [   0] TAILCALL  return R2(...) nargs=3
+         7 [   0] RETURN    return R2.. (-1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#6.#0 (params=0, lines 38-38, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] LT        if (R0 < R1) ~= 1 then skip next
+           3 [   0] JMP       jmp +1 -> 5
+           4 [   0] LOADBOOL  R0 := False (skip)
+           5 [   0] LOADBOOL  R0 := True
+           6 [   0] RETURN    return R0.. (1 values)
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 40-42, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] MOVE      R3 := R0
+         2 [   0] MOVE      R4 := R1
+         3 [   0] CLOSURE   R5 := closure #0
+         4 [   0] MOVE      R0 := R0
+         5 [   0] MOVE      R0 := R1
+         6 [   0] TAILCALL  return R2(...) nargs=3
+         7 [   0] RETURN    return R2.. (-1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#0 (params=0, lines 41-41, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] LT        if (R1 < R0) ~= 1 then skip next
+           3 [   0] JMP       jmp +1 -> 5
+           4 [   0] LOADBOOL  R0 := False (skip)
+           5 [   0] LOADBOOL  R0 := True
+           6 [   0] RETURN    return R0.. (1 values)
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=2, lines 43-45, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] MOVE      R3 := R0
+         2 [   0] MOVE      R4 := R1
+         3 [   0] CLOSURE   R5 := closure #0
+         4 [   0] MOVE      R0 := R0
+         5 [   0] MOVE      R0 := R1
+         6 [   0] TAILCALL  return R2(...) nargs=3
+         7 [   0] RETURN    return R2.. (-1 values)
+         8 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#8.#0 (params=0, lines 44-44, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETUPVAL  R1 := upval 1
+           2 [   0] LE        if (R1 <= R0) ~= 1 then skip next
+           3 [   0] JMP       jmp +1 -> 5
+           4 [   0] LOADBOOL  R0 := False (skip)
+           5 [   0] LOADBOOL  R0 := True
+           6 [   0] RETURN    return R0.. (1 values)
+           7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=2, lines 46-55, upvals=[], locals=[])
+      constants: strings=['type', 'table', 'pairs'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +15 -> 17
+         2 [   0] GETGLOBAL R2 := _G["type"]
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R2(...) nargs=1 nret=1
+         5 [   0] EQ        if (R2 == "table") ~= 0 then skip next
+         6 [   0] JMP       jmp +10 -> 17
+         7 [   0] GETGLOBAL R2 := _G["pairs"]
+         8 [   0] MOVE      R3 := R0
+         9 [   0] CALL      R2(...) nargs=1 nret=3
+        10 [   0] JMP       jmp +4 -> 15
+        11 [   0] EQ        if (R6 == R1) ~= 0 then skip next
+        12 [   0] JMP       jmp +2 -> 15
+        13 [   0] LOADBOOL  R7 := True
+        14 [   0] RETURN    return R7.. (1 values)
+        15 [   0] TFORLOOP  tforloop R2 nres=2
+        16 [   0] JMP       jmp -6 -> 11
+        17 [   0] LOADBOOL  R2 := False
+        18 [   0] RETURN    return R2.. (1 values)
+        19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=2, lines 56-58, upvals=[], locals=[])
+      constants: strings=['contains'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["contains"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] MOVE      R4 := R1
+         4 [   0] CALL      R2(...) nargs=2 nret=1
+         5 [   0] NOT       R2 := not R2
+         6 [   0] RETURN    return R2.. (1 values)
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=2, lines 59-61, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] EQ        if (R0 == True) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R2 := False (skip)
+         3 [   0] LOADBOOL  R2 := True
+         4 [   0] RETURN    return R2.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=2, lines 62-64, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] EQ        if (R0 == False) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R2 := False (skip)
+         3 [   0] LOADBOOL  R2 := True
+         4 [   0] RETURN    return R2.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=2, lines 65-67, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] EQ        if (R0 == None) ~= 0 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R2 := False (skip)
+         3 [   0] LOADBOOL  R2 := True
+         4 [   0] RETURN    return R2.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=2, lines 68-70, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADBOOL  R2 := False (skip)
+         3 [   0] LOADBOOL  R2 := True
+         4 [   0] RETURN    return R2.. (1 values)
+         5 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 76-81, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

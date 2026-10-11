@@ -1,0 +1,161 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'fglib.fglib', 'getInstance'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] LOADNIL   R1..R1 := nil
+     2 [   0] GETGLOBAL R2 := _G["require"]
+     3 [   0] LOADK     R3 := "fglib.fglib"
+     4 [   0] CALL      R2(...) nargs=1 nret=1
+     5 [   0] CLOSURE   R3 := closure #0
+     6 [   0] MOVE      R0 := R2
+     7 [   0] CLOSURE   R4 := closure #1
+     8 [   0] MOVE      R0 := R1
+     9 [   0] MOVE      R0 := R3
+    10 [   0] SETTABLE  R0["getInstance"] := R4
+    11 [   0] RETURN    return R0.. (1 values)
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 7-52, upvals=[], locals=[])
+    constants: strings=['cloudImplementation', 'utils', 'Util', 'isAndroid', 'isSimulator', 'require', 'FGLIB_PATH', 'cloud.gcloudimplementation', 'new', 'isWindows', 'cloud.windowsimplementation', 'isIPhone', 'cloud.icloudimplementation', 'setMainKey', 'init', 'load', 'save', 'synchronize', 'getValue', 'setValue', 'removeValue', 'cloudAvailable', 'signOut', 'signOutAfterExternalSignOut', 'getAccount'] numbers=[]
+       0 [   0] SETTABLE  R0["cloudImplementation"] := None
+       1 [   0] GETUPVAL  R1 := upval 0
+       2 [   0] GETTABLE  R1 := R1["utils"]
+       3 [   0] GETTABLE  R1 := R1["Util"]
+       4 [   0] GETTABLE  R1 := R1["isAndroid"]
+       5 [   0] CALL      R1(...) nargs=0 nret=1
+       6 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       7 [   0] JMP       jmp +16 -> 24
+       8 [   0] GETUPVAL  R1 := upval 0
+       9 [   0] GETTABLE  R1 := R1["utils"]
+      10 [   0] GETTABLE  R1 := R1["Util"]
+      11 [   0] GETTABLE  R1 := R1["isSimulator"]
+      12 [   0] CALL      R1(...) nargs=0 nret=1
+      13 [   0] EQ        if (R1 == False) ~= 0 then skip next
+      14 [   0] JMP       jmp +9 -> 24
+      15 [   0] GETGLOBAL R1 := _G["require"]
+      16 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+      17 [   0] LOADK     R3 := "cloud.gcloudimplementation"
+      18 [   0] CONCAT    R2 := R2 .. ... .. R3
+      19 [   0] CALL      R1(...) nargs=1 nret=1
+      20 [   0] GETTABLE  R1 := R1["new"]
+      21 [   0] CALL      R1(...) nargs=0 nret=1
+      22 [   0] SETTABLE  R0["cloudImplementation"] := R1
+      23 [   0] JMP       jmp +55 -> 79
+      24 [   0] GETUPVAL  R1 := upval 0
+      25 [   0] GETTABLE  R1 := R1["utils"]
+      26 [   0] GETTABLE  R1 := R1["Util"]
+      27 [   0] GETTABLE  R1 := R1["isWindows"]
+      28 [   0] CALL      R1(...) nargs=0 nret=1
+      29 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      30 [   0] JMP       jmp +16 -> 47
+      31 [   0] GETUPVAL  R1 := upval 0
+      32 [   0] GETTABLE  R1 := R1["utils"]
+      33 [   0] GETTABLE  R1 := R1["Util"]
+      34 [   0] GETTABLE  R1 := R1["isSimulator"]
+      35 [   0] CALL      R1(...) nargs=0 nret=1
+      36 [   0] EQ        if (R1 == False) ~= 0 then skip next
+      37 [   0] JMP       jmp +9 -> 47
+      38 [   0] GETGLOBAL R1 := _G["require"]
+      39 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+      40 [   0] LOADK     R3 := "cloud.windowsimplementation"
+      41 [   0] CONCAT    R2 := R2 .. ... .. R3
+      42 [   0] CALL      R1(...) nargs=1 nret=1
+      43 [   0] GETTABLE  R1 := R1["new"]
+      44 [   0] CALL      R1(...) nargs=0 nret=1
+      45 [   0] SETTABLE  R0["cloudImplementation"] := R1
+      46 [   0] JMP       jmp +32 -> 79
+      47 [   0] GETUPVAL  R1 := upval 0
+      48 [   0] GETTABLE  R1 := R1["utils"]
+      49 [   0] GETTABLE  R1 := R1["Util"]
+      50 [   0] GETTABLE  R1 := R1["isIPhone"]
+      51 [   0] CALL      R1(...) nargs=0 nret=1
+      52 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      53 [   0] JMP       jmp +16 -> 70
+      54 [   0] GETUPVAL  R1 := upval 0
+      55 [   0] GETTABLE  R1 := R1["utils"]
+      56 [   0] GETTABLE  R1 := R1["Util"]
+      57 [   0] GETTABLE  R1 := R1["isSimulator"]
+      58 [   0] CALL      R1(...) nargs=0 nret=1
+      59 [   0] EQ        if (R1 == False) ~= 0 then skip next
+      60 [   0] JMP       jmp +9 -> 70
+      61 [   0] GETGLOBAL R1 := _G["require"]
+      62 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+      63 [   0] LOADK     R3 := "cloud.icloudimplementation"
+      64 [   0] CONCAT    R2 := R2 .. ... .. R3
+      65 [   0] CALL      R1(...) nargs=1 nret=1
+      66 [   0] GETTABLE  R1 := R1["new"]
+      67 [   0] CALL      R1(...) nargs=0 nret=1
+      68 [   0] SETTABLE  R0["cloudImplementation"] := R1
+      69 [   0] JMP       jmp +9 -> 79
+      70 [   0] GETUPVAL  R1 := upval 0
+      71 [   0] GETTABLE  R1 := R1["utils"]
+      72 [   0] GETTABLE  R1 := R1["Util"]
+      73 [   0] GETTABLE  R1 := R1["isSimulator"]
+      74 [   0] CALL      R1(...) nargs=0 nret=1
+      75 [   0] EQ        if (R1 == True) ~= 0 then skip next
+      76 [   0] JMP       jmp +2 -> 79
+      77 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+      78 [   0] SETTABLE  R0["cloudImplementation"] := R1
+      79 [   0] CLOSURE   R1 := closure #0
+      80 [   0] MOVE      R0 := R0
+      81 [   0] SETTABLE  R0["setMainKey"] := R1
+      82 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+      83 [   0] GETTABLE  R1 := R1["init"]
+      84 [   0] SETTABLE  R0["init"] := R1
+      85 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+      86 [   0] GETTABLE  R1 := R1["load"]
+      87 [   0] SETTABLE  R0["load"] := R1
+      88 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+      89 [   0] GETTABLE  R1 := R1["save"]
+      90 [   0] SETTABLE  R0["save"] := R1
+      91 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+      92 [   0] GETTABLE  R1 := R1["synchronize"]
+      93 [   0] SETTABLE  R0["synchronize"] := R1
+      94 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+      95 [   0] GETTABLE  R1 := R1["getValue"]
+      96 [   0] SETTABLE  R0["getValue"] := R1
+      97 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+      98 [   0] GETTABLE  R1 := R1["setValue"]
+      99 [   0] SETTABLE  R0["setValue"] := R1
+     100 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+     101 [   0] GETTABLE  R1 := R1["removeValue"]
+     102 [   0] SETTABLE  R0["removeValue"] := R1
+     103 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+     104 [   0] GETTABLE  R1 := R1["cloudAvailable"]
+     105 [   0] SETTABLE  R0["cloudAvailable"] := R1
+     106 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+     107 [   0] GETTABLE  R1 := R1["signOut"]
+     108 [   0] SETTABLE  R0["signOut"] := R1
+     109 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+     110 [   0] GETTABLE  R1 := R1["signOutAfterExternalSignOut"]
+     111 [   0] SETTABLE  R0["signOutAfterExternalSignOut"] := R1
+     112 [   0] GETTABLE  R1 := R0["cloudImplementation"]
+     113 [   0] GETTABLE  R1 := R1["getAccount"]
+     114 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+     115 [   0] JMP       jmp +1 -> 117
+     116 [   0] CLOSURE   R1 := closure #1
+     117 [   0] SETTABLE  R0["getAccount"] := R1
+     118 [   0] RETURN    return R0.. (1 values)
+     119 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 22-25, upvals=[], locals=[])
+      constants: strings=['cloudImplementation', 'setMainKey'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["cloudImplementation"]
+         2 [   0] GETTABLE  R1 := R1["setMainKey"]
+         3 [   0] MOVE      R2 := R0
+         4 [   0] CALL      R1(...) nargs=1 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 49-49, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (1 values)
+         1 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 58-64, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +4 -> 7
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       5 [   0] CALL      R0(...) nargs=1 nret=1
+       6 [   0] SETUPVAL  upval 0 := R0
+       7 [   0] GETUPVAL  R0 := upval 0
+       8 [   0] RETURN    return R0.. (1 values)
+       9 [   0] RETURN    return R0.. (0 values)

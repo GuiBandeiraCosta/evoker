@@ -1,0 +1,295 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['NO_CORONA', 'system', 'decode', 'encode', 'request', 'require', 'utils.logger', 'getTimer', 'pathForFile', 'getInfo', 'msg', ' *********** CONFIGURED NO-CORONA-MODE ********** ', 'network', 'FGLIB_PATH', 'utils.json', 'lfs', 'json', 'log'] numbers=[]
+     0 [   0] CLOSURE   R4 := closure #0
+     1 [   0] CLOSURE   R5 := closure #1
+     2 [   0] MOVE      R0 := R4
+     3 [   0] CLOSURE   R6 := closure #2
+     4 [   0] GETGLOBAL R7 := _G["NO_CORONA"]
+     5 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+     6 [   0] JMP       jmp +29 -> 36
+     7 [   0] NEWTABLE  R7 := {} (array 0, hash 0)
+     8 [   0] SETGLOBAL _G["system"] := R7
+     9 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+    10 [   0] SETTABLE  R7["decode"] := R4
+    11 [   0] CLOSURE   R8 := closure #3
+    12 [   0] SETTABLE  R7["encode"] := R8
+    13 [   0] MOVE      R0 := R7
+    14 [   0] NEWTABLE  R7 := {} (array 0, hash 1)
+    15 [   0] SETTABLE  R7["request"] := R6
+    16 [   0] MOVE      R1 := R7
+    17 [   0] NEWTABLE  R7 := {} (array 0, hash 0)
+    18 [   0] MOVE      R3 := R7
+    19 [   0] GETGLOBAL R7 := _G["require"]
+    20 [   0] LOADK     R8 := "utils.logger"
+    21 [   0] CALL      R7(...) nargs=1 nret=1
+    22 [   0] MOVE      R2 := R7
+    23 [   0] GETGLOBAL R7 := _G["system"]
+    24 [   0] CLOSURE   R8 := closure #4
+    25 [   0] SETTABLE  R7["getTimer"] := R8
+    26 [   0] GETGLOBAL R7 := _G["system"]
+    27 [   0] CLOSURE   R8 := closure #5
+    28 [   0] SETTABLE  R7["pathForFile"] := R8
+    29 [   0] GETGLOBAL R7 := _G["system"]
+    30 [   0] CLOSURE   R8 := closure #6
+    31 [   0] SETTABLE  R7["getInfo"] := R8
+    32 [   0] GETTABLE  R7 := R2["msg"]
+    33 [   0] LOADK     R8 := " *********** CONFIGURED NO-CORONA-MODE ********** "
+    34 [   0] CALL      R7(...) nargs=1 nret=0
+    35 [   0] JMP       jmp +14 -> 50
+    36 [   0] GETGLOBAL R7 := _G["require"]
+    37 [   0] LOADK     R8 := "network"
+    38 [   0] CALL      R7(...) nargs=1 nret=1
+    39 [   0] MOVE      R1 := R7
+    40 [   0] GETGLOBAL R7 := _G["require"]
+    41 [   0] GETGLOBAL R8 := _G["FGLIB_PATH"]
+    42 [   0] LOADK     R9 := "utils.json"
+    43 [   0] CONCAT    R8 := R8 .. ... .. R9
+    44 [   0] CALL      R7(...) nargs=1 nret=1
+    45 [   0] MOVE      R0 := R7
+    46 [   0] GETGLOBAL R7 := _G["require"]
+    47 [   0] LOADK     R8 := "lfs"
+    48 [   0] CALL      R7(...) nargs=1 nret=1
+    49 [   0] MOVE      R3 := R7
+    50 [   0] NEWTABLE  R7 := {} (array 0, hash 4)
+    51 [   0] SETTABLE  R7["json"] := R0
+    52 [   0] SETTABLE  R7["network"] := R1
+    53 [   0] SETTABLE  R7["log"] := R2
+    54 [   0] SETTABLE  R7["lfs"] := R3
+    55 [   0] RETURN    return R7.. (1 values)
+    56 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 7-19, upvals=[], locals=[])
+    constants: strings=['r', '\r', 'n', '\n', 'b', '\x08', 'f', '\x0c', 't', '\t', 'Q', '"', '\\', '/', 'gsub', '([^\\])\\"', '%1\\Q', '"(.-)"', '%s', '', '%[', '{', '%]', '}', 'null', 'nil', '(%$%d+):', '[%1]=', '%$(%d+)', 'assert', 'loadstring', 'return '] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] NEWTABLE  R2 := {} (array 0, hash 8)
+       2 [   0] SETTABLE  R2["r"] := ""
+       3 [   0] SETTABLE  R2["n"] := "\n"
+       4 [   0] SETTABLE  R2["b"] := ""
+       5 [   0] SETTABLE  R2["f"] := ""
+       6 [   0] SETTABLE  R2["t"] := "	"
+       7 [   0] SETTABLE  R2["Q"] := """
+       8 [   0] SETTABLE  R2["\"] := "\"
+       9 [   0] SETTABLE  R2["/"] := "/"
+      10 [   0] SELF      R4 := R0; R3 := R0["gsub"]
+      11 [   0] LOADK     R5 := "([^\])\""
+      12 [   0] LOADK     R6 := "%1\Q"
+      13 [   0] CALL      R3(...) nargs=3 nret=1
+      14 [   0] SELF      R4 := R3; R3 := R3["gsub"]
+      15 [   0] LOADK     R5 := ""(.-)""
+      16 [   0] CLOSURE   R6 := closure #0
+      17 [   0] MOVE      R0 := R1
+      18 [   0] MOVE      R0 := R2
+      19 [   0] CALL      R3(...) nargs=3 nret=1
+      20 [   0] SELF      R4 := R3; R3 := R3["gsub"]
+      21 [   0] LOADK     R5 := "%s"
+      22 [   0] LOADK     R6 := ""
+      23 [   0] CALL      R3(...) nargs=3 nret=1
+      24 [   0] SELF      R4 := R3; R3 := R3["gsub"]
+      25 [   0] LOADK     R5 := "%["
+      26 [   0] LOADK     R6 := "{"
+      27 [   0] CALL      R3(...) nargs=3 nret=1
+      28 [   0] SELF      R4 := R3; R3 := R3["gsub"]
+      29 [   0] LOADK     R5 := "%]"
+      30 [   0] LOADK     R6 := "}"
+      31 [   0] CALL      R3(...) nargs=3 nret=1
+      32 [   0] SELF      R4 := R3; R3 := R3["gsub"]
+      33 [   0] LOADK     R5 := "null"
+      34 [   0] LOADK     R6 := "nil"
+      35 [   0] CALL      R3(...) nargs=3 nret=1
+      36 [   0] MOVE      R0 := R3
+      37 [   0] SELF      R4 := R0; R3 := R0["gsub"]
+      38 [   0] LOADK     R5 := "(%$%d+):"
+      39 [   0] LOADK     R6 := "[%1]="
+      40 [   0] CALL      R3(...) nargs=3 nret=1
+      41 [   0] SELF      R4 := R3; R3 := R3["gsub"]
+      42 [   0] LOADK     R5 := "%$(%d+)"
+      43 [   0] CLOSURE   R6 := closure #1
+      44 [   0] MOVE      R0 := R1
+      45 [   0] CALL      R3(...) nargs=3 nret=1
+      46 [   0] MOVE      R0 := R3
+      47 [   0] GETGLOBAL R3 := _G["assert"]
+      48 [   0] GETGLOBAL R4 := _G["loadstring"]
+      49 [   0] LOADK     R5 := "return "
+      50 [   0] MOVE      R6 := R0
+      51 [   0] CONCAT    R5 := R5 .. ... .. R6
+      52 [   0] CALL      R4(...) nargs=1 nret=-1
+      53 [   0] CALL      R3(...) nargs=-1 nret=1
+      54 [   0] TAILCALL  return R3(...) nargs=0
+      55 [   0] RETURN    return R3.. (-1 values)
+      56 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 11-14, upvals=[], locals=[])
+      constants: strings=['gsub', '\\(.)', '$'] numbers=[1]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] LEN       R2 := #R2
+         3 [   0] ADD       R2 := R2 + 1
+         4 [   0] SELF      R4 := R0; R3 := R0["gsub"]
+         5 [   0] LOADK     R5 := "\(.)"
+         6 [   0] CLOSURE   R6 := closure #0
+         7 [   0] GETUPVAL  R0 := upval 1
+         8 [   0] CALL      R3(...) nargs=3 nret=1
+         9 [   0] SETTABLE  R1[R2] := R3
+        10 [   0] LOADK     R1 := "$"
+        11 [   0] GETUPVAL  R2 := upval 0
+        12 [   0] LEN       R2 := #R2
+        13 [   0] CONCAT    R1 := R1 .. ... .. R2
+        14 [   0] RETURN    return R1.. (1 values)
+        15 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#0.#0 (params=1, lines 12-12, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R1 := R1[R0]
+           2 [   0] RETURN    return R1.. (1 values)
+           3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 15-17, upvals=[], locals=[])
+      constants: strings=['%q', 'format', 'tonumber'] numbers=[]
+         0 [   0] LOADK     R1 := "%q"
+         1 [   0] SELF      R2 := R1; R1 := R1["format"]
+         2 [   0] GETUPVAL  R3 := upval 0
+         3 [   0] GETGLOBAL R4 := _G["tonumber"]
+         4 [   0] MOVE      R5 := R0
+         5 [   0] CALL      R4(...) nargs=1 nret=1
+         6 [   0] GETTABLE  R3 := R3[R4]
+         7 [   0] TAILCALL  return R1(...) nargs=2
+         8 [   0] RETURN    return R1.. (-1 values)
+         9 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 21-36, upvals=[], locals=[])
+    constants: strings=['type', 'string', '"', 'table', '{', 'pairs', ' : ', '}', 'bool', 'true', 'false'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["type"]
+       1 [   0] MOVE      R2 := R0
+       2 [   0] CALL      R1(...) nargs=1 nret=1
+       3 [   0] EQ        if (R1 == "string") ~= 0 then skip next
+       4 [   0] JMP       jmp +6 -> 11
+       5 [   0] LOADK     R1 := """
+       6 [   0] MOVE      R2 := R0
+       7 [   0] LOADK     R3 := """
+       8 [   0] CONCAT    R1 := R1 .. ... .. R3
+       9 [   0] RETURN    return R1.. (1 values)
+      10 [   0] JMP       jmp +42 -> 53
+      11 [   0] GETGLOBAL R1 := _G["type"]
+      12 [   0] MOVE      R2 := R0
+      13 [   0] CALL      R1(...) nargs=1 nret=1
+      14 [   0] EQ        if (R1 == "table") ~= 0 then skip next
+      15 [   0] JMP       jmp +23 -> 39
+      16 [   0] LOADK     R1 := "{"
+      17 [   0] GETGLOBAL R2 := _G["pairs"]
+      18 [   0] MOVE      R3 := R0
+      19 [   0] CALL      R2(...) nargs=1 nret=3
+      20 [   0] JMP       jmp +11 -> 32
+      21 [   0] MOVE      R7 := R1
+      22 [   0] LOADK     R8 := """
+      23 [   0] MOVE      R9 := R5
+      24 [   0] LOADK     R10 := """
+      25 [   0] LOADK     R11 := " : "
+      26 [   0] CONCAT    R1 := R7 .. ... .. R11
+      27 [   0] MOVE      R7 := R1
+      28 [   0] GETUPVAL  R8 := upval 0
+      29 [   0] MOVE      R9 := R6
+      30 [   0] CALL      R8(...) nargs=1 nret=1
+      31 [   0] CONCAT    R1 := R7 .. ... .. R8
+      32 [   0] TFORLOOP  tforloop R2 nres=2
+      33 [   0] JMP       jmp -13 -> 21
+      34 [   0] MOVE      R2 := R1
+      35 [   0] LOADK     R3 := "}"
+      36 [   0] CONCAT    R2 := R2 .. ... .. R3
+      37 [   0] RETURN    return R2.. (1 values)
+      38 [   0] JMP       jmp +14 -> 53
+      39 [   0] GETGLOBAL R1 := _G["type"]
+      40 [   0] MOVE      R2 := R0
+      41 [   0] CALL      R1(...) nargs=1 nret=1
+      42 [   0] EQ        if (R1 == "bool") ~= 0 then skip next
+      43 [   0] JMP       jmp +8 -> 52
+      44 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      45 [   0] JMP       jmp +3 -> 49
+      46 [   0] LOADK     R1 := "true"
+      47 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+      48 [   0] JMP       jmp +1 -> 50
+      49 [   0] LOADK     R1 := "false"
+      50 [   0] RETURN    return R1.. (1 values)
+      51 [   0] JMP       jmp +1 -> 53
+      52 [   0] RETURN    return R0.. (1 values)
+      53 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=4, lines 39-72, upvals=[], locals=[])
+    constants: strings=['require', 'socket.http', 'ltn12', 'headers', 'body', 'content-length', 'len', 'source', 'string', 'request', 'url', 'sink', 'table', 'method', 'closed', 'some error occured', 'response', '', 'isError', 'status', 'ipairs'] numbers=[-1, 1, 200, 299]
+       0 [   0] GETGLOBAL R4 := _G["require"]
+       1 [   0] LOADK     R5 := "socket.http"
+       2 [   0] CALL      R4(...) nargs=1 nret=1
+       3 [   0] GETGLOBAL R5 := _G["require"]
+       4 [   0] LOADK     R6 := "ltn12"
+       5 [   0] CALL      R5(...) nargs=1 nret=1
+       6 [   0] GETTABLE  R6 := R3["headers"]
+       7 [   0] LOADNIL   R7..R7 := nil
+       8 [   0] NEWTABLE  R8 := {} (array 0, hash 0)
+       9 [   0] GETTABLE  R9 := R3["body"]
+      10 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+      11 [   0] JMP       jmp +9 -> 21
+      12 [   0] GETTABLE  R9 := R3["body"]
+      13 [   0] SELF      R10 := R9; R9 := R9["len"]
+      14 [   0] CALL      R9(...) nargs=1 nret=1
+      15 [   0] SETTABLE  R6["content-length"] := R9
+      16 [   0] GETTABLE  R9 := R5["source"]
+      17 [   0] GETTABLE  R9 := R9["string"]
+      18 [   0] GETTABLE  R10 := R3["body"]
+      19 [   0] CALL      R9(...) nargs=1 nret=1
+      20 [   0] MOVE      R7 := R9
+      21 [   0] GETTABLE  R9 := R4["request"]
+      22 [   0] NEWTABLE  R10 := {} (array 0, hash 5)
+      23 [   0] SETTABLE  R10["url"] := R0
+      24 [   0] GETTABLE  R11 := R5["sink"]
+      25 [   0] GETTABLE  R11 := R11["table"]
+      26 [   0] MOVE      R12 := R8
+      27 [   0] CALL      R11(...) nargs=1 nret=1
+      28 [   0] SETTABLE  R10["sink"] := R11
+      29 [   0] SETTABLE  R10["method"] := R1
+      30 [   0] GETTABLE  R11 := R3["headers"]
+      31 [   0] SETTABLE  R10["headers"] := R11
+      32 [   0] SETTABLE  R10["source"] := R7
+      33 [   0] CALL      R9(...) nargs=1 nret=3
+      34 [   0] EQ        if (R10 == "closed") ~= 0 then skip next
+      35 [   0] JMP       jmp +2 -> 38
+      36 [   0] LOADK     R10 := -1
+      37 [   0] SETTABLE  R8[1] := "some error occured"
+      38 [   0] NEWTABLE  R12 := {} (array 0, hash 3)
+      39 [   0] SETTABLE  R12["response"] := ""
+      40 [   0] LT        if (R10 < 200) ~= 1 then skip next
+      41 [   0] JMP       jmp +3 -> 45
+      42 [   0] LT        if (299 < R10) ~= 1 then skip next
+      43 [   0] JMP       jmp +1 -> 45
+      44 [   0] LOADBOOL  R13 := False (skip)
+      45 [   0] LOADBOOL  R13 := True
+      46 [   0] SETTABLE  R12["isError"] := R13
+      47 [   0] SETTABLE  R12["status"] := R10
+      48 [   0] GETGLOBAL R13 := _G["ipairs"]
+      49 [   0] MOVE      R14 := R8
+      50 [   0] CALL      R13(...) nargs=1 nret=3
+      51 [   0] JMP       jmp +4 -> 56
+      52 [   0] GETTABLE  R18 := R12["response"]
+      53 [   0] MOVE      R19 := R17
+      54 [   0] CONCAT    R18 := R18 .. ... .. R19
+      55 [   0] SETTABLE  R12["response"] := R18
+      56 [   0] TFORLOOP  tforloop R13 nres=2
+      57 [   0] JMP       jmp -6 -> 52
+      58 [   0] MOVE      R13 := R2
+      59 [   0] MOVE      R14 := R12
+      60 [   0] CALL      R13(...) nargs=1 nret=0
+      61 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=0, lines 78-78, upvals=[], locals=[])
+    constants: strings=['{}'] numbers=[]
+       0 [   0] LOADK     R0 := "{}"
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=0, lines 86-86, upvals=[], locals=[])
+    constants: strings=['os', 'time'] numbers=[]
+       0 [   0] GETGLOBAL R0 := _G["os"]
+       1 [   0] GETTABLE  R0 := R0["time"]
+       2 [   0] TAILCALL  return R0(...) nargs=0
+       3 [   0] RETURN    return R0.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=2, lines 87-87, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] RETURN    return R0.. (1 values)
+       1 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=0, lines 88-88, upvals=[], locals=[])
+    constants: strings=[''] numbers=[]
+       0 [   0] LOADK     R0 := ""
+       1 [   0] RETURN    return R0.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)

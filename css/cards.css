@@ -1,0 +1,286 @@
+/* Evoker Web - card component drawn with the original client's textures (assets/orig/ui).
+   Sizes: compact (collection) 120x168, battle (line-up) 116x164, detail (full) 600 wide, back (face-down) 116x164. */
+
+/* Proxima Nova (the client's STANDARD / BOLD faces) is declared in css/fonts.css. */
+
+.card {
+  --frame: var(--r-common);
+  --rtext: #c8c7c7;
+  --tribe: var(--t-neutral);
+  --frame-img: url('/assets/orig/ui/cardframe_common.png');
+  position: relative;
+  display: block;
+  flex: none;
+  background: #0a0b0c;
+  border: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  font-family: 'Proxima Nova', var(--font-ui);
+  color: var(--text);
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .7);
+  transition: transform var(--t-fast), box-shadow var(--t-fast), filter var(--t-fast);
+}
+/* the tinted bevel frame (cardframe.png) lies over the art and the stats band */
+.card::before {
+  content: ''; position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  background: var(--frame-img) center / 100% 100% no-repeat;
+}
+.card.interactive { cursor: pointer; }
+.card.interactive:hover { box-shadow: 0 0 0 2px rgba(255, 255, 255, .35), 0 0 14px rgba(255, 230, 160, .45), 0 4px 10px rgba(0, 0, 0, .7); }
+.card.interactive:active { transform: scale(.97); }
+.card.selected { box-shadow: 0 0 0 3px var(--c-mana), 0 0 18px var(--c-mana); }
+/* rarity: frame tint (album / grid), text colour (name, rarity label) from the client's ev_styles palette */
+.card.rarity-common { --frame: var(--r-common); --rtext: #c8c7c7; --frame-img: url('/assets/orig/ui/cardframe_common.png'); }
+.card.rarity-standard { --frame: var(--r-standard); --rtext: #f3f3f3; --frame-img: url('/assets/orig/ui/cardframe_standard.png'); }
+.card.rarity-uncommon { --frame: var(--r-uncommon); --rtext: #91dc52; --frame-img: url('/assets/orig/ui/cardframe_uncommon.png'); }
+.card.rarity-rare { --frame: var(--r-rare); --rtext: #7ab0f2; --frame-img: url('/assets/orig/ui/cardframe_rare.png'); }
+.card.rarity-heroic { --frame: var(--r-heroic); --rtext: #c059bf; --frame-img: url('/assets/orig/ui/cardframe_heroic.png'); }
+.card.rarity-legendary { --frame: var(--r-legendary); --rtext: #fdfab1; --frame-img: url('/assets/orig/ui/cardframe_legendary.png'); }
+.card.rarity-ultimate { --frame: var(--r-ultimate); --rtext: #ff4b4b; --frame-img: url('/assets/orig/ui/cardframe_ultimate.png'); }
+.card.tribe-dwarf { --tribe: var(--t-dwarf); }
+.card.tribe-elf { --tribe: var(--t-elf); }
+.card.tribe-orc { --tribe: var(--t-orc); }
+.card.tribe-neutral { --tribe: var(--t-neutral); }
+
+/* Art */
+.card-art {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 35%, color-mix(in srgb, var(--tribe) 40%, #000) 0%, #0b0c0d 85%);
+}
+.card-art > img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  background: transparent;
+}
+.card-art > img.placeholder { object-fit: contain; padding: 12%; opacity: .85; }
+.card.locked .card-art > img { filter: grayscale(1) brightness(.8) contrast(.95); }
+.card.locked .card-art::after {
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background: url('/assets/orig/ui/lock_big.png') center 46% / auto 52% no-repeat;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .9));
+}
+.card.size-detail.locked .card-art::after { background-size: auto 36%; }
+
+/* Direction arrows (card_arrowred01 attack, card_arrow01 heal, card_arrowblue01 buff) */
+.card-arrows { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.arrow { position: absolute; width: 20px; height: 24px; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .9)); }
+.arrow img { display: block; width: 100%; height: 100%; }
+.card.size-detail .arrow { width: 40px; height: 48px; }
+/* enemy above (player's card at the bottom) */
+.card.side-bottom .arrow.direct { left: 50%; top: 3px; transform: translateX(-50%); }
+.card.side-bottom .arrow.left { left: 5px; top: 5px; transform: rotate(-45deg); }
+.card.side-bottom .arrow.right { right: 5px; top: 5px; transform: rotate(45deg); }
+/* enemy below (opponent's card at the top) */
+.card.side-top .arrow.direct { left: 50%; bottom: 3px; transform: translateX(-50%) rotate(180deg); }
+.card.side-top .arrow.left { left: 5px; bottom: 5px; transform: rotate(-135deg); }
+.card.side-top .arrow.right { right: 5px; bottom: 5px; transform: rotate(135deg); }
+/* own neighbours (both sides) */
+.arrow.ownLeft { left: 3px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+.arrow.ownRight { right: 3px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+.card.size-detail .arrow.direct { top: 12px; }
+.card.size-detail .arrow.left, .card.size-detail .arrow.right { top: 16px; }
+.card.size-detail .arrow.left { left: 16px; }
+.card.size-detail .arrow.right { right: 16px; }
+.card.size-detail .arrow.ownLeft { left: 12px; }
+.card.size-detail .arrow.ownRight { right: 12px; }
+
+/* Stats cells (original hud icons + number) */
+.card-stat { display: flex; align-items: center; gap: 3px; white-space: nowrap; min-width: 0; line-height: 1; }
+.card-stat img { width: 15px; height: 15px; flex: none; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .9)); }
+.card-stat .num { font-family: 'Proxima Nova', var(--font-num); font-weight: 600; font-variant-numeric: tabular-nums; }
+.card-stat.long .num { font-size: 11px; }
+.card-stat.attack { color: #ff3b30; }
+.card-stat.hp { color: #39b432; }
+.card-stat.star { color: #ffd556; }
+.card-stat.ability { color: #ff8014; }
+.card-stat.mana { color: #24d8ff; }
+.card-stat.empty { visibility: hidden; }
+
+/* Level bar (bars.js levelBar): star sprite + dark bar with "Level n / max", yellow xp line at the bottom */
+.card-levelbar { display: flex; align-items: center; gap: 0; height: 20px; }
+.card-levelbar > img { display: none; }
+.card-levelbar::before {
+  content: ''; flex: none; width: 22px; height: 22px; margin-right: -5px; z-index: 1;
+  background: url('/assets/orig/ui/hud_experienceicon01.png') center / contain no-repeat;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .9));
+}
+.card-levelbar .bar {
+  flex: 1; height: 15px; border-radius: 2px;
+  background: rgba(8, 9, 10, .88); border: 1px solid rgba(0, 0, 0, .9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+.card-levelbar .bar-label { font-size: 10.5px; font-weight: 600; letter-spacing: .01em; color: #f3f3f3; }
+.card-levelbar .bar-fill { bottom: 0; top: auto; height: 3px; background: #ffd556; box-shadow: 0 0 4px rgba(255, 213, 86, .7); }
+
+/* ---------- Compact (collection grid) 120 x 168 ---------- */
+.card.size-compact { width: 120px; height: 168px; }
+/* translucent stats band (cardstatsoverlay.png) over the bottom of the art: ATK | mana over HP | ability */
+.card.size-compact .card-stats {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  height: 60px; padding: 9px 9px 0 8px;
+  display: grid; grid-template-columns: auto auto; grid-template-rows: 16px 16px; justify-content: space-between; align-items: center; column-gap: 4px; row-gap: 1px;
+  background: url('/assets/orig/ui/cardstatsoverlay.png') center / 100% 100% no-repeat;
+  font-size: 13px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .9);
+}
+.card.size-compact .card-levelbar { position: absolute; left: 4px; right: 4px; bottom: 4px; z-index: 3; height: 16px; }
+.card.size-compact .card-pipcount {
+  position: absolute; right: 5px; top: 5px; z-index: 5;
+  display: flex; align-items: center; gap: 1px;
+  padding: 1px 4px 1px 2px; border-radius: 3px; background: rgba(10, 11, 12, .72);
+  font-size: 12px; font-weight: 600; color: #ffd556;
+  text-shadow: 0 1px 1px #000;
+}
+.card.size-compact .card-pipcount img { width: 16px; height: 16px; }
+/* "in deck" fan (cardindeck.png) on the right edge, below the middle (comp_card_v3_layout inDeckIcon) */
+.card.in-deck::after {
+  content: ''; position: absolute; right: 8px; top: calc(50% + 8px); z-index: 5; width: 31px; height: 23px;
+  background: url('/assets/orig/ui/cardindeck.png') center / contain no-repeat;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .9));
+}
+
+/* ---------- Battle (line-up) 116 x 164 ---------- */
+.card.size-battle { width: 116px; height: 164px; }
+/* band on the edge away from the enemy (cardstatsoverlay_small, flipped for the top row): sword/star over heart/anvil */
+.card-strip {
+  position: absolute; left: 0; right: 0; z-index: 2;
+  height: 44px;
+  display: grid; grid-template-columns: auto auto; grid-template-rows: 16px 16px; justify-content: space-between; align-items: center; column-gap: 3px; row-gap: 2px;
+  padding: 0 8px;
+  font-size: 13px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .9);
+}
+.card-strip.bottom { bottom: 0; padding-top: 7px; background: url('/assets/orig/ui/cardstatsoverlay_small.png') center / 100% 100% no-repeat; }
+/* the top strip mirrors the bottom one: 4 px above the first row, 6 px below the second, so the frame overlay
+   (.card::before, z-index 4) covers neither row - the bottom strip's last row keeps the same ~5 px clearance */
+.card-strip.top { top: 0; padding-top: 4px; padding-bottom: 6px; background: url('/assets/orig/ui/cardstatsoverlay_small_top.png') center / 100% 100% no-repeat; }
+.card-wrap { display: flex; flex-direction: column; align-items: center; gap: 5px; flex: none; }
+.card-wrap .card-hpbar { width: 116px; height: 14px; padding: 2px; }
+.card-wrap .card-hpbar .bar { height: 100%; }
+.card-wrap .card-hpbar .bar-fill { box-shadow: 0 0 4px var(--c-hp); }
+.card-wrap.side-top { flex-direction: column; }
+.card-wrap.side-bottom { flex-direction: column-reverse; }
+.card.dead { filter: grayscale(1) brightness(.55); }
+.card.dead .card-art::after {
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background: url('/assets/orig/ui/burnedcard.png') center / 100% 100% no-repeat; opacity: .9;
+}
+.card-status { position: absolute; inset: 0; z-index: 6; pointer-events: none; display: flex; align-items: center; justify-content: center; }
+.card-status img { width: 64px; height: 64px; filter: drop-shadow(0 0 6px rgba(0, 0, 0, .9)); }
+
+/* ---------- Back (face-down): cardslot<tribe>_thumb ---------- */
+.card.size-back { width: 116px; height: 164px; background: #050506; }
+.card.size-back::before { display: none; }
+.card.size-back .card-back { position: absolute; inset: 0; }
+.card.size-back .card-back img { display: block; width: 100%; height: 100%; object-fit: fill; }
+.card.size-back.size-compact { width: 120px; height: 168px; }
+
+/* ---------- Detail (full card) 600 x 829: plates 902 px wide scaled by 0.665 ---------- */
+.card.size-detail {
+  width: 600px; height: 829px; /* 20 px shorter than the plates' natural stack so the stats and buttons fit the stage */
+  background: transparent; overflow: visible; border-radius: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .8);
+}
+.card.size-detail::before { display: none; }
+/* the art sits between the rails: plate columns 53..847 of 902, below plate row 146 */
+.card.size-detail .card-art {
+  position: absolute; left: 35px; top: 97px; right: auto; bottom: auto; width: 529px; height: 580px;
+  background: radial-gradient(ellipse at 50% 35%, color-mix(in srgb, var(--tribe) 45%, #000) 0%, #0b0c0d 85%);
+}
+.card-plates {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    var(--plate-top) top center / 100% auto no-repeat,
+    var(--plate-bottom) bottom center / 100% auto no-repeat,
+    var(--plate-rail) center / 100% auto repeat-y;
+}
+.card.rarity-common .card-plates { --plate-top: url('/assets/orig/ui/carddetail_top_common.png'); --plate-bottom: url('/assets/orig/ui/carddetail_bottom_common.png'); --plate-rail: url('/assets/orig/ui/carddetail_rail_common.png'); }
+.card.rarity-standard .card-plates { --plate-top: url('/assets/orig/ui/carddetail_top_standard.png'); --plate-bottom: url('/assets/orig/ui/carddetail_bottom_standard.png'); --plate-rail: url('/assets/orig/ui/carddetail_rail_standard.png'); }
+.card.rarity-uncommon .card-plates { --plate-top: url('/assets/orig/ui/carddetail_top_uncommon.png'); --plate-bottom: url('/assets/orig/ui/carddetail_bottom_uncommon.png'); --plate-rail: url('/assets/orig/ui/carddetail_rail_uncommon.png'); }
+.card.rarity-rare .card-plates { --plate-top: url('/assets/orig/ui/carddetail_top_rare.png'); --plate-bottom: url('/assets/orig/ui/carddetail_bottom_rare.png'); --plate-rail: url('/assets/orig/ui/carddetail_rail_rare.png'); }
+.card.rarity-heroic .card-plates { --plate-top: url('/assets/orig/ui/carddetail_top_heroic.png'); --plate-bottom: url('/assets/orig/ui/carddetail_bottom_heroic.png'); --plate-rail: url('/assets/orig/ui/carddetail_rail_heroic.png'); }
+.card.rarity-legendary .card-plates { --plate-top: url('/assets/orig/ui/carddetail_top_legendary.png'); --plate-bottom: url('/assets/orig/ui/carddetail_bottom_legendary.png'); --plate-rail: url('/assets/orig/ui/carddetail_rail_legendary.png'); }
+.card.rarity-ultimate .card-plates { --plate-top: url('/assets/orig/ui/carddetail_top_ultimate.png'); --plate-bottom: url('/assets/orig/ui/carddetail_bottom_ultimate.png'); --plate-rail: url('/assets/orig/ui/carddetail_rail_ultimate.png'); }
+/* top plate: name box (plate cols 17-712, rows 14-97) and the octagon emblem box (cols 735-890, rows 14-187) */
+.card.size-detail .card-head { position: absolute; left: 0; top: 0; width: 600px; height: 129px; z-index: 2; pointer-events: none; }
+.card.size-detail .card-name {
+  position: absolute; left: 22px; top: 9px; width: 448px; height: 56px;
+  display: flex; align-items: center;
+  background: none; border: 0; box-shadow: none; border-radius: 0; padding: 0 0 2px;
+  font-size: 34px; font-weight: 600; color: var(--rtext); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+}
+.card.size-detail .card-name .plus { color: #ffd556; font-weight: 600; margin-left: 4px; letter-spacing: -.05em; }
+.card-emblem {
+  position: absolute; left: 489px; top: 9px; width: 103px; height: 115px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 0; box-shadow: none;
+}
+.card-emblem img { width: 64px; height: 64px; filter: drop-shadow(0 0 4px rgba(0, 0, 0, .9)); }
+/* bottom plate box: plate rows 75-255, cols 17-885 */
+.card.size-detail .card-foot {
+  position: absolute; left: 12px; right: 12px; bottom: 8px; height: 118px; z-index: 2;
+  padding: 6px 14px 0 12px;
+  background: none; border: 0; box-shadow: none; border-radius: 0;
+}
+.card.size-detail .card-rarity-row { display: flex; align-items: center; justify-content: space-between; height: 48px; padding-right: 6px; }
+.card-rarity { font-size: 32px; font-weight: 600; color: var(--rtext); text-shadow: 0 2px 2px rgba(0, 0, 0, .8); }
+.card.size-detail .card-levelbar { height: 36px; margin-top: 8px; }
+.card.size-detail .card-levelbar::before { width: 46px; height: 46px; margin-right: -10px; margin-left: -8px; }
+.card.size-detail .card-levelbar .bar { height: 28px; border-radius: 3px; }
+.card.size-detail .card-levelbar .bar-label { font-size: 20px; font-weight: 300; }
+.card.size-detail .card-levelbar .bar-fill { height: 5px; }
+
+/* Fusion pips (hud_evolution crystal, grey when unlit) */
+.pips { display: flex; gap: 10px; align-items: center; }
+.pip { width: 22px; height: 30px; background: url('/assets/orig/ui/hud_evolution_grey.png') center / contain no-repeat; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .8)); }
+.pip.lit { background-image: url('/assets/orig/ui/hud_evolution.png'); filter: drop-shadow(0 0 4px rgba(255, 210, 80, .8)); }
+.pips.small { gap: 4px; }
+.pips.small .pip { width: 11px; height: 15px; }
+
+/* Puzzle pieces (card-piece hunts): dark silhouettes for missing pieces, white outline for owned ones */
+.card-pieces { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.card-pieces .piece { position: absolute; background-size: 100% 100%; background-repeat: no-repeat; }
+.card-pieces .piece.missing { opacity: .92; }
+.card-pieces .piece.owned { opacity: .75; }
+.card.size-compact .card-pieces { bottom: 0; }
+.card-piece-count {
+  position: absolute; left: 5px; bottom: 25px;
+  display: flex; align-items: center; gap: 3px;
+  padding: 1px 5px 1px 2px; border-radius: 3px; background: rgba(10, 11, 12, .75);
+  font-size: 12px; color: #f4d59f; text-shadow: 0 1px 1px #000;
+}
+.card-piece-count img { width: 16px; height: 16px; }
+.card.size-compact.has-pieces .card-stats, .card.size-compact.has-pieces .card-levelbar { visibility: hidden; }
+.card.size-detail .card-piece-count { left: 12px; bottom: 12px; font-size: 22px; padding: 4px 10px 4px 6px; }
+.card.size-detail .card-piece-count img { width: 32px; height: 32px; }
+
+/* Detail stats panel (sits under the card) */
+.card-detail-stats {
+  width: 600px; margin-top: 10px; padding: 18px 22px 16px;
+  display: flex; flex-direction: column; gap: 10px;
+  background: linear-gradient(180deg, #202224, #141617) var(--hex-texture);
+  font-family: 'Proxima Nova', var(--font-ui);
+}
+.card-detail-stats .stat-row { display: flex; justify-content: space-around; align-items: center; }
+.card-detail-stats .stat-chip { display: inline-flex; align-items: center; font-size: 42px; font-weight: 600; gap: 16px; font-family: 'Proxima Nova', var(--font-num); text-shadow: 0 2px 2px rgba(0, 0, 0, .8); }
+.card-detail-stats .stat-chip img { width: 54px; height: 54px; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .8)); }
+.card-detail-stats .stat-chip.attack { color: #ff3b30; }
+.card-detail-stats .stat-chip.hp { color: #39b432; }
+.card-detail-stats .stat-chip.mana { color: #24d8ff; }
+.card-detail-stats .ability-text { font-size: 23px; font-weight: 600; color: #ff8014; line-height: 1.3; min-height: 32px; margin: 0; }
+.card-detail-stats .ability-text.none { color: var(--muted); font-style: italic; font-weight: 300; }
+.card-detail-actions { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
+.card-detail-actions .btn-icon img.sprite { width: 58%; height: 58%; object-fit: contain; }
+
+/* ---------- Deck slots (renderEmptySlot): cardslot_simple / cardslotlocked ---------- */
+.deck-slot {
+  background: url('/assets/orig/ui/cardslot_simple.png') center / 100% 100% no-repeat;
+  background-origin: border-box; background-clip: border-box;
+  border-color: transparent; box-shadow: none;
+}
+.deck-slot.locked { background-image: url('/assets/orig/ui/cardslotlocked.png'); }
+.deck-slot.locked:not(.prebattle-row .deck-slot)::after { display: none; }

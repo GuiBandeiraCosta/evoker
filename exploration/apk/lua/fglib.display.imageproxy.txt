@@ -1,0 +1,161 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'new'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "logging.logger"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] CLOSURE   R3 := closure #1
+     8 [   0] MOVE      R0 := R2
+     9 [   0] SETTABLE  R0["new"] := R3
+    10 [   0] RETURN    return R0.. (1 values)
+    11 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 12-68, upvals=[], locals=[])
+    constants: strings=['display', 'newGroup', 'x', 'y', 'getDisplayGroup', 'setImageSize', 'getCallback'] numbers=[10]
+       0 [   0] MOVE      R2 := R0
+       1 [   0] GETGLOBAL R3 := _G["display"]
+       2 [   0] GETTABLE  R3 := R3["newGroup"]
+       3 [   0] CALL      R3(...) nargs=0 nret=1
+       4 [   0] NEWTABLE  R4 := {} (array 0, hash 2)
+       5 [   0] SETTABLE  R4["x"] := 10
+       6 [   0] SETTABLE  R4["y"] := 10
+       7 [   0] LOADNIL   R5..R5 := nil
+       8 [   0] CLOSURE   R6 := closure #0
+       9 [   0] MOVE      R0 := R3
+      10 [   0] SETTABLE  R0["getDisplayGroup"] := R6
+      11 [   0] CLOSURE   R6 := closure #1
+      12 [   0] MOVE      R0 := R4
+      13 [   0] MOVE      R0 := R5
+      14 [   0] SETTABLE  R3["setImageSize"] := R6
+      15 [   0] CLOSURE   R6 := closure #2
+      16 [   0] MOVE      R0 := R5
+      17 [   0] MOVE      R0 := R3
+      18 [   0] MOVE      R0 := R4
+      19 [   0] CLOSURE   R7 := closure #3
+      20 [   0] MOVE      R0 := R6
+      21 [   0] SETTABLE  R0["getCallback"] := R7
+      22 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      23 [   0] JMP       jmp +3 -> 27
+      24 [   0] MOVE      R7 := R6
+      25 [   0] MOVE      R8 := R1
+      26 [   0] CALL      R7(...) nargs=1 nret=0
+      27 [   0] RETURN    return R0.. (1 values)
+      28 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 19-21, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 23-33, upvals=[], locals=[])
+      constants: strings=['x', 'y', 'contentWidth', 'contentHeight', 'scale'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETUPVAL  R3 := upval 0
+         2 [   0] MOVE      R4 := R0
+         3 [   0] SETTABLE  R3["y"] := R1
+         4 [   0] SETTABLE  R2["x"] := R4
+         5 [   0] GETUPVAL  R2 := upval 1
+         6 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         7 [   0] JMP       jmp +19 -> 27
+         8 [   0] GETUPVAL  R2 := upval 0
+         9 [   0] GETTABLE  R2 := R2["x"]
+        10 [   0] GETUPVAL  R3 := upval 1
+        11 [   0] GETTABLE  R3 := R3["contentWidth"]
+        12 [   0] DIV       R2 := R2 / R3
+        13 [   0] GETUPVAL  R3 := upval 0
+        14 [   0] GETTABLE  R3 := R3["y"]
+        15 [   0] GETUPVAL  R4 := upval 1
+        16 [   0] GETTABLE  R4 := R4["contentHeight"]
+        17 [   0] DIV       R3 := R3 / R4
+        18 [   0] GETUPVAL  R4 := upval 1
+        19 [   0] GETTABLE  R4 := R4["scale"]
+        20 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+        21 [   0] JMP       jmp +5 -> 27
+        22 [   0] GETUPVAL  R4 := upval 1
+        23 [   0] SELF      R5 := R4; R4 := R4["scale"]
+        24 [   0] MOVE      R6 := R3
+        25 [   0] MOVE      R7 := R3
+        26 [   0] CALL      R4(...) nargs=3 nret=0
+        27 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 35-57, upvals=[], locals=[])
+      constants: strings=['removeSelf', 'removed', 'insert', 'x', 'y', 'contentWidth', 'contentHeight', 'scale'] numbers=[0]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +13 -> 16
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R1 := R1["removeSelf"]
+         5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +9 -> 16
+         7 [   0] GETUPVAL  R1 := upval 0
+         8 [   0] GETTABLE  R1 := R1["removed"]
+         9 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        10 [   0] JMP       jmp +5 -> 16
+        11 [   0] GETUPVAL  R1 := upval 0
+        12 [   0] SELF      R2 := R1; R1 := R1["removeSelf"]
+        13 [   0] CALL      R1(...) nargs=1 nret=0
+        14 [   0] LOADNIL   R1..R1 := nil
+        15 [   0] SETUPVAL  upval 0 := R1
+        16 [   0] SETUPVAL  upval 0 := R0
+        17 [   0] GETUPVAL  R1 := upval 1
+        18 [   0] GETTABLE  R1 := R1["insert"]
+        19 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        20 [   0] JMP       jmp +5 -> 26
+        21 [   0] GETUPVAL  R1 := upval 1
+        22 [   0] SELF      R2 := R1; R1 := R1["insert"]
+        23 [   0] GETUPVAL  R3 := upval 0
+        24 [   0] CALL      R1(...) nargs=2 nret=0
+        25 [   0] JMP       jmp +5 -> 31
+        26 [   0] SELF      R2 := R0; R1 := R0["removeSelf"]
+        27 [   0] CALL      R1(...) nargs=1 nret=0
+        28 [   0] LOADNIL   R1..R1 := nil
+        29 [   0] SETUPVAL  upval 0 := R1
+        30 [   0] RETURN    return R0.. (0 values)
+        31 [   0] GETUPVAL  R1 := upval 0
+        32 [   0] GETUPVAL  R2 := upval 0
+        33 [   0] LOADK     R3 := 0
+        34 [   0] SETTABLE  R2["y"] := 0
+        35 [   0] SETTABLE  R1["x"] := R3
+        36 [   0] GETUPVAL  R1 := upval 2
+        37 [   0] GETTABLE  R1 := R1["x"]
+        38 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        39 [   0] JMP       jmp +25 -> 65
+        40 [   0] GETUPVAL  R1 := upval 2
+        41 [   0] GETTABLE  R1 := R1["y"]
+        42 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        43 [   0] JMP       jmp +21 -> 65
+        44 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        45 [   0] JMP       jmp +19 -> 65
+        46 [   0] GETUPVAL  R1 := upval 2
+        47 [   0] GETTABLE  R1 := R1["x"]
+        48 [   0] GETUPVAL  R2 := upval 0
+        49 [   0] GETTABLE  R2 := R2["contentWidth"]
+        50 [   0] DIV       R1 := R1 / R2
+        51 [   0] GETUPVAL  R2 := upval 2
+        52 [   0] GETTABLE  R2 := R2["y"]
+        53 [   0] GETUPVAL  R3 := upval 0
+        54 [   0] GETTABLE  R3 := R3["contentHeight"]
+        55 [   0] DIV       R2 := R2 / R3
+        56 [   0] GETUPVAL  R3 := upval 0
+        57 [   0] GETTABLE  R3 := R3["scale"]
+        58 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        59 [   0] JMP       jmp +5 -> 65
+        60 [   0] GETUPVAL  R3 := upval 0
+        61 [   0] SELF      R4 := R3; R3 := R3["scale"]
+        62 [   0] MOVE      R5 := R2
+        63 [   0] MOVE      R6 := R2
+        64 [   0] CALL      R3(...) nargs=3 nret=0
+        65 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 59-61, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 70-72, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       2 [   0] MOVE      R3 := R0
+       3 [   0] TAILCALL  return R1(...) nargs=2
+       4 [   0] RETURN    return R1.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)

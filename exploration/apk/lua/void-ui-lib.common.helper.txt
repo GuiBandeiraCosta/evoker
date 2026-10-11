@@ -1,0 +1,468 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['serverTimeToString', 'hmsToTime', 'dateToString', 'timeToString', 'secToTime', 'ymdToDate', 'isInScreen', 'toClientTime', 'isMapEmpty', 'areMapValuesZero', 'trimValue', 'thousandsSeparate', 'secToHoursAndDays'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] CLOSURE   R1 := closure #1
+     2 [   0] CLOSURE   R2 := closure #2
+     3 [   0] CLOSURE   R3 := closure #3
+     4 [   0] CLOSURE   R4 := closure #4
+     5 [   0] MOVE      R0 := R0
+     6 [   0] MOVE      R0 := R2
+     7 [   0] MOVE      R0 := R3
+     8 [   0] CLOSURE   R5 := closure #5
+     9 [   0] CLOSURE   R6 := closure #6
+    10 [   0] CLOSURE   R7 := closure #7
+    11 [   0] CLOSURE   R8 := closure #8
+    12 [   0] CLOSURE   R9 := closure #9
+    13 [   0] CLOSURE   R10 := closure #10
+    14 [   0] CLOSURE   R11 := closure #11
+    15 [   0] CLOSURE   R12 := closure #12
+    16 [   0] NEWTABLE  R13 := {} (array 0, hash 13)
+    17 [   0] SETTABLE  R13["serverTimeToString"] := R4
+    18 [   0] SETTABLE  R13["hmsToTime"] := R1
+    19 [   0] SETTABLE  R13["dateToString"] := R2
+    20 [   0] SETTABLE  R13["timeToString"] := R3
+    21 [   0] SETTABLE  R13["secToTime"] := R5
+    22 [   0] SETTABLE  R13["ymdToDate"] := R7
+    23 [   0] SETTABLE  R13["isInScreen"] := R8
+    24 [   0] SETTABLE  R13["toClientTime"] := R0
+    25 [   0] SETTABLE  R13["isMapEmpty"] := R9
+    26 [   0] SETTABLE  R13["areMapValuesZero"] := R10
+    27 [   0] SETTABLE  R13["trimValue"] := R11
+    28 [   0] SETTABLE  R13["thousandsSeparate"] := R12
+    29 [   0] SETTABLE  R13["secToHoursAndDays"] := R6
+    30 [   0] RETURN    return R13.. (1 values)
+    31 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 3-5, upvals=[], locals=[])
+    constants: strings=['os', 'date', '*t'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["os"]
+       1 [   0] GETTABLE  R1 := R1["date"]
+       2 [   0] LOADK     R2 := "*t"
+       3 [   0] MOVE      R3 := R0
+       4 [   0] TAILCALL  return R1(...) nargs=2
+       5 [   0] RETURN    return R1.. (-1 values)
+       6 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=3, lines 7-18, upvals=[], locals=[])
+    constants: strings=['string', 'format', '%02.2s', 'tostring', ':'] numbers=[0]
+       0 [   0] MOVE      R3 := R0
+       1 [   0] LT        if (R3 < 0) ~= 0 then skip next
+       2 [   0] JMP       jmp +1 -> 4
+       3 [   0] LOADK     R3 := 0
+       4 [   0] GETGLOBAL R4 := _G["string"]
+       5 [   0] GETTABLE  R4 := R4["format"]
+       6 [   0] LOADK     R5 := "%02.2s"
+       7 [   0] GETGLOBAL R6 := _G["tostring"]
+       8 [   0] MOVE      R7 := R3
+       9 [   0] CALL      R6(...) nargs=1 nret=-1
+      10 [   0] CALL      R4(...) nargs=-1 nret=1
+      11 [   0] MOVE      R3 := R4
+      12 [   0] MOVE      R4 := R1
+      13 [   0] LT        if (R4 < 0) ~= 0 then skip next
+      14 [   0] JMP       jmp +1 -> 16
+      15 [   0] LOADK     R4 := 0
+      16 [   0] GETGLOBAL R5 := _G["string"]
+      17 [   0] GETTABLE  R5 := R5["format"]
+      18 [   0] LOADK     R6 := "%02.2s"
+      19 [   0] GETGLOBAL R7 := _G["tostring"]
+      20 [   0] MOVE      R8 := R4
+      21 [   0] CALL      R7(...) nargs=1 nret=-1
+      22 [   0] CALL      R5(...) nargs=-1 nret=1
+      23 [   0] MOVE      R4 := R5
+      24 [   0] MOVE      R5 := R2
+      25 [   0] LT        if (R5 < 0) ~= 0 then skip next
+      26 [   0] JMP       jmp +1 -> 28
+      27 [   0] LOADK     R5 := 0
+      28 [   0] GETGLOBAL R6 := _G["string"]
+      29 [   0] GETTABLE  R6 := R6["format"]
+      30 [   0] LOADK     R7 := "%02.2s"
+      31 [   0] GETGLOBAL R8 := _G["tostring"]
+      32 [   0] MOVE      R9 := R5
+      33 [   0] CALL      R8(...) nargs=1 nret=-1
+      34 [   0] CALL      R6(...) nargs=-1 nret=1
+      35 [   0] MOVE      R5 := R6
+      36 [   0] MOVE      R6 := R3
+      37 [   0] LOADK     R7 := ":"
+      38 [   0] MOVE      R8 := R4
+      39 [   0] LOADK     R9 := ":"
+      40 [   0] MOVE      R10 := R5
+      41 [   0] CONCAT    R6 := R6 .. ... .. R10
+      42 [   0] RETURN    return R6.. (1 values)
+      43 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 20-24, upvals=[], locals=[])
+    constants: strings=['', 'day', '.', 'month', 'year'] numbers=[]
+       0 [   0] LOADK     R1 := ""
+       1 [   0] MOVE      R2 := R1
+       2 [   0] GETTABLE  R3 := R0["day"]
+       3 [   0] LOADK     R4 := "."
+       4 [   0] GETTABLE  R5 := R0["month"]
+       5 [   0] LOADK     R6 := "."
+       6 [   0] GETTABLE  R7 := R0["year"]
+       7 [   0] CONCAT    R1 := R2 .. ... .. R7
+       8 [   0] RETURN    return R1.. (1 values)
+       9 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=2, lines 26-42, upvals=[], locals=[])
+    constants: strings=['hour', 'string', 'format', '%02.2s', 'tostring', 'min', 'sec', ':'] numbers=[0]
+       0 [   0] GETTABLE  R2 := R0["hour"]
+       1 [   0] LT        if (R2 < 0) ~= 0 then skip next
+       2 [   0] JMP       jmp +1 -> 4
+       3 [   0] LOADK     R2 := 0
+       4 [   0] GETGLOBAL R3 := _G["string"]
+       5 [   0] GETTABLE  R3 := R3["format"]
+       6 [   0] LOADK     R4 := "%02.2s"
+       7 [   0] GETGLOBAL R5 := _G["tostring"]
+       8 [   0] MOVE      R6 := R2
+       9 [   0] CALL      R5(...) nargs=1 nret=-1
+      10 [   0] CALL      R3(...) nargs=-1 nret=1
+      11 [   0] MOVE      R2 := R3
+      12 [   0] GETTABLE  R3 := R0["min"]
+      13 [   0] LT        if (R3 < 0) ~= 0 then skip next
+      14 [   0] JMP       jmp +1 -> 16
+      15 [   0] LOADK     R3 := 0
+      16 [   0] GETGLOBAL R4 := _G["string"]
+      17 [   0] GETTABLE  R4 := R4["format"]
+      18 [   0] LOADK     R5 := "%02.2s"
+      19 [   0] GETGLOBAL R6 := _G["tostring"]
+      20 [   0] MOVE      R7 := R3
+      21 [   0] CALL      R6(...) nargs=1 nret=-1
+      22 [   0] CALL      R4(...) nargs=-1 nret=1
+      23 [   0] MOVE      R3 := R4
+      24 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      25 [   0] JMP       jmp +19 -> 45
+      26 [   0] GETTABLE  R4 := R0["sec"]
+      27 [   0] LT        if (R4 < 0) ~= 0 then skip next
+      28 [   0] JMP       jmp +1 -> 30
+      29 [   0] LOADK     R2 := 0
+      30 [   0] GETGLOBAL R5 := _G["string"]
+      31 [   0] GETTABLE  R5 := R5["format"]
+      32 [   0] LOADK     R6 := "%02.2s"
+      33 [   0] GETGLOBAL R7 := _G["tostring"]
+      34 [   0] MOVE      R8 := R4
+      35 [   0] CALL      R7(...) nargs=1 nret=-1
+      36 [   0] CALL      R5(...) nargs=-1 nret=1
+      37 [   0] MOVE      R4 := R5
+      38 [   0] MOVE      R5 := R2
+      39 [   0] LOADK     R6 := ":"
+      40 [   0] MOVE      R7 := R3
+      41 [   0] LOADK     R8 := ":"
+      42 [   0] MOVE      R9 := R4
+      43 [   0] CONCAT    R5 := R5 .. ... .. R9
+      44 [   0] RETURN    return R5.. (1 values)
+      45 [   0] MOVE      R4 := R2
+      46 [   0] LOADK     R5 := ":"
+      47 [   0] MOVE      R6 := R3
+      48 [   0] CONCAT    R4 := R4 .. ... .. R6
+      49 [   0] RETURN    return R4.. (1 values)
+      50 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=1, lines 44-48, upvals=[], locals=[])
+    constants: strings=[' '] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] MOVE      R2 := R0
+       2 [   0] CALL      R1(...) nargs=1 nret=1
+       3 [   0] GETUPVAL  R2 := upval 1
+       4 [   0] MOVE      R3 := R1
+       5 [   0] CALL      R2(...) nargs=1 nret=1
+       6 [   0] LOADK     R3 := " "
+       7 [   0] GETUPVAL  R4 := upval 2
+       8 [   0] MOVE      R5 := R1
+       9 [   0] CALL      R4(...) nargs=1 nret=1
+      10 [   0] CONCAT    R2 := R2 .. ... .. R4
+      11 [   0] RETURN    return R2.. (1 values)
+      12 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=3, lines 50-77, upvals=[], locals=[])
+    constants: strings=['math', 'max', 'round', '_T', '#days# Days', 'days', '#days# Day', '#days#d', 'floor', '0', 'string', 'format', '%02.2s', 'tostring', ':'] numbers=[0, 86400, 8640, 10, 1, 3600, 60]
+       0 [   0] GETGLOBAL R3 := _G["math"]
+       1 [   0] GETTABLE  R3 := R3["max"]
+       2 [   0] LOADK     R4 := 0
+       3 [   0] GETGLOBAL R5 := _G["math"]
+       4 [   0] GETTABLE  R5 := R5["round"]
+       5 [   0] MOVE      R6 := R0
+       6 [   0] CALL      R5(...) nargs=1 nret=-1
+       7 [   0] CALL      R3(...) nargs=-1 nret=1
+       8 [   0] MOVE      R0 := R3
+       9 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      10 [   0] JMP       jmp +33 -> 44
+      11 [   0] MUL       R3 := 86400 * R1
+      12 [   0] LE        if (R3 <= R0) ~= 0 then skip next
+      13 [   0] JMP       jmp +30 -> 44
+      14 [   0] GETGLOBAL R3 := _G["math"]
+      15 [   0] GETTABLE  R3 := R3["round"]
+      16 [   0] DIV       R4 := R0 / 8640
+      17 [   0] CALL      R3(...) nargs=1 nret=1
+      18 [   0] DIV       R3 := R3 / 10
+      19 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      20 [   0] JMP       jmp +16 -> 37
+      21 [   0] LT        if (1 < R3) ~= 0 then skip next
+      22 [   0] JMP       jmp +7 -> 30
+      23 [   0] GETGLOBAL R4 := _G["_T"]
+      24 [   0] LOADK     R5 := "#days# Days"
+      25 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      26 [   0] SETTABLE  R6["days"] := R3
+      27 [   0] TAILCALL  return R4(...) nargs=2
+      28 [   0] RETURN    return R4.. (-1 values)
+      29 [   0] JMP       jmp +61 -> 91
+      30 [   0] GETGLOBAL R4 := _G["_T"]
+      31 [   0] LOADK     R5 := "#days# Day"
+      32 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      33 [   0] SETTABLE  R6["days"] := R3
+      34 [   0] TAILCALL  return R4(...) nargs=2
+      35 [   0] RETURN    return R4.. (-1 values)
+      36 [   0] JMP       jmp +54 -> 91
+      37 [   0] GETGLOBAL R4 := _G["_T"]
+      38 [   0] LOADK     R5 := "#days#d"
+      39 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      40 [   0] SETTABLE  R6["days"] := R3
+      41 [   0] TAILCALL  return R4(...) nargs=2
+      42 [   0] RETURN    return R4.. (-1 values)
+      43 [   0] JMP       jmp +47 -> 91
+      44 [   0] GETGLOBAL R3 := _G["math"]
+      45 [   0] GETTABLE  R3 := R3["floor"]
+      46 [   0] DIV       R4 := R0 / 3600
+      47 [   0] CALL      R3(...) nargs=1 nret=1
+      48 [   0] LT        if (R3 < 0) ~= 0 then skip next
+      49 [   0] JMP       jmp +1 -> 51
+      50 [   0] LOADK     R3 := 0
+      51 [   0] LT        if (R3 < 10) ~= 0 then skip next
+      52 [   0] JMP       jmp +3 -> 56
+      53 [   0] LOADK     R4 := "0"
+      54 [   0] MOVE      R5 := R3
+      55 [   0] CONCAT    R3 := R4 .. ... .. R5
+      56 [   0] GETGLOBAL R4 := _G["math"]
+      57 [   0] GETTABLE  R4 := R4["floor"]
+      58 [   0] DIV       R5 := R0 / 60
+      59 [   0] CALL      R4(...) nargs=1 nret=1
+      60 [   0] MOD       R4 := R4 % 60
+      61 [   0] LT        if (R4 < 0) ~= 0 then skip next
+      62 [   0] JMP       jmp +1 -> 64
+      63 [   0] LOADK     R4 := 0
+      64 [   0] GETGLOBAL R5 := _G["string"]
+      65 [   0] GETTABLE  R5 := R5["format"]
+      66 [   0] LOADK     R6 := "%02.2s"
+      67 [   0] GETGLOBAL R7 := _G["tostring"]
+      68 [   0] MOVE      R8 := R4
+      69 [   0] CALL      R7(...) nargs=1 nret=-1
+      70 [   0] CALL      R5(...) nargs=-1 nret=1
+      71 [   0] MOVE      R4 := R5
+      72 [   0] MOD       R5 := R0 % 60
+      73 [   0] LT        if (R5 < 0) ~= 0 then skip next
+      74 [   0] JMP       jmp +1 -> 76
+      75 [   0] LOADK     R5 := 0
+      76 [   0] GETGLOBAL R6 := _G["string"]
+      77 [   0] GETTABLE  R6 := R6["format"]
+      78 [   0] LOADK     R7 := "%02.2s"
+      79 [   0] GETGLOBAL R8 := _G["tostring"]
+      80 [   0] MOVE      R9 := R5
+      81 [   0] CALL      R8(...) nargs=1 nret=-1
+      82 [   0] CALL      R6(...) nargs=-1 nret=1
+      83 [   0] MOVE      R5 := R6
+      84 [   0] MOVE      R6 := R3
+      85 [   0] LOADK     R7 := ":"
+      86 [   0] MOVE      R8 := R4
+      87 [   0] LOADK     R9 := ":"
+      88 [   0] MOVE      R10 := R5
+      89 [   0] CONCAT    R6 := R6 .. ... .. R10
+      90 [   0] RETURN    return R6.. (1 values)
+      91 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=3, lines 79-97, upvals=[], locals=[])
+    constants: strings=['math', 'max', 'round', '_T', '#days# Days', 'days', '#days# Day', '#days#d', 'floor', '#hours# Hours', 'hours'] numbers=[0, 86400, 1, 3600]
+       0 [   0] GETGLOBAL R3 := _G["math"]
+       1 [   0] GETTABLE  R3 := R3["max"]
+       2 [   0] LOADK     R4 := 0
+       3 [   0] GETGLOBAL R5 := _G["math"]
+       4 [   0] GETTABLE  R5 := R5["round"]
+       5 [   0] MOVE      R6 := R0
+       6 [   0] CALL      R5(...) nargs=1 nret=-1
+       7 [   0] CALL      R3(...) nargs=-1 nret=1
+       8 [   0] MOVE      R0 := R3
+       9 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      10 [   0] JMP       jmp +32 -> 43
+      11 [   0] MUL       R3 := 86400 * R1
+      12 [   0] LE        if (R3 <= R0) ~= 0 then skip next
+      13 [   0] JMP       jmp +29 -> 43
+      14 [   0] GETGLOBAL R3 := _G["math"]
+      15 [   0] GETTABLE  R3 := R3["round"]
+      16 [   0] DIV       R4 := R0 / 86400
+      17 [   0] CALL      R3(...) nargs=1 nret=1
+      18 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+      19 [   0] JMP       jmp +16 -> 36
+      20 [   0] LT        if (1 < R3) ~= 0 then skip next
+      21 [   0] JMP       jmp +7 -> 29
+      22 [   0] GETGLOBAL R4 := _G["_T"]
+      23 [   0] LOADK     R5 := "#days# Days"
+      24 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      25 [   0] SETTABLE  R6["days"] := R3
+      26 [   0] TAILCALL  return R4(...) nargs=2
+      27 [   0] RETURN    return R4.. (-1 values)
+      28 [   0] JMP       jmp +24 -> 53
+      29 [   0] GETGLOBAL R4 := _G["_T"]
+      30 [   0] LOADK     R5 := "#days# Day"
+      31 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      32 [   0] SETTABLE  R6["days"] := R3
+      33 [   0] TAILCALL  return R4(...) nargs=2
+      34 [   0] RETURN    return R4.. (-1 values)
+      35 [   0] JMP       jmp +17 -> 53
+      36 [   0] GETGLOBAL R4 := _G["_T"]
+      37 [   0] LOADK     R5 := "#days#d"
+      38 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      39 [   0] SETTABLE  R6["days"] := R3
+      40 [   0] TAILCALL  return R4(...) nargs=2
+      41 [   0] RETURN    return R4.. (-1 values)
+      42 [   0] JMP       jmp +10 -> 53
+      43 [   0] GETGLOBAL R3 := _G["math"]
+      44 [   0] GETTABLE  R3 := R3["floor"]
+      45 [   0] DIV       R4 := R0 / 3600
+      46 [   0] CALL      R3(...) nargs=1 nret=1
+      47 [   0] GETGLOBAL R4 := _G["_T"]
+      48 [   0] LOADK     R5 := "#hours# Hours"
+      49 [   0] NEWTABLE  R6 := {} (array 0, hash 1)
+      50 [   0] SETTABLE  R6["hours"] := R3
+      51 [   0] TAILCALL  return R4(...) nargs=2
+      52 [   0] RETURN    return R4.. (-1 values)
+      53 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=3, lines 99-111, upvals=[], locals=[])
+    constants: strings=['string', 'format', '%02.2s', 'tostring', '.'] numbers=[0]
+       0 [   0] MOVE      R3 := R0
+       1 [   0] MOVE      R4 := R1
+       2 [   0] LT        if (R4 < 0) ~= 0 then skip next
+       3 [   0] JMP       jmp +1 -> 5
+       4 [   0] LOADK     R4 := 0
+       5 [   0] GETGLOBAL R5 := _G["string"]
+       6 [   0] GETTABLE  R5 := R5["format"]
+       7 [   0] LOADK     R6 := "%02.2s"
+       8 [   0] GETGLOBAL R7 := _G["tostring"]
+       9 [   0] MOVE      R8 := R4
+      10 [   0] CALL      R7(...) nargs=1 nret=-1
+      11 [   0] CALL      R5(...) nargs=-1 nret=1
+      12 [   0] MOVE      R4 := R5
+      13 [   0] MOVE      R5 := R2
+      14 [   0] LT        if (R5 < 0) ~= 0 then skip next
+      15 [   0] JMP       jmp +1 -> 17
+      16 [   0] LOADK     R5 := 0
+      17 [   0] GETGLOBAL R6 := _G["string"]
+      18 [   0] GETTABLE  R6 := R6["format"]
+      19 [   0] LOADK     R7 := "%02.2s"
+      20 [   0] GETGLOBAL R8 := _G["tostring"]
+      21 [   0] MOVE      R9 := R5
+      22 [   0] CALL      R8(...) nargs=1 nret=-1
+      23 [   0] CALL      R6(...) nargs=-1 nret=1
+      24 [   0] MOVE      R5 := R6
+      25 [   0] MOVE      R6 := R5
+      26 [   0] LOADK     R7 := "."
+      27 [   0] MOVE      R8 := R4
+      28 [   0] LOADK     R9 := "."
+      29 [   0] MOVE      R10 := R3
+      30 [   0] CONCAT    R6 := R6 .. ... .. R10
+      31 [   0] RETURN    return R6.. (1 values)
+      32 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=4, lines 115-125, upvals=[], locals=[])
+    constants: strings=['display', 'contentWidth', 'contentHeight'] numbers=[]
+       0 [   0] UNM       R4 := -R2
+       1 [   0] LT        if (R4 < R0) ~= 0 then skip next
+       2 [   0] JMP       jmp +15 -> 18
+       3 [   0] GETGLOBAL R4 := _G["display"]
+       4 [   0] GETTABLE  R4 := R4["contentWidth"]
+       5 [   0] ADD       R4 := R4 + R2
+       6 [   0] LT        if (R0 < R4) ~= 0 then skip next
+       7 [   0] JMP       jmp +10 -> 18
+       8 [   0] UNM       R4 := -R3
+       9 [   0] LT        if (R4 < R1) ~= 0 then skip next
+      10 [   0] JMP       jmp +7 -> 18
+      11 [   0] GETGLOBAL R4 := _G["display"]
+      12 [   0] GETTABLE  R4 := R4["contentHeight"]
+      13 [   0] ADD       R4 := R4 + R3
+      14 [   0] LT        if (R1 < R4) ~= 0 then skip next
+      15 [   0] JMP       jmp +2 -> 18
+      16 [   0] LOADBOOL  R4 := True
+      17 [   0] RETURN    return R4.. (1 values)
+      18 [   0] LOADBOOL  R4 := False
+      19 [   0] RETURN    return R4.. (1 values)
+      20 [   0] RETURN    return R0.. (0 values)
+  function main.#9 (params=1, lines 127-132, upvals=[], locals=[])
+    constants: strings=['pairs'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["pairs"]
+       1 [   0] TESTSET   if (R0 truthy) == 1 then R2 := R0 else skip next
+       2 [   0] JMP       jmp +1 -> 4
+       3 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       4 [   0] CALL      R1(...) nargs=1 nret=3
+       5 [   0] JMP       jmp +2 -> 8
+       6 [   0] LOADBOOL  R6 := False
+       7 [   0] RETURN    return R6.. (1 values)
+       8 [   0] TFORLOOP  tforloop R1 nres=2
+       9 [   0] JMP       jmp -4 -> 6
+      10 [   0] LOADBOOL  R1 := True
+      11 [   0] RETURN    return R1.. (1 values)
+      12 [   0] RETURN    return R0.. (0 values)
+  function main.#10 (params=1, lines 134-139, upvals=[], locals=[])
+    constants: strings=['pairs'] numbers=[0]
+       0 [   0] GETGLOBAL R1 := _G["pairs"]
+       1 [   0] TESTSET   if (R0 truthy) == 1 then R2 := R0 else skip next
+       2 [   0] JMP       jmp +1 -> 4
+       3 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       4 [   0] CALL      R1(...) nargs=1 nret=3
+       5 [   0] JMP       jmp +4 -> 10
+       6 [   0] EQ        if (R5 == 0) ~= 1 then skip next
+       7 [   0] JMP       jmp +2 -> 10
+       8 [   0] LOADBOOL  R6 := False
+       9 [   0] RETURN    return R6.. (1 values)
+      10 [   0] TFORLOOP  tforloop R1 nres=2
+      11 [   0] JMP       jmp -6 -> 6
+      12 [   0] LOADBOOL  R1 := True
+      13 [   0] RETURN    return R1.. (1 values)
+      14 [   0] RETURN    return R0.. (0 values)
+  function main.#11 (params=1, lines 141-152, upvals=[], locals=[])
+    constants: strings=['tonumber', 'math', 'round', 'k'] numbers=[10000, 100, 10]
+       0 [   0] GETGLOBAL R1 := _G["tonumber"]
+       1 [   0] MOVE      R2 := R0
+       2 [   0] CALL      R1(...) nargs=1 nret=1
+       3 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       4 [   0] JMP       jmp +13 -> 18
+       5 [   0] LE        if (10000 <= R1) ~= 0 then skip next
+       6 [   0] JMP       jmp +11 -> 18
+       7 [   0] DIV       R1 := R1 / 100
+       8 [   0] GETGLOBAL R2 := _G["math"]
+       9 [   0] GETTABLE  R2 := R2["round"]
+      10 [   0] MOVE      R3 := R1
+      11 [   0] CALL      R2(...) nargs=1 nret=1
+      12 [   0] MOVE      R1 := R2
+      13 [   0] DIV       R1 := R1 / 10
+      14 [   0] MOVE      R2 := R1
+      15 [   0] LOADK     R3 := "k"
+      16 [   0] CONCAT    R1 := R2 .. ... .. R3
+      17 [   0] JMP       jmp +1 -> 19
+      18 [   0] MOVE      R1 := R0
+      19 [   0] RETURN    return R1.. (1 values)
+      20 [   0] RETURN    return R0.. (0 values)
+  function main.#12 (params=1, lines 154-165, upvals=[], locals=[])
+    constants: strings=['_T', 'THOUSANDS_SEPARATOR', '.', 'string', 'gsub', '^(-?%d+)(%d%d%d)', '%1', '%2'] numbers=[0]
+       0 [   0] TESTSET   if (R0 truthy) == 1 then R1 := R0 else skip next
+       1 [   0] JMP       jmp +1 -> 3
+       2 [   0] LOADK     R1 := 0
+       3 [   0] GETGLOBAL R2 := _G["_T"]
+       4 [   0] LOADK     R3 := "THOUSANDS_SEPARATOR"
+       5 [   0] CALL      R2(...) nargs=1 nret=1
+       6 [   0] EQ        if (R2 == "THOUSANDS_SEPARATOR") ~= 1 then skip next
+       7 [   0] JMP       jmp +5 -> 13
+       8 [   0] GETGLOBAL R2 := _G["_T"]
+       9 [   0] LOADK     R3 := "THOUSANDS_SEPARATOR"
+      10 [   0] CALL      R2(...) nargs=1 nret=1
+      11 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+      12 [   0] JMP       jmp +3 -> 16
+      13 [   0] GETGLOBAL R2 := _G["_T"]
+      14 [   0] LOADK     R3 := "."
+      15 [   0] CALL      R2(...) nargs=1 nret=1
+      16 [   0] LOADNIL   R3..R3 := nil
+      17 [   0] GETGLOBAL R4 := _G["string"]
+      18 [   0] GETTABLE  R4 := R4["gsub"]
+      19 [   0] MOVE      R5 := R1
+      20 [   0] LOADK     R6 := "^(-?%d+)(%d%d%d)"
+      21 [   0] LOADK     R7 := "%1"
+      22 [   0] MOVE      R8 := R2
+      23 [   0] LOADK     R9 := "%2"
+      24 [   0] CONCAT    R7 := R7 .. ... .. R9
+      25 [   0] CALL      R4(...) nargs=3 nret=2
+      26 [   0] MOVE      R3 := R5
+      27 [   0] MOVE      R1 := R4
+      28 [   0] EQ        if (R3 == 0) ~= 0 then skip next
+      29 [   0] JMP       jmp -13 -> 17
+      30 [   0] JMP       jmp +1 -> 32
+      31 [   0] JMP       jmp -15 -> 17
+      32 [   0] RETURN    return R1.. (1 values)
+      33 [   0] RETURN    return R0.. (0 values)

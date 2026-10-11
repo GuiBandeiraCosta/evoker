@@ -1,0 +1,77 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['fgrequire', 'logging.logger', 'getLogger', 'FACEBOOK', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["fgrequire"]
+     1 [   0] LOADK     R1 := "logging.logger"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETTABLE  R0 := R0["getLogger"]
+     4 [   0] LOADK     R1 := "FACEBOOK"
+     5 [   0] CALL      R0(...) nargs=1 nret=1
+     6 [   0] CLOSURE   R1 := closure #0
+     7 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     8 [   0] SETTABLE  R2["create"] := R1
+     9 [   0] RETURN    return R2.. (1 values)
+    10 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 4-31, upvals=[], locals=[])
+    constants: strings=['getName', 'enter', 'leave'] numbers=[]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] LOADNIL   R1..R1 := nil
+       2 [   0] CLOSURE   R2 := closure #0
+       3 [   0] SETTABLE  R0["getName"] := R2
+       4 [   0] CLOSURE   R2 := closure #1
+       5 [   0] MOVE      R0 := R1
+       6 [   0] SETTABLE  R0["enter"] := R2
+       7 [   0] CLOSURE   R2 := closure #2
+       8 [   0] SETTABLE  R0["leave"] := R2
+       9 [   0] RETURN    return R0.. (1 values)
+      10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 7-9, upvals=[], locals=[])
+      constants: strings=['FACEBOOK_LOGIN_SILENT'] numbers=[]
+         0 [   0] LOADK     R0 := "FACEBOOK_LOGIN_SILENT"
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 11-25, upvals=[], locals=[])
+      constants: strings=['require', 'game.facebookmanager', 'getInstance', 'fglib', 'utils', 'Util', 'isWindows', 'isLoggedIn', 'getProfile'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["require"]
+         1 [   0] LOADK     R2 := "game.facebookmanager"
+         2 [   0] CALL      R1(...) nargs=1 nret=1
+         3 [   0] GETTABLE  R1 := R1["getInstance"]
+         4 [   0] CALL      R1(...) nargs=0 nret=1
+         5 [   0] SETUPVAL  upval 0 := R1
+         6 [   0] CLOSURE   R1 := closure #0
+         7 [   0] MOVE      R0 := R0
+         8 [   0] GETGLOBAL R2 := _G["fglib"]
+         9 [   0] GETTABLE  R2 := R2["utils"]
+        10 [   0] GETTABLE  R2 := R2["Util"]
+        11 [   0] GETTABLE  R2 := R2["isWindows"]
+        12 [   0] CALL      R2(...) nargs=0 nret=1
+        13 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        14 [   0] JMP       jmp +11 -> 26
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2["isLoggedIn"]
+        17 [   0] CALL      R2(...) nargs=0 nret=1
+        18 [   0] EQ        if (R2 == True) ~= 0 then skip next
+        19 [   0] JMP       jmp +6 -> 26
+        20 [   0] GETUPVAL  R2 := upval 0
+        21 [   0] GETTABLE  R2 := R2["getProfile"]
+        22 [   0] CLOSURE   R3 := closure #1
+        23 [   0] MOVE      R0 := R1
+        24 [   0] CALL      R2(...) nargs=1 nret=0
+        25 [   0] JMP       jmp +2 -> 28
+        26 [   0] MOVE      R2 := R1
+        27 [   0] CALL      R2(...) nargs=0 nret=0
+        28 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 14-16, upvals=[], locals=[])
+        constants: strings=['triggerTo', 'GAMECENTER_LOGIN'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["triggerTo"]
+           2 [   0] LOADK     R1 := "GAMECENTER_LOGIN"
+           3 [   0] CALL      R0(...) nargs=1 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#1 (params=1, lines 19-21, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] CALL      R1(...) nargs=0 nret=0
+           2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 27-28, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,1206 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'UI_LIB_PATH', 'common.particle.color', 'createParticleSystem'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+     2 [   0] LOADK     R2 := "common.particle.color"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] CLOSURE   R1 := closure #0
+     6 [   0] MOVE      R0 := R0
+     7 [   0] NEWTABLE  R2 := {} (array 0, hash 1)
+     8 [   0] SETTABLE  R2["createParticleSystem"] := R1
+     9 [   0] RETURN    return R2.. (1 values)
+    10 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 3-422, upvals=[], locals=[])
+    constants: strings=['mEmitterX', 'mEmitterY', 'createColor', 'mEmissionRate', 'gravityPoint', 'enabled', 'init', 'setEmitterPosition', 'getEmitterPosition', 'initParticle', 'advanceParticle', 'setBlendMode', 'parseConfig', 'getMaxNumParticles', 'getStartColor', 'getSpriteSheetData', 'setOverrideColor'] numbers=[0, 1]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] LOADK     R1 := 0
+       2 [   0] LOADK     R2 := 1
+       3 [   0] LOADK     R3 := 0
+       4 [   0] SETTABLE  R0["mEmitterX"] := 0
+       5 [   0] SETTABLE  R0["mEmitterY"] := 0
+       6 [   0] LOADK     R4 := 0
+       7 [   0] LOADK     R5 := 0
+       8 [   0] LOADK     R6 := 0
+       9 [   0] LOADK     R7 := 0
+      10 [   0] LOADK     R8 := 0
+      11 [   0] LOADK     R9 := 0
+      12 [   0] LOADK     R10 := 0
+      13 [   0] LOADK     R11 := 0
+      14 [   0] LOADK     R12 := 0
+      15 [   0] LOADK     R13 := 0
+      16 [   0] LOADK     R14 := 0
+      17 [   0] LOADK     R15 := 0
+      18 [   0] LOADK     R16 := 0
+      19 [   0] LOADK     R17 := 0
+      20 [   0] LOADK     R18 := 0
+      21 [   0] LOADK     R19 := 0
+      22 [   0] LOADK     R20 := 0
+      23 [   0] LOADK     R21 := 0
+      24 [   0] LOADK     R22 := 0
+      25 [   0] LOADK     R23 := 0
+      26 [   0] LOADK     R24 := 0
+      27 [   0] LOADK     R25 := 0
+      28 [   0] LOADK     R26 := 0
+      29 [   0] LOADK     R27 := 0
+      30 [   0] LOADK     R28 := 0
+      31 [   0] LOADK     R29 := 0
+      32 [   0] LOADK     R30 := 0
+      33 [   0] LOADK     R31 := 0
+      34 [   0] GETUPVAL  R32 := upval 0
+      35 [   0] GETTABLE  R32 := R32["createColor"]
+      36 [   0] CALL      R32(...) nargs=0 nret=1
+      37 [   0] GETUPVAL  R33 := upval 0
+      38 [   0] GETTABLE  R33 := R33["createColor"]
+      39 [   0] CALL      R33(...) nargs=0 nret=1
+      40 [   0] GETUPVAL  R34 := upval 0
+      41 [   0] GETTABLE  R34 := R34["createColor"]
+      42 [   0] CALL      R34(...) nargs=0 nret=1
+      43 [   0] GETUPVAL  R35 := upval 0
+      44 [   0] GETTABLE  R35 := R35["createColor"]
+      45 [   0] CALL      R35(...) nargs=0 nret=1
+      46 [   0] LOADNIL   R36..R36 := nil
+      47 [   0] LOADK     R37 := 0
+      48 [   0] SETTABLE  R0["mEmissionRate"] := 0
+      49 [   0] LOADNIL   R38..R39 := nil
+      50 [   0] NEWTABLE  R40 := {} (array 0, hash 1)
+      51 [   0] SETTABLE  R40["enabled"] := False
+      52 [   0] SETTABLE  R0["gravityPoint"] := R40
+      53 [   0] LOADK     R40 := 0
+      54 [   0] LOADK     R41 := 0
+      55 [   0] LOADBOOL  R42 := False
+      56 [   0] LOADBOOL  R43 := False
+      57 [   0] CLOSURE   R44 := closure #0
+      58 [   0] MOVE      R0 := R0
+      59 [   0] MOVE      R0 := R37
+      60 [   0] MOVE      R0 := R7
+      61 [   0] SETTABLE  R0["init"] := R44
+      62 [   0] CLOSURE   R44 := closure #1
+      63 [   0] MOVE      R0 := R0
+      64 [   0] SETTABLE  R0["setEmitterPosition"] := R44
+      65 [   0] CLOSURE   R44 := closure #2
+      66 [   0] MOVE      R0 := R0
+      67 [   0] SETTABLE  R0["getEmitterPosition"] := R44
+      68 [   0] CLOSURE   R44 := closure #3
+      69 [   0] MOVE      R0 := R7
+      70 [   0] MOVE      R0 := R8
+      71 [   0] MOVE      R0 := R0
+      72 [   0] MOVE      R0 := R4
+      73 [   0] MOVE      R0 := R5
+      74 [   0] MOVE      R0 := R13
+      75 [   0] MOVE      R0 := R14
+      76 [   0] MOVE      R0 := R19
+      77 [   0] MOVE      R0 := R20
+      78 [   0] MOVE      R0 := R27
+      79 [   0] MOVE      R0 := R28
+      80 [   0] MOVE      R0 := R30
+      81 [   0] MOVE      R0 := R31
+      82 [   0] MOVE      R0 := R23
+      83 [   0] MOVE      R0 := R24
+      84 [   0] MOVE      R0 := R25
+      85 [   0] MOVE      R0 := R26
+      86 [   0] MOVE      R0 := R9
+      87 [   0] MOVE      R0 := R10
+      88 [   0] MOVE      R0 := R11
+      89 [   0] MOVE      R0 := R12
+      90 [   0] MOVE      R0 := R32
+      91 [   0] MOVE      R0 := R33
+      92 [   0] MOVE      R0 := R34
+      93 [   0] MOVE      R0 := R35
+      94 [   0] MOVE      R0 := R15
+      95 [   0] MOVE      R0 := R16
+      96 [   0] MOVE      R0 := R17
+      97 [   0] MOVE      R0 := R18
+      98 [   0] MOVE      R0 := R38
+      99 [   0] MOVE      R0 := R42
+     100 [   0] MOVE      R0 := R43
+     101 [   0] SETTABLE  R0["initParticle"] := R44
+     102 [   0] CLOSURE   R44 := closure #4
+     103 [   0] MOVE      R0 := R3
+     104 [   0] MOVE      R0 := R2
+     105 [   0] MOVE      R0 := R0
+     106 [   0] MOVE      R0 := R29
+     107 [   0] MOVE      R0 := R21
+     108 [   0] MOVE      R0 := R22
+     109 [   0] MOVE      R0 := R36
+     110 [   0] MOVE      R0 := R39
+     111 [   0] MOVE      R0 := R38
+     112 [   0] SETTABLE  R0["advanceParticle"] := R44
+     113 [   0] CLOSURE   R44 := closure #5
+     114 [   0] MOVE      R0 := R0
+     115 [   0] MOVE      R0 := R37
+     116 [   0] MOVE      R0 := R7
+     117 [   0] CLOSURE   R45 := closure #6
+     118 [   0] MOVE      R0 := R39
+     119 [   0] SETTABLE  R0["setBlendMode"] := R45
+     120 [   0] CLOSURE   R45 := closure #7
+     121 [   0] GETUPVAL  R0 := upval 0
+     122 [   0] MOVE      R0 := R4
+     123 [   0] MOVE      R0 := R5
+     124 [   0] MOVE      R0 := R21
+     125 [   0] MOVE      R0 := R22
+     126 [   0] MOVE      R0 := R3
+     127 [   0] MOVE      R0 := R37
+     128 [   0] MOVE      R0 := R7
+     129 [   0] MOVE      R0 := R8
+     130 [   0] MOVE      R0 := R9
+     131 [   0] MOVE      R0 := R10
+     132 [   0] MOVE      R0 := R11
+     133 [   0] MOVE      R0 := R12
+     134 [   0] MOVE      R0 := R13
+     135 [   0] MOVE      R0 := R14
+     136 [   0] MOVE      R0 := R15
+     137 [   0] MOVE      R0 := R16
+     138 [   0] MOVE      R0 := R17
+     139 [   0] MOVE      R0 := R18
+     140 [   0] MOVE      R0 := R19
+     141 [   0] MOVE      R0 := R20
+     142 [   0] MOVE      R0 := R23
+     143 [   0] MOVE      R0 := R24
+     144 [   0] MOVE      R0 := R25
+     145 [   0] MOVE      R0 := R26
+     146 [   0] MOVE      R0 := R27
+     147 [   0] MOVE      R0 := R28
+     148 [   0] MOVE      R0 := R29
+     149 [   0] MOVE      R0 := R30
+     150 [   0] MOVE      R0 := R31
+     151 [   0] MOVE      R0 := R32
+     152 [   0] MOVE      R0 := R33
+     153 [   0] MOVE      R0 := R34
+     154 [   0] MOVE      R0 := R35
+     155 [   0] MOVE      R0 := R38
+     156 [   0] MOVE      R0 := R42
+     157 [   0] MOVE      R0 := R40
+     158 [   0] MOVE      R0 := R41
+     159 [   0] MOVE      R0 := R43
+     160 [   0] SETTABLE  R0["parseConfig"] := R45
+     161 [   0] CLOSURE   R45 := closure #8
+     162 [   0] MOVE      R0 := R37
+     163 [   0] SETTABLE  R0["getMaxNumParticles"] := R45
+     164 [   0] CLOSURE   R45 := closure #9
+     165 [   0] MOVE      R0 := R32
+     166 [   0] SETTABLE  R0["getStartColor"] := R45
+     167 [   0] CLOSURE   R45 := closure #10
+     168 [   0] MOVE      R0 := R40
+     169 [   0] MOVE      R0 := R41
+     170 [   0] SETTABLE  R0["getSpriteSheetData"] := R45
+     171 [   0] CLOSURE   R45 := closure #11
+     172 [   0] MOVE      R0 := R36
+     173 [   0] SETTABLE  R0["setOverrideColor"] := R45
+     174 [   0] RETURN    return R0.. (1 values)
+     175 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 76-92, upvals=[], locals=[])
+      constants: strings=['parseConfig', 'psConfigFile', 'mEmissionRate', 'setEmitterPosition', 'emitterX', 'emitterY', 'gravityPoint', 'enabled', 'position', 'force', 'friction', 'killRadius'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["parseConfig"]
+         2 [   0] GETTABLE  R2 := R0["psConfigFile"]
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETUPVAL  R2 := upval 1
+         6 [   0] GETUPVAL  R3 := upval 2
+         7 [   0] DIV       R2 := R2 / R3
+         8 [   0] SETTABLE  R1["mEmissionRate"] := R2
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] GETTABLE  R1 := R1["setEmitterPosition"]
+        11 [   0] GETTABLE  R2 := R0["emitterX"]
+        12 [   0] GETTABLE  R3 := R0["emitterY"]
+        13 [   0] CALL      R1(...) nargs=2 nret=0
+        14 [   0] GETTABLE  R1 := R0["gravityPoint"]
+        15 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        16 [   0] JMP       jmp +24 -> 41
+        17 [   0] GETUPVAL  R1 := upval 0
+        18 [   0] GETTABLE  R1 := R1["gravityPoint"]
+        19 [   0] SETTABLE  R1["enabled"] := True
+        20 [   0] GETUPVAL  R1 := upval 0
+        21 [   0] GETTABLE  R1 := R1["gravityPoint"]
+        22 [   0] GETTABLE  R2 := R0["gravityPoint"]
+        23 [   0] GETTABLE  R2 := R2["position"]
+        24 [   0] SETTABLE  R1["position"] := R2
+        25 [   0] GETUPVAL  R1 := upval 0
+        26 [   0] GETTABLE  R1 := R1["gravityPoint"]
+        27 [   0] GETTABLE  R2 := R0["gravityPoint"]
+        28 [   0] GETTABLE  R2 := R2["force"]
+        29 [   0] SETTABLE  R1["force"] := R2
+        30 [   0] GETUPVAL  R1 := upval 0
+        31 [   0] GETTABLE  R1 := R1["gravityPoint"]
+        32 [   0] GETTABLE  R2 := R0["gravityPoint"]
+        33 [   0] GETTABLE  R2 := R2["friction"]
+        34 [   0] SETTABLE  R1["friction"] := R2
+        35 [   0] GETUPVAL  R1 := upval 0
+        36 [   0] GETTABLE  R1 := R1["gravityPoint"]
+        37 [   0] GETTABLE  R2 := R0["gravityPoint"]
+        38 [   0] GETTABLE  R2 := R2["killRadius"]
+        39 [   0] SETTABLE  R1["killRadius"] := R2
+        40 [   0] JMP       jmp +3 -> 44
+        41 [   0] GETUPVAL  R1 := upval 0
+        42 [   0] GETTABLE  R1 := R1["gravityPoint"]
+        43 [   0] SETTABLE  R1["enabled"] := False
+        44 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 94-97, upvals=[], locals=[])
+      constants: strings=['mEmitterX', 'mEmitterY'] numbers=[0]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] TESTSET   if (R0 truthy) == 1 then R3 := R0 else skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] LOADK     R3 := 0
+         4 [   0] SETTABLE  R2["mEmitterX"] := R3
+         5 [   0] GETUPVAL  R2 := upval 0
+         6 [   0] TESTSET   if (R1 truthy) == 1 then R3 := R1 else skip next
+         7 [   0] JMP       jmp +1 -> 9
+         8 [   0] LOADK     R3 := 0
+         9 [   0] SETTABLE  R2["mEmitterY"] := R3
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 99-101, upvals=[], locals=[])
+      constants: strings=['mEmitterX', 'mEmitterY'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["mEmitterX"]
+         2 [   0] GETUPVAL  R1 := upval 0
+         3 [   0] GETTABLE  R1 := R1["mEmitterY"]
+         4 [   0] RETURN    return R0.. (2 values)
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 103-190, upvals=[], locals=[])
+      constants: strings=['math', 'random', 'currentTime', 'totalTime', 'x', 'mEmitterX', 'y', 'mEmitterY', 'startX', 'startY', 'velocityX', 'cos', 'velocityY', 'sin', 'emitRadius', 'emitRadiusDelta', 'emitAngleRad', 'emitAngleDeltaRad', 'radialAcceleration', 'tangentialAcceleration', 'size', 'xScale', 'yScale', 'scaleDelta', 'colorArgb', 'colorArgbDelta', 'r', 'g', 'b', 'a', 'rotation', 'rotationDelta', 'get8BitColor', 'setFillColor', 'blendMode', 'setSequence', 'loop', 'play'] numbers=[2, 1, 0, 0.1, 0.01]
+         0 [   0] MOVE      R1 := R0
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] GETUPVAL  R3 := upval 1
+         3 [   0] GETGLOBAL R4 := _G["math"]
+         4 [   0] GETTABLE  R4 := R4["random"]
+         5 [   0] CALL      R4(...) nargs=0 nret=1
+         6 [   0] MUL       R4 := R4 * 2
+         7 [   0] SUB       R4 := R4 - 1
+         8 [   0] MUL       R3 := R3 * R4
+         9 [   0] ADD       R2 := R2 + R3
+        10 [   0] LE        if (R2 <= 0) ~= 0 then skip next
+        11 [   0] JMP       jmp +1 -> 13
+        12 [   0] RETURN    return R0.. (0 values)
+        13 [   0] SETTABLE  R1["currentTime"] := 0
+        14 [   0] SETTABLE  R1["totalTime"] := R2
+        15 [   0] GETUPVAL  R3 := upval 2
+        16 [   0] GETTABLE  R3 := R3["mEmitterX"]
+        17 [   0] GETUPVAL  R4 := upval 3
+        18 [   0] GETGLOBAL R5 := _G["math"]
+        19 [   0] GETTABLE  R5 := R5["random"]
+        20 [   0] CALL      R5(...) nargs=0 nret=1
+        21 [   0] MUL       R5 := R5 * 2
+        22 [   0] SUB       R5 := R5 - 1
+        23 [   0] MUL       R4 := R4 * R5
+        24 [   0] ADD       R3 := R3 + R4
+        25 [   0] SETTABLE  R1["x"] := R3
+        26 [   0] GETUPVAL  R3 := upval 2
+        27 [   0] GETTABLE  R3 := R3["mEmitterY"]
+        28 [   0] GETUPVAL  R4 := upval 4
+        29 [   0] GETGLOBAL R5 := _G["math"]
+        30 [   0] GETTABLE  R5 := R5["random"]
+        31 [   0] CALL      R5(...) nargs=0 nret=1
+        32 [   0] MUL       R5 := R5 * 2
+        33 [   0] SUB       R5 := R5 - 1
+        34 [   0] MUL       R4 := R4 * R5
+        35 [   0] ADD       R3 := R3 + R4
+        36 [   0] SETTABLE  R1["y"] := R3
+        37 [   0] GETUPVAL  R3 := upval 2
+        38 [   0] GETTABLE  R3 := R3["mEmitterX"]
+        39 [   0] SETTABLE  R1["startX"] := R3
+        40 [   0] GETUPVAL  R3 := upval 2
+        41 [   0] GETTABLE  R3 := R3["mEmitterY"]
+        42 [   0] SETTABLE  R1["startY"] := R3
+        43 [   0] GETUPVAL  R3 := upval 5
+        44 [   0] GETUPVAL  R4 := upval 6
+        45 [   0] GETGLOBAL R5 := _G["math"]
+        46 [   0] GETTABLE  R5 := R5["random"]
+        47 [   0] CALL      R5(...) nargs=0 nret=1
+        48 [   0] MUL       R5 := R5 * 2
+        49 [   0] SUB       R5 := R5 - 1
+        50 [   0] MUL       R4 := R4 * R5
+        51 [   0] ADD       R3 := R3 + R4
+        52 [   0] GETUPVAL  R4 := upval 7
+        53 [   0] GETUPVAL  R5 := upval 8
+        54 [   0] GETGLOBAL R6 := _G["math"]
+        55 [   0] GETTABLE  R6 := R6["random"]
+        56 [   0] CALL      R6(...) nargs=0 nret=1
+        57 [   0] MUL       R6 := R6 * 2
+        58 [   0] SUB       R6 := R6 - 1
+        59 [   0] MUL       R5 := R5 * R6
+        60 [   0] ADD       R4 := R4 + R5
+        61 [   0] GETGLOBAL R5 := _G["math"]
+        62 [   0] GETTABLE  R5 := R5["cos"]
+        63 [   0] MOVE      R6 := R3
+        64 [   0] CALL      R5(...) nargs=1 nret=1
+        65 [   0] MUL       R5 := R4 * R5
+        66 [   0] SETTABLE  R1["velocityX"] := R5
+        67 [   0] GETGLOBAL R5 := _G["math"]
+        68 [   0] GETTABLE  R5 := R5["sin"]
+        69 [   0] MOVE      R6 := R3
+        70 [   0] CALL      R5(...) nargs=1 nret=1
+        71 [   0] MUL       R5 := R4 * R5
+        72 [   0] SETTABLE  R1["velocityY"] := R5
+        73 [   0] GETUPVAL  R5 := upval 9
+        74 [   0] GETUPVAL  R6 := upval 10
+        75 [   0] GETGLOBAL R7 := _G["math"]
+        76 [   0] GETTABLE  R7 := R7["random"]
+        77 [   0] CALL      R7(...) nargs=0 nret=1
+        78 [   0] MUL       R7 := R7 * 2
+        79 [   0] SUB       R7 := R7 - 1
+        80 [   0] MUL       R6 := R6 * R7
+        81 [   0] ADD       R5 := R5 + R6
+        82 [   0] SETTABLE  R1["emitRadius"] := R5
+        83 [   0] GETUPVAL  R5 := upval 9
+        84 [   0] DIV       R5 := R5 / R2
+        85 [   0] SETTABLE  R1["emitRadiusDelta"] := R5
+        86 [   0] GETUPVAL  R5 := upval 5
+        87 [   0] GETUPVAL  R6 := upval 6
+        88 [   0] GETGLOBAL R7 := _G["math"]
+        89 [   0] GETTABLE  R7 := R7["random"]
+        90 [   0] CALL      R7(...) nargs=0 nret=1
+        91 [   0] MUL       R7 := R7 * 2
+        92 [   0] SUB       R7 := R7 - 1
+        93 [   0] MUL       R6 := R6 * R7
+        94 [   0] ADD       R5 := R5 + R6
+        95 [   0] SETTABLE  R1["emitAngleRad"] := R5
+        96 [   0] GETUPVAL  R5 := upval 11
+        97 [   0] GETUPVAL  R6 := upval 12
+        98 [   0] GETGLOBAL R7 := _G["math"]
+        99 [   0] GETTABLE  R7 := R7["random"]
+       100 [   0] CALL      R7(...) nargs=0 nret=1
+       101 [   0] MUL       R7 := R7 * 2
+       102 [   0] SUB       R7 := R7 - 1
+       103 [   0] MUL       R6 := R6 * R7
+       104 [   0] ADD       R5 := R5 + R6
+       105 [   0] SETTABLE  R1["emitAngleDeltaRad"] := R5
+       106 [   0] GETUPVAL  R5 := upval 13
+       107 [   0] GETUPVAL  R6 := upval 14
+       108 [   0] GETGLOBAL R7 := _G["math"]
+       109 [   0] GETTABLE  R7 := R7["random"]
+       110 [   0] CALL      R7(...) nargs=0 nret=1
+       111 [   0] MUL       R7 := R7 * 2
+       112 [   0] SUB       R7 := R7 - 1
+       113 [   0] MUL       R6 := R6 * R7
+       114 [   0] ADD       R5 := R5 + R6
+       115 [   0] SETTABLE  R1["radialAcceleration"] := R5
+       116 [   0] GETUPVAL  R5 := upval 15
+       117 [   0] GETUPVAL  R6 := upval 16
+       118 [   0] GETGLOBAL R7 := _G["math"]
+       119 [   0] GETTABLE  R7 := R7["random"]
+       120 [   0] CALL      R7(...) nargs=0 nret=1
+       121 [   0] MUL       R7 := R7 * 2
+       122 [   0] SUB       R7 := R7 - 1
+       123 [   0] MUL       R6 := R6 * R7
+       124 [   0] ADD       R5 := R5 + R6
+       125 [   0] SETTABLE  R1["tangentialAcceleration"] := R5
+       126 [   0] GETUPVAL  R5 := upval 17
+       127 [   0] GETUPVAL  R6 := upval 18
+       128 [   0] GETGLOBAL R7 := _G["math"]
+       129 [   0] GETTABLE  R7 := R7["random"]
+       130 [   0] CALL      R7(...) nargs=0 nret=1
+       131 [   0] MUL       R7 := R7 * 2
+       132 [   0] SUB       R7 := R7 - 1
+       133 [   0] MUL       R6 := R6 * R7
+       134 [   0] ADD       R5 := R5 + R6
+       135 [   0] GETUPVAL  R6 := upval 19
+       136 [   0] GETUPVAL  R7 := upval 20
+       137 [   0] GETGLOBAL R8 := _G["math"]
+       138 [   0] GETTABLE  R8 := R8["random"]
+       139 [   0] CALL      R8(...) nargs=0 nret=1
+       140 [   0] MUL       R8 := R8 * 2
+       141 [   0] SUB       R8 := R8 - 1
+       142 [   0] MUL       R7 := R7 * R8
+       143 [   0] ADD       R6 := R6 + R7
+       144 [   0] LT        if (R5 < 0.1) ~= 0 then skip next
+       145 [   0] JMP       jmp +1 -> 147
+       146 [   0] LOADK     R5 := 0.1
+       147 [   0] LT        if (R6 < 0.1) ~= 0 then skip next
+       148 [   0] JMP       jmp +1 -> 150
+       149 [   0] LOADK     R6 := 0.1
+       150 [   0] GETTABLE  R7 := R1["size"]
+       151 [   0] DIV       R7 := R5 / R7
+       152 [   0] LT        if (R7 < 0.01) ~= 0 then skip next
+       153 [   0] JMP       jmp +1 -> 155
+       154 [   0] LOADK     R7 := 0.01
+       155 [   0] SETTABLE  R1["xScale"] := R7
+       156 [   0] SETTABLE  R1["yScale"] := R7
+       157 [   0] SUB       R8 := R6 - R5
+       158 [   0] DIV       R8 := R8 / R2
+       159 [   0] GETTABLE  R9 := R1["size"]
+       160 [   0] DIV       R8 := R8 / R9
+       161 [   0] SETTABLE  R1["scaleDelta"] := R8
+       162 [   0] GETTABLE  R8 := R1["colorArgb"]
+       163 [   0] GETTABLE  R9 := R1["colorArgbDelta"]
+       164 [   0] GETUPVAL  R10 := upval 21
+       165 [   0] GETTABLE  R10 := R10["r"]
+       166 [   0] SETTABLE  R8["r"] := R10
+       167 [   0] GETUPVAL  R10 := upval 21
+       168 [   0] GETTABLE  R10 := R10["g"]
+       169 [   0] SETTABLE  R8["g"] := R10
+       170 [   0] GETUPVAL  R10 := upval 21
+       171 [   0] GETTABLE  R10 := R10["b"]
+       172 [   0] SETTABLE  R8["b"] := R10
+       173 [   0] GETUPVAL  R10 := upval 21
+       174 [   0] GETTABLE  R10 := R10["a"]
+       175 [   0] SETTABLE  R8["a"] := R10
+       176 [   0] GETUPVAL  R10 := upval 22
+       177 [   0] GETTABLE  R10 := R10["r"]
+       178 [   0] EQ        if (R10 == 0) ~= 1 then skip next
+       179 [   0] JMP       jmp +11 -> 191
+       180 [   0] GETTABLE  R10 := R8["r"]
+       181 [   0] GETUPVAL  R11 := upval 22
+       182 [   0] GETTABLE  R11 := R11["r"]
+       183 [   0] GETGLOBAL R12 := _G["math"]
+       184 [   0] GETTABLE  R12 := R12["random"]
+       185 [   0] CALL      R12(...) nargs=0 nret=1
+       186 [   0] MUL       R12 := R12 * 2
+       187 [   0] SUB       R12 := R12 - 1
+       188 [   0] MUL       R11 := R11 * R12
+       189 [   0] ADD       R10 := R10 + R11
+       190 [   0] SETTABLE  R8["r"] := R10
+       191 [   0] GETUPVAL  R10 := upval 22
+       192 [   0] GETTABLE  R10 := R10["g"]
+       193 [   0] EQ        if (R10 == 0) ~= 1 then skip next
+       194 [   0] JMP       jmp +11 -> 206
+       195 [   0] GETTABLE  R10 := R8["g"]
+       196 [   0] GETUPVAL  R11 := upval 22
+       197 [   0] GETTABLE  R11 := R11["g"]
+       198 [   0] GETGLOBAL R12 := _G["math"]
+       199 [   0] GETTABLE  R12 := R12["random"]
+       200 [   0] CALL      R12(...) nargs=0 nret=1
+       201 [   0] MUL       R12 := R12 * 2
+       202 [   0] SUB       R12 := R12 - 1
+       203 [   0] MUL       R11 := R11 * R12
+       204 [   0] ADD       R10 := R10 + R11
+       205 [   0] SETTABLE  R8["g"] := R10
+       206 [   0] GETUPVAL  R10 := upval 22
+       207 [   0] GETTABLE  R10 := R10["b"]
+       208 [   0] EQ        if (R10 == 0) ~= 1 then skip next
+       209 [   0] JMP       jmp +11 -> 221
+       210 [   0] GETTABLE  R10 := R8["b"]
+       211 [   0] GETUPVAL  R11 := upval 22
+       212 [   0] GETTABLE  R11 := R11["b"]
+       213 [   0] GETGLOBAL R12 := _G["math"]
+       214 [   0] GETTABLE  R12 := R12["random"]
+       215 [   0] CALL      R12(...) nargs=0 nret=1
+       216 [   0] MUL       R12 := R12 * 2
+       217 [   0] SUB       R12 := R12 - 1
+       218 [   0] MUL       R11 := R11 * R12
+       219 [   0] ADD       R10 := R10 + R11
+       220 [   0] SETTABLE  R8["b"] := R10
+       221 [   0] GETUPVAL  R10 := upval 22
+       222 [   0] GETTABLE  R10 := R10["a"]
+       223 [   0] EQ        if (R10 == 0) ~= 1 then skip next
+       224 [   0] JMP       jmp +11 -> 236
+       225 [   0] GETTABLE  R10 := R8["a"]
+       226 [   0] GETUPVAL  R11 := upval 22
+       227 [   0] GETTABLE  R11 := R11["a"]
+       228 [   0] GETGLOBAL R12 := _G["math"]
+       229 [   0] GETTABLE  R12 := R12["random"]
+       230 [   0] CALL      R12(...) nargs=0 nret=1
+       231 [   0] MUL       R12 := R12 * 2
+       232 [   0] SUB       R12 := R12 - 1
+       233 [   0] MUL       R11 := R11 * R12
+       234 [   0] ADD       R10 := R10 + R11
+       235 [   0] SETTABLE  R8["a"] := R10
+       236 [   0] GETUPVAL  R10 := upval 23
+       237 [   0] GETTABLE  R10 := R10["r"]
+       238 [   0] GETUPVAL  R11 := upval 23
+       239 [   0] GETTABLE  R11 := R11["g"]
+       240 [   0] GETUPVAL  R12 := upval 23
+       241 [   0] GETTABLE  R12 := R12["b"]
+       242 [   0] GETUPVAL  R13 := upval 23
+       243 [   0] GETTABLE  R13 := R13["a"]
+       244 [   0] GETUPVAL  R14 := upval 24
+       245 [   0] GETTABLE  R14 := R14["r"]
+       246 [   0] EQ        if (R14 == 0) ~= 1 then skip next
+       247 [   0] JMP       jmp +9 -> 257
+       248 [   0] GETUPVAL  R14 := upval 24
+       249 [   0] GETTABLE  R14 := R14["r"]
+       250 [   0] GETGLOBAL R15 := _G["math"]
+       251 [   0] GETTABLE  R15 := R15["random"]
+       252 [   0] CALL      R15(...) nargs=0 nret=1
+       253 [   0] MUL       R15 := R15 * 2
+       254 [   0] SUB       R15 := R15 - 1
+       255 [   0] MUL       R14 := R14 * R15
+       256 [   0] ADD       R10 := R10 + R14
+       257 [   0] GETUPVAL  R14 := upval 24
+       258 [   0] GETTABLE  R14 := R14["g"]
+       259 [   0] EQ        if (R14 == 0) ~= 1 then skip next
+       260 [   0] JMP       jmp +9 -> 270
+       261 [   0] GETUPVAL  R14 := upval 24
+       262 [   0] GETTABLE  R14 := R14["g"]
+       263 [   0] GETGLOBAL R15 := _G["math"]
+       264 [   0] GETTABLE  R15 := R15["random"]
+       265 [   0] CALL      R15(...) nargs=0 nret=1
+       266 [   0] MUL       R15 := R15 * 2
+       267 [   0] SUB       R15 := R15 - 1
+       268 [   0] MUL       R14 := R14 * R15
+       269 [   0] ADD       R11 := R11 + R14
+       270 [   0] GETUPVAL  R14 := upval 24
+       271 [   0] GETTABLE  R14 := R14["b"]
+       272 [   0] EQ        if (R14 == 0) ~= 1 then skip next
+       273 [   0] JMP       jmp +9 -> 283
+       274 [   0] GETUPVAL  R14 := upval 24
+       275 [   0] GETTABLE  R14 := R14["b"]
+       276 [   0] GETGLOBAL R15 := _G["math"]
+       277 [   0] GETTABLE  R15 := R15["random"]
+       278 [   0] CALL      R15(...) nargs=0 nret=1
+       279 [   0] MUL       R15 := R15 * 2
+       280 [   0] SUB       R15 := R15 - 1
+       281 [   0] MUL       R14 := R14 * R15
+       282 [   0] ADD       R12 := R12 + R14
+       283 [   0] GETUPVAL  R14 := upval 24
+       284 [   0] GETTABLE  R14 := R14["a"]
+       285 [   0] EQ        if (R14 == 0) ~= 1 then skip next
+       286 [   0] JMP       jmp +9 -> 296
+       287 [   0] GETUPVAL  R14 := upval 24
+       288 [   0] GETTABLE  R14 := R14["a"]
+       289 [   0] GETGLOBAL R15 := _G["math"]
+       290 [   0] GETTABLE  R15 := R15["random"]
+       291 [   0] CALL      R15(...) nargs=0 nret=1
+       292 [   0] MUL       R15 := R15 * 2
+       293 [   0] SUB       R15 := R15 - 1
+       294 [   0] MUL       R14 := R14 * R15
+       295 [   0] ADD       R13 := R13 + R14
+       296 [   0] GETTABLE  R14 := R8["r"]
+       297 [   0] SUB       R14 := R10 - R14
+       298 [   0] DIV       R14 := R14 / R2
+       299 [   0] SETTABLE  R9["r"] := R14
+       300 [   0] GETTABLE  R14 := R8["g"]
+       301 [   0] SUB       R14 := R11 - R14
+       302 [   0] DIV       R14 := R14 / R2
+       303 [   0] SETTABLE  R9["g"] := R14
+       304 [   0] GETTABLE  R14 := R8["b"]
+       305 [   0] SUB       R14 := R12 - R14
+       306 [   0] DIV       R14 := R14 / R2
+       307 [   0] SETTABLE  R9["b"] := R14
+       308 [   0] GETTABLE  R14 := R8["a"]
+       309 [   0] SUB       R14 := R13 - R14
+       310 [   0] DIV       R14 := R14 / R2
+       311 [   0] SETTABLE  R9["a"] := R14
+       312 [   0] GETUPVAL  R14 := upval 25
+       313 [   0] GETUPVAL  R15 := upval 26
+       314 [   0] GETGLOBAL R16 := _G["math"]
+       315 [   0] GETTABLE  R16 := R16["random"]
+       316 [   0] CALL      R16(...) nargs=0 nret=1
+       317 [   0] MUL       R16 := R16 * 2
+       318 [   0] SUB       R16 := R16 - 1
+       319 [   0] MUL       R15 := R15 * R16
+       320 [   0] ADD       R14 := R14 + R15
+       321 [   0] GETUPVAL  R15 := upval 27
+       322 [   0] GETUPVAL  R16 := upval 28
+       323 [   0] GETGLOBAL R17 := _G["math"]
+       324 [   0] GETTABLE  R17 := R17["random"]
+       325 [   0] CALL      R17(...) nargs=0 nret=1
+       326 [   0] MUL       R17 := R17 * 2
+       327 [   0] SUB       R17 := R17 - 1
+       328 [   0] MUL       R16 := R16 * R17
+       329 [   0] ADD       R15 := R15 + R16
+       330 [   0] SETTABLE  R1["rotation"] := R14
+       331 [   0] SUB       R16 := R15 - R14
+       332 [   0] DIV       R16 := R16 / R2
+       333 [   0] SETTABLE  R1["rotationDelta"] := R16
+       334 [   0] GETTABLE  R16 := R1["colorArgb"]
+       335 [   0] GETTABLE  R16 := R16["get8BitColor"]
+       336 [   0] CALL      R16(...) nargs=0 nret=1
+       337 [   0] SELF      R18 := R1; R17 := R1["setFillColor"]
+       338 [   0] GETTABLE  R19 := R16["r"]
+       339 [   0] GETTABLE  R20 := R16["g"]
+       340 [   0] GETTABLE  R21 := R16["b"]
+       341 [   0] GETTABLE  R22 := R16["a"]
+       342 [   0] CALL      R17(...) nargs=5 nret=0
+       343 [   0] GETUPVAL  R17 := upval 29
+       344 [   0] SETTABLE  R1["blendMode"] := R17
+       345 [   0] GETUPVAL  R17 := upval 30
+       346 [   0] TEST      if (R17 truthy) ~= 0 then skip next
+       347 [   0] JMP       jmp +6 -> 354
+       348 [   0] SELF      R18 := R1; R17 := R1["setSequence"]
+       349 [   0] LOADK     R19 := "loop"
+       350 [   0] CALL      R17(...) nargs=2 nret=0
+       351 [   0] SELF      R18 := R1; R17 := R1["play"]
+       352 [   0] CALL      R17(...) nargs=1 nret=0
+       353 [   0] JMP       jmp +8 -> 362
+       354 [   0] GETUPVAL  R17 := upval 31
+       355 [   0] TEST      if (R17 truthy) ~= 0 then skip next
+       356 [   0] JMP       jmp +5 -> 362
+       357 [   0] SELF      R18 := R1; R17 := R1["setSequence"]
+       358 [   0] LOADK     R19 := "random"
+       359 [   0] CALL      R17(...) nargs=2 nret=0
+       360 [   0] SELF      R18 := R1; R17 := R1["play"]
+       361 [   0] CALL      R17(...) nargs=1 nret=0
+       362 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=4, lines 192-274, upvals=[], locals=[])
+      constants: strings=['totalTime', 'currentTime', 'emitAngleRad', 'emitAngleDeltaRad', 'emitRadius', 'emitRadiusDelta', 'x', 'mEmitterX', 'math', 'cos', 'y', 'mEmitterY', 'sin', 'startX', 'startY', 'sqrt', 'radialAcceleration', 'tangentialAcceleration', 'velocityX', 'velocityY', 'gravityPoint', 'enabled', 'position', 'killRadius', 'force', 'friction', 'xScale', 'scaleDelta', 'yScale', 'rotation', 'rotationDelta', 'colorArgb', 'r', 'colorArgbDelta', 'g', 'b', 'a', 'setFillColor', 'get8BitColor', 'blendMode'] numbers=[0.01]
+         0 [   0] MOVE      R4 := R0
+         1 [   0] GETTABLE  R5 := R4["totalTime"]
+         2 [   0] GETTABLE  R6 := R4["currentTime"]
+         3 [   0] SUB       R5 := R5 - R6
+         4 [   0] LE        if (R5 <= R1) ~= 0 then skip next
+         5 [   0] JMP       jmp +1 -> 7
+         6 [   0] MOVE      R1 := R5
+         7 [   0] GETTABLE  R6 := R4["currentTime"]
+         8 [   0] ADD       R6 := R6 + R1
+         9 [   0] SETTABLE  R4["currentTime"] := R6
+        10 [   0] GETUPVAL  R6 := upval 0
+        11 [   0] GETUPVAL  R7 := upval 1
+        12 [   0] EQ        if (R6 == R7) ~= 0 then skip next
+        13 [   0] JMP       jmp +37 -> 51
+        14 [   0] GETTABLE  R6 := R4["emitAngleRad"]
+        15 [   0] GETTABLE  R7 := R4["emitAngleDeltaRad"]
+        16 [   0] MUL       R7 := R7 * R1
+        17 [   0] ADD       R6 := R6 + R7
+        18 [   0] SETTABLE  R4["emitAngleRad"] := R6
+        19 [   0] GETTABLE  R6 := R4["emitRadius"]
+        20 [   0] GETTABLE  R7 := R4["emitRadiusDelta"]
+        21 [   0] MUL       R7 := R7 * R1
+        22 [   0] SUB       R6 := R6 - R7
+        23 [   0] SETTABLE  R4["emitRadius"] := R6
+        24 [   0] GETUPVAL  R6 := upval 2
+        25 [   0] GETTABLE  R6 := R6["mEmitterX"]
+        26 [   0] GETGLOBAL R7 := _G["math"]
+        27 [   0] GETTABLE  R7 := R7["cos"]
+        28 [   0] GETTABLE  R8 := R4["emitAngleRad"]
+        29 [   0] CALL      R7(...) nargs=1 nret=1
+        30 [   0] GETTABLE  R8 := R4["emitRadius"]
+        31 [   0] MUL       R7 := R7 * R8
+        32 [   0] SUB       R6 := R6 - R7
+        33 [   0] SETTABLE  R4["x"] := R6
+        34 [   0] GETUPVAL  R6 := upval 2
+        35 [   0] GETTABLE  R6 := R6["mEmitterY"]
+        36 [   0] GETGLOBAL R7 := _G["math"]
+        37 [   0] GETTABLE  R7 := R7["sin"]
+        38 [   0] GETTABLE  R8 := R4["emitAngleRad"]
+        39 [   0] CALL      R7(...) nargs=1 nret=1
+        40 [   0] GETTABLE  R8 := R4["emitRadius"]
+        41 [   0] MUL       R7 := R7 * R8
+        42 [   0] SUB       R6 := R6 - R7
+        43 [   0] SETTABLE  R4["y"] := R6
+        44 [   0] GETTABLE  R6 := R4["emitRadius"]
+        45 [   0] GETUPVAL  R7 := upval 3
+        46 [   0] LT        if (R6 < R7) ~= 0 then skip next
+        47 [   0] JMP       jmp +110 -> 158
+        48 [   0] GETTABLE  R6 := R4["totalTime"]
+        49 [   0] SETTABLE  R4["currentTime"] := R6
+        50 [   0] JMP       jmp +107 -> 158
+        51 [   0] GETTABLE  R6 := R4["x"]
+        52 [   0] GETTABLE  R7 := R4["startX"]
+        53 [   0] SUB       R6 := R6 - R7
+        54 [   0] GETTABLE  R7 := R4["y"]
+        55 [   0] GETTABLE  R8 := R4["startY"]
+        56 [   0] SUB       R7 := R7 - R8
+        57 [   0] GETGLOBAL R8 := _G["math"]
+        58 [   0] GETTABLE  R8 := R8["sqrt"]
+        59 [   0] MUL       R9 := R6 * R6
+        60 [   0] MUL       R10 := R7 * R7
+        61 [   0] ADD       R9 := R9 + R10
+        62 [   0] CALL      R8(...) nargs=1 nret=1
+        63 [   0] LT        if (R8 < 0.01) ~= 0 then skip next
+        64 [   0] JMP       jmp +1 -> 66
+        65 [   0] LOADK     R8 := 0.01
+        66 [   0] DIV       R9 := R6 / R8
+        67 [   0] DIV       R10 := R7 / R8
+        68 [   0] MOVE      R11 := R9
+        69 [   0] MOVE      R12 := R10
+        70 [   0] GETTABLE  R13 := R4["radialAcceleration"]
+        71 [   0] MUL       R9 := R9 * R13
+        72 [   0] GETTABLE  R13 := R4["radialAcceleration"]
+        73 [   0] MUL       R10 := R10 * R13
+        74 [   0] MOVE      R13 := R11
+        75 [   0] UNM       R14 := -R12
+        76 [   0] GETTABLE  R15 := R4["tangentialAcceleration"]
+        77 [   0] MUL       R11 := R14 * R15
+        78 [   0] GETTABLE  R14 := R4["tangentialAcceleration"]
+        79 [   0] MUL       R12 := R13 * R14
+        80 [   0] GETTABLE  R14 := R4["velocityX"]
+        81 [   0] GETUPVAL  R15 := upval 4
+        82 [   0] ADD       R15 := R15 + R9
+        83 [   0] ADD       R15 := R15 + R11
+        84 [   0] MUL       R15 := R1 * R15
+        85 [   0] ADD       R14 := R14 + R15
+        86 [   0] SETTABLE  R4["velocityX"] := R14
+        87 [   0] GETTABLE  R14 := R4["velocityY"]
+        88 [   0] GETUPVAL  R15 := upval 5
+        89 [   0] ADD       R15 := R15 + R10
+        90 [   0] ADD       R15 := R15 + R12
+        91 [   0] MUL       R15 := R1 * R15
+        92 [   0] ADD       R14 := R14 + R15
+        93 [   0] SETTABLE  R4["velocityY"] := R14
+        94 [   0] GETUPVAL  R14 := upval 2
+        95 [   0] GETTABLE  R14 := R14["gravityPoint"]
+        96 [   0] GETTABLE  R14 := R14["enabled"]
+        97 [   0] TEST      if (R14 truthy) ~= 0 then skip next
+        98 [   0] JMP       jmp +49 -> 148
+        99 [   0] GETUPVAL  R14 := upval 2
+       100 [   0] GETTABLE  R14 := R14["gravityPoint"]
+       101 [   0] GETTABLE  R14 := R14["position"]
+       102 [   0] GETTABLE  R14 := R14["x"]
+       103 [   0] GETTABLE  R15 := R4["x"]
+       104 [   0] SUB       R14 := R14 - R15
+       105 [   0] GETUPVAL  R15 := upval 2
+       106 [   0] GETTABLE  R15 := R15["gravityPoint"]
+       107 [   0] GETTABLE  R15 := R15["position"]
+       108 [   0] GETTABLE  R15 := R15["y"]
+       109 [   0] GETTABLE  R16 := R4["y"]
+       110 [   0] SUB       R15 := R15 - R16
+       111 [   0] GETGLOBAL R16 := _G["math"]
+       112 [   0] GETTABLE  R16 := R16["sqrt"]
+       113 [   0] MUL       R17 := R14 * R14
+       114 [   0] MUL       R18 := R15 * R15
+       115 [   0] ADD       R17 := R17 + R18
+       116 [   0] CALL      R16(...) nargs=1 nret=1
+       117 [   0] DIV       R14 := R14 / R16
+       118 [   0] DIV       R15 := R15 / R16
+       119 [   0] GETUPVAL  R17 := upval 2
+       120 [   0] GETTABLE  R17 := R17["gravityPoint"]
+       121 [   0] GETTABLE  R17 := R17["killRadius"]
+       122 [   0] LT        if (R16 < R17) ~= 0 then skip next
+       123 [   0] JMP       jmp +2 -> 126
+       124 [   0] GETTABLE  R17 := R4["totalTime"]
+       125 [   0] SETTABLE  R4["currentTime"] := R17
+       126 [   0] GETTABLE  R17 := R4["velocityX"]
+       127 [   0] GETUPVAL  R18 := upval 2
+       128 [   0] GETTABLE  R18 := R18["gravityPoint"]
+       129 [   0] GETTABLE  R18 := R18["force"]
+       130 [   0] MUL       R18 := R14 * R18
+       131 [   0] ADD       R17 := R17 + R18
+       132 [   0] GETUPVAL  R18 := upval 2
+       133 [   0] GETTABLE  R18 := R18["gravityPoint"]
+       134 [   0] GETTABLE  R18 := R18["friction"]
+       135 [   0] MUL       R17 := R17 * R18
+       136 [   0] SETTABLE  R4["velocityX"] := R17
+       137 [   0] GETTABLE  R17 := R4["velocityY"]
+       138 [   0] GETUPVAL  R18 := upval 2
+       139 [   0] GETTABLE  R18 := R18["gravityPoint"]
+       140 [   0] GETTABLE  R18 := R18["force"]
+       141 [   0] MUL       R18 := R15 * R18
+       142 [   0] ADD       R17 := R17 + R18
+       143 [   0] GETUPVAL  R18 := upval 2
+       144 [   0] GETTABLE  R18 := R18["gravityPoint"]
+       145 [   0] GETTABLE  R18 := R18["friction"]
+       146 [   0] MUL       R17 := R17 * R18
+       147 [   0] SETTABLE  R4["velocityY"] := R17
+       148 [   0] GETTABLE  R14 := R4["x"]
+       149 [   0] GETTABLE  R15 := R4["velocityX"]
+       150 [   0] MUL       R15 := R15 * R1
+       151 [   0] ADD       R14 := R14 + R15
+       152 [   0] SETTABLE  R4["x"] := R14
+       153 [   0] GETTABLE  R14 := R4["y"]
+       154 [   0] GETTABLE  R15 := R4["velocityY"]
+       155 [   0] MUL       R15 := R15 * R1
+       156 [   0] ADD       R14 := R14 + R15
+       157 [   0] SETTABLE  R4["y"] := R14
+       158 [   0] GETTABLE  R6 := R4["xScale"]
+       159 [   0] GETTABLE  R7 := R4["scaleDelta"]
+       160 [   0] MUL       R7 := R7 * R1
+       161 [   0] ADD       R6 := R6 + R7
+       162 [   0] LT        if (R6 < 0.01) ~= 0 then skip next
+       163 [   0] JMP       jmp +1 -> 165
+       164 [   0] LOADK     R6 := 0.01
+       165 [   0] SETTABLE  R4["xScale"] := R6
+       166 [   0] SETTABLE  R4["yScale"] := R6
+       167 [   0] GETTABLE  R7 := R4["rotation"]
+       168 [   0] GETTABLE  R8 := R4["rotationDelta"]
+       169 [   0] MUL       R8 := R8 * R1
+       170 [   0] ADD       R7 := R7 + R8
+       171 [   0] SETTABLE  R4["rotation"] := R7
+       172 [   0] GETTABLE  R7 := R4["colorArgb"]
+       173 [   0] GETTABLE  R8 := R4["colorArgb"]
+       174 [   0] GETTABLE  R8 := R8["r"]
+       175 [   0] GETTABLE  R9 := R4["colorArgbDelta"]
+       176 [   0] GETTABLE  R9 := R9["r"]
+       177 [   0] MUL       R9 := R9 * R1
+       178 [   0] ADD       R8 := R8 + R9
+       179 [   0] SETTABLE  R7["r"] := R8
+       180 [   0] GETTABLE  R7 := R4["colorArgb"]
+       181 [   0] GETTABLE  R8 := R4["colorArgb"]
+       182 [   0] GETTABLE  R8 := R8["g"]
+       183 [   0] GETTABLE  R9 := R4["colorArgbDelta"]
+       184 [   0] GETTABLE  R9 := R9["g"]
+       185 [   0] MUL       R9 := R9 * R1
+       186 [   0] ADD       R8 := R8 + R9
+       187 [   0] SETTABLE  R7["g"] := R8
+       188 [   0] GETTABLE  R7 := R4["colorArgb"]
+       189 [   0] GETTABLE  R8 := R4["colorArgb"]
+       190 [   0] GETTABLE  R8 := R8["b"]
+       191 [   0] GETTABLE  R9 := R4["colorArgbDelta"]
+       192 [   0] GETTABLE  R9 := R9["b"]
+       193 [   0] MUL       R9 := R9 * R1
+       194 [   0] ADD       R8 := R8 + R9
+       195 [   0] SETTABLE  R7["b"] := R8
+       196 [   0] GETTABLE  R7 := R4["colorArgb"]
+       197 [   0] GETTABLE  R8 := R4["colorArgb"]
+       198 [   0] GETTABLE  R8 := R8["a"]
+       199 [   0] GETTABLE  R9 := R4["colorArgbDelta"]
+       200 [   0] GETTABLE  R9 := R9["a"]
+       201 [   0] MUL       R9 := R9 * R1
+       202 [   0] ADD       R8 := R8 + R9
+       203 [   0] SETTABLE  R7["a"] := R8
+       204 [   0] GETUPVAL  R7 := upval 6
+       205 [   0] EQ        if (R7 == None) ~= 1 then skip next
+       206 [   0] JMP       jmp +11 -> 218
+       207 [   0] SELF      R8 := R4; R7 := R4["setFillColor"]
+       208 [   0] GETUPVAL  R9 := upval 6
+       209 [   0] GETTABLE  R9 := R9["r"]
+       210 [   0] GETUPVAL  R10 := upval 6
+       211 [   0] GETTABLE  R10 := R10["g"]
+       212 [   0] GETUPVAL  R11 := upval 6
+       213 [   0] GETTABLE  R11 := R11["b"]
+       214 [   0] GETUPVAL  R12 := upval 6
+       215 [   0] GETTABLE  R12 := R12["a"]
+       216 [   0] CALL      R7(...) nargs=5 nret=0
+       217 [   0] JMP       jmp +9 -> 227
+       218 [   0] GETTABLE  R7 := R4["colorArgb"]
+       219 [   0] GETTABLE  R7 := R7["get8BitColor"]
+       220 [   0] CALL      R7(...) nargs=0 nret=1
+       221 [   0] SELF      R9 := R4; R8 := R4["setFillColor"]
+       222 [   0] GETTABLE  R10 := R7["r"]
+       223 [   0] GETTABLE  R11 := R7["g"]
+       224 [   0] GETTABLE  R12 := R7["b"]
+       225 [   0] GETTABLE  R13 := R7["a"]
+       226 [   0] CALL      R8(...) nargs=5 nret=0
+       227 [   0] GETUPVAL  R7 := upval 7
+       228 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+       229 [   0] JMP       jmp +1 -> 231
+       230 [   0] GETUPVAL  R7 := upval 8
+       231 [   0] SETTABLE  R4["blendMode"] := R7
+       232 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 276-278, upvals=[], locals=[])
+      constants: strings=['mEmissionRate'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] GETUPVAL  R2 := upval 2
+         3 [   0] DIV       R1 := R1 / R2
+         4 [   0] SETTABLE  R0["mEmissionRate"] := R1
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=1, lines 280-282, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=1, lines 284-390, upvals=[], locals=[])
+      constants: strings=['require', 'UI_LIB_PATH', 'common.particle.utils.xml', 'newParser', 'loadFile', 'convertToTable', 'sourcePositionVariance', 'x', 'y', 'gravity', 'emitterType', 'value', 'maxParticles', 'math', 'max', 'particleLifeSpan', 'particleLifespanVariance', 'startParticleSize', 'startParticleSizeVariance', 'finishParticleSize', 'FinishParticleSizeVariance', 'angle', 'angleVariance', 'rotationStart', 'rotationStartVariance', 'rotationEnd', 'rotationEndVariance', 'speed', 'speedVariance', 'radialAcceleration', 'radialAccelVariance', 'tangentialAcceleration', 'tangentialAccelVariance', 'maxRadius', 'maxRadiusVariance', 'minRadius', 'rotatePerSecond', 'rotatePerSecondVariance', 'startColor', 'startColorVariance', 'finishColor', 'finishColorVariance', 'blendFuncSource', 'animated', 'animationSpeed', 'animationSpeedVariance', 'random'] numbers=[0.01]
+         0 [   0] GETGLOBAL R1 := _G["require"]
+         1 [   0] GETGLOBAL R2 := _G["UI_LIB_PATH"]
+         2 [   0] LOADK     R3 := "common.particle.utils.xml"
+         3 [   0] CONCAT    R2 := R2 .. ... .. R3
+         4 [   0] CALL      R1(...) nargs=1 nret=1
+         5 [   0] GETTABLE  R1 := R1["newParser"]
+         6 [   0] CALL      R1(...) nargs=0 nret=1
+         7 [   0] SELF      R3 := R1; R2 := R1["loadFile"]
+         8 [   0] MOVE      R4 := R0
+         9 [   0] CALL      R2(...) nargs=2 nret=1
+        10 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+        11 [   0] SELF      R5 := R1; R4 := R1["convertToTable"]
+        12 [   0] MOVE      R6 := R2
+        13 [   0] MOVE      R7 := R3
+        14 [   0] CALL      R4(...) nargs=3 nret=0
+        15 [   0] CLOSURE   R4 := closure #0
+        16 [   0] CLOSURE   R5 := closure #1
+        17 [   0] CLOSURE   R6 := closure #2
+        18 [   0] GETUPVAL  R0 := upval 0
+        19 [   0] CLOSURE   R7 := closure #3
+        20 [   0] MOVE      R0 := R4
+        21 [   0] CLOSURE   R8 := closure #4
+        22 [   0] CLOSURE   R9 := closure #5
+        23 [   0] CLOSURE   R10 := closure #6
+        24 [   0] MOVE      R11 := R8
+        25 [   0] GETTABLE  R12 := R3["sourcePositionVariance"]
+        26 [   0] GETTABLE  R12 := R12["x"]
+        27 [   0] CALL      R11(...) nargs=1 nret=1
+        28 [   0] SETUPVAL  upval 1 := R11
+        29 [   0] MOVE      R11 := R8
+        30 [   0] GETTABLE  R12 := R3["sourcePositionVariance"]
+        31 [   0] GETTABLE  R12 := R12["y"]
+        32 [   0] CALL      R11(...) nargs=1 nret=1
+        33 [   0] SETUPVAL  upval 2 := R11
+        34 [   0] MOVE      R11 := R8
+        35 [   0] GETTABLE  R12 := R3["gravity"]
+        36 [   0] GETTABLE  R12 := R12["x"]
+        37 [   0] CALL      R11(...) nargs=1 nret=1
+        38 [   0] SETUPVAL  upval 3 := R11
+        39 [   0] MOVE      R11 := R8
+        40 [   0] GETTABLE  R12 := R3["gravity"]
+        41 [   0] GETTABLE  R12 := R12["y"]
+        42 [   0] CALL      R11(...) nargs=1 nret=1
+        43 [   0] SETUPVAL  upval 4 := R11
+        44 [   0] MOVE      R11 := R4
+        45 [   0] GETTABLE  R12 := R3["emitterType"]
+        46 [   0] GETTABLE  R12 := R12["value"]
+        47 [   0] CALL      R11(...) nargs=1 nret=1
+        48 [   0] SETUPVAL  upval 5 := R11
+        49 [   0] MOVE      R11 := R4
+        50 [   0] GETTABLE  R12 := R3["maxParticles"]
+        51 [   0] GETTABLE  R12 := R12["value"]
+        52 [   0] CALL      R11(...) nargs=1 nret=1
+        53 [   0] SETUPVAL  upval 6 := R11
+        54 [   0] GETGLOBAL R11 := _G["math"]
+        55 [   0] GETTABLE  R11 := R11["max"]
+        56 [   0] LOADK     R12 := 0.01
+        57 [   0] MOVE      R13 := R5
+        58 [   0] GETTABLE  R14 := R3["particleLifeSpan"]
+        59 [   0] GETTABLE  R14 := R14["value"]
+        60 [   0] CALL      R13(...) nargs=1 nret=-1
+        61 [   0] CALL      R11(...) nargs=-1 nret=1
+        62 [   0] SETUPVAL  upval 7 := R11
+        63 [   0] MOVE      R11 := R5
+        64 [   0] GETTABLE  R12 := R3["particleLifespanVariance"]
+        65 [   0] GETTABLE  R12 := R12["value"]
+        66 [   0] CALL      R11(...) nargs=1 nret=1
+        67 [   0] SETUPVAL  upval 8 := R11
+        68 [   0] MOVE      R11 := R5
+        69 [   0] GETTABLE  R12 := R3["startParticleSize"]
+        70 [   0] GETTABLE  R12 := R12["value"]
+        71 [   0] CALL      R11(...) nargs=1 nret=1
+        72 [   0] SETUPVAL  upval 9 := R11
+        73 [   0] MOVE      R11 := R5
+        74 [   0] GETTABLE  R12 := R3["startParticleSizeVariance"]
+        75 [   0] GETTABLE  R12 := R12["value"]
+        76 [   0] CALL      R11(...) nargs=1 nret=1
+        77 [   0] SETUPVAL  upval 10 := R11
+        78 [   0] MOVE      R11 := R5
+        79 [   0] GETTABLE  R12 := R3["finishParticleSize"]
+        80 [   0] GETTABLE  R12 := R12["value"]
+        81 [   0] CALL      R11(...) nargs=1 nret=1
+        82 [   0] SETUPVAL  upval 11 := R11
+        83 [   0] MOVE      R11 := R5
+        84 [   0] GETTABLE  R12 := R3["FinishParticleSizeVariance"]
+        85 [   0] GETTABLE  R12 := R12["value"]
+        86 [   0] CALL      R11(...) nargs=1 nret=1
+        87 [   0] SETUPVAL  upval 12 := R11
+        88 [   0] MOVE      R11 := R9
+        89 [   0] MOVE      R12 := R5
+        90 [   0] GETTABLE  R13 := R3["angle"]
+        91 [   0] GETTABLE  R13 := R13["value"]
+        92 [   0] CALL      R12(...) nargs=1 nret=-1
+        93 [   0] CALL      R11(...) nargs=-1 nret=1
+        94 [   0] SETUPVAL  upval 13 := R11
+        95 [   0] MOVE      R11 := R9
+        96 [   0] MOVE      R12 := R5
+        97 [   0] GETTABLE  R13 := R3["angleVariance"]
+        98 [   0] GETTABLE  R13 := R13["value"]
+        99 [   0] CALL      R12(...) nargs=1 nret=-1
+       100 [   0] CALL      R11(...) nargs=-1 nret=1
+       101 [   0] SETUPVAL  upval 14 := R11
+       102 [   0] MOVE      R11 := R5
+       103 [   0] GETTABLE  R12 := R3["rotationStart"]
+       104 [   0] GETTABLE  R12 := R12["value"]
+       105 [   0] CALL      R11(...) nargs=1 nret=1
+       106 [   0] SETUPVAL  upval 15 := R11
+       107 [   0] MOVE      R11 := R5
+       108 [   0] GETTABLE  R12 := R3["rotationStartVariance"]
+       109 [   0] GETTABLE  R12 := R12["value"]
+       110 [   0] CALL      R11(...) nargs=1 nret=1
+       111 [   0] SETUPVAL  upval 16 := R11
+       112 [   0] MOVE      R11 := R5
+       113 [   0] GETTABLE  R12 := R3["rotationEnd"]
+       114 [   0] GETTABLE  R12 := R12["value"]
+       115 [   0] CALL      R11(...) nargs=1 nret=1
+       116 [   0] SETUPVAL  upval 17 := R11
+       117 [   0] MOVE      R11 := R5
+       118 [   0] GETTABLE  R12 := R3["rotationEndVariance"]
+       119 [   0] GETTABLE  R12 := R12["value"]
+       120 [   0] CALL      R11(...) nargs=1 nret=1
+       121 [   0] SETUPVAL  upval 18 := R11
+       122 [   0] MOVE      R11 := R5
+       123 [   0] GETTABLE  R12 := R3["speed"]
+       124 [   0] GETTABLE  R12 := R12["value"]
+       125 [   0] CALL      R11(...) nargs=1 nret=1
+       126 [   0] SETUPVAL  upval 19 := R11
+       127 [   0] MOVE      R11 := R5
+       128 [   0] GETTABLE  R12 := R3["speedVariance"]
+       129 [   0] GETTABLE  R12 := R12["value"]
+       130 [   0] CALL      R11(...) nargs=1 nret=1
+       131 [   0] SETUPVAL  upval 20 := R11
+       132 [   0] MOVE      R11 := R5
+       133 [   0] GETTABLE  R12 := R3["radialAcceleration"]
+       134 [   0] GETTABLE  R12 := R12["value"]
+       135 [   0] CALL      R11(...) nargs=1 nret=1
+       136 [   0] SETUPVAL  upval 21 := R11
+       137 [   0] MOVE      R11 := R5
+       138 [   0] GETTABLE  R12 := R3["radialAccelVariance"]
+       139 [   0] GETTABLE  R12 := R12["value"]
+       140 [   0] CALL      R11(...) nargs=1 nret=1
+       141 [   0] SETUPVAL  upval 22 := R11
+       142 [   0] MOVE      R11 := R5
+       143 [   0] GETTABLE  R12 := R3["tangentialAcceleration"]
+       144 [   0] GETTABLE  R12 := R12["value"]
+       145 [   0] CALL      R11(...) nargs=1 nret=1
+       146 [   0] SETUPVAL  upval 23 := R11
+       147 [   0] MOVE      R11 := R5
+       148 [   0] GETTABLE  R12 := R3["tangentialAccelVariance"]
+       149 [   0] GETTABLE  R12 := R12["value"]
+       150 [   0] CALL      R11(...) nargs=1 nret=1
+       151 [   0] SETUPVAL  upval 24 := R11
+       152 [   0] MOVE      R11 := R5
+       153 [   0] GETTABLE  R12 := R3["maxRadius"]
+       154 [   0] GETTABLE  R12 := R12["value"]
+       155 [   0] CALL      R11(...) nargs=1 nret=1
+       156 [   0] SETUPVAL  upval 25 := R11
+       157 [   0] MOVE      R11 := R5
+       158 [   0] GETTABLE  R12 := R3["maxRadiusVariance"]
+       159 [   0] GETTABLE  R12 := R12["value"]
+       160 [   0] CALL      R11(...) nargs=1 nret=1
+       161 [   0] SETUPVAL  upval 26 := R11
+       162 [   0] MOVE      R11 := R5
+       163 [   0] GETTABLE  R12 := R3["minRadius"]
+       164 [   0] GETTABLE  R12 := R12["value"]
+       165 [   0] CALL      R11(...) nargs=1 nret=1
+       166 [   0] SETUPVAL  upval 27 := R11
+       167 [   0] MOVE      R11 := R9
+       168 [   0] MOVE      R12 := R5
+       169 [   0] GETTABLE  R13 := R3["rotatePerSecond"]
+       170 [   0] GETTABLE  R13 := R13["value"]
+       171 [   0] CALL      R12(...) nargs=1 nret=-1
+       172 [   0] CALL      R11(...) nargs=-1 nret=1
+       173 [   0] SETUPVAL  upval 28 := R11
+       174 [   0] MOVE      R11 := R9
+       175 [   0] MOVE      R12 := R5
+       176 [   0] GETTABLE  R13 := R3["rotatePerSecondVariance"]
+       177 [   0] GETTABLE  R13 := R13["value"]
+       178 [   0] CALL      R12(...) nargs=1 nret=-1
+       179 [   0] CALL      R11(...) nargs=-1 nret=1
+       180 [   0] SETUPVAL  upval 29 := R11
+       181 [   0] MOVE      R11 := R6
+       182 [   0] GETTABLE  R12 := R3["startColor"]
+       183 [   0] CALL      R11(...) nargs=1 nret=1
+       184 [   0] SETUPVAL  upval 30 := R11
+       185 [   0] MOVE      R11 := R6
+       186 [   0] GETTABLE  R12 := R3["startColorVariance"]
+       187 [   0] CALL      R11(...) nargs=1 nret=1
+       188 [   0] SETUPVAL  upval 31 := R11
+       189 [   0] MOVE      R11 := R6
+       190 [   0] GETTABLE  R12 := R3["finishColor"]
+       191 [   0] CALL      R11(...) nargs=1 nret=1
+       192 [   0] SETUPVAL  upval 32 := R11
+       193 [   0] MOVE      R11 := R6
+       194 [   0] GETTABLE  R12 := R3["finishColorVariance"]
+       195 [   0] CALL      R11(...) nargs=1 nret=1
+       196 [   0] SETUPVAL  upval 33 := R11
+       197 [   0] MOVE      R11 := R7
+       198 [   0] GETTABLE  R12 := R3["blendFuncSource"]
+       199 [   0] GETTABLE  R12 := R12["value"]
+       200 [   0] CALL      R11(...) nargs=1 nret=1
+       201 [   0] SETUPVAL  upval 34 := R11
+       202 [   0] GETTABLE  R11 := R3["animated"]
+       203 [   0] TEST      if (R11 truthy) ~= 0 then skip next
+       204 [   0] JMP       jmp +16 -> 221
+       205 [   0] MOVE      R11 := R10
+       206 [   0] GETTABLE  R12 := R3["animated"]
+       207 [   0] GETTABLE  R12 := R12["value"]
+       208 [   0] CALL      R11(...) nargs=1 nret=1
+       209 [   0] SETUPVAL  upval 35 := R11
+       210 [   0] MOVE      R11 := R5
+       211 [   0] GETTABLE  R12 := R3["animationSpeed"]
+       212 [   0] GETTABLE  R12 := R12["value"]
+       213 [   0] CALL      R11(...) nargs=1 nret=1
+       214 [   0] SETUPVAL  upval 36 := R11
+       215 [   0] MOVE      R11 := R5
+       216 [   0] GETTABLE  R12 := R3["animationSpeedVariance"]
+       217 [   0] GETTABLE  R12 := R12["value"]
+       218 [   0] CALL      R11(...) nargs=1 nret=1
+       219 [   0] SETUPVAL  upval 37 := R11
+       220 [   0] JMP       jmp +8 -> 229
+       221 [   0] GETTABLE  R11 := R3["random"]
+       222 [   0] TEST      if (R11 truthy) ~= 0 then skip next
+       223 [   0] JMP       jmp +5 -> 229
+       224 [   0] MOVE      R11 := R10
+       225 [   0] GETTABLE  R12 := R3["random"]
+       226 [   0] GETTABLE  R12 := R12["value"]
+       227 [   0] CALL      R11(...) nargs=1 nret=1
+       228 [   0] SETUPVAL  upval 38 := R11
+       229 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#0 (params=1, lines 291-293, upvals=[], locals=[])
+        constants: strings=['tonumber'] numbers=[]
+           0 [   0] GETGLOBAL R1 := _G["tonumber"]
+           1 [   0] MOVE      R2 := R0
+           2 [   0] TAILCALL  return R1(...) nargs=1
+           3 [   0] RETURN    return R1.. (-1 values)
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#1 (params=1, lines 295-297, upvals=[], locals=[])
+        constants: strings=['tonumber'] numbers=[]
+           0 [   0] GETGLOBAL R1 := _G["tonumber"]
+           1 [   0] MOVE      R2 := R0
+           2 [   0] TAILCALL  return R1(...) nargs=1
+           3 [   0] RETURN    return R1.. (-1 values)
+           4 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#2 (params=1, lines 299-306, upvals=[], locals=[])
+        constants: strings=['createColor', 'r', 'red', 'g', 'green', 'b', 'blue', 'a', 'alpha'] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] GETTABLE  R1 := R1["createColor"]
+           2 [   0] CALL      R1(...) nargs=0 nret=1
+           3 [   0] GETTABLE  R2 := R0["red"]
+           4 [   0] SETTABLE  R1["r"] := R2
+           5 [   0] GETTABLE  R2 := R0["green"]
+           6 [   0] SETTABLE  R1["g"] := R2
+           7 [   0] GETTABLE  R2 := R0["blue"]
+           8 [   0] SETTABLE  R1["b"] := R2
+           9 [   0] GETTABLE  R2 := R0["alpha"]
+          10 [   0] SETTABLE  R1["a"] := R2
+          11 [   0] RETURN    return R1.. (1 values)
+          12 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#3 (params=1, lines 308-340, upvals=[], locals=[])
+        constants: strings=['normal'] numbers=[]
+           0 [   0] GETUPVAL  R1 := upval 0
+           1 [   0] MOVE      R2 := R0
+           2 [   0] CALL      R1(...) nargs=1 nret=1
+           3 [   0] LOADK     R2 := "normal"
+           4 [   0] RETURN    return R2.. (1 values)
+           5 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#4 (params=1, lines 342-342, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] RETURN    return R0.. (1 values)
+           1 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#5 (params=1, lines 343-343, upvals=[], locals=[])
+        constants: strings=['math', 'rad'] numbers=[]
+           0 [   0] GETGLOBAL R1 := _G["math"]
+           1 [   0] GETTABLE  R1 := R1["rad"]
+           2 [   0] MOVE      R2 := R0
+           3 [   0] TAILCALL  return R1(...) nargs=1
+           4 [   0] RETURN    return R1.. (-1 values)
+           5 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#7.#6 (params=1, lines 344-344, upvals=[], locals=[])
+        constants: strings=['True'] numbers=[]
+           0 [   0] EQ        if (R0 == "True") ~= 1 then skip next
+           1 [   0] JMP       jmp +1 -> 3
+           2 [   0] LOADBOOL  R1 := False (skip)
+           3 [   0] LOADBOOL  R1 := True
+           4 [   0] RETURN    return R1.. (1 values)
+           5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=0, lines 392-394, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 396-398, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=1, lines 400-415, upvals=[], locals=[])
+      constants: strings=['name', 'loop', 'start', 'count', 'frames', 'time', 'math', 'random'] numbers=[1, 2, 1000]
+         0 [   0] NEWTABLE  R1 := {} (array 2, hash 0)
+         1 [   0] NEWTABLE  R2 := {} (array 0, hash 4)
+         2 [   0] SETTABLE  R2["name"] := "loop"
+         3 [   0] SETTABLE  R2["start"] := 1
+         4 [   0] GETTABLE  R3 := R0["frames"]
+         5 [   0] LEN       R3 := #R3
+         6 [   0] SETTABLE  R2["count"] := R3
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETUPVAL  R4 := upval 1
+         9 [   0] GETGLOBAL R5 := _G["math"]
+        10 [   0] GETTABLE  R5 := R5["random"]
+        11 [   0] CALL      R5(...) nargs=0 nret=1
+        12 [   0] MUL       R5 := R5 * 2
+        13 [   0] SUB       R5 := R5 - 1
+        14 [   0] MUL       R4 := R4 * R5
+        15 [   0] ADD       R3 := R3 + R4
+        16 [   0] SETTABLE  R2["time"] := R3
+        17 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+        18 [   0] SETTABLE  R3["name"] := "random"
+        19 [   0] GETGLOBAL R4 := _G["math"]
+        20 [   0] GETTABLE  R4 := R4["random"]
+        21 [   0] GETTABLE  R5 := R0["frames"]
+        22 [   0] LEN       R5 := #R5
+        23 [   0] CALL      R4(...) nargs=1 nret=1
+        24 [   0] SETTABLE  R3["start"] := R4
+        25 [   0] SETTABLE  R3["count"] := 1
+        26 [   0] SETTABLE  R3["time"] := 1000
+        27 [   0] SETLIST   R1[...] := R2.. (n=2, block 1)
+        28 [   0] RETURN    return R1.. (1 values)
+        29 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=1, lines 417-419, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,90 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'new_inherit', 'new'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "logging.logger"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] LOADBOOL  R2 := False
+     7 [   0] CLOSURE   R3 := closure #0
+     8 [   0] MOVE      R0 := R2
+     9 [   0] SETTABLE  R0["new_inherit"] := R3
+    10 [   0] CLOSURE   R3 := closure #1
+    11 [   0] MOVE      R0 := R0
+    12 [   0] SETTABLE  R0["new"] := R3
+    13 [   0] RETURN    return R0.. (1 values)
+    14 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 14-68, upvals=[], locals=[])
+    constants: strings=['systemEventHandler', 'openLink', 'Runtime', 'addEventListener', 'system'] numbers=[500]
+       0 [   0] LOADBOOL  R1 := True
+       1 [   0] LOADK     R2 := 500
+       2 [   0] CLOSURE   R3 := closure #0
+       3 [   0] MOVE      R0 := R1
+       4 [   0] SETTABLE  R0["systemEventHandler"] := R3
+       5 [   0] CLOSURE   R3 := closure #1
+       6 [   0] MOVE      R0 := R1
+       7 [   0] GETUPVAL  R0 := upval 0
+       8 [   0] MOVE      R0 := R2
+       9 [   0] SETTABLE  R0["openLink"] := R3
+      10 [   0] GETUPVAL  R3 := upval 0
+      11 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      12 [   0] JMP       jmp +5 -> 18
+      13 [   0] GETGLOBAL R3 := _G["Runtime"]
+      14 [   0] SELF      R4 := R3; R3 := R3["addEventListener"]
+      15 [   0] LOADK     R5 := "system"
+      16 [   0] GETTABLE  R6 := R0["systemEventHandler"]
+      17 [   0] CALL      R3(...) nargs=3 nret=0
+      18 [   0] RETURN    return R0.. (1 values)
+      19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 19-25, upvals=[], locals=[])
+      constants: strings=['type', 'applicationSuspend'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["type"]
+         1 [   0] EQ        if (R1 == "applicationSuspend") ~= 0 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] LOADBOOL  R1 := False
+         4 [   0] SETUPVAL  upval 0 := R1
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 27-61, upvals=[], locals=[])
+      constants: strings=['system', 'openURL', 'timer', 'performWithDelay'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["system"]
+         1 [   0] GETTABLE  R2 := R2["openURL"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CALL      R2(...) nargs=1 nret=1
+         4 [   0] CLOSURE   R3 := closure #0
+         5 [   0] GETUPVAL  R0 := upval 0
+         6 [   0] MOVE      R0 := R1
+         7 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         8 [   0] JMP       jmp +8 -> 17
+         9 [   0] GETUPVAL  R4 := upval 1
+        10 [   0] EQ        if (R4 == False) ~= 0 then skip next
+        11 [   0] JMP       jmp +5 -> 17
+        12 [   0] GETGLOBAL R4 := _G["system"]
+        13 [   0] GETTABLE  R4 := R4["openURL"]
+        14 [   0] MOVE      R5 := R1
+        15 [   0] CALL      R4(...) nargs=1 nret=0
+        16 [   0] JMP       jmp +5 -> 22
+        17 [   0] GETGLOBAL R4 := _G["timer"]
+        18 [   0] GETTABLE  R4 := R4["performWithDelay"]
+        19 [   0] GETUPVAL  R5 := upval 2
+        20 [   0] MOVE      R6 := R3
+        21 [   0] CALL      R4(...) nargs=2 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#1.#0 (params=0, lines 36-53, upvals=[], locals=[])
+        constants: strings=['system', 'openURL'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+           2 [   0] JMP       jmp +4 -> 7
+           3 [   0] GETGLOBAL R0 := _G["system"]
+           4 [   0] GETTABLE  R0 := R0["openURL"]
+           5 [   0] GETUPVAL  R1 := upval 1
+           6 [   0] CALL      R0(...) nargs=1 nret=0
+           7 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 70-72, upvals=[], locals=[])
+    constants: strings=['new_inherit'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETTABLE  R0 := R0["new_inherit"]
+       2 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       3 [   0] TAILCALL  return R0(...) nargs=1
+       4 [   0] RETURN    return R0.. (-1 values)
+       5 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,334 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'eventlistener', 'eventdispatcher', 'settings.settingsmanager', 'json', 'getInstance'] numbers=[3]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "logging.logger"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] LOADK     R2 := 3
+     7 [   0] GETGLOBAL R3 := _G["require"]
+     8 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+     9 [   0] LOADK     R5 := "eventlistener"
+    10 [   0] CONCAT    R4 := R4 .. ... .. R5
+    11 [   0] CALL      R3(...) nargs=1 nret=1
+    12 [   0] GETGLOBAL R4 := _G["require"]
+    13 [   0] GETGLOBAL R5 := _G["FGLIB_PATH"]
+    14 [   0] LOADK     R6 := "eventdispatcher"
+    15 [   0] CONCAT    R5 := R5 .. ... .. R6
+    16 [   0] CALL      R4(...) nargs=1 nret=1
+    17 [   0] GETGLOBAL R5 := _G["require"]
+    18 [   0] GETGLOBAL R6 := _G["FGLIB_PATH"]
+    19 [   0] LOADK     R7 := "settings.settingsmanager"
+    20 [   0] CONCAT    R6 := R6 .. ... .. R7
+    21 [   0] CALL      R5(...) nargs=1 nret=1
+    22 [   0] GETGLOBAL R6 := _G["require"]
+    23 [   0] LOADK     R7 := "json"
+    24 [   0] CALL      R6(...) nargs=1 nret=1
+    25 [   0] SETGLOBAL _G["json"] := R6
+    26 [   0] CLOSURE   R6 := closure #0
+    27 [   0] MOVE      R0 := R5
+    28 [   0] MOVE      R0 := R1
+    29 [   0] MOVE      R0 := R2
+    30 [   0] CLOSURE   R7 := closure #1
+    31 [   0] MOVE      R0 := R6
+    32 [   0] MOVE      R0 := R3
+    33 [   0] MOVE      R0 := R4
+    34 [   0] LOADNIL   R8..R8 := nil
+    35 [   0] CLOSURE   R9 := closure #2
+    36 [   0] MOVE      R0 := R8
+    37 [   0] MOVE      R0 := R7
+    38 [   0] SETTABLE  R0["getInstance"] := R9
+    39 [   0] RETURN    return R0.. (1 values)
+    40 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 9-109, upvals=[], locals=[])
+    constants: strings=['getInstance', 'getValue', 'fglib.leaderboard.currentweek', 'deviceToken', 'leaderboards', 'system', 'getInfo', 'environment', 'simulator', 'lbinterface', 'fglib', 'leaderboard', 'LocalLeaderboardInterface', 'RemoteLeaderboardInterface', 'player_id', 'setScore', 'getScore', 'registerDevice', 'setFriends', 'setCustomData', 'setPlayerId', 'leaderboardResponseHandler', 'notificationHandler', 'Runtime', 'addEventListener', 'notification', 'subscribeTo', 'leaderboardResponse'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] GETTABLE  R1 := R1["getInstance"]
+       2 [   0] CALL      R1(...) nargs=0 nret=1
+       3 [   0] GETTABLE  R1 := R1["getValue"]
+       4 [   0] LOADK     R2 := "fglib.leaderboard.currentweek"
+       5 [   0] LOADNIL   R3..R3 := nil
+       6 [   0] CALL      R1(...) nargs=2 nret=1
+       7 [   0] SETTABLE  R0["deviceToken"] := None
+       8 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       9 [   0] SETTABLE  R0["leaderboards"] := R2
+      10 [   0] GETGLOBAL R2 := _G["system"]
+      11 [   0] GETTABLE  R2 := R2["getInfo"]
+      12 [   0] LOADK     R3 := "environment"
+      13 [   0] CALL      R2(...) nargs=1 nret=1
+      14 [   0] EQ        if (R2 == "simulator") ~= 0 then skip next
+      15 [   0] JMP       jmp +7 -> 23
+      16 [   0] GETGLOBAL R2 := _G["fglib"]
+      17 [   0] GETTABLE  R2 := R2["leaderboard"]
+      18 [   0] GETTABLE  R2 := R2["LocalLeaderboardInterface"]
+      19 [   0] GETTABLE  R2 := R2["getInstance"]
+      20 [   0] CALL      R2(...) nargs=0 nret=1
+      21 [   0] SETTABLE  R0["lbinterface"] := R2
+      22 [   0] JMP       jmp +6 -> 29
+      23 [   0] GETGLOBAL R2 := _G["fglib"]
+      24 [   0] GETTABLE  R2 := R2["leaderboard"]
+      25 [   0] GETTABLE  R2 := R2["RemoteLeaderboardInterface"]
+      26 [   0] GETTABLE  R2 := R2["getInstance"]
+      27 [   0] CALL      R2(...) nargs=0 nret=1
+      28 [   0] SETTABLE  R0["lbinterface"] := R2
+      29 [   0] SETTABLE  R0["player_id"] := None
+      30 [   0] CLOSURE   R2 := closure #0
+      31 [   0] MOVE      R0 := R0
+      32 [   0] MOVE      R0 := R1
+      33 [   0] SETTABLE  R0["setScore"] := R2
+      34 [   0] CLOSURE   R2 := closure #1
+      35 [   0] MOVE      R0 := R0
+      36 [   0] SETTABLE  R0["getScore"] := R2
+      37 [   0] CLOSURE   R2 := closure #2
+      38 [   0] MOVE      R0 := R0
+      39 [   0] SETTABLE  R0["registerDevice"] := R2
+      40 [   0] CLOSURE   R2 := closure #3
+      41 [   0] MOVE      R0 := R0
+      42 [   0] SETTABLE  R0["setFriends"] := R2
+      43 [   0] CLOSURE   R2 := closure #4
+      44 [   0] MOVE      R0 := R0
+      45 [   0] SETTABLE  R0["setCustomData"] := R2
+      46 [   0] CLOSURE   R2 := closure #5
+      47 [   0] MOVE      R0 := R0
+      48 [   0] SETTABLE  R0["setPlayerId"] := R2
+      49 [   0] CLOSURE   R2 := closure #6
+      50 [   0] GETUPVAL  R0 := upval 1
+      51 [   0] GETUPVAL  R0 := upval 2
+      52 [   0] MOVE      R0 := R0
+      53 [   0] MOVE      R0 := R1
+      54 [   0] GETUPVAL  R0 := upval 0
+      55 [   0] SETTABLE  R0["leaderboardResponseHandler"] := R2
+      56 [   0] CLOSURE   R2 := closure #7
+      57 [   0] MOVE      R0 := R0
+      58 [   0] SETTABLE  R0["notificationHandler"] := R2
+      59 [   0] GETGLOBAL R2 := _G["Runtime"]
+      60 [   0] SELF      R3 := R2; R2 := R2["addEventListener"]
+      61 [   0] LOADK     R4 := "notification"
+      62 [   0] GETTABLE  R5 := R0["notificationHandler"]
+      63 [   0] CALL      R2(...) nargs=3 nret=0
+      64 [   0] GETTABLE  R2 := R0["subscribeTo"]
+      65 [   0] GETTABLE  R3 := R0["lbinterface"]
+      66 [   0] LOADK     R4 := "leaderboardResponse"
+      67 [   0] CALL      R2(...) nargs=2 nret=0
+      68 [   0] RETURN    return R0.. (1 values)
+      69 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=4, lines 22-24, upvals=[], locals=[])
+      constants: strings=['lbinterface', 'setScore', 'player_id'] numbers=[]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["lbinterface"]
+         2 [   0] GETTABLE  R4 := R4["setScore"]
+         3 [   0] GETUPVAL  R5 := upval 0
+         4 [   0] GETTABLE  R5 := R5["player_id"]
+         5 [   0] MOVE      R6 := R0
+         6 [   0] MOVE      R7 := R1
+         7 [   0] MOVE      R8 := R2
+         8 [   0] GETUPVAL  R9 := upval 1
+         9 [   0] MOVE      R10 := R3
+        10 [   0] CALL      R4(...) nargs=6 nret=0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=2, lines 26-28, upvals=[], locals=[])
+      constants: strings=['lbinterface', 'getScore', 'player_id'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["lbinterface"]
+         2 [   0] GETTABLE  R2 := R2["getScore"]
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["player_id"]
+         5 [   0] MOVE      R4 := R0
+         6 [   0] MOVE      R5 := R1
+         7 [   0] CALL      R2(...) nargs=3 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=3, lines 30-32, upvals=[], locals=[])
+      constants: strings=['lbinterface', 'registerDevice', 'player_id'] numbers=[]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] GETTABLE  R3 := R3["lbinterface"]
+         2 [   0] GETTABLE  R3 := R3["registerDevice"]
+         3 [   0] GETUPVAL  R4 := upval 0
+         4 [   0] GETTABLE  R4 := R4["player_id"]
+         5 [   0] MOVE      R5 := R0
+         6 [   0] MOVE      R6 := R1
+         7 [   0] MOVE      R7 := R2
+         8 [   0] CALL      R3(...) nargs=4 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 34-36, upvals=[], locals=[])
+      constants: strings=['lbinterface', 'setFriends', 'player_id', 'table', 'concat', ','] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["lbinterface"]
+         2 [   0] GETTABLE  R1 := R1["setFriends"]
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["player_id"]
+         5 [   0] GETGLOBAL R3 := _G["table"]
+         6 [   0] GETTABLE  R3 := R3["concat"]
+         7 [   0] MOVE      R4 := R0
+         8 [   0] LOADK     R5 := ","
+         9 [   0] CALL      R3(...) nargs=2 nret=-1
+        10 [   0] CALL      R1(...) nargs=-1 nret=0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 38-40, upvals=[], locals=[])
+      constants: strings=['lbinterface', 'setCustomData', 'player_id'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["lbinterface"]
+         2 [   0] GETTABLE  R1 := R1["setCustomData"]
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["player_id"]
+         5 [   0] MOVE      R3 := R0
+         6 [   0] CALL      R1(...) nargs=2 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=2, lines 42-53, upvals=[], locals=[])
+      constants: strings=['player_id', 'lbinterface', 'setPlayerName', 'deviceToken', 'registerDevice', 'system', 'getPreference', 'locale', 'identifier', 'fglib', 'utils', 'Util', 'getTimezoneOffsetISO', 'getTimezone'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] SETTABLE  R2["player_id"] := R0
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +7 -> 11
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] GETTABLE  R2 := R2["lbinterface"]
+         6 [   0] GETTABLE  R2 := R2["setPlayerName"]
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETTABLE  R3 := R3["player_id"]
+         9 [   0] MOVE      R4 := R1
+        10 [   0] CALL      R2(...) nargs=2 nret=0
+        11 [   0] GETUPVAL  R2 := upval 0
+        12 [   0] GETTABLE  R2 := R2["deviceToken"]
+        13 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +20 -> 35
+        15 [   0] GETUPVAL  R2 := upval 0
+        16 [   0] GETTABLE  R2 := R2["registerDevice"]
+        17 [   0] GETUPVAL  R3 := upval 0
+        18 [   0] GETTABLE  R3 := R3["deviceToken"]
+        19 [   0] GETGLOBAL R4 := _G["system"]
+        20 [   0] GETTABLE  R4 := R4["getPreference"]
+        21 [   0] LOADK     R5 := "locale"
+        22 [   0] LOADK     R6 := "identifier"
+        23 [   0] CALL      R4(...) nargs=2 nret=1
+        24 [   0] GETGLOBAL R5 := _G["fglib"]
+        25 [   0] GETTABLE  R5 := R5["utils"]
+        26 [   0] GETTABLE  R5 := R5["Util"]
+        27 [   0] GETTABLE  R5 := R5["getTimezoneOffsetISO"]
+        28 [   0] GETGLOBAL R6 := _G["fglib"]
+        29 [   0] GETTABLE  R6 := R6["utils"]
+        30 [   0] GETTABLE  R6 := R6["Util"]
+        31 [   0] GETTABLE  R6 := R6["getTimezone"]
+        32 [   0] CALL      R6(...) nargs=0 nret=-1
+        33 [   0] CALL      R5(...) nargs=-1 nret=-1
+        34 [   0] CALL      R2(...) nargs=-1 nret=0
+        35 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 55-91, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_LEADERBOARD', 'Leaderboard:leaderboardResponseHandler', 'success', 'type', 'scores', 'Leaderboard:leaderboardResponseHandler SCORES', 'data', 'emit', 'leaderboardScores', 'week', 'getInstance', 'setValue', 'fglib.leaderboard.currentweek', 'saveSettings', 'newLeaderboardWeek'] numbers=[3]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETUPVAL  R3 := upval 1
+         3 [   0] GETUPVAL  R4 := upval 0
+         4 [   0] GETTABLE  R4 := R4["ASPECT_LEADERBOARD"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "Leaderboard:leaderboardResponseHandler"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] EQ        if (R1 == None) ~= 0 then skip next
+        10 [   0] JMP       jmp +1 -> 12
+        11 [   0] RETURN    return R0.. (0 values)
+        12 [   0] GETTABLE  R2 := R1["success"]
+        13 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        14 [   0] JMP       jmp +1 -> 16
+        15 [   0] RETURN    return R0.. (0 values)
+        16 [   0] GETTABLE  R2 := R1["type"]
+        17 [   0] EQ        if (R2 == "scores") ~= 0 then skip next
+        18 [   0] JMP       jmp +14 -> 33
+        19 [   0] GETUPVAL  R2 := upval 0
+        20 [   0] GETTABLE  R2 := R2["logmsg"]
+        21 [   0] GETUPVAL  R3 := upval 1
+        22 [   0] GETUPVAL  R4 := upval 0
+        23 [   0] GETTABLE  R4 := R4["ASPECT_LEADERBOARD"]
+        24 [   0] LOADK     R5 := 3
+        25 [   0] LOADK     R6 := "Leaderboard:leaderboardResponseHandler SCORES"
+        26 [   0] GETTABLE  R7 := R1["data"]
+        27 [   0] CALL      R2(...) nargs=5 nret=0
+        28 [   0] GETUPVAL  R2 := upval 2
+        29 [   0] GETTABLE  R2 := R2["emit"]
+        30 [   0] LOADK     R3 := "leaderboardScores"
+        31 [   0] GETTABLE  R4 := R1["data"]
+        32 [   0] CALL      R2(...) nargs=2 nret=0
+        33 [   0] GETTABLE  R2 := R1["week"]
+        34 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        35 [   0] JMP       jmp +32 -> 68
+        36 [   0] GETUPVAL  R2 := upval 3
+        37 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        38 [   0] JMP       jmp +4 -> 43
+        39 [   0] GETUPVAL  R2 := upval 3
+        40 [   0] GETTABLE  R3 := R1["week"]
+        41 [   0] EQ        if (R2 == R3) ~= 1 then skip next
+        42 [   0] JMP       jmp +25 -> 68
+        43 [   0] LOADBOOL  R2 := True
+        44 [   0] GETUPVAL  R3 := upval 3
+        45 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        46 [   0] JMP       jmp +1 -> 48
+        47 [   0] LOADBOOL  R2 := False
+        48 [   0] GETTABLE  R3 := R1["week"]
+        49 [   0] SETUPVAL  upval 3 := R3
+        50 [   0] GETUPVAL  R3 := upval 4
+        51 [   0] GETTABLE  R3 := R3["getInstance"]
+        52 [   0] CALL      R3(...) nargs=0 nret=1
+        53 [   0] GETTABLE  R3 := R3["setValue"]
+        54 [   0] LOADK     R4 := "fglib.leaderboard.currentweek"
+        55 [   0] GETUPVAL  R5 := upval 3
+        56 [   0] CALL      R3(...) nargs=2 nret=0
+        57 [   0] GETUPVAL  R3 := upval 4
+        58 [   0] GETTABLE  R3 := R3["getInstance"]
+        59 [   0] CALL      R3(...) nargs=0 nret=1
+        60 [   0] GETTABLE  R3 := R3["saveSettings"]
+        61 [   0] CALL      R3(...) nargs=0 nret=0
+        62 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        63 [   0] JMP       jmp +4 -> 68
+        64 [   0] GETUPVAL  R3 := upval 2
+        65 [   0] GETTABLE  R3 := R3["emit"]
+        66 [   0] LOADK     R4 := "newLeaderboardWeek"
+        67 [   0] CALL      R3(...) nargs=1 nret=0
+        68 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=1, lines 95-101, upvals=[], locals=[])
+      constants: strings=['type', 'remoteRegistration', 'deviceToken', 'token', 'remote', 'custom', 'oid', 'emit', 'overtakenByFriend'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["type"]
+         1 [   0] EQ        if (R1 == "remoteRegistration") ~= 0 then skip next
+         2 [   0] JMP       jmp +4 -> 7
+         3 [   0] GETUPVAL  R1 := upval 0
+         4 [   0] GETTABLE  R2 := R0["token"]
+         5 [   0] SETTABLE  R1["deviceToken"] := R2
+         6 [   0] JMP       jmp +16 -> 23
+         7 [   0] GETTABLE  R1 := R0["type"]
+         8 [   0] EQ        if (R1 == "remote") ~= 0 then skip next
+         9 [   0] JMP       jmp +13 -> 23
+        10 [   0] GETTABLE  R1 := R0["custom"]
+        11 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        12 [   0] JMP       jmp +10 -> 23
+        13 [   0] GETTABLE  R1 := R0["custom"]
+        14 [   0] GETTABLE  R1 := R1["oid"]
+        15 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        16 [   0] JMP       jmp +6 -> 23
+        17 [   0] GETUPVAL  R1 := upval 0
+        18 [   0] GETTABLE  R1 := R1["emit"]
+        19 [   0] LOADK     R2 := "overtakenByFriend"
+        20 [   0] GETTABLE  R3 := R0["custom"]
+        21 [   0] GETTABLE  R3 := R3["oid"]
+        22 [   0] CALL      R1(...) nargs=2 nret=0
+        23 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 111-115, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new_inherit"]
+       3 [   0] GETUPVAL  R2 := upval 2
+       4 [   0] GETTABLE  R2 := R2["new"]
+       5 [   0] CALL      R2(...) nargs=0 nret=-1
+       6 [   0] CALL      R1(...) nargs=-1 nret=-1
+       7 [   0] TAILCALL  return R0(...) nargs=-1
+       8 [   0] RETURN    return R0.. (-1 values)
+       9 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 118-123, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

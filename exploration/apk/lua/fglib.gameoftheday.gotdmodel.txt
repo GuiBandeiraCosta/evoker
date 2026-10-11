@@ -1,0 +1,458 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'eventdispatcher', 'logging.logger', 'new', 'getScaledImageURL'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "eventdispatcher"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "logging.logger"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+    11 [   0] CLOSURE   R3 := closure #0
+    12 [   0] MOVE      R0 := R1
+    13 [   0] MOVE      R0 := R2
+    14 [   0] CLOSURE   R4 := closure #1
+    15 [   0] MOVE      R0 := R3
+    16 [   0] MOVE      R0 := R0
+    17 [   0] SETTABLE  R2["new"] := R4
+    18 [   0] CLOSURE   R4 := closure #2
+    19 [   0] SETTABLE  R2["getScaledImageURL"] := R4
+    20 [   0] RETURN    return R2.. (1 values)
+    21 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=15, lines 13-164, upvals=[], locals=[])
+    constants: strings=['appname', 'validSince', 'appid', 'shortdesc', 'longdesc', 'images', 'videos', 'link', 'social', 'htmldesc', 'hashtml', 'chartboost_campaign', 'icon', 'id', 'hash', 'imagepaths', 'isRetry', '.html', 'fileExists', 'getLocalImagePathFromURL', 'preloadImages'] numbers=[0, 1]
+       0 [   0] SETTABLE  R0["appname"] := R1
+       1 [   0] SETTABLE  R0["validSince"] := R2
+       2 [   0] SETTABLE  R0["appid"] := R3
+       3 [   0] SETTABLE  R0["shortdesc"] := R4
+       4 [   0] SETTABLE  R0["longdesc"] := R5
+       5 [   0] SETTABLE  R0["images"] := R7
+       6 [   0] SETTABLE  R0["videos"] := R8
+       7 [   0] SETTABLE  R0["link"] := R9
+       8 [   0] SETTABLE  R0["social"] := R10
+       9 [   0] SETTABLE  R0["htmldesc"] := R6
+      10 [   0] SETTABLE  R0["hashtml"] := False
+      11 [   0] SETTABLE  R0["chartboost_campaign"] := R11
+      12 [   0] SETTABLE  R0["icon"] := R12
+      13 [   0] SETTABLE  R0["id"] := R13
+      14 [   0] SETTABLE  R0["hash"] := R14
+      15 [   0] NEWTABLE  R15 := {} (array 0, hash 0)
+      16 [   0] SETTABLE  R0["imagepaths"] := R15
+      17 [   0] SETTABLE  R0["isRetry"] := False
+      18 [   0] LOADK     R15 := 0
+      19 [   0] LOADK     R16 := 1
+      20 [   0] NEWTABLE  R17 := {} (array 0, hash 0)
+      21 [   0] CLOSURE   R18 := closure #0
+      22 [   0] GETTABLE  R19 := R0["htmldesc"]
+      23 [   0] TEST      if (R19 truthy) ~= 0 then skip next
+      24 [   0] JMP       jmp +10 -> 35
+      25 [   0] GETTABLE  R19 := R0["id"]
+      26 [   0] LOADK     R20 := ".html"
+      27 [   0] CONCAT    R19 := R19 .. ... .. R20
+      28 [   0] MOVE      R20 := R18
+      29 [   0] GETTABLE  R21 := R0["htmldesc"]
+      30 [   0] MOVE      R22 := R19
+      31 [   0] CALL      R20(...) nargs=2 nret=0
+      32 [   0] SETTABLE  R0["htmldesc"] := R19
+      33 [   0] SETTABLE  R0["hashtml"] := True
+      34 [   0] JMP       jmp +0 -> 35
+      35 [   0] CLOSURE   R19 := closure #1
+      36 [   0] GETUPVAL  R0 := upval 0
+      37 [   0] MOVE      R0 := R0
+      38 [   0] MOVE      R0 := R16
+      39 [   0] MOVE      R0 := R15
+      40 [   0] CLOSURE   R20 := closure #2
+      41 [   0] SETTABLE  R0["fileExists"] := R20
+      42 [   0] CLOSURE   R20 := closure #3
+      43 [   0] MOVE      R0 := R17
+      44 [   0] MOVE      R0 := R0
+      45 [   0] GETUPVAL  R0 := upval 0
+      46 [   0] SETTABLE  R0["getLocalImagePathFromURL"] := R20
+      47 [   0] CLOSURE   R20 := closure #4
+      48 [   0] GETUPVAL  R0 := upval 0
+      49 [   0] MOVE      R0 := R0
+      50 [   0] MOVE      R0 := R16
+      51 [   0] MOVE      R0 := R17
+      52 [   0] GETUPVAL  R0 := upval 1
+      53 [   0] MOVE      R0 := R19
+      54 [   0] SETTABLE  R0["preloadImages"] := R20
+      55 [   0] RETURN    return R0.. (1 values)
+      56 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 44-50, upvals=[], locals=[])
+      constants: strings=['system', 'pathForFile', 'CachesDirectory', 'io', 'open', 'w', 'write', 'close'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["system"]
+         1 [   0] GETTABLE  R2 := R2["pathForFile"]
+         2 [   0] MOVE      R3 := R1
+         3 [   0] GETGLOBAL R4 := _G["system"]
+         4 [   0] GETTABLE  R4 := R4["CachesDirectory"]
+         5 [   0] CALL      R2(...) nargs=2 nret=1
+         6 [   0] GETGLOBAL R3 := _G["io"]
+         7 [   0] GETTABLE  R3 := R3["open"]
+         8 [   0] MOVE      R4 := R2
+         9 [   0] LOADK     R5 := "w"
+        10 [   0] CALL      R3(...) nargs=2 nret=1
+        11 [   0] SELF      R5 := R3; R4 := R3["write"]
+        12 [   0] MOVE      R6 := R0
+        13 [   0] CALL      R4(...) nargs=2 nret=0
+        14 [   0] GETGLOBAL R4 := _G["io"]
+        15 [   0] GETTABLE  R4 := R4["close"]
+        16 [   0] MOVE      R5 := R3
+        17 [   0] CALL      R4(...) nargs=1 nret=0
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 64-102, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_GOTD', 'onNetworkListener image download - event: ', 'isError', 'status', 'os', 'remove', 'system', 'pathForFile', 'getLocalImagePathFromURL', 'images', 'url', 'CachesDirectory', 'isRetry', 'preloadImages', 'isIncomplete', 'emit', 'someImageLoaded', 'imagepaths', 'allImagesPreloaded'] numbers=[3, 1, 200, 404, 403]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logmsg"]
+         2 [   0] LOADK     R2 := 3
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["ASPECT_GOTD"]
+         5 [   0] LOADK     R4 := 1
+         6 [   0] LOADK     R5 := "onNetworkListener image download - event: "
+         7 [   0] MOVE      R6 := R0
+         8 [   0] CALL      R1(...) nargs=5 nret=0
+         9 [   0] GETTABLE  R1 := R0["isError"]
+        10 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        11 [   0] JMP       jmp +3 -> 15
+        12 [   0] GETTABLE  R1 := R0["status"]
+        13 [   0] EQ        if (R1 == 200) ~= 1 then skip next
+        14 [   0] JMP       jmp +42 -> 57
+        15 [   0] GETGLOBAL R1 := _G["os"]
+        16 [   0] GETTABLE  R1 := R1["remove"]
+        17 [   0] GETGLOBAL R2 := _G["system"]
+        18 [   0] GETTABLE  R2 := R2["pathForFile"]
+        19 [   0] GETUPVAL  R3 := upval 1
+        20 [   0] GETTABLE  R3 := R3["getLocalImagePathFromURL"]
+        21 [   0] GETUPVAL  R4 := upval 1
+        22 [   0] GETTABLE  R4 := R4["images"]
+        23 [   0] GETUPVAL  R5 := upval 2
+        24 [   0] GETTABLE  R4 := R4[R5]
+        25 [   0] GETTABLE  R4 := R4["url"]
+        26 [   0] CALL      R3(...) nargs=1 nret=1
+        27 [   0] GETGLOBAL R4 := _G["system"]
+        28 [   0] GETTABLE  R4 := R4["CachesDirectory"]
+        29 [   0] CALL      R2(...) nargs=2 nret=-1
+        30 [   0] CALL      R1(...) nargs=-1 nret=0
+        31 [   0] GETTABLE  R1 := R0["status"]
+        32 [   0] EQ        if (R1 == 404) ~= 1 then skip next
+        33 [   0] JMP       jmp +3 -> 37
+        34 [   0] GETTABLE  R1 := R0["status"]
+        35 [   0] EQ        if (R1 == 403) ~= 0 then skip next
+        36 [   0] JMP       jmp +11 -> 48
+        37 [   0] GETUPVAL  R1 := upval 1
+        38 [   0] GETTABLE  R1 := R1["isRetry"]
+        39 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        40 [   0] JMP       jmp +7 -> 48
+        41 [   0] GETUPVAL  R1 := upval 1
+        42 [   0] SETTABLE  R1["isRetry"] := True
+        43 [   0] GETUPVAL  R1 := upval 1
+        44 [   0] GETTABLE  R1 := R1["preloadImages"]
+        45 [   0] CALL      R1(...) nargs=0 nret=0
+        46 [   0] RETURN    return R0.. (0 values)
+        47 [   0] JMP       jmp +32 -> 80
+        48 [   0] GETUPVAL  R1 := upval 1
+        49 [   0] SETTABLE  R1["isIncomplete"] := True
+        50 [   0] GETUPVAL  R1 := upval 1
+        51 [   0] SETTABLE  R1["isRetry"] := False
+        52 [   0] GETUPVAL  R1 := upval 1
+        53 [   0] GETTABLE  R1 := R1["emit"]
+        54 [   0] LOADK     R2 := "someImageLoaded"
+        55 [   0] CALL      R1(...) nargs=1 nret=0
+        56 [   0] JMP       jmp +23 -> 80
+        57 [   0] GETUPVAL  R1 := upval 3
+        58 [   0] ADD       R1 := R1 + 1
+        59 [   0] SETUPVAL  upval 3 := R1
+        60 [   0] GETUPVAL  R1 := upval 1
+        61 [   0] GETTABLE  R1 := R1["getLocalImagePathFromURL"]
+        62 [   0] GETUPVAL  R2 := upval 1
+        63 [   0] GETTABLE  R2 := R2["images"]
+        64 [   0] GETUPVAL  R3 := upval 2
+        65 [   0] GETTABLE  R2 := R2[R3]
+        66 [   0] GETTABLE  R2 := R2["url"]
+        67 [   0] CALL      R1(...) nargs=1 nret=1
+        68 [   0] GETUPVAL  R2 := upval 1
+        69 [   0] GETTABLE  R2 := R2["imagepaths"]
+        70 [   0] GETUPVAL  R3 := upval 1
+        71 [   0] GETTABLE  R3 := R3["imagepaths"]
+        72 [   0] LEN       R3 := #R3
+        73 [   0] ADD       R3 := R3 + 1
+        74 [   0] SETTABLE  R2[R3] := R1
+        75 [   0] GETUPVAL  R2 := upval 1
+        76 [   0] GETTABLE  R2 := R2["emit"]
+        77 [   0] LOADK     R3 := "someImageLoaded"
+        78 [   0] MOVE      R4 := R1
+        79 [   0] CALL      R2(...) nargs=2 nret=0
+        80 [   0] GETUPVAL  R1 := upval 1
+        81 [   0] SETTABLE  R1["isRetry"] := False
+        82 [   0] GETUPVAL  R1 := upval 2
+        83 [   0] ADD       R1 := R1 + 1
+        84 [   0] SETUPVAL  upval 2 := R1
+        85 [   0] GETUPVAL  R1 := upval 2
+        86 [   0] GETUPVAL  R2 := upval 1
+        87 [   0] GETTABLE  R2 := R2["images"]
+        88 [   0] LEN       R2 := #R2
+        89 [   0] LE        if (R1 <= R2) ~= 0 then skip next
+        90 [   0] JMP       jmp +4 -> 95
+        91 [   0] GETUPVAL  R1 := upval 1
+        92 [   0] GETTABLE  R1 := R1["preloadImages"]
+        93 [   0] CALL      R1(...) nargs=0 nret=0
+        94 [   0] JMP       jmp +4 -> 99
+        95 [   0] GETUPVAL  R1 := upval 1
+        96 [   0] GETTABLE  R1 := R1["emit"]
+        97 [   0] LOADK     R2 := "allImagesPreloaded"
+        98 [   0] CALL      R1(...) nargs=1 nret=0
+        99 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 104-107, upvals=[], locals=[])
+      constants: strings=['io', 'open', 'r', 'close'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["io"]
+         1 [   0] GETTABLE  R1 := R1["open"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] LOADK     R3 := "r"
+         4 [   0] CALL      R1(...) nargs=2 nret=1
+         5 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         6 [   0] JMP       jmp +7 -> 14
+         7 [   0] GETGLOBAL R2 := _G["io"]
+         8 [   0] GETTABLE  R2 := R2["close"]
+         9 [   0] MOVE      R3 := R1
+        10 [   0] CALL      R2(...) nargs=1 nret=0
+        11 [   0] LOADBOOL  R2 := True
+        12 [   0] RETURN    return R2.. (1 values)
+        13 [   0] JMP       jmp +2 -> 16
+        14 [   0] LOADBOOL  R2 := False
+        15 [   0] RETURN    return R2.. (1 values)
+        16 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 109-133, upvals=[], locals=[])
+      constants: strings=['string', 'sub', '/', 'tostring', 'appid', 'logmsg', 'ASPECT_GOTD', 'created localpath for url ', ' resulting in local path '] numbers=[0, -1, 1, 3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1[R0]
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] GETTABLE  R1 := R1[R0]
+         6 [   0] RETURN    return R1.. (1 values)
+         7 [   0] LOADNIL   R1..R1 := nil
+         8 [   0] LEN       R2 := #R0
+         9 [   0] LOADK     R3 := 0
+        10 [   0] LOADK     R4 := -1
+        11 [   0] FORPREP   for R2.. jmp +34
+        12 [   0] GETGLOBAL R6 := _G["string"]
+        13 [   0] GETTABLE  R6 := R6["sub"]
+        14 [   0] MOVE      R7 := R0
+        15 [   0] MOVE      R8 := R5
+        16 [   0] MOVE      R9 := R5
+        17 [   0] CALL      R6(...) nargs=3 nret=1
+        18 [   0] EQ        if (R6 == "/") ~= 0 then skip next
+        19 [   0] JMP       jmp +26 -> 46
+        20 [   0] GETGLOBAL R6 := _G["string"]
+        21 [   0] GETTABLE  R6 := R6["sub"]
+        22 [   0] MOVE      R7 := R0
+        23 [   0] ADD       R8 := R5 + 1
+        24 [   0] LEN       R9 := #R0
+        25 [   0] CALL      R6(...) nargs=3 nret=1
+        26 [   0] MOVE      R1 := R6
+        27 [   0] GETGLOBAL R6 := _G["tostring"]
+        28 [   0] GETUPVAL  R7 := upval 1
+        29 [   0] GETTABLE  R7 := R7["appid"]
+        30 [   0] CALL      R6(...) nargs=1 nret=1
+        31 [   0] MOVE      R7 := R1
+        32 [   0] CONCAT    R1 := R6 .. ... .. R7
+        33 [   0] GETUPVAL  R6 := upval 2
+        34 [   0] GETTABLE  R6 := R6["logmsg"]
+        35 [   0] LOADK     R7 := 3
+        36 [   0] GETUPVAL  R8 := upval 2
+        37 [   0] GETTABLE  R8 := R8["ASPECT_GOTD"]
+        38 [   0] LOADK     R9 := 1
+        39 [   0] LOADK     R10 := "created localpath for url "
+        40 [   0] MOVE      R11 := R0
+        41 [   0] LOADK     R12 := " resulting in local path "
+        42 [   0] MOVE      R13 := R1
+        43 [   0] CONCAT    R10 := R10 .. ... .. R13
+        44 [   0] CALL      R6(...) nargs=4 nret=0
+        45 [   0] RETURN    return R1.. (1 values)
+        46 [   0] FORLOOP   forloop R2 jmp -35
+        47 [   0] RETURN    return R1.. (1 values)
+        48 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 135-161, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_GOTD', 'preloading images for ', 'appname', 'image count = ', 'images', 'url', 'preloading imageurl ', 'getLocalImagePathFromURL', 'isRetry', 'getScaledImageURL', 'fileExists', 'system', 'pathForFile', 'CachesDirectory', 'image for ', ' already cached. skipping download', 'isError', 'status', ' not cached. downloading...', 'network', 'download', 'GET'] numbers=[3, 1, 0, 200]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logmsg"]
+         2 [   0] LOADK     R1 := 3
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["ASPECT_GOTD"]
+         5 [   0] LOADK     R3 := 1
+         6 [   0] LOADK     R4 := "preloading images for "
+         7 [   0] GETUPVAL  R5 := upval 1
+         8 [   0] GETTABLE  R5 := R5["appname"]
+         9 [   0] CALL      R0(...) nargs=5 nret=0
+        10 [   0] GETUPVAL  R0 := upval 0
+        11 [   0] GETTABLE  R0 := R0["logmsg"]
+        12 [   0] LOADK     R1 := 3
+        13 [   0] GETUPVAL  R2 := upval 0
+        14 [   0] GETTABLE  R2 := R2["ASPECT_GOTD"]
+        15 [   0] LOADK     R3 := 1
+        16 [   0] LOADK     R4 := "image count = "
+        17 [   0] GETUPVAL  R5 := upval 1
+        18 [   0] GETTABLE  R5 := R5["images"]
+        19 [   0] LEN       R5 := #R5
+        20 [   0] CALL      R0(...) nargs=5 nret=0
+        21 [   0] GETUPVAL  R0 := upval 1
+        22 [   0] GETTABLE  R0 := R0["images"]
+        23 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        24 [   0] JMP       jmp +82 -> 107
+        25 [   0] GETUPVAL  R0 := upval 1
+        26 [   0] GETTABLE  R0 := R0["images"]
+        27 [   0] LEN       R0 := #R0
+        28 [   0] LT        if (0 < R0) ~= 0 then skip next
+        29 [   0] JMP       jmp +77 -> 107
+        30 [   0] GETUPVAL  R0 := upval 1
+        31 [   0] GETTABLE  R0 := R0["images"]
+        32 [   0] GETUPVAL  R1 := upval 2
+        33 [   0] GETTABLE  R0 := R0[R1]
+        34 [   0] GETTABLE  R0 := R0["url"]
+        35 [   0] GETUPVAL  R1 := upval 0
+        36 [   0] GETTABLE  R1 := R1["logmsg"]
+        37 [   0] LOADK     R2 := 3
+        38 [   0] GETUPVAL  R3 := upval 0
+        39 [   0] GETTABLE  R3 := R3["ASPECT_GOTD"]
+        40 [   0] LOADK     R4 := 1
+        41 [   0] LOADK     R5 := "preloading imageurl "
+        42 [   0] MOVE      R6 := R0
+        43 [   0] CALL      R1(...) nargs=5 nret=0
+        44 [   0] GETUPVAL  R1 := upval 1
+        45 [   0] GETTABLE  R1 := R1["getLocalImagePathFromURL"]
+        46 [   0] MOVE      R2 := R0
+        47 [   0] CALL      R1(...) nargs=1 nret=1
+        48 [   0] GETUPVAL  R2 := upval 3
+        49 [   0] SETTABLE  R2[R0] := R1
+        50 [   0] GETUPVAL  R2 := upval 1
+        51 [   0] GETTABLE  R2 := R2["isRetry"]
+        52 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+        53 [   0] JMP       jmp +5 -> 59
+        54 [   0] GETUPVAL  R2 := upval 4
+        55 [   0] GETTABLE  R2 := R2["getScaledImageURL"]
+        56 [   0] MOVE      R3 := R0
+        57 [   0] CALL      R2(...) nargs=1 nret=1
+        58 [   0] MOVE      R0 := R2
+        59 [   0] GETUPVAL  R2 := upval 1
+        60 [   0] GETTABLE  R2 := R2["fileExists"]
+        61 [   0] GETGLOBAL R3 := _G["system"]
+        62 [   0] GETTABLE  R3 := R3["pathForFile"]
+        63 [   0] MOVE      R4 := R1
+        64 [   0] GETGLOBAL R5 := _G["system"]
+        65 [   0] GETTABLE  R5 := R5["CachesDirectory"]
+        66 [   0] CALL      R3(...) nargs=2 nret=-1
+        67 [   0] CALL      R2(...) nargs=-1 nret=1
+        68 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        69 [   0] JMP       jmp +17 -> 87
+        70 [   0] GETUPVAL  R2 := upval 0
+        71 [   0] GETTABLE  R2 := R2["logmsg"]
+        72 [   0] LOADK     R3 := 3
+        73 [   0] GETUPVAL  R4 := upval 0
+        74 [   0] GETTABLE  R4 := R4["ASPECT_GOTD"]
+        75 [   0] LOADK     R5 := 1
+        76 [   0] LOADK     R6 := "image for "
+        77 [   0] MOVE      R7 := R0
+        78 [   0] LOADK     R8 := " already cached. skipping download"
+        79 [   0] CONCAT    R6 := R6 .. ... .. R8
+        80 [   0] CALL      R2(...) nargs=4 nret=0
+        81 [   0] GETUPVAL  R2 := upval 5
+        82 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+        83 [   0] SETTABLE  R3["isError"] := False
+        84 [   0] SETTABLE  R3["status"] := 200
+        85 [   0] CALL      R2(...) nargs=1 nret=0
+        86 [   0] JMP       jmp +20 -> 107
+        87 [   0] GETUPVAL  R2 := upval 0
+        88 [   0] GETTABLE  R2 := R2["logmsg"]
+        89 [   0] LOADK     R3 := 3
+        90 [   0] GETUPVAL  R4 := upval 0
+        91 [   0] GETTABLE  R4 := R4["ASPECT_GOTD"]
+        92 [   0] LOADK     R5 := 1
+        93 [   0] LOADK     R6 := "image for "
+        94 [   0] MOVE      R7 := R0
+        95 [   0] LOADK     R8 := " not cached. downloading..."
+        96 [   0] CONCAT    R6 := R6 .. ... .. R8
+        97 [   0] CALL      R2(...) nargs=4 nret=0
+        98 [   0] GETGLOBAL R2 := _G["network"]
+        99 [   0] GETTABLE  R2 := R2["download"]
+       100 [   0] MOVE      R3 := R0
+       101 [   0] LOADK     R4 := "GET"
+       102 [   0] GETUPVAL  R5 := upval 5
+       103 [   0] MOVE      R6 := R1
+       104 [   0] GETGLOBAL R7 := _G["system"]
+       105 [   0] GETTABLE  R7 := R7["CachesDirectory"]
+       106 [   0] CALL      R2(...) nargs=5 nret=0
+       107 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=14, lines 166-169, upvals=[], locals=[])
+    constants: strings=['new'] numbers=[]
+       0 [   0] GETUPVAL  R14 := upval 0
+       1 [   0] GETUPVAL  R15 := upval 1
+       2 [   0] GETTABLE  R15 := R15["new"]
+       3 [   0] NEWTABLE  R16 := {} (array 0, hash 0)
+       4 [   0] CALL      R15(...) nargs=1 nret=1
+       5 [   0] MOVE      R16 := R0
+       6 [   0] MOVE      R17 := R1
+       7 [   0] MOVE      R18 := R2
+       8 [   0] MOVE      R19 := R3
+       9 [   0] MOVE      R20 := R4
+      10 [   0] MOVE      R21 := R5
+      11 [   0] MOVE      R22 := R6
+      12 [   0] MOVE      R23 := R7
+      13 [   0] MOVE      R24 := R8
+      14 [   0] MOVE      R25 := R9
+      15 [   0] MOVE      R26 := R10
+      16 [   0] MOVE      R27 := R11
+      17 [   0] MOVE      R28 := R12
+      18 [   0] MOVE      R29 := R13
+      19 [   0] TAILCALL  return R14(...) nargs=15
+      20 [   0] RETURN    return R14.. (-1 values)
+      21 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 171-191, upvals=[], locals=[])
+    constants: strings=['display', 'pixelWidth', 'pixelHeight', 'math', 'min', '4', '2', '15', '1', 'string', 'match', '^(.*)(%.[^%.]*)$', '@'] numbers=[320, 10, 480, 5, 4, 2, 1.5]
+       0 [   0] GETGLOBAL R1 := _G["display"]
+       1 [   0] GETTABLE  R1 := R1["pixelWidth"]
+       2 [   0] DIV       R1 := R1 / 320
+       3 [   0] MUL       R1 := R1 * 10
+       4 [   0] GETGLOBAL R2 := _G["display"]
+       5 [   0] GETTABLE  R2 := R2["pixelHeight"]
+       6 [   0] DIV       R2 := R2 / 480
+       7 [   0] MUL       R2 := R2 * 10
+       8 [   0] GETGLOBAL R3 := _G["math"]
+       9 [   0] GETTABLE  R3 := R3["min"]
+      10 [   0] MOD       R4 := R1 % 5
+      11 [   0] SUB       R4 := R1 - R4
+      12 [   0] DIV       R4 := R4 / 10
+      13 [   0] MOD       R5 := R2 % 5
+      14 [   0] SUB       R5 := R2 - R5
+      15 [   0] DIV       R5 := R5 / 10
+      16 [   0] CALL      R3(...) nargs=2 nret=1
+      17 [   0] LE        if (4 <= R3) ~= 0 then skip next
+      18 [   0] JMP       jmp +2 -> 21
+      19 [   0] LOADK     R3 := "4"
+      20 [   0] JMP       jmp +9 -> 30
+      21 [   0] LE        if (2 <= R3) ~= 0 then skip next
+      22 [   0] JMP       jmp +2 -> 25
+      23 [   0] LOADK     R3 := "2"
+      24 [   0] JMP       jmp +5 -> 30
+      25 [   0] LE        if (1.5 <= R3) ~= 0 then skip next
+      26 [   0] JMP       jmp +2 -> 29
+      27 [   0] LOADK     R3 := "15"
+      28 [   0] JMP       jmp +1 -> 30
+      29 [   0] LOADK     R3 := "1"
+      30 [   0] EQ        if (R3 == "1") ~= 1 then skip next
+      31 [   0] JMP       jmp +12 -> 44
+      32 [   0] GETGLOBAL R4 := _G["string"]
+      33 [   0] GETTABLE  R4 := R4["match"]
+      34 [   0] MOVE      R5 := R0
+      35 [   0] LOADK     R6 := "^(.*)(%.[^%.]*)$"
+      36 [   0] CALL      R4(...) nargs=2 nret=2
+      37 [   0] MOVE      R6 := R4
+      38 [   0] LOADK     R7 := "@"
+      39 [   0] MOVE      R8 := R3
+      40 [   0] MOVE      R9 := R5
+      41 [   0] CONCAT    R6 := R6 .. ... .. R9
+      42 [   0] RETURN    return R6.. (1 values)
+      43 [   0] JMP       jmp +1 -> 45
+      44 [   0] RETURN    return R0.. (1 values)
+      45 [   0] RETURN    return R0.. (0 values)

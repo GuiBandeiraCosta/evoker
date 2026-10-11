@@ -1,0 +1,424 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'utils.util', 'isWindows', 'system', 'getInfo', 'build', 'string', 'match', '([0-9]*)%.([0-9]*)', 'tonumber', 'package', 'loaded', 'sprite', 'compat.sprite', 'display', 'newImageGroup', 'config', 'application', 'content', 'graphicsCompatibility', 'TopLeftReferencePoint', 'TopCenterReferencePoint', 'TopRightReferencePoint', 'CenterLeftReferencePoint', 'CenterReferencePoint', 'CenterRightReferencePoint', 'BottomLeftReferencePoint', 'BottomCenterReferencePoint', 'BottomRightReferencePoint', 'setReferencePoint', 'setTextColor', 'setFillColor', 'newRect', 'newRoundedRect', 'newText', 'newGroup', 'newImage', 'newImageRect'] numbers=[2000, 1, 0, 0.5]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "utils.util"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] LOADBOOL  R1 := False
+     6 [   0] GETTABLE  R2 := R0["isWindows"]
+     7 [   0] CALL      R2(...) nargs=0 nret=1
+     8 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+     9 [   0] JMP       jmp +193 -> 203
+    10 [   0] GETGLOBAL R2 := _G["system"]
+    11 [   0] GETTABLE  R2 := R2["getInfo"]
+    12 [   0] LOADK     R3 := "build"
+    13 [   0] CALL      R2(...) nargs=1 nret=1
+    14 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+    15 [   0] JMP       jmp +19 -> 35
+    16 [   0] GETGLOBAL R3 := _G["string"]
+    17 [   0] GETTABLE  R3 := R3["match"]
+    18 [   0] MOVE      R4 := R2
+    19 [   0] LOADK     R5 := "([0-9]*)%.([0-9]*)"
+    20 [   0] CALL      R3(...) nargs=2 nret=2
+    21 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+    22 [   0] JMP       jmp +12 -> 35
+    23 [   0] GETGLOBAL R5 := _G["tonumber"]
+    24 [   0] MOVE      R6 := R4
+    25 [   0] CALL      R5(...) nargs=1 nret=1
+    26 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+    27 [   0] JMP       jmp +7 -> 35
+    28 [   0] GETGLOBAL R5 := _G["tonumber"]
+    29 [   0] MOVE      R6 := R4
+    30 [   0] CALL      R5(...) nargs=1 nret=1
+    31 [   0] LT        if (2000 < R5) ~= 1 then skip next
+    32 [   0] JMP       jmp +1 -> 34
+    33 [   0] LOADBOOL  R1 := False (skip)
+    34 [   0] LOADBOOL  R1 := True
+    35 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+    36 [   0] JMP       jmp +166 -> 203
+    37 [   0] GETGLOBAL R3 := _G["package"]
+    38 [   0] GETTABLE  R3 := R3["loaded"]
+    39 [   0] GETGLOBAL R4 := _G["require"]
+    40 [   0] GETGLOBAL R5 := _G["FGLIB_PATH"]
+    41 [   0] LOADK     R6 := "compat.sprite"
+    42 [   0] CONCAT    R5 := R5 .. ... .. R6
+    43 [   0] CALL      R4(...) nargs=1 nret=1
+    44 [   0] SETTABLE  R3["sprite"] := R4
+    45 [   0] GETGLOBAL R3 := _G["package"]
+    46 [   0] GETTABLE  R3 := R3["loaded"]
+    47 [   0] GETTABLE  R3 := R3["sprite"]
+    48 [   0] SETGLOBAL _G["sprite"] := R3
+    49 [   0] GETGLOBAL R3 := _G["display"]
+    50 [   0] CLOSURE   R4 := closure #0
+    51 [   0] SETTABLE  R3["newImageGroup"] := R4
+    52 [   0] GETGLOBAL R3 := _G["require"]
+    53 [   0] LOADK     R4 := "config"
+    54 [   0] CALL      R3(...) nargs=1 nret=0
+    55 [   0] GETGLOBAL R3 := _G["application"]
+    56 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+    57 [   0] JMP       jmp +9 -> 67
+    58 [   0] GETGLOBAL R3 := _G["application"]
+    59 [   0] GETTABLE  R3 := R3["content"]
+    60 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+    61 [   0] JMP       jmp +5 -> 67
+    62 [   0] GETGLOBAL R3 := _G["application"]
+    63 [   0] GETTABLE  R3 := R3["content"]
+    64 [   0] GETTABLE  R3 := R3["graphicsCompatibility"]
+    65 [   0] EQ        if (R3 == 1) ~= 1 then skip next
+    66 [   0] JMP       jmp +136 -> 203
+    67 [   0] GETGLOBAL R3 := _G["display"]
+    68 [   0] SETTABLE  R3["TopLeftReferencePoint"] := "TopLeftReferencePoint"
+    69 [   0] GETGLOBAL R3 := _G["display"]
+    70 [   0] SETTABLE  R3["TopCenterReferencePoint"] := "TopCenterReferencePoint"
+    71 [   0] GETGLOBAL R3 := _G["display"]
+    72 [   0] SETTABLE  R3["TopRightReferencePoint"] := "TopRightReferencePoint"
+    73 [   0] GETGLOBAL R3 := _G["display"]
+    74 [   0] SETTABLE  R3["CenterLeftReferencePoint"] := "CenterLeftReferencePoint"
+    75 [   0] GETGLOBAL R3 := _G["display"]
+    76 [   0] SETTABLE  R3["CenterReferencePoint"] := "CenterReferencePoint"
+    77 [   0] GETGLOBAL R3 := _G["display"]
+    78 [   0] SETTABLE  R3["CenterRightReferencePoint"] := "CenterRightReferencePoint"
+    79 [   0] GETGLOBAL R3 := _G["display"]
+    80 [   0] SETTABLE  R3["BottomLeftReferencePoint"] := "BottomLeftReferencePoint"
+    81 [   0] GETGLOBAL R3 := _G["display"]
+    82 [   0] SETTABLE  R3["BottomCenterReferencePoint"] := "BottomCenterReferencePoint"
+    83 [   0] GETGLOBAL R3 := _G["display"]
+    84 [   0] SETTABLE  R3["BottomRightReferencePoint"] := "BottomRightReferencePoint"
+    85 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+    86 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+    87 [   0] NEWTABLE  R5 := {} (array 0, hash 9)
+    88 [   0] GETGLOBAL R6 := _G["display"]
+    89 [   0] GETTABLE  R6 := R6["TopLeftReferencePoint"]
+    90 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+    91 [   0] LOADK     R8 := 0
+    92 [   0] LOADK     R9 := 0
+    93 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+    94 [   0] SETTABLE  R5[R6] := R7
+    95 [   0] GETGLOBAL R6 := _G["display"]
+    96 [   0] GETTABLE  R6 := R6["TopCenterReferencePoint"]
+    97 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+    98 [   0] LOADK     R8 := 0.5
+    99 [   0] LOADK     R9 := 0
+   100 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   101 [   0] SETTABLE  R5[R6] := R7
+   102 [   0] GETGLOBAL R6 := _G["display"]
+   103 [   0] GETTABLE  R6 := R6["TopRightReferencePoint"]
+   104 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+   105 [   0] LOADK     R8 := 1
+   106 [   0] LOADK     R9 := 0
+   107 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   108 [   0] SETTABLE  R5[R6] := R7
+   109 [   0] GETGLOBAL R6 := _G["display"]
+   110 [   0] GETTABLE  R6 := R6["CenterLeftReferencePoint"]
+   111 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+   112 [   0] LOADK     R8 := 0
+   113 [   0] LOADK     R9 := 0.5
+   114 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   115 [   0] SETTABLE  R5[R6] := R7
+   116 [   0] GETGLOBAL R6 := _G["display"]
+   117 [   0] GETTABLE  R6 := R6["CenterReferencePoint"]
+   118 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+   119 [   0] LOADK     R8 := 0.5
+   120 [   0] LOADK     R9 := 0.5
+   121 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   122 [   0] SETTABLE  R5[R6] := R7
+   123 [   0] GETGLOBAL R6 := _G["display"]
+   124 [   0] GETTABLE  R6 := R6["CenterRightReferencePoint"]
+   125 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+   126 [   0] LOADK     R8 := 1
+   127 [   0] LOADK     R9 := 0.5
+   128 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   129 [   0] SETTABLE  R5[R6] := R7
+   130 [   0] GETGLOBAL R6 := _G["display"]
+   131 [   0] GETTABLE  R6 := R6["BottomLeftReferencePoint"]
+   132 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+   133 [   0] LOADK     R8 := 0
+   134 [   0] LOADK     R9 := 1
+   135 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   136 [   0] SETTABLE  R5[R6] := R7
+   137 [   0] GETGLOBAL R6 := _G["display"]
+   138 [   0] GETTABLE  R6 := R6["BottomCenterReferencePoint"]
+   139 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+   140 [   0] LOADK     R8 := 0.5
+   141 [   0] LOADK     R9 := 1
+   142 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   143 [   0] SETTABLE  R5[R6] := R7
+   144 [   0] GETGLOBAL R6 := _G["display"]
+   145 [   0] GETTABLE  R6 := R6["BottomRightReferencePoint"]
+   146 [   0] NEWTABLE  R7 := {} (array 2, hash 0)
+   147 [   0] LOADK     R8 := 1
+   148 [   0] LOADK     R9 := 1
+   149 [   0] SETLIST   R7[...] := R8.. (n=2, block 1)
+   150 [   0] SETTABLE  R5[R6] := R7
+   151 [   0] CLOSURE   R6 := closure #1
+   152 [   0] MOVE      R0 := R5
+   153 [   0] SETTABLE  R3["setReferencePoint"] := R6
+   154 [   0] CLOSURE   R6 := closure #2
+   155 [   0] SETTABLE  R3["setTextColor"] := R6
+   156 [   0] CLOSURE   R6 := closure #3
+   157 [   0] SETTABLE  R3["setFillColor"] := R6
+   158 [   0] CLOSURE   R6 := closure #4
+   159 [   0] MOVE      R0 := R3
+   160 [   0] GETGLOBAL R7 := _G["display"]
+   161 [   0] GETTABLE  R7 := R7["newRect"]
+   162 [   0] GETGLOBAL R8 := _G["display"]
+   163 [   0] CLOSURE   R9 := closure #5
+   164 [   0] MOVE      R0 := R7
+   165 [   0] MOVE      R0 := R6
+   166 [   0] SETTABLE  R8["newRect"] := R9
+   167 [   0] GETGLOBAL R8 := _G["display"]
+   168 [   0] GETTABLE  R8 := R8["newRoundedRect"]
+   169 [   0] GETGLOBAL R9 := _G["display"]
+   170 [   0] CLOSURE   R10 := closure #6
+   171 [   0] MOVE      R0 := R8
+   172 [   0] MOVE      R0 := R6
+   173 [   0] SETTABLE  R9["newRoundedRect"] := R10
+   174 [   0] GETGLOBAL R9 := _G["display"]
+   175 [   0] GETTABLE  R9 := R9["newText"]
+   176 [   0] GETGLOBAL R10 := _G["display"]
+   177 [   0] CLOSURE   R11 := closure #7
+   178 [   0] MOVE      R0 := R9
+   179 [   0] MOVE      R0 := R6
+   180 [   0] SETTABLE  R10["newText"] := R11
+   181 [   0] GETGLOBAL R10 := _G["display"]
+   182 [   0] GETTABLE  R10 := R10["newGroup"]
+   183 [   0] GETGLOBAL R11 := _G["display"]
+   184 [   0] CLOSURE   R12 := closure #8
+   185 [   0] MOVE      R0 := R10
+   186 [   0] MOVE      R0 := R6
+   187 [   0] SETTABLE  R11["newGroup"] := R12
+   188 [   0] GETGLOBAL R11 := _G["display"]
+   189 [   0] GETTABLE  R11 := R11["newImage"]
+   190 [   0] GETGLOBAL R12 := _G["display"]
+   191 [   0] CLOSURE   R13 := closure #9
+   192 [   0] MOVE      R0 := R11
+   193 [   0] MOVE      R0 := R6
+   194 [   0] SETTABLE  R12["newImage"] := R13
+   195 [   0] GETGLOBAL R12 := _G["display"]
+   196 [   0] GETTABLE  R12 := R12["newImageRect"]
+   197 [   0] GETGLOBAL R13 := _G["display"]
+   198 [   0] CLOSURE   R14 := closure #10
+   199 [   0] MOVE      R0 := R12
+   200 [   0] MOVE      R0 := R6
+   201 [   0] SETTABLE  R13["newImageRect"] := R14
+   202 [   0] CLOSE     A=3 B=0 C=0
+   203 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 18-20, upvals=[], locals=[])
+    constants: strings=['display', 'newGroup'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["display"]
+       1 [   0] GETTABLE  R1 := R1["newGroup"]
+       2 [   0] TAILCALL  return R1(...) nargs=0
+       3 [   0] RETURN    return R1.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 57-70, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] CLOSURE   R1 := closure #0
+       1 [   0] GETUPVAL  R0 := upval 0
+       2 [   0] RETURN    return R1.. (1 values)
+       3 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=2, lines 58-69, upvals=[], locals=[])
+      constants: strings=['_proxy', 'numChildren', 'anchorChildren', 'anchorX', 'anchorY', 'x', 'y', 'contentWidth', 'contentHeight'] numbers=[1, 2]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +3 -> 5
+         2 [   0] GETTABLE  R2 := R0["_proxy"]
+         3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] RETURN    return R0.. (0 values)
+         6 [   0] GETTABLE  R2 := R0["numChildren"]
+         7 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +1 -> 10
+         9 [   0] SETTABLE  R0["anchorChildren"] := True
+        10 [   0] GETUPVAL  R2 := upval 0
+        11 [   0] GETTABLE  R2 := R2[R1]
+        12 [   0] GETTABLE  R3 := R0["anchorX"]
+        13 [   0] GETTABLE  R4 := R0["anchorY"]
+        14 [   0] GETTABLE  R5 := R2[1]
+        15 [   0] GETTABLE  R6 := R2[2]
+        16 [   0] SETTABLE  R0["anchorY"] := R6
+        17 [   0] SETTABLE  R0["anchorX"] := R5
+        18 [   0] GETTABLE  R5 := R0["anchorX"]
+        19 [   0] SUB       R5 := R5 - R3
+        20 [   0] GETTABLE  R6 := R0["anchorY"]
+        21 [   0] SUB       R4 := R6 - R4
+        22 [   0] MOVE      R3 := R5
+        23 [   0] GETTABLE  R5 := R0["x"]
+        24 [   0] GETTABLE  R6 := R0["contentWidth"]
+        25 [   0] MUL       R6 := R3 * R6
+        26 [   0] ADD       R5 := R5 + R6
+        27 [   0] GETTABLE  R6 := R0["y"]
+        28 [   0] GETTABLE  R7 := R0["contentHeight"]
+        29 [   0] MUL       R7 := R4 * R7
+        30 [   0] ADD       R6 := R6 + R7
+        31 [   0] SETTABLE  R0["y"] := R6
+        32 [   0] SETTABLE  R0["x"] := R5
+        33 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 72-77, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] CLOSURE   R1 := closure #0
+       1 [   0] RETURN    return R1.. (1 values)
+       2 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#0 (params=1, lines 73-76, upvals=[], locals=[])
+      constants: strings=['_proxy', 'setFillColor'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +3 -> 5
+         2 [   0] GETTABLE  R2 := R0["_proxy"]
+         3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] RETURN    return R0.. (0 values)
+         6 [   0] SELF      R3 := R0; R2 := R0["setFillColor"]
+         7 [   0] VARARG    R4.. := ... (-1)
+         8 [   0] TAILCALL  return R2(...) nargs=-1
+         9 [   0] RETURN    return R2.. (-1 values)
+        10 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=1, lines 79-90, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] CLOSURE   R1 := closure #0
+       1 [   0] MOVE      R0 := R0
+       2 [   0] RETURN    return R1.. (1 values)
+       3 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#0 (params=1, lines 80-89, upvals=[], locals=[])
+      constants: strings=['_proxy', 'pairs', 'math', 'floor', 'unpack'] numbers=[255, 1000]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +3 -> 5
+         2 [   0] GETTABLE  R2 := R0["_proxy"]
+         3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] RETURN    return R0.. (0 values)
+         6 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         7 [   0] VARARG    R3.. := ... (-1)
+         8 [   0] SETLIST   R2[...] := R3.. (n=0, block 1)
+         9 [   0] GETGLOBAL R3 := _G["pairs"]
+        10 [   0] MOVE      R4 := R2
+        11 [   0] CALL      R3(...) nargs=1 nret=3
+        12 [   0] JMP       jmp +7 -> 20
+        13 [   0] GETGLOBAL R8 := _G["math"]
+        14 [   0] GETTABLE  R8 := R8["floor"]
+        15 [   0] DIV       R9 := R7 / 255
+        16 [   0] MUL       R9 := R9 * 1000
+        17 [   0] CALL      R8(...) nargs=1 nret=1
+        18 [   0] DIV       R8 := R8 / 1000
+        19 [   0] SETTABLE  R2[R6] := R8
+        20 [   0] TFORLOOP  tforloop R3 nres=2
+        21 [   0] JMP       jmp -9 -> 13
+        22 [   0] GETUPVAL  R3 := upval 0
+        23 [   0] MOVE      R4 := R0
+        24 [   0] GETGLOBAL R5 := _G["unpack"]
+        25 [   0] MOVE      R6 := R2
+        26 [   0] CALL      R5(...) nargs=1 nret=-1
+        27 [   0] TAILCALL  return R3(...) nargs=-1
+        28 [   0] RETURN    return R3.. (-1 values)
+        29 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=1, lines 92-96, upvals=[], locals=[])
+    constants: strings=['pairs'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["pairs"]
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] CALL      R1(...) nargs=1 nret=3
+       3 [   0] JMP       jmp +4 -> 8
+       4 [   0] MOVE      R6 := R5
+       5 [   0] GETTABLE  R7 := R0[R4]
+       6 [   0] CALL      R6(...) nargs=1 nret=1
+       7 [   0] SETTABLE  R0[R4] := R6
+       8 [   0] TFORLOOP  tforloop R1 nres=2
+       9 [   0] JMP       jmp -6 -> 4
+      10 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=0, lines 99-104, upvals=[], locals=[])
+    constants: strings=['x', 'y', 'contentWidth', 'contentHeight'] numbers=[0.5]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] VARARG    R2.. := ... (-1)
+       2 [   0] CALL      R1(...) nargs=-1 nret=1
+       3 [   0] GETUPVAL  R2 := upval 1
+       4 [   0] MOVE      R3 := R1
+       5 [   0] CALL      R2(...) nargs=1 nret=0
+       6 [   0] GETTABLE  R2 := R1["x"]
+       7 [   0] GETTABLE  R3 := R1["contentWidth"]
+       8 [   0] MUL       R3 := R3 * 0.5
+       9 [   0] ADD       R2 := R2 + R3
+      10 [   0] GETTABLE  R3 := R1["y"]
+      11 [   0] GETTABLE  R4 := R1["contentHeight"]
+      12 [   0] MUL       R4 := R4 * 0.5
+      13 [   0] ADD       R3 := R3 + R4
+      14 [   0] SETTABLE  R1["y"] := R3
+      15 [   0] SETTABLE  R1["x"] := R2
+      16 [   0] RETURN    return R1.. (1 values)
+      17 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=0, lines 107-112, upvals=[], locals=[])
+    constants: strings=['x', 'y', 'contentWidth', 'contentHeight'] numbers=[0.5]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] VARARG    R2.. := ... (-1)
+       2 [   0] CALL      R1(...) nargs=-1 nret=1
+       3 [   0] GETUPVAL  R2 := upval 1
+       4 [   0] MOVE      R3 := R1
+       5 [   0] CALL      R2(...) nargs=1 nret=0
+       6 [   0] GETTABLE  R2 := R1["x"]
+       7 [   0] GETTABLE  R3 := R1["contentWidth"]
+       8 [   0] MUL       R3 := R3 * 0.5
+       9 [   0] ADD       R2 := R2 + R3
+      10 [   0] GETTABLE  R3 := R1["y"]
+      11 [   0] GETTABLE  R4 := R1["contentHeight"]
+      12 [   0] MUL       R4 := R4 * 0.5
+      13 [   0] ADD       R3 := R3 + R4
+      14 [   0] SETTABLE  R1["y"] := R3
+      15 [   0] SETTABLE  R1["x"] := R2
+      16 [   0] RETURN    return R1.. (1 values)
+      17 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=0, lines 115-120, upvals=[], locals=[])
+    constants: strings=['x', 'y', 'contentWidth', 'contentHeight'] numbers=[0.5]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] VARARG    R2.. := ... (-1)
+       2 [   0] CALL      R1(...) nargs=-1 nret=1
+       3 [   0] GETUPVAL  R2 := upval 1
+       4 [   0] MOVE      R3 := R1
+       5 [   0] CALL      R2(...) nargs=1 nret=0
+       6 [   0] GETTABLE  R2 := R1["x"]
+       7 [   0] GETTABLE  R3 := R1["contentWidth"]
+       8 [   0] MUL       R3 := R3 * 0.5
+       9 [   0] ADD       R2 := R2 + R3
+      10 [   0] GETTABLE  R3 := R1["y"]
+      11 [   0] GETTABLE  R4 := R1["contentHeight"]
+      12 [   0] MUL       R4 := R4 * 0.5
+      13 [   0] ADD       R3 := R3 + R4
+      14 [   0] SETTABLE  R1["y"] := R3
+      15 [   0] SETTABLE  R1["x"] := R2
+      16 [   0] RETURN    return R1.. (1 values)
+      17 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=0, lines 123-127, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] VARARG    R2.. := ... (-1)
+       2 [   0] CALL      R1(...) nargs=-1 nret=1
+       3 [   0] GETUPVAL  R2 := upval 1
+       4 [   0] MOVE      R3 := R1
+       5 [   0] CALL      R2(...) nargs=1 nret=0
+       6 [   0] RETURN    return R1.. (1 values)
+       7 [   0] RETURN    return R0.. (0 values)
+  function main.#9 (params=0, lines 130-135, upvals=[], locals=[])
+    constants: strings=['x', 'y', 'contentWidth', 'contentHeight'] numbers=[0.5]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] VARARG    R2.. := ... (-1)
+       2 [   0] CALL      R1(...) nargs=-1 nret=1
+       3 [   0] GETUPVAL  R2 := upval 1
+       4 [   0] MOVE      R3 := R1
+       5 [   0] CALL      R2(...) nargs=1 nret=0
+       6 [   0] GETTABLE  R2 := R1["x"]
+       7 [   0] GETTABLE  R3 := R1["contentWidth"]
+       8 [   0] MUL       R3 := R3 * 0.5
+       9 [   0] ADD       R2 := R2 + R3
+      10 [   0] GETTABLE  R3 := R1["y"]
+      11 [   0] GETTABLE  R4 := R1["contentHeight"]
+      12 [   0] MUL       R4 := R4 * 0.5
+      13 [   0] ADD       R3 := R3 + R4
+      14 [   0] SETTABLE  R1["y"] := R3
+      15 [   0] SETTABLE  R1["x"] := R2
+      16 [   0] RETURN    return R1.. (1 values)
+      17 [   0] RETURN    return R0.. (0 values)
+  function main.#10 (params=0, lines 138-142, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] VARARG    R2.. := ... (-1)
+       2 [   0] CALL      R1(...) nargs=-1 nret=1
+       3 [   0] GETUPVAL  R2 := upval 1
+       4 [   0] MOVE      R3 := R1
+       5 [   0] CALL      R2(...) nargs=1 nret=0
+       6 [   0] RETURN    return R1.. (1 values)
+       7 [   0] RETURN    return R0.. (0 values)

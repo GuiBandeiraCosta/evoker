@@ -1,0 +1,997 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['ui', 'require', 'FGLIB_PATH', 'ui.components.facebook.view_facebook_request_list_entry', 'game.facebookmanager', 'ui.components.facebook.view_facebook_login', 'factory.uifactory2', 'ui.common.backbuttonmanager', 'ui.common.nav_controllerv3', 'fglib.eventlistener', 'game.hudmanager', 'ui.components.comp_scrolllist', 'ui.components.comp_clickcatcher', 'server.remoteassetmanager', 'util.util', 'create'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["ui"]
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] MOVE      R3 := R1
+     4 [   0] LOADK     R4 := "ui.components.facebook.view_facebook_request_list_entry"
+     5 [   0] CALL      R3(...) nargs=1 nret=1
+     6 [   0] MOVE      R4 := R1
+     7 [   0] LOADK     R5 := "game.facebookmanager"
+     8 [   0] CALL      R4(...) nargs=1 nret=1
+     9 [   0] MOVE      R5 := R1
+    10 [   0] LOADK     R6 := "ui.components.facebook.view_facebook_login"
+    11 [   0] CALL      R5(...) nargs=1 nret=1
+    12 [   0] MOVE      R6 := R1
+    13 [   0] LOADK     R7 := "factory.uifactory2"
+    14 [   0] CALL      R6(...) nargs=1 nret=1
+    15 [   0] MOVE      R7 := R1
+    16 [   0] LOADK     R8 := "ui.common.backbuttonmanager"
+    17 [   0] CALL      R7(...) nargs=1 nret=1
+    18 [   0] MOVE      R8 := R1
+    19 [   0] LOADK     R9 := "ui.common.nav_controllerv3"
+    20 [   0] CALL      R8(...) nargs=1 nret=1
+    21 [   0] MOVE      R9 := R1
+    22 [   0] LOADK     R10 := "fglib.eventlistener"
+    23 [   0] CALL      R9(...) nargs=1 nret=1
+    24 [   0] MOVE      R10 := R1
+    25 [   0] LOADK     R11 := "game.hudmanager"
+    26 [   0] CALL      R10(...) nargs=1 nret=1
+    27 [   0] MOVE      R11 := R1
+    28 [   0] LOADK     R12 := "ui.components.comp_scrolllist"
+    29 [   0] CALL      R11(...) nargs=1 nret=1
+    30 [   0] MOVE      R12 := R1
+    31 [   0] LOADK     R13 := "ui.components.comp_clickcatcher"
+    32 [   0] CALL      R12(...) nargs=1 nret=1
+    33 [   0] MOVE      R13 := R1
+    34 [   0] LOADK     R14 := "server.remoteassetmanager"
+    35 [   0] CALL      R13(...) nargs=1 nret=1
+    36 [   0] MOVE      R14 := R1
+    37 [   0] LOADK     R15 := "util.util"
+    38 [   0] CALL      R14(...) nargs=1 nret=1
+    39 [   0] CLOSURE   R15 := closure #0
+    40 [   0] MOVE      R0 := R0
+    41 [   0] MOVE      R0 := R4
+    42 [   0] MOVE      R0 := R13
+    43 [   0] MOVE      R0 := R10
+    44 [   0] MOVE      R0 := R9
+    45 [   0] MOVE      R0 := R3
+    46 [   0] MOVE      R0 := R7
+    47 [   0] MOVE      R0 := R1
+    48 [   0] MOVE      R0 := R8
+    49 [   0] MOVE      R0 := R14
+    50 [   0] MOVE      R0 := R6
+    51 [   0] MOVE      R0 := R11
+    52 [   0] MOVE      R0 := R5
+    53 [   0] MOVE      R0 := R12
+    54 [   0] NEWTABLE  R16 := {} (array 0, hash 1)
+    55 [   0] SETTABLE  R16["create"] := R15
+    56 [   0] RETURN    return R16.. (1 values)
+    57 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 20-415, upvals=[], locals=[])
+    constants: strings=['createContainer', 'layout', 'parent', 'getInstance', 'new', 'facebookPopupsReceivedHandler', 'facebookRequestListReceivedHandler', 'facebookRewardReceivedHandler', 'facebookLoggedInHandler', 'facebookLoggedOutHandler', 'unlock', 'update', 'enter', 'exit', 'destroy', 'inherit', '_flaregames_remove'] numbers=[]
+       0 [   0] LOADBOOL  R1 := False
+       1 [   0] GETUPVAL  R2 := upval 0
+       2 [   0] GETTABLE  R2 := R2["createContainer"]
+       3 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+       4 [   0] GETTABLE  R4 := R0["layout"]
+       5 [   0] SETTABLE  R3["layout"] := R4
+       6 [   0] GETTABLE  R4 := R0["parent"]
+       7 [   0] SETTABLE  R3["parent"] := R4
+       8 [   0] CALL      R2(...) nargs=1 nret=1
+       9 [   0] LOADNIL   R3..R10 := nil
+      10 [   0] GETUPVAL  R11 := upval 1
+      11 [   0] GETTABLE  R11 := R11["getInstance"]
+      12 [   0] CALL      R11(...) nargs=0 nret=1
+      13 [   0] GETUPVAL  R12 := upval 2
+      14 [   0] GETTABLE  R12 := R12["getInstance"]
+      15 [   0] CALL      R12(...) nargs=0 nret=1
+      16 [   0] GETUPVAL  R13 := upval 3
+      17 [   0] GETTABLE  R13 := R13["getInstance"]
+      18 [   0] CALL      R13(...) nargs=0 nret=1
+      19 [   0] GETUPVAL  R14 := upval 4
+      20 [   0] GETTABLE  R14 := R14["new"]
+      21 [   0] CALL      R14(...) nargs=0 nret=1
+      22 [   0] NEWTABLE  R15 := {} (array 0, hash 0)
+      23 [   0] CLOSURE   R16 := closure #0
+      24 [   0] MOVE      R0 := R9
+      25 [   0] CLOSURE   R17 := closure #1
+      26 [   0] MOVE      R0 := R9
+      27 [   0] CLOSURE   R18 := closure #2
+      28 [   0] MOVE      R0 := R16
+      29 [   0] MOVE      R0 := R11
+      30 [   0] CLOSURE   R19 := closure #3
+      31 [   0] MOVE      R0 := R8
+      32 [   0] MOVE      R0 := R18
+      33 [   0] CLOSURE   R20 := closure #4
+      34 [   0] GETUPVAL  R0 := upval 5
+      35 [   0] MOVE      R0 := R2
+      36 [   0] MOVE      R0 := R11
+      37 [   0] MOVE      R0 := R18
+      38 [   0] MOVE      R0 := R8
+      39 [   0] CLOSURE   R21 := closure #5
+      40 [   0] MOVE      R0 := R19
+      41 [   0] MOVE      R0 := R20
+      42 [   0] CLOSURE   R22 := closure #6
+      43 [   0] MOVE      R0 := R11
+      44 [   0] MOVE      R0 := R12
+      45 [   0] CLOSURE   R23 := closure #7
+      46 [   0] MOVE      R0 := R11
+      47 [   0] MOVE      R0 := R16
+      48 [   0] MOVE      R0 := R13
+      49 [   0] CLOSURE   R24 := closure #8
+      50 [   0] MOVE      R0 := R11
+      51 [   0] MOVE      R0 := R5
+      52 [   0] MOVE      R0 := R21
+      53 [   0] MOVE      R0 := R15
+      54 [   0] CLOSURE   R25 := closure #9
+      55 [   0] MOVE      R0 := R10
+      56 [   0] GETUPVAL  R0 := upval 6
+      57 [   0] CLOSURE   R26 := closure #10
+      58 [   0] MOVE      R0 := R10
+      59 [   0] GETUPVAL  R0 := upval 6
+      60 [   0] CLOSURE   R27 := closure #11
+      61 [   0] SETTABLE  R14["facebookPopupsReceivedHandler"] := R27
+      62 [   0] CLOSURE   R27 := closure #12
+      63 [   0] MOVE      R0 := R15
+      64 [   0] MOVE      R0 := R22
+      65 [   0] MOVE      R0 := R13
+      66 [   0] MOVE      R0 := R17
+      67 [   0] MOVE      R0 := R2
+      68 [   0] SETTABLE  R14["facebookRequestListReceivedHandler"] := R27
+      69 [   0] CLOSURE   R27 := closure #13
+      70 [   0] GETUPVAL  R0 := upval 7
+      71 [   0] MOVE      R0 := R17
+      72 [   0] MOVE      R0 := R23
+      73 [   0] SETTABLE  R14["facebookRewardReceivedHandler"] := R27
+      74 [   0] CLOSURE   R27 := closure #14
+      75 [   0] MOVE      R0 := R26
+      76 [   0] MOVE      R0 := R17
+      77 [   0] MOVE      R0 := R11
+      78 [   0] MOVE      R0 := R23
+      79 [   0] MOVE      R0 := R19
+      80 [   0] MOVE      R0 := R24
+      81 [   0] SETTABLE  R14["facebookLoggedInHandler"] := R27
+      82 [   0] CLOSURE   R27 := closure #15
+      83 [   0] MOVE      R0 := R26
+      84 [   0] MOVE      R0 := R17
+      85 [   0] MOVE      R0 := R24
+      86 [   0] SETTABLE  R14["facebookLoggedOutHandler"] := R27
+      87 [   0] CLOSURE   R27 := closure #16
+      88 [   0] CLOSURE   R28 := closure #17
+      89 [   0] CLOSURE   R29 := closure #18
+      90 [   0] MOVE      R0 := R25
+      91 [   0] MOVE      R0 := R16
+      92 [   0] MOVE      R0 := R11
+      93 [   0] MOVE      R0 := R27
+      94 [   0] CLOSURE   R30 := closure #19
+      95 [   0] MOVE      R0 := R25
+      96 [   0] MOVE      R0 := R16
+      97 [   0] GETUPVAL  R0 := upval 7
+      98 [   0] MOVE      R0 := R11
+      99 [   0] MOVE      R0 := R28
+     100 [   0] CLOSURE   R31 := closure #20
+     101 [   0] MOVE      R0 := R17
+     102 [   0] SETTABLE  R2["unlock"] := R31
+     103 [   0] CLOSURE   R31 := closure #21
+     104 [   0] MOVE      R0 := R24
+     105 [   0] SETTABLE  R2["update"] := R31
+     106 [   0] CLOSURE   R31 := closure #22
+     107 [   0] MOVE      R0 := R1
+     108 [   0] MOVE      R0 := R5
+     109 [   0] MOVE      R0 := R29
+     110 [   0] MOVE      R0 := R30
+     111 [   0] MOVE      R0 := R14
+     112 [   0] MOVE      R0 := R11
+     113 [   0] MOVE      R0 := R8
+     114 [   0] MOVE      R0 := R9
+     115 [   0] MOVE      R0 := R17
+     116 [   0] MOVE      R0 := R23
+     117 [   0] MOVE      R0 := R24
+     118 [   0] GETUPVAL  R0 := upval 6
+     119 [   0] GETUPVAL  R0 := upval 8
+     120 [   0] SETTABLE  R2["enter"] := R31
+     121 [   0] CLOSURE   R31 := closure #23
+     122 [   0] MOVE      R0 := R1
+     123 [   0] MOVE      R0 := R5
+     124 [   0] MOVE      R0 := R29
+     125 [   0] MOVE      R0 := R30
+     126 [   0] MOVE      R0 := R14
+     127 [   0] MOVE      R0 := R11
+     128 [   0] MOVE      R0 := R8
+     129 [   0] MOVE      R0 := R9
+     130 [   0] GETUPVAL  R0 := upval 6
+     131 [   0] MOVE      R0 := R13
+     132 [   0] SETTABLE  R2["exit"] := R31
+     133 [   0] CLOSURE   R31 := closure #24
+     134 [   0] MOVE      R0 := R2
+     135 [   0] SETTABLE  R2["destroy"] := R31
+     136 [   0] GETUPVAL  R31 := upval 9
+     137 [   0] GETTABLE  R31 := R31["inherit"]
+     138 [   0] MOVE      R32 := R2
+     139 [   0] LOADK     R33 := "_flaregames_remove"
+     140 [   0] CLOSURE   R34 := closure #25
+     141 [   0] MOVE      R0 := R2
+     142 [   0] CALL      R31(...) nargs=3 nret=0
+     143 [   0] CLOSURE   R31 := closure #26
+     144 [   0] GETUPVAL  R0 := upval 7
+     145 [   0] MOVE      R0 := R3
+     146 [   0] GETUPVAL  R0 := upval 10
+     147 [   0] MOVE      R0 := R2
+     148 [   0] MOVE      R0 := R8
+     149 [   0] GETUPVAL  R0 := upval 11
+     150 [   0] MOVE      R0 := R4
+     151 [   0] MOVE      R0 := R5
+     152 [   0] GETUPVAL  R0 := upval 12
+     153 [   0] MOVE      R0 := R11
+     154 [   0] MOVE      R0 := R6
+     155 [   0] MOVE      R0 := R7
+     156 [   0] MOVE      R0 := R9
+     157 [   0] GETUPVAL  R0 := upval 13
+     158 [   0] MOVE      R0 := R24
+     159 [   0] MOVE      R32 := R31
+     160 [   0] MOVE      R33 := R0
+     161 [   0] CALL      R32(...) nargs=1 nret=0
+     162 [   0] RETURN    return R2.. (1 values)
+     163 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 45-51, upvals=[], locals=[])
+      constants: strings=['update', 'active', 'callback'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["update"]
+         2 [   0] NEWTABLE  R1 := {} (array 0, hash 2)
+         3 [   0] SETTABLE  R1["active"] := True
+         4 [   0] CLOSURE   R2 := closure #0
+         5 [   0] SETTABLE  R1["callback"] := R2
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#0.#0 (params=0, lines 48-49, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 53-57, upvals=[], locals=[])
+      constants: strings=['update', 'active'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["update"]
+         2 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+         3 [   0] SETTABLE  R1["active"] := False
+         4 [   0] CALL      R0(...) nargs=1 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 60-65, upvals=[], locals=[])
+      constants: strings=['data', 'rewardId', 'getReward'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +14 -> 16
+         2 [   0] GETTABLE  R1 := R0["data"]
+         3 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         4 [   0] JMP       jmp +11 -> 16
+         5 [   0] GETTABLE  R1 := R0["data"]
+         6 [   0] GETTABLE  R1 := R1["rewardId"]
+         7 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +7 -> 16
+         9 [   0] GETUPVAL  R1 := upval 0
+        10 [   0] CALL      R1(...) nargs=0 nret=0
+        11 [   0] GETUPVAL  R1 := upval 1
+        12 [   0] GETTABLE  R1 := R1["getReward"]
+        13 [   0] GETTABLE  R2 := R0["data"]
+        14 [   0] GETTABLE  R2 := R2["rewardId"]
+        15 [   0] CALL      R1(...) nargs=1 nret=0
+        16 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 67-76, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: clearing List', 'getItems', 'removeEventListener', 'acceptBtnClicked', 'clear'] numbers=[1]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "ctrl_facebook: clearing List"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] GETTABLE  R0 := R0["getItems"]
+         6 [   0] CALL      R0(...) nargs=0 nret=1
+         7 [   0] LOADK     R1 := 1
+         8 [   0] LEN       R2 := #R0
+         9 [   0] LOADK     R3 := 1
+        10 [   0] FORPREP   for R1.. jmp +5
+        11 [   0] GETTABLE  R5 := R0[R4]
+        12 [   0] SELF      R7 := R5; R6 := R5["removeEventListener"]
+        13 [   0] LOADK     R8 := "acceptBtnClicked"
+        14 [   0] GETUPVAL  R9 := upval 1
+        15 [   0] CALL      R6(...) nargs=3 nret=0
+        16 [   0] FORLOOP   forloop R1 jmp -6
+        17 [   0] GETUPVAL  R1 := upval 0
+        18 [   0] GETTABLE  R1 := R1["clear"]
+        19 [   0] CALL      R1(...) nargs=0 nret=0
+        20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 78-103, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: fillRequestListWithEntries', 'create', 'parent', 'layout', 'default.center', 'facebookName', 'friendName', '', 'txtBody', 'text', 'rewardImg', 'rewardInfo', 'img', 'facebookImg', 'getProfilePictureRemoteAssetForId', 'friendfbid', 'txt', 'txtColor', 'color', 'state', 'rewardId', 'id', 'addEventListener', 'acceptBtnClicked', 'addItem'] numbers=[1]
+         0 [   0] GETGLOBAL R1 := _G["log"]
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "ctrl_facebook: fillRequestListWithEntries"
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] LOADK     R1 := 1
+         5 [   0] LEN       R2 := #R0
+         6 [   0] LOADK     R3 := 1
+         7 [   0] FORPREP   for R1.. jmp +48
+         8 [   0] GETTABLE  R5 := R0[R4]
+         9 [   0] GETUPVAL  R6 := upval 0
+        10 [   0] GETTABLE  R6 := R6["create"]
+        11 [   0] NEWTABLE  R7 := {} (array 0, hash 9)
+        12 [   0] GETUPVAL  R8 := upval 1
+        13 [   0] SETTABLE  R7["parent"] := R8
+        14 [   0] SETTABLE  R7["layout"] := "default.center"
+        15 [   0] GETTABLE  R8 := R5["friendName"]
+        16 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+        17 [   0] JMP       jmp +1 -> 19
+        18 [   0] LOADK     R8 := ""
+        19 [   0] SETTABLE  R7["facebookName"] := R8
+        20 [   0] GETTABLE  R8 := R5["text"]
+        21 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+        22 [   0] JMP       jmp +1 -> 24
+        23 [   0] LOADK     R8 := ""
+        24 [   0] SETTABLE  R7["txtBody"] := R8
+        25 [   0] GETTABLE  R8 := R5["rewardInfo"]
+        26 [   0] GETTABLE  R8 := R8["img"]
+        27 [   0] SETTABLE  R7["rewardImg"] := R8
+        28 [   0] GETUPVAL  R8 := upval 2
+        29 [   0] GETTABLE  R8 := R8["getProfilePictureRemoteAssetForId"]
+        30 [   0] GETTABLE  R9 := R5["friendfbid"]
+        31 [   0] CALL      R8(...) nargs=1 nret=1
+        32 [   0] SETTABLE  R7["facebookImg"] := R8
+        33 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+        34 [   0] GETTABLE  R9 := R5["rewardInfo"]
+        35 [   0] GETTABLE  R9 := R9["text"]
+        36 [   0] SETTABLE  R8["txt"] := R9
+        37 [   0] GETTABLE  R9 := R5["rewardInfo"]
+        38 [   0] GETTABLE  R9 := R9["color"]
+        39 [   0] SETTABLE  R8["txtColor"] := R9
+        40 [   0] SETTABLE  R7["txt"] := R8
+        41 [   0] GETTABLE  R8 := R5["state"]
+        42 [   0] SETTABLE  R7["state"] := R8
+        43 [   0] GETTABLE  R8 := R5["id"]
+        44 [   0] SETTABLE  R7["rewardId"] := R8
+        45 [   0] CALL      R6(...) nargs=1 nret=1
+        46 [   0] EQ        if (R6 == None) ~= 1 then skip next
+        47 [   0] JMP       jmp +8 -> 56
+        48 [   0] SELF      R8 := R6; R7 := R6["addEventListener"]
+        49 [   0] LOADK     R9 := "acceptBtnClicked"
+        50 [   0] GETUPVAL  R10 := upval 3
+        51 [   0] CALL      R7(...) nargs=3 nret=0
+        52 [   0] GETUPVAL  R7 := upval 4
+        53 [   0] GETTABLE  R7 := R7["addItem"]
+        54 [   0] MOVE      R8 := R6
+        55 [   0] CALL      R7(...) nargs=1 nret=0
+        56 [   0] FORLOOP   forloop R1 jmp -49
+        57 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=1, lines 105-108, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] CALL      R1(...) nargs=0 nret=0
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] MOVE      R2 := R0
+         4 [   0] CALL      R1(...) nargs=1 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 110-126, upvals=[], locals=[])
+      constants: strings=['rewardInfo', 'img', 'friendfbid', 'getProfilePictureRemoteAssetForId', 'prefetchFiles'] numbers=[1]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +28 -> 31
+         3 [   0] LOADK     R3 := 1
+         4 [   0] LEN       R4 := #R0
+         5 [   0] LOADK     R5 := 1
+         6 [   0] FORPREP   for R3.. jmp +23
+         7 [   0] GETTABLE  R7 := R0[R6]
+         8 [   0] GETTABLE  R8 := R7["rewardInfo"]
+         9 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        10 [   0] JMP       jmp +9 -> 20
+        11 [   0] GETTABLE  R8 := R7["rewardInfo"]
+        12 [   0] GETTABLE  R8 := R8["img"]
+        13 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        14 [   0] JMP       jmp +5 -> 20
+        15 [   0] LEN       R8 := #R2
+        16 [   0] ADD       R8 := R8 + 1
+        17 [   0] GETTABLE  R9 := R7["rewardInfo"]
+        18 [   0] GETTABLE  R9 := R9["img"]
+        19 [   0] SETTABLE  R2[R8] := R9
+        20 [   0] GETTABLE  R8 := R7["friendfbid"]
+        21 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        22 [   0] JMP       jmp +7 -> 30
+        23 [   0] LEN       R8 := #R2
+        24 [   0] ADD       R8 := R8 + 1
+        25 [   0] GETUPVAL  R9 := upval 0
+        26 [   0] GETTABLE  R9 := R9["getProfilePictureRemoteAssetForId"]
+        27 [   0] GETTABLE  R10 := R7["friendfbid"]
+        28 [   0] CALL      R9(...) nargs=1 nret=1
+        29 [   0] SETTABLE  R2[R8] := R9
+        30 [   0] FORLOOP   forloop R3 jmp -24
+        31 [   0] GETUPVAL  R3 := upval 1
+        32 [   0] GETTABLE  R3 := R3["prefetchFiles"]
+        33 [   0] MOVE      R4 := R2
+        34 [   0] MOVE      R5 := R1
+        35 [   0] CALL      R3(...) nargs=2 nret=0
+        36 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=0, lines 128-135, upvals=[], locals=[])
+      constants: strings=['isLoggedIn', 'log', 'msg', 'ctrl_facebook: requestRequestList', 'scheduleWaitingIndicator', '_T', 'Loading', 'requestFacebookRequestList'] numbers=[200]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["isLoggedIn"]
+         2 [   0] CALL      R0(...) nargs=0 nret=1
+         3 [   0] GETGLOBAL R1 := _G["log"]
+         4 [   0] GETTABLE  R1 := R1["msg"]
+         5 [   0] LOADK     R2 := "ctrl_facebook: requestRequestList"
+         6 [   0] MOVE      R3 := R0
+         7 [   0] CALL      R1(...) nargs=2 nret=0
+         8 [   0] GETUPVAL  R1 := upval 1
+         9 [   0] CALL      R1(...) nargs=0 nret=0
+        10 [   0] GETUPVAL  R1 := upval 2
+        11 [   0] GETTABLE  R1 := R1["scheduleWaitingIndicator"]
+        12 [   0] LOADK     R2 := 200
+        13 [   0] GETGLOBAL R3 := _G["_T"]
+        14 [   0] LOADK     R4 := "Loading"
+        15 [   0] CALL      R3(...) nargs=1 nret=-1
+        16 [   0] CALL      R1(...) nargs=-1 nret=0
+        17 [   0] GETUPVAL  R1 := upval 0
+        18 [   0] GETTABLE  R1 := R1["requestFacebookRequestList"]
+        19 [   0] CALL      R1(...) nargs=0 nret=0
+        20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=1, lines 137-147, upvals=[], locals=[])
+      constants: strings=['isLoggedIn', 'update', 'loggedIn'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["isLoggedIn"]
+         2 [   0] CALL      R1(...) nargs=0 nret=1
+         3 [   0] GETUPVAL  R2 := upval 1
+         4 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +5 -> 11
+         6 [   0] GETUPVAL  R2 := upval 1
+         7 [   0] GETTABLE  R2 := R2["update"]
+         8 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+         9 [   0] SETTABLE  R3["loggedIn"] := R1
+        10 [   0] CALL      R2(...) nargs=1 nret=0
+        11 [   0] GETUPVAL  R2 := upval 2
+        12 [   0] GETUPVAL  R3 := upval 3
+        13 [   0] CALL      R2(...) nargs=1 nret=0
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=0, lines 149-155, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: Disabling back button', 'getInstance', 'pushNopFn'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +11 -> 14
+         3 [   0] GETGLOBAL R0 := _G["log"]
+         4 [   0] GETTABLE  R0 := R0["msg"]
+         5 [   0] LOADK     R1 := "ctrl_facebook: Disabling back button"
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] GETUPVAL  R0 := upval 1
+         8 [   0] GETTABLE  R0 := R0["getInstance"]
+         9 [   0] CALL      R0(...) nargs=0 nret=1
+        10 [   0] GETTABLE  R0 := R0["pushNopFn"]
+        11 [   0] CALL      R0(...) nargs=0 nret=0
+        12 [   0] LOADBOOL  R0 := True
+        13 [   0] SETUPVAL  upval 0 := R0
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 157-163, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: Enabling back button', 'getInstance', 'popFn'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +11 -> 14
+         3 [   0] GETGLOBAL R0 := _G["log"]
+         4 [   0] GETTABLE  R0 := R0["msg"]
+         5 [   0] LOADK     R1 := "ctrl_facebook: Enabling back button"
+         6 [   0] CALL      R0(...) nargs=1 nret=0
+         7 [   0] GETUPVAL  R0 := upval 1
+         8 [   0] GETTABLE  R0 := R0["getInstance"]
+         9 [   0] CALL      R0(...) nargs=0 nret=1
+        10 [   0] GETTABLE  R0 := R0["popFn"]
+        11 [   0] CALL      R0(...) nargs=0 nret=0
+        12 [   0] LOADBOOL  R0 := False
+        13 [   0] SETUPVAL  upval 0 := R0
+        14 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=2, lines 166-167, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=2, lines 169-184, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: facebookRequestListReceivedHandler', 'requestList', 'abortWaitingIndicator'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["log"]
+         1 [   0] GETTABLE  R2 := R2["msg"]
+         2 [   0] LOADK     R3 := "ctrl_facebook: facebookRequestListReceivedHandler"
+         3 [   0] MOVE      R4 := R1
+         4 [   0] CALL      R2(...) nargs=2 nret=0
+         5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +13 -> 20
+         7 [   0] GETTABLE  R2 := R1["requestList"]
+         8 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         9 [   0] JMP       jmp +10 -> 20
+        10 [   0] GETTABLE  R2 := R1["requestList"]
+        11 [   0] SETUPVAL  upval 0 := R2
+        12 [   0] GETUPVAL  R2 := upval 1
+        13 [   0] GETUPVAL  R3 := upval 0
+        14 [   0] CLOSURE   R4 := closure #0
+        15 [   0] GETUPVAL  R0 := upval 2
+        16 [   0] GETUPVAL  R0 := upval 3
+        17 [   0] GETUPVAL  R0 := upval 4
+        18 [   0] CALL      R2(...) nargs=2 nret=0
+        19 [   0] JMP       jmp +5 -> 25
+        20 [   0] GETUPVAL  R2 := upval 2
+        21 [   0] GETTABLE  R2 := R2["abortWaitingIndicator"]
+        22 [   0] CALL      R2(...) nargs=0 nret=0
+        23 [   0] GETUPVAL  R2 := upval 3
+        24 [   0] CALL      R2(...) nargs=0 nret=0
+        25 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#12.#0 (params=0, lines 175-179, upvals=[], locals=[])
+        constants: strings=['abortWaitingIndicator', 'update'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["abortWaitingIndicator"]
+           2 [   0] CALL      R0(...) nargs=0 nret=0
+           3 [   0] GETUPVAL  R0 := upval 1
+           4 [   0] CALL      R0(...) nargs=0 nret=0
+           5 [   0] GETUPVAL  R0 := upval 2
+           6 [   0] GETTABLE  R0 := R0["update"]
+           7 [   0] CALL      R0(...) nargs=0 nret=0
+           8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=2, lines 186-201, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: facebookRewardReceivedHandler', 'rewards', 'util.rewardutil', 'addRewardsToUser', 'playRewardAnimations'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["log"]
+         1 [   0] GETTABLE  R2 := R2["msg"]
+         2 [   0] LOADK     R3 := "ctrl_facebook: facebookRewardReceivedHandler"
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +19 -> 25
+         6 [   0] GETTABLE  R2 := R1["rewards"]
+         7 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +16 -> 25
+         9 [   0] GETUPVAL  R2 := upval 0
+        10 [   0] LOADK     R3 := "util.rewardutil"
+        11 [   0] CALL      R2(...) nargs=1 nret=1
+        12 [   0] GETTABLE  R3 := R2["addRewardsToUser"]
+        13 [   0] GETTABLE  R4 := R1["rewards"]
+        14 [   0] CALL      R3(...) nargs=1 nret=0
+        15 [   0] GETUPVAL  R3 := upval 0
+        16 [   0] LOADK     R4 := "util.rewardutil"
+        17 [   0] CALL      R3(...) nargs=1 nret=1
+        18 [   0] GETTABLE  R4 := R3["playRewardAnimations"]
+        19 [   0] GETTABLE  R5 := R1["rewards"]
+        20 [   0] CLOSURE   R6 := closure #0
+        21 [   0] GETUPVAL  R0 := upval 1
+        22 [   0] GETUPVAL  R0 := upval 2
+        23 [   0] CALL      R4(...) nargs=2 nret=0
+        24 [   0] JMP       jmp +2 -> 27
+        25 [   0] GETUPVAL  R2 := upval 2
+        26 [   0] CALL      R2(...) nargs=0 nret=0
+        27 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#13.#0 (params=0, lines 194-197, upvals=[], locals=[])
+        constants: strings=[] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] CALL      R0(...) nargs=0 nret=0
+           2 [   0] GETUPVAL  R0 := upval 1
+           3 [   0] CALL      R0(...) nargs=0 nret=0
+           4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=2, lines 203-218, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook:facebookLoggedInHandler', 'phase', 'ended', 'isLoggedIn', 'getAccessToken', 'sendFacebookAccessToken'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["log"]
+         1 [   0] GETTABLE  R2 := R2["msg"]
+         2 [   0] LOADK     R3 := "ctrl_facebook:facebookLoggedInHandler"
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] CALL      R2(...) nargs=0 nret=0
+         6 [   0] GETUPVAL  R2 := upval 1
+         7 [   0] CALL      R2(...) nargs=0 nret=0
+         8 [   0] GETTABLE  R2 := R1["phase"]
+         9 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        10 [   0] JMP       jmp +21 -> 32
+        11 [   0] GETTABLE  R2 := R1["phase"]
+        12 [   0] EQ        if (R2 == "ended") ~= 0 then skip next
+        13 [   0] JMP       jmp +18 -> 32
+        14 [   0] GETTABLE  R2 := R1["isLoggedIn"]
+        15 [   0] EQ        if (R2 == True) ~= 0 then skip next
+        16 [   0] JMP       jmp +11 -> 28
+        17 [   0] GETUPVAL  R2 := upval 2
+        18 [   0] GETTABLE  R2 := R2["getAccessToken"]
+        19 [   0] CALL      R2(...) nargs=0 nret=1
+        20 [   0] EQ        if (R2 == None) ~= 1 then skip next
+        21 [   0] JMP       jmp +6 -> 28
+        22 [   0] GETUPVAL  R2 := upval 2
+        23 [   0] GETTABLE  R2 := R2["sendFacebookAccessToken"]
+        24 [   0] CALL      R2(...) nargs=0 nret=0
+        25 [   0] GETUPVAL  R2 := upval 3
+        26 [   0] CALL      R2(...) nargs=0 nret=0
+        27 [   0] JMP       jmp +4 -> 32
+        28 [   0] GETUPVAL  R2 := upval 4
+        29 [   0] CALL      R2(...) nargs=0 nret=0
+        30 [   0] GETUPVAL  R2 := upval 5
+        31 [   0] CALL      R2(...) nargs=0 nret=0
+        32 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=2, lines 220-233, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: facebookLoggedOutHandler ', 'phase', 'ended', 'isLoggedIn'] numbers=[]
+         0 [   0] GETGLOBAL R2 := _G["log"]
+         1 [   0] GETTABLE  R2 := R2["msg"]
+         2 [   0] LOADK     R3 := "ctrl_facebook: facebookLoggedOutHandler "
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] GETTABLE  R2 := R1["phase"]
+         5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +19 -> 26
+         7 [   0] GETTABLE  R2 := R1["phase"]
+         8 [   0] EQ        if (R2 == "ended") ~= 0 then skip next
+         9 [   0] JMP       jmp +16 -> 26
+        10 [   0] GETTABLE  R2 := R1["isLoggedIn"]
+        11 [   0] EQ        if (R2 == False) ~= 0 then skip next
+        12 [   0] JMP       jmp +7 -> 20
+        13 [   0] GETUPVAL  R2 := upval 0
+        14 [   0] CALL      R2(...) nargs=0 nret=0
+        15 [   0] GETUPVAL  R2 := upval 1
+        16 [   0] CALL      R2(...) nargs=0 nret=0
+        17 [   0] GETUPVAL  R2 := upval 2
+        18 [   0] CALL      R2(...) nargs=0 nret=0
+        19 [   0] JMP       jmp +6 -> 26
+        20 [   0] GETUPVAL  R2 := upval 0
+        21 [   0] CALL      R2(...) nargs=0 nret=0
+        22 [   0] GETUPVAL  R2 := upval 1
+        23 [   0] CALL      R2(...) nargs=0 nret=0
+        24 [   0] GETUPVAL  R2 := upval 2
+        25 [   0] CALL      R2(...) nargs=0 nret=0
+        26 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#16 (params=1, lines 235-237, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: loginCallback '] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["log"]
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "ctrl_facebook: loginCallback "
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#17 (params=1, lines 239-241, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: logoutCallback '] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["log"]
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "ctrl_facebook: logoutCallback "
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#18 (params=0, lines 244-251, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: login', 'sendFacebookTrackingData', 'login', 'settings', 'click', 'setAutoLogin'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "ctrl_facebook: login"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] CALL      R0(...) nargs=0 nret=0
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] GETTABLE  R0 := R0["sendFacebookTrackingData"]
+        10 [   0] LOADK     R1 := "login"
+        11 [   0] LOADK     R2 := "settings"
+        12 [   0] LOADK     R3 := "click"
+        13 [   0] CALL      R0(...) nargs=3 nret=0
+        14 [   0] GETUPVAL  R0 := upval 2
+        15 [   0] GETTABLE  R0 := R0["login"]
+        16 [   0] GETUPVAL  R1 := upval 3
+        17 [   0] CALL      R0(...) nargs=1 nret=0
+        18 [   0] GETUPVAL  R0 := upval 2
+        19 [   0] GETTABLE  R0 := R0["setAutoLogin"]
+        20 [   0] LOADBOOL  R1 := True
+        21 [   0] CALL      R0(...) nargs=1 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#19 (params=0, lines 253-260, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: logout', 'server.server', 'getInstance', 'setAutoLoginToFacebook', 'logout'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "ctrl_facebook: logout"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] CALL      R0(...) nargs=0 nret=0
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] CALL      R0(...) nargs=0 nret=0
+         8 [   0] GETUPVAL  R0 := upval 2
+         9 [   0] LOADK     R1 := "server.server"
+        10 [   0] CALL      R0(...) nargs=1 nret=1
+        11 [   0] GETTABLE  R0 := R0["getInstance"]
+        12 [   0] CALL      R0(...) nargs=0 nret=1
+        13 [   0] GETTABLE  R1 := R0["setAutoLoginToFacebook"]
+        14 [   0] LOADBOOL  R2 := False
+        15 [   0] CALL      R1(...) nargs=1 nret=0
+        16 [   0] GETUPVAL  R1 := upval 3
+        17 [   0] GETTABLE  R1 := R1["logout"]
+        18 [   0] GETUPVAL  R2 := upval 4
+        19 [   0] CALL      R1(...) nargs=1 nret=0
+        20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#20 (params=0, lines 263-265, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] CALL      R0(...) nargs=0 nret=0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#21 (params=1, lines 267-270, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: update'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["log"]
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "ctrl_facebook: update"
+         3 [   0] CALL      R1(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R1 := upval 0
+         5 [   0] MOVE      R2 := R0
+         6 [   0] CALL      R1(...) nargs=1 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#22 (params=0, lines 272-311, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: enter ', 'isLoggedIn', 'sendFacebookTrackingData', 'login', 'settings', 'display', 'getInstance', 'pushCustomFn'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "ctrl_facebook: enter "
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +1 -> 8
+         7 [   0] RETURN    return R0.. (0 values)
+         8 [   0] LOADBOOL  R0 := True
+         9 [   0] SETUPVAL  upval 0 := R0
+        10 [   0] CLOSURE   R0 := closure #0
+        11 [   0] GETUPVAL  R0 := upval 1
+        12 [   0] GETUPVAL  R0 := upval 2
+        13 [   0] GETUPVAL  R0 := upval 3
+        14 [   0] GETUPVAL  R0 := upval 4
+        15 [   0] GETUPVAL  R0 := upval 5
+        16 [   0] CLOSURE   R1 := closure #1
+        17 [   0] GETUPVAL  R0 := upval 1
+        18 [   0] GETUPVAL  R0 := upval 6
+        19 [   0] GETUPVAL  R0 := upval 7
+        20 [   0] MOVE      R2 := R0
+        21 [   0] CALL      R2(...) nargs=0 nret=0
+        22 [   0] MOVE      R2 := R1
+        23 [   0] CALL      R2(...) nargs=0 nret=0
+        24 [   0] GETUPVAL  R2 := upval 8
+        25 [   0] CALL      R2(...) nargs=0 nret=0
+        26 [   0] GETUPVAL  R2 := upval 9
+        27 [   0] CALL      R2(...) nargs=0 nret=0
+        28 [   0] GETUPVAL  R2 := upval 5
+        29 [   0] GETTABLE  R2 := R2["isLoggedIn"]
+        30 [   0] CALL      R2(...) nargs=0 nret=1
+        31 [   0] EQ        if (R2 == False) ~= 0 then skip next
+        32 [   0] JMP       jmp +6 -> 39
+        33 [   0] GETUPVAL  R3 := upval 5
+        34 [   0] GETTABLE  R3 := R3["sendFacebookTrackingData"]
+        35 [   0] LOADK     R4 := "login"
+        36 [   0] LOADK     R5 := "settings"
+        37 [   0] LOADK     R6 := "display"
+        38 [   0] CALL      R3(...) nargs=3 nret=0
+        39 [   0] GETUPVAL  R3 := upval 10
+        40 [   0] CALL      R3(...) nargs=0 nret=0
+        41 [   0] GETUPVAL  R3 := upval 11
+        42 [   0] GETTABLE  R3 := R3["getInstance"]
+        43 [   0] CALL      R3(...) nargs=0 nret=1
+        44 [   0] GETTABLE  R3 := R3["pushCustomFn"]
+        45 [   0] CLOSURE   R4 := closure #2
+        46 [   0] GETUPVAL  R0 := upval 12
+        47 [   0] CALL      R3(...) nargs=1 nret=0
+        48 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#22.#0 (params=0, lines 278-285, upvals=[], locals=[])
+        constants: strings=['addEventListener', 'facebookLoginBtnClicked', 'facebookLogoutBtnClicked', 'subscribeTo', 'facebookRewardReceived', 'facebookRequestListReceived', 'facebookLoggedIn', 'facebookLoggedOut'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] SELF      R1 := R0; R0 := R0["addEventListener"]
+           2 [   0] LOADK     R2 := "facebookLoginBtnClicked"
+           3 [   0] GETUPVAL  R3 := upval 1
+           4 [   0] CALL      R0(...) nargs=3 nret=0
+           5 [   0] GETUPVAL  R0 := upval 0
+           6 [   0] SELF      R1 := R0; R0 := R0["addEventListener"]
+           7 [   0] LOADK     R2 := "facebookLogoutBtnClicked"
+           8 [   0] GETUPVAL  R3 := upval 2
+           9 [   0] CALL      R0(...) nargs=3 nret=0
+          10 [   0] GETUPVAL  R0 := upval 3
+          11 [   0] GETTABLE  R0 := R0["subscribeTo"]
+          12 [   0] GETUPVAL  R1 := upval 4
+          13 [   0] LOADK     R2 := "facebookRewardReceived"
+          14 [   0] CALL      R0(...) nargs=2 nret=0
+          15 [   0] GETUPVAL  R0 := upval 3
+          16 [   0] GETTABLE  R0 := R0["subscribeTo"]
+          17 [   0] GETUPVAL  R1 := upval 4
+          18 [   0] LOADK     R2 := "facebookRequestListReceived"
+          19 [   0] CALL      R0(...) nargs=2 nret=0
+          20 [   0] GETUPVAL  R0 := upval 3
+          21 [   0] GETTABLE  R0 := R0["subscribeTo"]
+          22 [   0] GETUPVAL  R1 := upval 4
+          23 [   0] LOADK     R2 := "facebookLoggedIn"
+          24 [   0] CALL      R0(...) nargs=2 nret=0
+          25 [   0] GETUPVAL  R0 := upval 3
+          26 [   0] GETTABLE  R0 := R0["subscribeTo"]
+          27 [   0] GETUPVAL  R1 := upval 4
+          28 [   0] LOADK     R2 := "facebookLoggedOut"
+          29 [   0] CALL      R0(...) nargs=2 nret=0
+          30 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#22.#1 (params=0, lines 287-291, upvals=[], locals=[])
+        constants: strings=['enter'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["enter"]
+           2 [   0] CALL      R0(...) nargs=0 nret=0
+           3 [   0] GETUPVAL  R0 := upval 1
+           4 [   0] GETTABLE  R0 := R0["enter"]
+           5 [   0] CALL      R0(...) nargs=0 nret=0
+           6 [   0] GETUPVAL  R0 := upval 2
+           7 [   0] GETTABLE  R0 := R0["enter"]
+           8 [   0] CALL      R0(...) nargs=0 nret=0
+           9 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#22.#2 (params=0, lines 308-310, upvals=[], locals=[])
+        constants: strings=['getInstance', 'popScreen'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["getInstance"]
+           2 [   0] CALL      R0(...) nargs=0 nret=1
+           3 [   0] GETTABLE  R0 := R0["popScreen"]
+           4 [   0] CALL      R0(...) nargs=0 nret=0
+           5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#23 (params=0, lines 313-338, upvals=[], locals=[])
+      constants: strings=['log', 'msg', 'ctrl_facebook: exit ', 'getInstance', 'popFn', 'abortWaitingIndicator'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["log"]
+         1 [   0] GETTABLE  R0 := R0["msg"]
+         2 [   0] LOADK     R1 := "ctrl_facebook: exit "
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         6 [   0] JMP       jmp +1 -> 8
+         7 [   0] RETURN    return R0.. (0 values)
+         8 [   0] CLOSURE   R0 := closure #0
+         9 [   0] GETUPVAL  R0 := upval 1
+        10 [   0] GETUPVAL  R0 := upval 2
+        11 [   0] GETUPVAL  R0 := upval 3
+        12 [   0] GETUPVAL  R0 := upval 4
+        13 [   0] GETUPVAL  R0 := upval 5
+        14 [   0] CLOSURE   R1 := closure #1
+        15 [   0] GETUPVAL  R0 := upval 1
+        16 [   0] GETUPVAL  R0 := upval 6
+        17 [   0] GETUPVAL  R0 := upval 7
+        18 [   0] MOVE      R2 := R0
+        19 [   0] CALL      R2(...) nargs=0 nret=0
+        20 [   0] MOVE      R2 := R1
+        21 [   0] CALL      R2(...) nargs=0 nret=0
+        22 [   0] GETUPVAL  R2 := upval 8
+        23 [   0] GETTABLE  R2 := R2["getInstance"]
+        24 [   0] CALL      R2(...) nargs=0 nret=1
+        25 [   0] GETTABLE  R2 := R2["popFn"]
+        26 [   0] CALL      R2(...) nargs=0 nret=0
+        27 [   0] GETUPVAL  R2 := upval 9
+        28 [   0] GETTABLE  R2 := R2["abortWaitingIndicator"]
+        29 [   0] CALL      R2(...) nargs=0 nret=0
+        30 [   0] LOADBOOL  R2 := False
+        31 [   0] SETUPVAL  upval 0 := R2
+        32 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#23.#0 (params=0, lines 316-323, upvals=[], locals=[])
+        constants: strings=['removeEventListener', 'facebookLoginBtnClicked', 'facebookLogoutBtnClicked', 'unsubscribeFrom', 'facebookRequestListReceived', 'facebookRewardReceived', 'facebookLoggedIn', 'facebookLoggedOut'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+           2 [   0] LOADK     R2 := "facebookLoginBtnClicked"
+           3 [   0] GETUPVAL  R3 := upval 1
+           4 [   0] CALL      R0(...) nargs=3 nret=0
+           5 [   0] GETUPVAL  R0 := upval 0
+           6 [   0] SELF      R1 := R0; R0 := R0["removeEventListener"]
+           7 [   0] LOADK     R2 := "facebookLogoutBtnClicked"
+           8 [   0] GETUPVAL  R3 := upval 2
+           9 [   0] CALL      R0(...) nargs=3 nret=0
+          10 [   0] GETUPVAL  R0 := upval 3
+          11 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+          12 [   0] GETUPVAL  R1 := upval 4
+          13 [   0] LOADK     R2 := "facebookRequestListReceived"
+          14 [   0] CALL      R0(...) nargs=2 nret=0
+          15 [   0] GETUPVAL  R0 := upval 3
+          16 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+          17 [   0] GETUPVAL  R1 := upval 4
+          18 [   0] LOADK     R2 := "facebookRewardReceived"
+          19 [   0] CALL      R0(...) nargs=2 nret=0
+          20 [   0] GETUPVAL  R0 := upval 3
+          21 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+          22 [   0] GETUPVAL  R1 := upval 4
+          23 [   0] LOADK     R2 := "facebookLoggedIn"
+          24 [   0] CALL      R0(...) nargs=2 nret=0
+          25 [   0] GETUPVAL  R0 := upval 3
+          26 [   0] GETTABLE  R0 := R0["unsubscribeFrom"]
+          27 [   0] GETUPVAL  R1 := upval 4
+          28 [   0] LOADK     R2 := "facebookLoggedOut"
+          29 [   0] CALL      R0(...) nargs=2 nret=0
+          30 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#23.#1 (params=0, lines 325-329, upvals=[], locals=[])
+        constants: strings=['exit'] numbers=[]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETTABLE  R0 := R0["exit"]
+           2 [   0] CALL      R0(...) nargs=0 nret=0
+           3 [   0] GETUPVAL  R0 := upval 1
+           4 [   0] GETTABLE  R0 := R0["exit"]
+           5 [   0] CALL      R0(...) nargs=0 nret=0
+           6 [   0] GETUPVAL  R0 := upval 2
+           7 [   0] GETTABLE  R0 := R0["exit"]
+           8 [   0] CALL      R0(...) nargs=0 nret=0
+           9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#24 (params=0, lines 340-342, upvals=[], locals=[])
+      constants: strings=['exit'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["exit"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#25 (params=0, lines 344-347, upvals=[], locals=[])
+      constants: strings=['destroy'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["destroy"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#26 (params=1, lines 349-410, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] CLOSURE   R1 := closure #0
+         1 [   0] GETUPVAL  R0 := upval 0
+         2 [   0] GETUPVAL  R0 := upval 1
+         3 [   0] GETUPVAL  R0 := upval 2
+         4 [   0] GETUPVAL  R0 := upval 3
+         5 [   0] GETUPVAL  R0 := upval 4
+         6 [   0] GETUPVAL  R0 := upval 5
+         7 [   0] GETUPVAL  R0 := upval 6
+         8 [   0] GETUPVAL  R0 := upval 7
+         9 [   0] GETUPVAL  R0 := upval 8
+        10 [   0] GETUPVAL  R0 := upval 9
+        11 [   0] GETUPVAL  R0 := upval 10
+        12 [   0] GETUPVAL  R0 := upval 11
+        13 [   0] GETUPVAL  R0 := upval 12
+        14 [   0] GETUPVAL  R0 := upval 13
+        15 [   0] MOVE      R2 := R1
+        16 [   0] CALL      R2(...) nargs=0 nret=0
+        17 [   0] GETUPVAL  R2 := upval 14
+        18 [   0] MOVE      R3 := R0
+        19 [   0] CALL      R2(...) nargs=1 nret=0
+        20 [   0] RETURN    return R0.. (0 values)
+      function main.#0.#26.#0 (params=0, lines 350-406, upvals=[], locals=[])
+        constants: strings=['UI_LIB_PATH', 'common.fonts', 'createImage', 'parent', 'layout', 'ctrlFacebook.background', 'img', 'assets/gfx/nosheet_backgrounds/fullscreen_background.jpg', 'imgxscale', 'imgyscale', 'create', 'ctrlFacebook.requestList', 'margin', 'ySpacing', 'topPadding', 'bottomPadding', 'ctrlFacebook.topBackground', 'assets/gfx/nosheet_backgrounds/tab_background.jpg', 'ctrlFacebook.facebookView', 'loggedIn', 'isLoggedIn', 'createLabel', 'ctrlFacebook.requestLbl', 'txt', '_T', 'Requests:', 'fontSize', 'font', 'getBoldFont', 'txtAlignHorizontal', 'left', 'fitText', 'ctrlFacebook.seperatorLine', 'assets/gfx/hud/popupframe/mediumframe/ironframe_02.png', 'default.center'] numbers=[20, 1.25, 255, 0]
+           0 [   0] GETUPVAL  R0 := upval 0
+           1 [   0] GETGLOBAL R1 := _G["UI_LIB_PATH"]
+           2 [   0] LOADK     R2 := "common.fonts"
+           3 [   0] CONCAT    R1 := R1 .. ... .. R2
+           4 [   0] CALL      R0(...) nargs=1 nret=1
+           5 [   0] LOADK     R1 := 20
+           6 [   0] GETUPVAL  R2 := upval 2
+           7 [   0] GETTABLE  R2 := R2["createImage"]
+           8 [   0] NEWTABLE  R3 := {} (array 0, hash 5)
+           9 [   0] GETUPVAL  R4 := upval 3
+          10 [   0] SETTABLE  R3["parent"] := R4
+          11 [   0] SETTABLE  R3["layout"] := "ctrlFacebook.background"
+          12 [   0] SETTABLE  R3["img"] := "assets/gfx/nosheet_backgrounds/fullscreen_background.jpg"
+          13 [   0] SETTABLE  R3["imgxscale"] := 1.25
+          14 [   0] SETTABLE  R3["imgyscale"] := 1.25
+          15 [   0] CALL      R2(...) nargs=1 nret=1
+          16 [   0] SETUPVAL  upval 1 := R2
+          17 [   0] GETUPVAL  R2 := upval 5
+          18 [   0] GETTABLE  R2 := R2["create"]
+          19 [   0] NEWTABLE  R3 := {} (array 0, hash 6)
+          20 [   0] GETUPVAL  R4 := upval 3
+          21 [   0] SETTABLE  R3["parent"] := R4
+          22 [   0] SETTABLE  R3["layout"] := "ctrlFacebook.requestList"
+          23 [   0] SETTABLE  R3["margin"] := 255
+          24 [   0] SETTABLE  R3["ySpacing"] := 0
+          25 [   0] SETTABLE  R3["topPadding"] := 0
+          26 [   0] SETTABLE  R3["bottomPadding"] := 0
+          27 [   0] CALL      R2(...) nargs=1 nret=1
+          28 [   0] SETUPVAL  upval 4 := R2
+          29 [   0] GETUPVAL  R2 := upval 2
+          30 [   0] GETTABLE  R2 := R2["createImage"]
+          31 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+          32 [   0] GETUPVAL  R4 := upval 3
+          33 [   0] SETTABLE  R3["parent"] := R4
+          34 [   0] SETTABLE  R3["layout"] := "ctrlFacebook.topBackground"
+          35 [   0] SETTABLE  R3["img"] := "assets/gfx/nosheet_backgrounds/tab_background.jpg"
+          36 [   0] CALL      R2(...) nargs=1 nret=1
+          37 [   0] SETUPVAL  upval 6 := R2
+          38 [   0] GETUPVAL  R2 := upval 8
+          39 [   0] GETTABLE  R2 := R2["create"]
+          40 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+          41 [   0] GETUPVAL  R4 := upval 3
+          42 [   0] SETTABLE  R3["parent"] := R4
+          43 [   0] SETTABLE  R3["layout"] := "ctrlFacebook.facebookView"
+          44 [   0] GETUPVAL  R4 := upval 9
+          45 [   0] GETTABLE  R4 := R4["isLoggedIn"]
+          46 [   0] CALL      R4(...) nargs=0 nret=1
+          47 [   0] SETTABLE  R3["loggedIn"] := R4
+          48 [   0] CALL      R2(...) nargs=1 nret=1
+          49 [   0] SETUPVAL  upval 7 := R2
+          50 [   0] GETUPVAL  R2 := upval 2
+          51 [   0] GETTABLE  R2 := R2["createLabel"]
+          52 [   0] NEWTABLE  R3 := {} (array 0, hash 7)
+          53 [   0] GETUPVAL  R4 := upval 3
+          54 [   0] SETTABLE  R3["parent"] := R4
+          55 [   0] SETTABLE  R3["layout"] := "ctrlFacebook.requestLbl"
+          56 [   0] GETGLOBAL R4 := _G["_T"]
+          57 [   0] LOADK     R5 := "Requests:"
+          58 [   0] CALL      R4(...) nargs=1 nret=1
+          59 [   0] SETTABLE  R3["txt"] := R4
+          60 [   0] SETTABLE  R3["fontSize"] := R1
+          61 [   0] GETTABLE  R4 := R0["getBoldFont"]
+          62 [   0] CALL      R4(...) nargs=0 nret=1
+          63 [   0] SETTABLE  R3["font"] := R4
+          64 [   0] SETTABLE  R3["txtAlignHorizontal"] := "left"
+          65 [   0] SETTABLE  R3["fitText"] := True
+          66 [   0] CALL      R2(...) nargs=1 nret=1
+          67 [   0] SETUPVAL  upval 10 := R2
+          68 [   0] GETUPVAL  R2 := upval 2
+          69 [   0] GETTABLE  R2 := R2["createImage"]
+          70 [   0] NEWTABLE  R3 := {} (array 0, hash 3)
+          71 [   0] GETUPVAL  R4 := upval 3
+          72 [   0] SETTABLE  R3["parent"] := R4
+          73 [   0] SETTABLE  R3["layout"] := "ctrlFacebook.seperatorLine"
+          74 [   0] SETTABLE  R3["img"] := "assets/gfx/hud/popupframe/mediumframe/ironframe_02.png"
+          75 [   0] CALL      R2(...) nargs=1 nret=1
+          76 [   0] SETUPVAL  upval 11 := R2
+          77 [   0] GETUPVAL  R2 := upval 13
+          78 [   0] GETTABLE  R2 := R2["create"]
+          79 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+          80 [   0] GETUPVAL  R4 := upval 3
+          81 [   0] SETTABLE  R3["parent"] := R4
+          82 [   0] SETTABLE  R3["layout"] := "default.center"
+          83 [   0] CALL      R2(...) nargs=1 nret=1
+          84 [   0] SETUPVAL  upval 12 := R2
+          85 [   0] RETURN    return R0.. (0 values)

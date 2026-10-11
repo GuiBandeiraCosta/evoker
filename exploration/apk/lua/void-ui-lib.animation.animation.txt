@@ -1,0 +1,510 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['scaleFromTo', 'moveBy', 'fadeIn', 'fadeOut', 'quake', 'rotate', 'wobbleUp', 'wobbleDown'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] CLOSURE   R1 := closure #1
+     2 [   0] MOVE      R0 := R0
+     3 [   0] CLOSURE   R2 := closure #2
+     4 [   0] MOVE      R0 := R0
+     5 [   0] CLOSURE   R3 := closure #3
+     6 [   0] MOVE      R0 := R0
+     7 [   0] CLOSURE   R4 := closure #4
+     8 [   0] MOVE      R0 := R0
+     9 [   0] CLOSURE   R5 := closure #5
+    10 [   0] MOVE      R0 := R0
+    11 [   0] CLOSURE   R6 := closure #6
+    12 [   0] MOVE      R0 := R0
+    13 [   0] CLOSURE   R7 := closure #7
+    14 [   0] MOVE      R0 := R0
+    15 [   0] CLOSURE   R8 := closure #8
+    16 [   0] MOVE      R0 := R0
+    17 [   0] NEWTABLE  R9 := {} (array 0, hash 8)
+    18 [   0] SETTABLE  R9["scaleFromTo"] := R1
+    19 [   0] SETTABLE  R9["moveBy"] := R5
+    20 [   0] SETTABLE  R9["fadeIn"] := R3
+    21 [   0] SETTABLE  R9["fadeOut"] := R4
+    22 [   0] SETTABLE  R9["quake"] := R6
+    23 [   0] SETTABLE  R9["rotate"] := R2
+    24 [   0] SETTABLE  R9["wobbleUp"] := R7
+    25 [   0] SETTABLE  R9["wobbleDown"] := R8
+    26 [   0] RETURN    return R9.. (1 values)
+    27 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 4-17, upvals=[], locals=[])
+    constants: strings=['x', 'y'] numbers=[]
+       0 [   0] LOADBOOL  R1 := True
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +2 -> 5
+       3 [   0] LOADBOOL  R2 := False
+       4 [   0] RETURN    return R2.. (1 values)
+       5 [   0] GETTABLE  R2 := R0["x"]
+       6 [   0] EQ        if (R2 == None) ~= 1 then skip next
+       7 [   0] JMP       jmp +3 -> 11
+       8 [   0] GETTABLE  R2 := R0["y"]
+       9 [   0] EQ        if (R2 == None) ~= 0 then skip next
+      10 [   0] JMP       jmp +2 -> 13
+      11 [   0] LOADBOOL  R2 := False
+      12 [   0] RETURN    return R2.. (1 values)
+      13 [   0] RETURN    return R1.. (1 values)
+      14 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=9, lines 20-43, upvals=[], locals=[])
+    constants: strings=['xScale', 'yScale', 'time', 'delay', 'transition', 'onComplete', 'to'] numbers=[0]
+       0 [   0] GETUPVAL  R9 := upval 0
+       1 [   0] MOVE      R10 := R0
+       2 [   0] CALL      R9(...) nargs=1 nret=1
+       3 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] RETURN    return R0.. (0 values)
+       6 [   0] SETTABLE  R0["xScale"] := R1
+       7 [   0] SETTABLE  R0["yScale"] := R2
+       8 [   0] NEWTABLE  R9 := {} (array 0, hash 6)
+       9 [   0] SETTABLE  R9["time"] := R5
+      10 [   0] TESTSET   if (R6 truthy) == 1 then R10 := R6 else skip next
+      11 [   0] JMP       jmp +1 -> 13
+      12 [   0] LOADK     R10 := 0
+      13 [   0] SETTABLE  R9["delay"] := R10
+      14 [   0] SETTABLE  R9["xScale"] := R3
+      15 [   0] SETTABLE  R9["yScale"] := R4
+      16 [   0] SETTABLE  R9["transition"] := R7
+      17 [   0] CLOSURE   R10 := closure #0
+      18 [   0] MOVE      R0 := R8
+      19 [   0] SETTABLE  R9["onComplete"] := R10
+      20 [   0] GETGLOBAL R10 := _G["transition"]
+      21 [   0] GETTABLE  R10 := R10["to"]
+      22 [   0] MOVE      R11 := R0
+      23 [   0] MOVE      R12 := R9
+      24 [   0] TAILCALL  return R10(...) nargs=2
+      25 [   0] RETURN    return R10.. (-1 values)
+      26 [   0] RETURN    return R0.. (0 values)
+    function main.#1.#0 (params=0, lines 36-39, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=6, lines 46-66, upvals=[], locals=[])
+    constants: strings=['time', 'delay', 'rotation', 'transition', 'onComplete', 'to'] numbers=[0]
+       0 [   0] GETUPVAL  R6 := upval 0
+       1 [   0] MOVE      R7 := R0
+       2 [   0] CALL      R6(...) nargs=1 nret=1
+       3 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] RETURN    return R0.. (0 values)
+       6 [   0] NEWTABLE  R6 := {} (array 0, hash 5)
+       7 [   0] SETTABLE  R6["time"] := R2
+       8 [   0] TESTSET   if (R3 truthy) == 1 then R7 := R3 else skip next
+       9 [   0] JMP       jmp +1 -> 11
+      10 [   0] LOADK     R7 := 0
+      11 [   0] SETTABLE  R6["delay"] := R7
+      12 [   0] SETTABLE  R6["rotation"] := R1
+      13 [   0] SETTABLE  R6["transition"] := R4
+      14 [   0] CLOSURE   R7 := closure #0
+      15 [   0] MOVE      R0 := R5
+      16 [   0] SETTABLE  R6["onComplete"] := R7
+      17 [   0] GETGLOBAL R7 := _G["transition"]
+      18 [   0] GETTABLE  R7 := R7["to"]
+      19 [   0] MOVE      R8 := R0
+      20 [   0] MOVE      R9 := R6
+      21 [   0] TAILCALL  return R7(...) nargs=2
+      22 [   0] RETURN    return R7.. (-1 values)
+      23 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#0 (params=0, lines 59-62, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=5, lines 69-90, upvals=[], locals=[])
+    constants: strings=['alpha', 'time', 'delay', 'transition', 'onComplete', 'to'] numbers=[0, 1]
+       0 [   0] GETUPVAL  R5 := upval 0
+       1 [   0] MOVE      R6 := R0
+       2 [   0] CALL      R5(...) nargs=1 nret=1
+       3 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] RETURN    return R0.. (0 values)
+       6 [   0] SETTABLE  R0["alpha"] := 0
+       7 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+       8 [   0] SETTABLE  R5["time"] := R1
+       9 [   0] TESTSET   if (R2 truthy) == 1 then R6 := R2 else skip next
+      10 [   0] JMP       jmp +1 -> 12
+      11 [   0] LOADK     R6 := 0
+      12 [   0] SETTABLE  R5["delay"] := R6
+      13 [   0] SETTABLE  R5["alpha"] := 1
+      14 [   0] SETTABLE  R5["transition"] := R3
+      15 [   0] CLOSURE   R6 := closure #0
+      16 [   0] MOVE      R0 := R4
+      17 [   0] SETTABLE  R5["onComplete"] := R6
+      18 [   0] GETGLOBAL R6 := _G["transition"]
+      19 [   0] GETTABLE  R6 := R6["to"]
+      20 [   0] MOVE      R7 := R0
+      21 [   0] MOVE      R8 := R5
+      22 [   0] TAILCALL  return R6(...) nargs=2
+      23 [   0] RETURN    return R6.. (-1 values)
+      24 [   0] RETURN    return R0.. (0 values)
+    function main.#3.#0 (params=0, lines 83-86, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=5, lines 93-114, upvals=[], locals=[])
+    constants: strings=['alpha', 'time', 'delay', 'transition', 'onComplete', 'to'] numbers=[1, 0]
+       0 [   0] GETUPVAL  R5 := upval 0
+       1 [   0] MOVE      R6 := R0
+       2 [   0] CALL      R5(...) nargs=1 nret=1
+       3 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] RETURN    return R0.. (0 values)
+       6 [   0] SETTABLE  R0["alpha"] := 1
+       7 [   0] NEWTABLE  R5 := {} (array 0, hash 5)
+       8 [   0] SETTABLE  R5["time"] := R1
+       9 [   0] TESTSET   if (R2 truthy) == 1 then R6 := R2 else skip next
+      10 [   0] JMP       jmp +1 -> 12
+      11 [   0] LOADK     R6 := 0
+      12 [   0] SETTABLE  R5["delay"] := R6
+      13 [   0] SETTABLE  R5["alpha"] := 0
+      14 [   0] SETTABLE  R5["transition"] := R3
+      15 [   0] CLOSURE   R6 := closure #0
+      16 [   0] MOVE      R0 := R4
+      17 [   0] SETTABLE  R5["onComplete"] := R6
+      18 [   0] GETGLOBAL R6 := _G["transition"]
+      19 [   0] GETTABLE  R6 := R6["to"]
+      20 [   0] MOVE      R7 := R0
+      21 [   0] MOVE      R8 := R5
+      22 [   0] TAILCALL  return R6(...) nargs=2
+      23 [   0] RETURN    return R6.. (-1 values)
+      24 [   0] RETURN    return R0.. (0 values)
+    function main.#4.#0 (params=0, lines 107-110, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=7, lines 117-137, upvals=[], locals=[])
+    constants: strings=['time', 'delay', 'x', 'y', 'transition', 'onComplete', 'to'] numbers=[0]
+       0 [   0] GETUPVAL  R7 := upval 0
+       1 [   0] MOVE      R8 := R0
+       2 [   0] CALL      R7(...) nargs=1 nret=1
+       3 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] RETURN    return R0.. (0 values)
+       6 [   0] NEWTABLE  R7 := {} (array 0, hash 6)
+       7 [   0] SETTABLE  R7["time"] := R3
+       8 [   0] TESTSET   if (R4 truthy) == 1 then R8 := R4 else skip next
+       9 [   0] JMP       jmp +1 -> 11
+      10 [   0] LOADK     R8 := 0
+      11 [   0] SETTABLE  R7["delay"] := R8
+      12 [   0] GETTABLE  R8 := R0["x"]
+      13 [   0] ADD       R8 := R8 + R1
+      14 [   0] SETTABLE  R7["x"] := R8
+      15 [   0] GETTABLE  R8 := R0["y"]
+      16 [   0] ADD       R8 := R8 + R2
+      17 [   0] SETTABLE  R7["y"] := R8
+      18 [   0] SETTABLE  R7["transition"] := R5
+      19 [   0] CLOSURE   R8 := closure #0
+      20 [   0] MOVE      R0 := R6
+      21 [   0] SETTABLE  R7["onComplete"] := R8
+      22 [   0] GETGLOBAL R8 := _G["transition"]
+      23 [   0] GETTABLE  R8 := R8["to"]
+      24 [   0] MOVE      R9 := R0
+      25 [   0] MOVE      R10 := R7
+      26 [   0] TAILCALL  return R8(...) nargs=2
+      27 [   0] RETURN    return R8.. (-1 values)
+      28 [   0] RETURN    return R0.. (0 values)
+    function main.#5.#0 (params=0, lines 130-133, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] CALL      R0(...) nargs=0 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=5, lines 140-182, upvals=[], locals=[])
+    constants: strings=['x', 'y', 'timer', 'performWithDelay'] numbers=[50, 0]
+       0 [   0] GETUPVAL  R5 := upval 0
+       1 [   0] MOVE      R6 := R0
+       2 [   0] CALL      R5(...) nargs=1 nret=1
+       3 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] RETURN    return R0.. (0 values)
+       6 [   0] LOADK     R5 := 50
+       7 [   0] MOVE      R6 := R1
+       8 [   0] MOVE      R7 := R2
+       9 [   0] GETTABLE  R8 := R0["x"]
+      10 [   0] GETTABLE  R9 := R0["y"]
+      11 [   0] LOADNIL   R10..R10 := nil
+      12 [   0] CLOSURE   R10 := closure #0
+      13 [   0] GETUPVAL  R0 := upval 0
+      14 [   0] MOVE      R0 := R0
+      15 [   0] MOVE      R0 := R8
+      16 [   0] MOVE      R0 := R6
+      17 [   0] MOVE      R0 := R9
+      18 [   0] MOVE      R0 := R7
+      19 [   0] MOVE      R0 := R5
+      20 [   0] MOVE      R0 := R10
+      21 [   0] MOVE      R0 := R4
+      22 [   0] TESTSET   if (R3 truthy) == 1 then R11 := R3 else skip next
+      23 [   0] JMP       jmp +1 -> 25
+      24 [   0] LOADK     R11 := 0
+      25 [   0] GETGLOBAL R12 := _G["timer"]
+      26 [   0] GETTABLE  R12 := R12["performWithDelay"]
+      27 [   0] MOVE      R13 := R11
+      28 [   0] MOVE      R14 := R10
+      29 [   0] CALL      R12(...) nargs=2 nret=0
+      30 [   0] RETURN    return R0.. (0 values)
+    function main.#6.#0 (params=0, lines 156-178, upvals=[], locals=[])
+      constants: strings=['x', 'math', 'random', 'y', 'timer', 'performWithDelay'] numbers=[2, 1.3, 0]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] CALL      R0(...) nargs=1 nret=1
+         3 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         4 [   0] JMP       jmp +1 -> 6
+         5 [   0] RETURN    return R0.. (0 values)
+         6 [   0] GETUPVAL  R0 := upval 1
+         7 [   0] GETUPVAL  R1 := upval 2
+         8 [   0] GETUPVAL  R2 := upval 3
+         9 [   0] MUL       R2 := R2 * 2
+        10 [   0] GETGLOBAL R3 := _G["math"]
+        11 [   0] GETTABLE  R3 := R3["random"]
+        12 [   0] CALL      R3(...) nargs=0 nret=1
+        13 [   0] MUL       R2 := R2 * R3
+        14 [   0] ADD       R1 := R1 + R2
+        15 [   0] GETUPVAL  R2 := upval 3
+        16 [   0] SUB       R1 := R1 - R2
+        17 [   0] SETTABLE  R0["x"] := R1
+        18 [   0] GETUPVAL  R0 := upval 1
+        19 [   0] GETUPVAL  R1 := upval 4
+        20 [   0] GETUPVAL  R2 := upval 3
+        21 [   0] MUL       R2 := R2 * 2
+        22 [   0] GETGLOBAL R3 := _G["math"]
+        23 [   0] GETTABLE  R3 := R3["random"]
+        24 [   0] CALL      R3(...) nargs=0 nret=1
+        25 [   0] MUL       R2 := R2 * R3
+        26 [   0] ADD       R1 := R1 + R2
+        27 [   0] GETUPVAL  R2 := upval 3
+        28 [   0] SUB       R1 := R1 - R2
+        29 [   0] SETTABLE  R0["y"] := R1
+        30 [   0] GETUPVAL  R0 := upval 3
+        31 [   0] DIV       R0 := R0 / 1.3
+        32 [   0] SETUPVAL  upval 3 := R0
+        33 [   0] GETUPVAL  R0 := upval 5
+        34 [   0] LT        if (0 < R0) ~= 0 then skip next
+        35 [   0] JMP       jmp +10 -> 46
+        36 [   0] GETUPVAL  R0 := upval 5
+        37 [   0] GETUPVAL  R1 := upval 6
+        38 [   0] SUB       R0 := R0 - R1
+        39 [   0] SETUPVAL  upval 5 := R0
+        40 [   0] GETGLOBAL R0 := _G["timer"]
+        41 [   0] GETTABLE  R0 := R0["performWithDelay"]
+        42 [   0] GETUPVAL  R1 := upval 6
+        43 [   0] GETUPVAL  R2 := upval 7
+        44 [   0] CALL      R0(...) nargs=2 nret=0
+        45 [   0] JMP       jmp +11 -> 57
+        46 [   0] GETUPVAL  R0 := upval 1
+        47 [   0] GETUPVAL  R1 := upval 2
+        48 [   0] SETTABLE  R0["x"] := R1
+        49 [   0] GETUPVAL  R0 := upval 1
+        50 [   0] GETUPVAL  R1 := upval 4
+        51 [   0] SETTABLE  R0["y"] := R1
+        52 [   0] GETUPVAL  R0 := upval 8
+        53 [   0] EQ        if (R0 == None) ~= 1 then skip next
+        54 [   0] JMP       jmp +2 -> 57
+        55 [   0] GETUPVAL  R0 := upval 8
+        56 [   0] CALL      R0(...) nargs=0 nret=0
+        57 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=2, lines 186-240, upvals=[], locals=[])
+    constants: strings=['delay', 'timer', 'performWithDelay', 'time1', 'time2', 'time3', 'time4', 'time5', 'transition', 'to', 'time', 'xScale', 'yScale', 'onComplete'] numbers=[0, 300, 100, 1.1, 0.9, 1.07, 1]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] MOVE      R3 := R0
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] RETURN    return R0.. (0 values)
+       6 [   0] GETTABLE  R2 := R1["delay"]
+       7 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       8 [   0] JMP       jmp +1 -> 10
+       9 [   0] LOADK     R2 := 0
+      10 [   0] SETTABLE  R1["delay"] := R2
+      11 [   0] GETGLOBAL R2 := _G["timer"]
+      12 [   0] GETTABLE  R2 := R2["performWithDelay"]
+      13 [   0] GETTABLE  R3 := R1["delay"]
+      14 [   0] CLOSURE   R4 := closure #0
+      15 [   0] MOVE      R0 := R0
+      16 [   0] CALL      R2(...) nargs=2 nret=0
+      17 [   0] GETTABLE  R2 := R1["time1"]
+      18 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+      19 [   0] JMP       jmp +1 -> 21
+      20 [   0] LOADK     R2 := 300
+      21 [   0] GETTABLE  R3 := R1["time2"]
+      22 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      23 [   0] JMP       jmp +1 -> 25
+      24 [   0] LOADK     R3 := 100
+      25 [   0] GETTABLE  R4 := R1["time3"]
+      26 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+      27 [   0] JMP       jmp +1 -> 29
+      28 [   0] LOADK     R4 := 100
+      29 [   0] GETTABLE  R5 := R1["time4"]
+      30 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      31 [   0] JMP       jmp +1 -> 33
+      32 [   0] LOADK     R5 := 100
+      33 [   0] GETTABLE  R6 := R1["time5"]
+      34 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+      35 [   0] JMP       jmp +1 -> 37
+      36 [   0] LOADK     R6 := 100
+      37 [   0] GETGLOBAL R7 := _G["transition"]
+      38 [   0] GETTABLE  R7 := R7["to"]
+      39 [   0] MOVE      R8 := R0
+      40 [   0] NEWTABLE  R9 := {} (array 0, hash 4)
+      41 [   0] SETTABLE  R9["time"] := R2
+      42 [   0] SETTABLE  R9["xScale"] := 1.1
+      43 [   0] SETTABLE  R9["yScale"] := 1.1
+      44 [   0] GETTABLE  R10 := R1["delay"]
+      45 [   0] SETTABLE  R9["delay"] := R10
+      46 [   0] CALL      R7(...) nargs=2 nret=0
+      47 [   0] GETGLOBAL R7 := _G["transition"]
+      48 [   0] GETTABLE  R7 := R7["to"]
+      49 [   0] MOVE      R8 := R0
+      50 [   0] NEWTABLE  R9 := {} (array 0, hash 4)
+      51 [   0] SETTABLE  R9["time"] := R3
+      52 [   0] GETTABLE  R10 := R1["delay"]
+      53 [   0] ADD       R10 := R2 + R10
+      54 [   0] SETTABLE  R9["delay"] := R10
+      55 [   0] SETTABLE  R9["xScale"] := 0.9
+      56 [   0] SETTABLE  R9["yScale"] := 0.9
+      57 [   0] CALL      R7(...) nargs=2 nret=0
+      58 [   0] GETGLOBAL R7 := _G["transition"]
+      59 [   0] GETTABLE  R7 := R7["to"]
+      60 [   0] MOVE      R8 := R0
+      61 [   0] NEWTABLE  R9 := {} (array 0, hash 4)
+      62 [   0] SETTABLE  R9["time"] := R4
+      63 [   0] ADD       R10 := R2 + R3
+      64 [   0] GETTABLE  R11 := R1["delay"]
+      65 [   0] ADD       R10 := R10 + R11
+      66 [   0] SETTABLE  R9["delay"] := R10
+      67 [   0] SETTABLE  R9["xScale"] := 1.07
+      68 [   0] SETTABLE  R9["yScale"] := 1.07
+      69 [   0] CALL      R7(...) nargs=2 nret=0
+      70 [   0] GETGLOBAL R7 := _G["transition"]
+      71 [   0] GETTABLE  R7 := R7["to"]
+      72 [   0] MOVE      R8 := R0
+      73 [   0] NEWTABLE  R9 := {} (array 0, hash 5)
+      74 [   0] SETTABLE  R9["time"] := R5
+      75 [   0] ADD       R10 := R2 + R3
+      76 [   0] ADD       R10 := R10 + R4
+      77 [   0] GETTABLE  R11 := R1["delay"]
+      78 [   0] ADD       R10 := R10 + R11
+      79 [   0] SETTABLE  R9["delay"] := R10
+      80 [   0] SETTABLE  R9["xScale"] := 1
+      81 [   0] SETTABLE  R9["yScale"] := 1
+      82 [   0] GETTABLE  R10 := R1["onComplete"]
+      83 [   0] SETTABLE  R9["onComplete"] := R10
+      84 [   0] CALL      R7(...) nargs=2 nret=0
+      85 [   0] RETURN    return R0.. (0 values)
+    function main.#7.#0 (params=0, lines 199-203, upvals=[], locals=[])
+      constants: strings=['xScale', 'yScale', 'isVisible'] numbers=[0.01]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["xScale"] := 0.01
+         2 [   0] GETUPVAL  R0 := upval 0
+         3 [   0] SETTABLE  R0["yScale"] := 0.01
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] SETTABLE  R0["isVisible"] := True
+         6 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=2, lines 242-293, upvals=[], locals=[])
+    constants: strings=['delay', 'timer', 'performWithDelay', 'time1', 'time2', 'time3', 'time4', 'transition', 'to', 'time', 'xScale', 'yScale', 'onComplete'] numbers=[0, 100, 200, 300, 1.1, 0.9, 0.01]
+       0 [   0] GETUPVAL  R2 := upval 0
+       1 [   0] MOVE      R3 := R0
+       2 [   0] CALL      R2(...) nargs=1 nret=1
+       3 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       4 [   0] JMP       jmp +1 -> 6
+       5 [   0] RETURN    return R0.. (0 values)
+       6 [   0] GETTABLE  R2 := R1["delay"]
+       7 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+       8 [   0] JMP       jmp +1 -> 10
+       9 [   0] LOADK     R2 := 0
+      10 [   0] SETTABLE  R1["delay"] := R2
+      11 [   0] GETGLOBAL R2 := _G["timer"]
+      12 [   0] GETTABLE  R2 := R2["performWithDelay"]
+      13 [   0] GETTABLE  R3 := R1["delay"]
+      14 [   0] CLOSURE   R4 := closure #0
+      15 [   0] MOVE      R0 := R0
+      16 [   0] CALL      R2(...) nargs=2 nret=0
+      17 [   0] GETTABLE  R2 := R1["time1"]
+      18 [   0] TEST      if (R2 truthy) ~= 1 then skip next
+      19 [   0] JMP       jmp +1 -> 21
+      20 [   0] LOADK     R2 := 100
+      21 [   0] GETTABLE  R3 := R1["time2"]
+      22 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      23 [   0] JMP       jmp +1 -> 25
+      24 [   0] LOADK     R3 := 200
+      25 [   0] GETTABLE  R4 := R1["time3"]
+      26 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+      27 [   0] JMP       jmp +1 -> 29
+      28 [   0] LOADK     R4 := 100
+      29 [   0] GETTABLE  R5 := R1["time4"]
+      30 [   0] TEST      if (R5 truthy) ~= 1 then skip next
+      31 [   0] JMP       jmp +1 -> 33
+      32 [   0] LOADK     R5 := 300
+      33 [   0] GETGLOBAL R6 := _G["transition"]
+      34 [   0] GETTABLE  R6 := R6["to"]
+      35 [   0] MOVE      R7 := R0
+      36 [   0] NEWTABLE  R8 := {} (array 0, hash 4)
+      37 [   0] SETTABLE  R8["time"] := R2
+      38 [   0] SETTABLE  R8["xScale"] := 1.1
+      39 [   0] SETTABLE  R8["yScale"] := 1.1
+      40 [   0] GETTABLE  R9 := R1["delay"]
+      41 [   0] SETTABLE  R8["delay"] := R9
+      42 [   0] CALL      R6(...) nargs=2 nret=0
+      43 [   0] GETGLOBAL R6 := _G["transition"]
+      44 [   0] GETTABLE  R6 := R6["to"]
+      45 [   0] MOVE      R7 := R0
+      46 [   0] NEWTABLE  R8 := {} (array 0, hash 4)
+      47 [   0] SETTABLE  R8["time"] := R3
+      48 [   0] GETTABLE  R9 := R1["delay"]
+      49 [   0] ADD       R9 := R2 + R9
+      50 [   0] SETTABLE  R8["delay"] := R9
+      51 [   0] SETTABLE  R8["xScale"] := 0.9
+      52 [   0] SETTABLE  R8["yScale"] := 0.9
+      53 [   0] CALL      R6(...) nargs=2 nret=0
+      54 [   0] GETGLOBAL R6 := _G["transition"]
+      55 [   0] GETTABLE  R6 := R6["to"]
+      56 [   0] MOVE      R7 := R0
+      57 [   0] NEWTABLE  R8 := {} (array 0, hash 4)
+      58 [   0] SETTABLE  R8["time"] := R4
+      59 [   0] ADD       R9 := R2 + R3
+      60 [   0] GETTABLE  R10 := R1["delay"]
+      61 [   0] ADD       R9 := R9 + R10
+      62 [   0] SETTABLE  R8["delay"] := R9
+      63 [   0] SETTABLE  R8["xScale"] := 1.1
+      64 [   0] SETTABLE  R8["yScale"] := 1.1
+      65 [   0] CALL      R6(...) nargs=2 nret=0
+      66 [   0] GETGLOBAL R6 := _G["transition"]
+      67 [   0] GETTABLE  R6 := R6["to"]
+      68 [   0] MOVE      R7 := R0
+      69 [   0] NEWTABLE  R8 := {} (array 0, hash 5)
+      70 [   0] SETTABLE  R8["time"] := R5
+      71 [   0] ADD       R9 := R2 + R3
+      72 [   0] ADD       R9 := R9 + R4
+      73 [   0] GETTABLE  R10 := R1["delay"]
+      74 [   0] ADD       R9 := R9 + R10
+      75 [   0] SETTABLE  R8["delay"] := R9
+      76 [   0] SETTABLE  R8["xScale"] := 0.01
+      77 [   0] SETTABLE  R8["yScale"] := 0.01
+      78 [   0] GETTABLE  R9 := R1["onComplete"]
+      79 [   0] SETTABLE  R8["onComplete"] := R9
+      80 [   0] CALL      R6(...) nargs=2 nret=0
+      81 [   0] RETURN    return R0.. (0 values)
+    function main.#8.#0 (params=0, lines 254-258, upvals=[], locals=[])
+      constants: strings=['xScale', 'yScale', 'isVisible'] numbers=[1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] SETTABLE  R0["xScale"] := 1
+         2 [   0] GETUPVAL  R0 := upval 0
+         3 [   0] SETTABLE  R0["yScale"] := 1
+         4 [   0] GETUPVAL  R0 := upval 0
+         5 [   0] SETTABLE  R0["isVisible"] := True
+         6 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,155 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['table', 'getInstance'] numbers=[]
+     0 [   0] GETGLOBAL R0 := _G["table"]
+     1 [   0] CLOSURE   R1 := closure #0
+     2 [   0] LOADNIL   R2..R2 := nil
+     3 [   0] CLOSURE   R3 := closure #1
+     4 [   0] MOVE      R0 := R2
+     5 [   0] MOVE      R0 := R1
+     6 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+     7 [   0] SETTABLE  R4["getInstance"] := R3
+     8 [   0] RETURN    return R4.. (1 values)
+     9 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=0, lines 3-49, upvals=[], locals=[])
+    constants: strings=['r', 'g', 'b', 'a', 'colorizeSelection', 'colorizeDeselection', 'colorize', 'getColor', 'getSelectionColor'] numbers=[200, 230, 255, 170]
+       0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+       1 [   0] NEWTABLE  R1 := {} (array 0, hash 4)
+       2 [   0] SETTABLE  R1["r"] := 200
+       3 [   0] SETTABLE  R1["g"] := 230
+       4 [   0] SETTABLE  R1["b"] := 255
+       5 [   0] SETTABLE  R1["a"] := 255
+       6 [   0] NEWTABLE  R2 := {} (array 0, hash 4)
+       7 [   0] SETTABLE  R2["r"] := 170
+       8 [   0] SETTABLE  R2["g"] := 200
+       9 [   0] SETTABLE  R2["b"] := 255
+      10 [   0] SETTABLE  R2["a"] := 255
+      11 [   0] CLOSURE   R3 := closure #0
+      12 [   0] CLOSURE   R4 := closure #1
+      13 [   0] MOVE      R0 := R3
+      14 [   0] MOVE      R0 := R2
+      15 [   0] SETTABLE  R0["colorizeSelection"] := R4
+      16 [   0] CLOSURE   R4 := closure #2
+      17 [   0] MOVE      R0 := R3
+      18 [   0] MOVE      R0 := R1
+      19 [   0] SETTABLE  R0["colorizeDeselection"] := R4
+      20 [   0] CLOSURE   R4 := closure #3
+      21 [   0] MOVE      R0 := R3
+      22 [   0] MOVE      R0 := R2
+      23 [   0] MOVE      R0 := R1
+      24 [   0] SETTABLE  R0["colorize"] := R4
+      25 [   0] CLOSURE   R4 := closure #4
+      26 [   0] MOVE      R0 := R1
+      27 [   0] SETTABLE  R0["getColor"] := R4
+      28 [   0] CLOSURE   R4 := closure #5
+      29 [   0] MOVE      R0 := R2
+      30 [   0] SETTABLE  R0["getSelectionColor"] := R4
+      31 [   0] RETURN    return R0.. (1 values)
+      32 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=2, lines 11-25, upvals=[], locals=[])
+      constants: strings=['renderer', 'img', 'setFillColor', 'r', 'g', 'b', 'a', 'anim', 'getSprite'] numbers=[255]
+         0 [   0] GETTABLE  R2 := R0["renderer"]
+         1 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +16 -> 19
+         3 [   0] GETTABLE  R2 := R0["renderer"]
+         4 [   0] GETTABLE  R2 := R2["img"]
+         5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +12 -> 19
+         7 [   0] GETTABLE  R2 := R0["renderer"]
+         8 [   0] GETTABLE  R2 := R2["img"]
+         9 [   0] SELF      R3 := R2; R2 := R2["setFillColor"]
+        10 [   0] GETTABLE  R4 := R1["r"]
+        11 [   0] GETTABLE  R5 := R1["g"]
+        12 [   0] GETTABLE  R6 := R1["b"]
+        13 [   0] GETTABLE  R7 := R1["a"]
+        14 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+        15 [   0] JMP       jmp +1 -> 17
+        16 [   0] LOADK     R7 := 255
+        17 [   0] CALL      R2(...) nargs=5 nret=0
+        18 [   0] JMP       jmp +39 -> 58
+        19 [   0] GETTABLE  R2 := R0["renderer"]
+        20 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        21 [   0] JMP       jmp +23 -> 45
+        22 [   0] GETTABLE  R2 := R0["renderer"]
+        23 [   0] GETTABLE  R2 := R2["anim"]
+        24 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        25 [   0] JMP       jmp +19 -> 45
+        26 [   0] GETTABLE  R2 := R0["renderer"]
+        27 [   0] GETTABLE  R2 := R2["anim"]
+        28 [   0] GETTABLE  R2 := R2["getSprite"]
+        29 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        30 [   0] JMP       jmp +14 -> 45
+        31 [   0] GETTABLE  R2 := R0["renderer"]
+        32 [   0] GETTABLE  R2 := R2["anim"]
+        33 [   0] GETTABLE  R2 := R2["getSprite"]
+        34 [   0] CALL      R2(...) nargs=0 nret=1
+        35 [   0] SELF      R3 := R2; R2 := R2["setFillColor"]
+        36 [   0] GETTABLE  R4 := R1["r"]
+        37 [   0] GETTABLE  R5 := R1["g"]
+        38 [   0] GETTABLE  R6 := R1["b"]
+        39 [   0] GETTABLE  R7 := R1["a"]
+        40 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+        41 [   0] JMP       jmp +1 -> 43
+        42 [   0] LOADK     R7 := 255
+        43 [   0] CALL      R2(...) nargs=5 nret=0
+        44 [   0] JMP       jmp +13 -> 58
+        45 [   0] GETTABLE  R2 := R0["setFillColor"]
+        46 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+        47 [   0] JMP       jmp +10 -> 58
+        48 [   0] SELF      R3 := R0; R2 := R0["setFillColor"]
+        49 [   0] GETTABLE  R4 := R1["r"]
+        50 [   0] GETTABLE  R5 := R1["g"]
+        51 [   0] GETTABLE  R6 := R1["b"]
+        52 [   0] GETTABLE  R7 := R1["a"]
+        53 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+        54 [   0] JMP       jmp +1 -> 56
+        55 [   0] LOADK     R7 := 255
+        56 [   0] CALL      R2(...) nargs=5 nret=0
+        57 [   0] JMP       jmp +0 -> 58
+        58 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 27-29, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] MOVE      R2 := R0
+         2 [   0] GETUPVAL  R3 := upval 1
+         3 [   0] CALL      R1(...) nargs=2 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 31-33, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] MOVE      R2 := R0
+         2 [   0] GETUPVAL  R3 := upval 1
+         3 [   0] CALL      R1(...) nargs=2 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=2, lines 35-38, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] MOVE      R3 := R0
+         2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +3 -> 7
+         4 [   0] GETUPVAL  R4 := upval 1
+         5 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+         6 [   0] JMP       jmp +1 -> 8
+         7 [   0] GETUPVAL  R4 := upval 2
+         8 [   0] CALL      R2(...) nargs=2 nret=0
+         9 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=0, lines 40-42, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 44-46, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 53-59, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

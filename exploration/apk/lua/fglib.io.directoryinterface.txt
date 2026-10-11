@@ -1,0 +1,316 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'new_inherit', 'new'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] GETGLOBAL R1 := _G["require"]
+     2 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     3 [   0] LOADK     R3 := "logging.logger"
+     4 [   0] CONCAT    R2 := R2 .. ... .. R3
+     5 [   0] CALL      R1(...) nargs=1 nret=1
+     6 [   0] CLOSURE   R2 := closure #0
+     7 [   0] SETTABLE  R0["new_inherit"] := R2
+     8 [   0] CLOSURE   R2 := closure #1
+     9 [   0] MOVE      R0 := R0
+    10 [   0] SETTABLE  R0["new"] := R2
+    11 [   0] RETURN    return R0.. (1 values)
+    12 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=2, lines 11-131, upvals=[], locals=[])
+    constants: strings=['dir', 'type', 'userdata', 'getPathForFile', 'string', 'fileExists', 'getFileContents', 'readLines', 'createFileAndWriteContent', 'appendToFile', 'appendLineToFile', 'deleteFile', 'deleteLines', 'getDir'] numbers=[]
+       0 [   0] SETTABLE  R0["dir"] := R1
+       1 [   0] GETGLOBAL R2 := _G["type"]
+       2 [   0] GETTABLE  R3 := R0["dir"]
+       3 [   0] CALL      R2(...) nargs=1 nret=1
+       4 [   0] EQ        if (R2 == "userdata") ~= 0 then skip next
+       5 [   0] JMP       jmp +4 -> 10
+       6 [   0] CLOSURE   R2 := closure #0
+       7 [   0] MOVE      R0 := R0
+       8 [   0] SETTABLE  R0["getPathForFile"] := R2
+       9 [   0] JMP       jmp +8 -> 18
+      10 [   0] GETGLOBAL R2 := _G["type"]
+      11 [   0] GETTABLE  R3 := R0["dir"]
+      12 [   0] CALL      R2(...) nargs=1 nret=1
+      13 [   0] EQ        if (R2 == "string") ~= 0 then skip next
+      14 [   0] JMP       jmp +3 -> 18
+      15 [   0] CLOSURE   R2 := closure #1
+      16 [   0] MOVE      R0 := R0
+      17 [   0] SETTABLE  R0["getPathForFile"] := R2
+      18 [   0] CLOSURE   R2 := closure #2
+      19 [   0] MOVE      R0 := R0
+      20 [   0] SETTABLE  R0["fileExists"] := R2
+      21 [   0] CLOSURE   R2 := closure #3
+      22 [   0] MOVE      R0 := R0
+      23 [   0] SETTABLE  R0["getFileContents"] := R2
+      24 [   0] CLOSURE   R2 := closure #4
+      25 [   0] MOVE      R0 := R0
+      26 [   0] SETTABLE  R0["readLines"] := R2
+      27 [   0] CLOSURE   R2 := closure #5
+      28 [   0] MOVE      R0 := R0
+      29 [   0] SETTABLE  R0["createFileAndWriteContent"] := R2
+      30 [   0] CLOSURE   R2 := closure #6
+      31 [   0] MOVE      R0 := R0
+      32 [   0] SETTABLE  R0["appendToFile"] := R2
+      33 [   0] CLOSURE   R2 := closure #7
+      34 [   0] MOVE      R0 := R0
+      35 [   0] SETTABLE  R0["appendLineToFile"] := R2
+      36 [   0] CLOSURE   R2 := closure #8
+      37 [   0] MOVE      R0 := R0
+      38 [   0] SETTABLE  R0["deleteFile"] := R2
+      39 [   0] CLOSURE   R2 := closure #9
+      40 [   0] MOVE      R0 := R0
+      41 [   0] SETTABLE  R0["deleteLines"] := R2
+      42 [   0] CLOSURE   R2 := closure #10
+      43 [   0] MOVE      R0 := R0
+      44 [   0] SETTABLE  R0["getDir"] := R2
+      45 [   0] RETURN    return R0.. (1 values)
+      46 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 18-20, upvals=[], locals=[])
+      constants: strings=['system', 'pathForFile', 'dir'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["system"]
+         1 [   0] GETTABLE  R1 := R1["pathForFile"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] GETTABLE  R3 := R3["dir"]
+         5 [   0] TAILCALL  return R1(...) nargs=2
+         6 [   0] RETURN    return R1.. (-1 values)
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 22-25, upvals=[], locals=[])
+      constants: strings=['system', 'pathForFile', 'dir', 'ResourceDirectory'] numbers=[]
+         0 [   0] GETGLOBAL R1 := _G["system"]
+         1 [   0] GETTABLE  R1 := R1["pathForFile"]
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] GETTABLE  R2 := R2["dir"]
+         4 [   0] MOVE      R3 := R0
+         5 [   0] CONCAT    R2 := R2 .. ... .. R3
+         6 [   0] GETGLOBAL R3 := _G["system"]
+         7 [   0] GETTABLE  R3 := R3["ResourceDirectory"]
+         8 [   0] CALL      R1(...) nargs=2 nret=1
+         9 [   0] RETURN    return R1.. (1 values)
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 28-40, upvals=[], locals=[])
+      constants: strings=['getPathForFile', 'io', 'open', 'r', 'close'] numbers=[]
+         0 [   0] LOADBOOL  R1 := False
+         1 [   0] GETUPVAL  R2 := upval 0
+         2 [   0] GETTABLE  R2 := R2["getPathForFile"]
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R2(...) nargs=1 nret=1
+         5 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +12 -> 19
+         7 [   0] GETGLOBAL R3 := _G["io"]
+         8 [   0] GETTABLE  R3 := R3["open"]
+         9 [   0] MOVE      R4 := R2
+        10 [   0] LOADK     R5 := "r"
+        11 [   0] CALL      R3(...) nargs=2 nret=1
+        12 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        13 [   0] JMP       jmp +5 -> 19
+        14 [   0] GETGLOBAL R4 := _G["io"]
+        15 [   0] GETTABLE  R4 := R4["close"]
+        16 [   0] MOVE      R5 := R3
+        17 [   0] CALL      R4(...) nargs=1 nret=0
+        18 [   0] LOADBOOL  R1 := True
+        19 [   0] RETURN    return R1.. (1 values)
+        20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 42-51, upvals=[], locals=[])
+      constants: strings=['fileExists', 'getPathForFile', 'io', 'open', 'r', 'read', '*a', 'close'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["fileExists"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CALL      R2(...) nargs=1 nret=1
+         4 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         5 [   0] JMP       jmp +17 -> 23
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] GETTABLE  R2 := R2["getPathForFile"]
+         8 [   0] MOVE      R3 := R0
+         9 [   0] CALL      R2(...) nargs=1 nret=1
+        10 [   0] GETGLOBAL R3 := _G["io"]
+        11 [   0] GETTABLE  R3 := R3["open"]
+        12 [   0] MOVE      R4 := R2
+        13 [   0] LOADK     R5 := "r"
+        14 [   0] CALL      R3(...) nargs=2 nret=1
+        15 [   0] SELF      R5 := R3; R4 := R3["read"]
+        16 [   0] LOADK     R6 := "*a"
+        17 [   0] CALL      R4(...) nargs=2 nret=1
+        18 [   0] MOVE      R1 := R4
+        19 [   0] GETGLOBAL R4 := _G["io"]
+        20 [   0] GETTABLE  R4 := R4["close"]
+        21 [   0] MOVE      R5 := R3
+        22 [   0] CALL      R4(...) nargs=1 nret=0
+        23 [   0] RETURN    return R1.. (1 values)
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=2, lines 53-70, upvals=[], locals=[])
+      constants: strings=['fileExists', 'getPathForFile', 'io', 'open', 'r', 'read', 'table', 'insert', 'close'] numbers=[0, 1]
+         0 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+         1 [   0] LOADK     R3 := 0
+         2 [   0] GETUPVAL  R4 := upval 0
+         3 [   0] GETTABLE  R4 := R4["fileExists"]
+         4 [   0] MOVE      R5 := R0
+         5 [   0] CALL      R4(...) nargs=1 nret=1
+         6 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+         7 [   0] JMP       jmp +31 -> 39
+         8 [   0] GETUPVAL  R4 := upval 0
+         9 [   0] GETTABLE  R4 := R4["getPathForFile"]
+        10 [   0] MOVE      R5 := R0
+        11 [   0] CALL      R4(...) nargs=1 nret=1
+        12 [   0] GETGLOBAL R5 := _G["io"]
+        13 [   0] GETTABLE  R5 := R5["open"]
+        14 [   0] MOVE      R6 := R4
+        15 [   0] LOADK     R7 := "r"
+        16 [   0] CALL      R5(...) nargs=2 nret=1
+        17 [   0] SELF      R7 := R5; R6 := R5["read"]
+        18 [   0] CALL      R6(...) nargs=1 nret=1
+        19 [   0] EQ        if (R6 == None) ~= 1 then skip next
+        20 [   0] JMP       jmp +14 -> 35
+        21 [   0] EQ        if (R1 == None) ~= 1 then skip next
+        22 [   0] JMP       jmp +2 -> 25
+        23 [   0] LT        if (R3 < R1) ~= 0 then skip next
+        24 [   0] JMP       jmp +10 -> 35
+        25 [   0] GETGLOBAL R7 := _G["table"]
+        26 [   0] GETTABLE  R7 := R7["insert"]
+        27 [   0] MOVE      R8 := R2
+        28 [   0] MOVE      R9 := R6
+        29 [   0] CALL      R7(...) nargs=2 nret=0
+        30 [   0] ADD       R3 := R3 + 1
+        31 [   0] SELF      R8 := R5; R7 := R5["read"]
+        32 [   0] CALL      R7(...) nargs=1 nret=1
+        33 [   0] MOVE      R6 := R7
+        34 [   0] JMP       jmp -16 -> 19
+        35 [   0] GETGLOBAL R7 := _G["io"]
+        36 [   0] GETTABLE  R7 := R7["close"]
+        37 [   0] MOVE      R8 := R5
+        38 [   0] CALL      R7(...) nargs=1 nret=0
+        39 [   0] RETURN    return R2.. (1 values)
+        40 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=2, lines 72-79, upvals=[], locals=[])
+      constants: strings=['getPathForFile', 'io', 'open', 'w', 'write', 'close'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["getPathForFile"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CALL      R2(...) nargs=1 nret=1
+         4 [   0] GETGLOBAL R3 := _G["io"]
+         5 [   0] GETTABLE  R3 := R3["open"]
+         6 [   0] MOVE      R4 := R2
+         7 [   0] LOADK     R5 := "w"
+         8 [   0] CALL      R3(...) nargs=2 nret=1
+         9 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        10 [   0] JMP       jmp +7 -> 18
+        11 [   0] SELF      R5 := R3; R4 := R3["write"]
+        12 [   0] MOVE      R6 := R1
+        13 [   0] CALL      R4(...) nargs=2 nret=0
+        14 [   0] GETGLOBAL R4 := _G["io"]
+        15 [   0] GETTABLE  R4 := R4["close"]
+        16 [   0] MOVE      R5 := R3
+        17 [   0] CALL      R4(...) nargs=1 nret=0
+        18 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=2, lines 81-90, upvals=[], locals=[])
+      constants: strings=['getPathForFile', 'io', 'open', 'a+', 'write', 'close', 'createFileAndWriteContent'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["getPathForFile"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CALL      R2(...) nargs=1 nret=1
+         4 [   0] GETGLOBAL R3 := _G["io"]
+         5 [   0] GETTABLE  R3 := R3["open"]
+         6 [   0] MOVE      R4 := R2
+         7 [   0] LOADK     R5 := "a+"
+         8 [   0] CALL      R3(...) nargs=2 nret=1
+         9 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        10 [   0] JMP       jmp +8 -> 19
+        11 [   0] SELF      R5 := R3; R4 := R3["write"]
+        12 [   0] MOVE      R6 := R1
+        13 [   0] CALL      R4(...) nargs=2 nret=0
+        14 [   0] GETGLOBAL R4 := _G["io"]
+        15 [   0] GETTABLE  R4 := R4["close"]
+        16 [   0] MOVE      R5 := R3
+        17 [   0] CALL      R4(...) nargs=1 nret=0
+        18 [   0] JMP       jmp +5 -> 24
+        19 [   0] GETUPVAL  R4 := upval 0
+        20 [   0] GETTABLE  R4 := R4["createFileAndWriteContent"]
+        21 [   0] MOVE      R5 := R0
+        22 [   0] MOVE      R6 := R1
+        23 [   0] CALL      R4(...) nargs=2 nret=0
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 92-101, upvals=[], locals=[])
+      constants: strings=['appendToFile', 'getPathForFile', 'io', 'open', 'a+', 'write', '\n', 'close'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["appendToFile"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] MOVE      R4 := R1
+         4 [   0] CALL      R2(...) nargs=2 nret=0
+         5 [   0] GETUPVAL  R2 := upval 0
+         6 [   0] GETTABLE  R2 := R2["getPathForFile"]
+         7 [   0] MOVE      R3 := R0
+         8 [   0] CALL      R2(...) nargs=1 nret=1
+         9 [   0] GETGLOBAL R3 := _G["io"]
+        10 [   0] GETTABLE  R3 := R3["open"]
+        11 [   0] MOVE      R4 := R2
+        12 [   0] LOADK     R5 := "a+"
+        13 [   0] CALL      R3(...) nargs=2 nret=1
+        14 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +7 -> 23
+        16 [   0] SELF      R5 := R3; R4 := R3["write"]
+        17 [   0] LOADK     R6 := "\n"
+        18 [   0] CALL      R4(...) nargs=2 nret=0
+        19 [   0] GETGLOBAL R4 := _G["io"]
+        20 [   0] GETTABLE  R4 := R4["close"]
+        21 [   0] MOVE      R5 := R3
+        22 [   0] CALL      R4(...) nargs=1 nret=0
+        23 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=1, lines 103-106, upvals=[], locals=[])
+      constants: strings=['getPathForFile', 'os', 'remove'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["getPathForFile"]
+         2 [   0] MOVE      R2 := R0
+         3 [   0] CALL      R1(...) nargs=1 nret=1
+         4 [   0] GETGLOBAL R2 := _G["os"]
+         5 [   0] GETTABLE  R2 := R2["remove"]
+         6 [   0] MOVE      R3 := R1
+         7 [   0] CALL      R2(...) nargs=1 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=2, lines 108-124, upvals=[], locals=[])
+      constants: strings=['readLines', 'createFileAndWriteContent', '', 'table', 'remove', 'concat', '\n'] numbers=[1]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["readLines"]
+         2 [   0] MOVE      R3 := R0
+         3 [   0] CALL      R2(...) nargs=1 nret=1
+         4 [   0] LEN       R3 := #R2
+         5 [   0] LE        if (R3 <= R1) ~= 0 then skip next
+         6 [   0] JMP       jmp +6 -> 13
+         7 [   0] GETUPVAL  R3 := upval 0
+         8 [   0] GETTABLE  R3 := R3["createFileAndWriteContent"]
+         9 [   0] MOVE      R4 := R0
+        10 [   0] LOADK     R5 := ""
+        11 [   0] CALL      R3(...) nargs=2 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+        13 [   0] LEN       R3 := #R2
+        14 [   0] SUB       R3 := R3 - R1
+        15 [   0] LEN       R4 := #R2
+        16 [   0] LT        if (R3 < R4) ~= 0 then skip next
+        17 [   0] JMP       jmp +6 -> 24
+        18 [   0] GETGLOBAL R4 := _G["table"]
+        19 [   0] GETTABLE  R4 := R4["remove"]
+        20 [   0] MOVE      R5 := R2
+        21 [   0] LOADK     R6 := 1
+        22 [   0] CALL      R4(...) nargs=2 nret=0
+        23 [   0] JMP       jmp -9 -> 15
+        24 [   0] GETUPVAL  R4 := upval 0
+        25 [   0] GETTABLE  R4 := R4["createFileAndWriteContent"]
+        26 [   0] MOVE      R5 := R0
+        27 [   0] GETGLOBAL R6 := _G["table"]
+        28 [   0] GETTABLE  R6 := R6["concat"]
+        29 [   0] MOVE      R7 := R2
+        30 [   0] LOADK     R8 := "\n"
+        31 [   0] CALL      R6(...) nargs=2 nret=-1
+        32 [   0] CALL      R4(...) nargs=-1 nret=0
+        33 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 126-128, upvals=[], locals=[])
+      constants: strings=['dir'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["dir"]
+         2 [   0] RETURN    return R0.. (1 values)
+         3 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 133-135, upvals=[], locals=[])
+    constants: strings=['new_inherit'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] GETTABLE  R1 := R1["new_inherit"]
+       2 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+       3 [   0] MOVE      R3 := R0
+       4 [   0] TAILCALL  return R1(...) nargs=2
+       5 [   0] RETURN    return R1.. (-1 values)
+       6 [   0] RETURN    return R0.. (0 values)

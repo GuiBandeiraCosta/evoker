@@ -1,0 +1,366 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'json', 'FGLIB_PATH', 'utils.util', 'logging.logger', 'io', 'os', 'print', 'tostring', 'system', 'module', 'new'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] LOADK     R1 := "json"
+     2 [   0] CALL      R0(...) nargs=1 nret=1
+     3 [   0] GETGLOBAL R1 := _G["require"]
+     4 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     5 [   0] LOADK     R3 := "utils.util"
+     6 [   0] CONCAT    R2 := R2 .. ... .. R3
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] GETGLOBAL R2 := _G["require"]
+     9 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    10 [   0] LOADK     R4 := "logging.logger"
+    11 [   0] CONCAT    R3 := R3 .. ... .. R4
+    12 [   0] CALL      R2(...) nargs=1 nret=1
+    13 [   0] LOADK     R3 := 3
+    14 [   0] GETGLOBAL R4 := _G["io"]
+    15 [   0] GETGLOBAL R5 := _G["os"]
+    16 [   0] GETGLOBAL R6 := _G["print"]
+    17 [   0] GETGLOBAL R7 := _G["tostring"]
+    18 [   0] GETGLOBAL R8 := _G["system"]
+    19 [   0] GETGLOBAL R9 := _G["module"]
+    20 [   0] VARARG    R10.. := ... (-1)
+    21 [   0] CALL      R9(...) nargs=-1 nret=0
+    22 [   0] LOADBOOL  R9 := True
+    23 [   0] NEWTABLE  R10 := {} (array 0, hash 0)
+    24 [   0] CLOSURE   R11 := closure #0
+    25 [   0] MOVE      R0 := R5
+    26 [   0] MOVE      R0 := R8
+    27 [   0] MOVE      R0 := R7
+    28 [   0] MOVE      R0 := R4
+    29 [   0] MOVE      R0 := R0
+    30 [   0] MOVE      R0 := R9
+    31 [   0] MOVE      R0 := R2
+    32 [   0] MOVE      R0 := R3
+    33 [   0] MOVE      R0 := R1
+    34 [   0] CLOSURE   R12 := closure #1
+    35 [   0] MOVE      R0 := R11
+    36 [   0] SETTABLE  R10["new"] := R12
+    37 [   0] RETURN    return R10.. (1 values)
+    38 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=4, lines 18-152, upvals=[], locals=[])
+    constants: strings=['saveTable', 'lastSaveInSeconds', 'time', 'pathForFile', 'DocumentsDirectory', 'path', 'load', 'hasSaveGame', 'save'] numbers=[1]
+       0 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+       1 [   0] GETUPVAL  R5 := upval 0
+       2 [   0] GETTABLE  R5 := R5["time"]
+       3 [   0] CALL      R5(...) nargs=0 nret=1
+       4 [   0] SETTABLE  R4["lastSaveInSeconds"] := R5
+       5 [   0] SETTABLE  R0["saveTable"] := R4
+       6 [   0] MOVE      R4 := R1
+       7 [   0] MOVE      R5 := R2
+       8 [   0] MOVE      R6 := R3
+       9 [   0] EQ        if (R6 == None) ~= 1 then skip next
+      10 [   0] JMP       jmp +2 -> 13
+      11 [   0] LT        if (1 < R6) ~= 1 then skip next
+      12 [   0] JMP       jmp +1 -> 14
+      13 [   0] LOADBOOL  R7 := False (skip)
+      14 [   0] LOADBOOL  R7 := True
+      15 [   0] LOADNIL   R8..R8 := nil
+      16 [   0] NEWTABLE  R9 := {} (array 0, hash 0)
+      17 [   0] GETUPVAL  R10 := upval 1
+      18 [   0] GETTABLE  R10 := R10["pathForFile"]
+      19 [   0] MOVE      R11 := R5
+      20 [   0] GETUPVAL  R12 := upval 1
+      21 [   0] GETTABLE  R12 := R12["DocumentsDirectory"]
+      22 [   0] CALL      R10(...) nargs=2 nret=1
+      23 [   0] TEST      if (R7 truthy) ~= 0 then skip next
+      24 [   0] JMP       jmp +18 -> 43
+      25 [   0] LOADK     R11 := 1
+      26 [   0] MOVE      R12 := R6
+      27 [   0] LOADK     R13 := 1
+      28 [   0] FORPREP   for R11.. jmp +13
+      29 [   0] NEWTABLE  R15 := {} (array 0, hash 1)
+      30 [   0] GETUPVAL  R16 := upval 1
+      31 [   0] GETTABLE  R16 := R16["pathForFile"]
+      32 [   0] MOVE      R17 := R5
+      33 [   0] GETUPVAL  R18 := upval 2
+      34 [   0] MOVE      R19 := R14
+      35 [   0] CALL      R18(...) nargs=1 nret=1
+      36 [   0] CONCAT    R17 := R17 .. ... .. R18
+      37 [   0] GETUPVAL  R18 := upval 1
+      38 [   0] GETTABLE  R18 := R18["DocumentsDirectory"]
+      39 [   0] CALL      R16(...) nargs=2 nret=1
+      40 [   0] SETTABLE  R15["path"] := R16
+      41 [   0] SETTABLE  R9[R14] := R15
+      42 [   0] FORLOOP   forloop R11 jmp -14
+      43 [   0] CLOSURE   R11 := closure #0
+      44 [   0] MOVE      R0 := R9
+      45 [   0] GETUPVAL  R0 := upval 3
+      46 [   0] GETUPVAL  R0 := upval 4
+      47 [   0] MOVE      R0 := R8
+      48 [   0] MOVE      R0 := R10
+      49 [   0] CLOSURE   R12 := closure #1
+      50 [   0] GETUPVAL  R0 := upval 5
+      51 [   0] MOVE      R0 := R7
+      52 [   0] MOVE      R0 := R10
+      53 [   0] MOVE      R0 := R11
+      54 [   0] GETUPVAL  R0 := upval 6
+      55 [   0] GETUPVAL  R0 := upval 7
+      56 [   0] GETUPVAL  R0 := upval 3
+      57 [   0] GETUPVAL  R0 := upval 4
+      58 [   0] GETUPVAL  R0 := upval 8
+      59 [   0] MOVE      R0 := R0
+      60 [   0] SETTABLE  R0["load"] := R12
+      61 [   0] CLOSURE   R12 := closure #2
+      62 [   0] MOVE      R0 := R7
+      63 [   0] MOVE      R0 := R10
+      64 [   0] MOVE      R0 := R11
+      65 [   0] GETUPVAL  R0 := upval 3
+      66 [   0] SETTABLE  R0["hasSaveGame"] := R12
+      67 [   0] CLOSURE   R12 := closure #3
+      68 [   0] MOVE      R0 := R8
+      69 [   0] MOVE      R0 := R6
+      70 [   0] MOVE      R0 := R9
+      71 [   0] CLOSURE   R13 := closure #4
+      72 [   0] GETUPVAL  R0 := upval 5
+      73 [   0] MOVE      R0 := R7
+      74 [   0] MOVE      R0 := R10
+      75 [   0] MOVE      R0 := R12
+      76 [   0] GETUPVAL  R0 := upval 6
+      77 [   0] GETUPVAL  R0 := upval 7
+      78 [   0] GETUPVAL  R0 := upval 8
+      79 [   0] MOVE      R0 := R0
+      80 [   0] GETUPVAL  R0 := upval 0
+      81 [   0] GETUPVAL  R0 := upval 4
+      82 [   0] GETUPVAL  R0 := upval 3
+      83 [   0] SETTABLE  R0["save"] := R13
+      84 [   0] RETURN    return R0.. (1 values)
+      85 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=0, lines 42-76, upvals=[], locals=[])
+      constants: strings=['open', 'path', 'r', 'read', '*a', 'decode', 'lastSaveInSeconds', 'close'] numbers=[0, 1]
+         0 [   0] LOADK     R0 := 0
+         1 [   0] LOADNIL   R1..R1 := nil
+         2 [   0] LOADK     R2 := 1
+         3 [   0] GETUPVAL  R3 := upval 0
+         4 [   0] LEN       R3 := #R3
+         5 [   0] LOADK     R4 := 1
+         6 [   0] FORPREP   for R2.. jmp +33
+         7 [   0] GETUPVAL  R6 := upval 1
+         8 [   0] GETTABLE  R6 := R6["open"]
+         9 [   0] GETUPVAL  R7 := upval 0
+        10 [   0] GETTABLE  R7 := R7[R5]
+        11 [   0] GETTABLE  R7 := R7["path"]
+        12 [   0] LOADK     R8 := "r"
+        13 [   0] CALL      R6(...) nargs=2 nret=1
+        14 [   0] TEST      if (R6 truthy) ~= 0 then skip next
+        15 [   0] JMP       jmp +24 -> 40
+        16 [   0] SELF      R8 := R6; R7 := R6["read"]
+        17 [   0] LOADK     R9 := "*a"
+        18 [   0] CALL      R7(...) nargs=2 nret=1
+        19 [   0] GETUPVAL  R8 := upval 2
+        20 [   0] GETTABLE  R8 := R8["decode"]
+        21 [   0] MOVE      R9 := R7
+        22 [   0] CALL      R8(...) nargs=1 nret=1
+        23 [   0] TEST      if (R8 truthy) ~= 0 then skip next
+        24 [   0] JMP       jmp +11 -> 36
+        25 [   0] GETTABLE  R9 := R8["lastSaveInSeconds"]
+        26 [   0] TEST      if (R9 truthy) ~= 0 then skip next
+        27 [   0] JMP       jmp +8 -> 36
+        28 [   0] GETTABLE  R9 := R8["lastSaveInSeconds"]
+        29 [   0] LE        if (R0 <= R9) ~= 0 then skip next
+        30 [   0] JMP       jmp +5 -> 36
+        31 [   0] GETTABLE  R0 := R8["lastSaveInSeconds"]
+        32 [   0] GETUPVAL  R9 := upval 0
+        33 [   0] GETTABLE  R9 := R9[R5]
+        34 [   0] GETTABLE  R1 := R9["path"]
+        35 [   0] SETUPVAL  upval 3 := R5
+        36 [   0] GETUPVAL  R9 := upval 1
+        37 [   0] GETTABLE  R9 := R9["close"]
+        38 [   0] MOVE      R10 := R6
+        39 [   0] CALL      R9(...) nargs=1 nret=0
+        40 [   0] FORLOOP   forloop R2 jmp -34
+        41 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+        42 [   0] JMP       jmp +3 -> 46
+        43 [   0] GETUPVAL  R1 := upval 4
+        44 [   0] LOADK     R2 := 0
+        45 [   0] SETUPVAL  upval 3 := R2
+        46 [   0] RETURN    return R1.. (1 values)
+        47 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 80-97, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_SAVEGAME', '(trying to) load from', ', using rotation:', 'open', 'r', 'read', '*a', 'close', 'decode', 'deepcopy', 'saveTable'] numbers=[3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +3 -> 10
+         7 [   0] GETUPVAL  R1 := upval 3
+         8 [   0] CALL      R1(...) nargs=0 nret=1
+         9 [   0] SETUPVAL  upval 2 := R1
+        10 [   0] GETUPVAL  R1 := upval 4
+        11 [   0] GETTABLE  R1 := R1["logmsg"]
+        12 [   0] GETUPVAL  R2 := upval 5
+        13 [   0] GETUPVAL  R3 := upval 4
+        14 [   0] GETTABLE  R3 := R3["ASPECT_SAVEGAME"]
+        15 [   0] LOADK     R4 := 3
+        16 [   0] LOADK     R5 := "(trying to) load from"
+        17 [   0] GETUPVAL  R6 := upval 2
+        18 [   0] LOADK     R7 := ", using rotation:"
+        19 [   0] CONCAT    R5 := R5 .. ... .. R7
+        20 [   0] GETUPVAL  R6 := upval 1
+        21 [   0] CALL      R1(...) nargs=5 nret=0
+        22 [   0] GETUPVAL  R1 := upval 6
+        23 [   0] GETTABLE  R1 := R1["open"]
+        24 [   0] GETUPVAL  R2 := upval 2
+        25 [   0] LOADK     R3 := "r"
+        26 [   0] CALL      R1(...) nargs=2 nret=1
+        27 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+        28 [   0] JMP       jmp +23 -> 52
+        29 [   0] SELF      R3 := R1; R2 := R1["read"]
+        30 [   0] LOADK     R4 := "*a"
+        31 [   0] CALL      R2(...) nargs=2 nret=1
+        32 [   0] GETUPVAL  R3 := upval 6
+        33 [   0] GETTABLE  R3 := R3["close"]
+        34 [   0] MOVE      R4 := R1
+        35 [   0] CALL      R3(...) nargs=1 nret=0
+        36 [   0] GETUPVAL  R3 := upval 7
+        37 [   0] GETTABLE  R3 := R3["decode"]
+        38 [   0] MOVE      R4 := R2
+        39 [   0] CALL      R3(...) nargs=1 nret=1
+        40 [   0] MOVE      R2 := R3
+        41 [   0] GETUPVAL  R3 := upval 8
+        42 [   0] GETTABLE  R3 := R3["deepcopy"]
+        43 [   0] MOVE      R4 := R2
+        44 [   0] LOADBOOL  R5 := True
+        45 [   0] TESTSET   if (R0 truthy) == 1 then R6 := R0 else skip next
+        46 [   0] JMP       jmp +2 -> 49
+        47 [   0] GETUPVAL  R6 := upval 9
+        48 [   0] GETTABLE  R6 := R6["saveTable"]
+        49 [   0] CALL      R3(...) nargs=3 nret=0
+        50 [   0] LOADBOOL  R3 := True
+        51 [   0] RETURN    return R3.. (1 values)
+        52 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 101-114, upvals=[], locals=[])
+      constants: strings=['open', 'r', 'close'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETUPVAL  R0 := upval 2
+         4 [   0] CALL      R0(...) nargs=0 nret=1
+         5 [   0] SETUPVAL  upval 1 := R0
+         6 [   0] GETUPVAL  R0 := upval 3
+         7 [   0] GETTABLE  R0 := R0["open"]
+         8 [   0] GETUPVAL  R1 := upval 1
+         9 [   0] LOADK     R2 := "r"
+        10 [   0] CALL      R0(...) nargs=2 nret=1
+        11 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        12 [   0] JMP       jmp +7 -> 20
+        13 [   0] GETUPVAL  R1 := upval 3
+        14 [   0] GETTABLE  R1 := R1["close"]
+        15 [   0] MOVE      R2 := R0
+        16 [   0] CALL      R1(...) nargs=1 nret=0
+        17 [   0] LOADBOOL  R1 := True
+        18 [   0] RETURN    return R1.. (1 values)
+        19 [   0] JMP       jmp +2 -> 22
+        20 [   0] LOADBOOL  R1 := False
+        21 [   0] RETURN    return R1.. (1 values)
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=0, lines 118-126, upvals=[], locals=[])
+      constants: strings=['path'] numbers=[0, 1]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] LOADK     R0 := 0
+         4 [   0] SETUPVAL  upval 0 := R0
+         5 [   0] GETUPVAL  R0 := upval 0
+         6 [   0] ADD       R0 := R0 + 1
+         7 [   0] SETUPVAL  upval 0 := R0
+         8 [   0] GETUPVAL  R0 := upval 0
+         9 [   0] GETUPVAL  R1 := upval 1
+        10 [   0] LT        if (R1 < R0) ~= 0 then skip next
+        11 [   0] JMP       jmp +2 -> 14
+        12 [   0] LOADK     R0 := 1
+        13 [   0] SETUPVAL  upval 0 := R0
+        14 [   0] GETUPVAL  R0 := upval 2
+        15 [   0] GETUPVAL  R1 := upval 0
+        16 [   0] GETTABLE  R0 := R0[R1]
+        17 [   0] GETTABLE  R0 := R0["path"]
+        18 [   0] RETURN    return R0.. (1 values)
+        19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=1, lines 130-149, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_SAVEGAME', 'save to', ', using rotation:', 'assert', 'checkFunc', 'saveTable', 'lastSaveInSeconds', 'time', 'encode', 'open', 'w', 'write', 'close'] numbers=[3]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] TEST      if (R1 truthy) ~= 1 then skip next
+         2 [   0] JMP       jmp +1 -> 4
+         3 [   0] RETURN    return R0.. (0 values)
+         4 [   0] GETUPVAL  R1 := upval 1
+         5 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         6 [   0] JMP       jmp +3 -> 10
+         7 [   0] GETUPVAL  R1 := upval 3
+         8 [   0] CALL      R1(...) nargs=0 nret=1
+         9 [   0] SETUPVAL  upval 2 := R1
+        10 [   0] GETUPVAL  R1 := upval 4
+        11 [   0] GETTABLE  R1 := R1["logmsg"]
+        12 [   0] GETUPVAL  R2 := upval 5
+        13 [   0] GETUPVAL  R3 := upval 4
+        14 [   0] GETTABLE  R3 := R3["ASPECT_SAVEGAME"]
+        15 [   0] LOADK     R4 := 3
+        16 [   0] LOADK     R5 := "save to"
+        17 [   0] GETUPVAL  R6 := upval 2
+        18 [   0] LOADK     R7 := ", using rotation:"
+        19 [   0] CONCAT    R5 := R5 .. ... .. R7
+        20 [   0] GETUPVAL  R6 := upval 1
+        21 [   0] CALL      R1(...) nargs=5 nret=0
+        22 [   0] GETUPVAL  R1 := upval 4
+        23 [   0] GETTABLE  R1 := R1["assert"]
+        24 [   0] GETUPVAL  R2 := upval 6
+        25 [   0] GETTABLE  R2 := R2["checkFunc"]
+        26 [   0] TESTSET   if (R0 truthy) == 1 then R3 := R0 else skip next
+        27 [   0] JMP       jmp +2 -> 30
+        28 [   0] GETUPVAL  R3 := upval 7
+        29 [   0] GETTABLE  R3 := R3["saveTable"]
+        30 [   0] CALL      R2(...) nargs=1 nret=1
+        31 [   0] NOT       R2 := not R2
+        32 [   0] GETUPVAL  R3 := upval 6
+        33 [   0] GETTABLE  R3 := R3["checkFunc"]
+        34 [   0] TESTSET   if (R0 truthy) == 1 then R4 := R0 else skip next
+        35 [   0] JMP       jmp +2 -> 38
+        36 [   0] GETUPVAL  R4 := upval 7
+        37 [   0] GETTABLE  R4 := R4["saveTable"]
+        38 [   0] CALL      R3(...) nargs=1 nret=-1
+        39 [   0] CALL      R1(...) nargs=-1 nret=0
+        40 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+        41 [   0] JMP       jmp +5 -> 47
+        42 [   0] GETUPVAL  R1 := upval 8
+        43 [   0] GETTABLE  R1 := R1["time"]
+        44 [   0] CALL      R1(...) nargs=0 nret=1
+        45 [   0] SETTABLE  R0["lastSaveInSeconds"] := R1
+        46 [   0] JMP       jmp +6 -> 53
+        47 [   0] GETUPVAL  R1 := upval 7
+        48 [   0] GETTABLE  R1 := R1["saveTable"]
+        49 [   0] GETUPVAL  R2 := upval 8
+        50 [   0] GETTABLE  R2 := R2["time"]
+        51 [   0] CALL      R2(...) nargs=0 nret=1
+        52 [   0] SETTABLE  R1["lastSaveInSeconds"] := R2
+        53 [   0] GETUPVAL  R1 := upval 9
+        54 [   0] GETTABLE  R1 := R1["encode"]
+        55 [   0] TESTSET   if (R0 truthy) == 1 then R2 := R0 else skip next
+        56 [   0] JMP       jmp +2 -> 59
+        57 [   0] GETUPVAL  R2 := upval 7
+        58 [   0] GETTABLE  R2 := R2["saveTable"]
+        59 [   0] CALL      R1(...) nargs=1 nret=1
+        60 [   0] GETUPVAL  R2 := upval 10
+        61 [   0] GETTABLE  R2 := R2["open"]
+        62 [   0] GETUPVAL  R3 := upval 2
+        63 [   0] LOADK     R4 := "w"
+        64 [   0] CALL      R2(...) nargs=2 nret=1
+        65 [   0] SELF      R4 := R2; R3 := R2["write"]
+        66 [   0] MOVE      R5 := R1
+        67 [   0] CALL      R3(...) nargs=2 nret=0
+        68 [   0] GETUPVAL  R3 := upval 10
+        69 [   0] GETTABLE  R3 := R3["close"]
+        70 [   0] MOVE      R4 := R2
+        71 [   0] CALL      R3(...) nargs=1 nret=0
+        72 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=3, lines 155-159, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R3 := upval 0
+       1 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+       2 [   0] MOVE      R5 := R0
+       3 [   0] MOVE      R6 := R1
+       4 [   0] MOVE      R7 := R2
+       5 [   0] TAILCALL  return R3(...) nargs=4
+       6 [   0] RETURN    return R3.. (-1 values)
+       7 [   0] RETURN    return R0.. (0 values)

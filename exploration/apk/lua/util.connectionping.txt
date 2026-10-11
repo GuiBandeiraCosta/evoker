@@ -1,0 +1,36 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['new'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["new"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 8-23, upvals=[], locals=[])
+    constants: strings=['pingHost'] numbers=[]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] CLOSURE   R2 := closure #0
+       2 [   0] MOVE      R0 := R0
+       3 [   0] CLOSURE   R3 := closure #1
+       4 [   0] MOVE      R0 := R2
+       5 [   0] SETTABLE  R1["pingHost"] := R3
+       6 [   0] RETURN    return R1.. (1 values)
+       7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 11-14, upvals=[], locals=[])
+      constants: strings=['isError'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["isError"]
+         1 [   0] NOT       R1 := not R1
+         2 [   0] GETUPVAL  R2 := upval 0
+         3 [   0] MOVE      R3 := R1
+         4 [   0] CALL      R2(...) nargs=1 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 16-20, upvals=[], locals=[])
+      constants: strings=['network', 'request', 'GET'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         1 [   0] JMP       jmp +6 -> 8
+         2 [   0] GETGLOBAL R1 := _G["network"]
+         3 [   0] GETTABLE  R1 := R1["request"]
+         4 [   0] MOVE      R2 := R0
+         5 [   0] LOADK     R3 := "GET"
+         6 [   0] GETUPVAL  R4 := upval 0
+         7 [   0] CALL      R1(...) nargs=3 nret=0
+         8 [   0] RETURN    return R0.. (0 values)

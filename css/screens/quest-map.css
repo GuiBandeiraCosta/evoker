@@ -1,0 +1,267 @@
+/* Quest map: portal banner over the top, the original stitched world map scrolling both ways and filling the
+   screen down to the nav, numbered node buttons on the painted sockets, the fx_glow_map rune circle, drifting
+   map clouds, ranger guide. */
+.qm-body { background: #0f1a12; overflow-y: auto; }
+.qm-body.world { overflow: auto; background: #0b1216; }
+
+/* ---------- portal banner (map2_screen: questmanager.getBanner() as a microbanner_comp at y = 81 over the map:
+   a painted strip with the portal's name and a timer label at the right; frames/screens/quest-map-2_portal_v174.jpg) ---------- */
+.qm-top {
+  position: sticky; top: 0; left: 0; z-index: 5;
+  width: 720px; height: 0;
+  pointer-events: none;
+}
+.qm-banner {
+  position: absolute; left: 8px; right: 8px; top: 8px;
+  height: 76px; margin: 0; padding: 0 22px 0 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  border: 3px solid #0b0c0d; border-image: none; border-radius: 3px;
+  box-shadow: inset 0 0 0 2px #6d7378, inset 0 0 0 4px rgba(0, 0, 0, .8), 0 4px 10px rgba(0, 0, 0, .75);
+  background:
+    linear-gradient(90deg, rgba(10, 12, 26, .96) 0%, rgba(14, 16, 34, .88) 36%, rgba(30, 40, 80, .25) 62%, rgba(10, 12, 26, .7) 100%),
+    var(--qm-banner-art, none) center 40% / cover no-repeat,
+    #141826;
+  pointer-events: auto;
+}
+.qm-banner.tappable { cursor: pointer; }
+.qm-banner.tappable:active { filter: brightness(1.15); }
+.qm-banner-name {
+  min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: 38px; font-weight: var(--fw-bold); letter-spacing: .01em;
+  color: #d2aaf8;
+  text-shadow: 0 -1px 0 rgba(255, 240, 255, .35), 0 2px 1px #000, 0 0 8px rgba(120, 60, 200, .6);
+}
+.qm-banner .qm-countdown {
+  flex: none; min-width: 0; padding: 0; background: none; border: 0; border-image: none; box-shadow: none;
+  font-size: 24px; font-weight: var(--fw-bold); color: #fff; font-variant-numeric: tabular-nums;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .95);
+}
+
+/* ---------- the stitched world ---------- */
+.qm-map { position: relative; width: 720px; overflow: hidden; }
+.qm-world { width: auto; }
+.qm-strip { position: absolute; display: block; pointer-events: none; image-rendering: auto; }
+.qm-world .qm-map-tint { background: linear-gradient(180deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, 0) 90px, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, .35)); }
+.qm-world.portal .qm-map-tint { background: linear-gradient(180deg, rgba(40, 10, 60, .3), rgba(20, 0, 40, .12) 50%, rgba(30, 0, 50, .3)); }
+.qm-cloud {
+  position: absolute; left: 0; z-index: 2; pointer-events: none;
+  width: calc(384px * var(--scale, 1)); height: auto; opacity: .75;
+  animation: cloudDrift var(--dur, 90s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes cloudDrift { from { transform: translateX(-520px); } to { transform: translateX(var(--w, 3000px)); } }
+
+/* ---------- fallback painting (no layout.json) ---------- */
+.qm-tile { position: absolute; left: 0; width: 720px; height: 370px; display: flex; overflow: hidden; }
+/* map-coast.jpg carries the original's banner (rows 0-12 %), rune circle (columns 36-65 %), tokens and
+   guide (rows 50 %+); each tile shows its two clean regions, the coast (columns 0-35 %) and the hills
+   (columns 65-100 %), rows 14-44 %, scaled to 1200 px so both are 420 px wide and overlap by 120 px under
+   a soft mask: the join reads as a tree line instead of a seam. */
+.qm-tile-half { flex: none; width: 420px; height: 370px; background: url('/assets/bg/map-coast.jpg') 0 -175px / 1200px auto no-repeat; }
+.qm-tile-half.hills {
+  margin-left: -120px;
+  background-position: -780px -175px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 130px);
+  mask-image: linear-gradient(90deg, transparent 0, #000 130px);
+}
+.qm-tile.flip .qm-tile-half { transform: scaleY(-1); }
+.qm-map-tint { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, 0) 12%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, .5)); }
+.qm-map.portal .qm-tile { filter: hue-rotate(-40deg) saturate(.75) brightness(.8); }
+.qm-map.portal:not(.qm-world) .qm-map-tint { background: linear-gradient(180deg, rgba(40, 10, 60, .45), rgba(20, 0, 40, .25)); }
+.qm-path { position: absolute; left: 0; top: 0; pointer-events: none; }
+.qm-path .shadow { fill: none; stroke: rgba(0, 0, 0, .55); stroke-width: 12; stroke-linejoin: round; stroke-linecap: round; }
+.qm-path .line { fill: none; stroke: #e5d7a8; stroke-width: 5; stroke-dasharray: 2 16; stroke-linecap: round; stroke-linejoin: round; opacity: .9; }
+
+/* ---------- section plates ---------- */
+.qm-section {
+  position: absolute; z-index: 2;
+  padding: 6px 18px;
+  font-size: 22px; font-weight: 600; color: var(--gold);
+  white-space: nowrap; pointer-events: none;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .9);
+}
+.qm-map:not(.qm-world) .qm-section.left { left: 24px; }
+.qm-map:not(.qm-world) .qm-section.right { right: 24px; }
+.qm-world .qm-section { transform: translate(-50%, -100%); }
+
+/* ---------- nodes: the original's square badges ----------
+   1.7.4 map (exploration/research/round3/gameplay-feel.md 9, frames/screens/quest-map-2_portal_v174.jpg): beaten
+   quests are small grey rounded badges with the number, the current quest a dark badge inside the golden
+   fx_glow_map pentagram ring, later quests only the painted sockets ("dots on the path"). */
+.qm-node {
+  position: absolute; z-index: 4;
+  width: 54px; height: 54px; margin: 0; padding: 0;
+  transform: translate(-50%, -50%);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #9aa3a8 0%, #6d767c 48%, #4f575d 100%);
+  border: 3px solid #15181b;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, .4), inset 0 -4px 0 rgba(0, 0, 0, .3),
+    0 0 0 2px #7d8589, 0 0 0 4px #0a0b0c, 0 5px 9px rgba(0, 0, 0, .7);
+  color: #fff; font-size: 25px; font-weight: 600;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .85);
+  cursor: pointer;
+  transition: transform var(--t-fast), filter var(--t-fast);
+}
+.qm-node:hover { filter: brightness(1.12); }
+.qm-node:active { transform: translate(-50%, -50%) scale(.95); }
+.qm-node.current {
+  width: 64px; height: 64px; border-radius: 9px;
+  background: linear-gradient(180deg, #5d6870 0%, #353e45 50%, #22292e 100%);
+  border-color: #0a0b0c;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, .3), inset 0 -4px 0 rgba(0, 0, 0, .4),
+    0 0 0 3px #c9d0d3, 0 0 0 5px #0a0b0c, 0 0 22px rgba(255, 214, 110, .75);
+  font-size: 29px;
+  animation: nodePulse 1.6s ease-in-out infinite alternate;
+}
+@keyframes nodePulse { from { filter: brightness(1); } to { filter: brightness(1.22); } }
+/* locked: on the painted maps the socket itself is the marker (an invisible tap target over it) */
+.qm-world .qm-node.locked {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: transparent; border: 0; box-shadow: none;
+  color: transparent; text-shadow: none;
+  cursor: default;
+}
+.qm-world .qm-node.locked:hover { filter: none; }
+/* locked on the fallback painting (no sockets there): a dark socket-like dot */
+.qm-map:not(.qm-world) .qm-node.locked {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #3b3733 0%, #26231f 60%, #1a1816 100%);
+  border: 2px solid #0a0b0c;
+  box-shadow: 0 0 0 2px #b8ada0, 0 0 0 4px rgba(0, 0, 0, .7), 0 3px 6px rgba(0, 0, 0, .6);
+  color: transparent; text-shadow: none;
+  cursor: default;
+}
+.qm-current {
+  position: absolute; z-index: 3; width: 230px; height: 230px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: runeSpin 30s linear infinite;
+}
+@keyframes runeSpin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+.qm-rune { width: 100%; height: 100%; display: block; opacity: .95; filter: drop-shadow(0 0 8px rgba(255, 200, 80, .7)); }
+
+/* ---------- guide ---------- */
+.qm-guide {
+  position: sticky; bottom: 0; left: 0; z-index: 4;
+  width: 720px;
+  display: flex; align-items: flex-end;
+  height: 290px; margin-top: -290px;
+  pointer-events: none;
+}
+.qm-guide.hidden { display: none; }
+.qm-guide-portrait {
+  width: 210px; height: 290px; object-fit: cover; object-position: top;
+  flex: none;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, .9));
+  -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
+  pointer-events: auto;
+}
+.qm-bubble {
+  flex: 1 1 auto; margin: 0 14px 40px -20px; min-height: 150px;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: auto; cursor: pointer;
+  animation: bubbleIn 500ms var(--ease) both;
+}
+.qm-bubble::before {
+  content: ''; position: absolute; left: -16px; top: 60px;
+  border: 14px solid transparent; border-right-color: #3a3e42; border-left: 0;
+}
+@keyframes bubbleIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ---------- landing feed (the Quest tab's start page: ui.screens.landingpage, comp_promotions) ---------- */
+.qm-feed {
+  overflow-y: auto; padding: 14px 14px 30px;
+  background: #0d0f11 url('/assets/bg/horizon-valley.jpg') center top / cover no-repeat;
+  background-attachment: local;
+}
+.feed-banner {
+  position: relative; margin: 0 0 16px; overflow: hidden;
+  border: 14px solid transparent;
+  border-image: url('/assets/orig/ui/frames/glowblue.png') 26 / 22px stretch;
+  background: #10202a center / cover no-repeat; background-clip: padding-box;
+  color: #e9f4fb; text-align: center; text-shadow: 0 2px 3px rgba(0, 0, 0, .9);
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .7));
+}
+.feed-banner[role='button'] { cursor: pointer; transition: transform var(--t-fast), filter var(--t-fast); }
+.feed-banner[role='button']:active { transform: scale(.985); filter: brightness(1.12) drop-shadow(0 6px 10px rgba(0, 0, 0, .7)); }
+.feed-title { position: relative; font-size: 40px; font-weight: var(--fw-bold); line-height: 1.15; }
+.feed-sub { position: relative; margin-top: 6px; font-size: 26px; font-weight: var(--fw-bold); }
+.feed-event .feed-countdown, .feed-daily-item .feed-countdown { align-self: center; }
+.feed-countdown { font-size: 24px; font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
+
+/* daily-reward strip: teal hex panel, reward frames with D n labels */
+.feed-daily { padding: 12px 10px 14px; background: linear-gradient(180deg, rgba(20, 80, 88, .95), rgba(14, 52, 60, .95)), var(--hex-texture, none); }
+.feed-daily-title { font-size: 28px; font-weight: var(--fw-bold); letter-spacing: .02em; }
+.feed-daily-items { display: flex; align-items: flex-end; justify-content: center; gap: 14px; margin-top: 12px; }
+.feed-daily-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.feed-daily-frame {
+  position: relative; width: 104px; height: 104px; display: flex; align-items: center; justify-content: center;
+  border: 6px solid transparent; border-image: url('/assets/orig/ui/frames/small_yellow.png') 12 / 10px stretch;
+  background: rgba(0, 0, 0, .45); background-clip: padding-box;
+}
+.feed-daily-item.next .feed-daily-frame { width: 146px; height: 146px; border-image-source: url('/assets/orig/ui/frames/glowgold.png'); border-width: 10px; }
+.feed-daily-img { width: 86%; height: 86%; object-fit: contain; }
+.feed-daily-amount { position: absolute; top: -2px; left: 0; right: 0; z-index: 1; font-size: 20px; font-weight: var(--fw-bold); }
+.feed-daily-day { font-size: 20px; font-weight: var(--fw-bold); }
+.feed-daily-gap { align-self: center; font-size: 34px; font-weight: var(--fw-bold); padding-bottom: 20px; }
+
+/* main quest */
+.feed-quest {
+  height: 150px; display: flex; flex-direction: column; justify-content: center;
+  background-image: linear-gradient(90deg, rgba(10, 30, 20, .55), rgba(10, 30, 20, .15) 60%, rgba(10, 30, 20, .55)), url('/assets/orig/map/world-0-0.jpg');
+  background-position: center 40%;
+}
+.feed-progress { position: absolute; right: 64px; bottom: 10px; font-size: 22px; font-weight: var(--fw-bold); color: var(--gold); }
+.feed-arrow { position: absolute; right: 14px; top: 50%; width: 36px; height: 36px; transform: translateY(-50%); }
+
+/* daily event: the orange x2 badge of the tournament banners */
+.feed-event {
+  height: 190px; display: flex; flex-direction: column; justify-content: center; gap: 6px;
+  background-image: linear-gradient(180deg, rgba(40, 24, 10, .55), rgba(20, 12, 4, .8)), url('/assets/bg/boss-valley.jpg');
+}
+.feed-event .feed-title { font-family: var(--font-title); font-size: 50px; color: #ffcf6a; }
+.feed-x2 {
+  position: absolute; right: 12px; top: 10px; width: 74px; height: 74px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at 40% 35%, #ffb347, #e46a00 70%); color: #fff; font-size: 32px; font-weight: var(--fw-bold);
+  box-shadow: 0 0 12px rgba(255, 140, 0, .8);
+}
+
+/* portals: card fan over the portal map painting */
+.feed-portal, .feed-next {
+  height: 330px; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 14px;
+  background-image: linear-gradient(180deg, rgba(10, 6, 24, .25), rgba(10, 6, 24, .85) 85%), url('/assets/orig/map/world-1-0.jpg');
+}
+.feed-next { height: 270px; background-image: linear-gradient(180deg, rgba(24, 6, 6, .35), rgba(24, 6, 6, .88) 85%), url('/assets/orig/map/world-2-0.jpg'); }
+.feed-portal .feed-title, .feed-next .feed-title { font-family: var(--font-title); font-size: 46px; color: #ffe39a; }
+.feed-closes { position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 4px; font-size: 24px; font-weight: var(--fw-bold); }
+.feed-fan { position: absolute; left: 50%; top: 14px; width: 0; height: 0; }
+.feed-fan-card {
+  position: absolute; left: -58px; top: 0; width: 116px; height: 164px;
+  border: 4px solid var(--r-common, #c8c7c7); border-radius: 6px; overflow: hidden; background: #000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .85);
+  transform: translateX(calc(var(--i) * 128px)) translateY(calc(var(--i) * var(--i) * 12px)) rotate(calc(var(--i) * 7deg));
+}
+.feed-next .feed-fan-card { filter: brightness(.55) saturate(.6); }
+.feed-fan-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.feed-fan-card.rarity-uncommon { border-color: var(--rt-uncommon); }
+.feed-fan-card.rarity-rare { border-color: var(--rt-rare); }
+.feed-fan-card.rarity-heroic { border-color: var(--rt-heroic); }
+.feed-fan-card.rarity-legendary { border-color: var(--rt-legendary); }
+.feed-fan-card.rarity-ultimate { border-color: var(--rt-ultimate); }
+
+/* "Get Cards": the eventbanner_cardboost promo with the header_framer_big plate */
+.feed-shop {
+  border: 0; border-image: none; aspect-ratio: 649 / 403;
+  background: url('/assets/orig/ui/eventbanner_cardboost02.png') center / 100% 100% no-repeat;
+}
+.feed-shop-plate {
+  position: absolute; left: 50%; top: 8%; transform: translateX(-50%);
+  width: 78%; height: 62px; line-height: 58px;
+  background: url('/assets/orig/ui/header_framer_big.png') center / 100% 100% no-repeat;
+  font-size: 36px; font-weight: var(--fw-bold); color: #ffb441;
+}

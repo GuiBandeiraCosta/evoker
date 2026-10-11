@@ -1,0 +1,642 @@
+/* Evoker Web - reset, portrait stage, chrome on the original client's sprites (assets/orig/ui, see
+   docs/design/apk-assets.md): HUD, nav, buttons, panels, bars, dialogs, toasts, list rows.
+   Nine-slice frames come from assets/orig/ui/frames/*.png (exploration/tools/make-frames.py; slice widths in frames.json):
+   hud_nineframe 16, hud_nineframe_alpha 16, ironframe 10, glowgold/blue/red 26, small_white/yellow 12,
+   button_default/green/danger/inactive 30, quadbutton 24, bigbutton03/04 24, backbutton 20, smallbutton 22,
+   menubar_button 24, progressbar 18/20 (left/right), progressbar_knob 30/20. */
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+img, svg { display: block; }
+img.sprite { image-rendering: auto; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; margin: 0; }
+button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--tier-gold); outline-offset: 2px; }
+h1, h2, h3, p { margin: 0; }
+.num { font-family: var(--font-num); font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
+.hidden { display: none !important; }
+.light { font-weight: var(--fw-light); }
+
+/* ---------- Original sprites in place of the svg placeholder icons ----------
+   Every img.icon outside a card swaps its glyph for the client's sprite of the same meaning
+   (the box size set by the surrounding CSS is kept). Cards keep their own icon set. */
+img.icon[src$="/coin.svg"]:not(.card *) { content: url('/assets/orig/ui/hud_coinsicon01.png'); }
+img.icon[src$="/gem.svg"]:not(.card *) { content: url('/assets/orig/ui/hud_gemiconsingle.png'); }
+img.icon[src$="/star.svg"]:not(.card *) { content: url('/assets/orig/ui/hud_experienceicon01.png'); }
+img.icon[src$="/heart.svg"]:not(.card *) { content: url('/assets/orig/ui/hud_healthicon01.png'); }
+img.icon[src$="/mana-drop.svg"]:not(.card *) { content: url('/assets/orig/ui/hud_manaicon01.png'); }
+img.icon[src$="/stamina-crystal.svg"]:not(.card *) { content: url('/assets/orig/ui/hud_stamicon01.png'); }
+img.icon[src$="/potion-orange.svg"]:not(.card *) { content: url('/assets/orig/ui/potion_stamina2.png'); }
+img.icon[src$="/potion-blue.svg"]:not(.card *) { content: url('/assets/orig/ui/potion_mana2.png'); }
+img.icon[src$="/token-bronze.svg"]:not(.card *) { content: url('/assets/orig/ui/token_small.png'); }
+img.icon[src$="/token-silver.svg"]:not(.card *) { content: url('/assets/orig/ui/token_medium.png'); }
+img.icon[src$="/token-gold.svg"]:not(.card *) { content: url('/assets/orig/ui/token_big.png'); }
+img.icon[src$="/trophy.svg"]:not(.card *) { content: url('/assets/orig/ui/icon_liga_active.png'); }
+img.icon[src$="/swords.svg"]:not(.card *) { content: url('/assets/orig/ui/icon_pvp_active.png'); }
+img.icon[src$="/compass.svg"]:not(.card *) { content: url('/assets/orig/ui/icon_map_active.png'); }
+img.icon[src$="/cards.svg"]:not(.card *) { content: url('/assets/orig/ui/icon_deckedit_active.png'); }
+img.icon[src$="/shop.svg"]:not(.card *) { content: url('/assets/orig/ui/icon_shop_active.png'); }
+img.icon[src$="/character.svg"]:not(.card *) { content: url('/assets/orig/ui/icon_profile_active.png'); }
+img.icon[src$="/lock.svg"]:not(.card *) { content: url('/assets/orig/ui/lock_small.png'); }
+img.icon[src$="/question.svg"]:not(.card *) { content: url('/assets/orig/ui/help_icon_active.png'); }
+img.icon[src$="/back.svg"]:not(.card *) { content: url('/assets/orig/ui/back_icon_active.png'); }
+img.icon[src$="/info.svg"]:not(.card *) { content: url('/assets/orig/ui/info_icon.png'); }
+img.icon[src$="/close.svg"]:not(.card *) { content: url('/assets/orig/ui/close_icon.png'); }
+img.icon[src$="/magnifier.svg"]:not(.card *) { content: url('/assets/orig/ui/button_zoom.png'); }
+img.icon[src$="/dollar.svg"]:not(.card *) { content: url('/assets/orig/ui/button_sell.png'); }
+img.icon[src$="/tap-hand.svg"]:not(.card *) { content: url('/assets/orig/ui/hud_tapindicator01.png'); }
+img.icon[src$="/league-points.svg"]:not(.card *) { content: url('/assets/orig/ui/pvp_points.png'); }
+img.icon[src$="/avatar.svg"]:not(.card *) { content: url('/assets/orig/ui/default_player.png'); }
+img.icon[src$="/plus.svg"]:not(.card *) { content: url('/assets/orig/ui/plus_icon_active.png'); }
+img.icon:not(.card *), img.sprite { object-fit: contain; }
+
+/* ---------- Stage (720 x 1280 logical portrait, scaled to the viewport) ---------- */
+#app { position: fixed; inset: 0; overflow: hidden; }
+.stage-wrap {
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, .75) 100%),
+    var(--hex-texture-dark),
+    #101213;
+}
+#stage {
+  position: absolute;
+  left: 0; top: 0;
+  width: calc(var(--stage-w) * 1px);
+  height: calc(var(--stage-h) * 1px);
+  transform-origin: 0 0;
+  transform: translate(var(--stage-x, 0px), var(--stage-y, 0px)) scale(var(--stage-scale));
+  overflow: hidden;
+  background: var(--bg) var(--hex-texture);
+  box-shadow: 0 0 0 2px #000, 0 0 60px rgba(0, 0, 0, .9);
+  contain: layout paint style;
+}
+#stage > .screen-layer { position: absolute; inset: 0; }
+
+/* ---------- Screens and transitions ---------- */
+.screen {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+  will-change: transform, opacity;
+}
+.screen-body {
+  position: absolute; left: 0; right: 0;
+  top: var(--hud-h); bottom: var(--nav-h);
+  overflow-x: hidden; overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.screen.no-hud .screen-body { top: 0; }
+.screen.no-nav .screen-body { bottom: 0; }
+.screen-title {
+  text-align: center;
+  font-size: 40px; font-weight: var(--fw-bold);
+  padding: 18px 0 10px;
+  color: var(--headline);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+}
+.screen-title.orange { color: var(--orange); }
+.screen-enter-fade { animation: screenFadeIn var(--t-slow) var(--ease) both; }
+.screen-exit-fade { animation: screenFadeOut var(--t-slow) var(--ease) both; pointer-events: none; }
+.screen-enter-slide { animation: screenSlideIn var(--t-slow) var(--ease) both; }
+.screen-exit-slide { animation: screenSlideOut var(--t-slow) var(--ease) both; pointer-events: none; }
+.screen-enter-slide-back { animation: screenSlideBackIn var(--t-slow) var(--ease) both; }
+.screen-exit-slide-back { animation: screenSlideBackOut var(--t-slow) var(--ease) both; pointer-events: none; }
+@keyframes screenFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes screenFadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes screenSlideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes screenSlideOut { from { transform: translateX(0); } to { transform: translateX(-30%); opacity: .4; } }
+@keyframes screenSlideBackIn { from { transform: translateX(-30%); opacity: .4; } to { transform: translateX(0); opacity: 1; } }
+@keyframes screenSlideBackOut { from { transform: translateX(0); } to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) {
+  .screen-enter-fade, .screen-exit-fade, .screen-enter-slide, .screen-exit-slide,
+  .screen-enter-slide-back, .screen-exit-slide-back { animation-duration: 1ms; }
+}
+
+/* ---------- Panels: hud_nineframe (metal frame), ironframe (thin inset), small_white (plates) ---------- */
+.panel {
+  position: relative;
+  border: 6px solid transparent;
+  border-image: url('/assets/orig/ui/frames/hud_nineframe.png') 16 / 16px stretch;
+  border-radius: 4px;
+  background: rgba(22, 23, 25, .94);
+  background-clip: padding-box;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .55);
+}
+.panel-inset {
+  position: relative;
+  border: 5px solid transparent;
+  border-image: url('/assets/orig/ui/frames/ironframe.png') 10 / 10px stretch;
+  border-radius: 3px;
+  background: rgba(8, 9, 10, .9);
+  background-clip: padding-box;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, .6);
+}
+.plate {
+  border: 6px solid transparent;
+  border-image: url('/assets/orig/ui/frames/small_white.png') 12 / 12px stretch;
+  border-radius: 4px;
+  background: #151617;
+  background-clip: border-box;
+  padding: 4px 12px;
+  color: var(--text);
+  font-weight: var(--fw-bold);
+}
+.plate.orange { color: var(--orange); }
+.plate.gold { border-image-source: url('/assets/orig/ui/frames/small_yellow.png'); color: var(--tier-gold); }
+.stone-band {
+  background: url('/assets/orig/ui/ligaboard_top_bg.png') center / 100% 100% no-repeat, #1b1d1f;
+  border: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .6);
+}
+/* soft pulse of glow overlays (character.css, shop.css) */
+@keyframes glowPulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+
+/* ---------- Buttons: button_default_frame + fill (green / danger / inactive fills) ---------- */
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 60px; padding: 0 26px;
+  margin: 5px;
+  border: 8px solid transparent;
+  border-image: url('/assets/orig/ui/frames/button_default.png') 30 fill / 22px stretch;
+  background: none;
+  color: var(--steel-text);
+  font-size: 28px; font-weight: var(--fw-bold); line-height: 1.1;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+  transition: transform var(--t-fast), filter var(--t-fast);
+}
+.btn:hover { filter: brightness(1.1); }
+.btn:active { transform: translateY(2px); filter: brightness(.95); }
+.btn:disabled, .btn.disabled {
+  cursor: default;
+  border-image-source: url('/assets/orig/ui/frames/button_inactive.png');
+  color: rgba(255, 255, 255, .55);
+  filter: none;
+  transform: none;
+}
+.btn-green { border-image-source: url('/assets/orig/ui/frames/button_green.png'); }
+.btn-red { border-image-source: url('/assets/orig/ui/frames/button_danger.png'); }
+.btn-grey { border-image-source: url('/assets/orig/ui/frames/button_inactive.png'); }
+.btn-sm { min-height: 46px; padding: 0 16px; font-size: 22px; border-image-width: 16px; }
+.btn-lg { min-height: 74px; padding: 0 40px; font-size: 34px; border-image-width: 26px; }
+.btn-block { display: flex; width: calc(100% - 10px); }
+.btn .btn-glyph { width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .7)); }
+.btn-icon { width: 76px; height: 76px; min-height: 0; padding: 0; }
+.btn-icon.btn-sm { width: 56px; height: 56px; border-image-width: 16px; }
+.btn-icon.btn-lg { width: 92px; height: 92px; border-image-width: 28px; }
+.btn-icon img, .btn-icon svg { width: 62%; height: 62%; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .7)); }
+/* the menubar icon sprites carry a transparent margin: draw them bigger */
+.btn-icon img[src*="/icon_"], .btn-icon img[src*="/button_"] { width: 100%; height: 100%; }
+.btn-icon.btn-sm img { width: 64%; height: 64%; }
+.btn-icon.btn-sm img[src*="/icon_"] { width: 100%; height: 100%; }
+.btn-icon .btn-label { position: absolute; bottom: 4px; font-size: 13px; font-weight: var(--fw-bold); letter-spacing: .02em; }
+.btn-icon.btn-back img, .btn-icon.btn-close img { width: 54%; height: 54%; }
+.btn-icon.btn-info img { width: 30%; height: 60%; }
+.btn-icon.btn-question img { width: 46%; height: 62%; }
+
+/* Flaming Attack! bar: attackbuttonornament01 behind the attackbutton01 plate */
+.attack-bar {
+  position: relative;
+  height: 128px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, #202325, #121314 50%, #1b1d1f);
+  border-top: 4px solid var(--stone-edge); border-bottom: 4px solid var(--stone-edge);
+  box-shadow: inset 0 1px 0 var(--bevel-hi), inset 0 -1px 0 var(--bevel-lo), 0 0 0 1px var(--stone-edge-dark);
+  overflow: visible;
+}
+.attack-ornament {
+  position: absolute; left: 50%; top: 50%;
+  width: 430px; height: 158px; transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.attack-bar .btn.attack-btn {
+  position: relative; z-index: 1;
+  width: 206px; height: 100px; min-height: 0; margin: 0; padding: 0 0 4px;
+  border: 0; border-image: none;
+  background: url('/assets/orig/ui/attackbutton01.png') center / 100% 100% no-repeat;
+  font-size: 38px; font-weight: var(--fw-bold);
+}
+.attack-bar .btn.attack-btn:active { transform: translateY(2px) scale(.98); }
+.attack-bar .btn.attack-btn:disabled { filter: grayscale(.8) brightness(.7); color: rgba(255, 255, 255, .6); }
+
+/* Tab bar: hud_bigbutton04 plates (inactive fill for the other tabs) */
+.tabbar { display: flex; gap: 8px; padding: 8px 12px; justify-content: center; }
+.tab {
+  flex: 1 1 0; min-height: 60px; margin: 0; padding: 0 6px;
+  display: flex; align-items: center; justify-content: center;
+  border: 8px solid transparent;
+  border-image: url('/assets/orig/ui/frames/bigbutton04_inactive.png') 24 fill / 20px stretch;
+  background: none; box-shadow: none; border-radius: 0;
+  color: var(--muted); font-size: 24px; font-weight: var(--fw-bold);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+  transition: filter var(--t-fast);
+}
+.tab:hover { filter: brightness(1.1); }
+.tab.active { border-image-source: url('/assets/orig/ui/frames/bigbutton04.png'); color: var(--text); }
+
+/* ---------- HUD: topbar_bg strip, help plate, resourcebar + moneybar (statusbar_def, x2.25 from 320 units) ----------
+   Android layout (no back arrow): "?" on the menubar plate at x -124; iOS layout (.with-back, sub-screens): back.png
+   arrow at x -140 and "?" on the backbutton plate at x -108. Resource bar x -14, money bar x 112; the @2x sprites
+   are drawn at 1.125 so the bars are 154 x 47 and 95 x 47 units like in the client. */
+.hud {
+  position: absolute; left: 0; right: 0; top: 0; height: var(--hud-h);
+  z-index: var(--z-hud);
+  background: url('/assets/orig/ui/topbar_bg.png') center bottom / 100% auto no-repeat, #1b1d1f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .6);
+}
+.hud-btn {
+  position: absolute; left: 28px; top: 5px; width: 106px; height: 109px; margin: 0; padding: 0;
+  border: 24px solid transparent;
+  border-image: url('/assets/orig/ui/frames/menubar_button.png') 24 fill / 24px stretch;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform var(--t-fast), filter var(--t-fast);
+}
+.hud-btn[hidden] { display: none; }
+.hud-btn:hover { filter: brightness(1.1); }
+.hud-btn:active { transform: scale(.95); }
+.hud-btn:disabled { cursor: default; filter: grayscale(1) brightness(.8); transform: none; }
+.hud-btn-icon {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 48px; height: 65px; object-fit: contain;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .7));
+}
+/* iOS layout: the bare back.png arrow, "?" on the narrow backbutton plate */
+.hud.with-back .hud-back {
+  left: 21px; top: 26px; width: 48px; height: 62px;
+  border: 0; border-image: none; background: none;
+}
+.hud.with-back .hud-back .hud-btn-icon { width: 48px; height: 62px; }
+.hud.with-back .hud-help {
+  left: 81px; top: 6px; width: 72px; height: 106px;
+  border-width: 20px; border-image: url('/assets/orig/ui/frames/backbutton.png') 20 fill / 20px stretch;
+}
+.hud.with-back .hud-help .hud-btn-icon { width: 40px; height: 54px; }
+.hud-center {
+  position: absolute; left: 155px; top: 6px; width: 308px; height: 94px;
+  transform: scale(1.125); transform-origin: 0 0;
+  background: url('/assets/orig/ui/frames/resourcebar.png') center / 100% 100% no-repeat;
+  cursor: pointer; transition: filter var(--t-fast);
+}
+.hud-center:hover { filter: brightness(1.08); }
+.hud-center:active { filter: brightness(1.15); transform: scale(1.1025); }
+.hud-level, .hud-resources { position: absolute; inset: 0; pointer-events: none; }
+.hud-level .lvl-label {
+  position: absolute; left: 16px; top: 25px;
+  font-size: 17px; font-weight: var(--fw-bold); line-height: 1; color: var(--text);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .9);
+}
+.hud-level .lvl-num {
+  position: absolute; left: 86px; top: 12px;
+  font-size: 26px; font-weight: var(--fw-bold); line-height: 1; color: var(--text);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+}
+.hud-level .bar { position: absolute; left: 74px; top: 39px; width: 212px; height: 5px; }
+.hud-res { position: absolute; top: 56px; height: 34px; }
+.hud-res.stamina { left: 20px; width: 140px; }
+.hud-res.mana { left: 162px; width: 132px; }
+.hud-res .potions {
+  position: absolute; left: 3px; top: 9px; min-width: 14px; text-align: center;
+  font-size: 17px; font-weight: var(--fw-bold); line-height: 1;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .9);
+}
+.hud-res.stamina .potions { color: var(--c-stamina); }
+.hud-res.mana .potions { color: var(--c-mana); }
+.hud-res .val {
+  position: absolute; top: 3px;
+  font-size: 21px; font-weight: var(--fw-bold); line-height: 1; letter-spacing: -.01em; white-space: nowrap;
+  color: var(--text); text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+}
+.hud-res.stamina .val { left: 58px; }
+.hud-res.mana .val { left: 54px; }
+/* 3-digit values shrink so the label ends inside the bar ("200/200" ran into the frame) */
+.hud-res .val.long { top: 4px; font-size: 19px; letter-spacing: -.02em; }
+.hud-res .val.xlong { top: 5px; font-size: 17px; letter-spacing: -.03em; }
+.hud-res.stamina .val.xlong { left: 52px; }
+.hud-res.mana .val.xlong { left: 46px; }
+.hud-res .bar { position: absolute; top: 18px; height: 5px; }
+.hud-res.stamina .bar { left: 48px; width: 74px; }
+.hud-res.mana .bar { left: 42px; width: 76px; }
+.hud .bar.hud-bar { background: none; border: 0; border-radius: 1px; box-shadow: none; overflow: visible; }
+.hud .bar.hud-bar .bar-fill { top: 0; bottom: 0; height: auto; box-shadow: 0 0 4px var(--bar-color); }
+.hud .bar.hud-bar .bar-label { display: none; }
+.hud.low-stamina .hud-res.stamina .val { color: var(--c-stamina); }
+.hud.low-mana .hud-res.mana .val { color: var(--c-mana); }
+.hud-right {
+  position: absolute; left: 505px; top: 6px; width: 190px; height: 94px;
+  transform: scale(1.125); transform-origin: 0 0;
+  background: url('/assets/orig/ui/frames/moneybar.png') center / 100% 100% no-repeat;
+}
+.hud-wallet { position: absolute; left: 12px; top: 13px; width: 100px; display: flex; flex-direction: column; pointer-events: none; }
+.hud-wallet .row {
+  height: 34px; display: flex; align-items: center; justify-content: flex-end; gap: 0;
+  font-size: 26px; font-weight: var(--fw-bold); letter-spacing: -.01em; color: var(--text);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+}
+.hud-plus { position: absolute; inset: 0; border: 0; background: none; border-radius: 6px; }
+.hud-plus:hover { background: url('/assets/orig/ui/moneybar_glow.png') center / 100% 100% no-repeat; opacity: .75; }
+.hud-plus:active { opacity: 1; transform: scale(.97); }
+
+/* ---------- Bottom navigation: hud_bottombg01 strip, menubar_button plates, icon_* sprites (menubar_def) ----------
+   Buttons at x -128 / -75 / -21 / 33 / 88 units, the extendmenu arrow at 136; the extended menu (bottombg_extended,
+   266 x 131 units at x -20) slides up over the five buttons with Album / Profile / Options / Home at -95 / -32 / 32 /
+   95 from its centre; the click catcher (grayTransparent) dims the screen while it is open. */
+.nav {
+  position: absolute; left: 0; right: 0; bottom: 0; height: var(--nav-h);
+  z-index: var(--z-nav);
+  background: url('/assets/orig/ui/hud_bottombg01.png') center top / 100% auto no-repeat, #1b1d1f;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, .6);
+}
+.nav-btn {
+  position: absolute; top: 20px;
+  width: 106px; height: 109px; margin: 0; padding: 0;
+  background: url('/assets/orig/ui/frames/menubar_button.png') center / 100% 100% no-repeat;
+  transition: filter var(--t-fast), transform var(--t-fast);
+}
+.nav-btn.league { left: 19px; }
+.nav-btn.arena { left: 138px; }
+.nav-btn.quest { left: 260px; }
+.nav-btn.cards { left: 381px; }
+.nav-btn.shop { left: 505px; background-image: url('/assets/orig/ui/menubar_button_shop.png'); }
+.nav-btn .nav-icon { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.nav-btn:hover { filter: brightness(1.1); }
+.nav-btn:active { transform: scale(.95); }
+.nav-btn.locked { background-image: url('/assets/orig/ui/menubar_button_locked.png'); cursor: default; }
+.nav-btn.locked .nav-icon { display: none; }
+.nav-btn.locked:hover { filter: none; }
+.nav-btn.nav-extend { left: 642px; top: 33px; width: 48px; height: 83px; background: none; z-index: 3; }
+.nav-extend .nav-arrow { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .8)); }
+.nav-btn .badge {
+  position: absolute; left: 61px; top: -18px; z-index: 1;
+  width: 56px; height: 56px;
+  background: url('/assets/orig/ui/badge.png') center / contain no-repeat;
+  color: transparent; font-size: 0; line-height: 0;
+  pointer-events: none;
+  animation: badgePulse 1.4s ease-in-out infinite;
+}
+.nav-btn .badge.badge-full { background-image: url('/assets/orig/ui/deck_full.png'); width: 50px; height: 50px; left: 64px; top: -15px; animation: none; }
+.nav-extend .badge { left: 2px; top: -30px; }
+@keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+.nav-catcher {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 1280px; z-index: 1;
+  background: rgba(20, 20, 20, .55);
+  opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s;
+}
+.nav-extend-panel {
+  position: absolute; left: 15px; top: -4px; width: 600px; height: 296px; z-index: 2;
+  background: url('/assets/orig/ui/bottombg_extended.png') center top / 100% 100% no-repeat;
+  transform: translateY(150px); opacity: 0; visibility: hidden;
+  transition: transform .25s cubic-bezier(.86, 0, .07, 1), opacity .2s ease, visibility 0s linear .25s;
+}
+.nav-extend-panel .nav-btn { top: 25px; }
+.nav-extend-panel .nav-btn.album { left: 33px; }
+.nav-extend-panel .nav-btn.profile { left: 175px; }
+.nav-extend-panel .nav-btn.options { left: 319px; }
+.nav-extend-panel .nav-btn.home { left: 461px; }
+.nav.extended .nav-catcher { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.nav.extended .nav-extend-panel { transform: none; opacity: 1; visibility: visible; transition: transform .25s cubic-bezier(.86, 0, .07, 1), opacity .15s ease; }
+
+/* ---------- Bars: dark inset with the hud_progressbar* line; tall bars use the 3-slice track ---------- */
+/* The line sprites are named after the wrong colours in the sheet; by measured colour: violet02/03 = yellow
+   (#ffd556 xp), yellow01 / 3sliceyellow01 = orange (#ff822f stamina), blue01-03 = #24d8ff mana,
+   red01/02 = green (#39b431 health), green02 = violet (#92278f quest). */
+.bar {
+  --bar-color: var(--c-hp);
+  --bar-img: url('/assets/orig/ui/hud_progressbarred02.png');
+  position: relative; height: 22px;
+  background: linear-gradient(180deg, #0b0c0d, #16181a);
+  border: 1px solid #0a0b0c; border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .9), 0 1px 0 var(--bevel-hi);
+  overflow: hidden;
+}
+.bar-fill {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 0;
+  background: var(--bar-img) left center / 100% 100% no-repeat, var(--bar-color);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 0 6px var(--bar-color);
+  transition: width var(--t-slow) var(--ease);
+}
+.bar-fill.bottom { top: auto; height: 4px; box-shadow: 0 0 4px var(--bar-color); }
+.bar-label {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: var(--fw-bold); color: var(--text);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .95);
+  white-space: nowrap;
+}
+.bar.xp { --bar-color: var(--c-xp-bar); --bar-img: url('/assets/orig/ui/hud_progressbarviolet02.png'); }
+.bar.hp { --bar-color: var(--c-hp); --bar-img: url('/assets/orig/ui/hud_progressbarred02.png'); }
+.bar.mana { --bar-color: var(--c-mana); --bar-img: url('/assets/orig/ui/hud_progressbarblue02.png'); }
+.bar.stamina { --bar-color: var(--c-stamina); --bar-img: url('/assets/orig/ui/hud_progressbaryellow01.png'); }
+.bar.quest { --bar-color: var(--c-quest); --bar-img: url('/assets/orig/ui/hud_progressbargreen02.png'); }
+.bar.gold { --bar-color: var(--c-gold); --bar-img: url('/assets/orig/ui/hud_progressbarviolet03.png'); }
+.bar.thin { height: 10px; }
+/* 3-slice track (hud_progressbar_3slice*, 32 px): tall bars, HP, mana needed; .knob adds the round end */
+.bar.tall, .hp-bar-wrap .bar, .mana-needed .bar, .profile-bar .bar, .bar.set-progress {
+  height: 32px;
+  background: none; box-shadow: none; border-radius: 0; overflow: visible;
+  border-style: solid; border-color: transparent; border-width: 0 20px 0 18px;
+  border-image: url('/assets/orig/ui/frames/progressbar.png') 0 20 0 18 fill stretch;
+}
+.bar.knob { border-width: 0 20px 0 30px; border-image: url('/assets/orig/ui/frames/progressbar_knob.png') 0 20 0 30 fill stretch; }
+.bar.tall .bar-fill, .hp-bar-wrap .bar .bar-fill, .mana-needed .bar .bar-fill, .profile-bar .bar .bar-fill, .bar.set-progress .bar-fill {
+  left: -10px; top: auto; bottom: 5px; height: 6px !important;
+  width: calc((100% + 22px) * var(--pct, 0)) !important;
+  border-radius: 1px;
+  box-shadow: 0 0 5px var(--bar-color);
+}
+.bar.knob .bar-fill { left: -8px; width: calc((100% + 20px) * var(--pct, 0)) !important; }
+.bar.tall .bar-label, .hp-bar-wrap .bar .bar-label, .mana-needed .bar .bar-label, .profile-bar .bar .bar-label, .bar.set-progress .bar-label {
+  top: -2px; bottom: 6px; font-size: 22px;
+}
+.bar-with-icon { display: flex; align-items: center; gap: 6px; }
+.bar-with-icon > img { width: 48px; height: 48px; flex: none; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .8)); }
+.bar-with-icon > .bar { flex: 1; }
+.hp-bar-wrap { padding: 4px 16px; }
+.hp-bar-wrap .bar.tall .bar-fill.full { opacity: .35; }
+.mana-needed { padding: 6px 18px; position: relative; }
+.mana-needed .marker {
+  position: absolute; top: -10px; width: 33px; height: 93px;
+  background: url('/assets/orig/ui/hud_progressbar_pinocle01.png') center / contain no-repeat;
+  transform: translateX(-50%) scale(.72); transform-origin: top center;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .9));
+}
+.mana-needed.over .bar-label { color: var(--c-attack); }
+
+/* ---------- Dialogs: popup_bg plate, popup_header_grey title, close_icon button at the top-right ---------- */
+.dialog-backdrop {
+  position: absolute; inset: 0; z-index: var(--z-dialog);
+  background: rgba(0, 0, 0, .62);
+  display: flex; align-items: center; justify-content: center;
+  animation: screenFadeIn var(--t-med) var(--ease) both;
+}
+.dialog-backdrop.closing { animation: screenFadeOut var(--t-med) var(--ease) both; pointer-events: none; }
+.dialog, .dialog.panel {
+  position: relative;
+  width: 620px; max-width: 96%;
+  padding: 14px 12px 12px;
+  display: flex; flex-direction: column; gap: 14px;
+  border: 18px solid transparent;
+  border-image: url('/assets/orig/ui/popup_bg.png') 30 fill / 24px stretch;
+  border-radius: 0;
+  background: none;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .85);
+  animation: dialogIn var(--t-med) var(--ease) both;
+}
+@keyframes dialogIn { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.dialog-title, .dialog-title.plate {
+  text-align: center; font-size: 34px; font-weight: var(--fw-bold); padding: 6px 10px;
+  color: var(--orange);
+  border: 10px solid transparent;
+  border-image: url('/assets/orig/ui/popup_header_grey.png') 24 fill / 20px stretch;
+  background: none; border-radius: 0;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+}
+.dialog-body { font-size: 26px; font-weight: var(--fw-bold); text-align: center; padding: 10px 12px; line-height: 1.3; }
+.dialog-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.dialog-close { position: absolute; right: -44px; top: -46px; width: 70px; height: 70px; margin: 0; z-index: 2; }
+.dialog-close img { width: 46%; height: 46%; }
+.dialog-columns { display: flex; gap: 12px; align-items: stretch; }
+.dialog-col { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 12px; }
+.dialog-col.panel-inset {
+  border: 8px solid transparent;
+  border-image: url('/assets/orig/ui/frames/small_white.png') 12 / 12px stretch;
+  background: rgba(12, 13, 14, .55); background-clip: border-box; box-shadow: none; border-radius: 0;
+}
+.dialog-col .potion-img { width: 150px; height: 170px; object-fit: contain; filter: drop-shadow(0 0 18px rgba(255, 131, 47, .55)); }
+.dialog-col .potion-img.blue { filter: drop-shadow(0 0 18px rgba(36, 216, 255, .55)); }
+.dialog-col .potion-count { width: 100%; text-align: center; font-size: 30px; font-weight: var(--fw-bold); color: var(--orange); }
+.dialog-col .msg { font-size: 27px; font-weight: var(--fw-bold); text-align: center; line-height: 1.3; }
+/* "Use potion now" / "Buy for 40 gems" stay on one line inside the ~270 px column like the original. */
+.dialog-col .btn { white-space: nowrap; padding: 0 12px; font-size: 24px; width: 100%; }
+.dialog .gem-price { display: inline-flex; align-items: center; gap: 6px; }
+.dialog .gem-price img { width: 26px; height: 26px; object-fit: contain; }
+
+/* ---------- Toast: small_white plate ---------- */
+/* Toasts stack under the HUD, the portal banner and the quest title plates (top 240 px) so they never
+   cover the ranger guide bubble, the quest "Boss fight!" button or dialog buttons in the lower half. */
+.toast-layer { position: absolute; inset: 0; z-index: var(--z-toast); pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px; padding-top: 240px; }
+.toast {
+  display: flex; align-items: center; gap: 12px;
+  max-width: 560px; padding: 8px 18px;
+  border: 8px solid transparent;
+  border-image: url('/assets/orig/ui/frames/small_white.png') 12 / 12px stretch;
+  background: rgba(14, 15, 16, .94); background-clip: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .8);
+  color: var(--tan); font-size: 24px; font-weight: var(--fw-bold); text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+  animation: toastIn var(--t-med) var(--ease) both;
+}
+.toast img { width: 36px; height: 36px; object-fit: contain; }
+.toast.leaving { animation: toastOut var(--t-med) var(--ease) both; }
+@keyframes toastIn { from { transform: translateY(-20px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes toastOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-10px); } }
+
+/* ---------- Countdown: liga_timer_bg plate ---------- */
+.countdown {
+  display: inline-block; min-width: 150px; padding: 0 12px;
+  border: 6px solid transparent;
+  border-image: url('/assets/orig/ui/liga_timer_bg.png') 12 fill / 10px stretch;
+  background: none;
+  font-size: 22px; font-weight: var(--fw-bold); line-height: 24px; text-align: center;
+  font-variant-numeric: tabular-nums; letter-spacing: .02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+}
+
+/* Tapping-hand bob (the title screen hand) */
+@keyframes handTap { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* ---------- Portal banner and guide bubble ---------- */
+.portal-banner {
+  position: relative; margin: 12px 14px; height: 74px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px 0 30px;
+  background: linear-gradient(90deg, rgba(20, 60, 90, .95), rgba(60, 90, 110, .8) 60%, rgba(30, 50, 70, .9)), var(--hex-texture);
+  background-clip: padding-box;
+  border: 8px solid transparent;
+  border-image: url('/assets/orig/ui/frames/glowblue.png') 26 / 22px stretch;
+  color: #dff2ff; font-size: 32px; font-weight: var(--fw-bold); text-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+}
+.guide-bubble {
+  position: relative; margin: 10px 20px;
+  padding: 26px 34px;
+  border: 6px solid transparent;
+  border-image: url('/assets/orig/ui/frames/hud_nineframe.png') 16 / 16px stretch;
+  background: rgba(10, 11, 12, .9); background-clip: padding-box;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .8);
+  color: var(--tan); font-size: 32px; font-weight: var(--fw-bold); text-align: center; line-height: 1.3;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .9);
+}
+
+/* ---------- Deck slots / rows ---------- */
+.card-row { display: flex; justify-content: center; gap: 8px; padding: 10px 8px; }
+.card-row.panel { margin: 0 12px; }
+.deck-slot {
+  position: relative; width: 116px; height: 164px;
+  background: #050506;
+  border: 2px solid #0a0b0c; border-radius: 6px;
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, .95), 0 1px 0 var(--bevel-hi);
+  display: flex; align-items: center; justify-content: center;
+  transition: box-shadow var(--t-fast);
+}
+.deck-slot.locked::after {
+  content: ''; position: absolute; inset: 0;
+  background: url('/assets/orig/ui/lock_big.png') center / auto 76px no-repeat; opacity: .85;
+}
+.deck-slot.drop-target { box-shadow: inset 0 0 0 3px var(--c-mana), 0 0 16px var(--c-mana); }
+.deck-slot.drop-invalid { box-shadow: inset 0 0 0 3px var(--c-attack), 0 0 16px var(--c-attack); }
+.deck-slot > .card { position: absolute; left: -2px; top: -2px; }
+
+/* ---------- Drag and drop ---------- */
+.drag-ghost {
+  position: absolute; z-index: var(--z-drag);
+  pointer-events: none;
+  transform: rotate(-6deg) scale(1.05);
+  transform-origin: center;
+  filter: drop-shadow(0 0 14px var(--c-mana)) drop-shadow(0 8px 10px rgba(0, 0, 0, .8));
+  transition: none;
+}
+.drag-ghost .card { box-shadow: 0 0 0 3px var(--c-mana), 0 0 20px var(--c-mana); }
+.drag-source { opacity: .3; filter: grayscale(1); }
+
+/* ---------- Avatars / portrait frames: hud_player02 ---------- */
+.portrait {
+  position: relative; width: 120px; height: 120px;
+  background: #0a0b0c; background-clip: padding-box;
+  border: 9px solid transparent;
+  border-image: url('/assets/orig/ui/hud_player02.png') 30 / 13px stretch;
+  overflow: hidden;
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+.portrait.small { width: 84px; height: 84px; border-width: 7px; border-image-width: 10px; }
+
+/* ---------- Misc ---------- */
+.stat-chip { display: inline-flex; align-items: center; gap: 6px; font-weight: var(--fw-bold); }
+.stat-chip img { width: 30px; height: 30px; object-fit: contain; }
+.stat-chip.attack { color: var(--c-attack); }
+.stat-chip.hp { color: var(--c-hp); }
+.stat-chip.mana { color: var(--c-mana); }
+.stat-chip.star { color: var(--c-star); }
+.stat-chip.ability { color: var(--c-ability); }
+.stat-chip.gold { color: var(--c-gold); }
+.stat-chip.gems { color: var(--c-gem); }
+.center { text-align: center; }
+.row { display: flex; align-items: center; gap: 10px; }
+.grow { flex: 1 1 auto; }
+.pad { padding: 12px; }
+.muted { color: var(--muted); }
+.gold-text { color: var(--gold); }

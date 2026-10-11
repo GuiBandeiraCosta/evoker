@@ -1,0 +1,83 @@
+/* Player level-up dialog (src/ui/components/popup-levelup.js), after the client's comp_levelup_layout
+   (300 x 320 at 320 px width, here x2.2): hud_levelup ribbon with a white flash, the large hud_nineframe panel,
+   "Level up!" / "Reached level N", seperator_small, Rewards column (special reward + shop_coins pile) and the
+   Points column with hud_smallbutton +/- (plus_icon_* / minus_icon_*) and the hud_bigbutton03 "Proceed". */
+
+.lvl-backdrop { z-index: var(--z-popup); background: rgba(0, 0, 0, .7); }
+
+/* ---------- ribbon: white flash, then the Level Up emblem; the panel follows ---------- */
+.lvl-ribbon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.lvl-flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+.lvl-ribbon-img { position: relative; width: 600px; height: 600px; object-fit: contain; opacity: 0; transform: scale(.4); }
+.lvl-backdrop.intro .lvl-flash { animation: lvlFlash 700ms ease-out both; }
+.lvl-backdrop.intro .lvl-ribbon-img { animation: lvlRibbon 650ms cubic-bezier(.2, 1.4, .4, 1) both; }
+.lvl-backdrop:not(.intro) .lvl-ribbon { animation: lvlRibbonOut 260ms ease-in both; }
+.lvl-backdrop:not(.intro) .lvl-ribbon-img { opacity: 1; transform: scale(1); }
+@keyframes lvlFlash { 0% { opacity: .95; } 100% { opacity: 0; } }
+@keyframes lvlRibbon { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: scale(1); } }
+@keyframes lvlRibbonOut { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+.lvl-backdrop.intro .lvl-panel { visibility: hidden; animation: none; }
+
+/* ---------- panel ---------- */
+.dialog.panel.lvl-panel {
+  width: 660px; max-width: 96%; padding: 0; gap: 0;
+  border: 16px solid transparent;
+  border-image: url('/assets/orig/ui/frames/hud_nineframe.png') 16 / 16px stretch;
+  background: rgba(30, 32, 35, .97); background-clip: padding-box;
+  color: var(--text, #f3f3f3);
+}
+.lvl-head { padding: 22px 10px 16px; text-align: center; }
+.lvl-title { font-size: 66px; font-weight: var(--fw-bold); line-height: 1.1; text-shadow: 0 3px 4px rgba(0, 0, 0, .9); }
+.lvl-reached { margin-top: 10px; font-size: 34px; font-weight: var(--fw-bold); text-shadow: 0 2px 3px rgba(0, 0, 0, .9); }
+.lvl-sep { height: 12px; margin: 0 -10px; background: url('/assets/orig/ui/seperator_small.png') center / 100% 100% no-repeat; }
+.lvl-cols { display: grid; grid-template-columns: 236px 10px 1fr; min-height: 470px; }
+.lvl-vsep { position: relative; }
+.lvl-vsep::before {
+  content: ''; position: absolute; left: 50%; top: -6px; bottom: -8px; width: 5px; transform: translateX(-50%);
+  background: linear-gradient(90deg, #2b2c2e, #8b8d90 45%, #545659 60%, #1c1d1f);
+}
+.lvl-col-title { font-size: 36px; font-weight: var(--fw-bold); text-shadow: 0 2px 3px rgba(0, 0, 0, .9); }
+
+/* ---------- rewards ---------- */
+.lvl-rewards { display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 8px 22px; }
+.lvl-special { position: relative; flex: 1 1 auto; display: flex; align-items: center; justify-content: center; width: 100%; }
+.lvl-special-img { width: 200px; height: 200px; object-fit: contain; filter: drop-shadow(0 0 22px rgba(255, 210, 120, .45)); }
+.lvl-special-img.gems { filter: drop-shadow(0 0 18px rgba(36, 216, 255, .5)); }
+.lvl-special-img.potion-stamina { width: 170px; filter: drop-shadow(0 0 20px rgba(255, 131, 47, .65)); }
+.lvl-special-img.potion-mana { width: 170px; filter: drop-shadow(0 0 20px rgba(36, 216, 255, .6)); }
+.lvl-special-img[class*='token-'] { width: 130px; height: 140px; }
+.lvl-special-count { position: absolute; bottom: 10px; right: 26px; font-size: 34px; font-weight: var(--fw-bold); text-shadow: 0 2px 3px #000, 0 0 6px #000; }
+.lvl-coins { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 38px; font-weight: var(--fw-bold); text-shadow: 0 2px 3px rgba(0, 0, 0, .9); }
+.lvl-coins-img { width: 96px; height: 96px; object-fit: contain; }
+
+/* ---------- points ---------- */
+.lvl-points { display: flex; flex-direction: column; padding: 26px 18px 18px 24px; }
+.lvl-points .lvl-col-title { display: flex; align-items: baseline; gap: 8px; }
+.lvl-points-count { margin-left: 6px; }
+.lvl-attrs { display: flex; flex-direction: column; gap: 14px; margin: 24px 0 10px; }
+.lvl-attr { display: grid; grid-template-columns: 64px 1fr 78px 78px; align-items: center; gap: 10px; height: 82px; }
+.lvl-attr-icon { width: 58px; height: 58px; object-fit: contain; }
+.lvl-attr-value { justify-self: end; padding-right: 18px; font-size: 32px; font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; text-shadow: 0 2px 3px rgba(0, 0, 0, .9); }
+.lvl-btn {
+  position: relative; width: 78px; height: 78px; padding: 0; margin: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 0; background: url('/assets/orig/ui/frames/smallbutton.png') center / 100% 100% no-repeat;
+  cursor: pointer; transition: transform var(--t-fast, 120ms), filter var(--t-fast, 120ms);
+}
+.lvl-btn:active { transform: translateY(2px); }
+.lvl-btn:disabled { cursor: default; filter: saturate(.3) brightness(.75); transform: none; }
+.lvl-btn img { position: absolute; width: 40px; object-fit: contain; }
+.lvl-btn.minus img { height: 14px; }
+.lvl-btn.plus img { height: 40px; }
+.lvl-btn .off, .lvl-btn .glow { display: none; }
+.lvl-btn:disabled .on { display: none; }
+.lvl-btn:disabled .off { display: block; }
+.lvl-btn.plus.pulse .glow { display: block; animation: lvlPulse 1.1s ease-in-out infinite; }
+@keyframes lvlPulse { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }
+.lvl-buttons { margin-top: auto; justify-content: center; }
+.lvl-buttons .btn.lvl-proceed {
+  min-width: 300px; min-height: 92px; font-size: 38px; color: #f0f0f0;
+  border: 10px solid transparent;
+  border-image: url('/assets/orig/ui/frames/bigbutton03.png') 24 fill / 20px stretch;
+}
+.lvl-buttons .btn.lvl-proceed:disabled { border-image-source: url('/assets/orig/ui/frames/bigbutton03_inactive.png'); }

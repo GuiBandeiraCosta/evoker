@@ -1,0 +1,927 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'eventlistener', 'eventdispatcher', 'logging.logger', 'utils.util', 'getInstance'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "eventlistener"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] GETGLOBAL R2 := _G["FGLIB_PATH"]
+     7 [   0] LOADK     R3 := "eventdispatcher"
+     8 [   0] CONCAT    R2 := R2 .. ... .. R3
+     9 [   0] CALL      R1(...) nargs=1 nret=1
+    10 [   0] GETGLOBAL R2 := _G["require"]
+    11 [   0] GETGLOBAL R3 := _G["FGLIB_PATH"]
+    12 [   0] LOADK     R4 := "logging.logger"
+    13 [   0] CONCAT    R3 := R3 .. ... .. R4
+    14 [   0] CALL      R2(...) nargs=1 nret=1
+    15 [   0] GETGLOBAL R3 := _G["require"]
+    16 [   0] GETGLOBAL R4 := _G["FGLIB_PATH"]
+    17 [   0] LOADK     R5 := "utils.util"
+    18 [   0] CONCAT    R4 := R4 .. ... .. R5
+    19 [   0] CALL      R3(...) nargs=1 nret=1
+    20 [   0] LOADK     R4 := 3
+    21 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+    22 [   0] CLOSURE   R6 := closure #0
+    23 [   0] MOVE      R0 := R3
+    24 [   0] MOVE      R0 := R2
+    25 [   0] MOVE      R0 := R4
+    26 [   0] CLOSURE   R7 := closure #1
+    27 [   0] MOVE      R0 := R6
+    28 [   0] MOVE      R0 := R0
+    29 [   0] MOVE      R0 := R1
+    30 [   0] LOADNIL   R8..R8 := nil
+    31 [   0] CLOSURE   R9 := closure #2
+    32 [   0] MOVE      R0 := R8
+    33 [   0] MOVE      R0 := R7
+    34 [   0] SETTABLE  R5["getInstance"] := R9
+    35 [   0] RETURN    return R5.. (1 values)
+    36 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 9-372, upvals=[], locals=[])
+    constants: strings=['UNSET_PREFIX', 'unknown', '', 'init', 'notificationHandler', 'onSystemEvent', 'setUserManagementInterface', 'userLoginHandler', 'getSessionId', 'getSwrveUserId', 'userMgmtErrorHandler', 'setTrackingInterface', 'performLogEvent', 'resetInterfaceTimestamp', 'logSessionStart', 'logSessionEnd', 'logCustomEvent', 'logFirstStartEvent', 'logCurrencyGivenEvent', 'logPurchaseEvent', 'logBuyInEvent', 'logStoreOpenEvent', 'logStoreNotReachableEvent', 'logStoreTransactionEvent', 'logStoreDenyOpenStorePageEvent', 'logStoreOpenStorePageEvent', 'logStoreCloseEvent', 'logCodeVerifiedEvent', 'logInviteEvent', 'logInviteByFacebookEvent', 'logFacebookShareEvent', 'logUserSegmentEvent', 'logUserRating', 'logGameEvent', 'logDebugEvent', 'logGameNetworkConnect', 'logDeviceSegmentEvent', 'logUserSettings', 'logFacebookEvent', 'flush', 'hasTrackingInterface', 'logUserAttributesEvent', 'setApplicationPrefix'] numbers=[]
+       0 [   0] LOADK     R3 := "UNSET_PREFIX"
+       1 [   0] LOADK     R4 := "unknown"
+       2 [   0] LOADK     R5 := ""
+       3 [   0] LOADBOOL  R6 := False
+       4 [   0] CLOSURE   R7 := closure #0
+       5 [   0] MOVE      R0 := R0
+       6 [   0] MOVE      R0 := R4
+       7 [   0] MOVE      R0 := R2
+       8 [   0] GETUPVAL  R0 := upval 0
+       9 [   0] GETUPVAL  R0 := upval 1
+      10 [   0] SETTABLE  R0["init"] := R7
+      11 [   0] CLOSURE   R7 := closure #1
+      12 [   0] MOVE      R0 := R0
+      13 [   0] SETTABLE  R0["notificationHandler"] := R7
+      14 [   0] CLOSURE   R7 := closure #2
+      15 [   0] GETUPVAL  R0 := upval 1
+      16 [   0] MOVE      R0 := R0
+      17 [   0] SETTABLE  R0["onSystemEvent"] := R7
+      18 [   0] CLOSURE   R7 := closure #3
+      19 [   0] MOVE      R0 := R2
+      20 [   0] MOVE      R0 := R0
+      21 [   0] SETTABLE  R0["setUserManagementInterface"] := R7
+      22 [   0] CLOSURE   R7 := closure #4
+      23 [   0] MOVE      R0 := R1
+      24 [   0] MOVE      R0 := R5
+      25 [   0] MOVE      R0 := R0
+      26 [   0] SETTABLE  R0["userLoginHandler"] := R7
+      27 [   0] CLOSURE   R7 := closure #5
+      28 [   0] MOVE      R0 := R5
+      29 [   0] SETTABLE  R0["getSessionId"] := R7
+      30 [   0] CLOSURE   R7 := closure #6
+      31 [   0] GETUPVAL  R0 := upval 0
+      32 [   0] MOVE      R0 := R5
+      33 [   0] SETTABLE  R0["getSwrveUserId"] := R7
+      34 [   0] CLOSURE   R7 := closure #7
+      35 [   0] GETUPVAL  R0 := upval 1
+      36 [   0] GETUPVAL  R0 := upval 2
+      37 [   0] MOVE      R0 := R2
+      38 [   0] SETTABLE  R0["userMgmtErrorHandler"] := R7
+      39 [   0] CLOSURE   R7 := closure #8
+      40 [   0] MOVE      R0 := R1
+      41 [   0] SETTABLE  R0["setTrackingInterface"] := R7
+      42 [   0] CLOSURE   R7 := closure #9
+      43 [   0] MOVE      R0 := R1
+      44 [   0] MOVE      R0 := R4
+      45 [   0] SETTABLE  R0["performLogEvent"] := R7
+      46 [   0] CLOSURE   R7 := closure #10
+      47 [   0] MOVE      R0 := R1
+      48 [   0] SETTABLE  R0["resetInterfaceTimestamp"] := R7
+      49 [   0] CLOSURE   R7 := closure #11
+      50 [   0] MOVE      R0 := R0
+      51 [   0] SETTABLE  R0["logSessionStart"] := R7
+      52 [   0] CLOSURE   R7 := closure #12
+      53 [   0] MOVE      R0 := R0
+      54 [   0] SETTABLE  R0["logSessionEnd"] := R7
+      55 [   0] CLOSURE   R7 := closure #13
+      56 [   0] MOVE      R0 := R0
+      57 [   0] SETTABLE  R0["logCustomEvent"] := R7
+      58 [   0] CLOSURE   R7 := closure #14
+      59 [   0] MOVE      R0 := R0
+      60 [   0] SETTABLE  R0["logFirstStartEvent"] := R7
+      61 [   0] CLOSURE   R7 := closure #15
+      62 [   0] MOVE      R0 := R0
+      63 [   0] SETTABLE  R0["logCurrencyGivenEvent"] := R7
+      64 [   0] CLOSURE   R7 := closure #16
+      65 [   0] MOVE      R0 := R0
+      66 [   0] SETTABLE  R0["logPurchaseEvent"] := R7
+      67 [   0] CLOSURE   R7 := closure #17
+      68 [   0] MOVE      R0 := R0
+      69 [   0] SETTABLE  R0["logBuyInEvent"] := R7
+      70 [   0] CLOSURE   R7 := closure #18
+      71 [   0] MOVE      R0 := R0
+      72 [   0] SETTABLE  R0["logStoreOpenEvent"] := R7
+      73 [   0] CLOSURE   R7 := closure #19
+      74 [   0] MOVE      R0 := R0
+      75 [   0] SETTABLE  R0["logStoreNotReachableEvent"] := R7
+      76 [   0] CLOSURE   R7 := closure #20
+      77 [   0] MOVE      R0 := R0
+      78 [   0] SETTABLE  R0["logStoreTransactionEvent"] := R7
+      79 [   0] CLOSURE   R7 := closure #21
+      80 [   0] MOVE      R0 := R0
+      81 [   0] SETTABLE  R0["logStoreDenyOpenStorePageEvent"] := R7
+      82 [   0] CLOSURE   R7 := closure #22
+      83 [   0] MOVE      R0 := R0
+      84 [   0] SETTABLE  R0["logStoreOpenStorePageEvent"] := R7
+      85 [   0] CLOSURE   R7 := closure #23
+      86 [   0] MOVE      R0 := R0
+      87 [   0] SETTABLE  R0["logStoreCloseEvent"] := R7
+      88 [   0] CLOSURE   R7 := closure #24
+      89 [   0] MOVE      R0 := R0
+      90 [   0] SETTABLE  R0["logCodeVerifiedEvent"] := R7
+      91 [   0] CLOSURE   R7 := closure #25
+      92 [   0] MOVE      R0 := R0
+      93 [   0] SETTABLE  R0["logInviteEvent"] := R7
+      94 [   0] CLOSURE   R7 := closure #26
+      95 [   0] MOVE      R0 := R0
+      96 [   0] SETTABLE  R0["logInviteByFacebookEvent"] := R7
+      97 [   0] CLOSURE   R7 := closure #27
+      98 [   0] MOVE      R0 := R0
+      99 [   0] SETTABLE  R0["logFacebookShareEvent"] := R7
+     100 [   0] CLOSURE   R7 := closure #28
+     101 [   0] MOVE      R0 := R0
+     102 [   0] SETTABLE  R0["logUserSegmentEvent"] := R7
+     103 [   0] CLOSURE   R7 := closure #29
+     104 [   0] MOVE      R0 := R0
+     105 [   0] SETTABLE  R0["logUserRating"] := R7
+     106 [   0] CLOSURE   R7 := closure #30
+     107 [   0] MOVE      R0 := R0
+     108 [   0] SETTABLE  R0["logGameEvent"] := R7
+     109 [   0] CLOSURE   R7 := closure #31
+     110 [   0] MOVE      R0 := R0
+     111 [   0] SETTABLE  R0["logDebugEvent"] := R7
+     112 [   0] CLOSURE   R7 := closure #32
+     113 [   0] MOVE      R0 := R0
+     114 [   0] SETTABLE  R0["logGameNetworkConnect"] := R7
+     115 [   0] CLOSURE   R7 := closure #33
+     116 [   0] MOVE      R0 := R0
+     117 [   0] MOVE      R0 := R4
+     118 [   0] SETTABLE  R0["logDeviceSegmentEvent"] := R7
+     119 [   0] CLOSURE   R7 := closure #34
+     120 [   0] MOVE      R0 := R0
+     121 [   0] SETTABLE  R0["logUserSettings"] := R7
+     122 [   0] CLOSURE   R7 := closure #35
+     123 [   0] MOVE      R0 := R0
+     124 [   0] SETTABLE  R0["logFacebookEvent"] := R7
+     125 [   0] CLOSURE   R7 := closure #36
+     126 [   0] MOVE      R0 := R1
+     127 [   0] SETTABLE  R0["flush"] := R7
+     128 [   0] CLOSURE   R7 := closure #37
+     129 [   0] MOVE      R0 := R1
+     130 [   0] SETTABLE  R0["hasTrackingInterface"] := R7
+     131 [   0] CLOSURE   R7 := closure #38
+     132 [   0] MOVE      R0 := R0
+     133 [   0] SETTABLE  R0["logUserAttributesEvent"] := R7
+     134 [   0] CLOSURE   R7 := closure #39
+     135 [   0] MOVE      R0 := R3
+     136 [   0] SETTABLE  R0["setApplicationPrefix"] := R7
+     137 [   0] RETURN    return R0.. (1 values)
+     138 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=5, lines 20-73, upvals=[], locals=[])
+      constants: strings=['setApplicationPrefix', 'suppressSessionEvents', 'login', 'getLocale', 'logSessionStart', 'new', 'msg', 'tracker supresses session event!', 'logDeviceSegmentEvent', 'fglib', 'settings', 'SettingsManager', 'getInstance', 'areSettingsLoaded', 'loadSettings', 'tonumber', 'getValue', 'tracking.numstarts', 'model', 'system', 'getInfo', 'arch', 'architectureInfo', 'platformName', 'unknown', 'platformVersion', 'logFirstStartEvent', 'setValue', 'tracking.hadfirststart', 'tracking.firststartts', 'os', 'time', 'Runtime', 'addEventListener', 'onSystemEvent', 'notification', 'notificationHandler'] numbers=[0, 1]
+         0 [   0] GETUPVAL  R5 := upval 0
+         1 [   0] GETTABLE  R5 := R5["setApplicationPrefix"]
+         2 [   0] MOVE      R6 := R0
+         3 [   0] CALL      R5(...) nargs=1 nret=0
+         4 [   0] SETUPVAL  upval 1 := R1
+         5 [   0] EQ        if (R4 == True) ~= 0 then skip next
+         6 [   0] JMP       jmp +2 -> 9
+         7 [   0] LOADBOOL  R5 := True
+         8 [   0] SETGLOBAL _G["suppressSessionEvents"] := R5
+         9 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        10 [   0] JMP       jmp +8 -> 19
+        11 [   0] GETUPVAL  R5 := upval 2
+        12 [   0] GETTABLE  R5 := R5["login"]
+        13 [   0] MOVE      R6 := R2
+        14 [   0] MOVE      R7 := R1
+        15 [   0] GETUPVAL  R8 := upval 3
+        16 [   0] GETTABLE  R8 := R8["getLocale"]
+        17 [   0] CALL      R8(...) nargs=0 nret=-1
+        18 [   0] CALL      R5(...) nargs=-1 nret=0
+        19 [   0] GETGLOBAL R5 := _G["suppressSessionEvents"]
+        20 [   0] EQ        if (R5 == False) ~= 0 then skip next
+        21 [   0] JMP       jmp +5 -> 27
+        22 [   0] GETUPVAL  R5 := upval 0
+        23 [   0] GETTABLE  R5 := R5["logSessionStart"]
+        24 [   0] LOADK     R6 := "new"
+        25 [   0] CALL      R5(...) nargs=1 nret=0
+        26 [   0] JMP       jmp +4 -> 31
+        27 [   0] GETUPVAL  R5 := upval 4
+        28 [   0] GETTABLE  R5 := R5["msg"]
+        29 [   0] LOADK     R6 := "tracker supresses session event!"
+        30 [   0] CALL      R5(...) nargs=1 nret=0
+        31 [   0] GETUPVAL  R5 := upval 0
+        32 [   0] GETTABLE  R5 := R5["logDeviceSegmentEvent"]
+        33 [   0] CALL      R5(...) nargs=0 nret=0
+        34 [   0] GETGLOBAL R5 := _G["fglib"]
+        35 [   0] GETTABLE  R5 := R5["settings"]
+        36 [   0] GETTABLE  R5 := R5["SettingsManager"]
+        37 [   0] GETTABLE  R5 := R5["getInstance"]
+        38 [   0] CALL      R5(...) nargs=0 nret=1
+        39 [   0] GETTABLE  R6 := R5["areSettingsLoaded"]
+        40 [   0] CALL      R6(...) nargs=0 nret=1
+        41 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+        42 [   0] JMP       jmp +2 -> 45
+        43 [   0] GETTABLE  R6 := R5["loadSettings"]
+        44 [   0] CALL      R6(...) nargs=0 nret=0
+        45 [   0] GETGLOBAL R6 := _G["tonumber"]
+        46 [   0] GETTABLE  R7 := R5["getValue"]
+        47 [   0] LOADK     R8 := "tracking.numstarts"
+        48 [   0] CALL      R7(...) nargs=1 nret=-1
+        49 [   0] CALL      R6(...) nargs=-1 nret=1
+        50 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+        51 [   0] JMP       jmp +1 -> 53
+        52 [   0] LOADK     R6 := 0
+        53 [   0] EQ        if (R6 == 0) ~= 0 then skip next
+        54 [   0] JMP       jmp +40 -> 95
+        55 [   0] NEWTABLE  R7 := {} (array 0, hash 4)
+        56 [   0] GETGLOBAL R8 := _G["system"]
+        57 [   0] GETTABLE  R8 := R8["getInfo"]
+        58 [   0] LOADK     R9 := "model"
+        59 [   0] CALL      R8(...) nargs=1 nret=1
+        60 [   0] SETTABLE  R7["model"] := R8
+        61 [   0] GETGLOBAL R8 := _G["system"]
+        62 [   0] GETTABLE  R8 := R8["getInfo"]
+        63 [   0] LOADK     R9 := "architectureInfo"
+        64 [   0] CALL      R8(...) nargs=1 nret=1
+        65 [   0] SETTABLE  R7["arch"] := R8
+        66 [   0] GETGLOBAL R8 := _G["system"]
+        67 [   0] GETTABLE  R8 := R8["getInfo"]
+        68 [   0] LOADK     R9 := "platformName"
+        69 [   0] CALL      R8(...) nargs=1 nret=1
+        70 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+        71 [   0] JMP       jmp +1 -> 73
+        72 [   0] LOADK     R8 := "unknown"
+        73 [   0] SETTABLE  R7["platformName"] := R8
+        74 [   0] GETGLOBAL R8 := _G["system"]
+        75 [   0] GETTABLE  R8 := R8["getInfo"]
+        76 [   0] LOADK     R9 := "platformVersion"
+        77 [   0] CALL      R8(...) nargs=1 nret=1
+        78 [   0] TEST      if (R8 truthy) ~= 1 then skip next
+        79 [   0] JMP       jmp +1 -> 81
+        80 [   0] LOADK     R8 := "unknown"
+        81 [   0] SETTABLE  R7["platformVersion"] := R8
+        82 [   0] GETUPVAL  R8 := upval 0
+        83 [   0] GETTABLE  R8 := R8["logFirstStartEvent"]
+        84 [   0] MOVE      R9 := R7
+        85 [   0] CALL      R8(...) nargs=1 nret=0
+        86 [   0] GETTABLE  R8 := R5["setValue"]
+        87 [   0] LOADK     R9 := "tracking.hadfirststart"
+        88 [   0] LOADBOOL  R10 := True
+        89 [   0] CALL      R8(...) nargs=2 nret=0
+        90 [   0] GETTABLE  R8 := R5["setValue"]
+        91 [   0] LOADK     R9 := "tracking.numstarts"
+        92 [   0] LOADK     R10 := 1
+        93 [   0] CALL      R8(...) nargs=2 nret=0
+        94 [   0] JMP       jmp +4 -> 99
+        95 [   0] GETTABLE  R7 := R5["setValue"]
+        96 [   0] LOADK     R8 := "tracking.hadfirststart"
+        97 [   0] LOADBOOL  R9 := False
+        98 [   0] CALL      R7(...) nargs=2 nret=0
+        99 [   0] GETGLOBAL R7 := _G["tonumber"]
+       100 [   0] GETTABLE  R8 := R5["getValue"]
+       101 [   0] LOADK     R9 := "tracking.firststartts"
+       102 [   0] CALL      R8(...) nargs=1 nret=-1
+       103 [   0] CALL      R7(...) nargs=-1 nret=1
+       104 [   0] TEST      if (R7 truthy) ~= 1 then skip next
+       105 [   0] JMP       jmp +1 -> 107
+       106 [   0] LOADK     R7 := 0
+       107 [   0] EQ        if (R7 == 0) ~= 0 then skip next
+       108 [   0] JMP       jmp +8 -> 117
+       109 [   0] GETGLOBAL R8 := _G["os"]
+       110 [   0] GETTABLE  R8 := R8["time"]
+       111 [   0] CALL      R8(...) nargs=0 nret=1
+       112 [   0] MOVE      R7 := R8
+       113 [   0] GETTABLE  R8 := R5["setValue"]
+       114 [   0] LOADK     R9 := "tracking.firststartts"
+       115 [   0] MOVE      R10 := R7
+       116 [   0] CALL      R8(...) nargs=2 nret=0
+       117 [   0] GETGLOBAL R8 := _G["Runtime"]
+       118 [   0] SELF      R9 := R8; R8 := R8["addEventListener"]
+       119 [   0] LOADK     R10 := "system"
+       120 [   0] GETUPVAL  R11 := upval 0
+       121 [   0] GETTABLE  R11 := R11["onSystemEvent"]
+       122 [   0] CALL      R8(...) nargs=3 nret=0
+       123 [   0] GETGLOBAL R8 := _G["Runtime"]
+       124 [   0] SELF      R9 := R8; R8 := R8["addEventListener"]
+       125 [   0] LOADK     R10 := "notification"
+       126 [   0] GETUPVAL  R11 := upval 0
+       127 [   0] GETTABLE  R11 := R11["notificationHandler"]
+       128 [   0] CALL      R8(...) nargs=3 nret=0
+       129 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=1, lines 76-83, upvals=[], locals=[])
+      constants: strings=['applicationState', 'inactive', 'custom', 'msgid', 'logSessionStart', 'pushmsg.'] numbers=[]
+         0 [   0] GETTABLE  R1 := R0["applicationState"]
+         1 [   0] EQ        if (R1 == "inactive") ~= 0 then skip next
+         2 [   0] JMP       jmp +14 -> 17
+         3 [   0] GETTABLE  R1 := R0["custom"]
+         4 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         5 [   0] JMP       jmp +11 -> 17
+         6 [   0] GETTABLE  R1 := R0["custom"]
+         7 [   0] GETTABLE  R1 := R1["msgid"]
+         8 [   0] EQ        if (R1 == None) ~= 1 then skip next
+         9 [   0] JMP       jmp +7 -> 17
+        10 [   0] GETUPVAL  R1 := upval 0
+        11 [   0] GETTABLE  R1 := R1["logSessionStart"]
+        12 [   0] LOADK     R2 := "pushmsg."
+        13 [   0] GETTABLE  R3 := R0["custom"]
+        14 [   0] GETTABLE  R3 := R3["msgid"]
+        15 [   0] CONCAT    R2 := R2 .. ... .. R3
+        16 [   0] CALL      R1(...) nargs=1 nret=0
+        17 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=1, lines 86-101, upvals=[], locals=[])
+      constants: strings=['msg', 'tracker.self.onSystemEvent', 'suppressSessionEvents', 'tracker supresses session event!', 'applicationExit', 'type', 'logSessionEnd', 'exit', 'trigger', 'default', 'applicationSuspend', 'suspend', 'applicationResume', 'logSessionStart', 'resume'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["msg"]
+         2 [   0] LOADK     R2 := "tracker.self.onSystemEvent"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] GETGLOBAL R1 := _G["suppressSessionEvents"]
+         6 [   0] EQ        if (R1 == True) ~= 0 then skip next
+         7 [   0] JMP       jmp +5 -> 13
+         8 [   0] GETUPVAL  R1 := upval 0
+         9 [   0] GETTABLE  R1 := R1["msg"]
+        10 [   0] LOADK     R2 := "tracker supresses session event!"
+        11 [   0] CALL      R1(...) nargs=1 nret=0
+        12 [   0] RETURN    return R0.. (0 values)
+        13 [   0] GETTABLE  R1 := R0["type"]
+        14 [   0] EQ        if ("applicationExit" == R1) ~= 0 then skip next
+        15 [   0] JMP       jmp +11 -> 27
+        16 [   0] GETUPVAL  R1 := upval 1
+        17 [   0] GETTABLE  R1 := R1["logSessionEnd"]
+        18 [   0] LOADK     R2 := "exit"
+        19 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+        20 [   0] GETTABLE  R4 := R0["trigger"]
+        21 [   0] TEST      if (R4 truthy) ~= 1 then skip next
+        22 [   0] JMP       jmp +1 -> 24
+        23 [   0] LOADK     R4 := "default"
+        24 [   0] SETTABLE  R3["trigger"] := R4
+        25 [   0] CALL      R1(...) nargs=2 nret=0
+        26 [   0] JMP       jmp +15 -> 42
+        27 [   0] GETTABLE  R1 := R0["type"]
+        28 [   0] EQ        if ("applicationSuspend" == R1) ~= 0 then skip next
+        29 [   0] JMP       jmp +5 -> 35
+        30 [   0] GETUPVAL  R1 := upval 1
+        31 [   0] GETTABLE  R1 := R1["logSessionEnd"]
+        32 [   0] LOADK     R2 := "suspend"
+        33 [   0] CALL      R1(...) nargs=1 nret=0
+        34 [   0] JMP       jmp +7 -> 42
+        35 [   0] GETTABLE  R1 := R0["type"]
+        36 [   0] EQ        if ("applicationResume" == R1) ~= 0 then skip next
+        37 [   0] JMP       jmp +4 -> 42
+        38 [   0] GETUPVAL  R1 := upval 1
+        39 [   0] GETTABLE  R1 := R1["logSessionStart"]
+        40 [   0] LOADK     R2 := "resume"
+        41 [   0] CALL      R1(...) nargs=1 nret=0
+        42 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=1, lines 103-108, upvals=[], locals=[])
+      constants: strings=['subscribeTo', 'userLogin', 'userMgmtError'] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] GETUPVAL  R1 := upval 1
+         2 [   0] GETTABLE  R1 := R1["subscribeTo"]
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] LOADK     R3 := "userLogin"
+         5 [   0] CALL      R1(...) nargs=2 nret=0
+         6 [   0] GETUPVAL  R1 := upval 1
+         7 [   0] GETTABLE  R1 := R1["subscribeTo"]
+         8 [   0] GETUPVAL  R2 := upval 0
+         9 [   0] LOADK     R3 := "userMgmtError"
+        10 [   0] CALL      R1(...) nargs=2 nret=0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#4 (params=2, lines 110-123, upvals=[], locals=[])
+      constants: strings=['setSessionId', 'id', 'variantStatus', 'variants', 'emit', 'variantsData', 'newTrackingSession'] numbers=[0]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["setSessionId"]
+         2 [   0] GETTABLE  R3 := R1["id"]
+         3 [   0] CALL      R2(...) nargs=1 nret=0
+         4 [   0] GETTABLE  R2 := R1["id"]
+         5 [   0] SETUPVAL  upval 1 := R2
+         6 [   0] GETTABLE  R2 := R1["variantStatus"]
+         7 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         8 [   0] JMP       jmp +11 -> 20
+         9 [   0] GETTABLE  R2 := R1["variantStatus"]
+        10 [   0] EQ        if (R2 == 0) ~= 0 then skip next
+        11 [   0] JMP       jmp +8 -> 20
+        12 [   0] GETTABLE  R2 := R1["variants"]
+        13 [   0] EQ        if (R2 == None) ~= 1 then skip next
+        14 [   0] JMP       jmp +5 -> 20
+        15 [   0] GETUPVAL  R2 := upval 2
+        16 [   0] GETTABLE  R2 := R2["emit"]
+        17 [   0] LOADK     R3 := "variantsData"
+        18 [   0] GETTABLE  R4 := R1["variants"]
+        19 [   0] CALL      R2(...) nargs=2 nret=0
+        20 [   0] GETUPVAL  R2 := upval 2
+        21 [   0] GETTABLE  R2 := R2["emit"]
+        22 [   0] LOADK     R3 := "newTrackingSession"
+        23 [   0] GETUPVAL  R4 := upval 1
+        24 [   0] CALL      R2(...) nargs=2 nret=0
+        25 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#5 (params=0, lines 125-128, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] RETURN    return R0.. (1 values)
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#6 (params=0, lines 130-143, upvals=[], locals=[])
+      constants: strings=['split', '=', 'print', 'returning swrveuserid'] numbers=[2]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["split"]
+         2 [   0] GETUPVAL  R1 := upval 1
+         3 [   0] LOADK     R2 := "="
+         4 [   0] CALL      R0(...) nargs=2 nret=1
+         5 [   0] LEN       R1 := #R0
+         6 [   0] LT        if (2 < R1) ~= 0 then skip next
+         7 [   0] JMP       jmp +7 -> 15
+         8 [   0] GETGLOBAL R1 := _G["print"]
+         9 [   0] LOADK     R2 := "returning swrveuserid"
+        10 [   0] GETTABLE  R3 := R0[2]
+        11 [   0] CALL      R1(...) nargs=2 nret=0
+        12 [   0] GETTABLE  R1 := R0[2]
+        13 [   0] RETURN    return R1.. (1 values)
+        14 [   0] JMP       jmp +0 -> 15
+        15 [   0] LOADNIL   R1..R1 := nil
+        16 [   0] RETURN    return R1.. (1 values)
+        17 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#7 (params=2, lines 145-156, upvals=[], locals=[])
+      constants: strings=['logmsg', 'ASPECT_TRACKING', 'Tracker:userMgmtErrorHandler', 'phase', 'login', 'errorcode', 'register', "Tracker:userMgmtErrorHandler - can't recover, not able to register"] numbers=[3, 401]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logmsg"]
+         2 [   0] GETUPVAL  R3 := upval 1
+         3 [   0] GETUPVAL  R4 := upval 0
+         4 [   0] GETTABLE  R4 := R4["ASPECT_TRACKING"]
+         5 [   0] LOADK     R5 := 3
+         6 [   0] LOADK     R6 := "Tracker:userMgmtErrorHandler"
+         7 [   0] MOVE      R7 := R1
+         8 [   0] CALL      R2(...) nargs=5 nret=0
+         9 [   0] GETTABLE  R2 := R1["phase"]
+        10 [   0] EQ        if (R2 == "login") ~= 0 then skip next
+        11 [   0] JMP       jmp +8 -> 20
+        12 [   0] GETTABLE  R2 := R1["errorcode"]
+        13 [   0] EQ        if (R2 == 401) ~= 0 then skip next
+        14 [   0] JMP       jmp +17 -> 32
+        15 [   0] GETUPVAL  R2 := upval 2
+        16 [   0] GETTABLE  R2 := R2["login"]
+        17 [   0] LOADBOOL  R3 := True
+        18 [   0] CALL      R2(...) nargs=1 nret=0
+        19 [   0] JMP       jmp +12 -> 32
+        20 [   0] GETTABLE  R2 := R1["phase"]
+        21 [   0] EQ        if (R2 == "register") ~= 0 then skip next
+        22 [   0] JMP       jmp +9 -> 32
+        23 [   0] GETUPVAL  R2 := upval 0
+        24 [   0] GETTABLE  R2 := R2["logmsg"]
+        25 [   0] GETUPVAL  R3 := upval 1
+        26 [   0] GETUPVAL  R4 := upval 0
+        27 [   0] GETTABLE  R4 := R4["ASPECT_TRACKING"]
+        28 [   0] LOADK     R5 := 3
+        29 [   0] LOADK     R6 := "Tracker:userMgmtErrorHandler - can't recover, not able to register"
+        30 [   0] MOVE      R7 := R1
+        31 [   0] CALL      R2(...) nargs=5 nret=0
+        32 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#8 (params=1, lines 158-160, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#9 (params=4, lines 162-164, upvals=[], locals=[])
+      constants: strings=['track'] numbers=[]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["track"]
+         2 [   0] MOVE      R5 := R0
+         3 [   0] MOVE      R6 := R1
+         4 [   0] MOVE      R7 := R2
+         5 [   0] MOVE      R8 := R3
+         6 [   0] GETUPVAL  R9 := upval 1
+         7 [   0] CALL      R4(...) nargs=5 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#10 (params=0, lines 166-171, upvals=[], locals=[])
+      constants: strings=['resetTimestamp'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +3 -> 6
+         3 [   0] GETUPVAL  R0 := upval 0
+         4 [   0] GETTABLE  R0 := R0["resetTimestamp"]
+         5 [   0] CALL      R0(...) nargs=0 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#11 (params=2, lines 174-185, upvals=[], locals=[])
+      constants: strings=['new', 'resetInterfaceTimestamp', 'performLogEvent', 'SESSION_START', 'ip', 'logCustomEvent', 'session.start.'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADK     R0 := "new"
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["resetInterfaceTimestamp"]
+         5 [   0] CALL      R2(...) nargs=0 nret=0
+         6 [   0] GETUPVAL  R2 := upval 0
+         7 [   0] GETTABLE  R2 := R2["performLogEvent"]
+         8 [   0] LOADK     R3 := "SESSION_START"
+         9 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+        10 [   0] GETGLOBAL R5 := _G["ip"]
+        11 [   0] SETTABLE  R4["ip"] := R5
+        12 [   0] MOVE      R5 := R1
+        13 [   0] CALL      R2(...) nargs=3 nret=0
+        14 [   0] GETUPVAL  R2 := upval 0
+        15 [   0] GETTABLE  R2 := R2["logCustomEvent"]
+        16 [   0] LOADK     R3 := "session.start."
+        17 [   0] MOVE      R4 := R0
+        18 [   0] CONCAT    R3 := R3 .. ... .. R4
+        19 [   0] CALL      R2(...) nargs=1 nret=0
+        20 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#12 (params=2, lines 188-191, upvals=[], locals=[])
+      constants: strings=['performLogEvent', 'SESSION_END', 'logCustomEvent', 'session.end.'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["performLogEvent"]
+         2 [   0] LOADK     R3 := "SESSION_END"
+         3 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+         4 [   0] MOVE      R5 := R1
+         5 [   0] LOADBOOL  R6 := True
+         6 [   0] CALL      R2(...) nargs=4 nret=0
+         7 [   0] GETUPVAL  R2 := upval 0
+         8 [   0] GETTABLE  R2 := R2["logCustomEvent"]
+         9 [   0] LOADK     R3 := "session.end."
+        10 [   0] MOVE      R4 := R0
+        11 [   0] CONCAT    R3 := R3 .. ... .. R4
+        12 [   0] CALL      R2(...) nargs=1 nret=0
+        13 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#13 (params=2, lines 194-196, upvals=[], locals=[])
+      constants: strings=['performLogEvent', 'EVENT', 'eventName'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["performLogEvent"]
+         2 [   0] LOADK     R3 := "EVENT"
+         3 [   0] NEWTABLE  R4 := {} (array 0, hash 1)
+         4 [   0] SETTABLE  R4["eventName"] := R0
+         5 [   0] MOVE      R5 := R1
+         6 [   0] CALL      R2(...) nargs=3 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#14 (params=1, lines 198-200, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'firststart'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logCustomEvent"]
+         2 [   0] LOADK     R2 := "firststart"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#15 (params=3, lines 202-204, upvals=[], locals=[])
+      constants: strings=['performLogEvent', 'CURRENCY_GIVEN', 'vamount', 'vcurr'] numbers=[]
+         0 [   0] GETUPVAL  R3 := upval 0
+         1 [   0] GETTABLE  R3 := R3["performLogEvent"]
+         2 [   0] LOADK     R4 := "CURRENCY_GIVEN"
+         3 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+         4 [   0] SETTABLE  R5["vamount"] := R0
+         5 [   0] SETTABLE  R5["vcurr"] := R1
+         6 [   0] MOVE      R6 := R2
+         7 [   0] CALL      R3(...) nargs=3 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#16 (params=5, lines 207-216, upvals=[], locals=[])
+      constants: strings=['fglib', 'settings', 'SettingsManager', 'getInstance', 'getValue', 'store.invalidtransactions', 'performLogEvent', 'PURCHASE_ITEM', 'quantity', 'itemId', 'vamount', 'vcurr'] numbers=[0]
+         0 [   0] GETGLOBAL R5 := _G["fglib"]
+         1 [   0] GETTABLE  R5 := R5["settings"]
+         2 [   0] GETTABLE  R5 := R5["SettingsManager"]
+         3 [   0] GETTABLE  R5 := R5["getInstance"]
+         4 [   0] CALL      R5(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R5 := R5["getValue"]
+         6 [   0] LOADK     R6 := "store.invalidtransactions"
+         7 [   0] LOADK     R7 := 0
+         8 [   0] CALL      R5(...) nargs=2 nret=1
+         9 [   0] LT        if (0 < R5) ~= 0 then skip next
+        10 [   0] JMP       jmp +1 -> 12
+        11 [   0] RETURN    return R0.. (0 values)
+        12 [   0] GETUPVAL  R6 := upval 0
+        13 [   0] GETTABLE  R6 := R6["performLogEvent"]
+        14 [   0] LOADK     R7 := "PURCHASE_ITEM"
+        15 [   0] NEWTABLE  R8 := {} (array 0, hash 4)
+        16 [   0] SETTABLE  R8["quantity"] := R0
+        17 [   0] SETTABLE  R8["itemId"] := R1
+        18 [   0] SETTABLE  R8["vamount"] := R2
+        19 [   0] SETTABLE  R8["vcurr"] := R3
+        20 [   0] MOVE      R9 := R4
+        21 [   0] CALL      R6(...) nargs=3 nret=0
+        22 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#17 (params=6, lines 220-222, upvals=[], locals=[])
+      constants: strings=['performLogEvent', 'BUY_IN', 'provider', 'ramount', 'rcurr', 'vamount', 'vcurr'] numbers=[]
+         0 [   0] GETUPVAL  R6 := upval 0
+         1 [   0] GETTABLE  R6 := R6["performLogEvent"]
+         2 [   0] LOADK     R7 := "BUY_IN"
+         3 [   0] NEWTABLE  R8 := {} (array 0, hash 5)
+         4 [   0] SETTABLE  R8["provider"] := R0
+         5 [   0] SETTABLE  R8["ramount"] := R1
+         6 [   0] SETTABLE  R8["rcurr"] := R2
+         7 [   0] SETTABLE  R8["vamount"] := R3
+         8 [   0] SETTABLE  R8["vcurr"] := R4
+         9 [   0] MOVE      R9 := R5
+        10 [   0] CALL      R6(...) nargs=3 nret=0
+        11 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#18 (params=2, lines 224-230, upvals=[], locals=[])
+      constants: strings=['unknown', 'logCustomEvent', 'store.open.'] numbers=[]
+         0 [   0] TEST      if (R0 truthy) ~= 1 then skip next
+         1 [   0] JMP       jmp +1 -> 3
+         2 [   0] LOADK     R0 := "unknown"
+         3 [   0] GETUPVAL  R2 := upval 0
+         4 [   0] GETTABLE  R2 := R2["logCustomEvent"]
+         5 [   0] LOADK     R3 := "store.open."
+         6 [   0] MOVE      R4 := R0
+         7 [   0] CONCAT    R3 := R3 .. ... .. R4
+         8 [   0] MOVE      R4 := R1
+         9 [   0] CALL      R2(...) nargs=2 nret=0
+        10 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#19 (params=1, lines 232-234, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'store.unreachable'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logCustomEvent"]
+         2 [   0] LOADK     R2 := "store.unreachable"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#20 (params=1, lines 236-239, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'store.', 'state'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logCustomEvent"]
+         2 [   0] LOADK     R2 := "store."
+         3 [   0] GETTABLE  R3 := R0["state"]
+         4 [   0] CONCAT    R2 := R2 .. ... .. R3
+         5 [   0] MOVE      R3 := R0
+         6 [   0] CALL      R1(...) nargs=2 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#21 (params=1, lines 241-243, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'store.denyopenstorepage'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logCustomEvent"]
+         2 [   0] LOADK     R2 := "store.denyopenstorepage"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#22 (params=1, lines 245-247, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'store.openstorepage'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logCustomEvent"]
+         2 [   0] LOADK     R2 := "store.openstorepage"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#23 (params=1, lines 249-252, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'store.close'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] GETTABLE  R1 := R1["logCustomEvent"]
+         2 [   0] LOADK     R2 := "store.close"
+         3 [   0] MOVE      R3 := R0
+         4 [   0] CALL      R1(...) nargs=2 nret=0
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#24 (params=2, lines 254-261, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'store.codeverified', 'state', 'code', 'setprop', 'verifyts', 'valid', 'logUserAttributesEvent', 'data'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logCustomEvent"]
+         2 [   0] LOADK     R3 := "store.codeverified"
+         3 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+         4 [   0] GETTABLE  R5 := R0["state"]
+         5 [   0] SETTABLE  R4["state"] := R5
+         6 [   0] GETTABLE  R5 := R0["code"]
+         7 [   0] SETTABLE  R4["code"] := R5
+         8 [   0] GETTABLE  R5 := R0["setprop"]
+         9 [   0] SETTABLE  R4["setprop"] := R5
+        10 [   0] GETTABLE  R5 := R0["verifyts"]
+        11 [   0] SETTABLE  R4["verifyts"] := R5
+        12 [   0] CALL      R2(...) nargs=2 nret=0
+        13 [   0] GETTABLE  R2 := R0["state"]
+        14 [   0] EQ        if (R2 == "valid") ~= 0 then skip next
+        15 [   0] JMP       jmp +8 -> 24
+        16 [   0] GETTABLE  R2 := R0["setprop"]
+        17 [   0] EQ        if (R2 == True) ~= 0 then skip next
+        18 [   0] JMP       jmp +5 -> 24
+        19 [   0] GETUPVAL  R2 := upval 0
+        20 [   0] GETTABLE  R2 := R2["logUserAttributesEvent"]
+        21 [   0] GETTABLE  R3 := R0["data"]
+        22 [   0] MOVE      R4 := R1
+        23 [   0] CALL      R2(...) nargs=2 nret=0
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#25 (params=2, lines 266-268, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'invites.'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logCustomEvent"]
+         2 [   0] LOADK     R3 := "invites."
+         3 [   0] MOVE      R4 := R0
+         4 [   0] CONCAT    R3 := R3 .. ... .. R4
+         5 [   0] MOVE      R4 := R1
+         6 [   0] CALL      R2(...) nargs=2 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#26 (params=2, lines 270-272, upvals=[], locals=[])
+      constants: strings=['logInviteEvent', 'facebook.'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logInviteEvent"]
+         2 [   0] LOADK     R3 := "facebook."
+         3 [   0] MOVE      R4 := R0
+         4 [   0] CONCAT    R3 := R3 .. ... .. R4
+         5 [   0] MOVE      R4 := R1
+         6 [   0] CALL      R2(...) nargs=2 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#27 (params=2, lines 277-279, upvals=[], locals=[])
+      constants: strings=['logFacebookEvent', 'share.'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logFacebookEvent"]
+         2 [   0] LOADK     R3 := "share."
+         3 [   0] MOVE      R4 := R0
+         4 [   0] CONCAT    R3 := R3 .. ... .. R4
+         5 [   0] MOVE      R4 := R1
+         6 [   0] CALL      R2(...) nargs=2 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#28 (params=4, lines 285-287, upvals=[], locals=[])
+      constants: strings=['logUserAttributesEvent', 'age', 'gender', 'location'] numbers=[]
+         0 [   0] GETUPVAL  R4 := upval 0
+         1 [   0] GETTABLE  R4 := R4["logUserAttributesEvent"]
+         2 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+         3 [   0] SETTABLE  R5["age"] := R0
+         4 [   0] SETTABLE  R5["gender"] := R1
+         5 [   0] SETTABLE  R5["location"] := R2
+         6 [   0] MOVE      R6 := R3
+         7 [   0] CALL      R4(...) nargs=2 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#29 (params=2, lines 292-299, upvals=[], locals=[])
+      constants: strings=['rating', '.', 'tostring', 'logCustomEvent'] numbers=[]
+         0 [   0] LOADK     R2 := "rating"
+         1 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+         2 [   0] JMP       jmp +6 -> 9
+         3 [   0] MOVE      R3 := R2
+         4 [   0] LOADK     R4 := "."
+         5 [   0] GETGLOBAL R5 := _G["tostring"]
+         6 [   0] MOVE      R6 := R1
+         7 [   0] CALL      R5(...) nargs=1 nret=1
+         8 [   0] CONCAT    R2 := R3 .. ... .. R5
+         9 [   0] MOVE      R3 := R2
+        10 [   0] LOADK     R4 := "."
+        11 [   0] GETGLOBAL R5 := _G["tostring"]
+        12 [   0] MOVE      R6 := R0
+        13 [   0] CALL      R5(...) nargs=1 nret=1
+        14 [   0] CONCAT    R2 := R3 .. ... .. R5
+        15 [   0] GETUPVAL  R3 := upval 0
+        16 [   0] GETTABLE  R3 := R3["logCustomEvent"]
+        17 [   0] MOVE      R4 := R2
+        18 [   0] CALL      R3(...) nargs=1 nret=0
+        19 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#30 (params=2, lines 303-305, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'game.'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logCustomEvent"]
+         2 [   0] LOADK     R3 := "game."
+         3 [   0] MOVE      R4 := R0
+         4 [   0] CONCAT    R3 := R3 .. ... .. R4
+         5 [   0] MOVE      R4 := R1
+         6 [   0] CALL      R2(...) nargs=2 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#31 (params=2, lines 307-309, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'debug.'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logCustomEvent"]
+         2 [   0] LOADK     R3 := "debug."
+         3 [   0] MOVE      R4 := R0
+         4 [   0] CONCAT    R3 := R3 .. ... .. R4
+         5 [   0] MOVE      R4 := R1
+         6 [   0] CALL      R2(...) nargs=2 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#32 (params=0, lines 312-314, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'gamenetwork.connect'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["logCustomEvent"]
+         2 [   0] LOADK     R1 := "gamenetwork.connect"
+         3 [   0] CALL      R0(...) nargs=1 nret=0
+         4 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#33 (params=0, lines 316-331, upvals=[], locals=[])
+      constants: strings=['system', 'getPreference', 'locale', 'identifier', 'string', 'match', '%a+_(%a+)', 'unknown', 'logUserAttributesEvent', 'model', 'getInfo', 'arch', 'architectureInfo', 'location', 'platformName', 'platformVersion', 'appversion', 'payload'] numbers=[]
+         0 [   0] GETGLOBAL R0 := _G["system"]
+         1 [   0] GETTABLE  R0 := R0["getPreference"]
+         2 [   0] LOADK     R1 := "locale"
+         3 [   0] LOADK     R2 := "identifier"
+         4 [   0] CALL      R0(...) nargs=2 nret=1
+         5 [   0] GETGLOBAL R1 := _G["string"]
+         6 [   0] GETTABLE  R1 := R1["match"]
+         7 [   0] MOVE      R2 := R0
+         8 [   0] LOADK     R3 := "%a+_(%a+)"
+         9 [   0] CALL      R1(...) nargs=2 nret=1
+        10 [   0] TESTSET   if (R1 truthy) == 1 then R0 := R1 else skip next
+        11 [   0] JMP       jmp +1 -> 13
+        12 [   0] LOADK     R0 := "unknown"
+        13 [   0] GETUPVAL  R1 := upval 0
+        14 [   0] GETTABLE  R1 := R1["logUserAttributesEvent"]
+        15 [   0] NEWTABLE  R2 := {} (array 0, hash 7)
+        16 [   0] GETGLOBAL R3 := _G["system"]
+        17 [   0] GETTABLE  R3 := R3["getInfo"]
+        18 [   0] LOADK     R4 := "model"
+        19 [   0] CALL      R3(...) nargs=1 nret=1
+        20 [   0] SETTABLE  R2["model"] := R3
+        21 [   0] GETGLOBAL R3 := _G["system"]
+        22 [   0] GETTABLE  R3 := R3["getInfo"]
+        23 [   0] LOADK     R4 := "architectureInfo"
+        24 [   0] CALL      R3(...) nargs=1 nret=1
+        25 [   0] SETTABLE  R2["arch"] := R3
+        26 [   0] GETGLOBAL R3 := _G["system"]
+        27 [   0] GETTABLE  R3 := R3["getPreference"]
+        28 [   0] LOADK     R4 := "locale"
+        29 [   0] LOADK     R5 := "identifier"
+        30 [   0] CALL      R3(...) nargs=2 nret=1
+        31 [   0] SETTABLE  R2["locale"] := R3
+        32 [   0] SETTABLE  R2["location"] := R0
+        33 [   0] GETGLOBAL R3 := _G["system"]
+        34 [   0] GETTABLE  R3 := R3["getInfo"]
+        35 [   0] LOADK     R4 := "platformName"
+        36 [   0] CALL      R3(...) nargs=1 nret=1
+        37 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        38 [   0] JMP       jmp +1 -> 40
+        39 [   0] LOADK     R3 := "unknown"
+        40 [   0] SETTABLE  R2["platformName"] := R3
+        41 [   0] GETGLOBAL R3 := _G["system"]
+        42 [   0] GETTABLE  R3 := R3["getInfo"]
+        43 [   0] LOADK     R4 := "platformVersion"
+        44 [   0] CALL      R3(...) nargs=1 nret=1
+        45 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+        46 [   0] JMP       jmp +1 -> 48
+        47 [   0] LOADK     R3 := "unknown"
+        48 [   0] SETTABLE  R2["platformVersion"] := R3
+        49 [   0] GETUPVAL  R3 := upval 1
+        50 [   0] SETTABLE  R2["appversion"] := R3
+        51 [   0] GETGLOBAL R3 := _G["payload"]
+        52 [   0] CALL      R1(...) nargs=2 nret=0
+        53 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#34 (params=1, lines 333-343, upvals=[], locals=[])
+      constants: strings=['fglib', 'settings', 'SettingsManager', 'getInstance', 'getValue', 'logUserAttributesEvent'] numbers=[0]
+         0 [   0] GETGLOBAL R1 := _G["fglib"]
+         1 [   0] GETTABLE  R1 := R1["settings"]
+         2 [   0] GETTABLE  R1 := R1["SettingsManager"]
+         3 [   0] GETTABLE  R1 := R1["getInstance"]
+         4 [   0] CALL      R1(...) nargs=0 nret=1
+         5 [   0] GETTABLE  R2 := R1["getValue"]
+         6 [   0] MOVE      R3 := R0
+         7 [   0] CALL      R2(...) nargs=1 nret=1
+         8 [   0] EQ        if (R2 == None) ~= 1 then skip next
+         9 [   0] JMP       jmp +14 -> 24
+        10 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+        11 [   0] LOADK     R3 := "settings"
+        12 [   0] MOVE      R4 := R0
+        13 [   0] CONCAT    R3 := R3 .. ... .. R4
+        14 [   0] GETTABLE  R4 := R1["getValue"]
+        15 [   0] MOVE      R5 := R0
+        16 [   0] LOADK     R6 := 0
+        17 [   0] CALL      R4(...) nargs=2 nret=1
+        18 [   0] SETTABLE  R2[R3] := R4
+        19 [   0] GETUPVAL  R3 := upval 0
+        20 [   0] GETTABLE  R3 := R3["logUserAttributesEvent"]
+        21 [   0] MOVE      R4 := R2
+        22 [   0] LOADNIL   R5..R5 := nil
+        23 [   0] CALL      R3(...) nargs=2 nret=0
+        24 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#35 (params=2, lines 345-347, upvals=[], locals=[])
+      constants: strings=['logCustomEvent', 'facebook.'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["logCustomEvent"]
+         2 [   0] LOADK     R3 := "facebook."
+         3 [   0] MOVE      R4 := R0
+         4 [   0] CONCAT    R3 := R3 .. ... .. R4
+         5 [   0] MOVE      R4 := R1
+         6 [   0] CALL      R2(...) nargs=2 nret=0
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#36 (params=0, lines 349-351, upvals=[], locals=[])
+      constants: strings=['flush'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETTABLE  R0 := R0["flush"]
+         2 [   0] CALL      R0(...) nargs=0 nret=0
+         3 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#37 (params=0, lines 353-358, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] EQ        if (R0 == None) ~= 1 then skip next
+         2 [   0] JMP       jmp +2 -> 5
+         3 [   0] LOADBOOL  R0 := True
+         4 [   0] RETURN    return R0.. (1 values)
+         5 [   0] LOADBOOL  R0 := False
+         6 [   0] RETURN    return R0.. (1 values)
+         7 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#38 (params=2, lines 360-362, upvals=[], locals=[])
+      constants: strings=['performLogEvent', 'USER_ATTR'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["performLogEvent"]
+         2 [   0] LOADK     R3 := "USER_ATTR"
+         3 [   0] MOVE      R4 := R0
+         4 [   0] MOVE      R5 := R1
+         5 [   0] CALL      R2(...) nargs=3 nret=0
+         6 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#39 (params=1, lines 364-366, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] SETUPVAL  upval 0 := R0
+         1 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 374-378, upvals=[], locals=[])
+    constants: strings=['new_inherit', 'new'] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] GETUPVAL  R1 := upval 1
+       2 [   0] GETTABLE  R1 := R1["new_inherit"]
+       3 [   0] GETUPVAL  R2 := upval 2
+       4 [   0] GETTABLE  R2 := R2["new"]
+       5 [   0] CALL      R2(...) nargs=0 nret=-1
+       6 [   0] CALL      R1(...) nargs=-1 nret=-1
+       7 [   0] TAILCALL  return R0(...) nargs=-1
+       8 [   0] RETURN    return R0.. (-1 values)
+       9 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=0, lines 381-386, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] EQ        if (R0 == None) ~= 0 then skip next
+       2 [   0] JMP       jmp +3 -> 6
+       3 [   0] GETUPVAL  R0 := upval 1
+       4 [   0] CALL      R0(...) nargs=0 nret=1
+       5 [   0] SETUPVAL  upval 0 := R0
+       6 [   0] GETUPVAL  R0 := upval 0
+       7 [   0] RETURN    return R0.. (1 values)
+       8 [   0] RETURN    return R0.. (0 values)

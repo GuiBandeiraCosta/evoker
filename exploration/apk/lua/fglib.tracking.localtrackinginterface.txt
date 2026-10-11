@@ -1,0 +1,122 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['require', 'FGLIB_PATH', 'logging.logger', 'json', '###SESSIONID###', 'new'] numbers=[3]
+     0 [   0] GETGLOBAL R0 := _G["require"]
+     1 [   0] GETGLOBAL R1 := _G["FGLIB_PATH"]
+     2 [   0] LOADK     R2 := "logging.logger"
+     3 [   0] CONCAT    R1 := R1 .. ... .. R2
+     4 [   0] CALL      R0(...) nargs=1 nret=1
+     5 [   0] GETGLOBAL R1 := _G["require"]
+     6 [   0] LOADK     R2 := "json"
+     7 [   0] CALL      R1(...) nargs=1 nret=1
+     8 [   0] LOADK     R2 := "###SESSIONID###"
+     9 [   0] LOADK     R3 := 3
+    10 [   0] NEWTABLE  R4 := {} (array 0, hash 0)
+    11 [   0] CLOSURE   R5 := closure #0
+    12 [   0] MOVE      R0 := R2
+    13 [   0] MOVE      R0 := R1
+    14 [   0] MOVE      R0 := R0
+    15 [   0] MOVE      R0 := R3
+    16 [   0] CLOSURE   R6 := closure #1
+    17 [   0] MOVE      R0 := R5
+    18 [   0] SETTABLE  R4["new"] := R6
+    19 [   0] RETURN    return R4.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 8-55, upvals=[], locals=[])
+    constants: strings=['sessionid', 'timeStampStartTime', 'system', 'getTimer', 'setSessionId', 'flush', 'resetTimestamp', 'track'] numbers=[]
+       0 [   0] GETUPVAL  R1 := upval 0
+       1 [   0] SETTABLE  R0["sessionid"] := R1
+       2 [   0] GETGLOBAL R1 := _G["system"]
+       3 [   0] GETTABLE  R1 := R1["getTimer"]
+       4 [   0] CALL      R1(...) nargs=0 nret=1
+       5 [   0] SETTABLE  R0["timeStampStartTime"] := R1
+       6 [   0] CLOSURE   R1 := closure #0
+       7 [   0] MOVE      R0 := R0
+       8 [   0] SETTABLE  R0["setSessionId"] := R1
+       9 [   0] CLOSURE   R1 := closure #1
+      10 [   0] SETTABLE  R0["flush"] := R1
+      11 [   0] CLOSURE   R1 := closure #2
+      12 [   0] MOVE      R0 := R0
+      13 [   0] SETTABLE  R0["resetTimestamp"] := R1
+      14 [   0] CLOSURE   R1 := closure #3
+      15 [   0] MOVE      R0 := R0
+      16 [   0] GETUPVAL  R0 := upval 1
+      17 [   0] GETUPVAL  R0 := upval 2
+      18 [   0] GETUPVAL  R0 := upval 3
+      19 [   0] SETTABLE  R0["track"] := R1
+      20 [   0] RETURN    return R0.. (1 values)
+      21 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#0 (params=1, lines 13-15, upvals=[], locals=[])
+      constants: strings=['sessionid'] numbers=[]
+         0 [   0] GETUPVAL  R1 := upval 0
+         1 [   0] SETTABLE  R1["sessionid"] := R0
+         2 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#1 (params=0, lines 17-19, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#2 (params=0, lines 21-23, upvals=[], locals=[])
+      constants: strings=['timeStampStartTime', 'system', 'getTimer'] numbers=[]
+         0 [   0] GETUPVAL  R0 := upval 0
+         1 [   0] GETGLOBAL R1 := _G["system"]
+         2 [   0] GETTABLE  R1 := R1["getTimer"]
+         3 [   0] CALL      R1(...) nargs=0 nret=1
+         4 [   0] SETTABLE  R0["timeStampStartTime"] := R1
+         5 [   0] RETURN    return R0.. (0 values)
+    function main.#0.#3 (params=4, lines 25-51, upvals=[], locals=[])
+      constants: strings=['sid', 'string', 'format', '%q', 'sessionid', 'action', 'attr', 'payload', 'sessionlength', 'math', 'floor', 'system', 'getTimer', 'timeStampStartTime', 'encode', 'Content-Type', 'application/json', 'headers', 'body', 'logmsg', 'ASPECT_TRACKING', 'LocalTrackingInterface:track'] numbers=[1000, 3]
+         0 [   0] NEWTABLE  R4 := {} (array 0, hash 4)
+         1 [   0] GETGLOBAL R5 := _G["string"]
+         2 [   0] GETTABLE  R5 := R5["format"]
+         3 [   0] LOADK     R6 := "%q"
+         4 [   0] GETUPVAL  R7 := upval 0
+         5 [   0] GETTABLE  R7 := R7["sessionid"]
+         6 [   0] CALL      R5(...) nargs=2 nret=1
+         7 [   0] SETTABLE  R4["sid"] := R5
+         8 [   0] GETGLOBAL R5 := _G["string"]
+         9 [   0] GETTABLE  R5 := R5["format"]
+        10 [   0] LOADK     R6 := "%q"
+        11 [   0] MOVE      R7 := R0
+        12 [   0] CALL      R5(...) nargs=2 nret=1
+        13 [   0] SETTABLE  R4["action"] := R5
+        14 [   0] SETTABLE  R4["attr"] := R1
+        15 [   0] TESTSET   if (R2 truthy) == 1 then R5 := R2 else skip next
+        16 [   0] JMP       jmp +1 -> 18
+        17 [   0] NEWTABLE  R5 := {} (array 0, hash 0)
+        18 [   0] SETTABLE  R4["payload"] := R5
+        19 [   0] GETTABLE  R5 := R4["payload"]
+        20 [   0] GETGLOBAL R6 := _G["math"]
+        21 [   0] GETTABLE  R6 := R6["floor"]
+        22 [   0] GETGLOBAL R7 := _G["system"]
+        23 [   0] GETTABLE  R7 := R7["getTimer"]
+        24 [   0] CALL      R7(...) nargs=0 nret=1
+        25 [   0] GETUPVAL  R8 := upval 0
+        26 [   0] GETTABLE  R8 := R8["timeStampStartTime"]
+        27 [   0] SUB       R7 := R7 - R8
+        28 [   0] DIV       R7 := R7 / 1000
+        29 [   0] CALL      R6(...) nargs=1 nret=1
+        30 [   0] SETTABLE  R5["sessionlength"] := R6
+        31 [   0] GETUPVAL  R5 := upval 1
+        32 [   0] GETTABLE  R5 := R5["encode"]
+        33 [   0] MOVE      R6 := R4
+        34 [   0] CALL      R5(...) nargs=1 nret=1
+        35 [   0] NEWTABLE  R6 := {} (array 0, hash 0)
+        36 [   0] SETTABLE  R6["Content-Type"] := "application/json"
+        37 [   0] NEWTABLE  R7 := {} (array 0, hash 0)
+        38 [   0] SETTABLE  R7["headers"] := R6
+        39 [   0] SETTABLE  R7["body"] := R5
+        40 [   0] GETUPVAL  R8 := upval 2
+        41 [   0] GETTABLE  R8 := R8["logmsg"]
+        42 [   0] GETUPVAL  R9 := upval 3
+        43 [   0] GETUPVAL  R10 := upval 2
+        44 [   0] GETTABLE  R10 := R10["ASPECT_TRACKING"]
+        45 [   0] LOADK     R11 := 3
+        46 [   0] LOADK     R12 := "LocalTrackingInterface:track"
+        47 [   0] MOVE      R13 := R7
+        48 [   0] CALL      R8(...) nargs=5 nret=0
+        49 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=0, lines 57-61, upvals=[], locals=[])
+    constants: strings=[] numbers=[]
+       0 [   0] GETUPVAL  R0 := upval 0
+       1 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       2 [   0] TAILCALL  return R0(...) nargs=1
+       3 [   0] RETURN    return R0.. (-1 values)
+       4 [   0] RETURN    return R0.. (0 values)

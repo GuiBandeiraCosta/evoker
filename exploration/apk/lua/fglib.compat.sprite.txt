@@ -1,0 +1,363 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['newSprite', 'add', 'newSpriteMultiSet', 'newSpriteSet', 'newSpriteSheet', 'newSpriteSheetFromData'] numbers=[]
+     0 [   0] NEWTABLE  R0 := {} (array 0, hash 0)
+     1 [   0] CLOSURE   R1 := closure #0
+     2 [   0] CLOSURE   R2 := closure #1
+     3 [   0] CLOSURE   R3 := closure #2
+     4 [   0] MOVE      R0 := R1
+     5 [   0] MOVE      R0 := R2
+     6 [   0] SETTABLE  R0["newSprite"] := R3
+     7 [   0] CLOSURE   R3 := closure #3
+     8 [   0] SETTABLE  R0["add"] := R3
+     9 [   0] CLOSURE   R3 := closure #4
+    10 [   0] CLOSURE   R4 := closure #5
+    11 [   0] MOVE      R0 := R3
+    12 [   0] SETTABLE  R0["newSpriteMultiSet"] := R4
+    13 [   0] CLOSURE   R4 := closure #6
+    14 [   0] SETTABLE  R0["newSpriteSet"] := R4
+    15 [   0] CLOSURE   R4 := closure #7
+    16 [   0] SETTABLE  R0["newSpriteSheet"] := R4
+    17 [   0] CLOSURE   R4 := closure #8
+    18 [   0] SETTABLE  R0["newSpriteSheetFromData"] := R4
+    19 [   0] RETURN    return R0.. (1 values)
+    20 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=1, lines 3-35, upvals=[], locals=[])
+    constants: strings=['assert', 'spriteSheet', 'toImageSheet(): Bad spriteSet parameter: spriteSet.spriteSheet is nil', 'format', 'simple', 'width', 'height', 'numFrames', 'complex', 'spriteSheetFrames', 'spriteSheet.spriteSheetFrames is nil', 'filename', 'baseDir', 'graphics', 'newImageSheet'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["assert"]
+       1 [   0] GETTABLE  R2 := R0["spriteSheet"]
+       2 [   0] LOADK     R3 := "toImageSheet(): Bad spriteSet parameter: spriteSet.spriteSheet is nil"
+       3 [   0] CALL      R1(...) nargs=2 nret=0
+       4 [   0] LOADNIL   R1..R1 := nil
+       5 [   0] GETTABLE  R2 := R0["spriteSheet"]
+       6 [   0] GETTABLE  R3 := R2["format"]
+       7 [   0] EQ        if (R3 == "simple") ~= 0 then skip next
+       8 [   0] JMP       jmp +9 -> 18
+       9 [   0] GETTABLE  R3 := R2["width"]
+      10 [   0] GETTABLE  R4 := R2["height"]
+      11 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+      12 [   0] SETTABLE  R5["width"] := R3
+      13 [   0] SETTABLE  R5["height"] := R4
+      14 [   0] GETTABLE  R6 := R0["numFrames"]
+      15 [   0] SETTABLE  R5["numFrames"] := R6
+      16 [   0] MOVE      R1 := R5
+      17 [   0] JMP       jmp +11 -> 29
+      18 [   0] GETTABLE  R3 := R2["format"]
+      19 [   0] EQ        if (R3 == "complex") ~= 0 then skip next
+      20 [   0] JMP       jmp +8 -> 29
+      21 [   0] GETGLOBAL R3 := _G["assert"]
+      22 [   0] GETTABLE  R4 := R2["spriteSheetFrames"]
+      23 [   0] LOADK     R5 := "spriteSheet.spriteSheetFrames is nil"
+      24 [   0] CALL      R3(...) nargs=2 nret=0
+      25 [   0] NEWTABLE  R3 := {} (array 0, hash 1)
+      26 [   0] GETTABLE  R4 := R2["spriteSheetFrames"]
+      27 [   0] SETTABLE  R3["spriteSheetFrames"] := R4
+      28 [   0] MOVE      R1 := R3
+      29 [   0] GETTABLE  R3 := R2["filename"]
+      30 [   0] GETTABLE  R4 := R2["baseDir"]
+      31 [   0] TEST      if (R4 truthy) ~= 0 then skip next
+      32 [   0] JMP       jmp +8 -> 41
+      33 [   0] GETGLOBAL R5 := _G["graphics"]
+      34 [   0] GETTABLE  R5 := R5["newImageSheet"]
+      35 [   0] MOVE      R6 := R3
+      36 [   0] MOVE      R7 := R4
+      37 [   0] MOVE      R8 := R1
+      38 [   0] TAILCALL  return R5(...) nargs=3
+      39 [   0] RETURN    return R5.. (-1 values)
+      40 [   0] JMP       jmp +6 -> 47
+      41 [   0] GETGLOBAL R5 := _G["graphics"]
+      42 [   0] GETTABLE  R5 := R5["newImageSheet"]
+      43 [   0] MOVE      R6 := R3
+      44 [   0] MOVE      R7 := R1
+      45 [   0] TAILCALL  return R5(...) nargs=2
+      46 [   0] RETURN    return R5.. (-1 values)
+      47 [   0] RETURN    return R0.. (0 values)
+  function main.#1 (params=1, lines 37-53, upvals=[], locals=[])
+    constants: strings=['assert', 'spriteSheet', 'toSequenceData(): Bad spriteSet parameter: spriteSet.spriteSheet is nil', 'name', 'default', 'start', 'startFrame', 'count', 'numFrames', 'sequences', 'table', 'insert'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["assert"]
+       1 [   0] GETTABLE  R2 := R0["spriteSheet"]
+       2 [   0] LOADK     R3 := "toSequenceData(): Bad spriteSet parameter: spriteSet.spriteSheet is ni"
+       3 [   0] CALL      R1(...) nargs=2 nret=0
+       4 [   0] GETTABLE  R1 := R0["spriteSheet"]
+       5 [   0] NEWTABLE  R2 := {} (array 0, hash 3)
+       6 [   0] SETTABLE  R2["name"] := "default"
+       7 [   0] GETTABLE  R3 := R0["startFrame"]
+       8 [   0] SETTABLE  R2["start"] := R3
+       9 [   0] GETTABLE  R3 := R0["numFrames"]
+      10 [   0] SETTABLE  R2["count"] := R3
+      11 [   0] GETTABLE  R3 := R0["sequences"]
+      12 [   0] TEST      if (R3 truthy) ~= 1 then skip next
+      13 [   0] JMP       jmp +1 -> 15
+      14 [   0] NEWTABLE  R3 := {} (array 0, hash 0)
+      15 [   0] GETGLOBAL R4 := _G["table"]
+      16 [   0] GETTABLE  R4 := R4["insert"]
+      17 [   0] MOVE      R5 := R3
+      18 [   0] MOVE      R6 := R2
+      19 [   0] CALL      R4(...) nargs=2 nret=0
+      20 [   0] RETURN    return R3.. (1 values)
+      21 [   0] RETURN    return R0.. (0 values)
+  function main.#2 (params=1, lines 55-82, upvals=[], locals=[])
+    constants: strings=['assert', 'spriteSet is nil', 'sprite.newSprite(): spriteSet is nil.', 'type', 'newSpriteArgs', 'args', 'table', "sprite.newSprite(): 'spriteSet.args' is nil.", 'display', 'newSprite', 'unpack', 'spriteSet', 'spriteMultiSet', "sprite.newSprite(): incorrect 'spriteSet.type'.", 'sprite.newSprite(): failed to create sequenceData', 'prepare'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["assert"]
+       1 [   0] MOVE      R2 := R0
+       2 [   0] LOADK     R3 := "spriteSet is nil"
+       3 [   0] LOADK     R4 := "sprite.newSprite(): spriteSet is nil."
+       4 [   0] CALL      R1(...) nargs=3 nret=0
+       5 [   0] LOADNIL   R1..R1 := nil
+       6 [   0] GETTABLE  R2 := R0["type"]
+       7 [   0] EQ        if (R2 == "newSpriteArgs") ~= 0 then skip next
+       8 [   0] JMP       jmp +18 -> 27
+       9 [   0] GETGLOBAL R2 := _G["assert"]
+      10 [   0] GETGLOBAL R3 := _G["type"]
+      11 [   0] GETTABLE  R4 := R0["args"]
+      12 [   0] CALL      R3(...) nargs=1 nret=1
+      13 [   0] EQ        if (R3 == "table") ~= 1 then skip next
+      14 [   0] JMP       jmp +1 -> 16
+      15 [   0] LOADBOOL  R3 := False (skip)
+      16 [   0] LOADBOOL  R3 := True
+      17 [   0] LOADK     R4 := "sprite.newSprite(): 'spriteSet.args' is nil."
+      18 [   0] CALL      R2(...) nargs=2 nret=0
+      19 [   0] GETGLOBAL R2 := _G["display"]
+      20 [   0] GETTABLE  R2 := R2["newSprite"]
+      21 [   0] GETGLOBAL R3 := _G["unpack"]
+      22 [   0] GETTABLE  R4 := R0["args"]
+      23 [   0] CALL      R3(...) nargs=1 nret=-1
+      24 [   0] CALL      R2(...) nargs=-1 nret=1
+      25 [   0] MOVE      R1 := R2
+      26 [   0] JMP       jmp +27 -> 54
+      27 [   0] GETGLOBAL R2 := _G["assert"]
+      28 [   0] GETTABLE  R3 := R0["type"]
+      29 [   0] EQ        if (R3 == "spriteSet") ~= 1 then skip next
+      30 [   0] JMP       jmp +4 -> 35
+      31 [   0] GETTABLE  R3 := R0["type"]
+      32 [   0] EQ        if (R3 == "spriteMultiSet") ~= 1 then skip next
+      33 [   0] JMP       jmp +1 -> 35
+      34 [   0] LOADBOOL  R3 := False (skip)
+      35 [   0] LOADBOOL  R3 := True
+      36 [   0] LOADK     R4 := "sprite.newSprite(): incorrect 'spriteSet.type'."
+      37 [   0] CALL      R2(...) nargs=2 nret=0
+      38 [   0] GETUPVAL  R2 := upval 0
+      39 [   0] MOVE      R3 := R0
+      40 [   0] CALL      R2(...) nargs=1 nret=1
+      41 [   0] GETUPVAL  R3 := upval 1
+      42 [   0] MOVE      R4 := R0
+      43 [   0] CALL      R3(...) nargs=1 nret=1
+      44 [   0] GETGLOBAL R4 := _G["assert"]
+      45 [   0] MOVE      R5 := R3
+      46 [   0] LOADK     R6 := "sprite.newSprite(): failed to create sequenceData"
+      47 [   0] CALL      R4(...) nargs=2 nret=0
+      48 [   0] GETGLOBAL R4 := _G["display"]
+      49 [   0] GETTABLE  R4 := R4["newSprite"]
+      50 [   0] MOVE      R5 := R2
+      51 [   0] MOVE      R6 := R3
+      52 [   0] CALL      R4(...) nargs=2 nret=1
+      53 [   0] MOVE      R1 := R4
+      54 [   0] CLOSURE   R2 := closure #0
+      55 [   0] MOVE      R0 := R1
+      56 [   0] SETTABLE  R1["prepare"] := R2
+      57 [   0] RETURN    return R1.. (1 values)
+      58 [   0] RETURN    return R0.. (0 values)
+    function main.#2.#0 (params=2, lines 75-79, upvals=[], locals=[])
+      constants: strings=['_proxy', 'setSequence'] numbers=[]
+         0 [   0] GETUPVAL  R2 := upval 0
+         1 [   0] GETTABLE  R2 := R2["_proxy"]
+         2 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+         3 [   0] JMP       jmp +4 -> 8
+         4 [   0] GETUPVAL  R2 := upval 0
+         5 [   0] SELF      R3 := R2; R2 := R2["setSequence"]
+         6 [   0] MOVE      R4 := R1
+         7 [   0] CALL      R2(...) nargs=2 nret=0
+         8 [   0] RETURN    return R0.. (0 values)
+  function main.#3 (params=6, lines 85-120, upvals=[], locals=[])
+    constants: strings=['assert', 'spriteSet is nil', 'sprite.addSprite(): spriteSet is nil.', 'type', 'spriteSet', "sprite.addSprite(): incorrect 'spriteSet.type'.", 'sequences', 'table', 'insert', 'item', 'bounce', 'name', 'start', 'count', 'time', 'loopCount', 'loopDirection'] numbers=[0, 1, -1, -2]
+       0 [   0] GETGLOBAL R6 := _G["assert"]
+       1 [   0] MOVE      R7 := R0
+       2 [   0] LOADK     R8 := "spriteSet is nil"
+       3 [   0] LOADK     R9 := "sprite.addSprite(): spriteSet is nil."
+       4 [   0] CALL      R6(...) nargs=3 nret=0
+       5 [   0] GETGLOBAL R6 := _G["assert"]
+       6 [   0] GETTABLE  R7 := R0["type"]
+       7 [   0] EQ        if (R7 == "spriteSet") ~= 1 then skip next
+       8 [   0] JMP       jmp +1 -> 10
+       9 [   0] LOADBOOL  R7 := False (skip)
+      10 [   0] LOADBOOL  R7 := True
+      11 [   0] LOADK     R8 := "sprite.addSprite(): incorrect 'spriteSet.type'."
+      12 [   0] CALL      R6(...) nargs=2 nret=0
+      13 [   0] GETTABLE  R6 := R0["sequences"]
+      14 [   0] TEST      if (R6 truthy) ~= 1 then skip next
+      15 [   0] JMP       jmp +3 -> 19
+      16 [   0] NEWTABLE  R7 := {} (array 0, hash 0)
+      17 [   0] MOVE      R6 := R7
+      18 [   0] SETTABLE  R0["sequences"] := R6
+      19 [   0] GETGLOBAL R7 := _G["table"]
+      20 [   0] GETTABLE  R7 := R7["insert"]
+      21 [   0] MOVE      R8 := R6
+      22 [   0] GETGLOBAL R9 := _G["item"]
+      23 [   0] CALL      R7(...) nargs=2 nret=0
+      24 [   0] LOADK     R7 := 0
+      25 [   0] LOADNIL   R8..R8 := nil
+      26 [   0] TEST      if (R5 truthy) ~= 0 then skip next
+      27 [   0] JMP       jmp +11 -> 39
+      28 [   0] EQ        if (0 == R5) ~= 1 then skip next
+      29 [   0] JMP       jmp +9 -> 39
+      30 [   0] LOADK     R7 := 1
+      31 [   0] EQ        if (-1 == R5) ~= 0 then skip next
+      32 [   0] JMP       jmp +2 -> 35
+      33 [   0] LOADK     R8 := "bounce"
+      34 [   0] JMP       jmp +4 -> 39
+      35 [   0] EQ        if (-2 == R5) ~= 0 then skip next
+      36 [   0] JMP       jmp +2 -> 39
+      37 [   0] LOADK     R7 := 0
+      38 [   0] LOADK     R8 := "bounce"
+      39 [   0] NEWTABLE  R9 := {} (array 0, hash 6)
+      40 [   0] SETTABLE  R9["name"] := R1
+      41 [   0] SETTABLE  R9["start"] := R2
+      42 [   0] SETTABLE  R9["count"] := R3
+      43 [   0] SETTABLE  R9["time"] := R4
+      44 [   0] SETTABLE  R9["loopCount"] := R7
+      45 [   0] SETTABLE  R9["loopDirection"] := R8
+      46 [   0] GETGLOBAL R10 := _G["table"]
+      47 [   0] GETTABLE  R10 := R10["insert"]
+      48 [   0] MOVE      R11 := R6
+      49 [   0] MOVE      R12 := R9
+      50 [   0] CALL      R10(...) nargs=2 nret=0
+      51 [   0] RETURN    return R0.. (0 values)
+  function main.#4 (params=1, lines 122-126, upvals=[], locals=[])
+    constants: strings=['assert', 'spriteSheetToImageSheet() is not implemented.'] numbers=[]
+       0 [   0] GETGLOBAL R1 := _G["assert"]
+       1 [   0] LOADBOOL  R2 := False
+       2 [   0] LOADK     R3 := "spriteSheetToImageSheet() is not implemented."
+       3 [   0] CALL      R1(...) nargs=2 nret=0
+       4 [   0] LOADNIL   R1..R1 := nil
+       5 [   0] RETURN    return R1.. (1 values)
+       6 [   0] RETURN    return R0.. (0 values)
+  function main.#5 (params=1, lines 129-157, upvals=[], locals=[])
+    constants: strings=['assert', 'sprite.newSpriteMultiSet(): sequences array is empty.', 'sheet', 'sprite.newSpriteMultiSet(): no sheet param.', 'frames', 'table', 'insert', 'type', 'newSpriteArgs', 'args'] numbers=[0, 1]
+       0 [   0] GETGLOBAL R1 := _G["assert"]
+       1 [   0] LEN       R2 := #R0
+       2 [   0] LT        if (0 < R2) ~= 1 then skip next
+       3 [   0] JMP       jmp +1 -> 5
+       4 [   0] LOADBOOL  R2 := False (skip)
+       5 [   0] LOADBOOL  R2 := True
+       6 [   0] LOADK     R3 := "sprite.newSpriteMultiSet(): sequences array is empty."
+       7 [   0] CALL      R1(...) nargs=2 nret=0
+       8 [   0] GETUPVAL  R1 := upval 0
+       9 [   0] GETTABLE  R2 := R0[1]
+      10 [   0] GETTABLE  R2 := R2["sheet"]
+      11 [   0] CALL      R1(...) nargs=1 nret=1
+      12 [   0] GETGLOBAL R2 := _G["assert"]
+      13 [   0] MOVE      R3 := R1
+      14 [   0] LOADK     R4 := "sprite.newSpriteMultiSet(): no sheet param."
+      15 [   0] CALL      R2(...) nargs=2 nret=0
+      16 [   0] NEWTABLE  R2 := {} (array 0, hash 0)
+      17 [   0] LOADK     R3 := 1
+      18 [   0] LEN       R4 := #R0
+      19 [   0] LOADK     R5 := 1
+      20 [   0] FORPREP   for R3.. jmp +13
+      21 [   0] GETTABLE  R7 := R0[R6]
+      22 [   0] GETUPVAL  R8 := upval 0
+      23 [   0] GETTABLE  R9 := R7["sheet"]
+      24 [   0] CALL      R8(...) nargs=1 nret=1
+      25 [   0] NEWTABLE  R9 := {} (array 0, hash 2)
+      26 [   0] SETTABLE  R9["sheet"] := R8
+      27 [   0] GETTABLE  R10 := R7["frames"]
+      28 [   0] SETTABLE  R9["frames"] := R10
+      29 [   0] GETGLOBAL R10 := _G["table"]
+      30 [   0] GETTABLE  R10 := R10["insert"]
+      31 [   0] MOVE      R11 := R2
+      32 [   0] MOVE      R12 := R9
+      33 [   0] CALL      R10(...) nargs=2 nret=0
+      34 [   0] FORLOOP   forloop R3 jmp -14
+      35 [   0] NEWTABLE  R3 := {} (array 0, hash 2)
+      36 [   0] SETTABLE  R3["type"] := "newSpriteArgs"
+      37 [   0] NEWTABLE  R4 := {} (array 2, hash 0)
+      38 [   0] MOVE      R5 := R1
+      39 [   0] MOVE      R6 := R2
+      40 [   0] SETLIST   R4[...] := R5.. (n=2, block 1)
+      41 [   0] SETTABLE  R3["args"] := R4
+      42 [   0] RETURN    return R0.. (1 values)
+      43 [   0] RETURN    return R0.. (0 values)
+  function main.#6 (params=3, lines 160-174, upvals=[], locals=[])
+    constants: strings=['assert', 'sprite.newSpriteSet(): spriteSheet is nil.', 'type', 'spriteSheet', 'sprite.newSpriteSet(): spriteSheet is malformed.', 'spriteSet', 'numFrames', 'startFrame'] numbers=[]
+       0 [   0] GETGLOBAL R3 := _G["assert"]
+       1 [   0] MOVE      R4 := R0
+       2 [   0] LOADK     R5 := "sprite.newSpriteSet(): spriteSheet is nil."
+       3 [   0] CALL      R3(...) nargs=2 nret=0
+       4 [   0] GETGLOBAL R3 := _G["assert"]
+       5 [   0] GETTABLE  R4 := R0["type"]
+       6 [   0] EQ        if (R4 == "spriteSheet") ~= 1 then skip next
+       7 [   0] JMP       jmp +1 -> 9
+       8 [   0] LOADBOOL  R4 := False (skip)
+       9 [   0] LOADBOOL  R4 := True
+      10 [   0] LOADK     R5 := "sprite.newSpriteSet(): spriteSheet is malformed."
+      11 [   0] CALL      R3(...) nargs=2 nret=0
+      12 [   0] NEWTABLE  R3 := {} (array 0, hash 4)
+      13 [   0] SETTABLE  R3["type"] := "spriteSet"
+      14 [   0] SETTABLE  R3["spriteSheet"] := R0
+      15 [   0] SETTABLE  R3["numFrames"] := R2
+      16 [   0] SETTABLE  R3["startFrame"] := R1
+      17 [   0] RETURN    return R3.. (1 values)
+      18 [   0] RETURN    return R0.. (0 values)
+  function main.#7 (params=0, lines 177-205, upvals=[], locals=[])
+    constants: strings=['type', 'userdata', 'spriteSheet', 'format', 'simple', 'width', 'height', 'filename', 'baseDir', 'dispose'] numbers=[1, 2]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] VARARG    R2.. := ... (-1)
+       2 [   0] SETLIST   R1[...] := R2.. (n=0, block 1)
+       3 [   0] GETTABLE  R2 := R1[1]
+       4 [   0] LOADK     R3 := 2
+       5 [   0] GETTABLE  R4 := R1[R3]
+       6 [   0] GETGLOBAL R5 := _G["type"]
+       7 [   0] MOVE      R6 := R4
+       8 [   0] CALL      R5(...) nargs=1 nret=1
+       9 [   0] EQ        if (R5 == "userdata") ~= 1 then skip next
+      10 [   0] JMP       jmp +2 -> 13
+      11 [   0] LOADNIL   R4..R4 := nil
+      12 [   0] JMP       jmp +1 -> 14
+      13 [   0] ADD       R3 := R3 + 1
+      14 [   0] GETTABLE  R5 := R1[R3]
+      15 [   0] ADD       R6 := R3 + 1
+      16 [   0] GETTABLE  R6 := R1[R6]
+      17 [   0] NEWTABLE  R7 := {} (array 0, hash 6)
+      18 [   0] SETTABLE  R7["type"] := "spriteSheet"
+      19 [   0] SETTABLE  R7["format"] := "simple"
+      20 [   0] SETTABLE  R7["width"] := R5
+      21 [   0] SETTABLE  R7["height"] := R6
+      22 [   0] SETTABLE  R7["filename"] := R2
+      23 [   0] SETTABLE  R7["baseDir"] := R4
+      24 [   0] CLOSURE   R8 := closure #0
+      25 [   0] SETTABLE  R7["dispose"] := R8
+      26 [   0] RETURN    return R7.. (1 values)
+      27 [   0] RETURN    return R0.. (0 values)
+    function main.#7.#0 (params=1, lines 200-202, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)
+  function main.#8 (params=0, lines 208-236, upvals=[], locals=[])
+    constants: strings=['type', 'userdata', 'spriteSheet', 'format', 'complex', 'spriteSheetFrames', 'frames', 'filename', 'baseDir', 'dispose'] numbers=[1, 2]
+       0 [   0] NEWTABLE  R1 := {} (array 0, hash 0)
+       1 [   0] VARARG    R2.. := ... (-1)
+       2 [   0] SETLIST   R1[...] := R2.. (n=0, block 1)
+       3 [   0] GETTABLE  R2 := R1[1]
+       4 [   0] LOADK     R3 := 2
+       5 [   0] GETTABLE  R4 := R1[R3]
+       6 [   0] GETGLOBAL R5 := _G["type"]
+       7 [   0] MOVE      R6 := R4
+       8 [   0] CALL      R5(...) nargs=1 nret=1
+       9 [   0] EQ        if (R5 == "userdata") ~= 1 then skip next
+      10 [   0] JMP       jmp +2 -> 13
+      11 [   0] LOADNIL   R4..R4 := nil
+      12 [   0] JMP       jmp +1 -> 14
+      13 [   0] ADD       R3 := R3 + 1
+      14 [   0] GETTABLE  R5 := R1[R3]
+      15 [   0] NEWTABLE  R6 := {} (array 0, hash 5)
+      16 [   0] SETTABLE  R6["type"] := "spriteSheet"
+      17 [   0] SETTABLE  R6["format"] := "complex"
+      18 [   0] GETTABLE  R7 := R5["frames"]
+      19 [   0] SETTABLE  R6["spriteSheetFrames"] := R7
+      20 [   0] SETTABLE  R6["filename"] := R2
+      21 [   0] SETTABLE  R6["baseDir"] := R4
+      22 [   0] CLOSURE   R7 := closure #0
+      23 [   0] SETTABLE  R6["dispose"] := R7
+      24 [   0] RETURN    return R6.. (1 values)
+      25 [   0] RETURN    return R0.. (0 values)
+    function main.#8.#0 (params=1, lines 231-233, upvals=[], locals=[])
+      constants: strings=[] numbers=[]
+         0 [   0] RETURN    return R0.. (0 values)

@@ -1,0 +1,202 @@
+function main (params=0, lines 0-0, upvals=[], locals=[])
+  constants: strings=['resolve'] numbers=[]
+     0 [   0] CLOSURE   R0 := closure #0
+     1 [   0] NEWTABLE  R1 := {} (array 0, hash 1)
+     2 [   0] SETTABLE  R1["resolve"] := R0
+     3 [   0] RETURN    return R1.. (1 values)
+     4 [   0] RETURN    return R0.. (0 values)
+  function main.#0 (params=5, lines 11-102, upvals=[], locals=[])
+    constants: strings=['step', 'type', 'showPopup', 'popupText', '_T', 'Do you want to load the game of #cloudName# (level #cloudLevel#)? Caution: your current progress will be lost.', 'cloudName', 'name', 'cloudLevel', 'level', 'unknown', 'buttons', 'text', 'Load', 'action', 'syncCloudToLocal', 'No', 'syncLocalToCloud', 'No game progress found in iCloud. Do you want to start a new game?', 'New Game', 'syncNewToCloud', 'updateCloudId', 'We found another game progress in iCloud.', 'Overwrite'] numbers=[15, 16, 14, 18, 19, 17, 12, 13, 11]
+       0 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+       1 [   0] JMP       jmp +77 -> 79
+       2 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+       3 [   0] JMP       jmp +75 -> 79
+       4 [   0] EQ        if (R0 == R1) ~= 0 then skip next
+       5 [   0] JMP       jmp +73 -> 79
+       6 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+       7 [   0] JMP       jmp +6 -> 14
+       8 [   0] EQ        if (R3 == R2) ~= 0 then skip next
+       9 [   0] JMP       jmp +4 -> 14
+      10 [   0] NEWTABLE  R5 := {} (array 0, hash 1)
+      11 [   0] SETTABLE  R5["step"] := 15
+      12 [   0] RETURN    return R5.. (1 values)
+      13 [   0] JMP       jmp +178 -> 192
+      14 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      15 [   0] JMP       jmp +39 -> 55
+      16 [   0] EQ        if (R3 == R2) ~= 1 then skip next
+      17 [   0] JMP       jmp +37 -> 55
+      18 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+      19 [   0] SETTABLE  R5["step"] := 16
+      20 [   0] SETTABLE  R5["type"] := "showPopup"
+      21 [   0] GETGLOBAL R6 := _G["_T"]
+      22 [   0] LOADK     R7 := "Do you want to load the game of #cloudName# (level #cloudLevel#)? Caut"
+      23 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+      24 [   0] GETTABLE  R9 := R4["name"]
+      25 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+      26 [   0] JMP       jmp +1 -> 28
+      27 [   0] MOVE      R9 := R3
+      28 [   0] SETTABLE  R8["cloudName"] := R9
+      29 [   0] GETTABLE  R9 := R4["level"]
+      30 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+      31 [   0] JMP       jmp +3 -> 35
+      32 [   0] GETGLOBAL R9 := _G["_T"]
+      33 [   0] LOADK     R10 := "unknown"
+      34 [   0] CALL      R9(...) nargs=1 nret=1
+      35 [   0] SETTABLE  R8["cloudLevel"] := R9
+      36 [   0] CALL      R6(...) nargs=2 nret=1
+      37 [   0] SETTABLE  R5["popupText"] := R6
+      38 [   0] NEWTABLE  R6 := {} (array 2, hash 0)
+      39 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+      40 [   0] GETGLOBAL R8 := _G["_T"]
+      41 [   0] LOADK     R9 := "Load"
+      42 [   0] CALL      R8(...) nargs=1 nret=1
+      43 [   0] SETTABLE  R7["text"] := R8
+      44 [   0] SETTABLE  R7["action"] := "syncCloudToLocal"
+      45 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+      46 [   0] GETGLOBAL R9 := _G["_T"]
+      47 [   0] LOADK     R10 := "No"
+      48 [   0] CALL      R9(...) nargs=1 nret=1
+      49 [   0] SETTABLE  R8["text"] := R9
+      50 [   0] SETTABLE  R8["action"] := "syncLocalToCloud"
+      51 [   0] SETLIST   R6[...] := R7.. (n=2, block 1)
+      52 [   0] SETTABLE  R5["buttons"] := R6
+      53 [   0] RETURN    return R5.. (1 values)
+      54 [   0] JMP       jmp +137 -> 192
+      55 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+      56 [   0] SETTABLE  R5["step"] := 14
+      57 [   0] SETTABLE  R5["type"] := "showPopup"
+      58 [   0] GETGLOBAL R6 := _G["_T"]
+      59 [   0] LOADK     R7 := "No game progress found in iCloud. Do you want to start a new game?"
+      60 [   0] CALL      R6(...) nargs=1 nret=1
+      61 [   0] SETTABLE  R5["popupText"] := R6
+      62 [   0] NEWTABLE  R6 := {} (array 2, hash 0)
+      63 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+      64 [   0] GETGLOBAL R8 := _G["_T"]
+      65 [   0] LOADK     R9 := "New Game"
+      66 [   0] CALL      R8(...) nargs=1 nret=1
+      67 [   0] SETTABLE  R7["text"] := R8
+      68 [   0] SETTABLE  R7["action"] := "syncNewToCloud"
+      69 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+      70 [   0] GETGLOBAL R9 := _G["_T"]
+      71 [   0] LOADK     R10 := "No"
+      72 [   0] CALL      R9(...) nargs=1 nret=1
+      73 [   0] SETTABLE  R8["text"] := R9
+      74 [   0] SETTABLE  R8["action"] := "syncLocalToCloud"
+      75 [   0] SETLIST   R6[...] := R7.. (n=2, block 1)
+      76 [   0] SETTABLE  R5["buttons"] := R6
+      77 [   0] RETURN    return R5.. (1 values)
+      78 [   0] JMP       jmp +113 -> 192
+      79 [   0] TEST      if (R0 truthy) ~= 0 then skip next
+      80 [   0] JMP       jmp +53 -> 134
+      81 [   0] TEST      if (R1 truthy) ~= 0 then skip next
+      82 [   0] JMP       jmp +51 -> 134
+      83 [   0] EQ        if (R0 == R1) ~= 1 then skip next
+      84 [   0] JMP       jmp +49 -> 134
+      85 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      86 [   0] JMP       jmp +7 -> 94
+      87 [   0] EQ        if (R3 == R2) ~= 0 then skip next
+      88 [   0] JMP       jmp +5 -> 94
+      89 [   0] NEWTABLE  R5 := {} (array 0, hash 2)
+      90 [   0] SETTABLE  R5["step"] := 18
+      91 [   0] SETTABLE  R5["action"] := "updateCloudId"
+      92 [   0] RETURN    return R5.. (1 values)
+      93 [   0] JMP       jmp +98 -> 192
+      94 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+      95 [   0] JMP       jmp +20 -> 116
+      96 [   0] EQ        if (R3 == R2) ~= 1 then skip next
+      97 [   0] JMP       jmp +18 -> 116
+      98 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+      99 [   0] SETTABLE  R5["step"] := 19
+     100 [   0] SETTABLE  R5["type"] := "showPopup"
+     101 [   0] GETGLOBAL R6 := _G["_T"]
+     102 [   0] LOADK     R7 := "We found another game progress in iCloud."
+     103 [   0] CALL      R6(...) nargs=1 nret=1
+     104 [   0] SETTABLE  R5["popupText"] := R6
+     105 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+     106 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+     107 [   0] GETGLOBAL R8 := _G["_T"]
+     108 [   0] LOADK     R9 := "Load"
+     109 [   0] CALL      R8(...) nargs=1 nret=1
+     110 [   0] SETTABLE  R7["text"] := R8
+     111 [   0] SETTABLE  R7["action"] := "syncCloudToLocal"
+     112 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+     113 [   0] SETTABLE  R5["buttons"] := R6
+     114 [   0] RETURN    return R5.. (1 values)
+     115 [   0] JMP       jmp +76 -> 192
+     116 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+     117 [   0] SETTABLE  R5["step"] := 17
+     118 [   0] SETTABLE  R5["type"] := "showPopup"
+     119 [   0] GETGLOBAL R6 := _G["_T"]
+     120 [   0] LOADK     R7 := "No game progress found in iCloud. Do you want to start a new game?"
+     121 [   0] CALL      R6(...) nargs=1 nret=1
+     122 [   0] SETTABLE  R5["popupText"] := R6
+     123 [   0] NEWTABLE  R6 := {} (array 1, hash 0)
+     124 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+     125 [   0] GETGLOBAL R8 := _G["_T"]
+     126 [   0] LOADK     R9 := "New Game"
+     127 [   0] CALL      R8(...) nargs=1 nret=1
+     128 [   0] SETTABLE  R7["text"] := R8
+     129 [   0] SETTABLE  R7["action"] := "syncNewToCloud"
+     130 [   0] SETLIST   R6[...] := R7.. (n=1, block 1)
+     131 [   0] SETTABLE  R5["buttons"] := R6
+     132 [   0] RETURN    return R5.. (1 values)
+     133 [   0] JMP       jmp +58 -> 192
+     134 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     135 [   0] JMP       jmp +10 -> 146
+     136 [   0] TEST      if (R2 truthy) ~= 0 then skip next
+     137 [   0] JMP       jmp +8 -> 146
+     138 [   0] EQ        if (R3 == R2) ~= 0 then skip next
+     139 [   0] JMP       jmp +6 -> 146
+     140 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+     141 [   0] SETTABLE  R5["step"] := 12
+     142 [   0] SETTABLE  R5["type"] := "action"
+     143 [   0] SETTABLE  R5["action"] := "syncLocalToCloud"
+     144 [   0] RETURN    return R5.. (1 values)
+     145 [   0] JMP       jmp +46 -> 192
+     146 [   0] TEST      if (R3 truthy) ~= 0 then skip next
+     147 [   0] JMP       jmp +39 -> 187
+     148 [   0] EQ        if (R3 == R2) ~= 1 then skip next
+     149 [   0] JMP       jmp +37 -> 187
+     150 [   0] NEWTABLE  R5 := {} (array 0, hash 4)
+     151 [   0] SETTABLE  R5["step"] := 13
+     152 [   0] SETTABLE  R5["type"] := "showPopup"
+     153 [   0] GETGLOBAL R6 := _G["_T"]
+     154 [   0] LOADK     R7 := "Do you want to load the game of #cloudName# (level #cloudLevel#)? Caut"
+     155 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+     156 [   0] GETTABLE  R9 := R4["name"]
+     157 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+     158 [   0] JMP       jmp +1 -> 160
+     159 [   0] MOVE      R9 := R3
+     160 [   0] SETTABLE  R8["cloudName"] := R9
+     161 [   0] GETTABLE  R9 := R4["level"]
+     162 [   0] TEST      if (R9 truthy) ~= 1 then skip next
+     163 [   0] JMP       jmp +3 -> 167
+     164 [   0] GETGLOBAL R9 := _G["_T"]
+     165 [   0] LOADK     R10 := "unknown"
+     166 [   0] CALL      R9(...) nargs=1 nret=1
+     167 [   0] SETTABLE  R8["cloudLevel"] := R9
+     168 [   0] CALL      R6(...) nargs=2 nret=1
+     169 [   0] SETTABLE  R5["popupText"] := R6
+     170 [   0] NEWTABLE  R6 := {} (array 2, hash 0)
+     171 [   0] NEWTABLE  R7 := {} (array 0, hash 2)
+     172 [   0] GETGLOBAL R8 := _G["_T"]
+     173 [   0] LOADK     R9 := "Load"
+     174 [   0] CALL      R8(...) nargs=1 nret=1
+     175 [   0] SETTABLE  R7["text"] := R8
+     176 [   0] SETTABLE  R7["action"] := "syncCloudToLocal"
+     177 [   0] NEWTABLE  R8 := {} (array 0, hash 2)
+     178 [   0] GETGLOBAL R9 := _G["_T"]
+     179 [   0] LOADK     R10 := "Overwrite"
+     180 [   0] CALL      R9(...) nargs=1 nret=1
+     181 [   0] SETTABLE  R8["text"] := R9
+     182 [   0] SETTABLE  R8["action"] := "syncLocalToCloud"
+     183 [   0] SETLIST   R6[...] := R7.. (n=2, block 1)
+     184 [   0] SETTABLE  R5["buttons"] := R6
+     185 [   0] RETURN    return R5.. (1 values)
+     186 [   0] JMP       jmp +5 -> 192
+     187 [   0] NEWTABLE  R5 := {} (array 0, hash 3)
+     188 [   0] SETTABLE  R5["step"] := 11
+     189 [   0] SETTABLE  R5["type"] := "action"
+     190 [   0] SETTABLE  R5["action"] := "syncLocalToCloud"
+     191 [   0] RETURN    return R5.. (1 values)
+     192 [   0] RETURN    return R0.. (0 values)
