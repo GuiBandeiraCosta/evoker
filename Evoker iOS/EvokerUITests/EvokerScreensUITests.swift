@@ -187,6 +187,8 @@ final class EvokerScreensUITests: XCTestCase {
         shot("53-training-sacrifice-filled", wait: 1.5)
         tap(app, 360, 426)
         shot("54-training-ok", wait: 2)
+        // the weakest card is in the deck: the client asks "Your sacrifice stack contains a card that is: -in your deck"
+        tap(app, 440, 698)
         shot("55-training-done", wait: 4)
         tap(app, 360, 640)
         shot("56-training-after", wait: 2)
