@@ -66,7 +66,11 @@ final class GameShell: NSObject, ObservableObject {
         guard !started else { return }
         started = true
         let args = ProcessInfo.processInfo.arguments
-        if let i = args.firstIndex(of: "-uitest-js"), i + 1 < args.count { pendingTestScript = args[i + 1] }
+        // base64, because the launch arguments lose their quote characters on the way to the app
+        if let i = args.firstIndex(of: "-uitest-js"), i + 1 < args.count,
+           let data = Data(base64Encoded: args[i + 1]), let script = String(data: data, encoding: .utf8) {
+            pendingTestScript = script
+        }
         if args.contains("-uitest") { startReadout() }
         // -uitest-reset: no save at all; -uitest-clear-webdata: WebKit's storage wiped, the mirrored save kept
         let reset = args.contains("-uitest-reset")
@@ -115,7 +119,7 @@ final class GameShell: NSObject, ObservableObject {
     })();
     """
 
-    // MARK: UI test hooks (-uitest, -uitest-reset, -uitest-clear-webdata, -uitest-js <script>)
+    // MARK: UI test hooks (-uitest, -uitest-reset, -uitest-clear-webdata, -uitest-js <base64 script>)
 
     /// What the UI tests read through the invisible "uitest-state" label.
     private static let readoutJS = """

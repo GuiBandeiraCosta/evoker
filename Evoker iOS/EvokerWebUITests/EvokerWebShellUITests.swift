@@ -14,7 +14,8 @@ final class EvokerWebShellUITests: XCTestCase {
     private func launch(_ args: [String], js: String? = nil) -> XCUIApplication {
         let app = XCUIApplication()
         var all = ["-uitest"] + args
-        if let js { all += ["-uitest-js", js] }
+        // base64: launch arguments lose their quote characters on the way to the app
+        if let js { all += ["-uitest-js", Data(js.utf8).base64EncodedString()] }
         app.launchArguments = all
         app.launch()
         return app
