@@ -1,0 +1,2461 @@
+{
+  "armorer": {
+    "text": "Increases the damage dealt by the right neighbor by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "argonaut": {
+    "text": "Heals each of his neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "archer": null,
+  "arch-demon": {
+    "text": "Deals 240 damage to you in each round.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_player",
+        "strength": 240,
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "alchemist": {
+    "text": "Heals each of his neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "air-elemental": {
+    "text": "Increases the damage dealt by its neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "anvil-guard": {
+    "text": "Takes no damage in the first round of a fight.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "assault-drummer": {
+    "text": "Increases the damage dealt by his neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "adept": null,
+  "arch-angel": {
+    "text": "Increases the health points of his neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_hp",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ],
+    "notes": "perTarget: each neighbour gets the full value (original-engine.md section 7 maps this text to strength 2X). game-design.md 1.4 halved it like the strengtheners; remove perTarget to get that reading."
+  },
+  "arrow-master": {
+    "text": "Deals 75% more damage in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strengthPercent": 75,
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1,
+        "ext": true
+      }
+    ]
+  },
+  "airborne-parasite": {
+    "text": "Heals itself by {v} points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "army-of-ghosts": {
+    "byStage": [
+      {
+        "text": "Has no special abilities, as far as you can tell.",
+        "buffs": []
+      },
+      {
+        "text": "Receives no damage in round 3.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 3
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage in round 2.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage in rounds 2 and 3.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          },
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 3
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage after round 1.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_ge",
+            "eventData": 2
+          }
+        ]
+      }
+    ],
+    "notes": "Wiki stage 0 text is Italian (\"Non ha capacita speciali, per quanto si puo dire.\"); the English yeti wording is used. Stages 1-4 as the Mountain Yeti."
+  },
+  "battle-boar": {
+    "text": "Deals {v} more damage in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "bone-breaker": null,
+  "blunderbuss-gunner": null,
+  "basilisk": {
+    "text": "The card opposite does no damage for 2 rounds.",
+    "buffs": [
+      {
+        "type": "no_damage",
+        "directions": [
+          "front"
+        ],
+        "event": "round_le",
+        "eventData": 2
+      }
+    ]
+  },
+  "bone-collector": {
+    "text": "Deals 100 more damage in the next round for each enemy creature that dies.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": 100,
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards",
+        "nextRound": true,
+        "ext": true
+      }
+    ],
+    "notes": "Flat 100 (no level scaling). One queued raise_attack of 100 per enemy death event, applied in the next round only (nextRound, not permanent)."
+  },
+  "astral-navigator": {
+    "text": "The first time she dies, she returns to life at full health. Heals {v} of your health points each round.",
+    "buffs": [
+      {
+        "type": "resurrect",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "self"
+      },
+      {
+        "type": "heal_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "battering-ram": {
+    "text": "If it inflicts damage on a card that dies, it deals {v} damage to the opposing player.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [
+          "front"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards",
+        "damagedBySelf": true,
+        "ext": true
+      }
+    ],
+    "notes": "Fires when the card in direction front dies (target check) and only if this card damaged it this round (damagedBySelf, extension): a dazed Ram whose target is killed by someone else deals nothing."
+  },
+  "bloodsoaked-totem": {
+    "text": "The attack value of each of your offensive cards increases by {v} per round.",
+    "buffs": [
+      {
+        "type": "increment_attack",
+        "strength": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "filter": {
+          "offensive": true
+        },
+        "event": "always",
+        "ext": true
+      }
+    ],
+    "notes": "Permanent +{v} per round (increment_attack) from round 1 to every own card with an attack direction, the Totem included (it attacks its own neighbours). Scope buffs are not split."
+  },
+  "axe-whirler": null,
+  "blood-spitter": {
+    "text": "He takes {v} damage in each round.",
+    "buffs": [
+      {
+        "type": "self_damage",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "blade-master": {
+    "text": "Increases the damage dealt by his neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "blood-fairy": {
+    "text": "Increases the damage dealt by her neighbors by {v} in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "bog-yeti": {
+    "byStage": [
+      {
+        "text": "Has no special abilities, as far as you can tell.",
+        "buffs": []
+      },
+      {
+        "text": "Receives no damage in round 2.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage in round 3.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 3
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage in rounds 2 and 3.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          },
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 3
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage after round 1.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_ge",
+            "eventData": 2
+          }
+        ]
+      }
+    ],
+    "notes": "+: round 2, ++: round 3 (reversed relative to the other yetis, per wiki). \"2 and 3\" = two round_eq buffs (the first matching one fires each round)."
+  },
+  "baby-dragon": {
+    "text": "Who would kill a baby dragon? It's cute... and if it dies, each of your offensive dragons gains {v} attack power.",
+    "buffs": [
+      {
+        "type": "increment_attack",
+        "strength": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "filter": {
+          "tribe": "neutral",
+          "offensive": true,
+          "excludeSelf": true
+        },
+        "event": "onDeath",
+        "eventData": "self",
+        "ext": true
+      }
+    ],
+    "notes": "\"dragons\" = Neutral cards (game-design 1.4). Permanent (increment_attack) buff to every other own Neutral card with an attack direction when Baby Dragon dies."
+  },
+  "blood-dragon": {
+    "text": "Summoned from the blood of those who passed, he guards the wisdom of the Fallen.",
+    "buffs": []
+  },
+  "brother-artujan": {
+    "text": "Heals each of his neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "chimera": null,
+  "cave-troll": {
+    "text": "Heals himself by {v} health points each round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "cave-dragon": null,
+  "centaur": null,
+  "club-swinger": null,
+  "catapult": {
+    "text": "Deals no damage from the fourth round on.",
+    "buffs": [
+      {
+        "type": "attack",
+        "directions": [
+          "frontLeft",
+          "front",
+          "frontRight"
+        ],
+        "event": "round_le",
+        "eventData": 3
+      }
+    ],
+    "notes": "Explicit attack buff replacing the implicit one: attacks only in rounds 1-3 (hasAttack is false from round 4, so a board of Catapults ends the fight)."
+  },
+  "bone-oracle": {
+    "text": "His neighbors, if orcs, receive no damage in round 2.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "filter": {
+          "tribe": "orc"
+        },
+        "event": "round_eq",
+        "eventData": 2,
+        "ext": true
+      }
+    ],
+    "notes": "filter.tribe (extension): only orc neighbours become invulnerable."
+  },
+  "carnivorous-toadstool": {
+    "text": "It attacks with diffuse spores that cannot be reflected.",
+    "buffs": [
+      {
+        "type": "attack",
+        "directions": [
+          "frontLeft",
+          "front"
+        ],
+        "event": "always",
+        "unreflectable": true,
+        "ext": true
+      }
+    ],
+    "notes": "Explicit attack buff replacing the implicit one; unreflectable (extension): its hits push no onDamage event, so reflect_damage / reflect_damage_to_player never fire. Invulnerable still blocks it."
+  },
+  "bone-dragon": {
+    "text": "The first time Bone Dragon dies, it returns to life with improved attack.",
+    "buffs": [
+      {
+        "type": "resurrect",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "self"
+      },
+      {
+        "type": "increment_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "self"
+      }
+    ],
+    "notes": "Wiki: revives adding its ability value to its attack (100 + 3100 = 3200 at L1). increment_attack runs before resurrect in the event loop (phase order), once, when it dies. The text has no number, so the value is not displayed."
+  },
+  "devourer": {
+    "text": "If Devourer survives a round, it heals {v} for each enemy card that died that round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards"
+      }
+    ],
+    "notes": "One heal of {v} per enemy death event (original event loop); the heal handler skips a dead target, which is the \"if it survives\" condition. A heal that lands before the die phase of the event loop can keep it alive (the wiki lists this as a known quirk)."
+  },
+  "colossus": {
+    "text": "At the end of round two, it kills the opposing card with the highest attack power.",
+    "buffs": [
+      {
+        "type": "kill",
+        "directions": [],
+        "scope": "opponent_cards",
+        "pick": "highest_attack",
+        "count": 1,
+        "event": "round_eq",
+        "eventData": 2,
+        "ext": true
+      }
+    ],
+    "notes": "Extension kill: after the phase list of round 2, the living opposing card with the highest current attack is marked dead (ignores invulnerable; blocked when Colossus is suspended) and an onDeath event is pushed. Ties: the first slot."
+  },
+  "crystal-breeder": {
+    "text": "Increases the damage dealt by his neighbors by {v} in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "crystal-golem": {
+    "text": "If the card opposite dies, Crystal Golem does {v} damage to the opposing player.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [
+          "front"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards"
+      }
+    ],
+    "notes": "onDeath/opponent_cards with directions [front]: fires only when the dying card is the one in front (target check), whoever killed it."
+  },
+  "crystal-ghost": {
+    "text": "An aura of experience surrounds him. Mistaken by many for a flamboyant bard.",
+    "buffs": []
+  },
+  "dark-mage": {
+    "text": "The attack power of all cards with special abilities is reduced by {pct} in round 1.",
+    "buffs": [
+      {
+        "type": "reduce_ability_attack_percent",
+        "strengthPercent": "value",
+        "directions": [],
+        "scope": "all_cards",
+        "filter": {
+          "hasAbility": true,
+          "excludeSelf": true
+        },
+        "event": "round_eq",
+        "eventData": 1,
+        "ext": true
+      }
+    ],
+    "notes": "Value is a percent. Every card with an ability on both sides except itself loses {pct} of its attack in round 1, applied after all raise_attack buffs (wiki) and multiplicatively when several Medusas/Dark Mages are present. The wiki says the card also hits itself; game-design.md 1.4 (except itself) wins, as before."
+  },
+  "cursed-stag": {
+    "text": "The opposite card does not inflict damage for 2 rounds.",
+    "buffs": [
+      {
+        "type": "no_damage",
+        "directions": [
+          "front"
+        ],
+        "event": "round_le",
+        "eventData": 2
+      }
+    ]
+  },
+  "dwarf-king": {
+    "text": "Increases the damage dealt by his neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "earth-elemental": {
+    "text": "Takes no damage in the first round of a fight.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "dwarven-sage": {
+    "text": "Raises your maximum health by {v}.",
+    "buffs": [
+      {
+        "type": "raise_player_hp",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ],
+    "notes": "raise_player_hp is re-applied every round in the original (player hp resets at round start), i.e. the bonus lasts while the Sage lives and is not suspended. The wiki says the bonus persists after his death once applied; the original model is kept."
+  },
+  "dwarf-judge": {
+    "text": "At the end of round two, she kills the opposing card with the lowest attack power.",
+    "buffs": [
+      {
+        "type": "kill",
+        "directions": [],
+        "scope": "opponent_cards",
+        "pick": "lowest_attack",
+        "count": 1,
+        "event": "round_eq",
+        "eventData": 2,
+        "ext": true
+      }
+    ]
+  },
+  "djinn": {
+    "text": "The healing power of each of your cards increases by {pct}.",
+    "buffs": [
+      {
+        "type": "heal_boost_percent",
+        "strengthPercent": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "event": "always",
+        "ext": true
+      }
+    ],
+    "notes": "Value is a percent. While Djinn lives (and is not suspended) every heal buff of an own card heals round(strength x (1 + pct/100)); several Djinns add their percents on the base heal. Not applied to heal_player or raise_player_hp."
+  },
+  "dryad-oracle": {
+    "text": "If the Dryad Oracle dies, it does {v} damage to the opposing player.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [],
+        "event": "onDeath",
+        "eventData": "self"
+      }
+    ]
+  },
+  "dwarf-berserker": null,
+  "elf-henchman": null,
+  "druidess": {
+    "text": "Heals each of her neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "dwarf-tinker": {
+    "text": "The card opposite does no damage in the first round.",
+    "buffs": [
+      {
+        "type": "no_damage",
+        "directions": [
+          "front"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "envoy": null,
+  "fire-dragon": null,
+  "falconer": null,
+  "flinger": null,
+  "fire-elemental": {
+    "text": "Deals {v} more damage in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "equipment-master": {
+    "text": "Increases the damage dealt by the left neighbor by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "forest-dragon": {
+    "text": "Takes no damage in the first round of a fight.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "fungus-lord": {
+    "text": "Does {v} damage to the opposing player each round.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "flameling": {
+    "text": "If killed, it gets a bonus attack against the card opposite.",
+    "buffs": [
+      {
+        "type": "bonus_attack",
+        "strengthPercent": 100,
+        "directions": [
+          "front"
+        ],
+        "event": "onDeath",
+        "eventData": "self",
+        "baseAttack": true,
+        "ext": true
+      }
+    ],
+    "notes": "Its normal attack goes to frontLeft/frontRight; the death attack hits the front slot with 100% of its base attack (empty slot: the opposing player)."
+  },
+  "enormous-larva": {
+    "text": "The first time Enormous Larva dies, it returns to life with improved attack.",
+    "buffs": [
+      {
+        "type": "resurrect",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "self"
+      },
+      {
+        "type": "increment_attack",
+        "strengthPercent": 1000,
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "self",
+        "baseAttack": true,
+        "ext": true
+      }
+    ],
+    "notes": "Wiki: returns with its base attack x 11 (the catalog ability column is exactly 11 x attack at every level). Encoded as a permanent +1000% of base attack (origAttack x 10 added) fired by its own death, before the resurrect in the same event loop."
+  },
+  "gremlin": null,
+  "giant-lizard": null,
+  "giant-spider": {
+    "text": "If Giant Spider survives a round, it heals {v} for each enemy card that died that round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards"
+      }
+    ],
+    "notes": "One heal of {v} per enemy death event (original event loop); the heal handler skips a dead target, which is the \"if it survives\" condition. A heal that lands before the die phase of the event loop can keep it alive (the wiki lists this as a known quirk)."
+  },
+  "giant-eagle": null,
+  "giant": null,
+  "goblin-patriarch": {
+    "text": "The cards opposite his neighbors do no damage in round 1. If killed, Goblin Patriarch attacks both neighbors for double damage.",
+    "buffs": [
+      {
+        "type": "no_damage",
+        "directions": [
+          "frontLeft",
+          "frontRight"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      },
+      {
+        "type": "bonus_attack",
+        "strengthPercent": 200,
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "onDeath",
+        "eventData": "self",
+        "baseAttack": true,
+        "ext": true
+      }
+    ],
+    "notes": "Death attack: 200% of base attack split over two directions = 1x base attack to each own neighbour (wiki). Off-board directions are skipped; an empty neighbour slot sends the share to the opponent player in the original attack handler (the wiki says the own player)."
+  },
+  "gargoyle": {
+    "text": "The first time it dies, it returns to life at full health.",
+    "buffs": [
+      {
+        "type": "resurrect",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "self"
+      }
+    ]
+  },
+  "goblin-cook": {
+    "text": "Increases your health by {v}, but poisons you in round 4.",
+    "buffs": [
+      {
+        "type": "raise_player_hp",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      },
+      {
+        "type": "deal_damage_to_player",
+        "strength": "value",
+        "directions": [],
+        "event": "round_eq",
+        "eventData": 4
+      }
+    ],
+    "notes": "Poison amount is not documented; assumed equal to the health bonus (taken back as damage in round 4), as decided earlier."
+  },
+  "goblin-mob": {
+    "text": "Does triple damage in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strengthPercent": 200,
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1,
+        "baseAttack": true,
+        "ext": true
+      }
+    ],
+    "notes": "Wiki: +2x the basic (unbuffed) attack in round 1, additive, not a multiplier of the buffed attack: strengthPercent 200 of origAttack (baseAttack)."
+  },
+  "gasher": {
+    "text": "Does 75% more damage in the second round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strengthPercent": 75,
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 2,
+        "ext": true
+      }
+    ]
+  },
+  "gladiator": {
+    "text": "If Gladiator is healed, its attack power for the following round increases by the amount healed.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "directions": [
+          "self"
+        ],
+        "event": "onHeal",
+        "eventData": "self",
+        "nextRound": true,
+        "strengthFromEvent": true,
+        "ext": true
+      }
+    ],
+    "notes": "Extension: the heal handler emits an onHeal event {from, to, value}; the strength is the healed amount and is queued for the next round's raise_attack phase (not permanent)."
+  },
+  "griffin": {
+    "text": "Heals himself by {v} health points each round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "grimnack": {
+    "text": "The card opposite does no damage in the first round.",
+    "buffs": [
+      {
+        "type": "no_damage",
+        "directions": [
+          "front"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "guruk-the-destroyer": {
+    "text": "Deals 120 more damage in the next round for each enemy creature that dies.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": 120,
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards",
+        "nextRound": true,
+        "ext": true
+      }
+    ],
+    "notes": "Flat 120; does not scale with level or stage (wiki). Same mechanism as Bone Collector."
+  },
+  "gunner": null,
+  "guardian-of-the-throne": null,
+  "guardian-of-time": {
+    "text": "Raises the attack power of each of your offensive cards by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "filter": {
+          "offensive": true
+        },
+        "event": "always",
+        "ext": true
+      }
+    ],
+    "notes": "Per round (raise_attack), full value to every own card with an attack direction; scope buffs are not split."
+  },
+  "hurricane-dancer": {
+    "text": "None of the cards adjacent to Hurricane Dancer can attack in the first round.",
+    "buffs": [
+      {
+        "type": "no_damage",
+        "directions": [
+          "frontLeft",
+          "front",
+          "frontRight",
+          "left",
+          "right"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ],
+    "notes": "Wiki: the three opposing cards AND her own two neighbours are dazed in round 1 (game-design 1.4 agrees)."
+  },
+  "herb-collector": {
+    "text": "Heals each of your other elves by {v} health points.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "filter": {
+          "tribe": "elf",
+          "excludeSelf": true
+        },
+        "event": "always",
+        "ext": true
+      }
+    ]
+  },
+  "homunculus": {
+    "text": "Does {v} damage to the opposing player each round.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "hunter": null,
+  "hammer-swinger": null,
+  "harpy": {
+    "text": "Receives no damage in even-numbered rounds.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_even",
+        "ext": true
+      }
+    ]
+  },
+  "keeper": {
+    "text": "Heals each of his neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "isegrimm-stormgaze": {
+    "text": "Increases the damage dealt by her left neighbor by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "iron-breaker": null,
+  "lance-stabber": null,
+  "keeper-of-the-treasure": null,
+  "imperial-dragon": null,
+  "ice-dragon": null,
+  "iron-golem": null,
+  "korim-stoneskull": {
+    "text": "Increases the damage dealt by his neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "isilija-moonshine": {
+    "text": "Increases the damage dealt by her neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "lava-toad": {
+    "text": "If he receives damage, the opposing player takes the same amount of damage, up to a maximum of {v}.",
+    "buffs": [
+      {
+        "type": "reflect_damage_to_player",
+        "cap": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "onDamage",
+        "eventData": "self",
+        "ext": true
+      }
+    ]
+  },
+  "incubus": {
+    "text": "Does {v} damage to you and your opponent in each round.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      },
+      {
+        "type": "deal_damage_to_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "lurking-goblin": null,
+  "lookalike": {
+    "text": "If it is damaged, the attacking card takes the same amount of damage.",
+    "buffs": [
+      {
+        "type": "reflect_damage",
+        "directions": [
+          "self"
+        ],
+        "event": "onDamage",
+        "eventData": "self"
+      }
+    ]
+  },
+  "lindworm": null,
+  "mammoth-citadel": {
+    "text": "If the card opposite dies, Mammoth Citadel does {v} damage to the opposing player.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [
+          "front"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards"
+      }
+    ],
+    "notes": "Triggers whoever killed the opposite card, and again if it is revived and dies again (wiki). Target check: the dying card must be the front one."
+  },
+  "magma-thrower": {
+    "text": "Raises the attack power of each of your offensive dwarves by {v} during round 1.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "filter": {
+          "tribe": "dwarf",
+          "offensive": true
+        },
+        "event": "round_eq",
+        "eventData": 1,
+        "ext": true
+      }
+    ],
+    "notes": "Includes himself (no \"other\" in the text)."
+  },
+  "loremaster": {
+    "text": "If he receives damage, the opposing player takes the same amount of damage, up to a maximum of {v}.",
+    "buffs": [
+      {
+        "type": "reflect_damage_to_player",
+        "cap": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "onDamage",
+        "eventData": "self",
+        "ext": true
+      }
+    ]
+  },
+  "leviathan": {
+    "text": "If Leviathan is healed, its attack power for the following round increases by the amount healed.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "directions": [
+          "self"
+        ],
+        "event": "onHeal",
+        "eventData": "self",
+        "nextRound": true,
+        "strengthFromEvent": true,
+        "ext": true
+      }
+    ],
+    "notes": "Extension: the heal handler emits an onHeal event {from, to, value}; the strength is the healed amount and is queued for the next round's raise_attack phase (not permanent)."
+  },
+  "magmamancer": {
+    "byStage": [
+      {
+        "text": "Her visions appear to have no practical value.",
+        "buffs": []
+      },
+      {
+        "text": "In round 1, the card opposite her left neighbour has no abilities.",
+        "buffs": [
+          {
+            "type": "no_buff",
+            "directions": [
+              "frontLeft"
+            ],
+            "event": "round_eq",
+            "eventData": 1
+          }
+        ]
+      },
+      {
+        "text": "In round 1, she stuns the card opposite her left neighbour (no abilities or attack).",
+        "buffs": [
+          {
+            "type": "no_buff",
+            "directions": [
+              "frontLeft"
+            ],
+            "event": "round_eq",
+            "eventData": 1
+          },
+          {
+            "type": "no_damage",
+            "directions": [
+              "frontLeft"
+            ],
+            "event": "round_eq",
+            "eventData": 1
+          }
+        ]
+      },
+      {
+        "text": "In round 1, she stuns the card opposite her left neighbour (no abilities or attack). In round 2, the card opposite has no abilities.",
+        "buffs": [
+          {
+            "type": "no_buff",
+            "directions": [
+              "frontLeft"
+            ],
+            "event": "round_eq",
+            "eventData": 1
+          },
+          {
+            "type": "no_damage",
+            "directions": [
+              "frontLeft"
+            ],
+            "event": "round_eq",
+            "eventData": 1
+          },
+          {
+            "type": "no_buff",
+            "directions": [
+              "front"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          }
+        ]
+      },
+      {
+        "text": "In round 1, she stuns the card opposite her left neighbour (no abilities or attack). In round 2, she stuns the card opposite.",
+        "buffs": [
+          {
+            "type": "no_buff",
+            "directions": [
+              "frontLeft"
+            ],
+            "event": "round_eq",
+            "eventData": 1
+          },
+          {
+            "type": "no_damage",
+            "directions": [
+              "frontLeft"
+            ],
+            "event": "round_eq",
+            "eventData": 1
+          },
+          {
+            "type": "no_buff",
+            "directions": [
+              "front"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          },
+          {
+            "type": "no_damage",
+            "directions": [
+              "front"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          }
+        ]
+      }
+    ],
+    "notes": "frontLeft = the enemy card facing her left neighbour. Stun = no_buff + no_damage (two buffs, as the wiki says they are separate: a suspended Magmamancer still suppresses but no longer dazes - no_buff is the only handler not blocked by noBuffsAllowed). Two buffs of one type with disjoint rounds are fine: the first matching one fires."
+  },
+  "lightning-spirit": {
+    "text": "Every round, it does {v} unreflectable damage to each enemy card.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_all_opponent_cards",
+        "strength": "value",
+        "directions": [],
+        "event": "always",
+        "unreflectable": true,
+        "ext": true
+      }
+    ]
+  },
+  "lich-king": {
+    "text": "This dead king will not ride into battle anymore, but his experience is worth more than a thousand swords.",
+    "buffs": []
+  },
+  "master-brewer": null,
+  "meadow-guard": null,
+  "minor-demon": {
+    "text": "Deals you 100 damage in each round.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_player",
+        "strength": 100,
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "ore-titan": {
+    "text": "If it inflicts damage on a card that dies, it deals {v} damage to the opposing player.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [
+          "front"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards",
+        "damagedBySelf": true,
+        "ext": true
+      }
+    ],
+    "notes": "Fires when the card in direction front dies (target check) and only if this card damaged it this round (damagedBySelf, extension): a dazed Ram whose target is killed by someone else deals nothing."
+  },
+  "moon-dragon": {
+    "text": "The first time the Moon Dragon dies, all of your cards that die in the same round are revived and restored to full health.",
+    "buffs": [
+      {
+        "type": "resurrect_allies",
+        "directions": [],
+        "scope": "own_cards",
+        "event": "onDeath",
+        "eventData": "self",
+        "ext": true
+      }
+    ],
+    "notes": "Extension (original-engine.md section 8): once per fight, every own card that died this round, itself included (game-design 1.2 step 7; the wiki says the Dragon does not revive itself - the project docs win), returns at full health; revived cards fire no death triggers and no card is revived twice in a fight (resurrected flag)."
+  },
+  "medusa": {
+    "text": "The attack power of all cards with special abilities is reduced by {pct} in round 1.",
+    "buffs": [
+      {
+        "type": "reduce_ability_attack_percent",
+        "strengthPercent": "value",
+        "directions": [],
+        "scope": "all_cards",
+        "filter": {
+          "hasAbility": true,
+          "excludeSelf": true
+        },
+        "event": "round_eq",
+        "eventData": 1,
+        "ext": true
+      }
+    ],
+    "notes": "Value is a percent. Every card with an ability on both sides except itself loses {pct} of its attack in round 1, applied after all raise_attack buffs (wiki) and multiplicatively when several Medusas/Dark Mages are present. The wiki says the card also hits itself; game-design.md 1.4 (except itself) wins, as before."
+  },
+  "minotaur": null,
+  "ogre": null,
+  "moon-prophetess": {
+    "text": "Heals each of her neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "orc-barbarian": null,
+  "orc-brute": null,
+  "mendicant": {
+    "text": "Raises the attack power of each of your other offensive elves by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "filter": {
+          "tribe": "elf",
+          "offensive": true,
+          "excludeSelf": true
+        },
+        "event": "always",
+        "ext": true
+      }
+    ],
+    "notes": "\"other\" elves: Mendicant does not buff himself."
+  },
+  "mountain-yeti": {
+    "byStage": [
+      {
+        "text": "Has no special abilities, as far as you can tell.",
+        "buffs": []
+      },
+      {
+        "text": "Receives no damage in round 3.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 3
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage in round 2.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage in rounds 2 and 3.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          },
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 3
+          }
+        ]
+      },
+      {
+        "text": "Receives no damage after round 1.",
+        "buffs": [
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_ge",
+            "eventData": 2
+          }
+        ]
+      }
+    ]
+  },
+  "pikeman": null,
+  "pouch-tearer": null,
+  "rat-eater": {
+    "text": "If he hits an unoccupied field, he deals 200 more damage.",
+    "buffs": [
+      {
+        "type": "attack",
+        "directions": [
+          "front"
+        ],
+        "event": "always",
+        "emptyReduction": -200
+      }
+    ],
+    "notes": "Explicit attack buff replacing the implicit one: emptyReduction -200 = 200 more damage to the player when the front slot is empty (original field)."
+  },
+  "pyromancer": {
+    "text": "Deals {v} more damage in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "ram-rider": {
+    "text": "Deals {v} more damage in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "phoenix": {
+    "text": "The first time it dies, it returns to life at full health.",
+    "buffs": [
+      {
+        "type": "resurrect",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "self"
+      }
+    ]
+  },
+  "pegasus": null,
+  "rager-leaper": null,
+  "raven-shaman": {
+    "text": "Heals his left neighbor by {v} health points.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "pioneer": null,
+  "raptorial-fungus": {
+    "text": "Does {v} damage to the opposing player each round.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "scout": null,
+  "rock-detonator": {
+    "text": "Deals {v} more damage in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "shadow-bear": {
+    "text": "Deals {v} more damage in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "scorpion-rider": {
+    "text": "The card opposite has no abilities in the first round.",
+    "buffs": [
+      {
+        "type": "no_buff",
+        "directions": [
+          "front"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "sentinel": {
+    "text": "Heals each of your other cards by {v} health points. Receives no damage in the first round of a fight.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "filter": {
+          "excludeSelf": true
+        },
+        "event": "always",
+        "ext": true
+      },
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "sand-mystic": {
+    "text": "The first time he dies, he returns to life at full health.",
+    "buffs": [
+      {
+        "type": "resurrect",
+        "directions": [
+          "self"
+        ],
+        "event": "onDeath",
+        "eventData": "self"
+      }
+    ]
+  },
+  "salt-smuggler": {
+    "text": "Does {v} damage to the opposing player each round.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "sand-kraken": {
+    "text": "Every round, it deals {v} damage to each enemy card.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_all_opponent_cards",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ],
+    "notes": "Reflectable (pushes onDamage events, so Loremaster & co. fire)."
+  },
+  "shield-bearer": {
+    "text": "Takes no damage in the first round of a fight.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "rune-smith": {
+    "text": "Restores {v} of your health points each round.",
+    "buffs": [
+      {
+        "type": "heal_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "scrapmaster": {
+    "text": "Deals {v} more damage each round.",
+    "buffs": [
+      {
+        "type": "increment_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "always"
+      }
+    ],
+    "notes": "Permanent per-round growth (increment_attack raises origAttack), so it survives a resurrect (wiki)."
+  },
+  "sand-yeti": {
+    "byStage": [
+      {
+        "text": "Heals {v} of your health points each round. That's it, as far as you can tell.",
+        "buffs": [
+          {
+            "type": "heal_player",
+            "strength": "value",
+            "directions": [],
+            "event": "always"
+          }
+        ]
+      },
+      {
+        "text": "Heals {v} of your health points each round. Receives no damage in round 3.",
+        "buffs": [
+          {
+            "type": "heal_player",
+            "strength": "value",
+            "directions": [],
+            "event": "always"
+          },
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 3
+          }
+        ]
+      },
+      {
+        "text": "Heals {v} of your health points each round. Receives no damage in round 2.",
+        "buffs": [
+          {
+            "type": "heal_player",
+            "strength": "value",
+            "directions": [],
+            "event": "always"
+          },
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          }
+        ]
+      },
+      {
+        "text": "Heals {v} of your health points each round. Receives no damage in rounds 2 and 3.",
+        "buffs": [
+          {
+            "type": "heal_player",
+            "strength": "value",
+            "directions": [],
+            "event": "always"
+          },
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 2
+          },
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_eq",
+            "eventData": 3
+          }
+        ]
+      },
+      {
+        "text": "Heals {v} of your health points each round. Receives no damage after round 1.",
+        "buffs": [
+          {
+            "type": "heal_player",
+            "strength": "value",
+            "directions": [],
+            "event": "always"
+          },
+          {
+            "type": "invulnerable",
+            "directions": [
+              "self"
+            ],
+            "event": "round_ge",
+            "eventData": 2
+          }
+        ]
+      }
+    ]
+  },
+  "schemer": {
+    "text": "If killed, he attacks one more time, inflicting double damage.",
+    "buffs": [
+      {
+        "type": "bonus_attack",
+        "strengthPercent": 200,
+        "directions": [
+          "front"
+        ],
+        "event": "onDeath",
+        "eventData": "self",
+        "baseAttack": true,
+        "ext": true
+      }
+    ],
+    "notes": "Death attack of 200% of base attack at the front slot (empty: the opposing player)."
+  },
+  "siribia-morning-dew": {
+    "text": "Increases the damage dealt by her neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "sister-elenia": {
+    "text": "Heals her left neighbor by {v} health points.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "sphere-weaver": null,
+  "slaver": {
+    "text": "If the card opposite dies, that card's neighbors cannot attack in the following round.",
+    "buffs": [
+      {
+        "type": "no_damage",
+        "directions": [
+          "frontLeft",
+          "frontRight"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards",
+        "nextRound": true,
+        "triggerDirection": "front",
+        "ext": true
+      }
+    ],
+    "notes": "triggerDirection front (extension): fires when the front card dies; the no_damage is queued (nextRound) for the next round on frontLeft/frontRight, i.e. the dead card's neighbours. Works even if Slaver dies in the same round (wiki)."
+  },
+  "star-seer": {
+    "text": "If he takes a hit, the attacker takes the same amount of damage, but only up to a maximum of {v}.",
+    "buffs": [
+      {
+        "type": "reflect_damage_to_player",
+        "cap": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "onDamage",
+        "eventData": "self",
+        "ext": true
+      }
+    ],
+    "notes": "Card text is misleading: per the wiki the damage goes to the opposing player (like Loremaster), capped per hit."
+  },
+  "smasher": null,
+  "skullsplitter": null,
+  "slave-medic": {
+    "text": "Heals each of his neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "siren": {
+    "text": "The card opposite has no more abilities and does no damage for 1 round.",
+    "buffs": [
+      {
+        "type": "no_buff",
+        "directions": [
+          "front"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      },
+      {
+        "type": "no_damage",
+        "directions": [
+          "front"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ],
+    "notes": "Wiki: the card opposite is stunned (suspended + dazed) in round 1 = no_buff + no_damage."
+  },
+  "spore-mage": {
+    "text": "Heals each of his neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "sky-guardian": {
+    "text": "If the card opposite dies, that card's neighbors cannot attack in the following round.",
+    "buffs": [
+      {
+        "type": "no_damage",
+        "directions": [
+          "frontLeft",
+          "frontRight"
+        ],
+        "event": "onDeath",
+        "eventData": "opponent_cards",
+        "nextRound": true,
+        "triggerDirection": "front",
+        "ext": true
+      }
+    ],
+    "notes": "Same as Slaver."
+  },
+  "siamese-orc": {
+    "text": "Increases the damage done by his neighbors by {v} in the first round.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "stone-golem": null,
+  "swamp-troll": {
+    "text": "Heals himself by {v} health points each round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "sun-dragon": {
+    "text": "If the Sun Dragon dies, he does {v} damage to each enemy card.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_all_opponent_cards",
+        "strength": "value",
+        "directions": [],
+        "event": "onDeath",
+        "eventData": "self"
+      }
+    ]
+  },
+  "swarmkeeper": {
+    "text": "Her left neighbor, if an orc, receives no damage in the first round.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "left"
+        ],
+        "filter": {
+          "tribe": "orc"
+        },
+        "event": "round_eq",
+        "eventData": 1,
+        "ext": true
+      }
+    ],
+    "notes": "filter.tribe (extension). The buff belongs to Swarmkeeper, so the neighbour is protected even when it is itself suspended (wiki)."
+  },
+  "throat-cutter": null,
+  "succubus": {
+    "text": "If she hits an unoccupied field, she deals 200 more damage.",
+    "buffs": [
+      {
+        "type": "attack",
+        "directions": [
+          "front"
+        ],
+        "event": "always",
+        "emptyReduction": -200
+      }
+    ],
+    "notes": "As Rat Eater."
+  },
+  "tamer": null,
+  "stone-priest": {
+    "text": "Heals each of his neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "totem-carver": {
+    "text": "Raises the attack power of each of your offensive orcs by {v} for each creature that dies.",
+    "buffs": [
+      {
+        "type": "increment_attack",
+        "strength": "value",
+        "directions": [],
+        "scope": "own_cards",
+        "filter": {
+          "tribe": "orc",
+          "offensive": true
+        },
+        "event": "onDeath",
+        "ext": true
+      }
+    ],
+    "notes": "onDeath with no eventData = any card on either side dying; each death event permanently adds {v} (increment_attack) to every own orc with an attack direction."
+  },
+  "stonemason": null,
+  "thief-of-time": {
+    "text": "Does {v} more damage each round. The Thief's neighbors can only act every second round.",
+    "buffs": [
+      {
+        "type": "increment_attack",
+        "strength": "value",
+        "directions": [
+          "self"
+        ],
+        "event": "always"
+      },
+      {
+        "type": "stun_pattern",
+        "directions": [],
+        "event": "always",
+        "ext": true
+      }
+    ],
+    "notes": "stun_pattern (extension) = no_buff + no_damage on [front, left, right] in odd rounds and on [frontLeft, frontRight] in even rounds (wiki / game-design 1.4). The no_buff half is not blocked when the Thief is suspended; the no_damage half and the increment_attack are."
+  },
+  "tomb-colossus": null,
+  "troll-driver": null,
+  "tracker": null,
+  "tribe-avenger": {
+    "text": "If the Tribe Avenger dies, he deals {v} damage to each enemy card.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_all_opponent_cards",
+        "strength": "value",
+        "directions": [],
+        "event": "onDeath",
+        "eventData": "self"
+      }
+    ]
+  },
+  "tulzakk-bone-grinder": {
+    "text": "Increases the damage dealt by his right neighbor by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "tundugar-ironeye": {
+    "text": "The card opposite has no abilities in the first round.",
+    "buffs": [
+      {
+        "type": "no_buff",
+        "directions": [
+          "front"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "ugluk-maggot-eater": {
+    "text": "Increases the damage dealt by his left neighbor by {v} points.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "treeman": {
+    "text": "If he hits an unoccupied field, he deals 200 less damage.",
+    "buffs": [
+      {
+        "type": "attack",
+        "directions": [
+          "front"
+        ],
+        "event": "always",
+        "emptyReduction": 200
+      }
+    ],
+    "notes": "Explicit attack buff: emptyReduction +200 = 200 less damage to the player when the front slot is empty."
+  },
+  "trapper": null,
+  "tree-of-life": {
+    "text": "The tree of life gives you {v} health points for the entire battle.",
+    "buffs": [
+      {
+        "type": "raise_player_hp",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "tunnel-digger": {
+    "text": "Increases the damage dealt by his neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "war-bard": {
+    "text": "Increases the damage dealt by his neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "wolf-beast": {
+    "text": "Takes no damage in the first round of a fight.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "water-elemental": {
+    "text": "Heals each of its neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  },
+  "wilderness-shaper": {
+    "text": "Every round, it deals {v} damage to each enemy card.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_all_opponent_cards",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ],
+    "notes": "Reflectable (wiki)."
+  },
+  "warg-rider": {
+    "text": "Just before it dies, Warg Rider gets a bonus attack in all directions.",
+    "buffs": [
+      {
+        "type": "bonus_attack",
+        "strengthPercent": 250,
+        "directions": [
+          "frontLeft",
+          "front",
+          "frontRight",
+          "left",
+          "right"
+        ],
+        "event": "onDeath",
+        "eventData": "self",
+        "baseAttack": true,
+        "ext": true
+      }
+    ],
+    "notes": "Wiki: each of the 5 directions takes base attack / 2 = 250% split five ways. Off-board directions are skipped; empty slots hit the opposing player (original attack handler; the wiki says the corresponding player)."
+  },
+  "voodoo-witch": {
+    "text": "Does {v} damage to the opposing player each round and heals you by the same amount.",
+    "buffs": [
+      {
+        "type": "deal_damage_to_opponent_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      },
+      {
+        "type": "heal_player",
+        "strength": "value",
+        "directions": [],
+        "event": "always"
+      }
+    ]
+  },
+  "will-o-the-wisp": {
+    "text": "If it is damaged, the attacking card takes the same amount of damage.",
+    "buffs": [
+      {
+        "type": "reflect_damage",
+        "directions": [
+          "self"
+        ],
+        "event": "onDamage",
+        "eventData": "self"
+      }
+    ]
+  },
+  "unicorn": {
+    "text": "Takes no damage in the first round of a fight.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_eq",
+        "eventData": 1
+      }
+    ]
+  },
+  "war-tattooist": {
+    "text": "His right neighbor's attack increases by {v} per round.",
+    "buffs": [
+      {
+        "type": "increment_attack",
+        "strength": "value",
+        "directions": [
+          "right"
+        ],
+        "event": "always"
+      }
+    ],
+    "notes": "Permanent +{v} every round (round 1 included) to the right neighbour."
+  },
+  "war-pangolin": null,
+  "werewolf-dwarf": {
+    "text": "Is indestructible in the even-numbered rounds.",
+    "buffs": [
+      {
+        "type": "invulnerable",
+        "directions": [
+          "self"
+        ],
+        "event": "round_even",
+        "ext": true
+      }
+    ],
+    "notes": "Wiki text: \"is indestructible in the even numbererd rounds\"."
+  },
+  "worm-shaman": {
+    "text": "Heals his right neighbor by {v} health points.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "wrath-bringer": {
+    "text": "Increases the damage dealt by his neighbors by {v}.",
+    "buffs": [
+      {
+        "type": "raise_attack",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always"
+      }
+    ]
+  },
+  "wolf-shaman": {
+    "text": "Heals each of his neighbors by {v} health points per round.",
+    "buffs": [
+      {
+        "type": "heal",
+        "strength": "value",
+        "directions": [
+          "left",
+          "right"
+        ],
+        "event": "always",
+        "perTarget": true
+      }
+    ]
+  }
+}

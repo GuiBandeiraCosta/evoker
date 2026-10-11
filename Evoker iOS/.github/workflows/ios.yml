@@ -1,0 +1,29 @@
+# Opt-in CI for a machine without a Mac: push this repository to GitHub and this workflow builds the app and runs
+# the EvokerCore tests on a macOS runner. It is not required for local development.
+name: iOS build and tests
+on:
+  push:
+    paths: ["Evoker iOS/**"]
+  workflow_dispatch:
+jobs:
+  core-tests:
+    runs-on: macos-15
+    defaults:
+      run:
+        working-directory: Evoker iOS/EvokerCore
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode_16.2.app || true
+      - run: swift --version
+      - run: swift test
+  app-build:
+    runs-on: macos-15
+    defaults:
+      run:
+        working-directory: Evoker iOS
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode_16.2.app || true
+      - run: node Tools/sync-data.mjs
+      - run: node Tools/build-assets.mjs
+      - run: xcodebuild -project Evoker.xcodeproj -scheme Evoker -destination "generic/platform=iOS Simulator" CODE_SIGNING_ALLOWED=NO build
