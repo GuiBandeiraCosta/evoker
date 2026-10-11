@@ -7,8 +7,11 @@ Two projects live side by side in this repository:
   rule and number is documented in `Evoker Web/docs/design/`. Its own `Evoker Web/CLAUDE.md` applies to any work
   inside that folder (run `npm start` / `npm test` from inside `Evoker Web/`). Do not change its behaviour to suit
   the iOS port; the port follows it.
-- **`Evoker iOS/`** — the native iOS rewrite (Swift; SwiftUI menus, SpriteKit battles). Structure, build steps and
-  conventions: `Evoker iOS/README.md`; the architecture plan: `Evoker iOS/docs/PLAN.md`.
+- **`Evoker iOS/`** — the iPhone app. What ships is the **EvokerWeb** target: the web game bundled unchanged in a
+  native shell (WKWebView + a loopback server, `Evoker iOS/EvokerWeb/`), so web fixes reach the phone with the next
+  build. The native rewrite (target "Evoker"; SwiftUI menus, SpriteKit battles) stays as work in progress.
+  Structure, build steps and conventions: `Evoker iOS/README.md`; the native architecture plan:
+  `Evoker iOS/docs/PLAN.md`.
 
 Rules of the house that apply to both: faithfulness to the original beats taste; game logic is pure and
 deterministic (seeded RNG, injected clock); every reported bug gets a regression test; keep tests green.

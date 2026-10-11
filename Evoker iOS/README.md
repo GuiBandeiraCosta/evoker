@@ -6,6 +6,26 @@ The reference implementation and all design documents live in `../Evoker Web/` (
 binding for rules and numbers). The architecture plan is `docs/PLAN.md`, the cross-module contracts and the
 change log of every work package `docs/CONTRACTS.md`.
 
+## What ships on the phone: EvokerWeb (since 2026-10-11)
+
+The app installed on the iPhone is the **EvokerWeb** target: the web game itself (`../Evoker Web`, the reference
+implementation) in a native shell, so it looks and plays exactly like the browser version. The native port below
+re-creates every screen by hand in SwiftUI and still differs in layout, colours and touch handling; it stays in the
+project (target and scheme "Evoker") as work in progress.
+
+- `EvokerWeb/` — the shell: `EvokerWebApp` (@main), `GameShell` (a full-screen WKWebView, no zoom / selection /
+  callouts, "export save" downloads to the share sheet), `LocalGameServer` (serves the bundled game on
+  `http://127.0.0.1:47613`: the game's ES modules, `fetch()` and `<audio>` byte ranges need a real http origin),
+  `SaveMirror` (copies the localStorage save `evoker.save.v1` to Application Support and restores it before the
+  game boots).
+- `Tools/copy-web-game.sh` — build phase: copies `index.html`, `css`, `src`, `data`, `assets` of Evoker Web into the
+  app's `Game` folder on every build, so the web project stays the single source.
+- `Support/EvokerWeb-Info.plist` — `NSAllowsLocalNetworking` for the loopback server (merged into the generated plist).
+- `EvokerWebUITests/` — simulator tests of the shipped app (scheme "EvokerWeb"): boot to the title, the level-up
+  dialog's +/- and Proceed with real taps, the save across relaunches and after WebKit's storage is wiped.
+- Same bundle id as the native app (`com.guiba.evoker`): installing one replaces the other. Their saves are
+  separate (the native app keeps a JSON file of its own).
+
 ## Structure
 
 ```
@@ -216,7 +236,8 @@ pieces) → League → Character (profile, daily, options: volumes, export / imp
 
 ## Simulator UI tests (no phone, no Mac)
 
-Every push that touches `Evoker iOS/` runs the `EvokerUITests` target on an iPhone simulator on GitHub's macOS
+The shipped app has its own suite: every push runs `EvokerWebUITests` (job "web-shell", artifact `web-screenshots`).
+The native port's suite runs on demand (`gh workflow run ios.yml -f web=false -f ui=true`): it runs the `EvokerUITests` target on an iPhone simulator on GitHub's macOS
 runners (`.github/workflows/ios.yml`, job "ui-tests") and uploads every screenshot as the artifact
 `ui-screenshots`. The app understands test-only launch options (`Evoker/App/UITestHooks.swift`: `-uitest`,
 `-uitest-preset title|fresh|mid`, `-uitest-route <screen>`) and, under `-uitest`, exposes an invisible
@@ -231,3 +252,4 @@ EvokerCore tests run on demand: Actions ▸ "iOS build and tests" ▸ Run workfl
 | 2026-10-11 | Card dragging did nothing | `EvokerScreensUITests.test03CardsSliderAndDrag` (deck count asserted), `test05PrebattleDragAndFight` |
 | 2026-10-11 | Landing feed banners overlapped each other | screenshot `04-feed` |
 | 2026-10-11 | Training: the slider did not glide to its weakest card after the training slot was filled (web `snapEnd`) | `EvokerScreensUITests.test06Training` (card count asserted) |
+| 2026-10-11 | Level-up dialog: + and Proceed did nothing on the phone (native port) | the shipped app is now EvokerWeb; `EvokerWebShellUITests.test02LevelUpPlusMinusAndProceed` (points and level asserted) |

@@ -1,14 +1,17 @@
 # CI for a machine without a Mac (README "Getting it on an iPhone", way B). Jobs:
-#   ui-tests       (every push touching "Evoker iOS/"): builds the app, runs it in the iOS Simulator through the
-#                  EvokerUITests target (screens, card drags, a quest and a fight) and uploads the screenshots as
-#                  the artifact "ui-screenshots".
+#   web-shell      (every push touching the iOS project or the web game's playable files): the app that ships,
+#                  EvokerWeb (the web game in a native shell), in the iPhone 13 simulator through EvokerWebUITests
+#                  (boot, the level-up dialog's buttons, the save across relaunches); screenshots as the artifact
+#                  "web-screenshots".
+#   unsigned-ipa   (manual run): an unsigned Release device build of EvokerWeb, artifact "Evoker-unsigned-ipa", to
+#                  sideload with AltServer and a free Apple ID.
+#   ui-tests       (manual run): the native SwiftUI / SpriteKit port (target Evoker) through EvokerUITests (screens,
+#                  card drags, a quest and a fight), screenshots as the artifact "ui-screenshots".
 #   core-tests     (manual run): the EvokerCore `swift test` suite (also runnable on Windows, see README).
-#   devices        (manual run): the UI tests on every iPhone screen size from iPhone 13 to 18 that the runner's
-#                  newest Xcode simulates (artifact "device-screenshots", summary.txt = PASS / FAIL / MISSING per model).
-#   unsigned-ipa   (manual run): an unsigned Release device build, artifact "Evoker-unsigned-ipa", to sideload
-#                  with AltStore / Sideloadly and a free Apple ID.
+#   devices        (manual run): the native port's UI tests on every iPhone screen size from iPhone 13 to 18 that the
+#                  runner's newest Xcode simulates (artifact "device-screenshots", summary.txt = PASS / FAIL / MISSING).
 # Manual runs: GitHub ▸ Actions ▸ "iOS build and tests" ▸ Run workflow (choose which jobs), or
-#   gh workflow run ios.yml -f ipa=true -f core=true
+#   gh workflow run ios.yml -f web=false -f ipa=true
 # macOS runner minutes count 10x against the free quota of a private repository, hence the split.
 #
 # The workflow file must stay at the repository root (.github/workflows/); "Evoker iOS/.github/workflows/ios.yml"
@@ -19,23 +22,32 @@ on:
   push:
     paths:
       - "Evoker iOS/**"
+      - "Evoker Web/index.html"
+      - "Evoker Web/assets/**"
+      - "Evoker Web/css/**"
+      - "Evoker Web/data/**"
+      - "Evoker Web/src/**"
       - ".github/workflows/ios.yml"
   workflow_dispatch:
     inputs:
-      ui:
-        description: "Run the simulator UI tests"
+      web:
+        description: "Run the shipped app's (EvokerWeb) simulator UI tests"
         type: boolean
         default: true
+      ipa:
+        description: "Build the unsigned .ipa (EvokerWeb)"
+        type: boolean
+        default: false
+      ui:
+        description: "Run the native port's (Evoker) simulator UI tests"
+        type: boolean
+        default: false
       core:
         description: "Run the EvokerCore swift tests"
         type: boolean
         default: false
-      ipa:
-        description: "Build the unsigned .ipa"
-        type: boolean
-        default: false
       devices:
-        description: "UI tests on every iPhone screen size, iPhone 13 to 18 (about 25 macOS minutes)"
+        description: "Native port UI tests on every iPhone screen size, iPhone 13 to 18 (about 40 macOS minutes)"
         type: boolean
         default: false
 
@@ -44,9 +56,106 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  web-shell:
+    name: EvokerWeb (shipped app) simulator UI tests
+    if: github.event_name == 'push' || inputs.web
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: |
+          XC="$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -n 1)"
+          if [ -n "$XC" ] && [ -d "$XC" ]; then sudo xcode-select -s "$XC"; fi
+          xcodebuild -version
+      - name: Project check
+        working-directory: "Evoker iOS"
+        run: node Tools/check-pbxproj.mjs
+      - name: Pick the iPhone 13 simulator
+        id: sim
+        working-directory: "Evoker iOS"
+        run: |
+          python3 Tools/ci_sims.py "iPhone 13" "iPhone 16" | tee sims.txt
+          UDID="$(grep '^OK|' sims.txt | head -n 1 | cut -d'|' -f2)"
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl boot "$UDID" || true
+      - name: xcodebuild test (EvokerWebUITests)
+        working-directory: "Evoker iOS"
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Evoker.xcodeproj \
+            -scheme EvokerWeb \
+            -configuration Debug \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            -resultBundlePath "$RUNNER_TEMP/web.xcresult" \
+            test 2>&1 | tee "$RUNNER_TEMP/test.log" | grep -E "error:|Test Case|BUILD|TEST|failed|passed|Copied Evoker Web" || true
+          grep -q "TEST SUCCEEDED" "$RUNNER_TEMP/test.log"
+      - name: Export screenshots
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/shots"
+          if [ -d "$RUNNER_TEMP/web.xcresult" ]; then
+            xcrun xcresulttool export attachments --path "$RUNNER_TEMP/web.xcresult" --output-path "$RUNNER_TEMP/shots" || true
+          fi
+          cp "$RUNNER_TEMP/test.log" "$RUNNER_TEMP/shots/" 2>/dev/null || true
+          xcrun simctl spawn "${{ steps.sim.outputs.udid }}" log show --last 15m --style compact --predicate 'process == "EvokerWeb"' > "$RUNNER_TEMP/shots/app-log.txt" 2>/dev/null || true
+          ls -la "$RUNNER_TEMP/shots" | head -40
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-screenshots
+          path: ${{ runner.temp }}/shots
+          retention-days: 7
+
+  unsigned-ipa:
+    name: Unsigned .ipa of EvokerWeb (Release, device)
+    if: github.event_name == 'workflow_dispatch' && inputs.ipa
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: |
+          XC="$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -n 1)"
+          if [ -n "$XC" ] && [ -d "$XC" ]; then sudo xcode-select -s "$XC"; fi
+          xcodebuild -version
+      - name: xcodebuild archive (unsigned)
+        working-directory: "Evoker iOS"
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Evoker.xcodeproj \
+            -scheme EvokerWeb \
+            -configuration Release \
+            -destination "generic/platform=iOS" \
+            -archivePath "$RUNNER_TEMP/Evoker.xcarchive" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" DEVELOPMENT_TEAM="" \
+            archive
+      - name: Package Payload/EvokerWeb.app into Evoker-unsigned.ipa
+        run: |
+          APP="$RUNNER_TEMP/Evoker.xcarchive/Products/Applications/EvokerWeb.app"
+          test -d "$APP"
+          test -f "$APP/Game/index.html"
+          echo "bundled web game: $(find "$APP/Game" -type f | wc -l) files"
+          rm -rf "$RUNNER_TEMP/Payload"
+          mkdir -p "$RUNNER_TEMP/Payload"
+          cp -R "$APP" "$RUNNER_TEMP/Payload/"
+          cd "$RUNNER_TEMP"
+          rm -f Evoker-unsigned.ipa
+          zip -qry Evoker-unsigned.ipa Payload
+          ls -la Evoker-unsigned.ipa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Evoker-unsigned-ipa
+          path: ${{ runner.temp }}/Evoker-unsigned.ipa
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+
   ui-tests:
-    name: Simulator UI tests and screenshots
-    if: github.event_name == 'push' || inputs.ui
+    name: Native port simulator UI tests and screenshots
+    if: github.event_name == 'workflow_dispatch' && inputs.ui
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
@@ -102,7 +211,7 @@ jobs:
           retention-days: 7
 
   devices:
-    name: UI tests on iPhone 13 to 18 screen sizes
+    name: Native port UI tests on iPhone 13 to 18 screen sizes
     if: github.event_name == 'workflow_dispatch' && inputs.devices
     runs-on: macos-15
     timeout-minutes: 75
@@ -147,51 +256,3 @@ jobs:
       - name: swift test
         working-directory: "Evoker iOS/EvokerCore"
         run: swift test
-
-  unsigned-ipa:
-    name: Unsigned .ipa (Release, device)
-    if: github.event_name == 'workflow_dispatch' && inputs.ipa
-    runs-on: macos-15
-    steps:
-      - uses: actions/checkout@v4
-      - name: Select Xcode
-        run: |
-          XC="$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -n 1)"
-          if [ -n "$XC" ] && [ -d "$XC" ]; then sudo xcode-select -s "$XC"; fi
-          xcodebuild -version
-      - name: Data and assets
-        working-directory: "Evoker iOS"
-        run: |
-          node Tools/sync-data.mjs
-          node Tools/build-assets.mjs --no-svg
-      - name: xcodebuild archive (unsigned)
-        working-directory: "Evoker iOS"
-        run: |
-          set -o pipefail
-          xcodebuild \
-            -project Evoker.xcodeproj \
-            -scheme Evoker \
-            -configuration Release \
-            -destination "generic/platform=iOS" \
-            -archivePath "$RUNNER_TEMP/Evoker.xcarchive" \
-            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
-            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" DEVELOPMENT_TEAM="" \
-            archive
-      - name: Package Payload/Evoker.app into Evoker-unsigned.ipa
-        run: |
-          APP="$RUNNER_TEMP/Evoker.xcarchive/Products/Applications/Evoker.app"
-          test -d "$APP"
-          rm -rf "$RUNNER_TEMP/Payload"
-          mkdir -p "$RUNNER_TEMP/Payload"
-          cp -R "$APP" "$RUNNER_TEMP/Payload/"
-          cd "$RUNNER_TEMP"
-          rm -f Evoker-unsigned.ipa
-          zip -qry Evoker-unsigned.ipa Payload
-          ls -la Evoker-unsigned.ipa
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Evoker-unsigned-ipa
-          path: ${{ runner.temp }}/Evoker-unsigned.ipa
-          if-no-files-found: error
-          compression-level: 0
-          retention-days: 14
