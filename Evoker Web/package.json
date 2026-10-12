@@ -12,6 +12,9 @@
     "qa:core": "node tools/qa-core-loop.js",
     "qa:cards": "node tools/qa-cards-economy.js",
     "qa:pvp": "node tools/qa-pvp.js",
-    "gallery": "node tools/make-gallery.js"
+    "gallery": "node tools/make-gallery.js",
+    "stage": "node tools/stage-site.js",
+    "preview": "node tools/stage-site.js && node tools/serve.js 8090 --root=dist",
+    "deploy": "node tools/stage-site.js && npx --yes wrangler@4 pages deploy dist --project-name evoker --branch main --commit-dirty=true"
   }
 }

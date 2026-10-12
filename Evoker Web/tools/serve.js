@@ -1,16 +1,19 @@
 'use strict';
 /**
  * Zero-dependency static file server for the Evoker web recreation.
- * Usage: node tools/serve.js [port]   (default 8080, or PORT env var)
- * Serves the project root with correct MIME types and no caching so edits show immediately.
+ * Usage: node tools/serve.js [port] [--root=dir]   (default 8080, or PORT env var; root: the project)
+ * Serves the root with correct MIME types and no caching so edits show immediately. `--root=dist` previews
+ * the staged site (tools/stage-site.js) the way a static host would see it (`npm run preview`).
  */
 import { createServer } from 'node:http';
 import { stat, readFile } from 'node:fs/promises';
 import { extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
-const PORT = Number(process.argv[2] || process.env.PORT || 8080);
+const args = process.argv.slice(2);
+const rootArg = args.find((a) => a.startsWith('--root='));
+const ROOT = resolve(rootArg ? rootArg.slice('--root='.length) : fileURLToPath(new URL('..', import.meta.url)));
+const PORT = Number(args.find((a) => !a.startsWith('--')) || process.env.PORT || 8080);
 
 /** @type {Record<string, string>} */
 export const MIME = {
