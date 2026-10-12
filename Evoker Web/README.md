@@ -26,6 +26,9 @@ npm run build:data   # regenerate data/cards.json from the wiki catalog (tools/b
 npm run smoke        # browser smoke test (tools/smoke.js, needs an installed Edge/Chrome)
 npm run qa           # the three QA playtest scripts (tools/qa-*.js; one: npm run qa:core | qa:cards | qa:pvp)
 npm run gallery      # tests/screenshots/gallery.html from the screenshots the browser tests wrote
+npm run stage        # copy the publishable site into dist/ (tools/stage-site.js)
+npm run preview      # stage, then serve dist/ on http://localhost:8090/ the way a static host would
+npm run deploy       # stage, then upload dist/ to Cloudflare Pages with wrangler (see "Publishing")
 ```
 
 Open http://localhost:8080/ for the game. **http://localhost:8080/?lab opens the Card Lab**: pick any card at any stage and level, the lab puts it in
@@ -35,10 +38,41 @@ Its effect showcase has one "Show" per effect type a card can have (25): the car
 The game is fully offline: no network calls at runtime, the save lives in `localStorage`
 (`evoker.save.v1`) and is autosaved after every change.
 
+## Publishing
+
+The game is a static site, so any static host serves it; it is published on **Cloudflare Pages** (free, no
+bandwidth cap, a `*.pages.dev` URL at the domain root, which the absolute `/assets/...` paths need). Nothing runs on
+a server: every player's progress stays in their own browser's `localStorage`, and the Character → Settings screen
+exports / imports the save as a file for backups or moving between devices.
+
+`tools/stage-site.js` copies exactly what the browser loads (`index.html`, `css/`, `data/`, `src/`, `assets/`;
+2.9k files, 184 MB) into `dist/` (git-ignored) and writes `_headers` with the cache policy: code and data revalidate
+on every load, art is cached for a week. `tests/`, `tools/`, `docs/` and `exploration/` never leave the repository.
+
+One-time setup (a free Cloudflare account, Node 18+; wrangler is fetched by `npx`, nothing is installed in the
+project):
+
+```sh
+npx --yes wrangler@4 login                                          # opens the browser once; stores the token per user
+npx --yes wrangler@4 pages project create evoker --production-branch main
+```
+
+Then, from `Evoker Web/`, every release is:
+
+```sh
+npm run preview      # optional: play the staged copy on http://localhost:8090/ first
+npm run deploy       # stage + upload; prints the https://evoker.pages.dev URL
+```
+
+If the name `evoker` is taken, create the project under another name and change `--project-name` in the `deploy`
+script. `--branch main` makes every upload the production deployment, whatever branch is checked out; drop it to
+get a preview URL instead. Netlify works the same way (`npm run stage`, then drag `dist/` onto the Netlify drop zone):
+the `_headers` file is read by both hosts.
+
 ## How to play
 
 1. **Title** - tap *Tap to continue*. A new game plays the opening (intro lore, the scripted fight against the
-   Worm Shaman) and the tutorial of the 1.7.0 client: you start with the Envoy, 200 gold and two deck slots; the
+   Worm Shaman) and the tutorial of the 1.7.0 client: you start with the Envoy, 200 gold, five potions of each kind and two deck slots; the
    ranger guides you through the first ten quests. Your name is asked on the first Arena visit.
 2. **Quest map** - the middle button of the bottom bar. The main quest's 100 nodes on the painted world map
    (current quest in the golden rune circle) and, at the top, the running **portal** banner with its countdown
@@ -74,6 +108,7 @@ opens the rules for that screen. Rules and numbers: `docs/design/game-design.md`
 |---|---|
 | Tap / click | everything: nodes, minions, cards, buttons, "Tap to continue" |
 | Drag (mouse or touch) | move cards between the deck slots and the card slider (Cards) or the collection drawer (pre-battle); drag a card out of a slot to remove it |
+| Drag on a list or map | scrolls it like on a phone (mouse: press, move, release; a flick keeps going); there are no scrollbars |
 | HUD | the level / stamina / mana bar opens the profile; the gold / gems bar with the green **+** opens the gem packs; the back arrow (sub-screens only) goes back; **?** opens help |
 | `Escape` | back (the hardware back key: also on the main tabs, which have no arrow), close a dialog or popup; in a battle: skip to the result |
 | `Enter` / `Space` | confirm a dialog, continue past the title screen, dismiss the result or level-up popup |
@@ -107,7 +142,8 @@ assets/bg/          painted backdrops (title, quest map, valley, horizons); see 
 assets/cards/       card art (<slug>.jpg, <slug>+.jpg ... <slug>++++.jpg)
 tools/              serve.js (dev server), build-cards.js (data pipeline), import-art.js, cdp.js (browser
                     driver), qa-lib.js (shared harness of the browser tests), smoke.js, qa-core-loop.js,
-                    qa-cards-economy.js, qa-pvp.js, make-gallery.js
+                    qa-cards-economy.js, qa-pvp.js, make-gallery.js, stage-site.js (copies the site into dist/)
+dist/               the staged site (npm run stage / deploy); git-ignored, regenerated every time
 tests/screenshots/  output of the browser tests (smoke at the top level, one folder per QA script)
 tests/              node --test suites, one file per domain (game-*, battle*, league, shop, tutorial, data*, UI
                     helpers, browser driver); shared fixtures in tests/fixtures/ and tests/fixtures-game/
@@ -144,6 +180,19 @@ evoker.debug.maxCards()                       evoker.debug.unlockAll()  // every
 evoker.debug.refill()                         evoker.debug.unlockQuests(n)
 evoker.debug.addDays(n)                       // shifts every clock in the save: daily reward, league, raids
 evoker.debug.newGame(name)                    evoker.debug.reset()      // wipes the save and reloads
+```
+
+**Console cheats (the easter eggs).** Open the browser console (F12) and type `cheats.help()`. The cheats live on
+`window.cheats` (also `evoker.cheats`, `src/ui/cheats.js`) and change the save at once, HUD and screen included:
+
+```js
+cheats.gold()            cheats.gems()            // unlimited money / gems (999,999; or pass a number)
+cheats.potions(99)       cheats.refill()          // potions; stamina and mana back to full
+cheats.level(50)         cheats.card('worm shaman', 4, 18)   // a card by name or id, stage 0-4, level
+cheats.allCards(4)       cheats.maxCards()        // every card (at ++++, at its cap) / every owned card to its cap
+cheats.unlockAllLevels() cheats.skipTutorial()    // every quest and portal open; the ranger stops guiding
+cheats.days(7)           cheats.god()             // time travel; everything at once
+cheats.names()           cheats.reset()           // every card name; wipe the save and reload
 ```
 
 `document.body.dataset.ready === '1'` once the first screen has rendered; the current screen's element

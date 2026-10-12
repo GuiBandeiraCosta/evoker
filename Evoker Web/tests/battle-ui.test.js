@@ -172,7 +172,9 @@ describe('battle screen, boss intro, pre-battle', () => {
     assert.equal(canSkip({ mode: 'quest', quest: 3, line: 'main' }), true);
     assert.equal(canSkip({ mode: 'quest', quest: 1, line: 'the-dark-beyond' }), true);
     for (const mode of ['arena', 'pieces', 'league', 'replay']) assert.equal(canSkip({ mode }), true, mode);
-    assert.ok(LOADING_MS >= 1000 && LOADING_MS <= 2000, 'Attack -> loading dim ~1.5-2 s');
+    // the videos' 1.5-2 s server wait is gone on the user's request (2026-10-12): no "Loading..." strip at all
+    assert.equal(LOADING_MS, 0, 'no loading strip');
+    assert.ok(read('src/ui/screens/battle.js').includes('if (LOADING_MS > 0) root.appendChild(loading)'), 'the strip is not even mounted');
   });
 
   test('boss intro title: "Boss Fight n", "Showdown!" for the last quest of a chapter', () => {

@@ -1,7 +1,8 @@
 # Evoker Web — working notes for Claude
 
 A faithful single-player web recreation of **Evoker** (flaregames' mobile CCG, 2013–2018, servers closed Aug 2018).
-Personal, unpublished project. The battle engine is a literal port of the original client's Lua simulator; the UI
+Personal project, published as a static site on Cloudflare Pages (README "Publishing"; `npm run deploy` stages
+`dist/` with `tools/stage-site.js` and uploads it — a copy step, not a build step). The battle engine is a literal port of the original client's Lua simulator; the UI
 uses the original sprites, fonts, sounds and layouts recovered from the 1.7.4 APK. Everything the client never
 contained (card stats, prices, quests, cards released after April 2016) is reconstructed from research.
 
@@ -30,6 +31,8 @@ npm run test:e2e     # browser regression suite, tests/e2e/*.e2e.js (~3 min, hea
 npm run smoke        # 30-step browser smoke test
 npm run qa           # three long QA playtests (qa:core | qa:cards | qa:pvp)
 npm run build:data   # regenerate data/cards.json from the wiki catalog + data/card-overrides.json
+npm run preview      # stage the publishable site into dist/ and serve it on 8090 (what a host would see)
+npm run deploy       # stage + upload to Cloudflare Pages (wrangler via npx; the user runs the one-time login)
 ```
 
 ## Rules of the house

@@ -20,7 +20,7 @@ import {
 } from '../src/ui/tutorial/progress.js';
 import { LINES, SPEAKERS, line } from '../src/ui/tutorial/lines.js';
 import { INTRO_FIGHT, INTRO_SOUNDS } from '../src/ui/tutorial/intro-fight-script.js';
-import { INTRO_LORE, LORE_TIMES, SKIP_INTRO, PREVIEW_SPEED, PREVIEW_CARD } from '../src/ui/tutorial/opening.js';
+import { INTRO_LORE, LORE_TIMES, SKIP_INTRO, PREVIEW_SPEED, PREVIEW_CARD, introTarget, MISSILE_MS } from '../src/ui/tutorial/opening.js';
 import { arrowGeometry, SPARKLE_FRAMES, SPARKLE_BASE } from '../src/ui/tutorial/overlay.js';
 import { NAME_PROMPT_TEXT, NAME_PORTRAIT } from '../src/ui/tutorial/name-popup.js';
 import * as Q from '../src/game/quests.js';
@@ -687,14 +687,14 @@ describe('§9 tutorial', () => {
 
   // DECISIONS D1, tutorial.md §3 items 2 and 11: Envoy (Common 100/100/2) in slot 3, Master Brewer (Standard
   // 100/200/3) in the collection, 200 gold, 0 gems, 50/50, 1500 HP.
-  test('starter state: Envoy in the deck, Master Brewer in the collection, 200 gold, 0 gems, no potions', () => {
+  test('starter state: Envoy in the deck, Master Brewer in the collection, 200 gold, 0 gems, 5 + 5 potions (ours; the original gave none)', () => {
     const s = tutorialStart();
     assert.deepEqual(s.cards.map((c) => [c.cardId, db.get(c.cardId).rarity, db.get(c.cardId).mana]), [['envoy', 'common', 2], ['master-brewer', 'standard', 3]]);
     for (const c of s.cards) { assert.equal(c.stage, 0); assert.equal(c.level, 1); assert.equal(c.xp, 0); assert.equal(c.evolveQuality, 1); }
     assert.deepEqual(s.deck.map((u) => (u ? S.getCard(s, u).cardId : null)), [null, null, 'envoy', null, null]);
     assert.equal(C.validateDeck(s, deps()).ok, true);
     assert.equal(S.deckMana(s, deps()), 2);
-    assert.deepEqual([s.player.gold, s.player.gems, s.player.staminaPotions, s.player.manaPotions], [200, 0, 0, 0]);
+    assert.deepEqual([s.player.gold, s.player.gems, s.player.staminaPotions, s.player.manaPotions], [200, 0, 5, 5]);
     assert.deepEqual([s.player.stamina, s.player.mana, s.player.hpMax, s.player.level], [50, 50, 1500, 1]);
   });
 
@@ -718,4 +718,19 @@ describe('§9 tutorial', () => {
     }
     assert.ok(wins >= 6, 'Envoy + Master Brewer should beat quest 1 most of the time: ' + wins + '/12');
   });
+});
+
+test('opening fight: drawn with the real fight effects (user request 2026-10-12), the script targets on the board', () => {
+  // the Worm Shaman is the defender in the top row, "You" the attacker below; p / e alone are the HP bars
+  assert.deepEqual(introTarget('p'), { side: 'attacker', slot: null });
+  assert.deepEqual(introTarget('e'), { side: 'defender', slot: null });
+  assert.deepEqual(introTarget('p3'), { side: 'attacker', slot: 2 });
+  assert.deepEqual(introTarget('e2'), { side: 'defender', slot: 1 });
+  assert.equal(MISSILE_MS, 500, 'the bullet flies as long as in a real fight at 1x');
+  const src = readFileSync(join(ROOT, 'src/ui/tutorial/opening.js'), 'utf8');
+  assert.ok(src.includes("import { createFx, CARD_FX_CLASSES } from '../battle/fx.js'"), 'the real effect primitives');
+  for (const prim of ['fx.bullet(', 'fx.hitBurst(', 'fx.playerBurst(', 'fx.flashBar(', 'fx.floatNum(', 'fx.shatter(', "['glow-attack']"]) assert.ok(src.includes(prim), prim);
+  assert.ok(!src.includes('energy_sphere') && !src.includes('tf-missile'), 'the orb missiles of the first port are gone');
+  const css = readFileSync(join(ROOT, 'css/tutorial.css'), 'utf8');
+  assert.ok(!css.includes('.tf-missile') && !css.includes('.tf-damage'), 'their CSS too');
 });

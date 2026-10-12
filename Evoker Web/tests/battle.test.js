@@ -957,3 +957,29 @@ describe('verify: the decoded corpus itself', () => {
     assert.deepEqual([bonus.side, bonus.stat, bonus.delta], ['defender', 'maxHp', 20]);
   });
 });
+
+/* ------------------------------------------------------------ neighbour directions per row */
+
+describe('neighbour directions on the two rows (reported 2026-10-12: "the Worm Shaman heals his left neighbour")', () => {
+  // "right" is the card's own right: the top row faces the player, so its right is the screen's left - the
+  // simulator indexes the opponent's row from the opponent's own left (original-engine.md §2) and the client
+  // turned the arrow overlay of enemy cards by 180 degrees (comp_card_v3 enemyMode). The heal was right all
+  // along; the arrows of the top row pointed the wrong way (css/cards.css, pinned in tests/ui.test.js).
+  const healer = () => raw('Healer', 0, BIG, [], [{ type: 'heal', strength: 50, directions: ['right'], event: 'always' }]);
+  const hurt = () => raw('Hurt', 0, 1000, []);
+  const idle = () => raw('Idle', 0, BIG, []);
+
+  test('bottom row: a right-neighbour heal lands on the card to the screen right', () => {
+    const f = fight([hurt(), healer(), hurt()], [hitter(100), idle(), hitter(100)], { maxRounds: 1 });
+    assert.deepEqual(f.heals(1).map((e) => [e.side, e.slot]), [['attacker', 2]]);
+    assert.equal(f.cardHp('attacker', 2, 1), 950);
+    assert.equal(f.cardHp('attacker', 0, 1), 900);
+  });
+
+  test('top row: the same heal lands on the card to the screen LEFT (the row faces the player)', () => {
+    const f = fight([hitter(100), idle(), hitter(100)], [hurt(), healer(), hurt()], { maxRounds: 1 });
+    assert.deepEqual(f.heals(1).map((e) => [e.side, e.slot]), [['defender', 0]]);
+    assert.equal(f.cardHp('defender', 0, 1), 950);
+    assert.equal(f.cardHp('defender', 2, 1), 900);
+  });
+});

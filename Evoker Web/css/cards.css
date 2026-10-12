@@ -73,13 +73,18 @@
 .card.side-bottom .arrow.direct { left: 50%; top: 3px; transform: translateX(-50%); }
 .card.side-bottom .arrow.left { left: 5px; top: 5px; transform: rotate(-45deg); }
 .card.side-bottom .arrow.right { right: 5px; top: 5px; transform: rotate(45deg); }
-/* enemy below (opponent's card at the top) */
+/* enemy below (opponent's card at the top): the whole arrow overlay turned by 180 degrees, as the client's
+   comp_card_v3 does in enemyMode (cardArrows rotation = 180) - the card faces the player, so its "right" is the
+   screen's left, where the simulator sends a right-neighbour heal / where a frontLeft attack lands (the Worm Shaman
+   "healed his left neighbour", 2026-10-12: the heal was right, the arrow pointed the wrong way) */
 .card.side-top .arrow.direct { left: 50%; bottom: 3px; transform: translateX(-50%) rotate(180deg); }
-.card.side-top .arrow.left { left: 5px; bottom: 5px; transform: rotate(-135deg); }
-.card.side-top .arrow.right { right: 5px; bottom: 5px; transform: rotate(135deg); }
-/* own neighbours (both sides) */
+.card.side-top .arrow.left { right: 5px; bottom: 5px; transform: rotate(135deg); }
+.card.side-top .arrow.right { left: 5px; bottom: 5px; transform: rotate(-135deg); }
+/* own neighbours: on the edge they point to (the top row turned with the rest of the overlay) */
 .arrow.ownLeft { left: 3px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
 .arrow.ownRight { right: 3px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+.card.side-top .arrow.ownLeft { left: auto; right: 3px; transform: translateY(-50%) rotate(90deg); }
+.card.side-top .arrow.ownRight { right: auto; left: 3px; transform: translateY(-50%) rotate(-90deg); }
 .card.size-detail .arrow.direct { top: 12px; }
 .card.size-detail .arrow.left, .card.size-detail .arrow.right { top: 16px; }
 .card.size-detail .arrow.left { left: 16px; }

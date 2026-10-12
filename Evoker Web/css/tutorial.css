@@ -186,8 +186,6 @@
 .tf-hpwrap.enemy { top: 110px; }
 .tf-hpwrap.player { bottom: 110px; }
 .tut-fight.tf-running .tf-hpwrap { opacity: 1; }
-.tf-hpwrap.tf-hit .bar { animation: tfBarHit 400ms; }
-@keyframes tfBarHit { 0%, 100% { filter: none; } 30% { filter: brightness(1.6) sepia(1) hue-rotate(-40deg) saturate(4); } }
 .tf-row {
   position: absolute; left: 14px; right: 14px; z-index: 1;
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; justify-items: center;
@@ -198,15 +196,6 @@
 .tut-fight.tf-running .tf-row.tf-enemy { top: 300px; }
 .tut-fight.tf-running .tf-row.tf-player { top: 700px; }
 .tf-slot { position: relative; width: 120px; min-height: 180px; }
-.tf-slot.tf-attacking { animation: tfAttack 400ms ease-out; }
-.tf-row.tf-enemy .tf-slot.tf-attacking { animation-name: tfAttackDown; }
-@keyframes tfAttack { 50% { transform: translateY(-26px) scale(1.06); } }
-@keyframes tfAttackDown { 50% { transform: translateY(26px) scale(1.06); } }
-.tf-slot.tf-hit .card { animation: tfCardHit 600ms; }
-@keyframes tfCardHit { 0%, 100% { filter: none; } 25% { filter: brightness(2.2) saturate(.4); } }
-.tf-slot.tf-shake { transform: translateX(6px); }
-.tf-slot.tf-dying { animation: tfDie 1400ms forwards; }
-@keyframes tfDie { to { filter: grayscale(1) brightness(.4); } }
 .tf-slot.tf-dead { opacity: 0; transition: opacity 300ms; }
 .tut-fight .attack-bar { position: absolute; left: 0; right: 0; top: 560px; z-index: 3; transition: opacity 300ms; }
 .tut-fight .attack-bar.tf-gone { opacity: 0; pointer-events: none; }
@@ -220,18 +209,6 @@
 .tut-fight.tf-preview .tf-row.tf-player { top: 900px; }
 .tf-preview-box { z-index: 5; }
 .tf-preview-card { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 6px; box-shadow: 0 0 0 6px #2b2b2e, 0 0 40px rgba(0, 0, 0, .8); }
-.tf-fx { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
-.tf-missile {
-  position: absolute; width: 70px; height: 70px; margin: -35px 0 0 -35px;
-  mix-blend-mode: screen; transition: transform 480ms ease-in;
-}
-.tf-damage {
-  position: absolute; transform: translateX(-50%);
-  font-size: 44px; font-weight: 800; color: #ff3b2f;
-  text-shadow: 0 0 10px rgba(255, 40, 20, .9), 0 2px 3px #000;
-  animation: tfDamage 900ms ease-out forwards;
-}
-@keyframes tfDamage { 0% { opacity: 0; transform: translate(-50%, 10px) scale(.7); } 20% { opacity: 1; transform: translate(-50%, 0) scale(1.1); } 100% { opacity: 0; transform: translate(-50%, -40px) scale(1); } }
 .tut-fight.tf-lost .tf-hpwrap.player .bar { filter: sepia(1) hue-rotate(-40deg) saturate(3); }
 
 /* ---------- name popup (comp_name_popup: the guard at the left, the heralds text, the input, OK) ---------- */

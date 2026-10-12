@@ -37,6 +37,8 @@ node --test --test-name-pattern="reflect" tests/battle.test.js
 | `tests/menus.test.js` | level-up dialog and unlock popup helpers, the landing feed, portal gate, daily reward toasts, help texts |
 | `tests/quest-ui.test.js`, `tests/cards-ui.test.js`, `tests/economy-ui.test.js`, `tests/pvp-ui.test.js` | pure helpers behind the quest map / quest, Cards, Shop / Booster / Character and Arena / Pieces / League screens |
 | `tests/cdp.test.js` | `tools/cdp.js` and `tools/qa-lib.js`: browser discovery, launch/navigate/evaluate/click/screenshot/close, console capture, the in-process server |
+| `tests/drag-scroll.test.js` | `src/ui/drag-scroll.js`: scroll axes, flick velocity, inertia (x0.95 per frame), and the wiring (stage, CSS, pre-battle drawer) |
+| `tests/stage-site.test.js` | `tools/stage-site.js`: the staged site holds only the runtime entries, drops notes and litter, writes `_headers`, refuses the project root; the stage / preview / deploy scripts |
 
 `tests/index.js` imports every suite: Node 22 resolves `node --test tests/` through it, so a new test file must be
 added there. Shared fixtures: `tests/fixtures/real.js` (the fixed clock `T0`, `deepFreeze` / `fz`, the real cards db,
@@ -56,7 +58,7 @@ a fixed `now` and a seeded `rng` (`src/core/rng.js`) — never `Date.now()` or `
 ```sh
 npm run smoke                                   # = node tools/smoke.js
 node tools/smoke.js --headed                    # watch it in a visible window
-node tools/smoke.js --base=http://localhost:8080/   # drive an already running server
+node tools/smoke.js --base=http://localhost:8080/   # drive an already running server (e.g. npm run preview on 8090: the staged dist/)
 node tools/smoke.js --out=/tmp/shots --slow=300 --verbose
 ```
 
@@ -110,6 +112,9 @@ await browser.close();                          // kills the process, deletes th
 - `send(method, params)` / `on(event, fn)` / `once(event, timeoutMs)` give access to any raw CDP command.
 
 ## 3. The debug API (`window.evoker`, architecture §8.5)
+
+The player-facing cheats (`window.cheats`, `src/ui/cheats.js`: `cheats.help()` in the F12 console, README "Debug
+API") are a thin layer over the same debug API and the pure game functions; `tests/cheats.test.js` covers them.
 
 `src/app.js` exposes one global for QA scripts and the smoke test:
 
@@ -239,5 +244,11 @@ plus an e2e that covers the screen).** Name the bug and the date in the file hea
 | 2026-10-10 | After a blow took a player below zero, the remaining attacks of the round were not drawn; every attack of the last round must play in order | `tests/e2e/lethal-finale.e2e.js` (missiles drawn = attacks logged in the last round) |
 | 2026-10-10 | Card Lab (`?lab`, `src/ui/screens/lab.js`): test any card's behaviour in combat | `tests/e2e/card-lab.e2e.js` |
 | 2026-10-11 | The tutorial's ranger stood on the Cards screen's training ("sacrifice") and fusion ("merge") modes for every player; only the tutorial overlay may show her | `tests/e2e/cards-modes.e2e.js` |
+| 2026-10-12 | The HUD's "?" sat in the top-left corner of its plate on the phone (absolutely positioned inside a `<button>`); the stamina / mana bars looked shifted | `tests/ui.test.js` (icon centred by the flex box, no platform button theme, no text inflation) |
+| 2026-10-12 | The opening fight "shot weird balls": it drew its own orb missiles instead of the real fight's effects | `tests/tutorial.test.js` (opening fight drawn with createFx: bullet, bursts, strip, floats, shatter) |
+| 2026-10-12 | Scrollbars on the lists and maps: everything must scroll by dragging, like on a phone | `tests/drag-scroll.test.js` + `tests/e2e/drag-scroll.e2e.js` (mouse drag scrolls the map, the release taps nothing, a flick keeps going) |
+| 2026-10-12 | "The Worm Shaman heals his left neighbour instead of his right one": the heal went where the original sends it (the top row faces the player, so its right is the screen's left) but the top-row arrows were only flipped vertically, so the card pointed away from the card it healed - every top-row arrow (heal, buff, diagonal attack) was wrong | `tests/battle.test.js` (right-neighbour heal per row) + `tests/ui.test.js` (top-row arrow rules turned by 180 degrees) + `tests/data.test.js` (every card naming a side is encoded with it) |
+| 2026-10-12 | `cheats.god()` left the stamina maximum (the orange bar) at its old value; it now raises both maxima to 999 and fills them, and `cheats.level(n)` grants the stat points of the levels gained | `tests/cheats.test.js` |
+| 2026-10-12 | Pacing (user's choice, not the videos'): no "Loading..." strip in the fight, the wave-end shower 0.8 s, the card drop 1.9 s, the next wave in 0.45 s | `tests/battle-ui.test.js`, `tests/quest-ui.test.js` |
 
 The battle screen sets `data-ended="played" | "skipped"` on its root when the fight ends (test hook).

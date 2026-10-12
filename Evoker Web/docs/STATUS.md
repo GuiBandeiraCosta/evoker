@@ -1,4 +1,4 @@
-# Evoker Web — Status (2026-10-11, cleanup + flow page)
+# Evoker Web — Status (2026-10-12, publishing)
 
 ## How to play
 
@@ -248,3 +248,64 @@ QA 33/33, 39/39, 28/28, the battle playback recorder identical to the pre-refact
 - New: `tests/e2e/` (node:test on the repo's headless driver, `npm run test:e2e`), the rule that every reported bug
   gets a regression test (registry table in `docs/dev/testing.md` §7), `CLAUDE.md` at the root, the battle
   screen's `data-ended` test hook, and `stats.js` fallbackScale (missing stage caps follow the card's own curve).
+
+## 2026-10-12: publishing (Cloudflare Pages)
+
+- New: `tools/stage-site.js` copies the runtime entries (`index.html`, `css/`, `data/`, `src/`, `assets/`; 2874 files,
+  184 MB, no `.md`) into the git-ignored `dist/` and writes `_headers` (code and data `no-cache`, art cached a week).
+  `npm run stage` / `npm run preview` (serves `dist/` on 8090 through `serve.js --root=dist`) / `npm run deploy`
+  (stage, then `wrangler pages deploy` via `npx`, project `evoker`, production branch `main`). README "Publishing"
+  has the one-time account setup. No dependency, no build step: the game still runs from the source tree.
+- Verified: `npm run smoke --base` against the served `dist/` passes 30/30 with no console errors and the server
+  logged no 404, so the staged copy is complete. `tests/stage-site.test.js` pins the entry list, the filter, the
+  headers and the scripts.
+- Not done yet (the user's call): the Cloudflare login and the first upload. Nothing was pushed to GitHub; the
+  repository keeps both `Evoker Web/` and `Evoker iOS/`, only the web folder is published.
+- Hosting facts to remember: the site must sit at a domain root (the HTML, CSS and JS use absolute `/assets/...`
+  paths); saves are per browser in `localStorage`, the settings screen's export / import is the backup path; no
+  service worker, so the game needs a connection to load; Arena and League stay simulated locally.
+
+## 2026-10-12: five requests (HUD, opening fight, pacing, drag scrolling)
+
+- HUD: the "?" sat in its plate's top-left corner on the phone and the stamina / mana bars looked shifted (user's
+  screenshot). Not reproducible in Edge, Firefox or desktop WebKit (Playwright) at any scale; the likely causes are
+  WebKit's button layout and iOS text inflation. Fixed defensively: the icon is centred by the button's flex box (no
+  absolute positioning inside a `<button>`), buttons drop the platform theme (`appearance: none`), `html` sets
+  `text-size-adjust: 100%`. Pinned in `tests/ui.test.js`. Worth a re-check on the phone.
+- Opening fight: it drew its own orb missiles ("shooting weird balls"). `renderFight` (src/ui/tutorial/opening.js)
+  now plays the script through the real fight's effects (`createFx` of src/ui/battle/fx.js: attacker glow, beam.png
+  bullet, impact bursts, red HP strip, floating numbers, shatter) - the same primitives battle-player.js uses, so
+  the opening looks like every other fight. The script's events, sounds and timings are unchanged; `introTarget`
+  maps its keys to the board. The orb / damage-text CSS of tutorial.css is gone. Verified frame by frame in WebKit.
+- Pacing (user's choices, recorded next to the constants and in game-design.md): the fight's "Loading..." strip
+  is gone (`LOADING_MS` 1500 -> 0; first cut to 600 ms, then removed on the user's second request the same day); wave end: coin shower 1300 -> 800 ms (`GOLD_SHOWER`), card drop glint 600 -> 400,
+  hold 1000 -> 700, the next wave's fade-in 900 -> 450 ms (`CARD_DROP`). The tap feedback itself is unchanged.
+- "The Worm Shaman heals his left neighbour instead of his right one." The heal itself follows the original simulator
+  (the opponent's row is indexed from the opponent's own left, so an enemy's right neighbour is to the screen's left)
+  and the client's comp_card_v3 turned the arrow overlay of enemy cards by 180 degrees for that reason. Our top-row
+  arrows were only flipped vertically: the Shaman's green arrow pointed to the screen's right while he healed the
+  left card, and every diagonal attack / buff arrow of the top row was off the same way. cards.css now turns the top
+  row's arrows (`.side-top .arrow.ownRight` on the left edge etc.); the effects are unchanged. Pinned in
+  `tests/battle.test.js` (heal per row) and `tests/ui.test.js` (arrow rules). The user chose to keep the original's
+  convention (2026-10-12) and asked that it hold everywhere: every enemy row is drawn with `side: 'top'` (fight board,
+  pre-battle, opening fight, and now the Arena replay line-up dialog too); the card detail stays the album view (the
+  card's own side, as in the client); all 40 cards whose text names a side are encoded with that side
+  (`tests/data.test.js`).
+- Phone-style scrolling (`src/ui/drag-scroll.js`, installed on the stage in app.js): every scrollable area is
+  dragged with the mouse like on a phone, with the client's inertia (x0.95 per frame, the slider's rule), the click
+  after a drag is swallowed, the scrollbars are hidden (`#stage *`). Touch keeps the browser's native panning. The
+  card drag-and-drop wins when it picks a card up; in the pre-battle drawer a sideways move scrolls the drawer and an
+  upward move picks the card up (`shouldStart` with the slider's `isSwipe`). Tests: `tests/drag-scroll.test.js`,
+  `tests/e2e/drag-scroll.e2e.js`.
+
+## 2026-10-12 (later): potions at the start, console cheats
+
+- New players start with 5 stamina + 5 mana potions (`PLAYER_START`; the original gave none - the user's choice,
+  recorded in game-design.md §3 and §9). Pins updated in `tests/data-wiki.test.js`, `tests/game-state.test.js`,
+  `tests/tutorial.test.js`.
+- Console cheats ("easter eggs"): `src/ui/cheats.js`, exposed as `window.cheats` (and `evoker.cheats`), a console
+  hint at boot ("Psst... type cheats.help()"). gold / gems / potions / refill / level / card(name, stage, level) /
+  names / allCards(stage) / maxCards / unlockAllLevels / skipTutorial / days(n) / god / reset. A thin layer over the
+  debug API and the pure game functions: every cheat goes through store.update and re-renders the screen, so the HUD
+  follows at once. README "Debug API" documents them; `tests/cheats.test.js` covers them on a real save.
+- The "Loading..." strip of the fight is gone entirely (`LOADING_MS` = 0, second request of the day).

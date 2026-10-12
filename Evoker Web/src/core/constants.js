@@ -190,7 +190,8 @@ export const COLLECTION_LIMIT = 100;
 /** Fresh account (DECISIONS D1; tutorial.md §0, Benito 2016: 200 gold, 0 gems, 50/50, no potions shown). */
 export const PLAYER_START = Object.freeze({
   level: 1, xp: 0, statPoints: 0, stamina: 50, mana: 50, hpMax: 1500,
-  gold: 200, gems: 0, staminaPotions: 0, manaPotions: 0,
+  // the original started with no potions (DECISIONS D1); 5 + 5 since 2026-10-12 on the user's request
+  gold: 200, gems: 0, staminaPotions: 5, manaPotions: 5,
 });
 export const MAX_PLAYER_LEVEL = 200;
 /** Stat points per level-up and what one point buys (comp_levelup_attribute: HP +30, stamina +1, mana +1). */

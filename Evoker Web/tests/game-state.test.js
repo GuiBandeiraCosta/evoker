@@ -50,8 +50,8 @@ describe('state and player (fixture catalog)', () => {
     assert.equal(state.player.name, 'Tester');
     assert.equal(state.player.gold, 200);
     assert.equal(state.player.gems, 0);
-    assert.equal(state.player.staminaPotions, 0);
-    assert.equal(state.player.manaPotions, 0);
+    assert.equal(state.player.staminaPotions, 5);   // 5 + 5 potions since 2026-10-12 (user choice; the original gave none)
+    assert.equal(state.player.manaPotions, 5);
     assert.equal(state.player.hpMax, 1500);
     assert.equal(state.quests.main.unlocked, 1);
     assert.equal(state.createdAt, T0);

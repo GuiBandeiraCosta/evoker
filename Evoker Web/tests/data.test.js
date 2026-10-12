@@ -576,3 +576,26 @@ describe('§4 quest data (data/quests.json)', () => {
     }
   });
 });
+
+test('every card whose text names a side (left / right / neighbors) is encoded with that side (2026-10-12: directions are the card\u0027s own; enemy cards face the player)', () => {
+  const cardsJson = JSON.parse(readFileSync(new URL('../data/cards.json', import.meta.url), 'utf8'));
+  const all = Array.isArray(cardsJson) ? cardsJson : (cardsJson.cards || Object.values(cardsJson));
+  const named = [];
+  const bad = [];
+  for (const card of all) {
+    const ab = card.ability;
+    if (!ab || !ab.buffs) continue;
+    const text = String(ab.text || '').toLowerCase();
+    const hasL = /\bleft\b/.test(text), hasR = /\bright\b/.test(text), neigh = /neighbo/.test(text);
+    if (!hasL && !hasR && !neigh) continue;
+    named.push(card.id);
+    const dirs = new Set(ab.buffs.flatMap((b) => b.directions || []));
+    const symmetric = ab.buffs.some((b) => b.type === 'stun_pattern') || (dirs.has('left') && dirs.has('right')) || (dirs.has('frontLeft') && dirs.has('frontRight'));
+    const okL = !hasL || dirs.has('left') || dirs.has('frontLeft');
+    const okR = !hasR || dirs.has('right') || dirs.has('frontRight');
+    const okN = !(neigh && !hasL && !hasR) || symmetric;
+    if (!(okL && okR && okN)) bad.push(`${card.id}: "${ab.text}" -> ${[...dirs].join(',')}`);
+  }
+  assert.ok(named.length >= 35, `${named.length} cards name a side`);
+  assert.deepEqual(bad, [], 'text and directions agree');
+});

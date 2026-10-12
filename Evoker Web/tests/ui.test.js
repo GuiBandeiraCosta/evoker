@@ -280,3 +280,29 @@ test('package.json scripts match the contract', () => {
   assert.ok(existsSync(join(root, 'tests', 'index.js')));
   assert.ok(existsSync(join(root, 'index.html')));
 });
+
+test('HUD "?" icon: centred by the button flex box, not absolutely positioned (it sat in the top-left corner on the phone, 2026-10-12)', () => {
+  const css = readFileSync(join(root, 'css', 'main.css'), 'utf8');
+  const m = css.match(/\.hud-btn-icon \{([^}]*)\}/);
+  assert.ok(m, '.hud-btn-icon rule');
+  assert.ok(!/position: absolute/.test(m[1]), 'no absolute positioning inside the <button>');
+  assert.ok(!/translate\(-50%/.test(m[1]), 'no transform centring');
+  assert.match(m[1], /flex: none/);
+  assert.match(css, /\.hud-btn \{[^}]*display: flex; align-items: center; justify-content: center;/);
+  assert.match(css, /^button \{[^}]*appearance: none; -webkit-appearance: none;/m, 'buttons keep no platform theme');
+  assert.match(css, /^html \{ -webkit-text-size-adjust: 100%; text-size-adjust: 100%; \}/m, 'phones must not inflate the text');
+});
+
+test('top-row card arrows are turned by 180 degrees like the client enemy cards (the Worm Shaman heal arrow pointed away from the card he healed, 2026-10-12)', () => {
+  const css = readFileSync(join(root, 'css', 'cards.css'), 'utf8');
+  const rule = (sel) => { const i = css.indexOf(sel + ' {'); assert.ok(i >= 0, sel); return css.slice(i, css.indexOf('}', i)); };
+  // bottom row: arrows on the edge they point to
+  assert.match(rule('.arrow.ownRight'), /right: 3px/);
+  assert.match(rule('.card.side-bottom .arrow.left'), /left: 5px; top: 5px/);
+  // top row: the overlay turned, so "right" sits on the screen's left and "left" (frontLeft) on the screen's right
+  assert.match(rule('.card.side-top .arrow.ownRight'), /left: 3px/);
+  assert.match(rule('.card.side-top .arrow.ownRight'), /rotate\(-90deg\)/);
+  assert.match(rule('.card.side-top .arrow.ownLeft'), /right: 3px/);
+  assert.match(rule('.card.side-top .arrow.left'), /right: 5px; bottom: 5px/);
+  assert.match(rule('.card.side-top .arrow.right'), /left: 5px; bottom: 5px/);
+});

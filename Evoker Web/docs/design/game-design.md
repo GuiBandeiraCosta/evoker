@@ -17,7 +17,10 @@ hand-painted card art) and the original's 200 cards.
 ### 1.1 Entities
 - **Fighter side**: `{ player: {name, hp, maxHp, portrait}, slots: [Card|null ×5] }`. Slot index 0 is the leftmost
   from the *player's* point of view; the opponent's slot *i* faces the player's slot *i* (rows are drawn mirrored, so
-  the opponent's leftmost card on screen is their slot 0 as well — "facing" is by index).
+  the opponent's leftmost card on screen is their slot 0 as well — "facing" is by index). Neighbour directions are
+  the card's own: an opponent card's "right neighbour" (heal, buff) and "frontLeft" target sit to the screen's
+  LEFT, because that row faces the player; the client turned the arrow overlay of enemy cards by 180 degrees for the
+  same reason (comp_card_v3 enemyMode) and so do we (cards.css `.side-top .arrow`).
 - **Card in battle**: `{ instanceId, cardId, name, tribe, rarity, stage, level, attack, maxHp, hp, abilityValue,
   dirs: Set<'direct'|'left'|'right'|'ownLeft'|'ownRight'>, ability, status }`.
   `status` holds per-round flags: `dazed`, `suspended`, `indestructible`, `attackBonus` (flat), `attackMult`,
@@ -115,8 +118,8 @@ The engine returns the full event log; the battle screen plays it back (DECISION
 - **Layout** (comp_fight_layout, as in a 2016 arena screenshot): ROUND and name bands with the portrait at the top,
   the HP bar, the enemy row, the arena, the own row ~135 px below (rows at ∓70 client units from the centre, slots
   65 units apart), the HP bar, the name band with the ? frame, Skip fight bottom-left.
-- **Entry.** After Attack!: the bands slide in, the HP bars grow (1 s), a "Loading..." strip with the spinning pentagram
-  (1.5 s), the short lightning flash, then the tribe-bonus moment (glowing tribe emblem in the side's frame, "TRIBE BONUS"
+- **Entry.** After Attack!: the bands slide in, the HP bars grow (1 s), (no "Loading..." strip since 2026-10-12 on the user's
+  request - the videos' 1.5-2 s server wait has no counterpart here; `LOADING_MS` > 0 brings it back), the short lightning flash, then the tribe-bonus moment (glowing tribe emblem in the side's frame, "TRIBE BONUS"
   over the HP number, which counts up by exactly 20 %), then "ROUND 1" appears and "Skip fight" fades in. Skip fight is
   offered from the main-line quest-3 boss on (always in PvP, portals, replays).
 - **Hits.** Damage numbers red, bold, on the target (pop, hold, grow 2× and fade, 0.7 s); a hit on a player draws a red
@@ -222,7 +225,7 @@ Q8's line-up follows the video (Bone Breaker, Pouch Tearer, Throat-Cutter+, Trib
 ## 3. Character
 
 - Start (DECISIONS D1, `state.newGame`): level 1, 50 stamina, 50 mana, 1500 HP, 0 XP, 0 stat points, **200 gold,
-  0 gems, no potions**; cards **Envoy** (Common 100/100/2, in deck slot 3) and **Master Brewer** (Standard 100/200/3,
+  0 gems, 5 stamina + 5 mana potions** (the original gave none; the potions are the user's choice, 2026-10-12); cards **Envoy** (Common 100/100/2, in deck slot 3) and **Master Brewer** (Standard 100/200/3,
   in the collection for the tutorial's drag-into-deck lesson). Max level 200.
 - Player XP (round 3): **1 XP per stamina spent on minion taps** (client `quest_screen`: `addXp(getXPGain())` per
   click) plus PvP fights: `(1.5 + 0.5 × opponentLevel)`, ×4 on a win (a level-8 rival ≈ 22 / 6). **Quest boss
@@ -311,9 +314,9 @@ Q8's line-up follows the video (Bone Breaker, Pouch Tearer, Throat-Cutter+, Trib
    - gives **1 player XP per stamina** (may level up mid-quest: the level-up dialog then interrupts the quest);
    - the minion is defeated: an orange X-slash, gold "PERFECT", the minion gone within ~0.13 s, the tap's gold as a
      small white number at the top right; progress advances. Waves: 2–5 waves of 2–4 minions, each fading in from
-     dark silhouettes. The gold is credited per tap and the HUD counter counts up with each tap (video: 200 → 206 →
-     212); only a burst / the end gold is held and steps up (4 steps) under a coin shower when the wave ends. When a wave ends, 20 % of the time a whole card of the quest's band drops: no dialog
-     — a glint where the last minion stood, a white flash turning into the glowing, rarity-framed card (1 s hold),
+     dark silhouettes (0.45 s; 0.9 s in the videos, shortened 2026-10-12 so the next minions come faster). The gold is credited per tap and the HUD counter counts up with each tap (video: 200 → 206 →
+     212); only a burst / the end gold is held and steps up (4 steps, ~0.8 s; ~1.3 s in the videos, shortened 2026-10-12) under a coin shower when the wave ends. When a wave ends, 20 % of the time a whole card of the quest's band drops: no dialog
+     — a glint where the last minion stood, a white flash turning into the glowing, rarity-framed card (0.7 s hold; 1 s in the videos, shortened 2026-10-12),
      then it flies into the minideck and the next wave fades in; the remaining minions fade out during a drop
      (the scene shows only the glint, as in the video at 0:28.6).
    Result fields: `stamina, gold, tapGold, burst, perfect, xp, levelUps, levelUpDetails, reward` (the card drop, or
@@ -518,7 +521,7 @@ translated from the German video (marked in `lines.js`); ranger = guide, the Wor
    (Worm Shaman 300 HP with Throat-Cutter, Flinger, Lurking Goblin vs "You" 1500 HP with the Envoy; Attack! sparkle +
    hand; the Envoy dies, the player falls to 0, no Defeat banner) → `intro_part2` (burning tower, white flash) → quest
    map. Escape does nothing during the opening (as on the phone). Automatic `user-<digits>` name.
-2. **Start state**: the Envoy alone in deck slot 3, slots 2-3 open, 200 gold, 0 gems, 50/50, 50/50.
+2. **Start state**: the Envoy alone in deck slot 3, slots 2-3 open, 200 gold, 0 gems, 5 + 5 potions (ours), 50/50, 50/50.
 3. **Quest 1**: map "Don't let it end like this! Follow him to his lair...." + node 1 sparkle; quest "The Shaman's orcs
    are in our way! Smite them!" until the first tap; the **2nd minion drops the Master Brewer soul card** into deck slot 2
    ("One had a soul card! It will help fight our foe."); 5 minions × 2 stamina, 6 gold + 10; pre-battle "Avenge the

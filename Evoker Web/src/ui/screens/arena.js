@@ -161,7 +161,8 @@ export function render(ctx) {
     if (!rep || !rep.defender) return;
     const cards = (rep.defender.cards || []).map((c) => {
       const def = c && ctx.deps.db.get(c.cardId);
-      return def ? renderCard(ctx.view.defView(def, c.stage | 0, Math.max(1, c.level | 0)), { size: 'compact' }) : h('div.deck-slot');
+      // the opponent's row as it faced the player: arrows turned like on the fight board (side 'top')
+      return def ? renderCard(ctx.view.defView(def, c.stage | 0, Math.max(1, c.level | 0)), { size: 'compact', side: 'top' }) : h('div.deck-slot');
     });
     ctx.sfx('ui_button_circular');
     return ctx.ui.dialog.open({

@@ -7,17 +7,20 @@
  *  2. the scripted fight (ui.controls.ctrl_intro_fight + assets/scripts/script_intro_fight.json): first the Worm
  *     Shaman's card in the boss frame (bossfight_preview at speed 1.2), then the board: his three cards against
  *     "You" with the Envoy alone; metallic_transition, the Attack! bar with its sparkle and, after 2 s, the hand;
- *     then two scripted rounds the player cannot win (no Defeat banner);
+ *     then two scripted rounds the player cannot win (no Defeat banner), drawn with the real fight's effects
+ *     (src/ui/battle/fx.js, the same primitives as battle-player.js; user's request 2026-10-12);
  *  3. intro_part2 (6 s: the burning tower in its ring of runes, white flash) with music_introvideo_part2.
  * Then the caller opens the quest map. "Skip intro" is shown during part 1 only and ends part 1, like the client
  * (ctrl_intro; Benito 1.7.0 @ 0:08.9 skips, and the preview and the fight still follow - tutorial-v2.md §0).
  * Escape does nothing during the opening (the phone client had no such key; it is swallowed so it cannot navigate).
  */
 import { h, wait } from '../dom.js';
-import { renderCard } from '../components/card.js';
+import { renderCard, updateCardHp } from '../components/card.js';
 import { hpBar } from '../components/bars.js';
 import { attackBar } from '../components/buttons.js';
 import { loadAnim, playAnim } from '../anim-player.js';
+import { createFx, CARD_FX_CLASSES } from '../battle/fx.js';
+import { createPicker } from '../battle/assets.js';
 import { INTRO_FIGHT, INTRO_SOUNDS } from './intro-fight-script.js';
 import { renderHand } from './overlay.js';
 
@@ -170,6 +173,7 @@ export function runOpening(ctx, root) {
     clearTimeout(handTimer);
     if (skipped) return;
     sfx('ui_button_attack');
+    stopCurrent = view.stop;
     await view.play(() => skipped);
   }
 
@@ -236,23 +240,51 @@ function typeCaption(el, text) {
   }, CAPTION_TYPE_MS);
 }
 
+/** The real fight's projectile flight at 1x (battle-player.js: 500 of the 1500 ms attack step). */
+export const MISSILE_MS = 500;
+/** The real fight's death shatter at 1x (battle-player.js death step). */
+export const DEATH_MS = 900;
+/** Seed of the effect variant picker (the sprite rotations); any fixed value. */
+const INTRO_SEED = 0x1f7;
+
+/**
+ * A script target key -> board position for the battle effects (src/ui/battle/fx.js): the Worm Shaman is the
+ * defender in the top row, "You" the attacker below; the script's slots are 1-based; p / e alone are the players'
+ * HP bars (slot null).
+ * @param {string} key  p | e | p<slot> | e<slot>
+ * @returns {{side: 'attacker'|'defender', slot: number|null}}
+ */
+export function introTarget(key) {
+  const side = key[0] === 'e' ? 'defender' : 'attacker';
+  const n = Number(key.slice(1));
+  return { side, slot: key.length > 1 && Number.isInteger(n) ? n - 1 : null };
+}
+
 /**
  * The intro fight board (ctrl_intro_fight_layout: boss deck on top, player deck below, the Attack! bar between)
- * and its scripted playback.
+ * and its scripted playback, drawn with the real fight's effects (createFx: the attacker's golden glow, the
+ * beam.png bullet, the impact bursts, the red HP strip, the floating numbers, the shatter) so that the opening
+ * looks like every other fight (user's request 2026-10-12; the first port flew glowing orbs).
  * @param {object} ctx
- * @returns {{el: HTMLElement, attack: any, play: (cancelled: () => boolean) => Promise<void>}}
+ * @returns {{el: HTMLElement, attack: any, play: (cancelled: () => boolean) => Promise<void>, stop: () => void}}
  */
 export function renderFight(ctx) {
   const F = INTRO_FIGHT;
   const enemyViews = introCardViews(ctx, 'enemy');
   const playerViews = introCardViews(ctx, 'player');
-  const cards = {};
+  /** the .card-wrap per slot and the slot boxes, by fx side (fx.js PlayerRoots) */
+  const wraps = { attacker: [null, null, null, null, null], defender: [null, null, null, null, null] };
+  const slots = { attacker: [], defender: [] };
+  const maxHp = { attacker: [], defender: [] };
   const row = (views, side) => h('div.tf-row', { class: `tf-${side}` }, views.map((v, i) => {
+    const key = side === 'enemy' ? 'defender' : 'attacker';
     const slot = h('div.tf-slot', { dataset: { slot: String(i + 1) } });
+    slots[key][i] = slot;
     if (v) {
       const card = renderCard(v, { size: 'battle', side: side === 'enemy' ? 'top' : 'bottom', hpBar: true });
       slot.appendChild(card);
-      cards[`${side === 'enemy' ? 'e' : 'p'}${i + 1}`] = { el: slot, maxHp: v.maxHp || 1 };
+      wraps[key][i] = card;
+      maxHp[key][i] = v.maxHp || 1;
     }
     return slot;
   }));
@@ -266,7 +298,7 @@ export function renderFight(ctx) {
     h('div.tf-name', null, F.playerName),
     h('img.tf-portrait', { src: F.playerPortrait, alt: '', draggable: 'false' }));
   const attack = attackBar({});
-  const fx = h('div.tf-fx');
+  const fxLayer = h('div.fx-layer');
   const el = h('div.tut-fight', null,
     h('div.tf-bg'),
     enemyBand, h('div.tf-hpwrap.enemy', null, enemyHp),
@@ -274,72 +306,68 @@ export function renderFight(ctx) {
     attack,
     row(playerViews, 'player'),
     h('div.tf-hpwrap.player', null, playerHp), playerBand,
-    fx);
+    fxLayer);
   const roundEl = enemyBand.querySelector('.tf-round');
 
-  const pos = (key) => {
-    if (key === 'p') return { x: 360, y: 1090 };
-    if (key === 'e') return { x: 360, y: 190 };
-    const c = cards[key];
-    if (!c || !c.el.isConnected) return { x: 360, y: 640 };
-    let x = 0, y = 0, n = c.el;
-    while (n && n !== el) { x += n.offsetLeft; y += n.offsetTop; n = /** @type {HTMLElement} */ (n.offsetParent); }
-    return { x: x + c.el.offsetWidth / 2, y: y + c.el.offsetHeight / 2 };
-  };
+  // the fight's timers (effect clean-up), cancelled by stop()
+  const timers = new Set();
+  const later = (ms, fn) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); };
+  const stop = () => { for (const id of timers) clearTimeout(id); timers.clear(); };
+  const fx = createFx({
+    roots: {
+      fx: el, cards: wraps, slots, players: { defender: enemyHp, attacker: playerHp }, top: 'defender',
+      getScale: ctx.ui && ctx.ui.stage ? ctx.ui.stage.getScale : undefined,
+    },
+    fxLayer, top: 'defender', scaled: (ms) => ms, later, pick: createPicker(INTRO_SEED),
+  });
   const sound = (id) => {
     const list = INTRO_SOUNDS[id];
     if (list) ctx.sfx(list[Math.floor(Math.random() * list.length)]);
   };
-  const flashCard = (key, cls, ms) => {
-    const c = cards[key];
-    if (!c) return;
-    c.el.classList.add(cls);
-    setTimeout(() => c.el.classList.remove(cls), ms);
-  };
+  const cardAt = (t) => (t.slot === null ? null : wraps[t.side][t.slot]);
 
-  /** Apply one script event. */
+  /** Apply one script event with the real fight's effect for it (battle-player.js attack / damage / death). */
   function apply(e) {
     const [, kind, a, b] = e;
+    const t = typeof a === 'string' ? introTarget(a) : null;
     switch (kind) {
       case 'sound': sound(a); break;
-      case 'attacker': flashCard(a, 'tf-attacking', 400); break;
-      case 'target': flashCard(a, 'tf-hit', 600); break;
-      case 'shake': flashCard(a, 'tf-shake', 120); break;
-      case 'target_hpbar': {
-        const band = a === 'p' ? el.querySelector('.tf-hpwrap.player') : el.querySelector('.tf-hpwrap.enemy');
-        if (band) { band.classList.add('tf-hit'); setTimeout(() => band.classList.remove('tf-hit'), 400); }
+      case 'attacker':   // wind-up: the golden glow on the card and the flash
+        fx.flashCard(t.side, t.slot, ['glow-attack'], 1500);
+        fx.sprite('fx_glow03', fx.targetCenter(t.side, t.slot), { w: 170, anim: 'flash', dur: 320 });
+        break;
+      case 'missile': {   // the golden bullet of beam.png
+        const to = introTarget(b);
+        fx.bullet(fx.targetCenter(t.side, t.slot), fx.targetCenter(to.side, to.slot), { ms: MISSILE_MS });
         break;
       }
-      case 'missile': {
-        const from = pos(a);
-        const to = pos(b);
-        const orb = h('img.tf-missile', { src: '/assets/orig/ui/energy_sphere.png', alt: '', draggable: 'false', style: { left: `${from.x}px`, top: `${from.y}px` } });
-        fx.appendChild(orb);
-        requestAnimationFrame(() => { orb.style.transform = `translate(${to.x - from.x}px, ${to.y - from.y}px)`; });
-        setTimeout(() => orb.remove(), 520);
-        break;
-      }
+      case 'target': fx.hitBurst(fx.targetCenter(t.side, t.slot)); break;
+      case 'shake': fx.flashCard(t.side, t.slot, ['shake', 'flash-red'], 450); break;
+      case 'target_hpbar': fx.flashBar(t.side); fx.playerBurst(t.side); break;
       case 'hp': {
         if (a === 'p') playerHp.update(b, F.playerMaxHp);
         else if (a === 'e') enemyHp.update(b, F.enemyMaxHp);
-        else {
-          const c = cards[a];
-          const fill = c && c.el.querySelector('.card-hpbar .bar-fill');
-          if (fill) fill.style.width = `${Math.max(0, Math.min(100, (100 * b) / c.maxHp))}%`;
-          const num = c && c.el.querySelector('.stat.hp .num, .card-stat.hp .num, [data-stat="hp"] .num');
-          if (num) num.textContent = String(Math.max(0, b));
+        else { const wrap = cardAt(t); if (wrap) updateCardHp(wrap, Math.max(0, b), maxHp[t.side][t.slot]); }
+        break;
+      }
+      case 'text': fx.floatNum(t.side, t.slot, b, 'damage'); break;
+      case 'death_target': {   // the card shatters into two dark halves with sparks
+        const wrap = cardAt(t);
+        const card = fx.cardOf(t.side, t.slot);
+        const c = fx.targetCenter(t.side, t.slot);
+        if (card) {
+          fx.clearCardFx(t.side, t.slot);
+          card.classList.remove(...CARD_FX_CLASSES);
+          if (fx.shatter(t.side, t.slot, DEATH_MS)) card.classList.add('shattered');
+          else { card.classList.add('dissolve'); card.style.animationDuration = `${DEATH_MS}ms`; }
         }
+        if (wrap && wrap !== card) wrap.classList.add('dying');
+        fx.sprite('hud_explosion03', c, { w: 280, anim: 'pop', dur: 450, rot: 25 });
+        fx.sprite('sparks', c, { w: 240, anim: 'rise', dur: 900, delay: 80, tint: '#ffc040' });
+        fx.sprite('dust', { x: c.x, y: c.y + 20 }, { w: 260, anim: 'burst', dur: 900, delay: 120, tint: '#ffb060' });
         break;
       }
-      case 'text': {
-        const p = pos(a);
-        const t = h('div.tf-damage', { style: { left: `${p.x}px`, top: `${p.y - (a.length === 1 ? 50 : 20)}px` } }, b);
-        fx.appendChild(t);
-        setTimeout(() => t.remove(), 900);
-        break;
-      }
-      case 'death_target': flashCard(a, 'tf-dying', 1400); break;
-      case 'fade': { const c = cards[a]; if (c) c.el.classList.add('tf-dead'); break; }
+      case 'fade': { const slot = slots[t.side][t.slot]; if (slot) slot.classList.add('tf-dead'); break; }
       default: break;
     }
   }
@@ -370,5 +398,5 @@ export function renderFight(ctx) {
     await wait(1400);
   }
 
-  return { el, attack, play };
+  return { el, attack, play, stop };
 }

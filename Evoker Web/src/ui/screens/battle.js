@@ -38,8 +38,10 @@ import { resultKind } from './battle-result-model.js';
 
 const PVP_MODES = ['arena', 'pieces', 'league', 'pvp', 'replay', 'lab'];
 
-/** "Loading..." strip after Attack! (the measured Attack -> fight gap of the videos, ~1.5-2 s), ms at 1x. */
-export const LOADING_MS = 1500;
+/** "Loading..." strip after Attack!, ms at 1x. The videos measure the Attack -> fight gap at ~1.5-2 s (a server
+ * round trip the recreation does not have); the user asked for no wait at all (2026-10-12): 0 = no strip, the
+ * lightning fires as soon as the screen is up. Any positive value brings the strip back. */
+export const LOADING_MS = 0;
 /** comp_fight_v3 fadeInHud: bands slide in and HP bars grow, ms. */
 export const HUD_IN_MS = 1000;
 /** fx_lightning: eight 80 ms steps. */
@@ -263,8 +265,7 @@ export const screen = {
       h('span.battle-loading-text', null, 'Loading...'));
     const startFight = () => {
       root.classList.remove('entering');
-      loading.classList.add('closing');
-      after(220, () => loading.remove());
+      if (loading.isConnected) { loading.classList.add('closing'); after(220, () => loading.remove()); }
       if (!events.length) {
         roundLabel.textContent = 'ROUND -';
         roundLabel.classList.add('shown');
@@ -295,8 +296,8 @@ export const screen = {
     };
     root.classList.add('entering');
     root.style.setProperty('--hud-in', `${scaled(HUD_IN_MS)}ms`);
-    root.appendChild(loading);
-    after(scaled(LOADING_MS), () => {
+    if (LOADING_MS > 0) root.appendChild(loading);
+    after(LOADING_MS > 0 ? scaled(LOADING_MS) : 0, () => {
       if (skipRequested) { startFight(); return; }
       const bolt = h('div.battle-lightning', { style: { '--dur': `${scaled(LIGHTNING_MS)}ms` } });
       root.appendChild(bolt);

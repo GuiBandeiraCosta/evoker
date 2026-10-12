@@ -110,13 +110,15 @@ export const PERFECT = 'PERFECT';
 /** Tap feedback timings (ms, reOM @ 0:30.8): the minion is gone after `vanishMs`, the slash fades after
  * `slashMs`, "PERFECT" holds `perfectMs`, the white tap number floats `numberMs`. */
 export const TAP_FX = Object.freeze({ vanishMs: 130, slashMs: 450, perfectMs: 900, numberMs: 900 });
-/** Wave-end coin shower (reOM @ 4:46): ~1.3 s of tumbling coins, the HUD gold counting up in 3-4 steps. */
-export const GOLD_SHOWER = Object.freeze({ ms: 1300, steps: 4, stepMs: 260 });
+/** Wave-end coin shower (reOM @ 4:46: ~1.3 s of tumbling coins, the HUD gold counting up in 3-4 steps). Shortened to
+ * ~0.8 s on the user's request (2026-10-12: the next minions should come faster); the coins still tumble. */
+export const GOLD_SHOWER = Object.freeze({ ms: 800, steps: 4, stepMs: 150 });
 /** The HUD gold after a tap: a short count-up to the new value (steps x ms). */
 export const TAP_GOLD_COUNT = Object.freeze({ steps: 3, stepMs: 60 });
 /** Card drop on the scene (reOM @ 0:28-0:31, 1:28-1:45): glint, white flash -> card, hold, fly to the minideck,
- * then the next wave fades in from silhouettes (ms). */
-export const CARD_DROP = Object.freeze({ glint: 600, flash: 250, reveal: 250, hold: 1000, fly: 250, waveIn: 900 });
+ * then the next wave fades in from silhouettes (ms). The videos: glint 600, hold 1000, wave-in 900; tightened on the
+ * user's request (2026-10-12) so the next minions are tappable sooner. */
+export const CARD_DROP = Object.freeze({ glint: 400, flash: 250, reveal: 250, hold: 700, fly: 250, waveIn: 450 });
 
 /**
  * The values the held HUD gold steps through at a wave's end: `n` roughly even steps from `from` to `to`

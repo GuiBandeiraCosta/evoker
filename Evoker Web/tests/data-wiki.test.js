@@ -599,9 +599,10 @@ describe('constants against game-design.md', () => {
   });
 
   test('character, arena, quest and set numbers (game-design §3–§7)', () => {
-    // Fresh account: 200 gold, 0 gems, no potions (DECISIONS D1, tutorial.md §0 / §3 item 11).
+    // Fresh account: 200 gold, 0 gems (DECISIONS D1, tutorial.md §0 / §3 item 11); the original gave no potions,
+    // 5 + 5 since 2026-10-12 on the user's request.
     assert.deepEqual(PLAYER_START, {
-      level: 1, xp: 0, statPoints: 0, stamina: 50, mana: 50, hpMax: 1500, gold: 200, gems: 0, staminaPotions: 0, manaPotions: 0,
+      level: 1, xp: 0, statPoints: 0, stamina: 50, mana: 50, hpMax: 1500, gold: 200, gems: 0, staminaPotions: 5, manaPotions: 5,
     });
     assert.equal(MAX_PLAYER_LEVEL, 200);
     assert.equal(STAT_POINTS_PER_LEVEL, 12);

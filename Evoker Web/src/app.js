@@ -24,6 +24,8 @@ import { dailyEvent, claimDaily } from './game/shop.js';
 import { setUiRoot } from './ui/dom.js';
 import { createRouter } from './ui/router.js';
 import { createStage } from './ui/components/stage.js';
+import { installDragScroll } from './ui/drag-scroll.js';
+import { createCheats } from './ui/cheats.js';
 import { dialog } from './ui/components/dialog.js';
 import { toast, clearToasts } from './ui/components/toast.js';
 import { showLevelUp } from './ui/components/popup-levelup.js';
@@ -140,6 +142,7 @@ async function boot() {
   const deps = { db, stats, engine: { simulateBattle, buildSide }, rng: mulberry32, quests, names, abilities };
 
   const stage = createStage(appEl);
+  installDragScroll(stage.el, { getScale: stage.getScale });   // mouse drags scroll like a phone (no scrollbars)
   setUiRoot(stage.el);
 
   const store = createStore({ state: readSave(), deps, now, save: writeSave });
@@ -376,6 +379,8 @@ async function boot() {
     reset: () => { store.set(null); try { localStorage.removeItem(SAVE_KEY); } catch (err) { /* ignore */ } location.reload(); },
     newGame: (name = 'Evoker') => { store.set(newGame(name, seedFromNow(now()), now(), deps)); return store.get(); },
   };
+  // Console cheats (src/ui/cheats.js): `cheats.help()` in the F12 console - the easter eggs
+  const cheats = createCheats({ store, deps, debug, router, toast });
   window.evoker = {
     store, router, deps, db, ui, view, chrome, audio,
     go: (id, params) => router.go(id, params),
@@ -383,7 +388,10 @@ async function boot() {
     state: () => store.get(),
     version: VERSION,
     debug,
+    cheats,
   };
+  window.cheats = cheats;
+  console.info('%cEvoker%c  Psst... type %ccheats.help()%c for the easter eggs.', 'font-weight:bold;color:#ffd556', 'color:inherit', 'font-family:monospace;color:#24d8ff', 'color:inherit');
 
   // ?lab opens the Card Lab (src/ui/screens/lab.js) instead of the title: a test screen for every card's behaviour
   const wantLab = typeof location !== 'undefined' && new URLSearchParams(location.search).has('lab');

@@ -8,6 +8,7 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; } /* phones must not inflate the text of the scaled stage */
 body {
   background: var(--bg);
   color: var(--text);
@@ -24,7 +25,7 @@ body {
 }
 img, svg { display: block; }
 img.sprite { image-rendering: auto; }
-button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; margin: 0; appearance: none; -webkit-appearance: none; }
 button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--tier-gold); outline-offset: 2px; }
 h1, h2, h3, p { margin: 0; }
 .num { font-family: var(--font-num); font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
@@ -100,6 +101,11 @@ img.icon:not(.card *), img.sprite { object-fit: contain; }
   overflow-x: hidden; overflow-y: auto;
   overscroll-behavior: contain;
 }
+/* Phone-style scrolling (src/ui/drag-scroll.js, user's request 2026-10-12): no scrollbars anywhere on the stage, every
+   scrollable area is dragged with the mouse like on a phone (touch pans natively). */
+#stage * { scrollbar-width: none; }
+#stage *::-webkit-scrollbar { display: none; width: 0; height: 0; }
+.drag-scrolling, .drag-scrolling * { cursor: grabbing !important; }
 .screen.no-hud .screen-body { top: 0; }
 .screen.no-nav .screen-body { bottom: 0; }
 .screen-title {
@@ -270,8 +276,10 @@ img.icon:not(.card *), img.sprite { object-fit: contain; }
 .hud-btn:hover { filter: brightness(1.1); }
 .hud-btn:active { transform: scale(.95); }
 .hud-btn:disabled { cursor: default; filter: grayscale(1) brightness(.8); transform: none; }
+/* a flex child, not absolutely positioned: a <button> is no reliable containing block in every engine (the "?" sat
+   in the plate's top-left corner on the phone, 2026-10-12) */
 .hud-btn-icon {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  display: block; flex: none; margin: 0;
   width: 48px; height: 65px; object-fit: contain;
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .7));
 }

@@ -36,6 +36,7 @@ import { renderCard } from '../components/card.js';
 import { manaNeededBar } from '../components/bars.js';
 import { attackBar } from '../components/buttons.js';
 import { createDragDrop } from '../components/drag-drop.js';
+import { isSwipe } from './cards-slider.js';
 import { placeInDeck, removeFromDeck } from '../../game/collection.js';
 import { deckCards, deckMana, slotUnlocked } from '../../game/state.js';
 import { needsPotion, drinkPotion, buyAndDrinkPotion } from '../../game/player.js';
@@ -160,6 +161,8 @@ export const screen = {
     const dnd = createDragDrop({
       container: root,
       getScale: ui.stage.getScale,
+      // a sideways move on a drawer card scrolls the drawer (drag-scroll.js), an upward move picks the card up
+      shouldStart: (info, dx, dy) => info.from !== null || !isSwipe(dx, dy),
       canDrop: (info) => info.to !== null && slotUnlocked(currentState(), info.to),
       onDrop: (info) => {
         if (!info.uid || info.to === null) return;

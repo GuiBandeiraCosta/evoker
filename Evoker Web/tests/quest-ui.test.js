@@ -342,14 +342,17 @@ describe('quest tap, coin shower and card drop (quest.js)', () => {
     assert.deepEqual(goldSteps(8459, 9479, 4), [8714, 8969, 9224, 9479]);
     assert.deepEqual(goldSteps(100, 100), []);
     assert.deepEqual(goldSteps(10, 12, 4), [11, 12], 'no repeated values');
-    assert.ok(GOLD_SHOWER.steps * GOLD_SHOWER.stepMs <= 1300, 'within the ~1.3 s shower');
+    assert.ok(GOLD_SHOWER.steps * GOLD_SHOWER.stepMs <= GOLD_SHOWER.ms, 'the count-up ends inside the shower');
+    // shortened from the videos' ~1.3 s on the user's request (2026-10-12): the next wave should come faster
+    assert.ok(GOLD_SHOWER.ms >= 600 && GOLD_SHOWER.ms <= 1000, `shower ${GOLD_SHOWER.ms} ms`);
   });
 
-  test('timings follow reOM: minion gone in ~0.13 s, card drop ~2.4 s with a 1 s hold', () => {
+  test('timings: minion gone in ~0.13 s (reOM); card drop ~1.9 s and the next wave in under 0.5 s (user choice, 2026-10-12)', () => {
     assert.ok(TAP_FX.vanishMs <= 150);
-    assert.equal(CARD_DROP.hold, 1000);
+    assert.equal(CARD_DROP.hold, 700);
     const total = CARD_DROP.glint + CARD_DROP.flash + CARD_DROP.reveal + CARD_DROP.hold + CARD_DROP.fly;
-    assert.ok(total >= 2000 && total <= 2800, `card drop ${total} ms`);
+    assert.ok(total >= 1600 && total <= 2200, `card drop ${total} ms`);
+    assert.ok(CARD_DROP.waveIn <= 500, `wave fade-in ${CARD_DROP.waveIn} ms`);
   });
 
   test('the card drop is no dialog any more', () => {
