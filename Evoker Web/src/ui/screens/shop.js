@@ -44,8 +44,19 @@ export function tokenImage(kind, cls) {
 }
 
 /**
+ * What a price tap says instead of a purchase: this is a fan-made recreation, the project page explains how to get
+ * gems (daily rewards, set collections, the console cheats). Pinned by tests/shop.test.js.
+ */
+export const GEM_PURCHASE_NOTICE = Object.freeze({
+  text: 'Purchases are not available: this is a fan-made recreation of Evoker. If you would like more Gems, check out',
+  url: 'https://github.com/GuiBandeiraCosta/evoker',
+  after: 'to see how you can obtain more.',
+});
+
+/**
  * The gem packs overlay (premiumshop): five IAP packs with their original names and USD tiers. There is no
- * real-money purchase in the offline game, so a price tap only explains where gems come from.
+ * real-money purchase in the fan-made game, so a price tap only shows GEM_PURCHASE_NOTICE with the project link
+ * (a new tab on the web; the iOS shell opens it in Safari).
  * @param {object} ctx
  * @returns {Promise<any>}
  */
@@ -54,7 +65,10 @@ function openGemShop(ctx) {
   ctx.sfx('shopOpen');
   const explain = () => ctx.ui.dialog.alert({
     title: 'Gems',
-    message: 'Purchases are not available in this offline version. Gems come from daily rewards, level-ups, league prizes, boss drops and set collections.',
+    message: h('div.gem-notice', null,
+      h('p', null, GEM_PURCHASE_NOTICE.text),
+      h('p', null, h('a', { href: GEM_PURCHASE_NOTICE.url, target: '_blank', rel: 'noopener' }, GEM_PURCHASE_NOTICE.url)),
+      h('p', null, GEM_PURCHASE_NOTICE.after)),
   });
   const rows = packs.map((p) => {
     const extras = [];

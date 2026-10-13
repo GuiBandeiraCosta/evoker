@@ -457,7 +457,8 @@ social.md §1). Code: `src/game/league.js`, `src/ui/screens/league.js`, constant
   d:hh:mm:ss"), the next portal's two packs ("Coming soon:" + countdown, not tappable yet), Summoner's Pack,
   Archmage's Pack. Each banner has "Look inside", the "May contain:" rarity squares (no odds) and the token count.
   Ended portals' packs are not listed (their tokens wait in the save for the portal's return).
-- **Gem packs** (shown only, no purchase in the offline game): Apprentice's Bundle 500 ($4.99), Wanderer's Purse
+- **Gem packs** (shown only; a price tap says purchases are not available in this fan-made recreation and links the
+  project page, https://github.com/GuiBandeiraCosta/evoker, for how to get gems): Apprentice's Bundle 500 ($4.99), Wanderer's Purse
   1,000 ($9.99), Hero's Wallet 3,500 + 5 potions ($24.99), Evoker's Treasure 10,000 + Heroic card + 10 potions
   ($49.99), Master's Vault 20,000 + Legendary card + 20 potions ($99.99).
 - **Potions**: 40 gems (20 during Drinking Contest), only offered when short (Drink potion dialog); a stamina potion

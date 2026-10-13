@@ -23,6 +23,7 @@ import {
   setCollections, claimCollection, buyPotionDeal, EVENTS, shopOffers, POTION_DEAL_GEMS,
 } from '../src/game/shop.js';
 import { addDays } from '../src/ui/store.js';
+import { GEM_PURCHASE_NOTICE } from '../src/ui/screens/shop.js';
 import { makeDeps } from './fixtures-game/deps.js';
 import { T0, MIN, DAY, QUESTS, db, deps, fz, fresh, tutorialStart, rich, give, portal } from './fixtures/real.js';
 import * as stub from './fixtures-game/game.js';
@@ -54,6 +55,13 @@ describe('booster packs (constants and catalog)', () => {
     assert.deepEqual(GEM_PACKS.map((g) => g.gems), [500, 1000, 3500, 10000, 20000]);
     assert.deepEqual(GEM_PACKS.map((g) => g.price), ['$4.99', '$9.99', '$24.99', '$49.99', '$99.99']);
     assert.equal(GEM_PACKS[3].card, 'heroic');
+  });
+
+  test('a price tap says purchases are not available in this fan-made recreation and links the project page', () => {
+    assert.match(GEM_PURCHASE_NOTICE.text, /Purchases are not available/);
+    assert.match(GEM_PURCHASE_NOTICE.text, /fan-made recreation/);
+    assert.equal(GEM_PURCHASE_NOTICE.url, 'https://github.com/GuiBandeiraCosta/evoker');
+    assert.match(GEM_PURCHASE_NOTICE.after, /obtain more/);
   });
 });
 

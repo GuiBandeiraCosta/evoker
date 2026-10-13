@@ -53,6 +53,7 @@ final class GameShell: NSObject, ObservableObject {
         webView.allowsLinkPreview = false
         webView.allowsBackForwardNavigationGestures = false
         webView.navigationDelegate = self
+        webView.uiDelegate = self
         #if DEBUG
         if #available(iOS 16.4, *) { webView.isInspectable = true }
         #endif
@@ -206,6 +207,16 @@ final class GameShell: NSObject, ObservableObject {
                 self.webView.evaluateJavaScript(script, completionHandler: nil)
             }
         }
+    }
+}
+
+extension GameShell: WKUIDelegate {
+    /// A link with target="_blank" (the shop's project link) has no window to open in: send it to Safari.
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if let url = navigationAction.request.url, url.scheme == "http" || url.scheme == "https" {
+            UIApplication.shared.open(url)
+        }
+        return nil
     }
 }
 
